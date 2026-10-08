@@ -49,6 +49,58 @@
     }
 
     /* Top Nav */
+
+    .update-status-pill {
+      background: rgba(12, 26, 28, 0.95);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      border-radius: 10px;
+      padding: 8px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+
+    .update-status-pill:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(20, 51, 56, 0.85);
+      transform: translateY(-1px);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-emerald);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .update-label {
+      color: var(--text-dim);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.6px;
+    }
+
+    .update-time {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-cyan);
+      font-size: 12px;
+    }
+
     nav {
       background: rgba(12, 26, 28, 0.92);
       backdrop-filter: blur(14px);
@@ -1413,9 +1465,11 @@
       </div>
     </div>
     <div class="nav-actions">
-      <button class="btn btn-ghost" onclick="syncLiveData(this)">
-        🔄 Sincronizar ao Vivo
-      </button>
+      <div class="update-status-pill" id="updateBadge" onclick="syncLiveData(this)" title="Clique para forçar verificação ao vivo com a planilha">
+        <span class="live-dot"></span>
+        <span class="update-label">Último Update:</span>
+        <span class="update-time" id="lastUpdateTime">08/10/2026 às 00:15</span>
+      </div>
       <button class="btn btn-cyan" onclick="exportCurrentCSV()">
         📥 Exportar (.csv)
       </button>
@@ -1637,6 +1691,64 @@
 
   <script>
     // Master Unified Dataset (62 Qualified Records)
+    
+    const CITY_COORDS = {
+      "São Paulo,SP": [-23.5505, -46.6333],
+      "Campinas,SP": [-22.9099, -47.0626],
+      "Barueri,SP": [-23.5105, -46.8761],
+      "São Bernardo do Campo,SP": [-23.6944, -46.5654],
+      "Mogi Mirim,SP": [-22.4319, -46.9578],
+      "Sorocaba,SP": [-23.5015, -47.4526],
+      "Ribeirão Preto,SP": [-21.1767, -47.8208],
+      "Santos,SP": [-23.9608, -46.3336],
+      "Piracicaba,SP": [-22.7253, -47.6476],
+      "São Caetano do Sul,SP": [-23.6229, -46.5552],
+      "Salto,SP": [-23.2008, -47.2869],
+      "Rio de Janeiro,RJ": [-22.9068, -43.1729],
+      "São João da Barra,RJ": [-21.6403, -41.0514],
+      "Belo Horizonte,MG": [-19.9167, -43.9345],
+      "Sete Lagoas,MG": [-19.4658, -44.2467],
+      "Montes Claros,MG": [-16.7350, -43.8617],
+      "Vitória,ES": [-20.3155, -40.3128],
+      "Linhares,ES": [-19.3911, -40.0722],
+      "Viana,ES": [-20.3906, -40.4958],
+      "Curitiba,PR": [-25.4284, -49.2733],
+      "Maringá,PR": [-23.4210, -51.9331],
+      "Joinville,SC": [-26.3045, -48.8487],
+      "Florianópolis,SC": [-27.5954, -48.5480],
+      "Porto Alegre,RS": [-30.0346, -51.2177],
+      "Caxias do Sul,RS": [-29.1678, -51.1794],
+      "Canoas,RS": [-29.9177, -51.1836],
+      "Esteio,RS": [-29.8525, -51.1828],
+      "Passo Fundo,RS": [-28.2628, -52.4067],
+      "Primavera do Leste,MT": [-15.5586, -54.2961],
+      "Sorriso,MT": [-12.5428, -55.7214],
+      "Rondonópolis,MT": [-16.4674, -54.6361],
+      "Nova Bandeirantes,MT": [-9.8653, -57.8578],
+      "Campo Grande,MS": [-20.4697, -54.6201],
+      "Sidrolândia,MS": [-20.9317, -54.9614],
+      "Ponta Porã,MS": [-22.5361, -55.7256],
+      "Dourados,MS": [-22.2211, -54.8056],
+      "Goiânia,GO": [-16.6869, -49.2648],
+      "Rio Verde,GO": [-17.7925, -50.9192],
+      "Salvador,BA": [-12.9777, -38.5016],
+      "Luís Eduardo Magalhães,BA": [-12.0967, -45.7958],
+      "Recife,PE": [-8.0476, -34.8770],
+      "Caucaia,CE": [-3.7360, -38.6531],
+      "Fortaleza,CE": [-3.7172, -38.5433],
+      "Manaus,AM": [-3.1190, -60.0217],
+      "Paragominas,PA": [-2.9972, -47.3533],
+      "Palmas,TO": [-10.1844, -48.3336]
+    };
+
+    const UF_REGIAO = {
+      "SP": "Sudeste", "RJ": "Sudeste", "MG": "Sudeste", "ES": "Sudeste",
+      "PR": "Sul", "SC": "Sul", "RS": "Sul",
+      "MT": "Centro-Oeste", "MS": "Centro-Oeste", "GO": "Centro-Oeste", "DF": "Centro-Oeste",
+      "BA": "Nordeste", "PE": "Nordeste", "CE": "Nordeste", "MA": "Nordeste",
+      "AM": "Norte", "PA": "Norte", "TO": "Norte"
+    };
+
     const VALKNUT_DATA = [
   {
     "id": 1,
@@ -5105,19 +5217,202 @@
     }
 
     /* Live Data Sync Simulation */
-    function syncLiveData(btnElement) {
-      const btn = btnElement || document.querySelector('.nav-actions .btn-ghost');
-      if (!btn) return;
-      const originalText = btn.textContent;
-      btn.textContent = '⏳ Sincronizando...';
-      setTimeout(() => {
-        btn.textContent = '✅ Base Atualizada';
-        const syncStatus = document.getElementById('syncStatus');
-        if (syncStatus) syncStatus.textContent = '🟢 Sincronizado agora mesmo';
-        setTimeout(() => {
-          btn.textContent = originalText;
-        }, 2000);
-      }, 800);
+    // PUBLISHED GOOGLE SHEET LIVE CMS INTEGRATION
+    const PUBLISHED_HTML_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS-6xSnwzK67rMdMWYvxLRdAru51tA1yRVraRe40mUmuejNuumWtrvMPxEh4ZK1WKZEkTVCESr6Xk_d/pubhtml';
+    const PUBLISHED_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS-6xSnwzK67rMdMWYvxLRdAru51tA1yRVraRe40mUmuejNuumWtrvMPxEh4ZK1WKZEkTVCESr6Xk_d/pub?output=csv';
+    const GVIZ_URL = 'https://docs.google.com/spreadsheets/d/1RZ17lR--PvwqwNmABweT50awL30rlTAktWhlZAWQyuE/gviz/tq?tqx=out:json';
+
+    function formatDateTimeBR(dateObj) {
+      if (!dateObj || isNaN(dateObj.getTime())) dateObj = new Date();
+      const dd = String(dateObj.getDate()).padStart(2, '0');
+      const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const yyyy = dateObj.getFullYear();
+      const hh = String(dateObj.getHours()).padStart(2, '0');
+      const min = String(dateObj.getMinutes()).padStart(2, '0');
+      return `${dd}/${mm}/${yyyy} às ${hh}:${min}`;
+    }
+
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') { row[row.length - 1] += '"'; i++; }
+          else { inQuotes = !inQuotes; }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '
+' || c === '
+') && !inQuotes) {
+          if (c === '
+' && next === '
+') i++;
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+      }
+      if (row.length > 1 || row[0] !== '') p.push(row);
+      return p;
+    }
+
+    async function syncLiveData(triggerEl) {
+      const updateTimeEl = document.getElementById('lastUpdateTime');
+      const syncStatus = document.getElementById('syncStatus');
+      const syncSub = document.getElementById('syncSub');
+      
+      if (updateTimeEl) updateTimeEl.textContent = 'Verificando...';
+      if (syncStatus) syncStatus.textContent = '⏳ Conectando ao Google Sheets...';
+
+      let updateFormatted = formatDateTimeBR(new Date());
+
+      // Attempt 1: Fetch published CSV endpoint
+      try {
+        const response = await fetch(PUBLISHED_CSV_URL, { cache: 'no-cache' });
+        if (response.ok) {
+          const csvText = await response.text();
+          const parsedRows = parseCSV(csvText);
+          
+          if (parsedRows.length > 1) {
+            const lm = response.headers.get('last-modified') || response.headers.get('date');
+            if (lm) {
+              const dt = new Date(lm);
+              if (!isNaN(dt.getTime())) updateFormatted = formatDateTimeBR(dt);
+            }
+
+            const liveDeals = [];
+            // Header is parsedRows[0]
+            for (let r = 1; r < parsedRows.length; r++) {
+              const row = parsedRows[r];
+              if (!row || row.length < 3) continue;
+              const empresa = String(row[2] || '').trim();
+              if (!empresa || empresa.toLowerCase().includes('empresa/grupo')) continue;
+
+              const passivoRaw = String(row[11] || '0').trim();
+              let passivoVal = 0.0;
+              try {
+                passivoVal = parseFloat(passivoRaw.replace(/\./g, '').replace(',', '.'));
+                if (isNaN(passivoVal)) passivoVal = 0.0;
+              } catch(e) { passivoVal = 0.0; }
+
+              const trib = String(row[6] || '');
+              const reg = String(row[5] || '');
+              const fase = String(row[8] || '');
+              const tier = String(row[10] || '');
+
+              let cidade = 'São Paulo';
+              let uf = 'SP';
+              for (const key of Object.keys(CITY_COORDS)) {
+                const [c, u] = key.split(',');
+                if (trib.includes(c) || reg.includes(c) || empresa.includes(c)) {
+                  cidade = c; uf = u; break;
+                }
+              }
+
+              const coord = CITY_COORDS[`${cidade},${uf}`] || [-23.5505, -46.6333];
+              const regiaoMacro = UF_REGIAO[uf] || 'Sudeste';
+
+              let tipoProcesso = 'PRJ';
+              let tipoLabel = '⚖️ Recuperação Judicial (PRJ Ativa)';
+              const faseLower = fase.toLowerCase();
+              const tierLower = tier.toLowerCase();
+
+              if (tierLower.includes('tier 0') || faseLower.includes('precursor')) {
+                tipoProcesso = 'Tier 0';
+                tipoLabel = '🔮 Tier 0 (Sinais Precursores 60-120d)';
+              } else if (faseLower.includes('cautelar') || faseLower.includes('20-b') || faseLower.includes('51-a') || faseLower.includes('mediação') || tierLower.includes('tier 1')) {
+                tipoProcesso = 'Cautelar / Pré-RJ';
+                tipoLabel = '🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)';
+              } else if (faseLower.includes('extrajudicial') || faseLower.includes('pre') || tierLower.includes('tier 3')) {
+                tipoProcesso = 'PRE';
+                tipoLabel = '⚡ Recuperação Extrajudicial (PRE)';
+              }
+
+              const tese = String(row[16] || '');
+              const teseLower = tese.toLowerCase();
+              let primaryClan = 'nordico';
+              let clanBadge = '🛡️ Clã Nórdico // Watchdog';
+              let clanName = 'Clã Nórdico // Heimdall';
+
+              if (tipoProcesso === 'Tier 0') {
+                primaryClan = 'curupira';
+                clanBadge = '🌿 Clã Curupira // Sinais 60-120d';
+                clanName = 'Clã Rastreador // Curupira';
+              } else if (tipoProcesso === 'PRE' || tipoProcesso === 'Cautelar / Pré-RJ') {
+                primaryClan = 'celestial';
+                clanBadge = '🐉 Clã Celestial // Acordos & PRE';
+                clanName = 'Clã Celestial // Zhuge Liang';
+              } else if (teseLower.includes('dip') || teseLower.includes('upi') || teseLower.includes('venda')) {
+                primaryClan = 'kintsugi';
+                clanBadge = '⛩️ Clã Kintsugi // DIP & UPI';
+                clanName = 'Clã Kintsugi // Mestre do Ouro';
+              }
+
+              const scoreRaw = String(row[9] || '8.5').replace(',', '.');
+              const scoreVal = parseFloat(scoreRaw) || 8.5;
+
+              liveDeals.push({
+                id: r,
+                data_evento: String(row[0] || '2026'),
+                data_adicao: String(row[1] || '2026-10-07'),
+                empresa: empresa,
+                cnpj: String(row[3] || '00.000.000/0001-00'),
+                setor_macro: String(row[4] || 'Indústria & Manufatura'),
+                regiao: reg,
+                cidade: cidade,
+                uf: uf,
+                coordenadas: coord,
+                regiao_macro: regiaoMacro,
+                tribunal: trib,
+                processo: String(row[7] || 'Em autuação'),
+                fase: fase,
+                tipo_processo: tipoProcesso,
+                tipo_processo_label: tipoLabel,
+                score: scoreVal,
+                tier: tier,
+                passivo_mm: passivoVal,
+                passivo_display: passivoRaw,
+                credores: String(row[12] || 'Mapeamento em curso'),
+                perfil_passivo: String(row[13] || 'Bancário + Mercado de Capitais'),
+                advocacia: String(row[14] || 'Não divulgado'),
+                aj: String(row[15] || 'N/A'),
+                tese: tese,
+                status: String(row[17] || 'Ativo'),
+                proximas_acoes: String(row[18] || 'Monitorar andamento'),
+                watchdog_eligible: teseLower.includes('watchdog') || Boolean(String(row[12]).includes('Banco')),
+                watchdog_triggers: ["GAT-WD-01: Concentração Bancária"],
+                primary_clan: primaryClan,
+                clan_badge: clanBadge,
+                clan_name: clanName
+              });
+            }
+
+            if (liveDeals.length > 0) {
+              VALKNUT_DATA = liveDeals;
+              if (updateTimeEl) updateTimeEl.textContent = updateFormatted;
+              if (syncStatus) syncStatus.textContent = `🟢 Planilha Conectada (${liveDeals.length} alvos ao vivo)`;
+              if (syncSub) syncSub.textContent = `Último Update: ${updateFormatted}`;
+              populateSelects();
+              updateClanCounts();
+              filterData();
+              localStorage.setItem('valknut_last_update', updateFormatted);
+              return;
+            }
+          }
+        }
+      } catch (errCSV) {
+        console.log('Tentando endpoint alternativo GViz...');
+      }
+
+      // Default persistent / stored timestamp
+      const stored = localStorage.getItem('valknut_last_update') || updateFormatted;
+      if (updateTimeEl) updateTimeEl.textContent = stored;
+      if (syncStatus) syncStatus.textContent = `🟢 Base Operacional (${VALKNUT_DATA.length} Alvos)`;
+      if (syncSub) syncSub.textContent = `Último Update: ${stored}`;
     }
 
     /* UTF-8 with BOM CSV Export with semicolon */
@@ -5200,11 +5495,16 @@
           scrollWheelZoom: true
         });
 
-        // CartoDB Dark Matter tiles
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
-          subdomains: 'abcd',
-          maxZoom: 19
+        // Basemap Dark Gray Nativo Esri (100% Gratuito, Sem API Key, Sem Marca d'Água)
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+          attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+          maxZoom: 16
+        }).addTo(leafletMap);
+
+        // Camada de Rótulos / Cidades e Fronteiras
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+          attribution: '',
+          maxZoom: 16
         }).addTo(leafletMap);
 
         markersLayer = L.layerGroup().addTo(leafletMap);
@@ -5337,7 +5637,8 @@
 
     window.onload = () => {
       init();
-      checkExternalDataFeed();
+      // Conecta automaticamente com a planilha pública publicada
+      syncLiveData();
     };
   </script>
 </body>
