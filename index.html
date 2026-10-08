@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᚠ</text></svg>">
   <title>VALKNUT CORE // Special Situations Engine & Tactical Radar v4.2</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -233,11 +234,12 @@
     /* Main Tab Navigator (6 Top Navigation Tabs) */
     .main-tab-nav {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 22px;
       border-bottom: 1px solid var(--card-border);
       padding-bottom: 14px;
-      overflow-x: auto;
+      overflow-x: hidden;
     }
 
     .tab-nav-btn {
@@ -5232,7 +5234,7 @@
       return `${dd}/${mm}/${yyyy} às ${hh}:${min}`;
     }
 
-    function parseCSV(text) {
+        function parseCSV(text) {
       const p = [];
       let row = [''];
       let inQuotes = false;
@@ -5244,12 +5246,8 @@
           else { inQuotes = !inQuotes; }
         } else if (c === ',' && !inQuotes) {
           row.push('');
-        } else if ((c === '
-' || c === '
-') && !inQuotes) {
-          if (c === '
-' && next === '
-') i++;
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
           p.push(row);
           row = [''];
         } else {
