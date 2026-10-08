@@ -13,7 +13,7 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 85.0,
+    "passivo_mm": 85,
     "passivo_display": "85,00",
     "credores": "Banco do Brasil, Bradesco, Tradings (Cargill, Bunge) e Revendas de Insumos",
     "perfil_passivo": "Crédito Rural + Barter / CPR",
@@ -24,9 +24,9 @@
     "proximas_acoes": "Mapear principais credores",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
     "cidade": "Primavera do Leste",
     "uf": "MT",
@@ -36,11 +36,15 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 2,
@@ -56,7 +60,7 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 140.0,
+    "passivo_mm": 140,
     "passivo_display": "140,00",
     "credores": "Grandes bancos privados e Sistemistas/Montadoras",
     "perfil_passivo": "Bancário Curto Prazo + Cadeia Automotiva",
@@ -67,7 +71,7 @@
     "proximas_acoes": "Contato com advogados",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -77,11 +81,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 3,
@@ -97,7 +103,7 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 6.5,
     "tier": "Tier 3 (PRE Avançada - Foco em Credores)",
-    "passivo_mm": 62.0,
+    "passivo_mm": 62,
     "passivo_display": "62,00",
     "credores": "BNDES, Bancos repassadores e Fornecedores de infraestrutura",
     "perfil_passivo": "Project Finance / Financiamento de Longo Prazo",
@@ -116,11 +122,11 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": []
   },
   {
     "id": 4,
@@ -136,7 +142,7 @@
     "fase": "Constatação Prévia (art. 51-A)",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 48.0,
+    "passivo_mm": 48,
     "passivo_display": "48,00",
     "credores": "Bancos privados e Fornecedores de fios/tecelagem",
     "perfil_passivo": "Quirografário Comercial + Bancário",
@@ -155,11 +161,11 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": []
   },
   {
     "id": 5,
@@ -175,7 +181,7 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 1000.0,
+    "passivo_mm": 1000,
     "passivo_display": "1.000,00",
     "credores": "Bradesco, Santander, Itaú e Debenturistas (Vórtx/Pentágono)",
     "perfil_passivo": "Bancário Concentrado + Debêntures",
@@ -186,10 +192,10 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "Caucaia",
     "uf": "CE",
@@ -199,11 +205,16 @@
     ],
     "regiao_macro": "Nordeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 6,
@@ -230,7 +241,7 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -240,11 +251,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 7,
@@ -279,11 +292,11 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": []
   },
   {
     "id": 8,
@@ -299,7 +312,7 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 6.5,
     "tier": "Tier 3 (PRE Avançada - Foco em Credores)",
-    "passivo_mm": 295.0,
+    "passivo_mm": 295,
     "passivo_display": "295,00",
     "credores": "Bancos regionais (Banrisul, BRDE, Sicredi), Itaú e Fornecedores de aço",
     "perfil_passivo": "Bancário Regional + Fornecedores",
@@ -310,8 +323,8 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
     ],
     "cidade": "Caxias do Sul",
     "uf": "RS",
@@ -321,11 +334,14 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+    ]
   },
   {
     "id": 9,
@@ -341,7 +357,7 @@
     "fase": "Homologação de Recuperação Extrajudicial (Classe 12154)",
     "score": 6.5,
     "tier": "Tier 3 (PRE Avançada - Foco em Credores)",
-    "passivo_mm": 1140.0,
+    "passivo_mm": 1140,
     "passivo_display": "1.140,00",
     "credores": "Debenturistas (emissões públicas e privadas) e Bancos credores",
     "perfil_passivo": "Mercado de Capitais + Financiamentos Estruturados",
@@ -352,8 +368,8 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -363,11 +379,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 10,
@@ -383,7 +402,7 @@
     "fase": "Liminar deferida",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 0.0,
+    "passivo_mm": 0,
     "passivo_display": "TBD",
     "credores": "Tradings agrícolas, Revendas locais de insumos e Bancos de fomento (BB, Sicredi)",
     "perfil_passivo": "Tradings (Barter) + Financiamento de Máquinas",
@@ -402,11 +421,11 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": []
   },
   {
     "id": 11,
@@ -422,7 +441,7 @@
     "fase": "Recuperação Extrajudicial (Homologação / AGE Aprovada)",
     "score": 6.5,
     "tier": "Tier 3 (PRE Avançada - Foco em Credores)",
-    "passivo_mm": 65000.0,
+    "passivo_mm": 65000,
     "passivo_display": "65.000,00",
     "credores": "Debenturistas institucionais (múltiplas emissões), Sindicato de bancos nacionais e globais",
     "perfil_passivo": "Mercado de Capitais (Debêntures) + Sindicato Bancário",
@@ -433,8 +452,8 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "Piracicaba",
     "uf": "SP",
@@ -444,11 +463,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 12,
@@ -464,7 +486,7 @@
     "fase": "TBD",
     "score": 5.5,
     "tier": "Tier 3 (Pós-Plano - Ângulo Restrito a UPI/DIP)",
-    "passivo_mm": 3940.0,
+    "passivo_mm": 3940,
     "passivo_display": "3.940,00",
     "credores": "Bancos privados (Santander, Bradesco, Itaú, BB) e Credores comerciais de concentrado de cobre (Glencore, Trafigura)",
     "perfil_passivo": "Sindicato Bancário + Tradings Internacionais",
@@ -475,7 +497,7 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -485,11 +507,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 13,
@@ -505,7 +529,7 @@
     "fase": "Homologação de plano",
     "score": 5.5,
     "tier": "Tier 3 (Pós-Plano - Ângulo Restrito a UPI/DIP)",
-    "passivo_mm": 8000.0,
+    "passivo_mm": 8000,
     "passivo_display": "8.000,00",
     "credores": "Prumo Logística (Porto do Açu), Debenturistas e Fornecedores marítimos",
     "perfil_passivo": "Créditos Estruturados + Passivo Operacional",
@@ -516,8 +540,8 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "São João da Barra",
     "uf": "RJ",
@@ -527,11 +551,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 14,
@@ -547,7 +574,7 @@
     "fase": "Pré-RJ / Vencimento Antecipado de Debênture (Vert)",
     "score": 9.5,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 600.0,
+    "passivo_mm": 600,
     "passivo_display": "600,00",
     "credores": "Securitizadora Vert (R$ 89M de debêntures vencidas), Bancos de Capital de Giro",
     "perfil_passivo": "Mercado de Capitais (Debêntures exigíveis em 3 dias) + Bancário",
@@ -558,8 +585,8 @@
     "proximas_acoes": "Avaliar abordagem à devedora para protocolo urgente de tutela de proteção",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "Barueri",
     "uf": "SP",
@@ -569,11 +596,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 15,
@@ -589,7 +619,7 @@
     "fase": "Pré-RJ / Disputa Societária & Estudo de RJ",
     "score": 9.5,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 143.0,
+    "passivo_mm": 143,
     "passivo_display": "143,00",
     "credores": "Banco Master, Fundos de Investimento e Debenturistas",
     "perfil_passivo": "Conflito Societário + Dívida com Fundo/Banco",
@@ -600,8 +630,8 @@
     "proximas_acoes": "Contato imediato com acionistas para assessoria preventiva",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -611,11 +641,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 16,
@@ -631,7 +664,7 @@
     "fase": "Recuperação Judicial (Contestação de Financiamento Pré-RJ)",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 210.0,
+    "passivo_mm": 210,
     "passivo_display": "210,00",
     "credores": "Banco Daycoval, CCEE e Contrapartes do Mercado Livre de Energia",
     "perfil_passivo": "Financiamento Estruturado + Garantias de Energia",
@@ -642,7 +675,7 @@
     "proximas_acoes": "Analisar garantias do Daycoval e fit com histórico de energia da Sentinela AI",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Curitiba",
     "uf": "PR",
@@ -652,11 +685,13 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 17,
@@ -670,9 +705,9 @@
     "tribunal": "TJRS - Canoas/Porto Alegre",
     "processo": "Processo consolidado",
     "fase": "Reorganização de Passivo Pós-RJ com Fundos",
-    "score": 6.0,
+    "score": 6,
     "tier": "Tier 3 (Pós-Plano - Ângulo Restrito a UPI/DIP)",
-    "passivo_mm": 1500.0,
+    "passivo_mm": 1500,
     "passivo_display": "1.500,00",
     "credores": "Banco Master, Banco Genial, FIDC Calêndula e Credores Trabalhistas",
     "perfil_passivo": "Fundos Estruturados (FIDCs) + Passivo Trabalhista",
@@ -683,7 +718,7 @@
     "proximas_acoes": "Acompanhar movimentação de saída do Master e carteira de créditos",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Canoas",
     "uf": "RS",
@@ -693,11 +728,13 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 18,
@@ -713,7 +750,7 @@
     "fase": "Recuperação Extrajudicial (Coleta de Adesões de Debêntures)",
     "score": 8.5,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 386.0,
+    "passivo_mm": 386,
     "passivo_display": "386,00",
     "credores": "Debenturistas de emissões privadas e bancos comerciais",
     "perfil_passivo": "Mercado de Capitais (Debêntures) + Quirografários",
@@ -724,8 +761,8 @@
     "proximas_acoes": "Avaliar termos da proposta de renegociação de debêntures",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "Caxias do Sul",
     "uf": "RS",
@@ -735,11 +772,14 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 19,
@@ -766,7 +806,7 @@
     "proximas_acoes": "Mapear garantias reais (hipotecas/penhores de gado) com BB e Caixa",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Nova Bandeirantes",
     "uf": "MT",
@@ -776,11 +816,13 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 20,
@@ -796,7 +838,7 @@
     "fase": "Recuperação Extrajudicial (Classe 128 / PRE)",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 4568.0,
+    "passivo_mm": 4568,
     "passivo_display": "4.568,00",
     "credores": "Sindicato de bancos privados (Itaú, Bradesco, Santander), Debenturistas institucionais e Fundos Imobiliários (locadores)",
     "perfil_passivo": "Bancário Comercial + Mercado de Capitais (Debêntures) + Aluguéis Comerciais",
@@ -807,9 +849,9 @@
     "proximas_acoes": "Mapear ativos imobiliários disponíveis para monetização e desinvestimento",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -819,11 +861,15 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 21,
@@ -837,9 +883,9 @@
     "tribunal": "Varas Empresariais SP",
     "processo": "Processo de PRE",
     "fase": "Recuperação Extrajudicial (Assembleia de Debenturistas e CRIs)",
-    "score": 8.0,
+    "score": 8,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 2000.0,
+    "passivo_mm": 2000,
     "passivo_display": "2.000,00",
     "credores": "Titulares de Debêntures e CRIs, Securitizadoras e Agentes Fiduciários (Vórtx, Pentágono, Oliveira Trust)",
     "perfil_passivo": "Mercado de Capitais (Debêntures e CRIs) + Bancário de Saúde",
@@ -850,8 +896,8 @@
     "proximas_acoes": "Acompanhar deliberações das AGDs convocadas pelos agentes fiduciários",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -861,11 +907,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 22,
@@ -892,10 +941,10 @@
     "proximas_acoes": "Abordar devedora para suporte na modelagem do PRJ antes de vencer os 30 dias de blindagem",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
     "cidade": "Vitória",
     "uf": "ES",
@@ -905,11 +954,16 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 23,
@@ -936,8 +990,8 @@
     "proximas_acoes": "Mapear posição da Virgo/Reit e Fosnor para estruturar assessoria ao comitê de credores",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
     ],
     "cidade": "Curitiba",
     "uf": "PR",
@@ -947,11 +1001,14 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "kintsugi",
-    "clan_badge": "⛩️ Clã Kintsugi // DIP & UPI",
-    "clan_sigil": "⛩️",
-    "clan_name": "Clã Kintsugi // Mestre do Ouro"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP FINANCING / UPI M&A",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+    ]
   },
   {
     "id": 24,
@@ -978,7 +1035,7 @@
     "proximas_acoes": "TBD",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Sidrolândia",
     "uf": "MS",
@@ -988,11 +1045,13 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 25,
@@ -1019,7 +1078,7 @@
     "proximas_acoes": "Prazo de entrega do plano vence em 16/10/2026",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Dourados",
     "uf": "MS",
@@ -1029,11 +1088,13 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 26,
@@ -1047,9 +1108,9 @@
     "tribunal": "Varas Empresariais SP",
     "processo": "Negociação Privada / PRE",
     "fase": "Recuperação Extrajudicial (Standstill Internacional & Contraproposta de Aporte)",
-    "score": 9.0,
+    "score": 9,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 58000.0,
+    "passivo_mm": 58000,
     "passivo_display": "58.000,00",
     "credores": "Sindicato internacional de bancos (Citi, JPMorgan, Santander, Bradesco, Itaú), titulares de bonds no exterior e Petrobras",
     "perfil_passivo": "Mercado Internacional (Bonds / Dívida Externa) + Sindicato Bancário Local e Global",
@@ -1060,8 +1121,8 @@
     "proximas_acoes": "Acompanhar apresentação da contraproposta dos controladores (Petrobras e IG4) aos credores",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -1071,11 +1132,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+    ]
   },
   {
     "id": 27,
@@ -1102,7 +1166,7 @@
     "proximas_acoes": "Mapear lista de investidores e debenturistas da securitizadora para estruturar comitê de credores",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Vitória",
     "uf": "ES",
@@ -1112,11 +1176,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 28,
@@ -1143,9 +1209,9 @@
     "proximas_acoes": "Contato de alto nível com Dr. Eduardo Foz Mange para parceria em Financial Advisory / PRJ e mediação perante o CMAASP",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
     "cidade": "São Bernardo do Campo",
     "uf": "SP",
@@ -1155,11 +1221,15 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 29,
@@ -1173,7 +1243,7 @@
     "tribunal": "TJSP - 1ª Vara de Falências e RJs da Capital",
     "processo": "XXXXX-75.2026.8.26.0100",
     "fase": "Recuperação Extrajudicial (Classe 128 / PRE com Dinheiro Novo/DIP)",
-    "score": 9.0,
+    "score": 9,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
     "passivo_mm": 371.47,
     "passivo_display": "371,47",
@@ -1186,8 +1256,8 @@
     "proximas_acoes": "Contatar bancos dissidentes e avaliar sindicação do DIP com fundos parceiros da Sentinela AI",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)"
     ],
     "cidade": "Barueri",
     "uf": "SP",
@@ -1197,11 +1267,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)"
+    ]
   },
   {
     "id": 30,
@@ -1228,8 +1301,8 @@
     "proximas_acoes": "Mapear posição dos FIDCs e avaliar necessidade de CRO operacional",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
     "cidade": "Salto",
     "uf": "SP",
@@ -1239,11 +1312,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 31,
@@ -1270,9 +1346,9 @@
     "proximas_acoes": "Abordagem urgente à trading antes da conversão em RJ definitiva",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
     "cidade": "Ponta Porã",
     "uf": "MS",
@@ -1282,11 +1358,15 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 32,
@@ -1300,7 +1380,7 @@
     "tribunal": "Varas Empresariais SP",
     "processo": "Mediação Pré-Processual",
     "fase": "Cautelar Antecedente / Mediação Prévia (Suspensão Parcial de Execuções)",
-    "score": 9.0,
+    "score": 9,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
     "passivo_mm": 955.6,
     "passivo_display": "955,60",
@@ -1313,9 +1393,9 @@
     "proximas_acoes": "Acompanhar andamento da mediação e avaliar concessões elegíveis para carve-out",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -1325,11 +1405,15 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 33,
@@ -1356,7 +1440,7 @@
     "proximas_acoes": "Contatar conselho e acionistas da Qintess para suporte no plano do art. 53",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -1366,11 +1450,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 34,
@@ -1397,7 +1483,7 @@
     "proximas_acoes": "Analisar impacto das enchentes/clima nas lavouras e propor renegociação coordenada",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Passo Fundo",
     "uf": "RS",
@@ -1407,11 +1493,13 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 35,
@@ -1427,7 +1515,7 @@
     "fase": "Recuperação Judicial (Classe 129 protocolada)",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 500.0,
+    "passivo_mm": 500,
     "passivo_display": "500,00",
     "credores": "Bancos de capital de giro e financiamento de estoque, montadora chinesa JAC e rede de concessionárias",
     "perfil_passivo": "Financiamento de Estoque de Veículos (Floor Plan) + Fornecedores Internacionais",
@@ -1438,8 +1526,8 @@
     "proximas_acoes": "Mapear passivo bancário e imóveis próprios de concessionárias para desinvestimento",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -1449,11 +1537,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "kintsugi",
-    "clan_badge": "⛩️ Clã Kintsugi // DIP & UPI",
-    "clan_sigil": "⛩️",
-    "clan_name": "Clã Kintsugi // Mestre do Ouro"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP FINANCING / UPI M&A",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+    ]
   },
   {
     "id": 36,
@@ -1480,7 +1571,7 @@
     "proximas_acoes": "Contatar devedora para suporte na elaboração do plano do art. 53",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "São Caetano do Sul",
     "uf": "SP",
@@ -1490,11 +1581,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 37,
@@ -1508,7 +1601,7 @@
     "tribunal": "TJSP - Varas de Falências e RJs da Capital",
     "processo": "108XXXX-XX.2026.8.26.0100",
     "fase": "Recuperação Judicial (Classe 129 deferida pós-cautelar)",
-    "score": 8.0,
+    "score": 8,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
     "passivo_mm": 265.2,
     "passivo_display": "265,20",
@@ -1521,8 +1614,8 @@
     "proximas_acoes": "Acompanhar prazos de assembleia e mapear relação com franqueados",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -1532,11 +1625,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 38,
@@ -1552,7 +1648,7 @@
     "fase": "Recuperação Extrajudicial (Mediação Prévia no CEJUSC para PRE)",
     "score": 9.5,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 1980.0,
+    "passivo_mm": 1980,
     "passivo_display": "1.980,00",
     "credores": "Bancos fornecedores de crédito agro (BB, Santander, Bradesco), tradings multinacionais e importadores de matéria-prima química",
     "perfil_passivo": "Linhas de Financiamento Agro / Comércio Exterior + Dívida Comercial com Fornecedores Globais de NPK",
@@ -1563,9 +1659,9 @@
     "proximas_acoes": "Abordar a diretoria financeira durante o período de stay period de 60 dias",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
     "cidade": "Viana",
     "uf": "ES",
@@ -1575,11 +1671,15 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 39,
@@ -1606,7 +1706,7 @@
     "proximas_acoes": "Analisar carteira de integradores solares e propor reestruturação de recebíveis",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Maringá",
     "uf": "PR",
@@ -1616,11 +1716,13 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 40,
@@ -1647,7 +1749,7 @@
     "proximas_acoes": "Acompanhar publicação do primeiro edital de credores em Campinas",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Campinas",
     "uf": "SP",
@@ -1657,11 +1759,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 41,
@@ -1675,9 +1779,9 @@
     "tribunal": "Varas Empresariais SP",
     "processo": "Processo de PRE",
     "fase": "Recuperação Extrajudicial (Classe 128 / Acordo de Fusão)",
-    "score": 8.0,
+    "score": 8,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 600.0,
+    "passivo_mm": 600,
     "passivo_display": "600,00",
     "credores": "Bancos de capital de giro e debenturistas da rede de lojas",
     "perfil_passivo": "Bancário Comercial + Debêntures",
@@ -1688,8 +1792,8 @@
     "proximas_acoes": "Mapear desdobramentos da integração operacional Mobly / Tok&Stok",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
     "cidade": "São Paulo",
     "uf": "SP",
@@ -1699,11 +1803,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 42,
@@ -1730,7 +1837,7 @@
     "proximas_acoes": "Acompanhar prazo de impugnação de credores quirografários",
     "watchdog_eligible": false,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
     "cidade": "Sete Lagoas",
     "uf": "MG",
@@ -1740,11 +1847,13 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 43,
@@ -1760,7 +1869,7 @@
     "fase": "Sinal Precursor — Spike de Protestos & Arresto de Safra",
     "score": 9.4,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 185.0,
+    "passivo_mm": 185,
     "passivo_display": "185,00",
     "credores": "Tradings Globais (Cargill, Bunge, ADM), Revendas de Insumos e Bancos do Agro (BB, Sicredi)",
     "perfil_passivo": "Barter / CPR Física e Financeira + Crédito Rural de Custeio",
@@ -1771,18 +1880,9 @@
     "proximas_acoes": "Abordar produtores via assessoria financeira independente antes do pedido cautelar de safra",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Concentração em 3 Tradings (CR4 > 65% do passivo comercial)",
-      "GAT-WD-04: Fase Pré-RJ / Mediação de Standstill sem Administrador Judicial"
+      "Concentração em 3 Tradings (CR4 > 65% do passivo comercial)",
+      "Fase Pré-RJ / Mediação de Standstill sem Administrador Judicial"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-PROT: 28 títulos protestados no CENPROT em 30 dias (R$ 14,2M)",
-      "VET-AGRO: Ação de Arresto de Safra (Classe CNJ 12135) distribuída por trading",
-      "VET-FISC: Rompimento de transação tributária do Agro na PGFN"
-    ],
-    "lead_time_dias": "45-60 dias pré-crise",
-    "score_multi_vetorial": 9.4,
-    "fontes_sinal": "CENPROT / IEPTB, PJe TJMT (Sorriso) e Regularize PGFN",
     "cidade": "Sorriso",
     "uf": "MT",
     "coordenadas": [
@@ -1791,11 +1891,14 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Concentração em 3 Tradings (CR4 > 65% do passivo comercial)",
+      "Fase Pré-RJ / Mediação de Standstill sem Administrador Judicial"
+    ]
   },
   {
     "id": 44,
@@ -1811,7 +1914,7 @@
     "fase": "Sinal Precursor — Direção Fiscal ANS & PEPT TRT",
     "score": 9.2,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 260.0,
+    "passivo_mm": 260,
     "passivo_display": "260,00",
     "credores": "Bancos comerciais (Itaú, Bradesco, Santander), Fornecedores de OPME e Distribuidores Farma",
     "perfil_passivo": "Bancário Capital de Giro + Fornecedores Médicos + Passivo Trabalhista",
@@ -1822,18 +1925,9 @@
     "proximas_acoes": "Mapear diretores da operadora e apresentar proposta de governança de crise independente",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta concentração bancária (CR4 > 70% em 3 bancos)",
-      "GAT-WD-03: Alienação de Ativos / UPI Hospitalar para estancar queima de caixa"
+      "Alta concentração bancária (CR4 > 70% em 3 bancos)",
+      "Alienação de Ativos / UPI Hospitalar para estancar queima de caixa"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-REG: ANS decretou Direção Fiscal (DOU Seção 1) por quebra de margem de solvência",
-      "VET-TRAB: Ajuizamento de PEPT (Plano Especial de Pagamento Trabalhista) no TRT",
-      "VET-PROT: Spike de 22 protestos de fornecedores de OPME no CENPROT"
-    ],
-    "lead_time_dias": "60-90 dias pré-crise",
-    "score_multi_vetorial": 9.2,
-    "fontes_sinal": "DOU Seção 1 (ANS), PJe TRT-4 e CENPROT Nacional",
     "cidade": "Curitiba",
     "uf": "PR",
     "coordenadas": [
@@ -1842,11 +1936,14 @@
     ],
     "regiao_macro": "Sul",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Alta concentração bancária (CR4 > 70% em 3 bancos)",
+      "Alienação de Ativos / UPI Hospitalar para estancar queima de caixa"
+    ]
   },
   {
     "id": 45,
@@ -1862,7 +1959,7 @@
     "fase": "Sinal Precursor — Inadimplemento CCEE & Downgrade CVM",
     "score": 9.1,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 340.0,
+    "passivo_mm": 340,
     "passivo_display": "340,00",
     "credores": "Debenturistas da 2ª Emissão, Bancos repassadores BNDES e Agentes da CCEE",
     "perfil_passivo": "Debêntures de Infraestrutura + Garantias Financeiras MCP CCEE",
@@ -1873,18 +1970,9 @@
     "proximas_acoes": "Acompanhar assembleia de debenturistas convocada para waiver de covenant ICSD",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-05: Convocação de AGD de debenturistas para deliberação de cross-default",
-      "GAT-WD-04: Fase Pré-RJ / Mediação CCEE sem Administrador Judicial"
+      "Convocação de AGD de debenturistas para deliberação de cross-default",
+      "Fase Pré-RJ / Mediação CCEE sem Administrador Judicial"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-REG: CCEE notificou aporte emergencial de garantias no Mercado de Curto Prazo",
-      "VET-CVM: Rebaixamento de rating da debênture para 'CCC' e quebra de covenant",
-      "VET-PROT: Protestos de geradoras parceiras de energia"
-    ],
-    "lead_time_dias": "30-45 dias pré-crise",
-    "score_multi_vetorial": 9.1,
-    "fontes_sinal": "CCEE (Mercado de Curto Prazo), CVM Fundos.NET e CENPROT",
     "cidade": "São Paulo",
     "uf": "SP",
     "coordenadas": [
@@ -1893,11 +1981,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Convocação de AGD de debenturistas para deliberação de cross-default",
+      "Fase Pré-RJ / Mediação CCEE sem Administrador Judicial"
+    ]
   },
   {
     "id": 46,
@@ -1913,7 +2004,7 @@
     "fase": "Sinal Precursor — Spike Crítico de Protestos & Penhora CPC 866",
     "score": 8.8,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 145.0,
+    "passivo_mm": 145,
     "passivo_display": "145,00",
     "credores": "Bancos privados (Itaú, Santander, Bradesco, Safra, Daycoval), Shopping Centers e Confeccionistas",
     "perfil_passivo": "Capital de Giro + Aluguéis Comerciais Mínimos + Fornecedores",
@@ -1924,18 +2015,9 @@
     "proximas_acoes": "Identificar conselho de administração e ofertar diagnóstico independente de 13 semanas de caixa",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: CR4 bancário concentrado em 4 bancos médios e grandes (68%)",
-      "GAT-WD-04: Fase Pré-RJ com necessidade de plano de estancamento de queima de caixa"
+      "CR4 bancário concentrado em 4 bancos médios e grandes (68%)",
+      "Fase Pré-RJ com necessidade de plano de estancamento de queima de caixa"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-PROT: Spike anômalo de 34 títulos protestados no CENPROT em 45 dias (R$ 9,8M)",
-      "VET-FISC: Pedido de penhora sobre 5% do faturamento formulado pela PGFN (Art. 866 CPC)",
-      "VET-IMOB: 8 ações de despejo por falta de pagamento ajuizadas por administradoras de shopping"
-    ],
-    "lead_time_dias": "45-60 dias pré-crise",
-    "score_multi_vetorial": 8.8,
-    "fontes_sinal": "CENPROT, PGFN Dívida Ativa e TJSP Distribuidor Cível",
     "cidade": "São Paulo",
     "uf": "SP",
     "coordenadas": [
@@ -1944,11 +2026,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "CR4 bancário concentrado em 4 bancos médios e grandes (68%)",
+      "Fase Pré-RJ com necessidade de plano de estancamento de queima de caixa"
+    ]
   },
   {
     "id": 47,
@@ -1964,7 +2049,7 @@
     "fase": "Sinal Precursor — FIDC em Amortização Antecipada & Intimação SEIC",
     "score": 8.6,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 95.0,
+    "passivo_mm": 95,
     "passivo_display": "95,00",
     "credores": "FIDC de Duplicatas Mercantis, Bancos Industriais (Bradesco, Santander) e Fornecedores de Aço",
     "perfil_passivo": "Antecipação de Recebíveis Bloqueados + Garantia Real de Galpão Fabril",
@@ -1975,18 +2060,9 @@
     "proximas_acoes": "Contatar acionista controlador alertando para risco iminente de consolidação fiduciária no SEIC",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-02: Previsão de DIP de Fornecedor / Sistemista para sustentar cadeia automotiva",
-      "GAT-WD-04: Fase Pré-RJ para proteção de ativo industrial essencial"
+      "Previsão de DIP de Fornecedor / Sistemista para sustentar cadeia automotiva",
+      "Fase Pré-RJ para proteção de ativo industrial essencial"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-CVM: FIDC de cadeia de autopeças entrou em amortização compulsória por inadimplência",
-      "VET-IMOB: Notificação SEIC do Art. 26 da Lei 9.514/97 para consolidação do imóvel fabril",
-      "VET-PROT: 19 protestos de usinas de aço no CENPROT"
-    ],
-    "lead_time_dias": "60-90 dias pré-crise",
-    "score_multi_vetorial": 8.6,
-    "fontes_sinal": "CVM Fundos.NET (Resolução 175), ONR / SEIC e CENPROT",
     "cidade": "Campinas",
     "uf": "SP",
     "coordenadas": [
@@ -1995,11 +2071,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Previsão de DIP de Fornecedor / Sistemista para sustentar cadeia automotiva",
+      "Fase Pré-RJ para proteção de ativo industrial essencial"
+    ]
   },
   {
     "id": 48,
@@ -2015,7 +2094,7 @@
     "fase": "Sinal Precursor — Execuções de Frota & PEPT Trabalhista",
     "score": 8.5,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 120.0,
+    "passivo_mm": 120,
     "passivo_display": "120,00",
     "credores": "Bancos de Montadoras (Mercedes-Benz Bank, Scania Banco, Volvo Financial), Distribuidoras de Diesel e Bancos Privados",
     "perfil_passivo": "Alienação Fiduciária de Frota (Finame/Leasing) + Combustível",
@@ -2026,18 +2105,9 @@
     "proximas_acoes": "Apresentar plano de preservação da frota produtiva antes de cumprimento de mandados de busca",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Mais de 60% da dívida atrelada a 3 bancos de montadora",
-      "GAT-WD-04: Fase Pré-RJ com necessidade de blindagem de bens de capital essenciais"
+      "Mais de 60% da dívida atrelada a 3 bancos de montadora",
+      "Fase Pré-RJ com necessidade de blindagem de bens de capital essenciais"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-IMOB/BENS: Ajuizamento de 3 ações de busca e apreensão de 65 caminhões por banco de montadora",
-      "VET-TRAB: Protocolo de pedido de PEPT no TRT da 2ª Região por execuções sindicais de motoristas",
-      "VET-FISC: Inscrição de R$ 38M em dívida ativa da União"
-    ],
-    "lead_time_dias": "45-60 dias pré-crise",
-    "score_multi_vetorial": 8.5,
-    "fontes_sinal": "TJSP Cível, PJe TRT-2 e Regularize PGFN",
     "cidade": "São Paulo",
     "uf": "SP",
     "coordenadas": [
@@ -2046,11 +2116,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Mais de 60% da dívida atrelada a 3 bancos de montadora",
+      "Fase Pré-RJ com necessidade de blindagem de bens de capital essenciais"
+    ]
   },
   {
     "id": 49,
@@ -2066,7 +2139,7 @@
     "fase": "Sinal Precursor — Sanção CEIS/CNEP & Execução de Fianças",
     "score": 8.9,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 210.0,
+    "passivo_mm": 210,
     "passivo_display": "210,00",
     "credores": "Seguradoras Garantidoras (Pomerania, Pottencial, Junto), Bancos de Fiança (Daycoval, ABC Brasil) e Subempreiteiros",
     "perfil_passivo": "Seguro Garantia / Fianças Bancárias em Execução + Fornecedores de Maquinário",
@@ -2077,18 +2150,9 @@
     "proximas_acoes": "Abordar as principais seguradoras garantidoras oferecendo mandato de Watchdog nas obras ativas",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Exposição concentrada em 3 seguradoras de garantia contratual",
-      "GAT-WD-03: Conta vinculada escrow para recebimento de medições públicas e repasse a operários"
+      "Exposição concentrada em 3 seguradoras de garantia contratual",
+      "Conta vinculada escrow para recebimento de medições públicas e repasse a operários"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-PUB: Sanção de suspensão cautelar de licitar cadastrada no CEIS/CNEP/PNCP",
-      "VET-RTD: Notificação extrajudicial de cobrança de R$ 45M de sinistro de seguro garantia",
-      "VET-PROT: 31 protestos de subempreiteiras e locadoras de equipamentos pesados"
-    ],
-    "lead_time_dias": "60-75 dias pré-crise",
-    "score_multi_vetorial": 8.9,
-    "fontes_sinal": "Portal da Transparência CGU (CEIS/CNEP), PNCP e RTDPJ",
     "cidade": "Belo Horizonte",
     "uf": "MG",
     "coordenadas": [
@@ -2097,11 +2161,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Exposição concentrada em 3 seguradoras de garantia contratual",
+      "Conta vinculada escrow para recebimento de medições públicas e repasse a operários"
+    ]
   },
   {
     "id": 50,
@@ -2117,7 +2184,7 @@
     "fase": "Sinal Precursor — Processo de Caducidade ARTESP & AGD Debêntures",
     "score": 9.6,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 420.0,
+    "passivo_mm": 420,
     "passivo_display": "420,00",
     "credores": "Debenturistas da 1ª e 2ª Emissão, BNDES, Agência Reguladora (Multas Contratuais) e Construtoras",
     "perfil_passivo": "Project Finance Não-Recurso + Debêntures Incentivadas (Lei 12.431)",
@@ -2128,19 +2195,10 @@
     "proximas_acoes": "Abordar o agente fiduciário das debêntures e fundos de infraestrutura para liderar comitê de reestruturação",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Mais de 75% da dívida com debenturistas e BNDES",
-      "GAT-WD-04: Fase Pré-RJ / Mediação regulatória sem Administrador Judicial",
-      "GAT-WD-05: Convocação de AGD com ordem de declaração de vencimento antecipado"
+      "Mais de 75% da dívida com debenturistas e BNDES",
+      "Fase Pré-RJ / Mediação regulatória sem Administrador Judicial",
+      "Convocação de AGD com ordem de declaração de vencimento antecipado"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-REG: ARTESP abriu processo sancionador de caducidade por atraso em duplicações de pistas",
-      "VET-CVM: Agente fiduciário convocou AGD após inadimplemento de amortização sem waiver",
-      "VET-IMOB: Notificação de praças de pedágio dadas em garantia real fiduciária"
-    ],
-    "lead_time_dias": "30-60 dias pré-crise",
-    "score_multi_vetorial": 9.6,
-    "fontes_sinal": "Diário Oficial SP (ARTESP), CVM Fundos.NET e 1ª VFP-SP",
     "cidade": "Sorocaba",
     "uf": "SP",
     "coordenadas": [
@@ -2149,11 +2207,15 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Mais de 75% da dívida com debenturistas e BNDES",
+      "Fase Pré-RJ / Mediação regulatória sem Administrador Judicial",
+      "Convocação de AGD com ordem de declaração de vencimento antecipado"
+    ]
   },
   {
     "id": 51,
@@ -2169,7 +2231,7 @@
     "fase": "Recuperação Judicial (Classe 129) — Emissão de DIP & Debêntures",
     "score": 8.8,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 4670.0,
+    "passivo_mm": 4670,
     "passivo_display": "4.670,00",
     "credores": "Banco do Brasil (R$ 391M), Securitizadoras de CRAs (Vert, Opea), Itaú, Bradesco, Santander e Tradings",
     "perfil_passivo": "CRAs (Mercado de Capitais) + FIDCs de Insumos + Dívida Bancária Comercial",
@@ -2180,11 +2242,10 @@
     "proximas_acoes": "Contatar agentes fiduciários de CRAs (Vert/Opea) para propor monitoramento independente de caixa e safras",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Exposição pulverizada de mercado de capitais com comitês de CRAs",
-      "GAT-WD-02: Previsão de emissão de debêntures e DIP financing",
-      "GAT-WD-03: Plano de desinvestimento e fechamento/venda de lojas de insumos (UPIs)"
+      "Exposição pulverizada de mercado de capitais com comitês de CRAs",
+      "Previsão de emissão de debêntures e DIP financing",
+      "Plano de desinvestimento e fechamento/venda de lojas de insumos (UPIs)"
     ],
-    "is_tier0": false,
     "cidade": "Goiânia",
     "uf": "GO",
     "coordenadas": [
@@ -2193,11 +2254,15 @@
     ],
     "regiao_macro": "Centro-Oeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "kintsugi",
-    "clan_badge": "⛩️ Clã Kintsugi // DIP & UPI",
-    "clan_sigil": "⛩️",
-    "clan_name": "Clã Kintsugi // Mestre do Ouro"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP FINANCING / UPI M&A",
+    "institutional_triggers": [
+      "Exposição pulverizada de mercado de capitais com comitês de CRAs",
+      "Previsão de emissão de debêntures e DIP financing",
+      "Plano de desinvestimento e fechamento/venda de lojas de insumos (UPIs)"
+    ]
   },
   {
     "id": 52,
@@ -2224,10 +2289,9 @@
     "proximas_acoes": "Acompanhar relatório mensal de atividades do AJ e avaliar sindicação com credores de recebíveis",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Concentração em bancos comerciais e seguradora",
-      "GAT-WD-04: Renegociação de contratos de locação e fluxo de caixa de lojas"
+      "Concentração em bancos comerciais e seguradora",
+      "Renegociação de contratos de locação e fluxo de caixa de lojas"
     ],
-    "is_tier0": false,
     "cidade": "São Paulo",
     "uf": "SP",
     "coordenadas": [
@@ -2236,11 +2300,14 @@
     ],
     "regiao_macro": "Sudeste",
     "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Concentração em bancos comerciais e seguradora",
+      "Renegociação de contratos de locação e fluxo de caixa de lojas"
+    ]
   },
   {
     "id": 53,
@@ -2251,21 +2318,12 @@
     "setor_detalhe": "Varejo & E-commerce",
     "setor_macro": "Varejo & Consumo",
     "regiao": "São Paulo / SP (Nacional)",
-    "cidade": "São Paulo",
-    "uf": "SP",
-    "coordenadas": [
-      -23.5505,
-      -46.6333
-    ],
-    "regiao_macro": "Sudeste",
     "tribunal": "TJSP - 1ª Vara de Falências e RJs da Capital",
     "processo": "1041922-88.2024.8.26.0100",
-    "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
     "fase": "Recuperação Extrajudicial (Homologada / Em Cumprimento)",
-    "score": 8.0,
+    "score": 8,
     "tier": "Tier 3 (PRE Avançada - Foco em Credores)",
-    "passivo_mm": 4100.0,
+    "passivo_mm": 4100,
     "passivo_display": "4.100,00",
     "credores": "Banco Bradesco, Banco do Brasil e debenturistas da 7ª, 8ª e 9ª emissões",
     "perfil_passivo": "Debêntures Privadas e Públicas + Financiamento de Fornecedores",
@@ -2276,14 +2334,25 @@
     "proximas_acoes": "Monitorar cronograma de carência e cumprimento dos covenants de alavancagem",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang",
-    "lead_time_dias": "Em cumprimento (Carência 24m)"
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRE",
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
   },
   {
     "id": 54,
@@ -2294,17 +2363,8 @@
     "setor_detalhe": "Indústria / Armas & Defesa",
     "setor_macro": "Indústria & Manufatura",
     "regiao": "Sul (RS)",
-    "cidade": "Esteio",
-    "uf": "RS",
-    "coordenadas": [
-      -29.8525,
-      -51.1828
-    ],
-    "regiao_macro": "Sul",
     "tribunal": "TJRS - Vara Cível de Esteio",
     "processo": "5001290-88.2026.8.21.0014",
-    "tipo_processo": "PRE",
-    "tipo_processo_label": "⚡ Recuperação Extrajudicial (PRE)",
     "fase": "Recuperação Extrajudicial (Pedido de Homologação Protocolado)",
     "score": 7.5,
     "tier": "Tier 3 (PRE Avançada - Foco em Credores)",
@@ -2319,10 +2379,19 @@
     "proximas_acoes": "Acompanhar sentença de homologação do plano no TJRS",
     "watchdog_eligible": false,
     "watchdog_triggers": [],
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang"
+    "cidade": "Esteio",
+    "uf": "RS",
+    "coordenadas": [
+      -29.8525,
+      -51.1828
+    ],
+    "regiao_macro": "Sul",
+    "tipo_processo": "PRE",
+    "tipo_processo_label": "Recuperação Extrajudicial (PRE)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": []
   },
   {
     "id": 55,
@@ -2333,21 +2402,12 @@
     "setor_detalhe": "Indústria Têxtil & Varejo Cama, Mesa e Banho",
     "setor_macro": "Indústria & Manufatura",
     "regiao": "Minas Gerais (Montes Claros / BH)",
-    "cidade": "Montes Claros",
-    "uf": "MG",
-    "coordenadas": [
-      -16.735,
-      -43.8617
-    ],
-    "regiao_macro": "Sudeste",
     "tribunal": "TJMG - 2ª Vara Empresarial de Belo Horizonte",
     "processo": "5081922-33.2024.8.13.0024",
-    "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
     "fase": "Recuperação Judicial (Homologação de Plano & Desinvestimento de UPIs)",
-    "score": 8.0,
+    "score": 8,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 2000.0,
+    "passivo_mm": 2000,
     "passivo_display": "2.000,00",
     "credores": "Fundo Farallon Capital, Bradesco, Banco ABC Brasil, Banco do Brasil e PGFN (Passivo Fiscal R$ 848,9M)",
     "perfil_passivo": "Financiamentos Estruturados + Debêntures + Dívida Tributária Federal Transacionada",
@@ -2358,13 +2418,25 @@
     "proximas_acoes": "Acompanhar fechamento da transação de venda da Mmartan e liberação de garantias hipotecárias",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
     ],
-    "primary_clan": "kintsugi",
-    "clan_badge": "⛩️ Clã Kintsugi // DIP & UPI",
-    "clan_sigil": "⛩️",
-    "clan_name": "Clã Kintsugi // Mestre do Ouro"
+    "cidade": "Montes Claros",
+    "uf": "MG",
+    "coordenadas": [
+      -16.735,
+      -43.8617
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRJ",
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP FINANCING / UPI M&A",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+    ]
   },
   {
     "id": 56,
@@ -2375,21 +2447,12 @@
     "setor_detalhe": "Alimentação & Franquias Internacionais",
     "setor_macro": "Varejo & Consumo",
     "regiao": "São Paulo / SP",
-    "cidade": "São Paulo",
-    "uf": "SP",
-    "coordenadas": [
-      -23.5505,
-      -46.6333
-    ],
-    "regiao_macro": "Sudeste",
     "tribunal": "TJSP - 1ª Vara de Falências e RJs da Capital",
     "processo": "1131922-44.2023.8.26.0100",
-    "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
     "fase": "Recuperação Judicial (Alienação Judicial de Ativos / UPI Starbucks e Subway)",
     "score": 7.5,
     "tier": "Tier 3 (Pós-Plano - Ângulo Restrito a UPI/DIP)",
-    "passivo_mm": 1800.0,
+    "passivo_mm": 1800,
     "passivo_display": "1.800,00",
     "credores": "Bancos comerciais (Banco do Brasil, Santander, Bradesco), Locadores de Shoppings e Aeroportos",
     "perfil_passivo": "Bancário Curto Prazo + Aluguéis Comerciais Mínimos + Fornecedores de Insumos",
@@ -2400,12 +2463,23 @@
     "proximas_acoes": "Monitorar trâmites de entrega de ativos operacionais e liberação de ônus pelo juízo concursal",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
     ],
-    "primary_clan": "kintsugi",
-    "clan_badge": "⛩️ Clã Kintsugi // DIP & UPI",
-    "clan_sigil": "⛩️",
-    "clan_name": "Clã Kintsugi // Mestre do Ouro"
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRJ",
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP FINANCING / UPI M&A",
+    "institutional_triggers": [
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+    ]
   },
   {
     "id": 57,
@@ -2416,21 +2490,12 @@
     "setor_detalhe": "Varejo Alimentar / Supermercados de Proximidade",
     "setor_macro": "Varejo & Consumo",
     "regiao": "São Paulo / SP",
-    "cidade": "São Paulo",
-    "uf": "SP",
-    "coordenadas": [
-      -23.5505,
-      -46.6333
-    ],
-    "regiao_macro": "Sudeste",
     "tribunal": "TJSP - 1ª Vara de Falências e RJs da Capital",
     "processo": "1031928-11.2024.8.26.0100",
-    "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
     "fase": "Recuperação Judicial (Fechamento de Lojas & Desinvestimento Operacional)",
-    "score": 8.0,
+    "score": 8,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 1080.0,
+    "passivo_mm": 1080,
     "passivo_display": "1.080,00",
     "credores": "Grupo Dia Espanha (Dívida Intercompany), Bancos Comerciais e Fornecedores da Indústria Alimentícia",
     "perfil_passivo": "Bancário de Capital de Giro + Fornecedores Alimentícios + Dívida Intercompany",
@@ -2441,13 +2506,25 @@
     "proximas_acoes": "Avaliar liquidação de centros de distribuição no interior paulista",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-03: Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
     ],
-    "primary_clan": "kintsugi",
-    "clan_badge": "⛩️ Clã Kintsugi // DIP & UPI",
-    "clan_sigil": "⛩️",
-    "clan_name": "Clã Kintsugi // Mestre do Ouro"
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRJ",
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP FINANCING / UPI M&A",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Venda de UPI / Desinvestimento de Ativos (Conta Escrow)"
+    ]
   },
   {
     "id": 58,
@@ -2458,21 +2535,12 @@
     "setor_detalhe": "Eletroeletrônicos & Manufatura ZFM",
     "setor_macro": "Indústria & Manufatura",
     "regiao": "Norte (Manaus / AM)",
-    "cidade": "Manaus",
-    "uf": "AM",
-    "coordenadas": [
-      -3.119,
-      -60.0217
-    ],
-    "regiao_macro": "Norte",
     "tribunal": "TJAM - Vara de Falências e RJs de Manaus",
     "processo": "0601922-88.2026.8.04.0001",
-    "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
     "fase": "Recuperação Judicial (Deferimento do Art. 52 & Negociação com Fornecedores Asiáticos)",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 220.0,
+    "passivo_mm": 220,
     "passivo_display": "220,00",
     "credores": "Bancos comerciais (Itaú, Bradesco, BASA), Fornecedores de semicondutores e componentes (China/Taiwan)",
     "perfil_passivo": "Financiamento à Importação (ACC/ACE) + Linhas de Fomento BASA + Fornecedores",
@@ -2483,13 +2551,25 @@
     "proximas_acoes": "Mapear incentivos da SUFRAMA e propor plano de continuidade fabril",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-02: Previsão de Financiamento DIP (Fiscalização de Tranches)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)"
     ],
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "cidade": "Manaus",
+    "uf": "AM",
+    "coordenadas": [
+      -3.119,
+      -60.0217
+    ],
+    "regiao_macro": "Norte",
+    "tipo_processo": "PRJ",
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Previsão de Financiamento DIP (Fiscalização de Tranches)"
+    ]
   },
   {
     "id": 59,
@@ -2500,21 +2580,12 @@
     "setor_detalhe": "Agronegócio / Grãos & Armazenamento",
     "setor_macro": "Agronegócio & Silvicultura",
     "regiao": "Norte / Nordeste (Paragominas / Balsas)",
-    "cidade": "Paragominas",
-    "uf": "PA",
-    "coordenadas": [
-      -2.9972,
-      -47.3533
-    ],
-    "regiao_macro": "Norte",
     "tribunal": "TJPA - Comarca de Paragominas // CENPROT",
     "processo": "Sinal Pré-Concursal Extrajudicial",
-    "tipo_processo": "Tier 0",
-    "tipo_processo_label": "🔮 Tier 0 (Sinais Precursores 60-120d)",
     "fase": "Sinal Precursor — Spike de Protestos & Execução de CPRs",
     "score": 9.3,
     "tier": "Tier 0 (Radar Preditivo - Sinais Pré-Concursais 60-120d)",
-    "passivo_mm": 310.0,
+    "passivo_mm": 310,
     "passivo_display": "310,00",
     "credores": "Tradings multinacionais (Bunge, Cargill), Revendas de Insumos e Bancos do Agro (BASA, BB, Sicredi)",
     "perfil_passivo": "Barter / CPR Física e Financeira + Financiamento de Silos e Armazéns",
@@ -2525,22 +2596,25 @@
     "proximas_acoes": "Abordar os produtores e grupo antes de ajuizamento de ações cautelares de arresto de grãos",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Concentração em 3 Tradings (CR4 > 65% do passivo comercial)",
-      "GAT-WD-04: Fase Pré-RJ / Mediação de Standstill sem Administrador Judicial"
+      "Concentração em 3 Tradings (CR4 > 65% do passivo comercial)",
+      "Fase Pré-RJ / Mediação de Standstill sem Administrador Judicial"
     ],
-    "is_tier0": true,
-    "vetores_estresse": [
-      "VET-PROT: 25 títulos protestados no CENPROT em 30 dias (R$ 18,5M)",
-      "VET-AGRO: Notificação de inadimplemento de entrega física de soja de safra",
-      "VET-FISC: Rompimento de transação tributária na PGFN"
+    "cidade": "Paragominas",
+    "uf": "PA",
+    "coordenadas": [
+      -2.9972,
+      -47.3533
     ],
-    "lead_time_dias": "45-60 dias pré-crise",
-    "score_multi_vetorial": 9.3,
-    "fontes_sinal": "CENPROT Nacional, PJe TJPA e Regularize PGFN",
-    "primary_clan": "curupira",
-    "clan_badge": "🌿 Clã Curupira // Sinais 60-120d",
-    "clan_sigil": "🌿",
-    "clan_name": "Clã Rastreador // Curupira"
+    "regiao_macro": "Norte",
+    "tipo_processo": "Tier 0",
+    "tipo_processo_label": "Sinais Forenses (Tier 0)",
+    "strategy_id": "precursor",
+    "strategy_name": "Distress Precursor (Tier 0)",
+    "strategy_tag": "PRECURSOR / TIER 0",
+    "institutional_triggers": [
+      "Concentração em 3 Tradings (CR4 > 65% do passivo comercial)",
+      "Fase Pré-RJ / Mediação de Standstill sem Administrador Judicial"
+    ]
   },
   {
     "id": 60,
@@ -2551,21 +2625,12 @@
     "setor_detalhe": "Saúde / Rede Hospitalar & Diagnóstica",
     "setor_macro": "Saúde & Farma",
     "regiao": "Nordeste (Recife / PE)",
-    "cidade": "Recife",
-    "uf": "PE",
-    "coordenadas": [
-      -8.0476,
-      -34.877
-    ],
-    "regiao_macro": "Nordeste",
     "tribunal": "TJPE - 1ª Vara de Sucessões e Registros / Mediação",
     "processo": "0018922-11.2026.8.17.2001",
-    "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
     "fase": "Cautelar Antecedente / Mediação Prévia (Art. 20-B)",
     "score": 9.1,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 165.0,
+    "passivo_mm": 165,
     "passivo_display": "165,00",
     "credores": "Bancos privados comerciais (Santander, Bradesco), Fornecedores de OPME e Distribuidores de Medicamentos",
     "perfil_passivo": "Bancário Capital de Giro + Passivo Fornecedores de Saúde + Glosas de Operadoras",
@@ -2576,14 +2641,25 @@
     "proximas_acoes": "Contatar acionistas durante o stay period de 60 dias para oferta de assessoria de capital",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
     ],
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang",
-    "lead_time_dias": "60 dias (Stay Period Cautelar)"
+    "cidade": "Recife",
+    "uf": "PE",
+    "coordenadas": [
+      -8.0476,
+      -34.877
+    ],
+    "regiao_macro": "Nordeste",
+    "tipo_processo": "Cautelar / Pré-RJ",
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado"
+    ]
   },
   {
     "id": 61,
@@ -2594,21 +2670,12 @@
     "setor_detalhe": "Construção Pesada & Concessões Rodoviárias",
     "setor_macro": "Construção Civil & Real Estate",
     "regiao": "Nordeste (Salvador / BA)",
-    "cidade": "Salvador",
-    "uf": "BA",
-    "coordenadas": [
-      -12.9777,
-      -38.5016
-    ],
-    "regiao_macro": "Nordeste",
     "tribunal": "TJBA - Varas Cíveis e Comerciais de Salvador",
     "processo": "0511922-33.2026.8.05.0001",
-    "tipo_processo": "PRJ",
-    "tipo_processo_label": "⚖️ Recuperação Judicial (PRJ Ativa)",
     "fase": "Recuperação Judicial (Classe 129 deferida)",
     "score": 8.5,
     "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
-    "passivo_mm": 195.0,
+    "passivo_mm": 195,
     "passivo_display": "195,00",
     "credores": "Banco do Nordeste (BNB), Desenbahia, Bradesco, Seguradoras Garantidoras e Subempreiteiros",
     "perfil_passivo": "Financiamentos de Fomento Regional (BNB) + Fiança Bancária + Operacional",
@@ -2619,12 +2686,23 @@
     "proximas_acoes": "Avaliar créditos a receber de obras públicas para estruturar fundo de recebíveis no plano",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
     ],
-    "primary_clan": "nordico",
-    "clan_badge": "🛡️ Clã Nórdico // Watchdog",
-    "clan_sigil": "🛡️",
-    "clan_name": "Clã Nórdico // Heimdall"
+    "cidade": "Salvador",
+    "uf": "BA",
+    "coordenadas": [
+      -12.9777,
+      -38.5016
+    ],
+    "regiao_macro": "Nordeste",
+    "tipo_processo": "PRJ",
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)"
+    ]
   },
   {
     "id": 62,
@@ -2635,21 +2713,12 @@
     "setor_detalhe": "Energia / Biomassa & Cogeração",
     "setor_macro": "Energia & Infraestrutura",
     "regiao": "Norte (Palmas / TO)",
-    "cidade": "Palmas",
-    "uf": "TO",
-    "coordenadas": [
-      -10.1844,
-      -48.3336
-    ],
-    "regiao_macro": "Norte",
     "tribunal": "TJTO - 1ª Vara Cível de Palmas // CCEE",
     "processo": "0021922-88.2026.8.27.2729",
-    "tipo_processo": "Cautelar / Pré-RJ",
-    "tipo_processo_label": "🚨 Cautelar & Pré-RJ (Art. 20-B e 51-A)",
     "fase": "Cautelar Antecedente (Art. 20-B para suspensão de desligamento na CCEE)",
     "score": 9.2,
     "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
-    "passivo_mm": 140.0,
+    "passivo_mm": 140,
     "passivo_display": "140,00",
     "credores": "BNDES, BASA, Debenturistas de Infraestrutura e Agentes da CCEE",
     "perfil_passivo": "Project Finance BNDES/BASA + Debêntures Incentivadas Lei 12.431",
@@ -2660,14 +2729,114 @@
     "proximas_acoes": "Propor standstill aos debenturistas e negociar aporte de garantia no MCP da CCEE",
     "watchdog_eligible": true,
     "watchdog_triggers": [
-      "GAT-WD-01: Alta Concentração de Dívida Institucional (CR4 > 60%)",
-      "GAT-WD-04: Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
-      "GAT-WD-05: Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
     ],
-    "primary_clan": "celestial",
-    "clan_badge": "🐉 Clã Celestial // Acordos & PRE",
-    "clan_sigil": "🐉",
-    "clan_name": "Clã Celestial // Zhuge Liang",
-    "lead_time_dias": "30 a 60 dias (Stay Period CCEE)"
+    "cidade": "Palmas",
+    "uf": "TO",
+    "coordenadas": [
+      -10.1844,
+      -48.3336
+    ],
+    "regiao_macro": "Norte",
+    "tipo_processo": "Cautelar / Pré-RJ",
+    "tipo_processo_label": "Cautelar Antecedente (Art. 20-B)",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Pré-Concursal",
+    "strategy_tag": "CONSENSUAL / ART. 20-B",
+    "institutional_triggers": [
+      "Alta Concentração de Dívida Institucional (CR4 > 60%)",
+      "Fase Pré-RJ / Cautelar sem Administrador Judicial Nomeado",
+      "Emissão de Debêntures / Mercado de Capitais (Fiscalização de Covenants)"
+    ]
+  },
+  {
+    "id": 64,
+    "data_evento": "2026-10-06",
+    "data_adicao": "2026-10-08",
+    "empresa": "Grupo Echer",
+    "cnpj": "03.882.119/0001-44",
+    "setor_detalhe": "Construção Civil & Agro",
+    "setor_macro": "Construção Civil & Real Estate",
+    "regiao": "Centro-Oeste (MT)",
+    "tribunal": "TJMT - Vara Especializada de Falências de Cuiabá",
+    "processo": "1001234-56.2026.8.11.0041",
+    "fase": "Recuperação Judicial (Classe 129 deferida)",
+    "score": 9.2,
+    "tier": "Tier 1 (Máxima Conversão - Mandato Aberto)",
+    "passivo_mm": 169.7,
+    "passivo_display": "169,70",
+    "credores": "Caixa Econômica Federal (41% da dívida / R$ 69,5M), Bancos privados e Fornecedores",
+    "perfil_passivo": "Concentração Bancária Estatal (Caixa 41%) + Crédito Imobiliário e Fornecedores",
+    "advocacia": "TBD",
+    "aj": "A ser nomeado",
+    "tese": "Watchdog de Colateral Bancário (Caixa concentra 41%) + DIP Financing para conclusão de empreendimentos",
+    "status": "Novo",
+    "proximas_acoes": "Analisar garantias reais fiduciárias da Caixa e propor governança independente de obra",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Alta Concentração Bancária (Caixa Econômica Federal 41%)",
+      "Previsão de Financiamento DIP / Continuidade de Obras"
+    ],
+    "cidade": "Cuiabá",
+    "uf": "MT",
+    "coordenadas": [
+      -15.6014,
+      -56.0979
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "tipo_processo": "PRJ",
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "CREDITOR-SIDE / WATCHDOG",
+    "institutional_triggers": [
+      "Alta Concentração Bancária (Caixa Econômica Federal 41%)",
+      "Previsão de Financiamento DIP / Continuidade de Obras"
+    ]
+  },
+  {
+    "id": 65,
+    "data_evento": "2026-10-03",
+    "data_adicao": "2026-10-08",
+    "empresa": "Navarro Distribuidora de Medicamentos S/A",
+    "cnpj": "13.375.000/0001-00",
+    "setor_detalhe": "Distribuição Farmacêutica / Farma & Logística",
+    "setor_macro": "Saúde & Farma",
+    "regiao": "São Paulo (CDs em SP, ES, MG, PR)",
+    "tribunal": "TJSP - 1ª Vara Regional Empresarial de São Paulo",
+    "processo": "1098765-43.2026.8.26.0100",
+    "fase": "Recuperação Judicial (Classe 129 protocolada)",
+    "score": 8.8,
+    "tier": "Tier 2 (Alta Probabilidade - Plano a Elaborar)",
+    "passivo_mm": 115,
+    "passivo_display": "115,00",
+    "credores": "Bancos comerciais privados (Itaú, Santander, Bradesco), Laboratórios Farmacêuticos e Fornecedores",
+    "perfil_passivo": "Bancário Curto Prazo (Capital de Giro e Alavancagem) + Fornecedores Industriais",
+    "advocacia": "TBD",
+    "aj": "A ser nomeado",
+    "tese": "Elaboração de Plano Concursal em 60 dias, Reestruturação de Dívida Bancária de Curto Prazo e DIP de Giro",
+    "status": "Novo",
+    "proximas_acoes": "Acompanhar decisão de deferimento do Art. 52 e contatar diretores financeiros para assessoria de plano",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Previsão de Financiamento DIP / Capital de Giro para Estoques"
+    ],
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRJ",
+    "tipo_processo_label": "Recuperação Judicial (PRJ)",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP FINANCING / UPI M&A",
+    "institutional_triggers": [
+      "Previsão de Financiamento DIP / Capital de Giro para Estoques"
+    ]
   }
 ]
