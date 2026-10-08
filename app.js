@@ -838,9 +838,3 @@ function exportCSV() {
   a.click();
   document.body.removeChild(a);
 }
-"""
-
-with open(out_file, "w", encoding="utf-8") as f:
-    f.write(content.strip() + "\n")
-print("app.js successfully written!")
-'
