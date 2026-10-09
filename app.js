@@ -143,6 +143,56 @@ async function fetchDealsData() {
   }
 }
 
+// Macro-Sectors Normalizer (Elimina fragmentação no Front-end)
+function normalizeMacroSector(raw) {
+  const s = String(raw || '').trim().toLowerCase();
+  if (s.includes('agro') || s.includes('rural') || s.includes('safra') || s.includes('grãos') || s.includes('pecuária') || s.includes('soja') || s.includes('fertilizante') || s.includes('silvicultura')) {
+    return 'Agronegócio & Silvicultura';
+  }
+  if (s.includes('construção') || s.includes('real estate') || s.includes('imobiliár') || s.includes('steel frame') || s.includes('engenharia')) {
+    return 'Construção Civil & Real Estate';
+  }
+  if (s.includes('energia') || s.includes('elétrica') || s.includes('solar') || s.includes('biomassa') || s.includes('infraestrutura') || s.includes('concessão') || s.includes('rodoviár')) {
+    return 'Energia & Infraestrutura';
+  }
+  if (s.includes('saúde') || s.includes('hospital') || s.includes('farma') || s.includes('oncol') || s.includes('medic') || s.includes('resíduos')) {
+    return 'Saúde & Farma';
+  }
+  if (s.includes('varejo') || s.includes('comércio') || s.includes('franquia') || s.includes('loja') || s.includes('supermercado') || s.includes('moda') || s.includes('móve')) {
+    return 'Varejo & Consumo';
+  }
+  if (s.includes('tecnologia') || s.includes('software') || s.includes('ti') || s.includes('serviços b2b') || s.includes('logística') || s.includes('transporte')) {
+    return 'Tecnologia & Serviços B2B';
+  }
+  if (s.includes('financeiro') || s.includes('securitizadora') || s.includes('crédito') || s.includes('fidc') || s.includes('banco')) {
+    return 'Serviços Financeiros & Crédito';
+  }
+  return 'Indústria & Manufatura';
+}
+
+// Parser Numérico Defensivo (Evita bug de escala 100x)
+function parsePassivoValue(raw) {
+  if (typeof raw === 'number') return raw;
+  let s = String(raw || '').trim().replace(/R\$|MM/gi, '').trim();
+  if (!s || s.toUpperCase() === 'TBD') return 0.0;
+  
+  if (s.includes(',')) {
+    // Formato BR: 4.670,00 ou 304,72
+    s = s.replace(/\./g, '').replace(',', '.');
+  } else {
+    // Formato com apenas pontos
+    const parts = s.split('.');
+    if (parts.length === 2 && (parts[1].length === 1 || parts[1].length === 2)) {
+      // Float US (ex: 4670.00 ou 304.72) -> mantém o ponto
+    } else if (parts.length > 1) {
+      // Separador de milhar (ex: 14.842 ou 4.670)
+      s = s.replace(/\./g, '');
+    }
+  }
+  const val = parseFloat(s);
+  return isNaN(val) ? 0.0 : val;
+}
+
 function parseAppsScriptRows(rows) {
   const parsed = [];
   for (let r = 0; r < rows.length; r++) {
@@ -153,16 +203,8 @@ function parseAppsScriptRows(rows) {
     if (!empresa || empresa.toLowerCase().includes('empresa/grupo')) continue;
     if (empresa.toLowerCase().includes('safira')) continue;
 
-    let passivoVal = 0.0;
-    let passivoDisplay = String(row[11] || '0').trim();
-    try {
-      if (typeof row[11] === 'number') {
-        passivoVal = row[11];
-        passivoDisplay = passivoVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      } else {
-        passivoVal = parseFloat(passivoDisplay.replace(/\./g, '').replace(',', '.')) || 0.0;
-      }
-    } catch (e) { passivoVal = 0.0; }
+    const passivoVal = parsePassivoValue(row[11]);
+    const passivoDisplay = formatNumberBR(passivoVal);
 
     const trib = String(row[6] || '');
     const reg = String(row[5] || '');
@@ -184,6 +226,9 @@ function parseAppsScriptRows(rows) {
 
     const coord = CITY_COORDINATES[`${cidade},${uf}`] || [-23.5505, -46.6333];
     const regiaoMacro = UF_TO_REGION[uf] || 'Sudeste';
+
+    const rawSetor = String(row[4] || 'Indústria & Manufatura').trim();
+    const setorMacro = normalizeMacroSector(rawSetor);
 
     const faseLower = fase.toLowerCase();
     const tierLower = tier.toLowerCase();
@@ -232,7 +277,15 @@ function parseAppsScriptRows(rows) {
       triggers.push('Monitoramento Periódico de Autos e Covenants');
     }
 
-    const scoreVal = typeof row[9] === 'number' ? row[9] : (parseFloat(String(row[9] || '8.5').replace(',', '.')) || 8.5);
+    // Trava de Sanidade no Score (Evita '2026 / 10')
+    let scoreVal = 8.5;
+    if (typeof row[9] === 'number') {
+      scoreVal = row[9] > 10 ? 8.5 : row[9];
+    } else {
+      const parsedScore = parseFloat(String(row[9] || '8.5').replace(',', '.'));
+      scoreVal = (isNaN(parsedScore) || parsedScore > 10) ? 8.5 : parsedScore;
+    }
+
     let dataEvento = String(row[0] || '2026');
     if (dataEvento.includes('T')) dataEvento = dataEvento.split('T')[0];
 
@@ -241,9 +294,9 @@ function parseAppsScriptRows(rows) {
       data_evento: dataEvento,
       data_adicao: String(row[1] || '2026-10-08'),
       empresa: empresa,
-      cnpj: String(row[3] || '00.000.000/0001-00'),
-      setor_macro: String(row[4] || 'Indústria & Manufatura'),
-      setor_detalhe: String(row[4] || 'Geral'),
+      cnpj: String(row[3] || 'TBD'),
+      setor_macro: setorMacro,
+      setor_detalhe: rawSetor,
       regiao: reg,
       cidade: cidade,
       uf: uf,
