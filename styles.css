@@ -913,3 +913,45 @@ select:focus {
   .segmented-btn { flex: 1 1 auto; justify-content: center; }
   .dossier-grid { grid-template-columns: 1fr; }
 }
+/* ==========================================================================
+   Print Media Styles (Executive One-Pager PDF Export)
+   ========================================================================== */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    padding: 0 !important;
+  }
+  .navbar, .segmented-control, .strategy-banner, .filter-strip, .kpi-grid,
+  .map-section, .controls-bar, #contentArea, .modal-footer, .modal-close, .modal-tabs {
+    display: none !important;
+  }
+  .modal-overlay {
+    display: block !important;
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  .modal-container {
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+  }
+  .modal-header h2 {
+    color: #0F172A !important;
+    font-size: 20px !important;
+  }
+  .modal-header p, .dossier-label {
+    color: #475569 !important;
+  }
+  .dossier-card {
+    background: #F8FAFC !important;
+    border: 1px solid #CBD5E1 !important;
+  }
+  .dossier-value {
+    color: #0F172A !important;
+  }
+}

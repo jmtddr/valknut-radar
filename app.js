@@ -32,7 +32,12 @@ const STRATEGIES = {
     badge: 'FORENSICS // TIER 0',
     title: 'ESTRATÉGIA: DISTRESS PRECURSOR (TIER 0)',
     desc: 'Sinais forenses de estresse 60 a 120 dias antes do ajuizamento público: spikes no CENPROT, execuções fiscais PGFN, CVM Res. 175 e reguladores.'
-  }
+  },
+  debentures: {
+    badge: 'MERCADO DE CAPITAIS // CVM & AGDs',
+    title: 'ESTRATÉGIA: MONITOR CVM & DEBÊNTURES / AGDs',
+    desc: 'Empresas com debêntures, CRIs, CRAs e FIDCs com convocações de AGD para waivers, repactuação de covenants ou vencimento antecipado.'
+  },
 };
 
 const CITY_COORDINATES = {
@@ -94,6 +99,7 @@ let currentProcessType = '';
 let currentUf = '';
 let currentSetor = '';
 let currentSort = 'score_desc';
+let currentPorte = '';
 let searchTerm = '';
 let viewMode = 'table';
 let mapSectionOpen = false;
@@ -144,6 +150,20 @@ async function fetchDealsData() {
 }
 
 // Macro-Sectors Normalizer (Elimina fragmentação no Front-end)
+
+// Helper para identificação de dívidas de Mercado de Capitais (Debêntures / CVM / AGDs)
+function isDebenturesEligible(d) {
+  if (d.strategy_id === 'debentures') return true;
+  const blob = [
+    d.perfil_passivo || '',
+    d.credores || '',
+    d.tese || '',
+    ...(d.watchdog_triggers || [])
+  ].join(' ').toLowerCase();
+  const keywords = ['debênture', 'debenturista', 'cra', 'cri', 'fidc', 'mercado de capitais', 'vórtx', 'pentágono', 'oliveira trust', 'securitizadora', 'covenant', 'agd'];
+  return keywords.some(k => blob.includes(k));
+}
+
 function normalizeMacroSector(raw) {
   const s = String(raw || '').trim().toLowerCase();
   if (s.includes('agro') || s.includes('rural') || s.includes('safra') || s.includes('grãos') || s.includes('pecuária') || s.includes('soja') || s.includes('fertilizante') || s.includes('silvicultura')) {
@@ -371,7 +391,20 @@ async function forceSyncData() {
 
 function getFilteredDeals() {
   return DEALS_DATA.filter(item => {
-    if (currentStrategy !== 'all' && item.strategy_id !== currentStrategy) return false;
+    if (currentStrategy !== 'all') {
+      if (currentStrategy === 'debentures') {
+        if (!isDebenturesEligible(item)) return false;
+      } else if (item.strategy_id !== currentStrategy) {
+        return false;
+      }
+    }
+    if (currentPorte !== '') {
+      const p = item.passivo_mm || 0;
+      if (currentPorte === 'mid' && (p < 30 || p >= 100)) return false;
+      if (currentPorte === 'upper' && (p < 100 || p >= 500)) return false;
+      if (currentPorte === 'large' && (p < 500 || p >= 1000)) return false;
+      if (currentPorte === 'mega' && p < 1000) return false;
+    }
     if (currentProcessType !== '' && item.tipo_processo !== currentProcessType) return false;
     if (currentUf !== '' && item.uf !== currentUf) return false;
     if (currentSetor !== '' && item.setor_macro !== currentSetor) return false;
@@ -391,6 +424,12 @@ function getFilteredDeals() {
     if (currentSort === 'data_desc') return String(b.data_evento || '').localeCompare(String(a.data_evento || ''));
     return String(a.empresa || '').localeCompare(String(b.empresa || ''));
   });
+}
+
+// Arredondamento Limpo para Inteiro (Sem casas decimais desnecessárias em Milhões)
+function formatNumberBR(val) {
+  if (isNaN(val) || val === null || val === undefined) return '0';
+  return Math.round(Number(val)).toLocaleString('pt-BR');
 }
 
 function updateKPIs(deals) {
@@ -417,6 +456,8 @@ function updateStrategyCounters() {
   document.getElementById('count-dip').textContent = DEALS_DATA.filter(d => d.strategy_id === 'dip').length;
   document.getElementById('count-consensual').textContent = DEALS_DATA.filter(d => d.strategy_id === 'consensual').length;
   document.getElementById('count-precursor').textContent = DEALS_DATA.filter(d => d.strategy_id === 'precursor').length;
+  const debEl = document.getElementById('count-debentures');
+  if (debEl) debEl.textContent = DEALS_DATA.filter(d => isDebenturesEligible(d)).length;
 
   document.getElementById('proc-count-all').textContent = total;
   document.getElementById('proc-count-prj').textContent = DEALS_DATA.filter(d => d.tipo_processo === 'PRJ').length;
@@ -467,7 +508,8 @@ function renderTableView(deals, container) {
         <tbody>
   `;
   deals.forEach(item => {
-    const passivoStr = item.passivo_display || formatNumberBR(item.passivo_mm);
+    // Passivo sem casas decimais
+    const passivoStr = formatNumberBR(item.passivo_mm);
     const badgeCls = getBadgeClass(item.tipo_processo);
     const credoresTrunc = (item.credores && item.credores.length > 55) ? `${item.credores.substring(0, 55)}...` : (item.credores || 'Mapeamento em curso');
 
@@ -501,7 +543,7 @@ function renderTableView(deals, container) {
 function renderGridView(deals, container) {
   let html = `<div class="deal-grid">`;
   deals.forEach(item => {
-    const passivoStr = item.passivo_display || formatNumberBR(item.passivo_mm);
+    const passivoStr = formatNumberBR(item.passivo_mm);
     const badgeCls = getBadgeClass(item.tipo_processo);
 
     html += `
@@ -518,7 +560,7 @@ function renderGridView(deals, container) {
           <div class="deal-metrics-box">
             <div class="metric-item">
               <div class="metric-label">Passivo</div>
-              <div class="metric-val" style="color: var(--status-amber);">R$ ${escapeHtml(passivoStr)}</div>
+              <div class="metric-val" style="color: var(--status-amber);">R$ ${escapeHtml(passivoStr)} MM</div>
             </div>
             <div class="metric-item">
               <div class="metric-label">Score</div>
@@ -594,6 +636,12 @@ function handleSetorChange(val) {
   renderContent();
 }
 
+
+function handlePorteChange(val) {
+  currentPorte = val;
+  renderContent();
+}
+
 function handleSortChange(val) {
   currentSort = val;
   renderContent();
@@ -658,7 +706,7 @@ function updateMapMarkers() {
       <div style="font-family: var(--font-sans); color: #0F172A; min-width: 170px;">
         <strong style="font-size: 13px; display: block; margin-bottom: 2px;">${escapeHtml(item.empresa)}</strong>
         <div style="font-size: 10px; color: #64748B; margin-bottom: 6px;">${escapeHtml(item.cidade)}, ${escapeHtml(item.uf)}</div>
-        <div style="font-size: 11px; margin-bottom: 4px;"><strong>Passivo:</strong> R$ ${escapeHtml(item.passivo_display || formatNumberBR(item.passivo_mm))} MM</div>
+        <div style="font-size: 11px; margin-bottom: 4px;"><strong>Passivo:</strong> R$ ${escapeHtml(formatNumberBR(item.passivo_mm))} MM</div>
         <button onclick="openDossier(${item.id})" style="background: #0284C7; color: white; border: none; border-radius: 4px; padding: 4px 8px; font-size: 10px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 4px;">Abrir Ficha</button>
       </div>
     `;
@@ -710,7 +758,8 @@ function setModalTab(tab) {
   const d = currentModalItem;
   if (!d) return;
 
-  const passivoStr = d.passivo_display || formatNumberBR(d.passivo_mm);
+  // Formatação de passivo sem casas decimais
+  const passivoStr = formatNumberBR(d.passivo_mm);
 
   if (tab === 'visao') {
     body.innerHTML = `
@@ -807,7 +856,7 @@ function copyDossierSummary() {
   const text = `VALKNUT ANALYTICS // LEAD DOSSIER\n` +
     `Empresa: ${d.empresa}\n` +
     `CNPJ: ${d.cnpj}\n` +
-    `Passivo: R$ ${d.passivo_display || formatNumberBR(d.passivo_mm)} MM\n` +
+    `Passivo: R$ ${formatNumberBR(d.passivo_mm)} MM\n` +
     `Fase: ${d.fase || d.tipo_processo_label}\n` +
     `Processo: ${d.processo} (${d.tribunal})\n` +
     `Credores: ${d.credores}\n` +
@@ -819,9 +868,9 @@ function copyDossierSummary() {
   });
 }
 
-function formatNumberBR(val) {
-  if (isNaN(val)) return '0,00';
-  return val.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+// Abre caixa de diálogo de impressão para salvar One-Pager em PDF
+function printDossier() {
+  window.print();
 }
 
 function escapeHtml(str) {
@@ -874,7 +923,7 @@ function exportCSV() {
     `"${(d.tribunal || '').replace(/"/g, '""')}"`,
     `"${d.processo || ''}"`,
     `"${(d.fase || '').replace(/"/g, '""')}"`,
-    `"${d.passivo_display || d.passivo_mm || ''}"`,
+    `"${formatNumberBR(d.passivo_mm)}"`,
     d.score || '',
     `"${(d.credores || '').replace(/"/g, '""')}"`,
     `"${(d.tese || '').replace(/"/g, '""')}"`,

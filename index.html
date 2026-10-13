@@ -64,6 +64,9 @@
       <button class="segmented-btn" id="tab-precursor" onclick="setStrategy('precursor')">
         Distress Precursor (Tier 0) <span class="badge-count" id="count-precursor">0</span>
       </button>
+            <button class="segmented-btn" id="tab-debentures" onclick="setStrategy('debentures')">
+        Debêntures & CVM <span class="badge-count" id="count-debentures">0</span>
+      </button>
       <button class="segmented-btn" id="tab-map" onclick="toggleMap()">
         Mapa <span class="badge-map">GEO</span>
       </button>
@@ -150,6 +153,13 @@
         <select id="selectSetor" onchange="handleSetorChange(this.value)" aria-label="Filtrar por Setor">
           <option value="">Todos os Setores</option>
         </select>
+                <select id="selectPorte" onchange="handlePorteChange(this.value)" aria-label="Filtrar por Faixa de Passivo">
+          <option value="">Todos os Portes</option>
+          <option value="mid">Mid-Market (R$ 30M - 100M)</option>
+          <option value="upper">Upper-Mid (R$ 100M - 500M)</option>
+          <option value="large">Large Cap (R$ 500M - 1 Bi)</option>
+          <option value="mega">Mega Cases (> R$ 1 Bi)</option>
+        </select>
         <select id="selectSort" onchange="handleSortChange(this.value)" aria-label="Ordenar resultados">
           <option value="score_desc">Score Forense (Maior)</option>
           <option value="passivo_desc">Passivo Total (Maior)</option>
@@ -190,6 +200,7 @@
         <!-- Injetado dinamicamente -->
       </div>
       <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="printDossier()" title="Imprimir ou Salvar One-Pager em PDF"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg> Imprimir / PDF</button>
         <button class="btn btn-secondary" onclick="copyDossierSummary()">Copiar Resumo</button>
         <button class="btn btn-primary" onclick="closeModal()">Fechar</button>
       </div>
