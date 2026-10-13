@@ -34,6 +34,10 @@
         <span class="pulse-dot"></span>
         <span class="status-text" id="lastUpdateTime">CONECTANDO...</span>
       </div>
+            <button class="btn btn-secondary" onclick="openBancometroModal()" title="Ver Exposição Agregada dos Bancos">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+        Bancômetro
+      </button>
       <button class="btn btn-secondary" onclick="forceSyncData()">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
         Atualizar
@@ -172,6 +176,8 @@
         <div class="view-toggle">
           <button class="view-btn active" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
           <button class="view-btn" id="btnViewGrid" onclick="setViewMode('grid')">Cards</button>
+          <button class="view-btn" id="btnViewTimeline" onclick="setViewMode('timeline')">Prazos & AGCs</button>
+
         </div>
       </div>
     </div>
@@ -206,6 +212,27 @@
         <button class="btn btn-secondary" onclick="printDossier()" title="Imprimir ou Salvar One-Pager em PDF"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg> Imprimir / PDF</button>
         <button class="btn btn-secondary" onclick="copyDossierSummary()">Copiar Resumo</button>
         <button class="btn btn-primary" onclick="closeModal()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Modal do Bancômetro (Exposição Agregada) -->
+  <div class="modal-overlay" id="bancometroModal" onclick="handleBancometroOverlayClick(event)" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 720px;" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <h2>BANCÔMETRO // MATRIZ DE EXPOSIÇÃO DE CREDORES</h2>
+          <p>Ranking de passivo em risco acumulado por instituição financeira no radar</p>
+        </div>
+        <button class="modal-close" onclick="closeBancometroModal()" aria-label="Fechar modal (Esc)">&times;</button>
+      </div>
+      <div class="modal-body" id="bancometroBody" style="padding: 20px;">
+        <!-- Injetado dinamicamente -->
+      </div>
+      <div class="modal-footer">
+        <span style="font-size: 11px; color: var(--text-tertiary);">Clique em um banco para filtrar os casos correspondentes</span>
+        <button class="btn btn-primary" onclick="closeBancometroModal()">Fechar</button>
       </div>
     </div>
   </div>

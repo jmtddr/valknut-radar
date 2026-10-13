@@ -161,6 +161,38 @@ async function fetchDealsData() {
 // Macro-Sectors Normalizer (Elimina fragmentação no Front-end)
 
 // Helper para identificação de dívidas de Mercado de Capitais (Debêntures / CVM / AGDs)
+
+// Helper para identificação de ativos para UPI e M&A Distressed (Módulo 2)
+function isUpiEligible(d) {
+  const blob = [
+    d.tese || '',
+    d.perfil_passivo || '',
+    ...(d.watchdog_triggers || [])
+  ].join(' ').toLowerCase();
+  const keywords = ['upi', 'alienação', 'desinvestimento', 'ativo', 'fazenda', 'silo', 'marca', 'usina', 'galpão', 'm&a'];
+  return keywords.some(k => blob.includes(k));
+}
+
+// Extrator de diagnóstico de crise para o Módulo 7 (Doc AI)
+function extractCriseDiagnostico(d) {
+  const tese = (d.tese || '').toLowerCase();
+  const setor = (d.setor_macro || '').toLowerCase();
+  if (setor.includes('agro')) return 'Quebra de safra climática, quebra de contratos de Barter/CPRs e custos de fertilizantes.';
+  if (setor.includes('varejo')) return 'Aumento de custos financeiros de capital de giro (CDI elevado), aluguéis mínimos de lojas e contração de consumo.';
+  if (setor.includes('energia')) return 'Descompasso entre preços de liquidação de energia no MCP da CCEE e garantias fiduciárias.';
+  if (setor.includes('construção')) return 'Atraso em medições públicas, juros em plano empresário e descasamento de fluxo de obras.';
+  if (tese.includes('debênture')) return 'Vencimento antecipado de séries de debêntures e quebra de covenants de alavancagem financeira.';
+  return 'Estrangulamento de liquidez de curto prazo, concentração bancária e necessidade de reescalonamento de dívida quirografária.';
+}
+
+function extractGargaloImediato(d) {
+  const perfil = (d.perfil_passivo || '').toLowerCase();
+  if (perfil.includes('debênture')) return 'Exigibilidade iminente de amortização de debêntures com risco de cross-default.';
+  if (perfil.includes('cpr') || perfil.includes('barter')) return 'Ações de arresto de grãos em armazéns e bloqueio de CPRs.';
+  if (perfil.includes('fidc')) return 'Travas de recebíveis e liquidação antecipada de carteiras de FIDCs.';
+  return 'Bloqueio de contas de giro, vencimento antecipado por sindicato bancário e pressão de fornecedores essenciais.';
+}
+
 function isDebenturesEligible(d) {
   if (d.strategy_id === 'debentures') return true;
   const blob = [
@@ -357,6 +389,87 @@ function parseAppsScriptRows(rows) {
   return parsed;
 }
 
+
+// Módulo 4: Bancômetro (Matriz de Exposição de Credores)
+function openBancometroModal() {
+  const modal = document.getElementById('bancometroModal');
+  const body = document.getElementById('bancometroBody');
+  if (!modal || !body) return;
+
+  const banks = {
+    'Bradesco': { cases: 0, volume: 0, kw: ['bradesco'] },
+    'Santander': { cases: 0, volume: 0, kw: ['santander'] },
+    'Itaú Unibanco': { cases: 0, volume: 0, kw: ['itaú', 'itau'] },
+    'Banco do Brasil': { cases: 0, volume: 0, kw: ['banco do brasil', 'bb '] },
+    'Caixa Econômica Federal': { cases: 0, volume: 0, kw: ['caixa', 'cef'] },
+    'BTG Pactual': { cases: 0, volume: 0, kw: ['btg'] },
+    'Agentes Fiduciários (Debêntures/CRIs/CRAs)': { cases: 0, volume: 0, kw: ['vórtx', 'pentágono', 'oliveira trust', 'debenturista', 'debenture', 'securitizadora'] },
+    'Bancos Regionais & Cooperativas': { cases: 0, volume: 0, kw: ['banrisul', 'sicredi', 'sicoob', 'brde', 'basa', 'bnb'] }
+  };
+
+  DEALS_DATA.forEach(d => {
+    const credores = ((d.credores || '') + ' ' + (d.perfil_passivo || '')).toLowerCase();
+    const passivo = d.passivo_mm || 0;
+    Object.keys(banks).forEach(b => {
+      if (banks[b].kw.some(k => credores.includes(k))) {
+        banks[b].cases += 1;
+        banks[b].volume += passivo;
+      }
+    });
+  });
+
+  const sortedBanks = Object.keys(banks)
+    .map(name => ({ name, ...banks[name] }))
+    .sort((a, b) => b.volume - a.volume);
+
+  const maxVol = sortedBanks.length > 0 ? sortedBanks[0].volume : 1;
+
+  let html = `<div class="bank-matrix-grid">`;
+  sortedBanks.forEach(b => {
+    const pct = Math.min(Math.round((b.volume / maxVol) * 100), 100);
+    const volStr = formatKpiScale(b.volume);
+    html += `
+      <div class="bank-row" onclick="filterByBank('${escapeHtml(b.kw[0])}')" title="Filtrar casos do ${escapeHtml(b.name)}">
+        <div style="flex: 1;">
+          <div class="bank-name">${escapeHtml(b.name)}</div>
+          <div class="bank-meta">${b.cases} processos sob estresse</div>
+          <div class="bank-bar-container">
+            <div class="bank-bar-fill" style="width: ${pct}%;"></div>
+          </div>
+        </div>
+        <div class="bank-metrics" style="margin-left: 20px;">
+          <div class="bank-volume">R$ ${volStr}</div>
+          <div class="bank-cases">${b.cases} deals</div>
+        </div>
+      </div>
+    `;
+  });
+  html += `</div>`;
+
+  body.innerHTML = html;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBancometroModal() {
+  const modal = document.getElementById('bancometroModal');
+  if (modal) modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function handleBancometroOverlayClick(e) {
+  if (e.target.id === 'bancometroModal') closeBancometroModal();
+}
+
+function filterByBank(keyword) {
+  closeBancometroModal();
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.value = keyword;
+    handleSearch(keyword);
+  }
+}
+
 function setupSmartPolling() {
   const POLLING_INTERVAL_MS = 15 * 60 * 1000;
   setInterval(async () => {
@@ -489,6 +602,93 @@ function updateStrategyCounters() {
   document.getElementById('proc-count-tier0').textContent = DEALS_DATA.filter(d => d.tipo_processo === 'Tier 0').length;
 }
 
+
+// Módulo 5: Renderização do Calendário e Prazos Fatais
+function renderTimelineView(deals, container) {
+  if (deals.length === 0) {
+    container.innerHTML = `<div class="empty-state">Nenhum processo com prazos ativos no filtro atual.</div>`;
+    return;
+  }
+
+  // Ordena por proximidade da data do evento (mais recente primeiro)
+  const sortedDeals = [...deals].sort((a, b) => String(b.data_evento || '').localeCompare(String(a.data_evento || '')));
+
+  let html = `<div class="timeline-list">`;
+  sortedDeals.forEach(d => {
+    const passivoStr = formatNumberBR(d.passivo_mm);
+    const badgeCls = getBadgeClass(d.tipo_processo);
+    const upiBadge = isUpiEligible(d) ? `<span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34D399; font-size: 9px; margin-left: 6px;">UPI ELEGÍVEL</span>` : '';
+
+    // Cálculo do Stay Period estimado com base na fase concursal
+    let stayDias = 180;
+    let labelMarco = 'Fim do Stay Period (180d)';
+    if (d.tipo_processo === 'Cautelar / Pré-RJ') {
+      stayDias = 60;
+      labelMarco = 'Fim da Blindagem Art. 20-B (60d)';
+    } else if (d.tipo_processo === 'PRE') {
+      stayDias = 90;
+      labelMarco = 'Prazo de Adesão Qualificada (90d)';
+    } else if (d.tipo_processo === 'Tier 0') {
+      stayDias = 60;
+      labelMarco = 'Janela Preditiva Pré-Crise (60-120d)';
+    }
+
+    // Calcula data limite estimada
+    let dtLimiteStr = 'Em apuração';
+    let statusPill = '<span class="deadline-status-pill status-ok">No Prazo Legal</span>';
+    if (d.data_evento && d.data_evento.length >= 10) {
+      const dt = new Date(d.data_evento + 'T12:00:00');
+      if (!isNaN(dt.getTime())) {
+        dt.setDate(dt.getDate() + stayDias);
+        dtLimiteStr = dt.toLocaleDateString('pt-BR');
+        const hoje = new Date();
+        const diffDias = Math.round((dt.getTime() - hoje.getTime()) / (1000 * 3600 * 24));
+        if (diffDias < 15 && diffDias >= 0) {
+          statusPill = `<span class="deadline-status-pill status-urgente">🚨 Vence em ${diffDias}d</span>`;
+        } else if (diffDias < 30 && diffDias >= 0) {
+          statusPill = `<span class="deadline-status-pill status-atencao">⚠️ Vence em ${diffDias}d</span>`;
+        } else if (diffDias < 0) {
+          statusPill = `<span class="deadline-status-pill status-atencao">Prorrogação / AGC</span>`;
+        }
+      }
+    }
+
+    html += `
+      <div class="timeline-card" onclick="openDossier(${d.id})">
+        <div class="timeline-info" style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;">
+            <span class="badge ${badgeCls}">${escapeHtml(d.tipo_processo)}</span>
+            ${upiBadge}
+            <h4>${escapeHtml(d.empresa)}</h4>
+          </div>
+          <p>${escapeHtml(d.cidade)}, ${escapeHtml(d.uf)} &bull; ${escapeHtml(d.tribunal)} &bull; Autos: ${escapeHtml(d.processo || 'Em autuação')}</p>
+        </div>
+
+        <div class="timeline-deadlines">
+          <div class="deadline-item">
+            <div class="deadline-label">Data de Distribuição</div>
+            <div class="deadline-val">${escapeHtml(d.data_evento ? new Date(d.data_evento + 'T12:00:00').toLocaleDateString('pt-BR') : 'N/D')}</div>
+          </div>
+          <div class="deadline-item">
+            <div class="deadline-label">${labelMarco}</div>
+            <div class="deadline-val" style="color: var(--status-amber);">${dtLimiteStr}</div>
+          </div>
+          <div class="deadline-item" style="min-width: 110px;">
+            ${statusPill}
+          </div>
+          <div class="deadline-item">
+            <div class="deadline-label">Passivo Total</div>
+            <div class="deadline-val" style="color: var(--primary);">R$ ${passivoStr} MM</div>
+          </div>
+          <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 11px;">Ver Ficha</button>
+        </div>
+      </div>
+    `;
+  });
+  html += `</div>`;
+  container.innerHTML = html;
+}
+
 function renderContent() {
   const deals = getFilteredDeals();
   updateKPIs(deals);
@@ -499,8 +699,10 @@ function renderContent() {
   }
   if (viewMode === 'table') {
     renderTableView(deals, container);
-  } else {
+  } else if (viewMode === 'grid') {
     renderGridView(deals, container);
+  } else if (viewMode === 'timeline') {
+    renderTimelineView(deals, container);
   }
   if (mapSectionOpen) updateMapMarkers();
 }
@@ -540,6 +742,7 @@ function renderTableView(deals, container) {
     // Passivo sem casas decimais
     const passivoStr = formatNumberBR(item.passivo_mm);
     const badgeCls = getBadgeClass(item.tipo_processo);
+    const upiBadge = isUpiEligible(item) ? `<span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34D399; font-size: 9px; margin-left: 4px;">UPI</span>` : '';
     const credoresTrunc = (item.credores && item.credores.length > 55) ? `${item.credores.substring(0, 55)}...` : (item.credores || 'Mapeamento em curso');
 
     html += `
@@ -549,7 +752,7 @@ function renderTableView(deals, container) {
           <span class="company-meta">${escapeHtml(item.cnpj)} &bull; ${escapeHtml(item.setor_macro)}</span>
         </td>
         <td>
-          <span class="badge ${badgeCls}">${escapeHtml(item.tipo_processo_label || item.tipo_processo)}</span>
+          <span class="badge ${badgeCls}">${escapeHtml(item.tipo_processo_label || item.tipo_processo)}</span>${upiBadge}
           <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 3px; font-family: var(--font-mono);">${escapeHtml(item.processo || 'N/A')}</div>
         </td>
         <td>
@@ -692,8 +895,12 @@ function handleSortChange(val) {
 
 function setViewMode(mode) {
   viewMode = mode;
-  document.getElementById('btnViewTable').classList.toggle('active', mode === 'table');
-  document.getElementById('btnViewGrid').classList.toggle('active', mode === 'grid');
+  const btnTable = document.getElementById('btnViewTable');
+  const btnGrid = document.getElementById('btnViewGrid');
+  const btnTimeline = document.getElementById('btnViewTimeline');
+  if (btnTable) btnTable.classList.toggle('active', mode === 'table');
+  if (btnGrid) btnGrid.classList.toggle('active', mode === 'grid');
+  if (btnTimeline) btnTimeline.classList.toggle('active', mode === 'timeline');
   renderContent();
 }
 
@@ -823,10 +1030,24 @@ function setModalTab(tab) {
           <div class="dossier-label">Macro-Setor & Segmento</div>
           <div class="dossier-value">${escapeHtml(d.setor_macro)} &bull; ${escapeHtml(d.setor_detalhe)}</div>
         </div>
-        <div class="dossier-card full-width">
-          <div class="dossier-label">Tese de Mandato & Situação Especial</div>
-          <div class="dossier-value" style="font-size: 13px; font-weight: 500; color: #E2E8F0;">${escapeHtml(d.tese)}</div>
+        <div class="dossier-card full-width" style="border-left: 3px solid var(--primary); background: rgba(2, 132, 199, 0.05);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div class="dossier-label" style="color: var(--primary); margin-bottom: 0;">SÍNTESE JURÍDICO-FORENSE DA PETIÇÃO INICIAL (DOC AI)</div>
+            <span style="font-size: 10px; font-family: var(--font-mono); color: var(--text-tertiary);">ANÁLISE DE MINUTO ZERO</span>
+          </div>
+          <div style="font-size: 13px; color: #E2E8F0; line-height: 1.6;">
+            <p style="margin-bottom: 6px;"><strong>Origem Declarada da Crise:</strong> ${extractCriseDiagnostico(d)}</p>
+            <p style="margin-bottom: 6px;"><strong>Gargalo Financeiro Imediato:</strong> ${extractGargaloImediato(d)}</p>
+            <p><strong>Tese & Ângulo de Mandato:</strong> ${escapeHtml(d.tese)}</p>
+          </div>
         </div>
+        ${isUpiEligible(d) ? `
+        <div class="dossier-card full-width" style="border-left: 3px solid #10B981; background: rgba(16, 185, 129, 0.05);">
+          <div class="dossier-label" style="color: #34D399;">CATÁLOGO DE ATIVOS & UPIS PARA ALIENAÇÃO JUDICIAL (M&A DISTRESSED)</div>
+          <div style="font-size: 13px; color: #E2E8F0; line-height: 1.5;">
+            Ativos operacionais, plantas industriais, fazendas ou unidades isoladas passíveis de venda limpa sem sucessão de passivos concursais (Art. 60 e 66-A da Lei 11.101/05).
+          </div>
+        </div>` : ''}
         <div class="dossier-card full-width">
           <div class="dossier-label">Plano Tático & Próximos Passos</div>
           <div class="dossier-value" style="font-size: 13px; font-weight: 500; color: var(--text-secondary);">${escapeHtml(d.proximas_acoes || 'Acompanhamento processual ativo.')}</div>
