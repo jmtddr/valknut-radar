@@ -115,6 +115,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function bootstrapApp() {
+  if (window.innerWidth < 768) {
+    viewMode = 'grid';
+    const btnTable = document.getElementById('btnViewTable');
+    const btnGrid = document.getElementById('btnViewGrid');
+    if (btnTable && btnGrid) {
+      btnTable.classList.remove('active');
+      btnGrid.classList.add('active');
+    }
+  }
   await fetchDealsData();
   populateDropdownFilters();
   updateStrategyCounters();
@@ -420,8 +429,11 @@ function getFilteredDeals() {
     return true;
   }).sort((a, b) => {
     if (currentSort === 'score_desc') return (b.score || 0) - (a.score || 0);
+    if (currentSort === 'score_asc') return (a.score || 0) - (b.score || 0);
     if (currentSort === 'passivo_desc') return (b.passivo_mm || 0) - (a.passivo_mm || 0);
+    if (currentSort === 'passivo_asc') return (a.passivo_mm || 0) - (b.passivo_mm || 0);
     if (currentSort === 'data_desc') return String(b.data_evento || '').localeCompare(String(a.data_evento || ''));
+    if (currentSort === 'empresa_desc') return String(b.empresa || '').localeCompare(String(a.empresa || ''));
     return String(a.empresa || '').localeCompare(String(b.empresa || ''));
   });
 }
@@ -430,6 +442,17 @@ function getFilteredDeals() {
 function formatNumberBR(val) {
   if (isNaN(val) || val === null || val === undefined) return '0';
   return Math.round(Number(val)).toLocaleString('pt-BR');
+}
+
+
+// Escala Inteligente para KPIs (Bi para >= 1.000 MM, MM para menores)
+function formatKpiScale(val) {
+  if (isNaN(val) || val === null || val === undefined || val === 0) return '0 MM';
+  if (val >= 1000) {
+    const bi = val / 1000.0;
+    return `${bi.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} Bi`;
+  }
+  return `${Math.round(val).toLocaleString('pt-BR')} MM`;
 }
 
 function updateKPIs(deals) {
@@ -441,10 +464,10 @@ function updateKPIs(deals) {
   });
   const ufs = new Set(deals.map(d => d.uf).filter(Boolean));
 
-  document.getElementById('kpiTotalVolume').textContent = `R$ ${formatNumberBR(totalVolume)} MM`;
+  document.getElementById('kpiTotalVolume').textContent = `R$ ${formatKpiScale(totalVolume)}`;
   document.getElementById('kpiActiveDeals').textContent = deals.length;
   document.getElementById('kpiAvgTicket').textContent = `R$ ${formatNumberBR(avgTicket)} MM`;
-  document.getElementById('kpiMaxPassivo').textContent = `R$ ${formatNumberBR(maxDeal.passivo_mm)} MM`;
+  document.getElementById('kpiMaxPassivo').textContent = `R$ ${formatKpiScale(maxDeal.passivo_mm)}`;
   document.getElementById('kpiMaxCompany').textContent = maxDeal.empresa;
   document.getElementById('kpiJurisdictions').textContent = `${ufs.size} UFs Ativas`;
 }
@@ -496,12 +519,18 @@ function renderTableView(deals, container) {
       <table class="table">
         <thead>
           <tr>
-            <th style="width: 28%;">Empresa / Setor & CNPJ</th>
+            <th style="width: 28%; cursor: pointer; user-select: none;" onclick="toggleSort('empresa')" title="Ordenar por Empresa (A-Z / Z-A)">
+              Empresa / Setor & CNPJ <span style="font-size: 10px; opacity: 0.8; margin-left: 4px;">${currentSort.startsWith('empresa') ? (currentSort === 'empresa_asc' ? '▲' : '▼') : '↕'}</span>
+            </th>
             <th style="width: 14%;">Fase Concursal</th>
             <th style="width: 14%;">Jurisdição</th>
-            <th style="width: 13%; text-align: right;">Passivo (R$ MM)</th>
+            <th style="width: 13%; text-align: right; cursor: pointer; user-select: none;" onclick="toggleSort('passivo')" title="Ordenar por Passivo (Maior / Menor)">
+              Passivo (R$ MM) <span style="font-size: 10px; opacity: 0.8; margin-left: 4px;">${currentSort.startsWith('passivo') ? (currentSort === 'passivo_desc' ? '▼' : '▲') : '↕'}</span>
+            </th>
             <th style="width: 18%;">Principais Credores</th>
-            <th style="width: 5%; text-align: center;">Score</th>
+            <th style="width: 5%; text-align: center; cursor: pointer; user-select: none;" onclick="toggleSort('score')" title="Ordenar por Score (Maior / Menor)">
+              Score <span style="font-size: 10px; opacity: 0.8; margin-left: 4px;">${currentSort.startsWith('score') ? (currentSort === 'score_desc' ? '▼' : '▲') : '↕'}</span>
+            </th>
             <th style="width: 8%; text-align: center;">Ações</th>
           </tr>
         </thead>
@@ -639,6 +668,20 @@ function handleSetorChange(val) {
 
 function handlePorteChange(val) {
   currentPorte = val;
+  renderContent();
+}
+
+
+function toggleSort(col) {
+  if (col === 'passivo') {
+    currentSort = currentSort === 'passivo_desc' ? 'passivo_asc' : 'passivo_desc';
+  } else if (col === 'score') {
+    currentSort = currentSort === 'score_desc' ? 'score_asc' : 'score_desc';
+  } else if (col === 'empresa') {
+    currentSort = currentSort === 'empresa_asc' ? 'empresa_desc' : 'empresa_asc';
+  }
+  const sortSelect = document.getElementById('selectSort');
+  if (sortSelect) sortSelect.value = currentSort;
   renderContent();
 }
 

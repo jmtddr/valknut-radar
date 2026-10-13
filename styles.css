@@ -35,8 +35,8 @@
   /* Typography Colors */
   --text-primary: #F8FAFC;
   --text-secondary: #94A3B8;
-  --text-tertiary: #64748B;
-  --text-dim: #475569;
+  --text-tertiary: #94A3B8;
+  --text-dim: #64748B;
 
   /* Typography Families */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -902,16 +902,33 @@ select:focus {
 
 @media (max-width: 960px) {
   .container { padding: 16px; }
-  .strategy-banner { flex-direction: column; align-items: flex-start; }
+  .strategy-banner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .strategy-meta { text-align: left; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .segmented-control {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: 100%;
+    padding-bottom: 6px;
+  }
+  .segmented-control::-webkit-scrollbar { display: none; }
+  .segmented-btn { flex-shrink: 0; }
+  .controls-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .select-group { flex-direction: column; align-items: stretch; gap: 8px; }
+  select { width: 100%; }
 }
 
 @media (max-width: 640px) {
   .navbar { padding: 10px 16px; }
   .brand-info p { display: none; }
-  .segmented-control { width: 100%; }
-  .segmented-btn { flex: 1 1 auto; justify-content: center; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .deal-grid { grid-template-columns: 1fr; }
   .dossier-grid { grid-template-columns: 1fr; }
+  .filter-strip { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .filter-pills { overflow-x: auto; flex-wrap: nowrap; width: 100%; padding-bottom: 4px; }
+  .pill { flex-shrink: 0; }
 }
 /* ==========================================================================
    Print Media Styles (Executive One-Pager PDF Export)

@@ -162,9 +162,12 @@
         </select>
         <select id="selectSort" onchange="handleSortChange(this.value)" aria-label="Ordenar resultados">
           <option value="score_desc">Score Forense (Maior)</option>
+          <option value="score_asc">Score Forense (Menor)</option>
           <option value="passivo_desc">Passivo Total (Maior)</option>
+          <option value="passivo_asc">Passivo Total (Menor)</option>
           <option value="data_desc">Data Mais Recente</option>
           <option value="empresa_asc">Empresa (A-Z)</option>
+          <option value="empresa_desc">Empresa (Z-A)</option>
         </select>
         <div class="view-toggle">
           <button class="view-btn active" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
