@@ -546,12 +546,24 @@ function getFilteredDeals() {
     if (currentSort === 'passivo_desc') return (b.passivo_mm || 0) - (a.passivo_mm || 0);
     if (currentSort === 'passivo_asc') return (a.passivo_mm || 0) - (b.passivo_mm || 0);
     if (currentSort === 'data_desc') return String(b.data_evento || '').localeCompare(String(a.data_evento || ''));
+    if (currentSort === 'data_asc') return String(a.data_evento || '').localeCompare(String(b.data_evento || ''));
     if (currentSort === 'empresa_desc') return String(b.empresa || '').localeCompare(String(a.empresa || ''));
     return String(a.empresa || '').localeCompare(String(b.empresa || ''));
   });
 }
 
 // Arredondamento Limpo para Inteiro (Sem casas decimais desnecessárias em Milhões)
+
+function formatDateBR(dateStr) {
+  if (!dateStr || String(dateStr).trim() === '' || dateStr === 'N/D') return 'N/D';
+  const clean = String(dateStr).split('T')[0].trim();
+  const parts = clean.split('-');
+  if (parts.length === 3) {
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  }
+  return clean;
+}
+
 function formatNumberBR(val) {
   if (isNaN(val) || val === null || val === undefined) return '0';
   return Math.round(Number(val)).toLocaleString('pt-BR');
@@ -579,7 +591,7 @@ function updateKPIs(deals) {
 
   document.getElementById('kpiTotalVolume').textContent = `R$ ${formatKpiScale(totalVolume)}`;
   document.getElementById('kpiActiveDeals').textContent = deals.length;
-  document.getElementById('kpiAvgTicket').textContent = `R$ ${formatNumberBR(avgTicket)} MM`;
+  document.getElementById('kpiAvgTicket').textContent = `R$ ${formatKpiScale(avgTicket)}`;
   document.getElementById('kpiMaxPassivo').textContent = `R$ ${formatKpiScale(maxDeal.passivo_mm)}`;
   document.getElementById('kpiMaxCompany').textContent = maxDeal.empresa;
   document.getElementById('kpiJurisdictions').textContent = `${ufs.size} UFs Ativas`;
@@ -721,19 +733,22 @@ function renderTableView(deals, container) {
       <table class="table">
         <thead>
           <tr>
-            <th style="width: 28%; cursor: pointer; user-select: none;" onclick="toggleSort('empresa')" title="Ordenar por Empresa (A-Z / Z-A)">
+            <th style="width: 25%; cursor: pointer; user-select: none;" onclick="toggleSort('empresa')" title="Ordenar por Empresa (A-Z / Z-A)">
               Empresa / Setor & CNPJ <span style="font-size: 10px; opacity: 0.8; margin-left: 4px;">${currentSort.startsWith('empresa') ? (currentSort === 'empresa_asc' ? '▲' : '▼') : '↕'}</span>
             </th>
-            <th style="width: 14%;">Fase Concursal</th>
-            <th style="width: 14%;">Jurisdição</th>
-            <th style="width: 13%; text-align: right; cursor: pointer; user-select: none;" onclick="toggleSort('passivo')" title="Ordenar por Passivo (Maior / Menor)">
+            <th style="width: 13%;">Fase Concursal</th>
+            <th style="width: 11%; cursor: pointer; user-select: none;" onclick="toggleSort('data')" title="Ordenar por Data do Evento / Movimento">
+              Movimento / Inclusão <span style="font-size: 10px; opacity: 0.8; margin-left: 4px;">${currentSort.startsWith('data') ? (currentSort === 'data_desc' ? '▼' : '▲') : '↕'}</span>
+            </th>
+            <th style="width: 12%;">Jurisdição</th>
+            <th style="width: 12%; text-align: right; cursor: pointer; user-select: none;" onclick="toggleSort('passivo')" title="Ordenar por Passivo (Maior / Menor)">
               Passivo (R$ MM) <span style="font-size: 10px; opacity: 0.8; margin-left: 4px;">${currentSort.startsWith('passivo') ? (currentSort === 'passivo_desc' ? '▼' : '▲') : '↕'}</span>
             </th>
-            <th style="width: 18%;">Principais Credores</th>
+            <th style="width: 15%;">Principais Credores</th>
             <th style="width: 5%; text-align: center; cursor: pointer; user-select: none;" onclick="toggleSort('score')" title="Ordenar por Score (Maior / Menor)">
               Score <span style="font-size: 10px; opacity: 0.8; margin-left: 4px;">${currentSort.startsWith('score') ? (currentSort === 'score_desc' ? '▼' : '▲') : '↕'}</span>
             </th>
-            <th style="width: 8%; text-align: center;">Ações</th>
+            <th style="width: 7%; text-align: center;">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -754,6 +769,14 @@ function renderTableView(deals, container) {
         <td>
           <span class="badge ${badgeCls}">${escapeHtml(item.tipo_processo_label || item.tipo_processo)}</span>${upiBadge}
           <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 3px; font-family: var(--font-mono);">${escapeHtml(item.processo || 'N/A')}</div>
+        </td>
+        <td>
+          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: #FFFFFF;" title="Data do Fato / Último Movimento">
+            ${formatDateBR(item.data_evento)}
+          </div>
+          <div style="font-size: 10px; color: var(--text-tertiary); font-family: var(--font-mono); margin-top: 1px;" title="Data de Inclusão no Radar">
+            Inc: ${formatDateBR(item.data_adicao)}
+          </div>
         </td>
         <td>
           <div style="font-weight: 600; color: #FFF;">${escapeHtml(item.cidade)}, ${escapeHtml(item.uf)}</div>
@@ -882,6 +905,8 @@ function toggleSort(col) {
     currentSort = currentSort === 'score_desc' ? 'score_asc' : 'score_desc';
   } else if (col === 'empresa') {
     currentSort = currentSort === 'empresa_asc' ? 'empresa_desc' : 'empresa_asc';
+  } else if (col === 'data') {
+    currentSort = currentSort === 'data_desc' ? 'data_asc' : 'data_desc';
   }
   const sortSelect = document.getElementById('selectSort');
   if (sortSelect) sortSelect.value = currentSort;
@@ -912,11 +937,24 @@ function toggleMap() {
 
   if (mapSectionOpen) {
     if (!leafletMapInstance) {
-      leafletMapInstance = L.map('map', { center: [-15.7938, -47.8827], zoom: 4 });
-      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Esri, CartoDB',
-        maxZoom: 18
+      // Enquadramento focado e confinado ao território brasileiro
+      leafletMapInstance = L.map('map', {
+        center: [-14.8, -52.5],
+        zoom: 4,
+        minZoom: 3.8,
+        maxZoom: 12,
+        maxBounds: [[-35.0, -75.0], [6.5, -30.0]],
+        maxBoundsViscosity: 1.0,
+        zoomControl: true
+      });
+
+      // CartoDB Dark Matter Retina (@2x): Ultra-nítido, alto contraste e estético
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://carto.com/">CARTO</a> &bull; OpenStreetMap',
+        subdomains: 'abcd',
+        maxZoom: 19
       }).addTo(leafletMapInstance);
+
       leafletMarkersLayer = L.layerGroup().addTo(leafletMapInstance);
     }
     setTimeout(() => {
@@ -933,41 +971,92 @@ function updateMapMarkers() {
   const deals = getFilteredDeals();
   const bounds = [];
 
-  deals.forEach(item => {
-    if (!item.coordenadas || !Array.isArray(item.coordenadas) || item.coordenadas.length !== 2) return;
-    const [lat, lng] = item.coordenadas;
-    if (isNaN(lat) || isNaN(lng)) return;
-
-    let markerColor = '#0284C7';
-    if (item.tipo_processo === 'PRJ') markerColor = '#F59E0B';
-    if (item.tipo_processo === 'PRE') markerColor = '#0EA5E9';
-    if (item.tipo_processo === 'Cautelar / Pré-RJ') markerColor = '#F43F5E';
-    if (item.tipo_processo === 'Tier 0') markerColor = '#A855F7';
-
-    const circle = L.circleMarker([lat, lng], {
-      radius: 6.5,
-      fillColor: markerColor,
-      color: '#FFFFFF',
-      weight: 1.5,
-      fillOpacity: 0.85
-    });
-
-    const popupHtml = `
-      <div style="font-family: var(--font-sans); color: #0F172A; min-width: 170px;">
-        <strong style="font-size: 13px; display: block; margin-bottom: 2px;">${escapeHtml(item.empresa)}</strong>
-        <div style="font-size: 10px; color: #64748B; margin-bottom: 6px;">${escapeHtml(item.cidade)}, ${escapeHtml(item.uf)}</div>
-        <div style="font-size: 11px; margin-bottom: 4px;"><strong>Passivo:</strong> R$ ${escapeHtml(formatNumberBR(item.passivo_mm))} MM</div>
-        <button onclick="openDossier(${item.id})" style="background: #0284C7; color: white; border: none; border-radius: 4px; padding: 4px 8px; font-size: 10px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 4px;">Abrir Ficha</button>
-      </div>
-    `;
-
-    circle.bindPopup(popupHtml);
-    leafletMarkersLayer.addLayer(circle);
-    bounds.push([lat, lng]);
+  // Mapeamento de contagem por coordenadas para aplicar dispersão (jittering)
+  const coordGroups = {};
+  deals.forEach(d => {
+    if (d.coordenadas && Array.isArray(d.coordenadas) && d.coordenadas.length === 2) {
+      const key = `${d.coordenadas[0].toFixed(3)},${d.coordenadas[1].toFixed(3)}`;
+      if (!coordGroups[key]) coordGroups[key] = [];
+      coordGroups[key].push(d);
+    }
   });
 
+  Object.keys(coordGroups).forEach(key => {
+    const group = coordGroups[key];
+    const baseLat = group[0].coordenadas[0];
+    const baseLng = group[0].coordenadas[1];
+
+    group.forEach((item, index) => {
+      let lat = baseLat;
+      let lng = baseLng;
+
+      // Dispersão radial elegante para que casos na mesma comarca não fiquem sobrepostos
+      if (group.length > 1) {
+        const angle = (index / group.length) * 2 * Math.PI;
+        const radius = 0.04 + (index % 3) * 0.025; // ~4km a 9km de raio
+        lat = baseLat + radius * Math.sin(angle);
+        lng = baseLng + radius * Math.cos(angle);
+      }
+
+      let markerColor = '#0284C7';
+      if (item.tipo_processo === 'PRJ') markerColor = '#F59E0B';
+      if (item.tipo_processo === 'PRE') markerColor = '#0EA5E9';
+      if (item.tipo_processo === 'Cautelar / Pré-RJ') markerColor = '#F43F5E';
+      if (item.tipo_processo === 'Tier 0') markerColor = '#A855F7';
+
+      const passivoNum = item.passivo_mm || 0;
+      const passivoStr = formatNumberBR(passivoNum);
+
+      // Raio proporcional ao passivo (tickets bilionários ganham marcadores maiores)
+      let markerRadius = 7;
+      if (passivoNum >= 1000) markerRadius = 11;
+      else if (passivoNum >= 300) markerRadius = 9;
+
+      const circle = L.circleMarker([lat, lng], {
+        radius: markerRadius,
+        fillColor: markerColor,
+        color: '#FFFFFF',
+        weight: 1.5,
+        opacity: 0.95,
+        fillOpacity: 0.85
+      });
+
+      // Tooltip informativo no hover
+      circle.bindTooltip(`
+        <div style="font-family: var(--font-sans);">
+          <strong>${escapeHtml(item.empresa)}</strong><br>
+          <span style="font-family: var(--font-mono); color: var(--status-amber);">R$ ${passivoStr} MM</span> &bull; ${escapeHtml(item.tipo_processo)}
+        </div>
+      `, {
+        className: 'map-tooltip',
+        direction: 'top',
+        offset: [0, -4]
+      });
+
+      // Popup completo ao clicar
+      const popupHtml = `
+        <div style="font-family: var(--font-sans); color: #F8FAFC; min-width: 190px; padding: 4px;">
+          <strong style="font-size: 13px; display: block; margin-bottom: 2px; color: #FFF;">${escapeHtml(item.empresa)}</strong>
+          <div style="font-size: 11px; color: #94A3B8; margin-bottom: 6px;">${escapeHtml(item.cidade)}, ${escapeHtml(item.uf)}</div>
+          <div style="font-size: 11px; margin-bottom: 4px; font-family: var(--font-mono);">
+            <strong style="color: #94A3B8;">Passivo:</strong> <span style="color: #FBBF24; font-weight: 700;">R$ ${escapeHtml(passivoStr)} MM</span>
+          </div>
+          <div style="font-size: 11px; margin-bottom: 8px;">
+            <strong style="color: #94A3B8;">Fase:</strong> ${escapeHtml(item.tipo_processo)}
+          </div>
+          <button onclick="openDossier(${item.id})" style="background: #0284C7; color: white; border: none; border-radius: 4px; padding: 5px 10px; font-size: 11px; font-weight: 600; cursor: pointer; width: 100%;">Abrir Ficha do Caso</button>
+        </div>
+      `;
+
+      circle.bindPopup(popupHtml);
+      leafletMarkersLayer.addLayer(circle);
+      bounds.push([lat, lng]);
+    });
+  });
+
+  // Ajusta o zoom centrado estritamente no Brasil
   if (bounds.length > 0 && leafletMapInstance) {
-    leafletMapInstance.fitBounds(bounds, { padding: [30, 30], maxZoom: 8 });
+    leafletMapInstance.fitBounds(bounds, { padding: [40, 40], maxZoom: 6.5 });
   }
 }
 
