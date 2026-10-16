@@ -3,241 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 font-family=%22sans-serif%22 font-weight=%22800%22 fill=%22%230284C7%22>VK</text></svg>">
-  <title>VALKNUT ANALYTICS // Special Situations & Distressed Debt Platform</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230D3C3E%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-weight=%22800%22 fill=%22%23A3AA83%22>VK</text></svg>">
+  <title>VALKNUT ANALYTICS // Inteligência Concursal & Special Situations</title>
 
   <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Leaflet.js CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- External Design System -->
+  <!-- Chart.js 4.4.1 & Leaflet 1.9.4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Top Navigation -->
-  <nav class="navbar">
-    <div class="brand">
-      <div class="brand-monogram">VK</div>
-      <div class="brand-info">
-        <h1>VALKNUT ANALYTICS <span class="tag">SPECIAL SITUATIONS</span></h1>
-        <p>Distressed Debt & Restructuring Intelligence Platform // Brasil</p>
-      </div>
+  <!-- Top Institutional Navigation Bar (#0D3C3E) -->
+  <nav class="top-navbar">
+    <div class="brand-cluster" onclick="switchMainSection('operacao')">
+      <div class="brand-logo">Valknut<span class="dot">.</span><span class="suffix">on</span></div>
+      <div class="brand-divider"></div>
+      <span class="brand-tag">Special Situations</span>
     </div>
-    <div class="nav-actions">
-      <div class="status-pill" id="apiStatusPill" onclick="forceSyncData()" title="Clique para sincronizar agora">
-        <span class="pulse-dot"></span>
-        <span class="status-text" id="lastUpdateTime">CONECTANDO...</span>
-      </div>
-            <button class="btn btn-secondary" onclick="openBancometroModal()" title="Ver Exposição Agregada dos Bancos">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+
+    <div class="main-nav-links" role="tablist" aria-label="Módulos da Plataforma">
+      <button class="nav-link-btn active" id="nav-operacao" onclick="switchMainSection('operacao')">
+        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">72</span>
+      </button>
+      <button class="nav-link-btn" id="nav-dashboards" onclick="switchMainSection('dashboards')">
+        Dashboards &amp; Mercado
+      </button>
+      <button class="nav-link-btn" id="nav-upis" onclick="switchMainSection('upis')">
+        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">0</span>
+      </button>
+      <button class="nav-link-btn" id="nav-bancometro" onclick="switchMainSection('bancometro')">
         Bancômetro
       </button>
-      <button class="btn btn-secondary" onclick="forceSyncData()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
-        Atualizar
+      <button class="nav-link-btn" id="nav-prazos" onclick="switchMainSection('prazos')">
+        Prazos &amp; AGCs
       </button>
-      <button class="btn btn-primary" onclick="exportCSV()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Exportar CSV
+      <button class="nav-link-btn" id="nav-mapa" onclick="switchMainSection('mapa')">
+        Mapa Geográfico
+      </button>
+    </div>
+
+    <div class="top-nav-actions">
+      <button class="header-pill-btn" id="btnOutlierToggle" onclick="toggleOutliers()" title="Ocultar ou incluir casos acima de R$ 10 Bilhões (ex: Braskem) para analisar médias sem distorção">
+        <span>⚖️ Excluir &gt; R$ 10 Bi: <strong>OFF</strong></span>
+      </button>
+      <button class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar com a Planilha Google Sheets">
+        <span class="pulse-dot"></span>
+        <span id="lastUpdateTime">Online: 72 leads</span>
+      </button>
+      <button class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV">
+        ⬇ CSV
       </button>
     </div>
   </nav>
 
-  <main class="container">
+  <!-- Main Light Workspace Area -->
+  <main class="page-wrapper">
 
-    <!-- Segmented Navigation (Abas de Estratégia) -->
-    <div class="segmented-control" role="tablist" aria-label="Estratégias de Monitoramento">
-      <button class="segmented-btn active" id="tab-all" onclick="setStrategy('all')">
-        Pipeline Consolidado <span class="badge-count" id="count-all">0</span>
-      </button>
-      <button class="segmented-btn" id="tab-watchdog" onclick="setStrategy('watchdog')">
-        Creditor-Side & Watchdog <span class="badge-count" id="count-watchdog">0</span>
-      </button>
-      <button class="segmented-btn" id="tab-dip" onclick="setStrategy('dip')">
-        DIP Financing & M&A <span class="badge-count" id="count-dip">0</span>
-      </button>
-      <button class="segmented-btn" id="tab-consensual" onclick="setStrategy('consensual')">
-        Consensual & Pré-RJ <span class="badge-count" id="count-consensual">0</span>
-      </button>
-      <button class="segmented-btn" id="tab-precursor" onclick="setStrategy('precursor')">
-        Distress Precursor (Tier 0) <span class="badge-count" id="count-precursor">0</span>
-      </button>
-            <button class="segmented-btn" id="tab-debentures" onclick="setStrategy('debentures')">
-        Debêntures & CVM <span class="badge-count" id="count-debentures">0</span>
-      </button>
-      <button class="segmented-btn" id="tab-map" onclick="toggleMap()">
-        Mapa <span class="badge-map">GEO</span>
-      </button>
-    </div>
-
-    <!-- Banner de Estratégia -->
-    <header class="strategy-banner">
-      <div class="strategy-info">
-        <span class="strategy-badge" id="strategyBadge">VISÃO CONSOLIDADA</span>
-        <h2 id="strategyTitle">PIPELINE CONSOLIDADO // VISÃO GERAL DE MERCADO</h2>
-        <p id="strategyDesc">Monitoramento unificado de empresas em estresse financeiro severo, processos concursais e procedimentos preparatórios no Brasil.</p>
+    <!-- Dynamic Section Title & Meta Info -->
+    <div class="section-hero-row">
+      <div class="section-hero-title">
+        <h1 id="pageMainTitle">Operação &amp; Originação</h1>
+        <p id="pageMainSubtitle">Monitoramento em tempo real de empresas em estresse financeiro severo, processos concursais e mercado de capitais no Brasil.</p>
       </div>
-      <div class="strategy-meta">
-        <div class="sync-status" id="syncStatus">Conectando...</div>
-        <div class="sync-detail" id="syncSub">Origem: Google Apps Script Web App</div>
-      </div>
-    </header>
-
-    <!-- Filtros de Fase Concursal -->
-    <div class="filter-strip">
-      <span class="filter-strip-label">Fase Concursal:</span>
-      <div class="filter-pills">
-        <button class="pill active" id="proc-all" onclick="setProcessFilter('')">Todos (<span id="proc-count-all">0</span>)</button>
-        <button class="pill" id="proc-prj" onclick="setProcessFilter('PRJ')">Recuperações Judiciais (<span id="proc-count-prj">0</span>)</button>
-        <button class="pill" id="proc-pre" onclick="setProcessFilter('PRE')">Recuperações Extrajudiciais (<span id="proc-count-pre">0</span>)</button>
-        <button class="pill" id="proc-cautelar" onclick="setProcessFilter('Cautelar / Pré-RJ')">Cautelares & Pré-RJ (<span id="proc-count-cautelar">0</span>)</button>
-        <button class="pill" id="proc-tier0" onclick="setProcessFilter('Tier 0')">Sinais Forenses (<span id="proc-count-tier0">0</span>)</button>
+      <div class="hero-meta-badges">
+        <div class="meta-stat-pill">Fonte: <strong id="syncStatusLabel">Google Sheets Live API</strong></div>
+        <div class="meta-stat-pill">Corte Mínimo: <strong>&ge; R$ 30 MM</strong></div>
       </div>
     </div>
 
-    <!-- KPIs Executivos -->
-    <section class="kpi-grid">
-      <div class="kpi-card">
-        <span class="kpi-title">Volume Total</span>
-        <div class="kpi-value" id="kpiTotalVolume">R$ 0,00 MM</div>
-        <span class="kpi-subtitle">Passivo acumulado no filtro</span>
+    <!-- Executive KPI Strip -->
+    <section class="kpi-strip" aria-label="Indicadores Executivos">
+      <div class="kpi-box">
+        <div class="kpi-box-label"><span>Volume Monitorado</span> <span>R$</span></div>
+        <div class="kpi-box-value" id="kpiTotalVolume">R$ 0,0 Bi</div>
+        <div class="kpi-box-sub" id="kpiVolumeSub">Passivo acumulado no recorte</div>
       </div>
-      <div class="kpi-card">
-        <span class="kpi-title">Casos Ativos</span>
-        <div class="kpi-value" id="kpiActiveDeals">0</div>
-        <span class="kpi-subtitle">Empresas monitoradas</span>
+      <div class="kpi-box">
+        <div class="kpi-box-label"><span>Casos no Recorte</span> <span>QTD</span></div>
+        <div class="kpi-box-value" id="kpiActiveDeals">0</div>
+        <div class="kpi-box-sub" id="kpiDealsSub">Grupos econômicos ativos</div>
       </div>
-      <div class="kpi-card">
-        <span class="kpi-title">Ticket Médio</span>
-        <div class="kpi-value" id="kpiAvgTicket">R$ 0,00 MM</div>
-        <span class="kpi-subtitle">Média por caso</span>
+      <div class="kpi-box">
+        <div class="kpi-box-label"><span>Ticket Médio</span> <span>MÉDIA</span></div>
+        <div class="kpi-box-value" id="kpiAvgTicket">R$ 0 MM</div>
+        <div class="kpi-box-sub" id="kpiAvgSub">Passivo médio por grupo</div>
       </div>
-      <div class="kpi-card">
-        <span class="kpi-title">Maior Exposição</span>
-        <div class="kpi-value" id="kpiMaxPassivo">R$ 0,00 MM</div>
-        <span class="kpi-subtitle" id="kpiMaxCompany">N/A</span>
+      <div class="kpi-box">
+        <div class="kpi-box-label"><span>Maior Exposição</span> <span>TOP DEAL</span></div>
+        <div class="kpi-box-value" id="kpiMaxPassivo">R$ 0 MM</div>
+        <div class="kpi-box-sub" id="kpiMaxCompany">N/A</div>
       </div>
-      <div class="kpi-card">
-        <span class="kpi-title">Jurisdições</span>
-        <div class="kpi-value" id="kpiJurisdictions">0 UFs</div>
-        <span class="kpi-subtitle">Polos regionais ativos</span>
+      <div class="kpi-box">
+        <div class="kpi-box-label"><span>Polos / Jurisdições</span> <span>GEO</span></div>
+        <div class="kpi-box-value" id="kpiJurisdictions">0 UFs</div>
+        <div class="kpi-box-sub" id="kpiUpiCountSub">0 casos com UPIs mapeadas</div>
       </div>
     </section>
 
-    <!-- Mapa Cartográfico (Alternável) -->
-    <section class="map-section" id="mapSection" style="display: none;">
-      <div class="map-controls">
+    <!-- Main White Container Card (Safira.on Reference Layout) -->
+    <section class="workspace-card">
+
+      <!-- Contextual Sub-Tab Pills Bar -->
+      <div class="subtab-pills-bar" id="subtabPillsBar" role="tablist">
+        <!-- Injected dynamically according to active main section -->
+      </div>
+
+      <!-- Sub-Section Title & Description -->
+      <div class="subsection-header">
         <div>
-          <h3>Distribuição Cartográfica dos Processos</h3>
-          <p>Concentração geográfica de passivos e varas empresariais</p>
+          <h2 id="subSectionTitle">Pipeline Consolidado em Tempo Real</h2>
+          <p id="subSectionDesc">Dados consolidados de petições iniciais (DataJud/DJEN), fatos relevantes CVM e editais de Assembleias Gerais de Debenturistas (AGDs) para originação tática.</p>
         </div>
-        <div class="uf-filters" id="ufFilters">
-          <!-- Injetado dinamicamente -->
+        <div id="subSectionRightActions"></div>
+      </div>
+
+      <!-- Filter & Search Console (Shown in Operação, UPIs, Prazos) -->
+      <div class="filter-console" id="filterConsole">
+        <div class="filter-row-top">
+          <div class="search-field-wrap">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="searchInput" placeholder="Filtrar por empresa, credor (ex: Itaú, BB, Vórtx), comarca, CNPJ ou ativo..." oninput="handleSearch(this.value)" aria-label="Buscar processos e empresas">
+          </div>
+          <div class="filter-select-group">
+            <select class="clean-select" id="selectUf" onchange="handleUfChange(this.value)" aria-label="Filtrar por UF">
+              <option value="">Todas as UFs</option>
+            </select>
+            <select class="clean-select" id="selectSetor" onchange="handleSetorChange(this.value)" aria-label="Filtrar por Macro-Setor">
+              <option value="">Todos os Macro-Setores</option>
+            </select>
+            <select class="clean-select" id="selectPorte" onchange="handlePorteChange(this.value)" aria-label="Filtrar por Faixa de Passivo">
+              <option value="">Todos os Portes</option>
+              <option value="mid">Mid-Market (R$ 30M – 100M)</option>
+              <option value="upper">Upper-Mid (R$ 100M – 500M)</option>
+              <option value="large">Large Cap (R$ 500M – 1 Bi)</option>
+              <option value="mega">Mega Cases (&gt; R$ 1 Bi)</option>
+            </select>
+            <select class="clean-select" id="selectSort" onchange="handleSortChange(this.value)" aria-label="Ordenar resultados">
+              <option value="data_desc">Data Mais Recente</option>
+              <option value="passivo_desc">Passivo Total (Maior)</option>
+              <option value="passivo_asc">Passivo Total (Menor)</option>
+              <option value="score_desc">Score Forense (Maior)</option>
+              <option value="empresa_asc">Empresa (A–Z)</option>
+            </select>
+            <div class="view-mode-switch" id="viewModeSwitch">
+              <button class="view-mode-btn active" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
+              <button class="view-mode-btn" id="btnViewGrid" onclick="setViewMode('grid')">Cards</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase Filter Chips -->
+        <div class="phase-pills-row">
+          <span class="phase-label">Fase Processual:</span>
+          <button class="phase-chip active" id="proc-all" onclick="setProcessFilter('')">Todos (<span id="proc-count-all">0</span>)</button>
+          <button class="phase-chip" id="proc-prj" onclick="setProcessFilter('PRJ')">Recuperações Judiciais (<span id="proc-count-prj">0</span>)</button>
+          <button class="phase-chip" id="proc-cautelar" onclick="setProcessFilter('Cautelar / Pré-RJ')">Cautelares &amp; Art. 20-B (<span id="proc-count-cautelar">0</span>)</button>
+          <button class="phase-chip" id="proc-pre" onclick="setProcessFilter('PRE')">Recuperações Extrajudiciais (<span id="proc-count-pre">0</span>)</button>
+          <button class="phase-chip" id="proc-falencia" onclick="setProcessFilter('Falência / Liquidação')">Falências &amp; Liquidações (<span id="proc-count-falencia">0</span>)</button>
+          <button class="phase-chip" id="proc-tier0" onclick="setProcessFilter('Tier 0')">Sinais Forenses Tier 0 (<span id="proc-count-tier0">0</span>)</button>
         </div>
       </div>
-      <div id="map"></div>
-    </section>
 
-    <!-- Barra de Controles: Busca e Seleção -->
-    <div class="controls-bar">
-      <div class="search-box">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="searchInput" placeholder="Filtrar por empresa, credor, tribunal, CNPJ ou tese..." oninput="handleSearch(this.value)" aria-label="Buscar processos e empresas">
-      </div>
-      <div class="select-group">
-        <select id="selectUf" onchange="handleUfChange(this.value)" aria-label="Filtrar por UF">
-          <option value="">Todas as UFs</option>
-        </select>
-        <select id="selectSetor" onchange="handleSetorChange(this.value)" aria-label="Filtrar por Setor">
-          <option value="">Todos os Setores</option>
-        </select>
-                <select id="selectPorte" onchange="handlePorteChange(this.value)" aria-label="Filtrar por Faixa de Passivo">
-          <option value="">Todos os Portes</option>
-          <option value="mid">Mid-Market (R$ 30M - 100M)</option>
-          <option value="upper">Upper-Mid (R$ 100M - 500M)</option>
-          <option value="large">Large Cap (R$ 500M - 1 Bi)</option>
-          <option value="mega">Mega Cases (> R$ 1 Bi)</option>
-        </select>
-        <select id="selectSort" onchange="handleSortChange(this.value)" aria-label="Ordenar resultados">
-          <option value="score_desc">Score Forense (Maior)</option>
-          <option value="score_asc">Score Forense (Menor)</option>
-          <option value="passivo_desc">Passivo Total (Maior)</option>
-          <option value="passivo_asc">Passivo Total (Menor)</option>
-          <option value="data_desc">Data Mais Recente</option>
-          <option value="empresa_asc">Empresa (A-Z)</option>
-          <option value="empresa_desc">Empresa (Z-A)</option>
-        </select>
-        <div class="view-toggle">
-          <button class="view-btn active" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
-          <button class="view-btn" id="btnViewGrid" onclick="setViewMode('grid')">Cards</button>
-          <button class="view-btn" id="btnViewTimeline" onclick="setViewMode('timeline')">Prazos & AGCs</button>
+      <!-- Dynamic Section Body -->
+      <div id="sectionContentArea" aria-live="polite"></div>
 
-        </div>
-      </div>
-    </div>
-
-    <!-- Área de Conteúdo Principal -->
-    <section id="contentArea" aria-live="polite">
-      <!-- Tabela ou Cards renderizados pelo JS -->
     </section>
 
   </main>
 
   <!-- Modal do Dossiê Executivo -->
   <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true">
-    <div class="modal-container" onclick="event.stopPropagation()">
-      <div class="modal-header">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-top">
         <div>
           <h2 id="modalCompany">Razão Social</h2>
           <p id="modalSubheader">CNPJ // Tribunal // Processo</p>
         </div>
-        <button class="modal-close" onclick="closeModal()" aria-label="Fechar modal (Esc)">&times;</button>
+        <button class="modal-close-x" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
       </div>
-      <div class="modal-tabs">
-        <button class="modal-tab active" id="modal-tab-visao" onclick="setModalTab('visao')">Visão Geral & Tese</button>
-        <button class="modal-tab" id="modal-tab-credores" onclick="setModalTab('credores')">Estrutura de Dívida & Credores</button>
-        <button class="modal-tab" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais</button>
-        <button class="modal-tab" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses</button>
+      <div class="modal-tab-strip">
+        <button class="modal-tab-item active" id="modal-tab-visao" onclick="setModalTab('visao')">Visão Geral &amp; Doc AI</button>
+        <button class="modal-tab-item" id="modal-tab-credores" onclick="setModalTab('credores')">Estrutura de Dívida &amp; Credores</button>
+        <button class="modal-tab-item" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais &amp; AJ</button>
+        <button class="modal-tab-item" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos &amp; Mandato</button>
       </div>
-      <div class="modal-body" id="modalBody">
-        <!-- Injetado dinamicamente -->
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="printDossier()" title="Imprimir ou Salvar One-Pager em PDF"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg> Imprimir / PDF</button>
-        <button class="btn btn-secondary" onclick="copyDossierSummary()">Copiar Resumo</button>
-        <button class="btn btn-primary" onclick="closeModal()">Fechar</button>
-      </div>
-    </div>
-  </div>
-
-  
-  <!-- Modal do Bancômetro (Exposição Agregada) -->
-  <div class="modal-overlay" id="bancometroModal" onclick="handleBancometroOverlayClick(event)" role="dialog" aria-modal="true">
-    <div class="modal-container" style="max-width: 720px;" onclick="event.stopPropagation()">
-      <div class="modal-header">
-        <div>
-          <h2>BANCÔMETRO // MATRIZ DE EXPOSIÇÃO DE CREDORES</h2>
-          <p>Ranking de passivo em risco acumulado por instituição financeira no radar</p>
+      <div class="modal-content-body" id="modalBody"></div>
+      <div class="modal-bottom">
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-action" onclick="printDossier()">🖨️ Imprimir / Salvar PDF</button>
+          <button class="btn-action" onclick="copyDossierSummary()">📋 Copiar Resumo</button>
         </div>
-        <button class="modal-close" onclick="closeBancometroModal()" aria-label="Fechar modal (Esc)">&times;</button>
-      </div>
-      <div class="modal-body" id="bancometroBody" style="padding: 20px;">
-        <!-- Injetado dinamicamente -->
-      </div>
-      <div class="modal-footer">
-        <span style="font-size: 11px; color: var(--text-tertiary);">Clique em um banco para filtrar os casos correspondentes</span>
-        <button class="btn btn-primary" onclick="closeBancometroModal()">Fechar</button>
+        <button class="btn-solid" onclick="closeModal()">Fechar Dossiê</button>
       </div>
     </div>
   </div>
 
-  <!-- Application Controller -->
+  <!-- Toast Notification -->
+  <div class="toast-banner" id="toastBanner"></div>
+
   <script src="app.js"></script>
 </body>
 </html>
