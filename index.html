@@ -3,82 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230D3C3E%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-weight=%22800%22 fill=%22%23A3AA83%22>VK</text></svg>">
-  <title>VALKNUT ANALYTICS // Inteligência Concursal & Special Situations</title>
+  <link rel="icon" type="image/png" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/favicon-64.png">
+  <title>VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal &amp; Distressed Debt</title>
 
   <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-  <!-- Chart.js 4.4.1 & Leaflet 1.9.4 CDN -->
+  <!-- Chart.js 4.4.1, Leaflet 1.9.4 & SheetJS (XLSX) CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Top Institutional Navigation Bar (#0D3C3E) -->
+  <!-- Top Institutional Navigation Bar (#063630 / #08332C) -->
   <nav class="top-navbar">
-    <div class="brand-cluster" onclick="switchMainSection('operacao')">
-      <div class="brand-logo">Valknut<span class="dot">.</span><span class="suffix">on</span></div>
-      <div class="brand-divider"></div>
-      <span class="brand-tag">Special Situations</span>
+    <div class="brand-cluster" onclick="switchMainSection('operacao')" title="VALKNUT — SPECIAL SITUATIONS">
+      <div class="brand-mark-wrap">
+        <img class="brand-mark-img" src="assets/valknut-symbol.png" alt="Valknut Special Situations Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; width:42px; height:38px;"><svg class="valknut-svg-mark" viewBox="0 0 120 106" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Back Right Triangle (Petrol Blue #38686A) -->
+  <path d="M68 18 L110 90 L38 90 L56 58 L65 58 L51 82 L96 82 L68 33 L59 48 L52 44 Z" fill="#38686A"/>
+  <!-- Bottom Center/Left Interlocked Triangle (Cream/Sage #C7CCB1 / #E6E9DC) -->
+  <path d="M54 32 L88 92 L20 92 L32 70 L41 70 L33 84 L74 84 L54 48 L43 67 L35 67 Z" fill="#C8CEB0"/>
+  <!-- Primary Top-Left Interlocked Triangle (Olive-Gold/Sage #A5AC82) -->
+  <path d="M52 8 L90 74 L38 74 L43 65 L75 65 L52 24 L25 71 L46 71 L41 79 L11 79 Z" fill="#A5AC82"/>
+  <!-- Inner Cutout Highlight Bars for Authentic Interlock -->
+  <path d="M54 32 L69 58 L61 58 L54 45 L42 66 L34 66 Z" fill="#E6E9DC" fill-opacity="0.88"/>
+</svg></div>
+      </div>
+      <div class="brand-wordmark">
+        <span class="brand-title-valknut">VALKNUT</span>
+        <span class="brand-subtitle-spec">SPECIAL SITUATIONS</span>
+      </div>
     </div>
 
     <div class="main-nav-links" role="tablist" aria-label="Módulos da Plataforma">
       <button class="nav-link-btn active" id="nav-operacao" onclick="switchMainSection('operacao')">
         Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">72</span>
       </button>
+      <button class="nav-link-btn" id="nav-precificacao" onclick="switchMainSection('precificacao')">
+        Precificação &amp; Modelagem <span class="nav-count-pill" style="background:rgba(165,172,130,0.3); color:#E6E9DC;">% / PPTX</span>
+      </button>
       <button class="nav-link-btn" id="nav-dashboards" onclick="switchMainSection('dashboards')">
         Dashboards &amp; Mercado
       </button>
       <button class="nav-link-btn" id="nav-upis" onclick="switchMainSection('upis')">
-        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">0</span>
+        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">24</span>
       </button>
       <button class="nav-link-btn" id="nav-bancometro" onclick="switchMainSection('bancometro')">
         Bancômetro
       </button>
+      <button class="nav-link-btn" id="nav-ecossistema" onclick="switchMainSection('ecossistema')">
+        Ecossistema &amp; Players
+      </button>
       <button class="nav-link-btn" id="nav-prazos" onclick="switchMainSection('prazos')">
-        Prazos &amp; AGCs
+        Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">72</span>
+      </button>
+      <button class="nav-link-btn" id="nav-comps" onclick="switchMainSection('comps')">
+        Comps Concursais
       </button>
       <button class="nav-link-btn" id="nav-mapa" onclick="switchMainSection('mapa')">
         Mapa Geográfico
       </button>
+      <button class="nav-link-btn" id="nav-noticias" onclick="switchMainSection('noticias')">
+        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">20</span>
+      </button>
+      <button class="nav-link-btn" id="nav-energia" onclick="switchMainSection('energia')">
+        Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">9</span>
+      </button>
+      <button class="nav-link-btn" id="nav-agro" onclick="switchMainSection('agro')">
+        Agro &amp; Terras <span class="nav-count-pill" id="nav-count-agro">21</span>
+      </button>
     </div>
 
     <div class="top-nav-actions">
-      <button class="header-pill-btn" id="btnOutlierToggle" onclick="toggleOutliers()" title="Ocultar ou incluir casos acima de R$ 10 Bilhões (ex: Braskem) para analisar médias sem distorção">
-        <span>⚖️ Excluir &gt; R$ 10 Bi: <strong>OFF</strong></span>
-      </button>
-      <button class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar com a Planilha Google Sheets">
+      <button class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar em tempo real com a base mestre">
         <span class="pulse-dot"></span>
         <span id="lastUpdateTime">Online: 72 leads</span>
       </button>
-      <button class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV">
-        ⬇ CSV
+      <button class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV padrão Excel PT-BR">
+        ⬇ Exportar CSV
+      </button>
+      <button class="header-pill-btn btn-xlsx" onclick="exportXLSX()" title="Exportar planilha nativa Excel (.xlsx) com colunas ajustadas">
+        📊 Exportar Excel (.xlsx)
       </button>
     </div>
   </nav>
 
-  <!-- Main Light Workspace Area -->
+  <!-- Main Institutional Workspace -->
   <main class="page-wrapper">
 
-    <!-- Dynamic Section Title & Meta Info -->
+    <!-- Dynamic Section Title & Dynamic Liability Cutoff Controls (Piso e Teto em R$ MM) -->
     <div class="section-hero-row">
       <div class="section-hero-title">
         <h1 id="pageMainTitle">Operação &amp; Originação</h1>
         <p id="pageMainSubtitle">Monitoramento em tempo real de empresas em estresse financeiro severo, processos concursais e mercado de capitais no Brasil.</p>
       </div>
-      <div class="hero-meta-badges">
-        <div class="meta-stat-pill">Fonte: <strong id="syncStatusLabel">Google Sheets Live API</strong></div>
-        <div class="meta-stat-pill">Corte Mínimo: <strong>&ge; R$ 30 MM</strong></div>
+
+      <!-- Dynamic Passivo Cutoff Filter (Replaces static Excluir > 10 Bi & Corte Mínimo >= 30 MM) -->
+      <div class="passivo-cutoff-bar" aria-label="Filtro Dinâmico de Corte de Passivo">
+        <div class="cutoff-inputs-group">
+          <div class="cutoff-field">
+            <label for="inputMinPassivo">Passivo Mínimo (R$ MM)</label>
+            <div class="cutoff-input-wrap">
+              <span class="cutoff-prefix">R$</span>
+              <input type="number" id="inputMinPassivo" class="cutoff-input" value="30" min="0" step="10" placeholder="Ex: 30" oninput="handlePassivoCutoffInput()">
+            </div>
+          </div>
+          <div class="cutoff-field">
+            <label for="inputMaxPassivo">Passivo Máximo / Teto (R$ MM)</label>
+            <div class="cutoff-input-wrap">
+              <span class="cutoff-prefix">R$</span>
+              <input type="number" id="inputMaxPassivo" class="cutoff-input" value="" min="0" step="100" placeholder="Sem teto" oninput="handlePassivoCutoffInput()">
+            </div>
+          </div>
+        </div>
+        <div class="cutoff-quick-group">
+          <span class="cutoff-quick-label">Recorte:</span>
+          <button type="button" class="quick-toggle-btn active" id="qtoggle-all" onclick="setPassivoQuickToggle('all')">Todos</button>
+          <button type="button" class="quick-toggle-btn" id="qtoggle-no_outliers" onclick="setPassivoQuickToggle('no_outliers')">Sem Outliers (&le; R$ 10 Bi)</button>
+          <button type="button" class="quick-toggle-btn" id="qtoggle-middle" onclick="setPassivoQuickToggle('middle')">Middle Market (R$ 30M - R$ 500M)</button>
+        </div>
       </div>
     </div>
 
-    <!-- Executive KPI Strip -->
+    <!-- Executive KPI Strip (5 Cards Recalculated Instantly) -->
     <section class="kpi-strip" aria-label="Indicadores Executivos">
       <div class="kpi-box">
         <div class="kpi-box-label"><span>Volume Monitorado</span> <span>R$</span></div>
@@ -107,13 +164,11 @@
       </div>
     </section>
 
-    <!-- Main White Container Card (Safira.on Reference Layout) -->
+    <!-- Main White Workspace Card -->
     <section class="workspace-card">
 
       <!-- Contextual Sub-Tab Pills Bar -->
-      <div class="subtab-pills-bar" id="subtabPillsBar" role="tablist">
-        <!-- Injected dynamically according to active main section -->
-      </div>
+      <div class="subtab-pills-bar" id="subtabPillsBar" role="tablist"></div>
 
       <!-- Sub-Section Title & Description -->
       <div class="subsection-header">
@@ -124,12 +179,12 @@
         <div id="subSectionRightActions"></div>
       </div>
 
-      <!-- Filter & Search Console (Shown in Operação, UPIs, Prazos) -->
+      <!-- Filter & Search Console -->
       <div class="filter-console" id="filterConsole">
         <div class="filter-row-top">
           <div class="search-field-wrap">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" id="searchInput" placeholder="Filtrar por empresa, credor (ex: Itaú, BB, Vórtx), comarca, CNPJ ou ativo..." oninput="handleSearch(this.value)" aria-label="Buscar processos e empresas">
+            <input type="text" id="searchInput" placeholder="Filtrar por empresa, credor (ex: Itaú, BB, Vórtx, Opea), comarca, CNPJ ou ativo..." oninput="handleSearch(this.value)" aria-label="Buscar processos e empresas">
           </div>
           <div class="filter-select-group">
             <select class="clean-select" id="selectUf" onchange="handleUfChange(this.value)" aria-label="Filtrar por UF">
@@ -146,11 +201,16 @@
               <option value="mega">Mega Cases (&gt; R$ 1 Bi)</option>
             </select>
             <select class="clean-select" id="selectSort" onchange="handleSortChange(this.value)" aria-label="Ordenar resultados">
-              <option value="data_desc">Data Mais Recente</option>
+              <option value="movimento_desc">Último Movimento (Mais Recente)</option>
+              <option value="movimento_asc">Último Movimento (Mais Antigo)</option>
+              <option value="inclusao_desc">Data de Inclusão (Recém-Descobertos)</option>
+              <option value="inclusao_asc">Data de Inclusão (Mais Antigos)</option>
               <option value="passivo_desc">Passivo Total (Maior)</option>
               <option value="passivo_asc">Passivo Total (Menor)</option>
               <option value="score_desc">Score Forense (Maior)</option>
               <option value="empresa_asc">Empresa (A–Z)</option>
+              <option value="cnpj_asc">CNPJ (Crescente)</option>
+              <option value="setor_asc">Macro-Setor (A–Z)</option>
             </select>
             <div class="view-mode-switch" id="viewModeSwitch">
               <button class="view-mode-btn active" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
@@ -178,29 +238,42 @@
 
   </main>
 
-  <!-- Modal do Dossiê Executivo -->
+  <!-- Modal do Dossiê / "Ficha" (Tear Sheet Institucional de Special Situations) -->
   <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <div class="modal-top">
-        <div>
-          <h2 id="modalCompany">Razão Social</h2>
-          <p id="modalSubheader">CNPJ // Tribunal // Processo</p>
+      <div class="tearsheet-header">
+        <div style="flex:1;">
+          <div class="tearsheet-brand-strip">
+            <img src="assets/valknut-symbol.png" alt="Valknut" style="width:28px; height:24px; object-fit:contain;" onerror="this.style.display='none';">
+            <span style="font-weight:800; letter-spacing:0.14em; color:#E6E9DC; font-size:13px;">VALKNUT</span>
+            <span style="color:#A5AC82; font-size:9px; font-weight:700; letter-spacing:0.22em;">SPECIAL SITUATIONS // TEAR SHEET INSTITUCIONAL</span>
+          </div>
+          <div class="tearsheet-company-row">
+            <h2 id="modalCompany">Razão Social</h2>
+            <span class="ticker-pill" id="modalTicker" style="display:none;">TICKER</span>
+          </div>
+          <div class="tearsheet-meta-grid" id="modalSubheaderGrid">
+            <!-- Populated dynamically with CNPJ, Setor, Cidade/UF, Tribunal/Vara e Autos + Copy button -->
+          </div>
         </div>
         <button class="modal-close-x" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
       </div>
+
       <div class="modal-tab-strip">
-        <button class="modal-tab-item active" id="modal-tab-visao" onclick="setModalTab('visao')">Visão Geral &amp; Doc AI</button>
-        <button class="modal-tab-item" id="modal-tab-credores" onclick="setModalTab('credores')">Estrutura de Dívida &amp; Credores</button>
-        <button class="modal-tab-item" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais &amp; AJ</button>
-        <button class="modal-tab-item" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos &amp; Mandato</button>
+        <button class="modal-tab-item active" id="modal-tab-visao" onclick="setModalTab('visao')">Tear Sheet Completo (One-Pager)</button>
+        <button class="modal-tab-item" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
+        <button class="modal-tab-item" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
+        <button class="modal-tab-item" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
       </div>
+
       <div class="modal-content-body" id="modalBody"></div>
+
       <div class="modal-bottom">
-        <div style="display: flex; gap: 8px;">
-          <button class="btn-action" onclick="printDossier()">🖨️ Imprimir / Salvar PDF</button>
-          <button class="btn-action" onclick="copyDossierSummary()">📋 Copiar Resumo</button>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn-action" onclick="printDossier()">🖨️ Imprimir Tear Sheet / PDF</button>
+          <button class="btn-action" onclick="copyDossierSummary()">📋 Copiar Dossiê Completo</button>
         </div>
-        <button class="btn-solid" onclick="closeModal()">Fechar Dossiê</button>
+        <button class="btn-solid" onclick="closeModal()">Fechar Tear Sheet</button>
       </div>
     </div>
   </div>

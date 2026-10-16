@@ -1,71 +1,24 @@
-# VALKNUT ANALYTICS // Special Situations & Distressed Debt Platform
+# VALKNUT — SPECIAL SITUATIONS (Release v3.0)
 
-Plataforma de inteligência de mercado financeiro e jurídico-concursal especializada em **Distressed Debt**, **Special Situations** e reestruturação corporativa no Brasil.
+Plataforma institucional de Inteligência Concursal, Distressed Debt e Monitoramento de Situações Especiais no Brasil.
 
----
-
-## 🏗️ Arquitetura em Duas Camadas
-
-A plataforma opera em um modelo desacoplado de duas camadas, combinando processamento analítico em lote com visualização de baixa latência:
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│ 1. CAMADA DE INGESTÃO & TRIAGEM (Agente Autônomo - a cada 3h)          │
-│    • Varredura: DataJud, DJEN (Classes 12134, 129, 128, 12154)         │
-│    • Sinais Forenses: CENPROT, PGFN (Art. 866 CPC), CVM Res. 175, CCEE │
-│    • Filtro de Corte: Passivo >= R$ 30 Milhões (Exclusão Safira)       │
-│    • Persistência: Planilha Mestre (Google Sheets)                     │
-└──────────────────────────────────┬─────────────────────────────────────┘
-                                   │
-                                   ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│ 2. CAMADA DE APRESENTAÇÃO & DASHBOARD (GitHub Pages - Front-End)       │
-│    • API Rest: Google Apps Script Web App (JSON)                       │
-│    • Polling Inteligente: Background fetch a cada 15 min (Visibility)  │
-│    • Resiliência Offline: Fallback automático para deals.json local    │
-│    • Interface: Terminal Clean Dark Mode (Linear / Stripe style)       │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🎯 Matriz de Estratégias Institucionais e Tiers
-
-- **Tier 0 (Score 8,5–10,0) — Distress Precursor (60 a 120 dias pré-crise):**
-  - Monitoramento de anomalias extrajudiciais: spikes de protestos no CENPROT, execuções de frotas e safra, penhora de faturamento pela PGFN, liquidação de FIDCs na CVM e processos regulatórios (CCEE, ANS, ARTESP).
-- **Tier 1 (Score 9,0–10,0) — Consensual & Cautelar Antecedente:**
-  - Tutelas de urgência sob o Art. 20-B da Lei 11.101/2005, stay period preparatório e mediações pré-processuais.
-- **Tier 2 (Score 7,0–8,9) — Minuto Zero Concursal:**
-  - Distribuição recente de Recuperação Judicial (Classe 129) ou Extrajudicial (Classe 128), perícia prévia do Art. 51-A e contestação de travas bancárias.
-- **Tier 3 (Score 4,0–6,9) — Pós-Plano & Special Situations:**
-  - Homologação de planos, alienação judicial de Unidades Produtivas Isoladas (UPIs) e estruturação de Financiamento DIP (*Debtor-in-Possession*).
-
----
-
-## 📁 Estrutura de Arquivos do Repositório
-
-```text
-valknut-radar/
-├── index.html        # Estrutura semântica limpa (< 200 linhas)
-├── styles.css        # Design System e variáveis temáticas (Clean Dark FinTech)
-├── app.js           # Controlador da aplicação, Leaflet e polling de 15 min
-├── deals.json        # Base local canônica atualizada (64 casos - Fallback offline)
-├── README.md         # Documentação técnica e de negócio
-└── .gitignore        # Arquivos de sistema e ambiente ignorados
-```
-
----
-
-## 🚀 Como Executar Localmente
-
-Basta servir o diretório estático em qualquer servidor HTTP local:
-
-```bash
-# Opção 1: Via Python 3
-python3 -m http.server 8000
-
-# Opção 2: Via Node / npx
-npx serve .
-```
-
-Acesse `http://localhost:8000` no seu navegador.
+## Principais Atualizações (v3.0)
+1. **Header Institucional (`#063630` / `#08332C`), Favicon & Nova Identidade Visual**:
+   - Remoção definitiva do sufixo `.on` e aplicação da nova logo horizontal **VALKNUT — SPECIAL SITUATIONS** (`#E6E9DC` / `#A5AC82` / `#38686A`) e novo Favicon arredondado (`assets/favicon-64.png`).
+   - Remoção da badge `Fonte: Google Sheets Live API` da seção Operação & Originação.
+2. **Filtro Dinâmico de Corte de Passivo (Piso e Teto em R$ MM)**:
+   - Inputs numéricos em tempo real para **Passivo Mínimo (R$ MM)** e **Passivo Máximo / Teto (R$ MM)** acompanhados dos botões de atalho rápido `Todos`, `Sem Outliers (<= R$ 10 Bi)` e `Middle Market (R$ 30M - R$ 500M)`.
+3. **Separação das Colunas de Data na Tabela Principal**:
+   - Colunas independentes e ordenáveis `ÚLTIMO MOVIMENTO` (`DD/MM/YYYY`) e `DATA DE INCLUSÃO` (`DD/MM/YYYY`, sem prefixo `Inc:`).
+4. **Tear Sheet Institucional de Special Situations (Modal & Impressão PDF)**:
+   - Cabeçalho institucional com a nova logo, Razão Social, Ticker, CNPJ, Macro-Setor, Cidade/UF, Tribunal/Vara e Número dos Autos com botão de cópia rápida.
+   - Linha de 4 KPIs (`Passivo Total Estimado`, `Score Forense & Tier` com barra de progresso, `Fase Concursal` e `Cronologia`).
+   - Parser Regex automático em 3 blocos (`1. Contexto & Causa Raiz da Crise`, `2. Gargalo Imediato & Gatilho Concursal`, `3. Tese de Mandato & Atuação Recomendada`) com todos os 72 casos enriquecidos.
+   - Quadro integral de Credores, Agentes Fiduciários (`Vórtx`, `Pentágono`, `Oliveira Trust`) e Securitizadoras (`Opea`, `Vert`, `Virgo`, `Reit`, `Audax`) sem truncamento.
+5. **Exportação CSV (Padrão Excel PT-BR) + Exportação Nativa Excel (`.xlsx`)**:
+   - CSV com BOM UTF-8 (`\uFEFF`), delimitador `;`, datas `DD/MM/YYYY` separadas, `Score` com vírgula decimal (`"8,7"`) e Tese desmembrada em 3 colunas.
+   - Exportação `.xlsx` via SheetJS com larguras de colunas (`wch`) ajustadas, linha de cabeçalho congelada e formatação contábil.
+6. **Redesign do Mapa Geográfico (Leaflet + GeoJSON Brasil)**:
+   - Oceano em azul suave (`#CFE2F3`), estados do Brasil em cinza claro (`#F1F5F9`) com fronteiras nítidas (`#94A3B8`), siglas/capitais das 27 UFs e legenda flutuante de cores por fase processual e escala de raio por passivo.
+7. **Nova Aba `Notícias & Fatos Relevantes`** (posicionada imediatamente após `Mapa Geográfico`).
+8. **Nova Aba `Energia & Infra` (Vertical Setorial ONS / CCEE / ANEEL)** com painel operacional em tempo real (gráfico de área empilhada MW por fonte vs. Carga Prevista/Realizada) e integração com os 9 casos do pipeline de Energia & Infraestrutura.
