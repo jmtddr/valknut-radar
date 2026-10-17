@@ -79,9 +79,6 @@
       <button class="nav-link-btn" id="nav-energia" onclick="switchMainSection('energia')">
         Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">9</span>
       </button>
-      <button class="nav-link-btn" id="nav-agro" onclick="switchMainSection('agro')">
-        Agro &amp; Terras <span class="nav-count-pill" id="nav-count-agro">21</span>
-      </button>
     </div>
 
     <div class="top-nav-actions">
@@ -212,6 +209,7 @@
               <option value="cnpj_asc">CNPJ (Crescente)</option>
               <option value="setor_asc">Macro-Setor (A–Z)</option>
             </select>
+            <button type="button" class="btn-action" id="btnResetFilters" onclick="resetAllFilters()" title="Limpar todos os filtros ativos e restaurar piso de R$ 30 MM">✕ Limpar Filtros</button>
             <div class="view-mode-switch" id="viewModeSwitch">
               <button class="view-mode-btn active" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
               <button class="view-mode-btn" id="btnViewGrid" onclick="setViewMode('grid')">Cards</button>

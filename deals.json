@@ -63,12 +63,14 @@
     },
     "descricao_empresa": "Fabricante líder na América Latina de pás eólicas para aerogeradores de alta potência, fundada em 2010 e listada no Novo Mercado da B3 (AERI3). Opera complexo industrial estrategicamente instalado adjacente ao Porto do Pecém (Caucaia/CE), com capacidade histórica superior a 4 GW/ano, atendendo clientes globais como Vestas, WEG, Nordex e Siemens Gamesa.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 37,
+      "recuperacao_pct": 63,
+      "haircut_estimado_pct": 37,
+      "recuperacao_estimada_pct": 63,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 550.0,
+      "valor_recuperado_mm": 630.0,
       "ev_estimado_mm": 500.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -76,9 +78,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 70.0
+      },
+      "dip_necessidade_mm": 120.0,
+      "upi_valuation_estimado_mm": 350.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-24",
       "data_marco_br": "24/11/2026",
@@ -87,8 +98,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (39d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-24",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Aeris+Energy+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Aeris+Energy+0204512-11.2026.8.06.0064"
   },
   {
     "id": 2,
@@ -140,12 +156,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Conglomerado industrial e de serviços ambientais sediado na Grande São Paulo, composto pelas operadoras Ambbag (fabricação de embalagens industriais flexíveis e big bags de polipropileno) e LimpServ (terceirização de limpeza técnica e gestão de resíduos industriais), atendendo indústrias químicas, petroquímicas e logísticas no Sudeste.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 59,
+      "recuperacao_pct": 41,
+      "haircut_estimado_pct": 59,
+      "recuperacao_estimada_pct": 41,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 72.0,
+      "valor_recuperado_mm": 73.8,
       "ev_estimado_mm": 90.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -153,9 +171,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 21.6
+      },
+      "dip_necessidade_mm": 21.6,
+      "upi_valuation_estimado_mm": 63.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-15",
       "data_marco_br": "15/11/2026",
@@ -164,8 +191,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (30d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-15",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Veneto+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 3,
@@ -213,12 +245,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Grupo familiar mato-grossense com atuação integrada no transporte rodoviário pesado de grãos (corredor logístico BR-163 / Rondonópolis–Santos) e cultivo de soja e milho no sul do Mato Grosso, operando frota própria de caminhões bitrem e rodotrem financiados via linhas Finame e bancos de montadoras.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 51,
+      "recuperacao_pct": 49,
+      "haircut_estimado_pct": 51,
+      "recuperacao_estimada_pct": 49,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 13.6,
+      "valor_recuperado_mm": 16.7,
       "ev_estimado_mm": 17.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -226,13 +260,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Concursal / Finame de Frota",
-      "alienacao_terras": "Alienação Fiduciária de Caminhões (Essencialidade invocada)",
-      "ativos_rurais": "Frota rodoviária graneleira + lavouras em Rondonópolis/MT",
-      "cra_exposicao": "Sem CRA (Crédito Finame / Bancos de Montadora)"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 2.7
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 11.9
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-19",
@@ -242,8 +280,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (34d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-19",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+de+Transporte+&+Agro+Rondonópolis+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 4,
@@ -297,12 +340,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional grupo metalmecânico e comercial da Serra Gaúcha (Caxias do Sul/RS), estruturado a partir da consolidação de 20 sociedades empresárias familiares atuantes em estamparia pesada, usinagem, implementos rodoviários e distribuição de aços planos e longos para o polo automotivo do Sul.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 40,
+      "recuperacao_pct": 60,
+      "haircut_estimado_pct": 40,
+      "recuperacao_estimada_pct": 60,
       "desconto_secundario_pct": 30.0,
       "valor_recuperado_mm": 177.0,
       "ev_estimado_mm": 191.8,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -310,9 +355,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 35.4
+      },
+      "dip_necessidade_mm": 35.4,
+      "upi_valuation_estimado_mm": 103.2
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-21",
       "data_marco_br": "21/12/2026",
@@ -321,8 +375,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (66d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-21",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Industrial+de+Caxias+do+Sul+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 5,
@@ -376,12 +435,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Uma das maiores plataformas de medicina diagnóstica e análises clínicas do Brasil (B3: AALR3, ex-Alliar), controlada pelo empresário Nelson Tanure. Reúne mais de 100 unidades operacionais e marcas regionais líderes (CDB em SP, Axial em MG, Delfin na Bahia e Multiscan no ES), com forte parque de ressonância magnética e patologia clínica.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 34,
+      "recuperacao_pct": 66,
+      "haircut_estimado_pct": 34,
+      "recuperacao_estimada_pct": 66,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 684.0,
+      "valor_recuperado_mm": 752.4,
       "ev_estimado_mm": 570.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -389,9 +450,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 136.8
+      },
+      "dip_necessidade_mm": 136.8,
+      "upi_valuation_estimado_mm": 399.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-08",
       "data_marco_br": "08/11/2026",
@@ -400,8 +470,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (23d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-08",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Alliança+Saúde+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 6,
@@ -449,12 +524,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Grupo agrícola familiar tradicional da região sul de Mato Grosso (Rondonópolis e Itiquira), dedicado à produção em escala de soja, milho segunda safra e algodão em áreas próprias e arrendadas, utilizando estrutura intensiva de custeio via CPRs e contratos de barter com tradings internacionais.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 54,
+      "recuperacao_pct": 46,
+      "haircut_estimado_pct": 54,
+      "recuperacao_estimada_pct": 46,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 18.0,
+      "valor_recuperado_mm": 20.7,
       "ev_estimado_mm": 22.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -462,13 +539,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "CPR Física / Barter (Disputa Lei 13.986/20)",
-      "alienacao_terras": "Penhor de Safra e Hipoteca Rural (BB e Sicredi)",
-      "ativos_rurais": "Áreas de cultivo de soja e milho em Rondonópolis/MT",
-      "cra_exposicao": "Sem CRA reportado"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 3.6
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 15.7
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-29",
@@ -478,8 +559,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (44d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-29",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Produtores+Rurais+Família+Roversi+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 7,
@@ -541,12 +627,14 @@
     },
     "descricao_empresa": "Gigante integrada de bioenergia e distribuição de combustíveis (B3: RAIZ4), joint venture controlada pela Cosan e pela Shell. É a maior produtora global de etanol de cana-de-açúcar e pioneira mundial em etanol de segunda geração (E2G), operando 35 parques de bioenergia, cerca de 1,3 milhão de hectares cultivados e rede superior a 8.000 postos Shell no Brasil e Argentina.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 32,
+      "recuperacao_pct": 68,
+      "haircut_estimado_pct": 32,
+      "recuperacao_estimada_pct": 68,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 2100.0,
+      "valor_recuperado_mm": 2380.0,
       "ev_estimado_mm": 1750.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -554,9 +642,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 245.0
+      },
+      "dip_necessidade_mm": 420.0,
+      "upi_valuation_estimado_mm": 1225.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-29",
       "data_marco_br": "29/12/2026",
@@ -565,8 +662,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (74d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-29",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Raízen+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 8,
@@ -618,12 +720,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Maior produtora brasileira não integrada de cobre refinado (cátodos, vergalhões e fios) e coprodutos metalúrgicos (B3: PMAM3), fundada em 1961. Seu principal complexo industrial e metalúrgico localiza-se no polo de Dias d'Ávila/BA, além de unidades de transformação de cobre em Santo André/SP e Serra/ES.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 57,
+      "recuperacao_pct": 43,
+      "haircut_estimado_pct": 57,
+      "recuperacao_estimada_pct": 43,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 1576.0,
+      "valor_recuperado_mm": 1694.2,
       "ev_estimado_mm": 2561.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -631,9 +735,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 472.8
+      },
+      "dip_necessidade_mm": 472.8,
+      "upi_valuation_estimado_mm": 1379.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-30",
       "data_marco_br": "30/11/2026",
@@ -642,8 +755,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (45d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-30",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Paranapanema+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 9,
@@ -705,12 +823,14 @@
     },
     "descricao_empresa": "Companhia de construção naval e infraestrutura portuária offshore integrante do antigo grupo EBX (B3: OSXB3), detentora de direitos de superfície e ativos retroportuários estratégicos no Complexo Industrial e Portuário do Açu, em São João da Barra/RJ, voltados à logística de óleo, gás e desmantelamento de plataformas.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 52,
+      "recuperacao_pct": 48,
+      "haircut_estimado_pct": 52,
+      "recuperacao_estimada_pct": 48,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 3200.0,
+      "valor_recuperado_mm": 3840.0,
       "ev_estimado_mm": 5200.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -718,9 +838,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 560.0
+      },
+      "dip_necessidade_mm": 960.0,
+      "upi_valuation_estimado_mm": 2800.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-30",
       "data_marco_br": "30/11/2026",
@@ -729,8 +858,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (45d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-30",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=OSX+Brasil+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www3.tjrj.jus.br/consultaprocessual/"
   },
   {
     "id": 10,
@@ -784,12 +918,14 @@
     "securitizadoras": "Vert Securitizadora",
     "descricao_empresa": "Maior rede especializada em óculos solares, armações de grau e acessórios de moda da América Latina, fundada por Caito Maia e controlada pela holding Mustang 25 Participações. Opera modelo híbrido de franquias e lojas próprias com mais de 1.000 pontos de venda no Brasil e presença internacional nos EUA, Europa e Oriente Médio.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 47,
+      "recuperacao_pct": 53,
+      "haircut_estimado_pct": 47,
+      "recuperacao_estimada_pct": 53,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 330.0,
+      "valor_recuperado_mm": 318.0,
       "ev_estimado_mm": 300.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -797,9 +933,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 72.0
+      },
+      "dip_necessidade_mm": 72.0,
+      "upi_valuation_estimado_mm": 210.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-25",
       "data_marco_br": "25/10/2026",
@@ -808,8 +953,13 @@
       "marco_tipo": "Standstill DCM",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (9d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-25",
+      "tipo_marco": "Vencimento da Janela de Standstill / Cura da 1ª Emissão de Debêntures (Vert)",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Chilli+Beans+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 11,
@@ -863,12 +1013,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Construtora industrializada especializada no sistema construtivo modular Light Steel Frame e engenharia a seco, resultante de sociedade entre o empresário Roberto Justus e veículos ligados ao grupo financeiro Master (Daniel Vorcaro), focada em obras residenciais de alto padrão, galpões corporativos e infraestrutura rápida.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 38,
+      "recuperacao_pct": 62,
+      "haircut_estimado_pct": 38,
+      "recuperacao_estimada_pct": 62,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 78.65,
+      "valor_recuperado_mm": 88.7,
       "ev_estimado_mm": 71.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -876,9 +1028,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 17.2
+      },
+      "dip_necessidade_mm": 17.2,
+      "upi_valuation_estimado_mm": 50.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-01",
       "data_marco_br": "01/12/2026",
@@ -887,8 +1048,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (46d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-01",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=SteelCorp+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 12,
@@ -948,12 +1114,14 @@
     },
     "descricao_empresa": "Pioneira na comercialização independente de energia elétrica no Brasil, fundada em 1998 em Curitiba/PR e primeira empresa autorizada pela ANEEL a operar no Ambiente de Contratação Livre (ACL). Além da mesa de trading de energia, detém participações em ativos de geração hidrelétrica (PCHs), eólica e exploração de gás natural.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 53,
+      "recuperacao_pct": 47,
+      "haircut_estimado_pct": 53,
+      "recuperacao_estimada_pct": 47,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 84.0,
+      "valor_recuperado_mm": 98.7,
       "ev_estimado_mm": 105.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -961,9 +1129,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 14.7
+      },
+      "dip_necessidade_mm": 25.2,
+      "upi_valuation_estimado_mm": 73.5
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-01",
       "data_marco_br": "01/12/2026",
@@ -972,8 +1149,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (46d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-01",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Tradener+Comercializadora+de+Energia+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
     "id": 13,
@@ -1025,12 +1207,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Entidade mantenedora da Universidade Luterana do Brasil (Ulbra / Rede Aelbra, hoje sob a marca gestora Evolua Educação), sediada em Canoas/RS. Administra ampla rede de campi universitários presenciais, hospitais veterinários/universitários e polos de ensino a distância (EAD) nos estados do Rio Grande do Sul, Tocantins, Amazonas, Pará, Goiás e Rondônia.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 60,
+      "recuperacao_pct": 40,
+      "haircut_estimado_pct": 60,
+      "recuperacao_estimada_pct": 40,
       "desconto_secundario_pct": 35.0,
       "valor_recuperado_mm": 600.0,
       "ev_estimado_mm": 750.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1038,9 +1222,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 180.0
+      },
+      "dip_necessidade_mm": 180.0,
+      "upi_valuation_estimado_mm": 525.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-01",
       "data_marco_br": "01/12/2026",
@@ -1049,8 +1242,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (46d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-01",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Ulbra+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 14,
@@ -1104,12 +1302,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Fabricante brasileira de equipamentos de alta tecnologia para o setor de óleo e gás (válvulas industriais, cabos de ancoragem para plataformas offshore em águas profundas e compressores de gás natural) e metalurgia de precisão (B3: LUPA3), com parque fabril principal localizado no distrito industrial de Caxias do Sul/RS.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 40,
+      "recuperacao_pct": 60,
+      "haircut_estimado_pct": 40,
+      "recuperacao_estimada_pct": 60,
       "desconto_secundario_pct": 30.0,
       "valor_recuperado_mm": 231.6,
       "ev_estimado_mm": 193.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1117,9 +1317,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 46.3
+      },
+      "dip_necessidade_mm": 46.3,
+      "upi_valuation_estimado_mm": 135.1
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2027-01-01",
       "data_marco_br": "01/01/2027",
@@ -1128,8 +1337,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (77d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2027-01-01",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Lupatech+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 15,
@@ -1181,12 +1395,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Grupo pecuário familiar estabelecido no extremo norte de Mato Grosso (Nova Bandeirantes e Alta Floresta), especializado em pecuária de corte extensiva e semi-intensiva (ciclo completo de cria, recria e engorda bovina) com forte base fundiária própria dada em garantia hipotecária e fiduciária ao Banco do Brasil e à Caixa.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 53,
+      "recuperacao_pct": 47,
+      "haircut_estimado_pct": 53,
+      "recuperacao_estimada_pct": 47,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 15.2,
+      "valor_recuperado_mm": 17.9,
       "ev_estimado_mm": 19.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -1194,13 +1410,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Cédulas de Crédito Rural (CCR / Custeio Pecuário)",
-      "alienacao_terras": "Hipoteca e Penhor Pecuário (79% concentrado em BB e Caixa)",
-      "ativos_rurais": "Fazendas de pecuária de corte em Nova Bandeirantes/MT",
-      "cra_exposicao": "Sem CRA (100% Crédito Rural Oficial)"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 3.0
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 13.3
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-03",
@@ -1210,8 +1430,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (48d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-03",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Orlando+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 16,
@@ -1267,12 +1492,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Histórico grupo varejista alimentar multiformato (B3: PCAR3), detentor das bandeiras premium Pão de Açúcar, Minuto Pão de Açúcar e Extra Mercado, com mais de 700 lojas físicas concentradas no estado de São Paulo e principais capitais, além de operação relevante de e-commerce alimentar.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 42,
+      "recuperacao_pct": 58,
+      "haircut_estimado_pct": 42,
+      "recuperacao_estimada_pct": 58,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 2740.8,
+      "valor_recuperado_mm": 2649.4,
       "ev_estimado_mm": 2969.2,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1280,9 +1507,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 548.2
+      },
+      "dip_necessidade_mm": 548.2,
+      "upi_valuation_estimado_mm": 1598.8
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2027-01-05",
       "data_marco_br": "05/01/2027",
@@ -1291,8 +1527,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (81d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2027-01-05",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Pão+de+Açúcar+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 17,
@@ -1346,12 +1587,14 @@
     "securitizadoras": "Opea Securitizadora",
     "descricao_empresa": "Maior grupo dedicado exclusivamente ao tratamento oncológico, hematologia e radioterapia na América Latina (B3: ONCO3), fundado em Belo Horizonte em 2010. Opera mais de 140 unidades entre clínicas ambulatoriais e Cancer Centers de alta complexidade em 14 estados brasileiros, em parcerias estratégicas com operadoras como Unimed e SulAmérica.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 45,
+      "recuperacao_pct": 55,
+      "haircut_estimado_pct": 45,
+      "recuperacao_estimada_pct": 55,
       "desconto_secundario_pct": 35.0,
       "valor_recuperado_mm": 2805.0,
       "ev_estimado_mm": 3315.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1359,9 +1602,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 612.0
+      },
+      "dip_necessidade_mm": 612.0,
+      "upi_valuation_estimado_mm": 1785.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-30",
       "data_marco_br": "30/10/2026",
@@ -1370,8 +1622,13 @@
       "marco_tipo": "Prazo Judicial / AGD",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (14d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-30",
+      "tipo_marco": "Fim do Prazo Judicial Peremptório (15d) — Quórum RE & AGDs ONCO3",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Oncoclínicas+do+Brasil+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 18,
@@ -1429,12 +1686,14 @@
     "securitizadoras": "Vert Securitizadora",
     "descricao_empresa": "Incorporadora e construtora capixaba com sede em Vitória/ES e forte atuação nos mercados residenciais e comerciais de médio e alto padrão na Grande Vitória (Vitória, Vila Velha e Serra), operando múltiplos empreendimentos imobiliários estruturados via SPEs e financiamentos à produção (Plano Empresário).",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 38,
+      "recuperacao_pct": 62,
+      "haircut_estimado_pct": 38,
+      "recuperacao_estimada_pct": 62,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 110.55,
+      "valor_recuperado_mm": 124.6,
       "ev_estimado_mm": 130.7,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1442,9 +1701,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 24.1
+      },
+      "dip_necessidade_mm": 24.1,
+      "upi_valuation_estimado_mm": 70.3
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-01",
       "data_marco_br": "01/12/2026",
@@ -1453,8 +1721,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (46d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-01",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Private+Construtora+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Private+Construtora+0015243-88.2026.8.08.0024"
   },
   {
     "id": 19,
@@ -1508,12 +1781,14 @@
     "securitizadoras": "Virgo Securitizadora, Reit Securitizadora",
     "descricao_empresa": "Grupo produtor de grãos e fibras (Agrícola Formosa e Fazenda Tapera) fundado pela família Laurindo de Castilhos, com administração central no Paraná e extensas propriedades agrícolas no oeste da Bahia (cerrado baiano), dedicadas ao cultivo tecnificado de soja, milho e algodão em larga escala.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 52,
+      "recuperacao_pct": 48,
+      "haircut_estimado_pct": 52,
+      "recuperacao_estimada_pct": 48,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 100.8,
+      "valor_recuperado_mm": 121.0,
       "ev_estimado_mm": 163.8,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -1521,13 +1796,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Extraconcursal Blindado (R$ 304,5M em CRIs/CRAs)",
-      "alienacao_terras": "Alienação Fiduciária de Fazendas (Virgo, Reit e Fosnor R$ 87,4M)",
-      "ativos_rurais": "Fazendas Agrícola Formosa e Tapera (Soja e Algodão PR/BA)",
-      "cra_exposicao": "R$ 304,5 MM (Virgo Securitizadora & Reit Securitizadora)"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 20.2
+      },
+      "dip_necessidade_mm": 30.2,
+      "upi_valuation_estimado_mm": 88.2
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-04",
@@ -1537,8 +1816,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (49d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-04",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Laurindo+de+Castilhos+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
     "id": 20,
@@ -1590,12 +1874,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Grupo familiar de produtores rurais estabelecido no polo agrícola de Sidrolândia e Maracaju (Mato Grosso do Sul), atuante na produção comercial de soja, milho safrinha e integração lavoura-pecuária em terras próprias e arrendadas na região central sul-mato-grossense.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 53,
+      "recuperacao_pct": 47,
+      "haircut_estimado_pct": 53,
+      "recuperacao_estimada_pct": 47,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 12.8,
+      "valor_recuperado_mm": 15.0,
       "ev_estimado_mm": 16.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -1603,13 +1889,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Custeio Bancário e Cooperativo (72% Sicredi e BB)",
-      "alienacao_terras": "Hipoteca de Imóveis Rurais e Penhor de Grãos",
-      "ativos_rurais": "Lavouras tecnificadas de soja e milho em Sidrolândia/MS",
-      "cra_exposicao": "Sem CRA reportado"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 2.6
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 11.2
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-05",
@@ -1619,8 +1909,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (50d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-05",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Martins+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Martins+0801422-11.2026.8.12.0045"
   },
   {
     "id": 21,
@@ -1672,12 +1967,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional grupo agropecuário da região da Grande Dourados (Mato Grosso do Sul), com operações consolidadas em cultivo de soja, milho e pecuária seletiva, mantendo relacionamento intensivo com bancos de investimento (BTG Pactual e Itaú) para financiamento de safra e expansão de área.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 52,
+      "recuperacao_pct": 48,
+      "haircut_estimado_pct": 52,
+      "recuperacao_estimada_pct": 48,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 78.4,
+      "valor_recuperado_mm": 94.1,
       "ev_estimado_mm": 98.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -1685,13 +1982,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Linhas Agro Privadas & Cédulas Rurais",
-      "alienacao_terras": "Penhor Agrícola e Garantias Reais (BTG Pactual e Itaú)",
-      "ativos_rurais": "Unidades agrícolas na região da Grande Dourados/MS",
-      "cra_exposicao": "Sem CRA reportado"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 15.7
+      },
+      "dip_necessidade_mm": 23.5,
+      "upi_valuation_estimado_mm": 68.6
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-30",
@@ -1701,8 +2002,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (45d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-30",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Pery+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Pery+0809122-45.2026.8.12.0002"
   },
   {
     "id": 22,
@@ -1756,12 +2062,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Sexta maior petroquímica do mundo e líder absoluta na produção de resinas termoplásticas (polietileno PE, polipropileno PP e PVC) nas Américas (B3: BRKM5 / NYSE: BAK), controlada conjuntamente pela Novonor (ex-Odebrecht) e pela Petrobras, operando 40 unidades industriais no Brasil (BA, RS, SP, AL, RJ), EUA, México e Alemanha.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 38,
+      "recuperacao_pct": 62,
+      "haircut_estimado_pct": 38,
+      "recuperacao_estimada_pct": 62,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 34800.0,
+      "valor_recuperado_mm": 35960.0,
       "ev_estimado_mm": 37700.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1769,9 +2077,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 6960.0
+      },
+      "dip_necessidade_mm": 6960.0,
+      "upi_valuation_estimado_mm": 20300.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2027-01-04",
       "data_marco_br": "04/01/2027",
@@ -1780,8 +2097,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (80d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2027-01-04",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Braskem+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 23,
@@ -1833,12 +2155,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Plataforma capixaba de investimentos, gestão de patrimônio (wealth management), banco de investimentos regional e estruturação de ativos alternativos sediada em Vitória/ES, controladora da Apex Participações e de veículos próprios de securitização de recebíveis imobiliários, corporativos e FIDCs.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 52,
+      "recuperacao_pct": 48,
+      "haircut_estimado_pct": 52,
+      "recuperacao_estimada_pct": 48,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 542.3,
+      "valor_recuperado_mm": 473.3,
       "ev_estimado_mm": 493.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1846,9 +2170,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 118.3
+      },
+      "dip_necessidade_mm": 118.3,
+      "upi_valuation_estimado_mm": 345.1
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-05",
       "data_marco_br": "05/12/2026",
@@ -1857,8 +2190,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (50d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-05",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Apex+Partners+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Apex+Partners+5014820-44.2026.8.08.0024"
   },
   {
     "id": 24,
@@ -1914,12 +2252,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional empresa de blindagem automotiva certificada pelo Exército Brasileiro e comercialização de veículos blindados premium (VRZ Blindagens e concessionária multimarcas Auto Laska), sediada em São Bernardo do Campo/SP (ABC Paulista), atendendo frotas executivas, concessionárias e clientes pessoa física de alta renda.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 49,
+      "recuperacao_pct": 51,
+      "haircut_estimado_pct": 49,
+      "recuperacao_estimada_pct": 51,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 57.75,
+      "valor_recuperado_mm": 53.5,
       "ev_estimado_mm": 52.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -1927,9 +2267,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 12.6
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 36.8
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-30",
       "data_marco_br": "30/11/2026",
@@ -1938,8 +2287,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (45d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-30",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=VRZ+Blindados+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 25,
@@ -1993,12 +2347,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Maior blindadora de veículos civis do mundo em volume de produção (C Blindados, fabricante de vidros balísticos próprios Opera Glass e divisão Vertco), sediada em complexo industrial moderno em Barueri/SP (Alphaville), homologada diretamente por montadoras globais como Toyota, Volvo, BMW, Jaguar Land Rover e BYD.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 39,
+      "recuperacao_pct": 61,
+      "haircut_estimado_pct": 39,
+      "recuperacao_estimada_pct": 61,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 222.6,
+      "valor_recuperado_mm": 226.3,
       "ev_estimado_mm": 185.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2006,9 +2362,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 44.5
+      },
+      "dip_necessidade_mm": 44.5,
+      "upi_valuation_estimado_mm": 129.8
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2027-01-03",
       "data_marco_br": "03/01/2027",
@@ -2017,8 +2382,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (79d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2027-01-03",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Carbon+Blindados+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 26,
@@ -2072,12 +2442,14 @@
     "securitizadoras": "Reit Securitizadora",
     "descricao_empresa": "Conglomerado paulista especializado na prestação de serviços de alimentação coletiva terceirizada, merenda escolar municipal/estadual, nutrição hospitalar e cestas de suprimentos (Nutriplus Alimentação e Ômega), sediado em Salto/SP e detentor de dezenas de contratos administrativos continuados no estado de São Paulo.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 49,
+      "recuperacao_pct": 51,
+      "haircut_estimado_pct": 49,
+      "recuperacao_estimada_pct": 51,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 104.5,
+      "valor_recuperado_mm": 96.9,
       "ev_estimado_mm": 95.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2085,9 +2457,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 22.8
+      },
+      "dip_necessidade_mm": 22.8,
+      "upi_valuation_estimado_mm": 66.5
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-23",
       "data_marco_br": "23/11/2026",
@@ -2096,8 +2477,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (38d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-23",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Nutriplus+&+Ômega+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 27,
@@ -2153,12 +2539,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Trading regional de originação, beneficiamento, armazenagem e comercialização de grãos (soja e milho) sediada na fronteira agrícola de Ponta Porã/MS, atuando na intermediação entre produtores rurais sul-mato-grossenses/paraguaios e corredores de exportação portuária.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 40,
+      "recuperacao_pct": 60,
+      "haircut_estimado_pct": 40,
+      "recuperacao_estimada_pct": 60,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 108.9,
+      "valor_recuperado_mm": 118.8,
       "ev_estimado_mm": 99.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -2166,13 +2554,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "ACC/ACE de Exportação + Carteira de CPRs Barter",
-      "alienacao_terras": "Travas Bancárias e Warrants de Grãos em Armazéns",
-      "ativos_rurais": "Unidade de originação e armazenagem em Ponta Porã/MS",
-      "cra_exposicao": "Operações estruturadas de comércio exterior"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 15.8
+      },
+      "dip_necessidade_mm": 23.8,
+      "upi_valuation_estimado_mm": 69.3
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-15",
@@ -2182,8 +2574,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (30d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-15",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Royal+Agro+Trading+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Royal+Agro+Trading+0804122-19.2026.8.12.0019"
   },
   {
     "id": 28,
@@ -2247,12 +2644,14 @@
     },
     "descricao_empresa": "Uma das maiores empresas brasileiras de engenharia consultiva, gerenciamento de obras, projetos industriais (EPCM) e desenvolvimento de concessões de infraestrutura, fundada em 1987 em São Paulo/SP, atendendo clientes de primeira linha em mineração (Vale), energia, saneamento, ferrovias e óleo & gás.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 39,
+      "recuperacao_pct": 61,
+      "haircut_estimado_pct": 39,
+      "recuperacao_estimada_pct": 61,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 525.8,
+      "valor_recuperado_mm": 583.2,
       "ev_estimado_mm": 478.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -2260,9 +2659,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 66.9
+      },
+      "dip_necessidade_mm": 114.7,
+      "upi_valuation_estimado_mm": 334.6
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-13",
       "data_marco_br": "13/11/2026",
@@ -2271,8 +2679,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (28d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-13",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Progen+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 29,
@@ -2324,12 +2737,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Multinacional brasileira de tecnologia da informação, transformação digital, consultoria ágil e terceirização de processos de negócios (BPO/ITO, antiga Resource IT Solutions), sediada em São Paulo/SP, com cerca de 3.000 profissionais atendendo grandes bancos, seguradoras, concessionárias de serviços públicos e varejistas na América Latina.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 61,
+      "recuperacao_pct": 39,
+      "haircut_estimado_pct": 61,
+      "recuperacao_estimada_pct": 39,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 199.2,
+      "valor_recuperado_mm": 194.2,
       "ev_estimado_mm": 323.7,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2337,9 +2752,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 59.8
+      },
+      "dip_necessidade_mm": 59.8,
+      "upi_valuation_estimado_mm": 174.3
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-24",
       "data_marco_br": "24/11/2026",
@@ -2348,8 +2772,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (39d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-24",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Qintess+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 30,
@@ -2401,12 +2830,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Grupo agropecuário gaúcho com sede operacional na região do Planalto Médio e Missões (Passo Fundo e Santa Rosa/RS), focado na produção de soja, trigo, milho e pecuária de corte em áreas próprias, fortemente impactado pelas adversidades climáticas extremas no Rio Grande do Sul.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 51,
+      "recuperacao_pct": 49,
+      "haircut_estimado_pct": 51,
+      "recuperacao_estimada_pct": 49,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 51.2,
+      "valor_recuperado_mm": 62.7,
       "ev_estimado_mm": 64.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -2414,13 +2845,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Custeio Rural + CRAs Pulverizados",
-      "alienacao_terras": "Alienação Fiduciária e Hipotecas (Banrisul, Sicredi, BB)",
-      "ativos_rurais": "Propriedades agrícolas de soja e trigo em Passo Fundo/RS",
-      "cra_exposicao": "CRAs em renegociação com securitizadoras"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 10.2
+      },
+      "dip_necessidade_mm": 15.4,
+      "upi_valuation_estimado_mm": 44.8
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-17",
@@ -2430,8 +2865,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (32d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-17",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Agropecuária+Ivagaci+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 31,
@@ -2485,12 +2925,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Holding automotiva controlada pelo empresário Sérgio Habib (ex-presidente da Citroën no Brasil), importadora e distribuidora exclusiva da montadora chinesa JAC Motors no país desde 2011. Nos últimos anos, reposicionou seu portfólio para veículos 100% elétricos comerciais (VULs e caminhões urbanos) e carros de passeio.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 60,
+      "recuperacao_pct": 40,
+      "haircut_estimado_pct": 60,
+      "recuperacao_estimada_pct": 40,
       "desconto_secundario_pct": 35.0,
       "valor_recuperado_mm": 96.0,
       "ev_estimado_mm": 156.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2498,9 +2940,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 28.8
+      },
+      "dip_necessidade_mm": 28.8,
+      "upi_valuation_estimado_mm": 84.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-05",
       "data_marco_br": "05/12/2026",
@@ -2509,8 +2960,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (50d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-05",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+SHC+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 32,
@@ -2562,12 +3018,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional rede varejista e fabricante própria de móveis planejados, estofados e artigos de decoração residencial sediada em São Caetano do Sul/SP (ABC Paulista), com forte atuação histórica na Região Metropolitana de São Paulo e fabricação verticalizada de marcenaria.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 64,
+      "recuperacao_pct": 36,
+      "haircut_estimado_pct": 64,
+      "recuperacao_estimada_pct": 36,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 22.4,
+      "valor_recuperado_mm": 20.2,
       "ev_estimado_mm": 28.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2575,9 +3033,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 6.7
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 19.6
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-01",
       "data_marco_br": "01/12/2026",
@@ -2586,8 +3053,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (46d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-01",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Sidlar+Móveis+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 33,
@@ -2641,12 +3113,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Um dos maiores grupos de alimentação fora do lar (foodservice) e franquias do Brasil (Grupo Alsaraiva), fundado por Alberto Saraiva em 1988. Reúne mais de 300 restaurantes sob as bandeiras Habib's (maior rede de culinária árabe rápida do mundo) e Ragazzo (massas e coxinha), suportados por cozinhas centrais verticalizadas, laticínios e panificadoras próprias.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 50,
+      "recuperacao_pct": 50,
+      "haircut_estimado_pct": 50,
+      "recuperacao_estimada_pct": 50,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 145.75,
+      "valor_recuperado_mm": 132.5,
       "ev_estimado_mm": 132.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2654,9 +3128,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 31.8
+      },
+      "dip_necessidade_mm": 31.8,
+      "upi_valuation_estimado_mm": 92.8
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-25",
       "data_marco_br": "25/10/2026",
@@ -2665,8 +3148,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (9d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-10-25",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Habib's+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 34,
@@ -2722,12 +3210,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Uma das pioneiras nacionais na produção, mistura e distribuição de fertilizantes químicos (NPK) e insumos de nutrição vegetal (B3: FHER3), fundada em 1968 em Viana/ES. Opera mais de 10 unidades industriais misturadoras estrategicamente distribuídas pelos estados de SP, MG, ES, PR, GO, BA e RS.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 39,
+      "recuperacao_pct": 61,
+      "haircut_estimado_pct": 39,
+      "recuperacao_estimada_pct": 61,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 1188.0,
+      "valor_recuperado_mm": 1207.8,
       "ev_estimado_mm": 990.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -2735,13 +3225,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Linhas de Importação de NPK + Barter com Produtores",
-      "alienacao_terras": "Garantias Reais sobre Plantas Misturadoras e Estoques",
-      "ativos_rurais": "Mais de 10 plantas industriais misturadoras de NPK no Brasil",
-      "cra_exposicao": "Dívida bancária sindicalizada e fornecedores globais"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 158.4
+      },
+      "dip_necessidade_mm": 237.6,
+      "upi_valuation_estimado_mm": 693.0
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-25",
@@ -2751,8 +3245,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (40d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-25",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Fertilizantes+Heringer+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Fertilizantes+Heringer+5003912-11.2026.8.08.0050"
   },
   {
     "id": 35,
@@ -2812,12 +3311,14 @@
     },
     "descricao_empresa": "Importadora e distribuidora paranaense de equipamentos de energia solar fotovoltaica (geradores completos, módulos solares, inversores e estruturas de fixação) sediada em Maringá/PR, atendendo milhares de integradores e instaladores de geração distribuída (MMGD) nas regiões Sul, Sudeste e Centro-Oeste.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 51,
+      "recuperacao_pct": 49,
+      "haircut_estimado_pct": 51,
+      "recuperacao_estimada_pct": 49,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 36.8,
+      "valor_recuperado_mm": 45.1,
       "ev_estimado_mm": 46.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -2825,9 +3326,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 6.4
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 32.2
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-20",
       "data_marco_br": "20/11/2026",
@@ -2836,8 +3346,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (35d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-20",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Edeltec+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
     "id": 36,
@@ -2889,12 +3404,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Operadora líder no gerenciamento integrado, coleta especializada, autoclavagem e incineração de resíduos de serviços de saúde (lixo hospitalar infectante, químico e perfurocortante) e resíduos industriais perigosos (Classe I), resultante da aquisição da antiga operação brasileira da norte-americana Stericycle, com sede operacional na região de Campinas/SP.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 41,
+      "recuperacao_pct": 59,
+      "haircut_estimado_pct": 41,
+      "recuperacao_estimada_pct": 59,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 45.65,
+      "valor_recuperado_mm": 49.0,
       "ev_estimado_mm": 41.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2902,9 +3419,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 10.0
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 29.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-27",
       "data_marco_br": "27/11/2026",
@@ -2913,8 +3439,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (42d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-27",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=B-Green+Soluções+Ambientais+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 37,
@@ -2968,12 +3499,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Plataforma líder no varejo omnichannel de móveis e artigos de decoração no Brasil (B3: MBLY3), resultante da combinação de negócios entre o e-commerce Mobly e a icônica rede de megalojas de design Tok&Stok (fundada em 1978), operando mais de 50 lojas físicas de grande formato e centros logísticos avançados.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 46,
+      "recuperacao_pct": 54,
+      "haircut_estimado_pct": 46,
+      "recuperacao_estimada_pct": 54,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 360.0,
+      "valor_recuperado_mm": 324.0,
       "ev_estimado_mm": 300.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -2981,9 +3514,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 72.0
+      },
+      "dip_necessidade_mm": 72.0,
+      "upi_valuation_estimado_mm": 210.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-13",
       "data_marco_br": "13/11/2026",
@@ -2992,8 +3534,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (28d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-13",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Toky+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 38,
@@ -3045,12 +3592,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Empresa mineira de engenharia metalúrgica, consultoria industrial e intermediação de insumos siderúrgicos (minério de ferro, carvão vegetal e ligas) sediada no polo produtor de ferro-gusa de Sete Lagoas/MG, atendendo fundições e usinas guserias independentes do quadrilátero ferrífero.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 42,
+      "recuperacao_pct": 58,
+      "haircut_estimado_pct": 42,
+      "recuperacao_estimada_pct": 58,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 183.0,
+      "valor_recuperado_mm": 176.9,
       "ev_estimado_mm": 152.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3058,9 +3607,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 36.6
+      },
+      "dip_necessidade_mm": 36.6,
+      "upi_valuation_estimado_mm": 106.8
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-23",
       "data_marco_br": "23/11/2026",
@@ -3069,8 +3627,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (38d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-23",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Terra+Assessoria+de+Siderúrgicas+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Terra+Assessoria+de+Siderúrgicas+5008412-20.2026.8.13.0672"
   },
   {
     "id": 39,
@@ -3124,12 +3687,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Conglomerado agrícola de grande porte estabelecido no coração produtivo da BR-163 (Sorriso e Lucas do Rio Verde/MT), operando mais de 25 mil hectares de lavouras tecnificadas de soja e milho segunda safra, além de estrutura própria de secagem e beneficiamento primário de grãos.",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 33,
+      "recuperacao_pct": 67,
+      "haircut_estimado_pct": 33,
+      "recuperacao_estimada_pct": 67,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 120.25,
+      "valor_recuperado_mm": 124.0,
       "ev_estimado_mm": 92.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -3137,13 +3702,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "CPR Física de Soja/Milho (Risco de Arresto por Tradings)",
-      "alienacao_terras": "Penhor de Safra (Cargill, Bunge, ADM, BB e Sicredi)",
-      "ativos_rurais": "25.000+ ha plantados e estrutura de secagem em Sorriso/MT",
-      "cra_exposicao": "Monitoramento preventivo Tier 0"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 14.8
+      },
+      "dip_necessidade_mm": 22.2,
+      "upi_valuation_estimado_mm": 64.8
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-17",
@@ -3153,8 +3722,13 @@
       "marco_tipo": "Janela Tier 0",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (32d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-17",
+      "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Agroindustrial+do+Cerrado+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Agroindustrial+do+Cerrado+CVM+fato+relevante+debentures"
   },
   {
     "id": 40,
@@ -3208,12 +3782,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Operadora regional de planos de saúde suplementar médico-hospitalar (cerca de 120 mil vidas beneficiárias) verticalizada com rede própria de hospitais gerais, centros clínicos e pronto-atendimento nos estados do Paraná e Santa Catarina.",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 28,
+      "recuperacao_pct": 72,
+      "haircut_estimado_pct": 28,
+      "recuperacao_estimada_pct": 72,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 169.0,
+      "valor_recuperado_mm": 187.2,
       "ev_estimado_mm": 169.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3221,9 +3797,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 31.2
+      },
+      "dip_necessidade_mm": 31.2,
+      "upi_valuation_estimado_mm": 91.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-18",
       "data_marco_br": "18/11/2026",
@@ -3232,8 +3817,13 @@
       "marco_tipo": "Janela Tier 0",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (33d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-18",
+      "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Rede+Hospitalar+&+Operadora+Regional+Sul-Sudeste+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Rede+Hospitalar+&+Operadora+Regional+Sul-Sudeste+CVM+fato+relevante+debentures"
   },
   {
     "id": 41,
@@ -3295,12 +3885,14 @@
     },
     "descricao_empresa": "Plataforma independente de comercialização de energia elétrica no Mercado Livre (ACL) e holding de Sociedades de Propósito Específico (SPEs) detentoras de usinas solares e eólicas no Nordeste e Sudeste, estruturada com emissão de debêntures de infraestrutura e contratos bilaterais de longo prazo (PPAs).",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 28,
+      "recuperacao_pct": 72,
+      "haircut_estimado_pct": 28,
+      "recuperacao_estimada_pct": 72,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 221.0,
+      "valor_recuperado_mm": 244.8,
       "ev_estimado_mm": 170.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -3308,9 +3900,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 23.8
+      },
+      "dip_necessidade_mm": 40.8,
+      "upi_valuation_estimado_mm": 119.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-27",
       "data_marco_br": "27/10/2026",
@@ -3319,8 +3920,13 @@
       "marco_tipo": "AGD Debêntures",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (11d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-27",
+      "tipo_marco": "Assembleia Geral de Debenturistas (AGD — 2ª Emissão RNVE12) & Garantias CCEE",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Renovare+Energia+&+Comercializadora+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Renovare+Energia+&+Comercializadora+S/A+CVM+fato+relevante+debentures"
   },
   {
     "id": 42,
@@ -3374,12 +3980,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Rede varejista brasileira de moda acessível, confecções familiares e calçados com forte presença em lojas de rua de alto fluxo e shopping centers regionais (120 pontos de venda ativos nas regiões Sudeste e Sul), operando modelo intensivo de financiamento ao consumidor (crediário próprio e cartões).",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 40,
+      "recuperacao_pct": 60,
+      "haircut_estimado_pct": 40,
+      "recuperacao_estimada_pct": 60,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 94.25,
+      "valor_recuperado_mm": 87.0,
       "ev_estimado_mm": 72.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3387,9 +3995,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 17.4
+      },
+      "dip_necessidade_mm": 17.4,
+      "upi_valuation_estimado_mm": 50.8
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-19",
       "data_marco_br": "19/11/2026",
@@ -3398,8 +4015,13 @@
       "marco_tipo": "Janela Tier 0",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (34d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-19",
+      "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Rede+Varejista+Moda+&+Calçados+Brasil+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Rede+Varejista+Moda+&+Calçados+Brasil+CVM+fato+relevante+debentures"
   },
   {
     "id": 43,
@@ -3453,12 +4075,14 @@
     "securitizadoras": "Reit Securitizadora",
     "descricao_empresa": "Indústria metalúrgica sistemista (Tier 2 automotivo) instalada no polo tecnológico e industrial de Campinas/SP, especializada em estamparia pesada, usinagem CNC e subconjuntos soldados fornecidos sob contratos just-in-time para montadoras de caminhões, ônibus, tratores e máquinas agrícolas.",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 31,
+      "recuperacao_pct": 69,
+      "haircut_estimado_pct": 31,
+      "recuperacao_estimada_pct": 69,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 61.75,
+      "valor_recuperado_mm": 65.5,
       "ev_estimado_mm": 47.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3466,9 +4090,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 11.4
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 33.2
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-19",
       "data_marco_br": "19/11/2026",
@@ -3477,8 +4110,13 @@
       "marco_tipo": "Janela Tier 0",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (34d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-19",
+      "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Metalúrgica+Autopeças+&+Componentes+Pesados+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Metalúrgica+Autopeças+&+Componentes+Pesados+CVM+fato+relevante+debentures"
   },
   {
     "id": 44,
@@ -3532,12 +4170,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Transportadora rodoviária de cargas pesadas, indivisíveis, siderúrgicas e granéis industriais sediada em São Paulo/SP, operando frota superior a 350 cavalos mecânicos e carretas especiais nas malhas rodoviárias do Sudeste, Sul e Centro-Oeste para grandes embarcadores industriais.",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 35,
+      "recuperacao_pct": 65,
+      "haircut_estimado_pct": 35,
+      "recuperacao_estimada_pct": 65,
       "desconto_secundario_pct": 25.0,
       "valor_recuperado_mm": 78.0,
       "ev_estimado_mm": 60.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3545,9 +4185,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 14.4
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 42.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-20",
       "data_marco_br": "20/11/2026",
@@ -3556,8 +4205,13 @@
       "marco_tipo": "Janela Tier 0",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (35d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-20",
+      "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=TransLog+Cargas+Pesadas+&+Logística+Rodoviária+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=TransLog+Cargas+Pesadas+&+Logística+Rodoviária+CVM+fato+relevante+debentures"
   },
   {
     "id": 45,
@@ -3611,12 +4265,14 @@
     "securitizadoras": "Reit Securitizadora",
     "descricao_empresa": "Construtora de engenharia pesada, obras de arte especiais (pontes e viadutos), pavimentação rodoviária e saneamento básico sediada em Belo Horizonte/MG, detentora de carteira relevante de contratos públicos licitados junto ao DNIT, DERs estaduais e companhias de saneamento em MG, SP e RJ.",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 28,
+      "recuperacao_pct": 72,
+      "haircut_estimado_pct": 28,
+      "recuperacao_estimada_pct": 72,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 136.5,
+      "valor_recuperado_mm": 151.2,
       "ev_estimado_mm": 105.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3624,9 +4280,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 25.2
+      },
+      "dip_necessidade_mm": 25.2,
+      "upi_valuation_estimado_mm": 73.5
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-20",
       "data_marco_br": "20/11/2026",
@@ -3635,8 +4300,13 @@
       "marco_tipo": "Janela Tier 0",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (35d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-20",
+      "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Engenharia+&+Construtora+InfraBrasil+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Engenharia+&+Construtora+InfraBrasil+CVM+fato+relevante+debentures"
   },
   {
     "id": 46,
@@ -3700,12 +4370,14 @@
     },
     "descricao_empresa": "Sociedade de Propósito Específico (SPE) detentora de concessão rodoviária estadual regulada pela ARTESP no interior de São Paulo (eixo Sorocaba, Itu, Salto e Indaiatuba), operando mais de 300 km de malha duplicada com fluxo intenso de veículos pesados e receita tarifária de praças de pedágio.",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 28,
+      "recuperacao_pct": 72,
+      "haircut_estimado_pct": 28,
+      "recuperacao_estimada_pct": 72,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 273.0,
+      "valor_recuperado_mm": 302.4,
       "ev_estimado_mm": 210.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -3713,9 +4385,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 29.4
+      },
+      "dip_necessidade_mm": 50.4,
+      "upi_valuation_estimado_mm": 147.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-04",
       "data_marco_br": "04/11/2026",
@@ -3724,8 +4405,13 @@
       "marco_tipo": "AGD Debêntures",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (19d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-11-04",
+      "tipo_marco": "Assembleia Geral de Debenturistas (CLTI11/12) & Defesa de Caducidade ARTESP",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Concessionária+Rodoviária+das+Colinas+do+Tietê+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Concessionária+Rodoviária+das+Colinas+do+Tietê+CVM+fato+relevante+debentures"
   },
   {
     "id": 47,
@@ -3781,12 +4467,14 @@
     "securitizadoras": "Opea Securitizadora, Vert Securitizadora",
     "descricao_empresa": "Uma das maiores plataformas de varejo de insumos agrícolas (sementes, defensivos, fertilizantes e especialidades) e serviços de comercialização de grãos do Brasil (B3: AGXY3), controlada pelo fundo Aqua Capital. Chegou a operar mais de 170 lojas técnicas, silos e unidades de beneficiamento de sementes em 14 estados (do RS ao Matopiba).",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 52,
+      "recuperacao_pct": 48,
+      "haircut_estimado_pct": 52,
+      "recuperacao_estimada_pct": 48,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 1868.0,
+      "valor_recuperado_mm": 2241.6,
       "ev_estimado_mm": 3035.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -3794,13 +4482,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Carteira de CPRs de Clientes Cedida a CRAs e FIDCs",
-      "alienacao_terras": "Cessão Fiduciária de Recebíveis de Safra",
-      "ativos_rurais": "Rede de lojas técnicas, silos e unidades de sementes (UPIs)",
-      "cra_exposicao": "Forte Exposição em CRAs (Vert Securitizadora & Opea)"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 373.6
+      },
+      "dip_necessidade_mm": 560.4,
+      "upi_valuation_estimado_mm": 1634.5
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-17",
@@ -3810,8 +4502,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (32d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-17",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=AgroGalaxy+Participações+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://projudi.tjgo.jus.br/BuscaProcessoPublica"
   },
   {
     "id": 48,
@@ -3865,12 +4562,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Icônica rede varejista multicanal brasileira fundada em 1999 por João Appolinário, famosa pelo modelo pioneiro de infomerciais em TV aberta e a cabo, e-commerce próprio e rede que chegou a superar 250 lojas físicas nos principais shopping centers do país, comercializando eletroportáteis, equipamentos de ginástica e utilidades domésticas exclusivas.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 65,
+      "recuperacao_pct": 35,
+      "haircut_estimado_pct": 65,
+      "recuperacao_estimada_pct": 35,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 158.4,
+      "valor_recuperado_mm": 138.6,
       "ev_estimado_mm": 198.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3878,9 +4577,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 47.5
+      },
+      "dip_necessidade_mm": 47.5,
+      "upi_valuation_estimado_mm": 138.6
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-19",
       "data_marco_br": "19/10/2026",
@@ -3889,8 +4597,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (3d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-10-19",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Polimport+Comércio+e+Exportação+Ltda+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 49,
@@ -3944,12 +4657,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Grupo empresarial mato-grossense com atuação dual na construção civil (incorporação de edifícios residenciais, condomínios horizontais e loteamentos urbanos em Cuiabá, Várzea Grande e interior de MT) e no agronegócio regional, com forte carteira de financiamentos habitacionais junto à Caixa Econômica Federal.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 56,
+      "recuperacao_pct": 44,
+      "haircut_estimado_pct": 56,
+      "recuperacao_estimada_pct": 44,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 68.0,
+      "valor_recuperado_mm": 74.8,
       "ev_estimado_mm": 85.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -3957,9 +4672,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 20.4
+      },
+      "dip_necessidade_mm": 20.4,
+      "upi_valuation_estimado_mm": 59.5
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-05",
       "data_marco_br": "05/12/2026",
@@ -3968,8 +4692,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (50d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-05",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Echer+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 50,
@@ -4021,12 +4750,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional distribuidora atacadista de medicamentos éticos, genéricos, hospitalares e produtos de higiene/perfumaria (farma B2B), com matriz em São Paulo e centros de distribuição climatizados em SP, ES, MG e PR, abastecendo redes de farmácias independentes, clínicas e hospitais privados.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 55,
+      "recuperacao_pct": 45,
+      "haircut_estimado_pct": 55,
+      "recuperacao_estimada_pct": 45,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 46.0,
+      "valor_recuperado_mm": 51.8,
       "ev_estimado_mm": 57.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -4034,9 +4765,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 13.8
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 40.2
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-02",
       "data_marco_br": "02/12/2026",
@@ -4045,8 +4785,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (47d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-02",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Navarro+Distribuidora+de+Medicamentos+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 51,
@@ -4104,12 +4849,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Gigante agroindustrial mato-grossense sediada em Sorriso e Sinop/MT, com atuação destacada na armazenagem geral de grãos (rede de silos estáticos de grande capacidade), originação comercial de soja e milho, cultivo agrícola próprio e industrialização de biocombustíveis/esmagamento no norte do estado.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 51,
+      "recuperacao_pct": 49,
+      "haircut_estimado_pct": 51,
+      "recuperacao_estimada_pct": 49,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 712.0,
+      "valor_recuperado_mm": 872.2,
       "ev_estimado_mm": 1157.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -4117,13 +4864,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "CPRs Físicas/Financeiras + Contratos de Depósito de Grãos",
-      "alienacao_terras": "Alienação Fiduciária de Silos e Armazéns Gerais",
-      "ativos_rurais": "Complexo de silos graneleiros e terras em Sorriso e Sinop/MT",
-      "cra_exposicao": "Dívida estruturada com Tradings (Cargill, Bunge, COFCO) e Bancos"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 142.4
+      },
+      "dip_necessidade_mm": 213.6,
+      "upi_valuation_estimado_mm": 623.0
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-07",
@@ -4133,8 +4884,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (52d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-07",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Safras+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 52,
@@ -4190,12 +4946,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Importante rede de distribuição de insumos agrícolas, defensivos, fertilizantes e sementes (Qualiciclo Agrícola S.A.), integrada à plataforma da gigante Lavoro Agro, com forte presença comercial nos polos agrícolas de São Paulo (Limeira), Minas Gerais, Goiás e sul de Mato Grosso.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 55,
+      "recuperacao_pct": 45,
+      "haircut_estimado_pct": 55,
+      "recuperacao_estimada_pct": 45,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 1019.2,
+      "valor_recuperado_mm": 1146.6,
       "ev_estimado_mm": 1274.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -4203,13 +4961,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Duplicatas Rurais e CPRs de Insumos Químicos",
-      "alienacao_terras": "Garantias Fiduciárias sobre Recebíveis de Safra",
-      "ativos_rurais": "Rede de revendas de insumos agrícolas em SP, MG e GO",
-      "cra_exposicao": "Multinacionais Químicas (Corteva, Mosaic, UPL) + Votorantim/Daycoval"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 203.8
+      },
+      "dip_necessidade_mm": 305.8,
+      "upi_valuation_estimado_mm": 891.8
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-08",
@@ -4219,8 +4981,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (53d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-08",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Qualiciclo+Agrícola+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 53,
@@ -4278,12 +5045,14 @@
     "securitizadoras": "Opea Securitizadora",
     "descricao_empresa": "Cooperativa agropecuária mais antiga em atividade no Brasil, fundada em 1911 no município de Ibirubá/RS. Reúne cerca de 9.500 produtores rurais cooperados e opera vasta infraestrutura de mais de 60 unidades de recebimento e armazenagem de grãos (capacidade estática para milhões de sacas), fábricas de rações, supermercados, lojas de insumos e posto de combustível no Rio Grande do Sul.",
     "model_params": {
-      "haircut_pct": 75.0,
-      "recuperacao_pct": 25.0,
+      "haircut_pct": 69,
+      "recuperacao_pct": 31,
+      "haircut_estimado_pct": 69,
+      "recuperacao_estimada_pct": 31,
       "desconto_secundario_pct": 50.0,
-      "valor_recuperado_mm": 355.0,
+      "valor_recuperado_mm": 440.2,
       "ev_estimado_mm": 923.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -4291,13 +5060,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "CRAs Inadimplentes (R$ 150M) + Repasses Cooperativos",
-      "alienacao_terras": "Garantias Reais sobre Unidades de Recebimento de Grãos",
-      "ativos_rurais": "60+ unidades de silos, fábrica de rações e imóveis no RS (UPIs)",
-      "cra_exposicao": "R$ 150,0 MM em CRAs (Opea Securitizadora / Vórtx)"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 113.6
+      },
+      "dip_necessidade_mm": 170.4,
+      "upi_valuation_estimado_mm": 497.0
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-03",
@@ -4307,8 +5080,13 @@
       "marco_tipo": "Assembleia / UPI",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (18d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-11-03",
+      "tipo_marco": "Assembleia Geral para Instalação da Liquidação Extrajudicial com Continuidade e UPIs",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Cooperativa+Agrícola+Mista+General+Osório+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 54,
@@ -4364,12 +5142,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Holding brasileira de tecnologia aplicada ao agronegócio sediada em Olímpia/SP (integrada por Indústria Química Kimberlit, Bionat Soluções Biológicas e Loyder Brasil). É referência nacional no desenvolvimento e fabricação de bioinsumos (bionematicidas e biofungicidas), fertilizantes especiais foliares e tecnologia de aplicação.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 54,
+      "recuperacao_pct": 46,
+      "haircut_estimado_pct": 54,
+      "recuperacao_estimada_pct": 46,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 88.8,
+      "valor_recuperado_mm": 102.1,
       "ev_estimado_mm": 144.3,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -4377,13 +5157,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Cédulas Bancárias Concentradas (CR3 > 82% BB, Itaú, Santander)",
-      "alienacao_terras": "Garantias sobre Plantas Industriais e Recebíveis",
-      "ativos_rurais": "UPI Planta de Biológicos Bionat (Olímpia/SP) e Unidade Loyder NPK",
-      "cra_exposicao": "Crédito bancário direto concentrado"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 17.8
+      },
+      "dip_necessidade_mm": 26.6,
+      "upi_valuation_estimado_mm": 77.7
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-08",
@@ -4393,8 +5177,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (53d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-08",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Essere+Group+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 55,
@@ -4450,12 +5239,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Conglomerado paulista de investimentos alternativos, private equity, securitização e fomento mercantil (Fictor Holding S/A, Fictor Invest e 18 controladas), sediado na Av. Paulista/Faria Lima em São Paulo/SP, com participações em alimentos, agronegócio, energia, logística e serviços financeiros estruturados via SCPs, mútuos e debêntures.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 58,
+      "recuperacao_pct": 42,
+      "haircut_estimado_pct": 58,
+      "recuperacao_estimada_pct": 42,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 1680.0,
+      "valor_recuperado_mm": 1764.0,
       "ev_estimado_mm": 2730.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -4463,9 +5254,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 504.0
+      },
+      "dip_necessidade_mm": 504.0,
+      "upi_valuation_estimado_mm": 1470.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-29",
       "data_marco_br": "29/10/2026",
@@ -4474,8 +5274,13 @@
       "marco_tipo": "Objeções ao Plano",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (13d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-29",
+      "tipo_marco": "Prazo Fatal para Apresentação de Objeções ao Plano de RJ (Art. 55)",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Fictor+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 56,
@@ -4531,12 +5336,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional grupo familiar produtor de grãos (liderado por Levi de Almeida e familiares) estabelecido nos municípios de Novo Mundo, Guarantã do Norte e Sinop, no extremo norte de Mato Grosso, cultivando milhares de hectares de soja e milho segunda safra com parque próprio de colheitadeiras e tratores.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 49,
+      "recuperacao_pct": 51,
+      "haircut_estimado_pct": 49,
+      "recuperacao_estimada_pct": 51,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 25.6,
+      "valor_recuperado_mm": 32.6,
       "ev_estimado_mm": 32.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -4544,13 +5351,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "CPRs Banco do Brasil (R$ 15,2M) + Insumos (Agrocella/Agromave)",
-      "alienacao_terras": "Alienação Fiduciária de Maquinário (Banco John Deere R$ 9,1M extraconcursal)",
-      "ativos_rurais": "Fazendas de soja e milho e parque de máquinas em Novo Mundo/MT",
-      "cra_exposicao": "Sem CRA (Exposição BB, John Deere, Caixa e Sicredi)"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 5.1
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 22.4
     },
     "calendar_meta": {
       "data_marco_iso": "2026-11-12",
@@ -4560,8 +5371,13 @@
       "marco_tipo": "AGC Pautada",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (27d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-11-12",
+      "tipo_marco": "Assembleia Geral de Credores (AGC — 1ª Convocação Virtual)",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Família+Almeida+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 57,
@@ -4617,12 +5433,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Importante grupo gaúcho de incorporação imobiliária residencial/resort e engenharia pesada (Nex Group Participações e construtora Capa Engenharia), sediado em Porto Alegre/RS, com histórico de dezenas de empreendimentos entregues na Serra Gaúcha (Gramado), litoral catarinense (Praia Brava em Itajaí/SC) e Região Metropolitana de Porto Alegre.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 50,
+      "recuperacao_pct": 50,
+      "haircut_estimado_pct": 50,
+      "recuperacao_estimada_pct": 50,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 77.0,
+      "valor_recuperado_mm": 70.0,
       "ev_estimado_mm": 91.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -4630,9 +5448,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 16.8
+      },
+      "dip_necessidade_mm": 16.8,
+      "upi_valuation_estimado_mm": 49.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-06",
       "data_marco_br": "06/11/2026",
@@ -4641,8 +5468,13 @@
       "marco_tipo": "Mediação CEJUSC",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (21d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-11-06",
+      "tipo_marco": "Sessão Oficial de Mediação Concursal no CEJUSC Empresarial de Porto Alegre",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+NEX+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 58,
@@ -4698,12 +5530,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional grupo educacional de ensino superior com sede em Curitiba/PR (Centro Universitário Campos de Andrade — Uniandrade, Faculdade Uniandrade Maringá e Universidade Ibirapuera — Unib em São Paulo/SP), ofertando dezenas de cursos presenciais e EAD na área da saúde, engenharias e direito em amplos campi próprios.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 60,
+      "recuperacao_pct": 40,
+      "haircut_estimado_pct": 60,
+      "recuperacao_estimada_pct": 40,
       "desconto_secundario_pct": 35.0,
       "valor_recuperado_mm": 121.6,
       "ev_estimado_mm": 152.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -4711,9 +5545,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 36.5
+      },
+      "dip_necessidade_mm": 36.5,
+      "upi_valuation_estimado_mm": 106.4
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-11",
       "data_marco_br": "11/12/2026",
@@ -4722,8 +5565,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (56d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-11",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Educacional+Uniandrade+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
     "id": 59,
@@ -4779,12 +5627,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Indústria moageira de trigo e alimentos fundada há mais de duas décadas em Cotia/SP (Região Metropolitana de São Paulo). Opera planta industrial própria de moagem e silos graneleiros com capacidade instalada para processar até 12.000 toneladas de trigo por mês, produzindo farinhas industriais, pré-misturas para panificação e farelo sob as marcas Corina, A Nata e Nadine.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 54,
+      "recuperacao_pct": 46,
+      "haircut_estimado_pct": 54,
+      "recuperacao_estimada_pct": 46,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 60.4,
+      "valor_recuperado_mm": 69.5,
       "ev_estimado_mm": 98.2,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -4792,13 +5642,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Fornecimento Físico de Trigo (COFCO/Nidera detém 41% — R$ 62,18M)",
-      "alienacao_terras": "Garantias sobre Planta Moageira e Silos",
-      "ativos_rurais": "Planta moageira (12 mil t/mês), silos em Cotia/SP e marcas Corina/A Nata",
-      "cra_exposicao": "Crédito comercial COFCO + Santander e Bradesco"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 12.1
+      },
+      "dip_necessidade_mm": 18.1,
+      "upi_valuation_estimado_mm": 52.8
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-08",
@@ -4808,8 +5662,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (53d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-08",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Moinho+Corina+Alimentos+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 60,
@@ -4865,12 +5724,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Consolidado grupo agroindustrial goiano sediado em Itaberaí/GO (composto por Armazéns Gerais Santa Luzia e HS Agropecuária), operando complexo próprio de silos e secadores de grãos aliado a 50 unidades produtivas rurais dedicadas ao cultivo irrigado e de sequeiro de soja, milho, feijão, tomate industrial e citricultura (laranja).",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 50,
+      "recuperacao_pct": 50,
+      "haircut_estimado_pct": 50,
+      "recuperacao_estimada_pct": 50,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 179.6,
+      "valor_recuperado_mm": 224.5,
       "ev_estimado_mm": 291.9,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -4878,13 +5739,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "R$ 289,0M Concursal + R$ 160,1M Extraconcursal (Lei 13.986/20)",
-      "alienacao_terras": "Alienação Fiduciária de 2 Fazendas ao Itaú (R$ 75M) + 28 contratos BB (R$ 76,9M)",
-      "ativos_rurais": "Armazéns Gerais Santa Luzia + 50 unidades produtivas rurais em Itaberaí/GO",
-      "cra_exposicao": "Crédito Bancário (BB, Itaú, Caixa, Daycoval) + Syngenta e John Deere"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 35.9
+      },
+      "dip_necessidade_mm": 53.9,
+      "upi_valuation_estimado_mm": 157.1
     },
     "calendar_meta": {
       "data_marco_iso": "2026-10-22",
@@ -4894,8 +5759,13 @@
       "marco_tipo": "Prazo Judicial",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (6d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-22",
+      "tipo_marco": "Vencimento do Prazo Judicial (15d) para Emenda da Inicial e Laudo de Essencialidade",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+JMR+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://projudi.tjgo.jus.br/BuscaProcessoPublica"
   },
   {
     "id": 61,
@@ -4951,12 +5821,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional rede varejista e atacadista de materiais de construção, acabamento, pisos, louças e ferragens da Região Metropolitana de Belém/PA, fundada há mais de 30 anos. Opera 8 lojas físicas de grande porte em Belém e amplo centro de distribuição logístico próprio no município de Ananindeua/PA.",
     "model_params": {
-      "haircut_pct": 80.0,
-      "recuperacao_pct": 20.0,
+      "haircut_pct": 80,
+      "recuperacao_pct": 20,
+      "haircut_estimado_pct": 80,
+      "recuperacao_estimada_pct": 20,
       "desconto_secundario_pct": 40.0,
       "valor_recuperado_mm": 13.2,
       "ev_estimado_mm": 33.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -4964,9 +5836,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 7.9
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 23.1
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-30",
       "data_marco_br": "30/11/2026",
@@ -4975,8 +5856,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (45d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-30",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Importadora+Oplima+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Importadora+Oplima+Ltda.+0845122-95.2026.8.14.0301"
   },
   {
     "id": 62,
@@ -5032,12 +5918,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Fintech e plataforma de originação de crédito estruturado sediada em Alphaville (Barueri/SP), especializada na estruturação e distribuição de Cédulas de Crédito Bancário (CCBs) endossadas a investidores qualificados e de varejo de alta renda, com captação pulverizada em âmbito nacional.",
     "model_params": {
-      "haircut_pct": 75.0,
-      "recuperacao_pct": 25.0,
+      "haircut_pct": 76,
+      "recuperacao_pct": 24,
+      "haircut_estimado_pct": 76,
+      "recuperacao_estimada_pct": 24,
       "desconto_secundario_pct": 50.0,
-      "valor_recuperado_mm": 87.5,
+      "valor_recuperado_mm": 84.0,
       "ev_estimado_mm": 175.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 12.0,
         "classe_i_pct": 14.0,
@@ -5045,9 +5933,18 @@
         "fiscal_pct": 24.0,
         "classe_iii_pct": 24.0,
         "classe_iv_pct": 4.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 12.0,
+        "c1_trabalhista": 14.0,
+        "c2_garantia_real": 22.0,
+        "c3_quirografario": 24.0,
+        "c4_me_epp": 4.0,
+        "passivo_fiscal_estimado_mm": 84.0
+      },
+      "dip_necessidade_mm": 42.0,
+      "upi_valuation_estimado_mm": 122.5
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-29",
       "data_marco_br": "29/11/2026",
@@ -5056,8 +5953,13 @@
       "marco_tipo": "Arrecadação / Leilão",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (44d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-29",
+      "tipo_marco": "Publicação do Quadro de Arrecadação de Ativos & Edital de Leilão (Art. 141)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=AJX+Capital+Investimentos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 63,
@@ -5113,12 +6015,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Indústria metalmecânica gaúcha sediada no distrito industrial de Passo Fundo/RS (Ezata Industrial e holding patrimonial MAGM), especializada no corte a laser, dobra CNC, solda robotizada e pintura eletrostática de componentes e subconjuntos metálicos fornecidos para grandes fabricantes de máquinas e implementos agrícolas do Sul.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 55,
+      "recuperacao_pct": 45,
+      "haircut_estimado_pct": 55,
+      "recuperacao_estimada_pct": 45,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 22.0,
+      "valor_recuperado_mm": 24.8,
       "ev_estimado_mm": 35.8,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -5126,9 +6030,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 6.6
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 19.2
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-21",
       "data_marco_br": "21/10/2026",
@@ -5137,8 +6050,13 @@
       "marco_tipo": "Perícia Prévia 51-A",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (5d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-21",
+      "tipo_marco": "Entrega do Laudo de Constatação Prévia (Art. 51-A — 5 dias)",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Ezata+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 64,
@@ -5194,12 +6112,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Tradicional fabricante gaúcha de móveis seriados em MDP/MDF (cozinhas moduladas, dormitórios e móveis para escritório e home office), fundada na Serra Gaúcha com amplo parque fabril automatizado em Monte Belo do Sul/RS (região de Bento Gonçalves), historicamente exportadora e fornecedora das grandes redes varejistas e e-commerces nacionais.",
     "model_params": {
-      "haircut_pct": 75.0,
-      "recuperacao_pct": 25.0,
+      "haircut_pct": 74,
+      "recuperacao_pct": 26,
+      "haircut_estimado_pct": 74,
+      "recuperacao_estimada_pct": 26,
       "desconto_secundario_pct": 50.0,
-      "valor_recuperado_mm": 21.25,
+      "valor_recuperado_mm": 22.1,
       "ev_estimado_mm": 55.2,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 12.0,
         "classe_i_pct": 14.0,
@@ -5207,9 +6127,18 @@
         "fiscal_pct": 24.0,
         "classe_iii_pct": 24.0,
         "classe_iv_pct": 4.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 12.0,
+        "c1_trabalhista": 14.0,
+        "c2_garantia_real": 22.0,
+        "c3_quirografario": 24.0,
+        "c4_me_epp": 4.0,
+        "passivo_fiscal_estimado_mm": 20.4
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 29.7
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-10",
       "data_marco_br": "10/11/2026",
@@ -5218,8 +6147,13 @@
       "marco_tipo": "Leilão de UPI",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (25d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-11-10",
+      "tipo_marco": "Leilão Judicial da UPI Parque Fabril Ditália (Lance Inicial R$ 48 MM)",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Ditália+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 65,
@@ -5275,12 +6209,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Conhecida rede varejista regional de móveis, eletrodomésticos, celulares e utilidades domésticas sediada em Cuiabá/MT, que chegou a operar 15 lojas físicas estrategicamente posicionadas na Baixada Cuiabana (Cuiabá e Várzea Grande) e municípios do interior mato-grossense, com forte operação de crediário próprio.",
     "model_params": {
-      "haircut_pct": 75.0,
-      "recuperacao_pct": 25.0,
+      "haircut_pct": 78,
+      "recuperacao_pct": 22,
+      "haircut_estimado_pct": 78,
+      "recuperacao_estimada_pct": 22,
       "desconto_secundario_pct": 50.0,
-      "valor_recuperado_mm": 9.5,
+      "valor_recuperado_mm": 8.4,
       "ev_estimado_mm": 19.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 12.0,
         "classe_i_pct": 14.0,
@@ -5288,9 +6224,18 @@
         "fiscal_pct": 24.0,
         "classe_iii_pct": 24.0,
         "classe_iv_pct": 4.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 12.0,
+        "c1_trabalhista": 14.0,
+        "c2_garantia_real": 22.0,
+        "c3_quirografario": 24.0,
+        "c4_me_epp": 4.0,
+        "passivo_fiscal_estimado_mm": 9.1
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 13.3
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-27",
       "data_marco_br": "27/11/2026",
@@ -5299,8 +6244,13 @@
       "marco_tipo": "Arrecadação / Leilão",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (42d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-27",
+      "tipo_marco": "Publicação do Quadro de Arrecadação de Ativos & Edital de Leilão (Art. 141)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Lojas+Dona+do+Lar+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 66,
@@ -5356,12 +6306,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Grupo fluminense de engenharia pesada, pavimentação asfáltica e obras de infraestrutura urbana/industrial sediado no Rio de Janeiro/RJ (integrado por MJRE Construtora e Usinlagos Usina de Asfalto), detentor de usinas próprias de CBUQ e contratos de engenharia e manutenção em instalações da Petrobras e prefeituras do estado do RJ.",
     "model_params": {
-      "haircut_pct": 60.0,
-      "recuperacao_pct": 40.0,
+      "haircut_pct": 51,
+      "recuperacao_pct": 49,
+      "haircut_estimado_pct": 51,
+      "recuperacao_estimada_pct": 49,
       "desconto_secundario_pct": 35.0,
-      "valor_recuperado_mm": 32.8,
+      "valor_recuperado_mm": 40.2,
       "ev_estimado_mm": 41.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -5369,9 +6321,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 9.8
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 28.7
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-12-14",
       "data_marco_br": "14/12/2026",
@@ -5380,8 +6341,13 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (59d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-14",
+      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+MPC+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www3.tjrj.jus.br/consultaprocessual/"
   },
   {
     "id": 67,
@@ -5437,12 +6403,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Um dos maiores e mais tradicionais conglomerados empresariais do Meio-Norte brasileiro, fundado em Teresina/PI na década de 1970 (Grupo Servi-San). Atua em terceirização de mão de obra e facilities, segurança patrimonial armada, transporte de valores (frota de carros-fortes no PI, MA e CE) e indústria de transformação plástica (Plast Nor e Inbra-Pack).",
     "model_params": {
-      "haircut_pct": 75.0,
-      "recuperacao_pct": 25.0,
+      "haircut_pct": 75,
+      "recuperacao_pct": 25,
+      "haircut_estimado_pct": 75,
+      "recuperacao_estimada_pct": 25,
       "desconto_secundario_pct": 50.0,
       "valor_recuperado_mm": 90.0,
       "ev_estimado_mm": 234.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 12.0,
         "classe_i_pct": 14.0,
@@ -5450,9 +6418,18 @@
         "fiscal_pct": 24.0,
         "classe_iii_pct": 24.0,
         "classe_iv_pct": 4.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 12.0,
+        "c1_trabalhista": 14.0,
+        "c2_garantia_real": 22.0,
+        "c3_quirografario": 24.0,
+        "c4_me_epp": 4.0,
+        "passivo_fiscal_estimado_mm": 86.4
+      },
+      "dip_necessidade_mm": 43.2,
+      "upi_valuation_estimado_mm": 126.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-20",
       "data_marco_br": "20/10/2026",
@@ -5461,8 +6438,13 @@
       "marco_tipo": "Arrecadação / Falência",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (4d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-20",
+      "tipo_marco": "Prazo Judicial (5d) para Arrecadação Forense de Bens e Precatório",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Assis+Fortes+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Assis+Fortes+0811420-35.2017.8.18.0140"
   },
   {
     "id": 68,
@@ -5518,12 +6500,14 @@
     "securitizadoras": "Audax Securitizadora",
     "descricao_empresa": "Grupo industrial têxtil e de componentes calçadistas sediado em Novo Hamburgo/RS (Vale dos Sinos), com filial fabril no polo calçadista de Poções/BA (W Nordeste Tecidos). É especializado na dublagem de tecidos técnicos, espumas laminadas, forros e palmilhas fornecidos para as maiores indústrias de calçados do Rio Grande do Sul e do Nordeste.",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 48,
+      "recuperacao_pct": 52,
+      "haircut_estimado_pct": 48,
+      "recuperacao_estimada_pct": 52,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 30.25,
+      "valor_recuperado_mm": 28.6,
       "ev_estimado_mm": 27.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 15.0,
         "classe_i_pct": 8.0,
@@ -5531,9 +6515,18 @@
         "fiscal_pct": 12.0,
         "classe_iii_pct": 32.0,
         "classe_iv_pct": 5.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 15.0,
+        "c1_trabalhista": 8.0,
+        "c2_garantia_real": 28.0,
+        "c3_quirografario": 32.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 6.6
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 19.2
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-10-23",
       "data_marco_br": "23/10/2026",
@@ -5542,8 +6535,13 @@
       "marco_tipo": "Mediação CEJUSC",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (7d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-10-23",
+      "tipo_marco": "Deliberação Pós-Sessão de Mediação CEJUSC com Pool de 7 Credores Financeiros",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Wolfstore+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
     "id": 69,
@@ -5607,12 +6605,14 @@
     },
     "descricao_empresa": "Subholding operacional do grupo GDSolar Energia Renovável (investida da gestora Colibri Capital), dedicada ao desenvolvimento, construção e operação de amplo portfólio de Usinas Solares Fotovoltaicas (UFVs) de geração distribuída remota (GD compartilhada e autoconsumo remoto) arrendadas a grandes clientes corporativos em múltiplos estados.",
     "model_params": {
-      "haircut_pct": 35.0,
-      "recuperacao_pct": 65.0,
+      "haircut_pct": 28,
+      "recuperacao_pct": 72,
+      "haircut_estimado_pct": 28,
+      "recuperacao_estimada_pct": 72,
       "desconto_secundario_pct": 25.0,
-      "valor_recuperado_mm": 266.5,
+      "valor_recuperado_mm": 295.2,
       "ev_estimado_mm": 205.0,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 18.0,
         "classe_i_pct": 3.0,
@@ -5620,9 +6620,18 @@
         "fiscal_pct": 7.0,
         "classe_iii_pct": 27.0,
         "classe_iv_pct": 3.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 18.0,
+        "c1_trabalhista": 3.0,
+        "c2_garantia_real": 42.0,
+        "c3_quirografario": 27.0,
+        "c4_me_epp": 3.0,
+        "passivo_fiscal_estimado_mm": 28.7
+      },
+      "dip_necessidade_mm": 49.2,
+      "upi_valuation_estimado_mm": 143.5
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-05",
       "data_marco_br": "05/11/2026",
@@ -5631,8 +6640,13 @@
       "marco_tipo": "AGD Debêntures",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (20d)",
-      "is_fixed_edital": true
-    }
+      "is_fixed_edital": true,
+      "data_marco": "2026-11-05",
+      "tipo_marco": "Revisão de Covenants ICSD & AGD Preventiva da 1ª Emissão Verde (GDSS11)",
+      "urgencia": "CRÍTICA"
+    },
+    "url_noticia": "https://news.google.com/search?q=GDS+Subholding+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=GDS+Subholding+S.A.+CVM+fato+relevante+debentures"
   },
   {
     "id": 70,
@@ -5688,12 +6702,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Rede mato-grossense de distribuição de insumos agrícolas (sementes, defensivos químicos e especialidades), originação de grãos e comercialização de fertilizantes (Fex Agro Comercial e Vincere Fertilizantes), com matriz em Primavera do Leste/MT e filial estratégica no polo produtivo do Vale do Araguaia (Canarana/MT).",
     "model_params": {
-      "haircut_pct": 45.0,
-      "recuperacao_pct": 55.0,
+      "haircut_pct": 39,
+      "recuperacao_pct": 61,
+      "haircut_estimado_pct": 39,
+      "recuperacao_estimada_pct": 61,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 42.35,
+      "valor_recuperado_mm": 47.0,
       "ev_estimado_mm": 38.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -5701,13 +6717,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "23 Contratos em Dólar + 55 NFs de Defensivos (CCAB Agro R$ 9,77M)",
-      "alienacao_terras": "Cessão Fiduciária de Recebíveis (Caixa R$ 8,75M e Bradesco R$ 7,34M)",
-      "ativos_rurais": "Lojas técnicas e estoques em Primavera do Leste e Canarana/MT",
-      "cra_exposicao": "Disputa forense sobre trava fiduciária de recebíveis"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 6.2
+      },
+      "dip_necessidade_mm": 15.0,
+      "upi_valuation_estimado_mm": 26.9
     },
     "calendar_meta": {
       "data_marco_iso": "2026-12-04",
@@ -5717,8 +6737,13 @@
       "marco_tipo": "Cautelar 20-B (60d)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (49d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-12-04",
+      "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Grupo+Fex+Agro+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 71,
@@ -5774,12 +6799,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Companhia patrimonial e imobiliária (PropCo) integrante do ecossistema do tradicional grupo paranaense Belagrícola (fundado em 1985 em Londrina/PR). Detém a propriedade de dezenas de imóveis rurais e operacionais estratégicos, incluindo unidades de recebimento, secagem e armazenagem de grãos (silos) e lojas técnicas nos estados do Paraná, São Paulo e Santa Catarina.",
     "model_params": {
-      "haircut_pct": 40.0,
-      "recuperacao_pct": 60.0,
+      "haircut_pct": 33,
+      "recuperacao_pct": 67,
+      "haircut_estimado_pct": 33,
+      "recuperacao_estimada_pct": 67,
       "desconto_secundario_pct": 30.0,
-      "valor_recuperado_mm": 394.8,
+      "valor_recuperado_mm": 440.9,
       "ev_estimado_mm": 427.7,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 22.0,
         "classe_i_pct": 4.0,
@@ -5787,13 +6814,17 @@
         "fiscal_pct": 8.0,
         "classe_iii_pct": 25.0,
         "classe_iv_pct": 5.0
-      }
-    },
-    "agro_meta": {
-      "cpr_status": "Dívida Quirografária e Estruturada do Grupo Belagrícola (R$ 658M)",
-      "alienacao_terras": "Lastro em Imóveis Rurais e Unidades de Armazenagem",
-      "ativos_rurais": "Portfólio de silos, armazéns e imóveis rurais no PR, SP e SC (Sale & Leaseback)",
-      "cra_exposicao": "Titulares de CRAs e Fundos Imobiliários/Agrícolas"
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 22.0,
+        "c1_trabalhista": 4.0,
+        "c2_garantia_real": 36.0,
+        "c3_quirografario": 25.0,
+        "c4_me_epp": 5.0,
+        "passivo_fiscal_estimado_mm": 52.6
+      },
+      "dip_necessidade_mm": 79.0,
+      "upi_valuation_estimado_mm": 230.3
     },
     "calendar_meta": {
       "data_marco_iso": "2027-01-07",
@@ -5803,8 +6834,13 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (83d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2027-01-07",
+      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
+      "urgencia": "MÉDIA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Landco+Administradora+de+Bens+e+Imóveis+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
     "id": 72,
@@ -5860,12 +6896,14 @@
     "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
     "descricao_empresa": "Trading company catarinense de comércio exterior (importação por conta e ordem e por encomenda de produtos industrializados, insumos químicos, têxteis e eletroeletrônicos) sediada em Florianópolis/SC, com operação logística e desembaraço aduaneiro concentrados nos terminais portuários de Itajaí e Navegantes/SC.",
     "model_params": {
-      "haircut_pct": 75.0,
-      "recuperacao_pct": 25.0,
+      "haircut_pct": 80,
+      "recuperacao_pct": 20,
+      "haircut_estimado_pct": 80,
+      "recuperacao_estimada_pct": 20,
       "desconto_secundario_pct": 50.0,
-      "valor_recuperado_mm": 45.75,
+      "valor_recuperado_mm": 36.6,
       "ev_estimado_mm": 91.5,
-      "desagio_liquidacao_forçada_pct": 45.0,
+      "liquidez_forcada_desconto_pct": 45.0,
       "split_classes": {
         "extraconcursal_pct": 12.0,
         "classe_i_pct": 14.0,
@@ -5873,9 +6911,18 @@
         "fiscal_pct": 24.0,
         "classe_iii_pct": 24.0,
         "classe_iv_pct": 4.0
-      }
+      },
+      "classes_pct": {
+        "extraconcursal_fiduciario": 12.0,
+        "c1_trabalhista": 14.0,
+        "c2_garantia_real": 22.0,
+        "c3_quirografario": 24.0,
+        "c4_me_epp": 4.0,
+        "passivo_fiscal_estimado_mm": 43.9
+      },
+      "dip_necessidade_mm": 22.0,
+      "upi_valuation_estimado_mm": 64.0
     },
-    "agro_meta": null,
     "calendar_meta": {
       "data_marco_iso": "2026-11-15",
       "data_marco_br": "15/11/2026",
@@ -5884,7 +6931,12 @@
       "marco_tipo": "Arrecadação / Leilão",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (30d)",
-      "is_fixed_edital": false
-    }
+      "is_fixed_edital": false,
+      "data_marco": "2026-11-15",
+      "tipo_marco": "Publicação do Quadro de Arrecadação de Ativos & Edital de Leilão (Art. 141)",
+      "urgencia": "ALTA"
+    },
+    "url_noticia": "https://news.google.com/search?q=Costa+Esmeralda+Trading+Importação+e+Exportação+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_tribunal_cvm": "https://www.google.com/search?q=Costa+Esmeralda+Trading+Importação+e+Exportação+Ltda.+5089123-11.2026.8.24.0023"
   }
 ]
