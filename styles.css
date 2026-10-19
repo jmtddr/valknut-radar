@@ -2103,3 +2103,239 @@ body {
   border-radius: 999px;
 }
 
+
+
+/* ==========================================================================
+   Calculadoras, Waterfall, Simulador de Quórum (% Digitável) & Benchmarks
+   ========================================================================== */
+.calc-layout-grid {
+  display: grid;
+  grid-template-columns: 390px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 1120px) {
+  .calc-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-controls-panel {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-medium);
+  border-top: 3px solid var(--vk-header-start);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow-xs);
+}
+
+.calc-field-group {
+  margin-bottom: 14px;
+}
+
+.calc-field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-body);
+  margin-bottom: 6px;
+}
+
+.val-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--vk-header-start);
+  background: #E6E9DC;
+  border: 1px solid var(--vk-sage);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.calc-num-input {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--vk-header-start);
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 8px 11px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.calc-num-input:focus {
+  border-color: var(--vk-teal);
+  box-shadow: 0 0 0 3px rgba(56, 104, 106, 0.15);
+}
+
+.pct-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.pct-input-wrap .calc-num-input {
+  padding-right: 34px;
+}
+
+.pct-suffix {
+  position: absolute;
+  right: 11px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--vk-teal);
+  pointer-events: none;
+}
+
+.calc-results-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+  .calc-results-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.calc-res-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-top: 3px solid var(--vk-header-start);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-xs);
+}
+
+.calc-res-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.calc-res-val {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--vk-header-start);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.calc-res-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.quorum-class-box {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--vk-teal);
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  margin-bottom: 10px;
+}
+
+.quorum-class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--vk-header-start);
+}
+
+.eco-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 14px;
+}
+
+.eco-player-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-top: 3px solid var(--vk-header-start);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-xs);
+}
+
+.cal-month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.cal-dow-header {
+  background: var(--vk-header-start);
+  color: var(--vk-cream);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-align: center;
+  padding: 7px 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.cal-day-cell {
+  min-height: 84px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: 5px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cal-day-cell.has-events {
+  background: #F8FAFA;
+  border-color: var(--vk-sage);
+}
+
+.cal-day-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.cal-event-chip {
+  font-size: 10px;
+  font-weight: 700;
+  background: #DCE7E7;
+  color: var(--vk-header-start);
+  padding: 2px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cal-event-chip.urgent {
+  background: #FFE4E6;
+  color: #9F1239;
+}
