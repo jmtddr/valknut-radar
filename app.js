@@ -8057,7 +8057,7 @@ const SECTION_CONFIG = {
     pageSubtitle: 'Feed de inteligência concursal monitorando pedidos de RJ/Cautelares, convocações de AGDs, fatos relevantes CVM e decisões judiciais.',
     showFilters: false,
     subtabs: [
-      { id: 'news_all', label: 'Todas as Notícias & Fatos (20)', title: 'Feed Integrado de Inteligência Concursal & Mercado de Capitais', desc: 'Acompanhamento diário conectado diretamente às Fichas Analíticas (Tear Sheets) dos grupos econômicos monitorados.' },
+      { id: 'news_all', label: 'Todas as Notícias & Fatos ({NEWS_COUNT})', title: 'Feed Integrado de Inteligência Concursal & Mercado de Capitais', desc: 'Acompanhamento diário conectado diretamente às Fichas Analíticas (Tear Sheets) dos grupos econômicos monitorados.' },
       { id: 'news_rj', label: 'Pedidos de RJ & Cautelares 20-B', title: 'Ajuizamentos Recentes, Tutelas de Urgência e Decisões de Varas Empresariais', desc: 'Movimentações críticas em processos de Recuperação Judicial e Cautelares Antecedentes.' },
       { id: 'news_dcm', label: 'Waivers, AGDs & Downgrades Rating', title: 'Eventos de Mercado de Capitais: Debêntures, CRAs, CRIs e Agências de Rating', desc: 'Fatos relevantes CVM, convocações de agentes fiduciários e cortes de rating (Fitch / S&P / Moody\'s).' },
       { id: 'news_upi_falencia', label: 'Leilões de UPI & Falências', title: 'Editais de Alienação Judicial de UPIs e Sentenças de Quebra / Asset Tracing', desc: 'Oportunidades de M&A Distressed livre de sucessão e decretos de falência com arrecadação forense de ativos.' }
@@ -8073,7 +8073,7 @@ const SECTION_CONFIG = {
       { id: 'pld_horario', label: 'PLD Horário & Submercados ▾', title: 'Descolamento de Preço de Liquidação das Diferenças (PLD R$/MWh) & Exposição MCP', desc: 'Monitoramento de spread horário entre submercados (SE/CO, Sul, NE, Norte) e gatilhos de chamada de margem em comercializadoras.' },
       { id: 'risco_curtailment', label: 'Risco de Curtailment (Constrained-off) ▾', title: 'Restrição de Escoamento Eólico/Solar (Constrained-off) & Erosão de ICSD em Debêntures', desc: 'Impacto dos cortes de geração determinados pelo ONS sobre o fluxo de caixa das SPEs e covenants de debêntures de infraestrutura.' },
       { id: 'outorgas_aneel', label: 'Outorgas ANEEL & CCEE ▾', title: 'Monitoramento Regulatório: Inadimplemento MCP/CCEE & Processos de Caducidade', desc: 'Acompanhamento de notificações de desligamento na CCEE, execução de garantias e processos administrativos de caducidade (ANEEL/ARTESP).' },
-      { id: 'pipeline_energia', label: 'Pipeline Energia & Infra (9)', title: 'Pipeline Dedicado de Special Situations em Energia & Infraestrutura (9 Casos)', desc: 'Dossiês setoriais destacando Código da Debênture, Agente Fiduciário, Status CCEE, Risco de Caducidade e Corte de Rating por Curtailment/ICSD.' }
+      { id: 'pipeline_energia', label: 'Pipeline Energia & Infra ({ENERGY_COUNT})', title: 'Pipeline Dedicado de Special Situations em Energia & Infraestrutura ({ENERGY_COUNT} Casos)', desc: 'Dossiês setoriais destacando Código da Debênture, Agente Fiduciário, Status CCEE, Risco de Caducidade e Corte de Rating por Curtailment/ICSD.' }
     ]
   }
 };
@@ -11694,16 +11694,51 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
 // ==========================================================================
 function renderHaircutBenchmarksTable(container) {
   if (!container) return;
-  const sectorBench = [
-    { setor: 'Agronegócio & Silvicultura', casos: 26, haircutNum: 50, haircutMedio: '50%', recupMedia: '50%', garantia: 'Alienação Fiduciária de Terras / CPRs (Lei 13.986/20) & Silos' },
-    { setor: 'Indústria & Manufatura', casos: 14, haircutNum: 50, haircutMedio: '50%', recupMedia: '50%', garantia: 'Imóveis Fabris / Maquinário Pesado / Duplicatas FIDC' },
-    { setor: 'Varejo & Consumo', casos: 14, haircutNum: 59, haircutMedio: '59%', recupMedia: '41%', garantia: 'Travas de Recebíveis de Cartão / Pontos Comerciais & Estoques' },
-    { setor: 'Energia & Infraestrutura', casos: 9, haircutNum: 39, haircutMedio: '39%', recupMedia: '61%', garantia: 'Project Finance / Cessão Fiduciária de PPAs e Recebíveis CCEE' },
-    { setor: 'Construção Civil & Real Estate', casos: 7, haircutNum: 45, haircutMedio: '45%', recupMedia: '55%', garantia: 'Patrimônio de Afetação / SPEs Imobiliárias e Terrenos (CRI)' },
-    { setor: 'Tecnologia & Serviços B2B', casos: 6, haircutNum: 57, haircutMedio: '57%', recupMedia: '43%', garantia: 'Contratos B2B Recorrentes / Ativos Imobiliários Educacionais' },
-    { setor: 'Saúde & Farma', casos: 5, haircutNum: 44, haircutMedio: '44%', recupMedia: '56%', garantia: 'Recebíveis de Operadoras / Unidades Hospitalares & Diagnóstico' },
-    { setor: 'Serviços Financeiros & Crédito', casos: 5, haircutNum: 69, haircutMedio: '69%', recupMedia: '31%', garantia: 'Carteiras de Recebíveis / CCBs, FIDCs e Estruturas Securitizadas' }
+  const sectorMeta = [
+    { setor: 'Agronegócio & Silvicultura', defaultHaircut: 50, garantia: 'Alienação Fiduciária de Terras / CPRs (Lei 13.986/20) & Silos' },
+    { setor: 'Indústria & Manufatura', defaultHaircut: 50, garantia: 'Imóveis Fabris / Maquinário Pesado / Duplicatas FIDC' },
+    { setor: 'Varejo & Consumo', defaultHaircut: 59, garantia: 'Travas de Recebíveis de Cartão / Pontos Comerciais & Estoques' },
+    { setor: 'Energia & Infraestrutura', defaultHaircut: 39, garantia: 'Project Finance / Cessão Fiduciária de PPAs e Recebíveis CCEE' },
+    { setor: 'Construção Civil & Real Estate', defaultHaircut: 45, garantia: 'Patrimônio de Afetação / SPEs Imobiliárias e Terrenos (CRI)' },
+    { setor: 'Tecnologia & Serviços B2B', defaultHaircut: 57, garantia: 'Contratos B2B Recorrentes / Ativos Imobiliários Educacionais' },
+    { setor: 'Saúde & Farma', defaultHaircut: 44, garantia: 'Recebíveis de Operadoras / Unidades Hospitalares & Diagnóstico' },
+    { setor: 'Serviços Financeiros & Crédito', defaultHaircut: 69, garantia: 'Carteiras de Recebíveis / CCBs, FIDCs e Estruturas Securitizadas' }
   ];
+
+  // Dynamically include any new macro-sector added in future syncs
+  const knownSetores = new Set(sectorMeta.map(m => m.setor));
+  (DEALS_DATA || []).forEach(d => {
+    if (d.setor_macro && !knownSetores.has(d.setor_macro)) {
+      knownSetores.add(d.setor_macro);
+      sectorMeta.push({
+        setor: d.setor_macro,
+        defaultHaircut: 55,
+        garantia: 'Garantias Reais / Recebíveis Operacionais & Ativos Mapeados'
+      });
+    }
+  });
+
+  const sectorBench = sectorMeta.map(meta => {
+    const sectorDeals = (DEALS_DATA || []).filter(d => d.setor_macro === meta.setor);
+    const casosCount = sectorDeals.length;
+    let avgHaircut = meta.defaultHaircut;
+    if (casosCount > 0) {
+      const sumHaircut = sectorDeals.reduce((acc, d) => {
+        const h = d.model_params?.haircut_estimado_pct ?? d.model_params?.haircut_pct ?? computeDynamicRecovery(d).haircutPct;
+        return acc + Number(h || meta.defaultHaircut);
+      }, 0);
+      avgHaircut = Math.round(sumHaircut / casosCount);
+    }
+    const avgRecup = Math.max(0, 100 - avgHaircut);
+    return {
+      setor: meta.setor,
+      casos: casosCount,
+      haircutNum: avgHaircut,
+      haircutMedio: `${avgHaircut}%`,
+      recupMedia: `${avgRecup}%`,
+      garantia: meta.garantia
+    };
+  }).sort((a, b) => b.casos - a.casos);
 
   container.innerHTML = `
     <div class="table-wrap">
