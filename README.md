@@ -1,32 +1,44 @@
-# VALKNUT — SPECIAL SITUATIONS // Intelligence & Distressed Debt Platform (Release v4.1)
+# VALKNUT ANALYTICS // Special Situations & Distressed Debt Platform
 
-Plataforma institucional de inteligência concursal, **Distressed Debt**, **Special Situations** e reestruturação corporativa no Brasil (`https://jmtddr.github.io/valknut-radar/`).
+Plataforma de inteligência de mercado financeiro e jurídico-concursal especializada em **Distressed Debt**, **Special Situations** e reestruturação corporativa no Brasil.
 
 ---
 
-## 🏗️ Arquitetura e Módulos Ativos (10 Módulos Táticos)
+## 🏗️ Arquitetura em Duas Camadas
 
-1. **Operação & Originação (`72 Casos Ativos`)**:
-   - Pipeline consolidado em tempo real com filtro dinâmico de piso/teto de passivo (`>= R$ 30 MM`), recorte rápido (`Todos`, `Sem Outliers`, `Middle-Market`), botão `✕ Limpar Filtros` (`resetAllFilters()`) e sub-aba estrita de **Debêntures, CRAs & FIDCs** (`33 casos reais` de Mercado de Capitais).
-2. **Precificação & Modelagem (`.PPTX` Widescreen)**:
-   - Calculadora direta de **% de Recuperação & Haircut** (`computeDynamicRecovery()`), Waterfall de Classes (Art. 83 vs. Plano de RJ), Simulador de DIP Financing & Valuation de UPIs, Simulador de Quórum de AGC/Cram Down e Gerador Automático de Pitch Deck em PowerPoint (`.pptx` de 7 slides).
-3. **Dashboards & Inteligência de Mercado**:
-   - Visão setorial e funil concursal, scorecard quantitativo com drill-down desacoplado e curva de porte estratificada em 4 faixas (`< R$ 100M`, `R$ 100M–500M`, `R$ 500M–1Bi`, `>= R$ 1Bi`) totalizando 100% da base (`72/72 casos`).
-4. **UPIs & Ativos Distressed**:
-   - Catálogo de Unidades Produtivas Isoladas (Art. 60 e 141 da Lei 11.101/05) com sub-abas independentes (`Fazendas, Silos & Grãos`, `Parques Fabris & Marcas`, `Imóveis, Campi & Concessões`).
-5. **Bancômetro & Exposição de Credores**:
-   - Ranking de exposição de bancos públicos, privados, montadoras, agentes fiduciários, securitizadoras, FIDCs e tradings com drill-down direto e limpeza automática de filtros anteriores.
-6. **Ecossistema & Players**:
-   - Rankings nominados (`#1, #2, #3...`) de **Bancas de Advocacia**, **Administradores Judiciais (AJs)** (`14 AJs ativos`), **Agentes Fiduciários & Securitizadoras** e **Varas Empresariais**, livres de placeholders genéricos e com cálculo dinâmico de recuperação média.
-7. **Prazos & AGCs (Calendário Tático + `.ICS`)**:
-   - Contagem regressiva exata em dias corridos (`parseDateBR()` e `calcDaysRemaining()`), grade mensal interativa (`Out/Nov/Dez 2026` e `Jan/Fev/Mar 2027`) e exportação `.ics` para Google Calendar / Outlook.
-8. **Comps Concursais**:
-   - Comparador lado a lado (até 4 empresas simultâneas) e matriz dinâmica de benchmarks setoriais de *Haircut %* e *Recuperação %* calculada sobre os 72 casos.
-9. **Mapa Geográfico Concursal (Dark Mode)**:
-   - Cartografia interativa das 27 UFs em **Dark Mode** (oceano `#090d16`, estados `#111827`, divisas `#1e293b`), raio proporcional limitado a `11px` (`fill-opacity: 0.65`) e espalhamento em espiral de ângulo áureo (`137,508°`) para evitar sobreposição em polos densos como SP e PR.
-10. **Notícias & Fatos + Energia & Infra (ONS / CCEE / ANEEL)**:
-    - **Notícias & Fatos**: Feed híbrido combinando matérias gerais do mercado de *Distressed Debt / RJ* (`MARKET_MACRO_NEWS_DATA` + RSS Google News em tempo real) e fatos relevantes das empresas do pipeline, com links clicáveis (`target="_blank"`) nos títulos, fontes e botões `Ler Notícia Completa ↗`.
-    - **Energia & Infra**: Telemetria assíncrona via APIs CKAN da **CCEE** e **ANEEL** (`fetchEnergyMarketData()`), reatividade completa por *Submercado* (`SIN`, `SE/CO`, `S`, `NE`, `N`) e *Data Operativa*, e links oficiais clicáveis para CCEE, ANEEL e ONS.
+A plataforma opera em um modelo desacoplado de duas camadas, combinando processamento analítico em lote com visualização de baixa latência:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│ 1. CAMADA DE INGESTÃO & TRIAGEM (Agente Autônomo - a cada 3h)          │
+│    • Varredura: DataJud, DJEN (Classes 12134, 129, 128, 12154)         │
+│    • Sinais Forenses: CENPROT, PGFN (Art. 866 CPC), CVM Res. 175, CCEE │
+│    • Filtro de Corte: Passivo >= R$ 30 Milhões (Exclusão Safira)       │
+│    • Persistência: Planilha Mestre (Google Sheets)                     │
+└──────────────────────────────────┬─────────────────────────────────────┘
+                                   │
+                                   ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ 2. CAMADA DE APRESENTAÇÃO & DASHBOARD (GitHub Pages - Front-End)       │
+│    • API Rest: Google Apps Script Web App (JSON)                       │
+│    • Polling Inteligente: Background fetch a cada 15 min (Visibility)  │
+│    • Resiliência Offline: Fallback automático para deals.json local    │
+│    • Interface: Terminal Clean Dark Mode (Linear / Stripe style)       │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 Matriz de Estratégias Institucionais e Tiers
+
+- **Tier 0 (Score 8,5–10,0) — Distress Precursor (60 a 120 dias pré-crise):**
+  - Monitoramento de anomalias extrajudiciais: spikes de protestos no CENPROT, execuções de frotas e safra, penhora de faturamento pela PGFN, liquidação de FIDCs na CVM e processos regulatórios (CCEE, ANS, ARTESP).
+- **Tier 1 (Score 9,0–10,0) — Consensual & Cautelar Antecedente:**
+  - Tutelas de urgência sob o Art. 20-B da Lei 11.101/2005, stay period preparatório e mediações pré-processuais.
+- **Tier 2 (Score 7,0–8,9) — Minuto Zero Concursal:**
+  - Distribuição recente de Recuperação Judicial (Classe 129) ou Extrajudicial (Classe 128), perícia prévia do Art. 51-A e contestação de travas bancárias.
+- **Tier 3 (Score 4,0–6,9) — Pós-Plano & Special Situations:**
+  - Homologação de planos, alienação judicial de Unidades Produtivas Isoladas (UPIs) e estruturação de Financiamento DIP (*Debtor-in-Possession*).
 
 ---
 
@@ -34,16 +46,19 @@ Plataforma institucional de inteligência concursal, **Distressed Debt**, **Spec
 
 ```text
 valknut-radar/
-├── index.html        # Estrutura semântica e barra de navegação (10 módulos táticos)
-├── styles.css        # Design System institucional Valknut + Mapa Dark Mode
-├── app.js            # Controlador da aplicação, telemetria CCEE/ANEEL, RSS e modelagem
-├── deals.json        # Base canônica enriquecida (72 casos auditados)
-└── README.md         # Documentação técnica e operacional (Release v4.1)
+├── index.html        # Estrutura semântica limpa (< 200 linhas)
+├── styles.css        # Design System e variáveis temáticas (Clean Dark FinTech)
+├── app.js           # Controlador da aplicação, Leaflet e polling de 15 min
+├── deals.json        # Base local canônica atualizada (64 casos - Fallback offline)
+├── README.md         # Documentação técnica e de negócio
+└── .gitignore        # Arquivos de sistema e ambiente ignorados
 ```
 
 ---
 
 ## 🚀 Como Executar Localmente
+
+Basta servir o diretório estático em qualquer servidor HTTP local:
 
 ```bash
 # Opção 1: Via Python 3
@@ -52,3 +67,5 @@ python3 -m http.server 8000
 # Opção 2: Via Node / npx
 npx serve .
 ```
+
+Acesse `http://localhost:8000` no seu navegador.

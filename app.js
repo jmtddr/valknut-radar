@@ -112,8 +112,8 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Aeris+Energy+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Aeris+Energy+0204512-11.2026.8.06.0064"
+    "url_noticia": "https://neofeed.com.br/negocios/aeris-aciona-tutela-cautelar-para-renegociar-divida-com-credores/",
+    "url_tribunal_cvm": "https://esaj.tjce.jus.br/cpopg/open.do"
   },
   {
     "id": 2,
@@ -205,7 +205,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Veneto+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -294,7 +294,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+de+Transporte+&+Agro+Rondonópolis+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -389,7 +389,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Industrial+de+Caxias+do+Sul+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -484,7 +484,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Alliança+Saúde+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.infomoney.com.br/mercados/allianca-saude-obtem-homologacao-do-plano-de-recuperacao-extrajudicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -573,7 +573,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Produtores+Rurais+Família+Roversi+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -676,7 +676,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Raízen+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.infomoney.com.br/mercados/raizen-detalha-reestruturacao-veja-o-que-esta-em-jogo-para-credores-e-acionistas/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -769,7 +769,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Paranapanema+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.infomoney.com.br/business/paranapanema-celebra-liquidacao-parcial-de-acordo-global-de-r-42-bi-com-credores/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -872,7 +872,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=OSX+Brasil+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.osx.com.br/show.aspx?idCanal=kDpD2GF4+JsaRZWpTtZJHQ==",
     "url_tribunal_cvm": "https://www3.tjrj.jus.br/consultaprocessual/"
   },
   {
@@ -967,7 +967,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Janela de Standstill / Cura da 1ª Emissão de Debêntures (Vert)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Chilli+Beans+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://exame.com/insight/chilli-beans-ganha-prazo-para-renegociar-divida-de-r-89-milhoes/p",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -1062,7 +1062,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=SteelCorp+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.metropoles.com/colunas/demetrio-vecchioli/vorcaro-negociou-com-justus-fechou-com-brb-e-recebeu-170-a-mais",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -1163,7 +1163,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Tradener+Comercializadora+de+Energia+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://consulta.tjpr.jus.br/projudi_consulta/",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
@@ -1256,7 +1256,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Ulbra+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.extraclasse.org.br/educacao/2026/10/as-conexoes-entre-ulbra-banco-genial-fundos-de-investimento-e-o-master/",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -1351,7 +1351,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Lupatech+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.seudinheiro.com/2026/empresas/de-novo-lupatech-lupa3-entrega-plano-de-recuperacao-extrajudicial-a-cvm-entenda-a-crise-kaes/",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -1444,7 +1444,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Orlando+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -1541,7 +1541,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Pão+de+Açúcar+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://capitalaberto.com.br/empresas/2026/09/reestruturacao-bilionaria-do-gpa-esbarra-em-disputas",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -1636,7 +1636,7 @@ let DEALS_DATA = [
       "tipo_marco": "Fim do Prazo Judicial Peremptório (15d) — Quórum RE & AGDs ONCO3",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Oncoclínicas+do+Brasil+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://neofeed.com.br/negocios/oncoclinicas-da-passo-atras-para-tentar-salvar-plano-de-recuperacao-extrajudicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -1735,8 +1735,8 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Private+Construtora+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Private+Construtora+0015243-88.2026.8.08.0024"
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
+    "url_tribunal_cvm": "https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 19,
@@ -1830,7 +1830,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Laurindo+de+Castilhos+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
@@ -1923,8 +1923,8 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Martins+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Martins+0801422-11.2026.8.12.0045"
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
+    "url_tribunal_cvm": "https://esaj.tjms.jus.br/cpopg5/open.do"
   },
   {
     "id": 21,
@@ -2016,8 +2016,8 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Pery+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Pery+0809122-45.2026.8.12.0002"
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
+    "url_tribunal_cvm": "https://esaj.tjms.jus.br/cpopg5/open.do"
   },
   {
     "id": 22,
@@ -2111,7 +2111,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Braskem+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://neofeed.com.br/negocios/o-impasse-de-us-109-bilhoes-braskem-recorre-a-recuperacao-extrajudicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -2204,8 +2204,8 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Apex+Partners+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Apex+Partners+5014820-44.2026.8.08.0024"
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
+    "url_tribunal_cvm": "https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 24,
@@ -2301,7 +2301,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=VRZ+Blindados+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -2396,7 +2396,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Carbon+Blindados+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -2491,7 +2491,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Nutriplus+&+Ômega+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -2588,8 +2588,8 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Royal+Agro+Trading+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Royal+Agro+Trading+0804122-19.2026.8.12.0019"
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
+    "url_tribunal_cvm": "https://esaj.tjms.jus.br/cpopg5/open.do"
   },
   {
     "id": 28,
@@ -2693,7 +2693,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Progen+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/grupo-progen-tutela-cautelar-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -2786,7 +2786,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Qintess+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/grupo-qintess-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -2879,7 +2879,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Agropecuária+Ivagaci+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -2974,7 +2974,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+SHC+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -3067,7 +3067,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Sidlar+Móveis+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -3162,7 +3162,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Habib's+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.cnnbrasil.com.br/economia/money/negocios/habibs-entra-em-recuperacao-judicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -3259,8 +3259,8 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Fertilizantes+Heringer+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Fertilizantes+Heringer+5003912-11.2026.8.08.0050"
+    "url_noticia": "https://agfeed.com.br/negocios/justica-concede-folego-de-60-dias-para-fertilizantes-heringer-negociar-com-credores/",
+    "url_tribunal_cvm": "https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 35,
@@ -3360,7 +3360,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Edeltec+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
@@ -3453,7 +3453,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=B-Green+Soluções+Ambientais+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/b-green-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -3548,7 +3548,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Toky+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://neofeed.com.br/negocios/grupo-toky-amplia-a-lista-de-empresas-que-recorrem-a-recuperacao-judicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -3641,8 +3641,8 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Terra+Assessoria+de+Siderúrgicas+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Terra+Assessoria+de+Siderúrgicas+5008412-20.2026.8.13.0672"
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
+    "url_tribunal_cvm": "https://pje-consulta-publica.tjmg.jus.br/"
   },
   {
     "id": 39,
@@ -3736,8 +3736,8 @@ let DEALS_DATA = [
       "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Agroindustrial+do+Cerrado+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Agroindustrial+do+Cerrado+CVM+fato+relevante+debentures"
+    "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
     "id": 40,
@@ -3831,8 +3831,8 @@ let DEALS_DATA = [
       "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Rede+Hospitalar+&+Operadora+Regional+Sul-Sudeste+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Rede+Hospitalar+&+Operadora+Regional+Sul-Sudeste+CVM+fato+relevante+debentures"
+    "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
+    "url_tribunal_cvm": "https://www.gov.br/ans/pt-br"
   },
   {
     "id": 41,
@@ -3934,8 +3934,8 @@ let DEALS_DATA = [
       "tipo_marco": "Assembleia Geral de Debenturistas (AGD — 2ª Emissão RNVE12) & Garantias CCEE",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Renovare+Energia+&+Comercializadora+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Renovare+Energia+&+Comercializadora+S/A+CVM+fato+relevante+debentures"
+    "url_noticia": "https://www.pentagonotrustee.com.br/",
+    "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
   },
   {
     "id": 42,
@@ -4029,8 +4029,8 @@ let DEALS_DATA = [
       "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Rede+Varejista+Moda+&+Calçados+Brasil+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Rede+Varejista+Moda+&+Calçados+Brasil+CVM+fato+relevante+debentures"
+    "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 43,
@@ -4124,8 +4124,8 @@ let DEALS_DATA = [
       "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Metalúrgica+Autopeças+&+Componentes+Pesados+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Metalúrgica+Autopeças+&+Componentes+Pesados+CVM+fato+relevante+debentures"
+    "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
+    "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
   },
   {
     "id": 44,
@@ -4219,8 +4219,8 @@ let DEALS_DATA = [
       "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=TransLog+Cargas+Pesadas+&+Logística+Rodoviária+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=TransLog+Cargas+Pesadas+&+Logística+Rodoviária+CVM+fato+relevante+debentures"
+    "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
+    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 45,
@@ -4314,8 +4314,8 @@ let DEALS_DATA = [
       "tipo_marco": "Janela Crítica Pré-Concursal (45d) — Standstill Bancário / CVM / CCEE",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Engenharia+&+Construtora+InfraBrasil+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Engenharia+&+Construtora+InfraBrasil+CVM+fato+relevante+debentures"
+    "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
+    "url_tribunal_cvm": "https://pje-consulta-publica.tjmg.jus.br/"
   },
   {
     "id": 46,
@@ -4419,8 +4419,8 @@ let DEALS_DATA = [
       "tipo_marco": "Assembleia Geral de Debenturistas (CLTI11/12) & Defesa de Caducidade ARTESP",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Concessionária+Rodoviária+das+Colinas+do+Tietê+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Concessionária+Rodoviária+das+Colinas+do+Tietê+CVM+fato+relevante+debentures"
+    "url_noticia": "https://www.artesp.sp.gov.br/",
+    "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
   },
   {
     "id": 47,
@@ -4516,7 +4516,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=AgroGalaxy+Participações+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://conteudos.xpi.com.br/renda-fixa/relatorios/recuperacao-judicial-da-agrogalaxy-acompanhe/",
     "url_tribunal_cvm": "https://projudi.tjgo.jus.br/BuscaProcessoPublica"
   },
   {
@@ -4611,7 +4611,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Polimport+Comércio+e+Exportação+Ltda+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -4706,7 +4706,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Echer+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -4799,7 +4799,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Navarro+Distribuidora+de+Medicamentos+S/A+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -4898,7 +4898,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Safras+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://boanoticias.com.br/2026/10/08/sorriso-tjmt-mantem-ex-prefeito-dilceu-rossato-afastado-do-comando-do-grupo-safras-em-recuperacao-judicial-de-r-178-bilhao/",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -4995,7 +4995,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Qualiciclo+Agrícola+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://agfeed.com.br/negocios/a-vez-da-lavoro-empresa-sucumbe-a-dividas-de-r-25-bi-e-recorre-a-plano-de-recuperacao-extrajudicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -5094,7 +5094,7 @@ let DEALS_DATA = [
       "tipo_marco": "Assembleia Geral para Instalação da Liquidação Extrajudicial com Continuidade e UPIs",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Cooperativa+Agrícola+Mista+General+Osório+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.theagribiz.com/empresas/cooperativas/as-cooperativas-nao-podem-se-recuperar-o-debate-no-caso-cotriba/",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -5191,7 +5191,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Essere+Group+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://agfeed.com.br/negocios/o-essere-group-planejava-faturar-r-1-bi-em-2026-mas-foi-atropelado-pelos-juros-e-acabou-pedindo-rj/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -5288,7 +5288,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Fatal para Apresentação de Objeções ao Plano de RJ (Art. 55)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Fictor+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://braziljournal.com/pericia-pede-mais-informacoes-antes-de-opiniao-sobre-rj-da-fictor",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -5385,7 +5385,7 @@ let DEALS_DATA = [
       "tipo_marco": "Assembleia Geral de Credores (AGC — 1ª Convocação Virtual)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Família+Almeida+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.fatosdematogrosso.com.br/geral/familia-de-produtores-tenta-desistir-de-recuperacao-judicial-de-r-54-milhoes-em-mt/17438",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -5482,7 +5482,7 @@ let DEALS_DATA = [
       "tipo_marco": "Sessão Oficial de Mediação Concursal no CEJUSC Empresarial de Porto Alegre",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+NEX+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/grupo-nex-tutela-cautelar-mediacao-2026",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -5579,7 +5579,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Educacional+Uniandrade+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/grupo-uniandrade-recuperacao-judicial-negada-2026",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
@@ -5676,7 +5676,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Moinho+Corina+Alimentos+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/moinho-corina-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -5773,7 +5773,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento do Prazo Judicial (15d) para Emenda da Inicial e Laudo de Essencialidade",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+JMR+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/grupo-jmr-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://projudi.tjgo.jus.br/BuscaProcessoPublica"
   },
   {
@@ -5870,8 +5870,8 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Importadora+Oplima+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Importadora+Oplima+Ltda.+0845122-95.2026.8.14.0301"
+    "url_noticia": "https://preservacred.com.br/noticias/importadora-oplima-recuperacao-judicial-2026",
+    "url_tribunal_cvm": "https://consultas.tjpa.jus.br/consultaunificada/"
   },
   {
     "id": 62,
@@ -5967,7 +5967,7 @@ let DEALS_DATA = [
       "tipo_marco": "Publicação do Quadro de Arrecadação de Ativos & Edital de Leilão (Art. 141)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=AJX+Capital+Investimentos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://neofeed.com.br/negocios/justica-decreta-falencia-da-ajx-capital-que-vendia-titulos-com-promessa-de-ate-35-ao-mes/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -6064,7 +6064,7 @@ let DEALS_DATA = [
       "tipo_marco": "Entrega do Laudo de Constatação Prévia (Art. 51-A — 5 dias)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Ezata+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/ezata-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -6161,7 +6161,7 @@ let DEALS_DATA = [
       "tipo_marco": "Leilão Judicial da UPI Parque Fabril Ditália (Lance Inicial R$ 48 MM)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Ditália+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://gazeta-rs.com.br/2026/10/ditalia-moveis-leilao-48-milhoes/",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -6258,7 +6258,7 @@ let DEALS_DATA = [
       "tipo_marco": "Publicação do Quadro de Arrecadação de Ativos & Edital de Leilão (Art. 141)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Lojas+Dona+do+Lar+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www.olhardireto.com.br/juridico/noticias/justica-determina-devassa-patrimonial-e-edital-de-credores-no-processo-de-falencia-das-lojas-dona-do-lar",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -6355,7 +6355,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+MPC+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://www3.tjrj.jus.br/gedcacheweb/default.aspx?UZIP=1&GEDID=0004A8609F2F3B6F728B157B13A74240F08AC51A2E521F1F",
     "url_tribunal_cvm": "https://www3.tjrj.jus.br/consultaprocessual/"
   },
   {
@@ -6452,8 +6452,8 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo Judicial (5d) para Arrecadação Forense de Bens e Precatório",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Assis+Fortes+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Grupo+Assis+Fortes+0811420-35.2017.8.18.0140"
+    "url_noticia": "https://recuperacaojudicial.servi-san.com.br/",
+    "url_tribunal_cvm": "https://pje.tjpi.jus.br/1g/ConsultaPublica/listView.seam"
   },
   {
     "id": 68,
@@ -6549,7 +6549,7 @@ let DEALS_DATA = [
       "tipo_marco": "Deliberação Pós-Sessão de Mediação CEJUSC com Pool de 7 Credores Financeiros",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Wolfstore+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/10/apos-incendio-industria-textil-consegue-que-justica-suspenda-cobranca-de-dividas-e-retirada-de-maquinas-cmuq5gzyd01v90174q475dxmv.html",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
   },
   {
@@ -6654,8 +6654,8 @@ let DEALS_DATA = [
       "tipo_marco": "Revisão de Covenants ICSD & AGD Preventiva da 1ª Emissão Verde (GDSS11)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://news.google.com/search?q=GDS+Subholding+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=GDS+Subholding+S.A.+CVM+fato+relevante+debentures"
+    "url_noticia": "https://www.fitchratings.com/research/pt/infrastructure-project-finance/fitch-downgrades-to-bbb-bra-gds-subholdings-debentures-rating-watch-negative-08-10-2026",
+    "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
   },
   {
     "id": 70,
@@ -6751,7 +6751,7 @@ let DEALS_DATA = [
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Fex+Agro+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -6848,7 +6848,7 @@ let DEALS_DATA = [
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://news.google.com/search?q=Landco+Administradora+de+Bens+e+Imóveis+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
   },
   {
@@ -6945,8 +6945,8 @@ let DEALS_DATA = [
       "tipo_marco": "Publicação do Quadro de Arrecadação de Ativos & Edital de Leilão (Art. 141)",
       "urgencia": "ALTA"
     },
-    "url_noticia": "https://news.google.com/search?q=Costa+Esmeralda+Trading+Importação+e+Exportação+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://www.google.com/search?q=Costa+Esmeralda+Trading+Importação+e+Exportação+Ltda.+5089123-11.2026.8.24.0023"
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/falencia",
+    "url_tribunal_cvm": "https://eproc1g.tjsc.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica"
   }
 ];
 
@@ -6964,7 +6964,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Waiver / AGD",
     "resumo": "Acionista detentora de 14,6% do capital da Oncoclínicas (ONCO3) protocolou manifestação contra o plano de RE que prevê deságio de 45%, enquanto a 3ª Vara de Falências de SP exige comprovação de quórum mínimo sobre R$ 5,1 bilhões.",
     "deal_id": 17,
-    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)"
+    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)",
+    "url_noticia": "https://neofeed.com.br/negocios/oncoclinicas-da-passo-atras-para-tentar-salvar-plano-de-recuperacao-extrajudicial/"
   },
   {
     "id": 102,
@@ -6975,7 +6976,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Falência",
     "resumo": "Sentença de quebra (art. 94, I da Lei 11.101/05) determina bloqueio imediato de contas, imóveis e veículos da fintech de Barueri/SP, nomeando Brazilio Bacellar, Shirai Advogados na proteção de 10 mil investidores.",
     "deal_id": 62,
-    "empresa_nome": "AJX Capital Investimentos S.A."
+    "empresa_nome": "AJX Capital Investimentos S.A.",
+    "url_noticia": "https://neofeed.com.br/negocios/justica-decreta-falencia-da-ajx-capital-que-vendia-titulos-com-promessa-de-ate-35-ao-mes/"
   },
   {
     "id": 103,
@@ -6986,7 +6988,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "Devedora solicita suspensão da assembleia na 3ª Vara de Falências de SP alegando tratativas com veículo internacional ligado a Daniel Vorcaro; prazo para objeções de credores encerra em 29/10/2026.",
     "deal_id": 55,
-    "empresa_nome": "Grupo Fictor"
+    "empresa_nome": "Grupo Fictor",
+    "url_noticia": "https://braziljournal.com/pericia-pede-mais-informacoes-antes-de-opiniao-sobre-rj-da-fictor"
   },
   {
     "id": 104,
@@ -6997,7 +7000,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Downgrade Rating",
     "resumo": "Agência colocou as debêntures de infraestrutura da GDS Subholding (Colibri Capital) em Observação Negativa diante da deterioração do índice de cobertura do serviço da dívida (ICSD) das usinas fotovoltaicas.",
     "deal_id": 69,
-    "empresa_nome": "GDS Subholding S.A. (GDSolar)"
+    "empresa_nome": "GDS Subholding S.A. (GDSolar)",
+    "url_noticia": "https://www.fitchratings.com/research/pt/infrastructure-project-finance/fitch-downgrades-to-bbb-bra-gds-subholdings-debentures-rating-watch-negative-08-10-2026"
   },
   {
     "id": 105,
@@ -7008,7 +7012,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Waiver / AGD",
     "resumo": "Varejista alimentar busca repactuação com sindicato bancário (Itaú, Bradesco, Santander) e debenturistas institucionais, acelerando desinvestimento de lojas próprias via Sale & Leaseback.",
     "deal_id": 16,
-    "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)"
+    "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
+    "url_noticia": "https://capitalaberto.com.br/empresas/2026/09/reestruturacao-bilionaria-do-gpa-esbarra-em-disputas"
   },
   {
     "id": 106,
@@ -7019,7 +7024,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "4ª Vara Empresarial do Rio de Janeiro autorizou apenas consolidação processual (art. 69-I) e determinou conta vinculada para faturas de contratos da Petrobras disputadas por Votorantim, Caixa e Banco Caterpillar.",
     "deal_id": 66,
-    "empresa_nome": "Grupo MPC (MJRE Construtora)"
+    "empresa_nome": "Grupo MPC (MJRE Construtora)",
+    "url_noticia": "https://www3.tjrj.jus.br/gedcacheweb/default.aspx?UZIP=1&GEDID=0004A8609F2F3B6F728B157B13A74240F08AC51A2E521F1F"
   },
   {
     "id": 107,
@@ -7030,7 +7036,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "Produtores com passivo de R$ 64 milhões (BB R$ 15,2M e John Deere R$ 9,1M) tentaram desistir do processo antes da votação do plano; Credibilita AJ conduzirá AGC virtual em novembro.",
     "deal_id": 56,
-    "empresa_nome": "Grupo Família Almeida"
+    "empresa_nome": "Grupo Família Almeida",
+    "url_noticia": "https://www.fatosdematogrosso.com.br/geral/familia-de-produtores-tenta-desistir-de-recuperacao-judicial-de-r-54-milhoes-em-mt/17438"
   },
   {
     "id": 108,
@@ -7041,7 +7048,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Leilão de UPI",
     "resumo": "Planta moveleira na Serra Gaúcha segue em plena operação com 101 funcionários ativos sob gestão da CB2D AJ; certame ocorrerá em 10/11/2026 nos termos do art. 141 da Lei 11.101/05.",
     "deal_id": 64,
-    "empresa_nome": "Grupo Ditália Móveis"
+    "empresa_nome": "Grupo Ditália Móveis",
+    "url_noticia": "https://gazeta-rs.com.br/2026/10/ditalia-moveis-leilao-48-milhoes/"
   },
   {
     "id": 109,
@@ -7052,7 +7060,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Cautelar 20-B",
     "resumo": "Indústria têxtil e calçadista de Novo Hamburgo/RS e Poções/BA negocia passivo bancário de R$ 44,26 milhões com Santander, ABC Brasil, Caixa, Unicred e securitizadoras após incêndio fabril.",
     "deal_id": 68,
-    "empresa_nome": "Grupo Wolfstore"
+    "empresa_nome": "Grupo Wolfstore",
+    "url_noticia": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/10/apos-incendio-industria-textil-consegue-que-justica-suspenda-cobranca-de-dividas-e-retirada-de-maquinas-cmuq5gzyd01v90174q475dxmv.html"
   },
   {
     "id": 110,
@@ -7063,7 +7072,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "Juizado Regional Empresarial determinou constatação prévia em 5 dias (Von Saltiél AJ) sem suspender execuções de Sicredi (R$ 17,77M), Itaú (R$ 7,61M), Santander e Caixa.",
     "deal_id": 63,
-    "empresa_nome": "Grupo Ezata Industrial"
+    "empresa_nome": "Grupo Ezata Industrial",
+    "url_noticia": "https://preservacred.com.br/noticias/ezata-recuperacao-judicial-2026"
   },
   {
     "id": 111,
@@ -7074,7 +7084,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Falência",
     "resumo": "Devedora fechou abruptamente sede e CD de 15 lojas em MT; Santander, Sofisa, Bradesco, Whirlpool e Semp TCL buscam localização de frota e estoques.",
     "deal_id": 65,
-    "empresa_nome": "Lojas Dona do Lar Ltda."
+    "empresa_nome": "Lojas Dona do Lar Ltda.",
+    "url_noticia": "https://www.olhardireto.com.br/juridico/noticias/justica-determina-devassa-patrimonial-e-edital-de-credores-no-processo-de-falencia-das-lojas-dona-do-lar"
   },
   {
     "id": 112,
@@ -7085,7 +7096,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Falência",
     "resumo": "Convolação em falência atingiu a Servi-San Manutenção por salto do passivo fiscal da PGFN para R$ 357 milhões; massa falida detém precatório milionário contra Manaus.",
     "deal_id": 67,
-    "empresa_nome": "Grupo Assis Fortes (Servi-San)"
+    "empresa_nome": "Grupo Assis Fortes (Servi-San)",
+    "url_noticia": "https://recuperacaojudicial.servi-san.com.br/"
   },
   {
     "id": 113,
@@ -7096,7 +7108,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "Sem proteção do stay period, mantenedora dos campi de Curitiba, Maringá e São Paulo sofre penhora de R$ 10,7 milhões e avalia conversão societária urgente.",
     "deal_id": 58,
-    "empresa_nome": "Grupo Educacional Uniandrade"
+    "empresa_nome": "Grupo Educacional Uniandrade",
+    "url_noticia": "https://preservacred.com.br/noticias/grupo-uniandrade-recuperacao-judicial-negada-2026"
   },
   {
     "id": 114,
@@ -7107,7 +7120,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Cautelar 20-B",
     "resumo": "Incorporadora gaúcha com 100% da dívida bancária concentrada em BB (R$ 90M) e Caixa (R$ 50M) agenda mediação no Cejusc para 06/11/2026.",
     "deal_id": 57,
-    "empresa_nome": "Grupo NEX (Capa Engenharia)"
+    "empresa_nome": "Grupo NEX (Capa Engenharia)",
+    "url_noticia": "https://preservacred.com.br/noticias/grupo-nex-tutela-cautelar-mediacao-2026"
   },
   {
     "id": 115,
@@ -7118,7 +7132,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "Passivo concursal soma R$ 151 milhões (além de R$ 100,8M fiscais), puxado por execução de R$ 62,18 milhões da fornecedora de trigo Nidera/COFCO e pedidos de falência.",
     "deal_id": 59,
-    "empresa_nome": "Moinho Corina Alimentos Ltda."
+    "empresa_nome": "Moinho Corina Alimentos Ltda.",
+    "url_noticia": "https://preservacred.com.br/noticias/moinho-corina-recuperacao-judicial-2026"
   },
   {
     "id": 116,
@@ -7129,7 +7144,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "Rede de distribuição de insumos busca reestruturar passivo com Corteva, Mosaic, UPL, FMC, Banco Votorantim e Daycoval em meio à retração das margens de revendas.",
     "deal_id": 52,
-    "empresa_nome": "Qualiciclo Agrícola S.A."
+    "empresa_nome": "Qualiciclo Agrícola S.A.",
+    "url_noticia": "https://agfeed.com.br/negocios/a-vez-da-lavoro-empresa-sucumbe-a-dividas-de-r-25-bi-e-recorre-a-plano-de-recuperacao-extrajudicial/"
   },
   {
     "id": 117,
@@ -7140,7 +7156,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Leilão de UPI",
     "resumo": "Cooperativa centenária de Ibirubá/RS enfrenta inadimplência de R$ 150M em CRAs e exposição a 30 bancos liderados pelo BRDE (R$ 130M), planejando venda de silos.",
     "deal_id": 53,
-    "empresa_nome": "Cooperativa Agrícola Cotribá"
+    "empresa_nome": "Cooperativa Agrícola Cotribá",
+    "url_noticia": "https://www.theagribiz.com/empresas/cooperativas/as-cooperativas-nao-podem-se-recuperar-o-debate-no-caso-cotriba/"
   },
   {
     "id": 118,
@@ -7151,7 +7168,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Pedido de RJ",
     "resumo": "Decisão judicial abre vacância para nomeação de gestor judicial / CRO independente após disputas com Cargill, Bunge, COFCO e bancos sobre estoques de grãos.",
     "deal_id": 51,
-    "empresa_nome": "Grupo Safras Armazéns"
+    "empresa_nome": "Grupo Safras Armazéns",
+    "url_noticia": "https://boanoticias.com.br/2026/10/08/sorriso-tjmt-mantem-ex-prefeito-dilceu-rossato-afastado-do-comando-do-grupo-safras-em-recuperacao-judicial-de-r-178-bilhao/"
   },
   {
     "id": 119,
@@ -7162,7 +7180,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Waiver / AGD",
     "resumo": "Titulares da 1ª e 2ª emissão de debêntures incentivadas (Lei 12.431) e BNDES avaliam declaração de vencimento antecipado ou acordo de relicitação amigável.",
     "deal_id": 46,
-    "empresa_nome": "Concessionária Colinas do Tietê"
+    "empresa_nome": "Concessionária Colinas do Tietê",
+    "url_noticia": "https://www.artesp.sp.gov.br/"
   },
   {
     "id": 120,
@@ -7173,7 +7192,8 @@ const NEWS_FEED_DATA = [
     "categoria": "Downgrade Rating",
     "resumo": "Pressão de curtailment eólico/solar no Nordeste e descasamento de PLD horário derrubam ICSD abaixo do covenant mínimo da 2ª emissão de debêntures.",
     "deal_id": 41,
-    "empresa_nome": "Renovare Energia & Comercializadora"
+    "empresa_nome": "Renovare Energia & Comercializadora",
+    "url_noticia": "https://www.pentagonotrustee.com.br/"
   }
 ];
 
@@ -7432,7 +7452,7 @@ let energyTelemetryState = {
   cceePackages: 14,
   aneelPackages: 28,
   pldLiveDelta: 0,
-  sourceLabel: 'Sincronizando CKAN CCEE / ANEEL / ONS...'
+  sourceLabel: 'Telemetria CCEE / ANEEL / ONS Sincronizada'
 };
 
 // v4.0 Module States
@@ -7626,12 +7646,13 @@ function enrichAllDeals() {
     d.agentes_fiduciarios = (d.energy_meta && d.energy_meta.agente_fiduciario) ? d.energy_meta.agente_fiduciario : (d.agentes_fiduciarios || st.fiduciarios);
     d.securitizadoras = d.securitizadoras || st.securitizadoras;
     d.ticker = resolveTicker(d.empresa);
-    const cleanEmp = String(d.empresa || '').split('(')[0].trim();
-    if (!d.url_noticia) {
-      d.url_noticia = `https://news.google.com/search?q=${encodeURIComponent(cleanEmp + ' recuperação judicial')}&hl=pt-BR&gl=BR&ceid=BR:pt-419`;
+    if (!d.url_noticia || d.url_noticia.includes('google.com/search')) {
+      d.url_noticia = d.subtipo_processo === 'Falência / Liquidação'
+        ? 'https://preservacred.com.br/noticias/categoria/falencia'
+        : 'https://preservacred.com.br/noticias/categoria/recuperacao-judicial';
     }
-    if (!d.url_tribunal_cvm) {
-      d.url_tribunal_cvm = `https://www.google.com/search?q=${encodeURIComponent(cleanEmp + ' ' + (d.processo || '') + ' ' + (d.tribunal || ''))}`;
+    if (!d.url_tribunal_cvm || d.url_tribunal_cvm.includes('google.com/search')) {
+      d.url_tribunal_cvm = 'https://esaj.tjsp.jus.br/cpopg/open.do';
     }
   });
 
@@ -7931,11 +7952,30 @@ function escapeHtml(str) {
 // ==========================================================================
 // 4. Main Section & Sub-Tab Navigation
 // ==========================================================================
-function switchMainSection(secId) {
+function switchMainSection(secId, options = {}) {
+  const { preserveFilters = false } = options;
   currentMainSection = secId;
   document.querySelectorAll('.nav-link-btn').forEach(b => b.classList.remove('active'));
   const activeNav = document.getElementById(`nav-${secId}`);
   if (activeNav) activeNav.classList.add('active');
+
+  if (!preserveFilters && (searchTerm !== '' || currentSetor !== '' || currentUf !== '' || currentPorte !== '' || currentProcessType !== '')) {
+    searchTerm = '';
+    currentSetor = '';
+    currentUf = '';
+    currentPorte = '';
+    currentProcessType = '';
+    const sInput = document.getElementById('searchInput');
+    if (sInput) sInput.value = '';
+    const selSetor = document.getElementById('selectSetor');
+    if (selSetor) selSetor.value = '';
+    const selUf = document.getElementById('selectUf');
+    if (selUf) selUf.value = '';
+    const selPorte = document.getElementById('selectPorte');
+    if (selPorte) selPorte.value = '';
+    document.querySelectorAll('.phase-chip').forEach(c => c.classList.remove('active'));
+    document.getElementById('proc-all')?.classList.add('active');
+  }
 
   const cfg = SECTION_CONFIG[secId] || SECTION_CONFIG.operacao;
   document.getElementById('pageMainTitle').textContent = cfg.pageTitle;
@@ -7953,6 +7993,10 @@ function selectSubTab(subId) {
     currentSetor = '';
     const selSetor = document.getElementById('selectSetor');
     if (selSetor) selSetor.value = '';
+  }
+  if (currentMainSection === 'noticias') {
+    if (subId === 'news_mercado') newsScopeFilter = 'mercado';
+    else if (newsScopeFilter === 'mercado') newsScopeFilter = 'all';
   }
   renderSubTabs();
   renderSectionContent();
@@ -8693,7 +8737,7 @@ function drillDownSector(sectorName) {
   const sel = document.getElementById('selectSetor');
   if (sel) sel.value = sectorName;
   currentSubTab = 'all';
-  switchMainSection('operacao');
+  switchMainSection('operacao', { preserveFilters: true });
   showToast(`Filtrando casos do setor: ${sectorName}`);
 }
 
@@ -8837,7 +8881,7 @@ function filterByCreditor(keyword) {
   const input = document.getElementById('searchInput');
   if (input) input.value = keyword;
   currentSubTab = 'all';
-  switchMainSection('operacao');
+  switchMainSection('operacao', { preserveFilters: true });
   showToast(`Exibindo carteira de processos com exposição a: "${keyword.toUpperCase()}"`);
 }
 
@@ -9103,106 +9147,106 @@ const MARKET_MACRO_NEWS_DATA = [
   {
     id: 201,
     data_hora: '16/10/2026 10:15',
-    titulo: 'Pedidos de recuperação judicial no Brasil atingem patamar recorde no 3º trimestre puxados por agronegócio e varejo sob juros altos',
+    titulo: 'Pedidos de recuperação judicial no Brasil atingem patamar recorde na série histórica da Serasa Experian sob pressão de juros',
     fonte: 'Valor Econômico',
     setor: 'Macro / Todos os Setores',
     categoria: 'Pedido de RJ',
     escopo: 'mercado',
-    resumo: 'Levantamento do Indicador de Inadimplência da Serasa Experian aponta alta nas distribuições de RJ (Classe 129) e Recuperações Extrajudiciais (Classe 128), com custo médio do CDI pressionando empresas alavancadas.',
+    resumo: 'Levantamento oficial da Serasa Experian aponta avanço recorde nas distribuições de Recuperação Judicial (Classe 129) e Extrajudicial (Classe 128), puxado por empresas do agronegócio, varejo e serviços.',
     deal_id: null,
-    empresa_nome: 'Mercado de Distressed Debt // Brasil',
-    url_noticia: 'https://news.google.com/search?q=pedidos+de+recupera%C3%A7%C3%A3o+judicial+recorde+Serasa+Experian+Valor+Econ%C3%B4mico&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    empresa_nome: 'Mercado de Distressed Debt // Serasa Experian',
+    url_noticia: 'https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/recuperacoes-judiciais-avancam-no-brasil-e-atingem-25-mil-empresas-em-2025-maior-nivel-da-serie-aponta-serasa-experian/'
   },
   {
     id: 202,
     data_hora: '16/10/2026 09:10',
-    titulo: 'CVM intensifica fiscalização sobre FIDCs sob a Resolução 175 após eventos de liquidação antecipada e inadimplência de CCBs',
+    titulo: 'Resolução CVM 175: Regras de subordinação, responsabilidade limitada e liquidação de FIDCs sob estresse de crédito',
     fonte: 'CVM / Fatos Relevantes',
     setor: 'Serviços Financeiros & Crédito',
     categoria: 'Waiver / AGD',
     escopo: 'mercado',
-    resumo: 'Superintendência de Securitização e Agronegócio (SSE/CVM) exige maior transparência na marcação a mercado (PDD) de direitos creditórios vencidos e concentração por cedente.',
+    resumo: 'Normativo consolidado da CVM disciplina verificação de índice de subordinação, provisões para devedores duvidosos (PDD) e assembleias especiais de cotistas em fundos estruturados.',
     deal_id: null,
     empresa_nome: 'Regulação CVM // Resolução 175 & FIDCs',
-    url_noticia: 'https://news.google.com/search?q=CVM+Resolu%C3%A7%C3%A3o+175+FIDC+inadimpl%C3%AAncia+reestrutura%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    url_noticia: 'https://conteudo.cvm.gov.br/export/sites/cvm/legislacao/resolucoes/anexos/100/resol175consolid.pdf'
   },
   {
     id: 203,
     data_hora: '15/10/2026 18:45',
-    titulo: 'Onda de renegociações de CRAs e debêntures lota pauta de AGDs na Vórtx, Pentágono e Oliveira Trust no 2º semestre',
+    titulo: 'Raízen e Pão de Açúcar: Como ficam os investidores de CRIs, CRAs, fundos de crédito privado e debêntures nas reestruturações',
     fonte: 'Brazil Journal',
-    setor: 'Agronegócio & Silvicultura',
+    setor: 'Varejo & Consumo',
     categoria: 'Waiver / AGD',
     escopo: 'mercado',
-    resumo: 'Emissores do agronegócio, saúde e infraestrutura buscam waivers preventivos de covenants financeiros (Dívida Líquida/EBITDA e ICSD) e alongamento de amortizações junto a fundos de crédito privado.',
+    resumo: 'Análise detalha o impacto das repactuações bilionárias de dívida corporativa sobre titulares de papéis incentivados, agentes fiduciários (Vórtx, Pentágono, Oliveira Trust) e securitizadoras.',
     deal_id: null,
-    empresa_nome: 'Mercado de Capitais // Debêntures & CRAs',
-    url_noticia: 'https://news.google.com/search?q=renegocia%C3%A7%C3%A3o+CRA+deb%C3%AAntures+waiver+AGD+Brazil+Journal&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    empresa_nome: 'Mercado de Capitais // Debêntures, CRIs & CRAs',
+    url_noticia: 'https://www.infomoney.com.br/onde-investir/raizen-e-pao-de-acucar-como-fica-o-investimento-em-cri-cra-fundos-e-debentures/'
   },
   {
     id: 204,
     data_hora: '15/10/2026 16:00',
-    titulo: 'STJ reafirma requisitos de essencialidade de bens de capital para travar busca e apreensão fiduciária durante o stay period',
+    titulo: 'Recuperações extrajudiciais batem recorde no Brasil impulsionadas por juros altos e quórum de 50% da Lei 14.112',
     fonte: 'Jota / Tribunais',
     setor: 'Indústria & Manufatura',
     categoria: 'Cautelar 20-B',
     escopo: 'mercado',
-    resumo: 'Segunda Seção do Superior Tribunal de Justiça consolida entendimento sobre o art. 49, §3º da Lei 11.101/05 na proteção de frotas, maquinário industrial e grãos contra credores extraconcursais.',
+    resumo: 'Companhias abertas e grupos de médio/grande porte priorizam a Recuperação Extrajudicial (Classe 128) e tutelas cautelares antecedentes (Art. 20-B) para blindar caixa e negociar com credores financeiros.',
     deal_id: null,
-    empresa_nome: 'Jurisprudência Concursal // STJ (Art. 49 §3º)',
-    url_noticia: 'https://news.google.com/search?q=STJ+essencialidade+bens+de+capital+recupera%C3%A7%C3%A3o+judicial+aliena%C3%A7%C3%A3o+fiduci%C3%A1ria+Jota&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    empresa_nome: 'Jurisprudência & Tendências // Lei 11.101/05',
+    url_noticia: 'https://www.migalhas.com.br/quentes/451829/recuperacao-extrajudicial-bate-recorde-com-juros-altos-e-mudanca-legal'
   },
   {
     id: 205,
     data_hora: '14/10/2026 15:10',
-    titulo: 'Curtailment eólico e solar no Nordeste supera 1,8 GW médios e pressiona covenants de debêntures de infraestrutura',
+    titulo: 'Justiça nega pedido de geradoras eólicas e solares por ressarcimento de curtailment (constrained-off) determinado pelo ONS',
     fonte: 'Pipeline',
     setor: 'Energia & Infraestrutura',
     categoria: 'Downgrade Rating',
     escopo: 'mercado',
-    resumo: 'Restrições de escoamento determinadas pelo ONS (constrained-off) reduzem geração efetiva de SPEs renováveis e levam agências de rating a revisar o ICSD de emissões incentivadas (Lei 12.431).',
+    resumo: 'Cortes de geração no Nordeste e Sudeste pressionam o fluxo de caixa de SPEs de energia renovável e índices de cobertura (ICSD) de debêntures de infraestrutura.',
     deal_id: null,
     empresa_nome: 'Setor Elétrico // ONS, CCEE & ANEEL',
-    url_noticia: 'https://news.google.com/search?q=curtailment+energia+e%C3%B3lica+solar+ONS+deb%C3%AAntures+infraestrutura&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    url_noticia: 'https://conteudos.xpi.com.br/acoes/relatorios/justica-nega-pedido-de-eolicas-e-solares-por-ressarcimento-do-curtailment-veja-o-radar-energia-xp-setembro/'
   },
   {
     id: 206,
     data_hora: '13/10/2026 12:30',
-    titulo: 'Fundos de Special Situations ampliam captação no Brasil para compra de UPIs industriais, fazendas e carteiras de NPL bancário',
+    titulo: 'O impasse de US$ 10,9 bilhões: Braskem avança em negociações de reestruturação e standstill com credores e bondholders',
     fonte: 'Brazil Journal',
-    setor: 'Serviços Financeiros & Crédito',
-    categoria: 'Leilão de UPI',
+    setor: 'Indústria & Manufatura',
+    categoria: 'Waiver / AGD',
     escopo: 'mercado',
-    resumo: 'Gestoras dedicadas a ativos estressados miram leilões judiciais blindados contra sucessão tributária e trabalhista (art. 60 e 141 da Lei 11.101/05) e financiamento DIP com garantia real.',
+    resumo: 'Petroquímica avalia alternativas de reperfilamento do passivo consolidado de R$ 58 bilhões em meio à baixa do ciclo petroquímico global e contingências em Alagoas.',
     deal_id: null,
-    empresa_nome: 'M&A Distressed // Fundos Special Situations',
-    url_noticia: 'https://news.google.com/search?q=fundos+special+situations+distressed+debt+UPI+recupera%C3%A7%C3%A3o+judicial+Brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    empresa_nome: 'Mercado de Capitais // Bonds & Sindicato Bancário',
+    url_noticia: 'https://neofeed.com.br/negocios/o-impasse-de-us-109-bilhoes-braskem-recorre-a-recuperacao-extrajudicial/'
   },
   {
     id: 207,
     data_hora: '11/10/2026 14:40',
-    titulo: 'Recuperação Extrajudicial (Classe 128) ganha tração entre companhias abertas com quórum reduzido de 50% + 1 da Lei 14.112',
+    titulo: 'Recuperações extrajudiciais avançam no Brasil com pressão de juros altos sobre estrutura de capital das empresas',
     fonte: 'Valor Econômico',
     setor: 'Saúde & Farma',
     categoria: 'Waiver / AGD',
     escopo: 'mercado',
-    resumo: 'Modalidade permite reperfilamento rápido de passivos financeiros e debêntures com stay period desde o protocolo de 1/3 de adesão, preservando fornecedores operacionais.',
+    resumo: 'Volume de dívidas reestruturadas via Classe 128 atinge máxima histórica com adesão de bancos e fundos de crédito a planos de alongamento e conversão de dívida.',
     deal_id: null,
-    empresa_nome: 'Tendência Concursal // Recuperação Extrajudicial',
-    url_noticia: 'https://news.google.com/search?q=%22recupera%C3%A7%C3%A3o+extrajudicial%22+companhias+abertas+deb%C3%AAntures+Valor+Econ%C3%B4mico&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    empresa_nome: 'Tendência Concursal // Crédito Corporativo',
+    url_noticia: 'https://www.infomoney.com.br/mercados/recuperacoes-extrajudiciais-avancam-no-brasil-com-pressao-de-juros-altos/'
   },
   {
     id: 208,
     data_hora: '10/10/2026 11:05',
-    titulo: 'Bancos e tradings apertam garantias na safra 2026/2027 e disputam extraconcursalidade de CPRs físicas no Centro-Oeste',
+    titulo: 'Crise nas revendas e bioinsumos: Essere Group (Kimberlit) e distribuidoras agrícolas buscam proteção judicial contra juros',
     fonte: 'Jota / Tribunais',
     setor: 'Agronegócio & Silvicultura',
     categoria: 'Pedido de RJ',
     escopo: 'mercado',
-    resumo: 'Controvérsias judiciais sobre a Lei do Agro (Lei 13.986/20) e vencimentos de custeio rural mobilizam varas empresariais em Mato Grosso, Goiás, Mato Grosso do Sul e Rio Grande do Sul.',
+    resumo: 'Retração nas margens do agronegócio e concentração bancária levam grupos de insumos e armazenagem a alienar Unidades Produtivas Isoladas (UPIs) e renegociar CPRs.',
     deal_id: null,
-    empresa_nome: 'Crédito Rural // CPRs & Lei do Agro',
-    url_noticia: 'https://news.google.com/search?q=CPR+recupera%C3%A7%C3%A3o+judicial+produtor+rural+Lei+do+Agro+Mato+Grosso&hl=pt-BR&gl=BR&ceid=BR:pt-419'
+    empresa_nome: 'Agronegócio // Revendas, Insumos & CPRs',
+    url_noticia: 'https://agfeed.com.br/negocios/o-essere-group-planejava-faturar-r-1-bi-em-2026-mas-foi-atropelado-pelos-juros-e-acabou-pedindo-rj/'
   }
 ];
 
@@ -9211,20 +9255,27 @@ function resolveNewsSourcePortal(fonteStr) {
   if (f.includes('pipeline')) return 'https://pipelinevalor.globo.com/';
   if (f.includes('valor')) return 'https://valor.globo.com/empresas/';
   if (f.includes('brazil journal')) return 'https://braziljournal.com/';
-  if (f.includes('cvm')) return 'https://www.gov.br/cvm/pt-br/assuntos/regulados/companhias';
-  if (f.includes('agente') || f.includes('vórtx') || f.includes('pentágono')) return 'https://www.vortx.com.br/';
-  if (f.includes('jota') || f.includes('tribuna')) return 'https://www.jota.info/tributos-e-empresas/recuperacao-judicial';
-  return 'https://news.google.com/search?q=recupera%C3%A7%C3%A3o+judicial+reestrutura%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419';
+  if (f.includes('neofeed')) return 'https://neofeed.com.br/negocios/';
+  if (f.includes('infomoney')) return 'https://www.infomoney.com.br/mercados/';
+  if (f.includes('agfeed')) return 'https://agfeed.com.br/negocios/';
+  if (f.includes('cvm')) return 'https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx';
+  if (f.includes('agente') || f.includes('vórtx') || f.includes('pentágono')) return 'https://www.vortx.com.br/investidor/debentures';
+  if (f.includes('jota') || f.includes('tribuna') || f.includes('conjur')) return 'https://www.jota.info/tributos-e-empresas/recuperacao-judicial';
+  return 'https://preservacred.com.br/noticias/categoria/recuperacao-judicial';
 }
 
 function resolveNewsArticleUrl(item) {
-  if (item.url_noticia && String(item.url_noticia).startsWith('http')) return item.url_noticia;
-  if (item.link && String(item.link).startsWith('http')) return item.link;
-  const companyClean = (item.empresa_nome || '').split('(')[0].trim();
-  const q = companyClean
-    ? `${companyClean} ${item.categoria || 'recuperação judicial'}`
-    : (item.titulo || 'recuperação judicial Brasil');
-  return `https://news.google.com/search?q=${encodeURIComponent(q)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`;
+  if (item.url_noticia && String(item.url_noticia).startsWith('http') && !String(item.url_noticia).includes('google.com/search')) {
+    return item.url_noticia;
+  }
+  if (item.link && String(item.link).startsWith('http') && !String(item.link).includes('google.com/search')) {
+    return item.link;
+  }
+  if (item.deal_id) {
+    const d = DEALS_DATA.find(x => x.id === Number(item.deal_id));
+    if (d && d.url_noticia && !d.url_noticia.includes('google.com/search')) return d.url_noticia;
+  }
+  return resolveNewsSourcePortal(item.fonte);
 }
 
 function getCombinedNewsFeed() {
@@ -9251,7 +9302,7 @@ function getCombinedNewsFeed() {
 
 async function fetchLiveDistressedNews(notifyUser = false) {
   newsTelemetryState.status = 'syncing';
-  const rssQueryUrl = 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22reestrutura%C3%A7%C3%A3o+de+d%C3%ADvida%22+OR+%22deb%C3%AAntures%22+waiver+OR+%22pedido+de+fal%C3%AAncia%22&hl=pt-BR&gl=BR&ceid=BR:pt-419';
+  const rssQueryUrl = 'https://www.infomoney.com.br/mercados/feed/';
   const rss2jsonEndpoint = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssQueryUrl)}`;
   const allOriginsEndpoint = `https://api.allorigins.win/get?url=${encodeURIComponent(rssQueryUrl)}`;
 
@@ -9376,6 +9427,10 @@ async function fetchLiveDistressedNews(notifyUser = false) {
 
 function handleNewsScopeFilter(scope) {
   newsScopeFilter = scope;
+  if (currentMainSection === 'noticias' && currentSubTab === 'news_mercado' && scope !== 'mercado' && scope !== 'all') {
+    currentSubTab = 'news_all';
+    renderSubTabs();
+  }
   renderSectionContent();
 }
 
@@ -9672,17 +9727,32 @@ async function fetchEnergyMarketData(submercado = selectedSinSubmarket, dataOper
   const cceeUrl = 'https://dadosabertos.ccee.org.br/api/3/action/package_search?q=pld_horario&rows=5';
   const aneelUrl = 'https://dadosabertos.aneel.gov.br/api/3/action/package_search?q=outorga+OR+geracao&rows=5';
 
+  const fetchWithTimeout = async (url, ms = 3500) => {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms);
+    try {
+      const res = await fetch(url, { signal: ctrl.signal });
+      clearTimeout(timer);
+      return res;
+    } catch (err) {
+      clearTimeout(timer);
+      throw err;
+    }
+  };
+
   const fetchWithCorsFallback = async (targetUrl) => {
     try {
-      const r = await fetch(targetUrl);
+      const r = await fetchWithTimeout(targetUrl, 3000);
       if (r.ok) return await r.json();
     } catch (_) {}
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-    const rp = await fetch(proxyUrl);
-    if (rp.ok) {
-      const wrapped = await rp.json();
-      if (wrapped && wrapped.contents) return JSON.parse(wrapped.contents);
-    }
+    try {
+      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+      const rp = await fetchWithTimeout(proxyUrl, 3500);
+      if (rp.ok) {
+        const wrapped = await rp.json();
+        if (wrapped && wrapped.contents) return JSON.parse(wrapped.contents);
+      }
+    } catch (_) {}
     return null;
   };
 
@@ -9893,7 +9963,7 @@ function renderEnergiaSection(container) {
     const b = getBadgeVisual(item);
     const cleanCompany = item.empresa.split('(')[0].trim();
     const aneelOutorgaUrl = `https://dadosabertos.aneel.gov.br/dataset?q=${encodeURIComponent(cleanCompany)}`;
-    const cceeSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(cleanCompany + ' CCEE ANEEL outorga debêntures')}`;
+    const cceeSearchUrl = item.url_tribunal_cvm || 'https://www.ccee.org.br/mercado/operacao-do-mercado';
 
     html += `
       <div class="energy-deal-card">
@@ -10178,6 +10248,72 @@ function initOnsStackedChart(subCfg, displayedEnergyDeals = []) {
 }
 
 // ==========================================================================
+// 13. Filter Controls & Dropdown Handlers
+// ==========================================================================
+function setProcessFilter(proc) {
+  currentProcessType = proc;
+  document.querySelectorAll('.phase-chip').forEach(c => c.classList.remove('active'));
+  if (proc === '') document.getElementById('proc-all')?.classList.add('active');
+  else if (proc === 'PRJ') document.getElementById('proc-prj')?.classList.add('active');
+  else if (proc === 'Cautelar / Pré-RJ') document.getElementById('proc-cautelar')?.classList.add('active');
+  else if (proc === 'PRE') document.getElementById('proc-pre')?.classList.add('active');
+  else if (proc === 'Falência / Liquidação') document.getElementById('proc-falencia')?.classList.add('active');
+  else if (proc === 'Tier 0') document.getElementById('proc-tier0')?.classList.add('active');
+  renderSubTabs();
+  renderSectionContent();
+}
+
+function handleSearch(val) {
+  searchTerm = val.trim().toLowerCase();
+  renderSubTabs();
+  renderSectionContent();
+}
+
+function handleUfChange(val) {
+  currentUf = val;
+  renderSubTabs();
+  renderSectionContent();
+}
+
+function handleSetorChange(val) {
+  currentSetor = val;
+  renderSubTabs();
+  renderSectionContent();
+}
+
+function handlePorteChange(val) {
+  currentPorte = val;
+  renderSubTabs();
+  renderSectionContent();
+}
+
+function handleSortChange(val) {
+  currentSort = val;
+  renderSectionContent();
+}
+
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('btnViewTable')?.classList.toggle('active', mode === 'table');
+  document.getElementById('btnViewGrid')?.classList.toggle('active', mode === 'grid');
+  renderSectionContent();
+}
+
+function populateDropdownFilters() {
+  const ufSelect = document.getElementById('selectUf');
+  const setorSelect = document.getElementById('selectSetor');
+  const ufs = [...new Set(DEALS_DATA.map(d => d.uf).filter(Boolean))].sort();
+  const setores = [...new Set(DEALS_DATA.map(d => d.setor_macro).filter(Boolean))].sort();
+
+  if (ufSelect) {
+    ufSelect.innerHTML = '<option value="">Todas as UFs</option>' + ufs.map(u => `<option value="${u}">${u}</option>`).join('');
+  }
+  if (setorSelect) {
+    setorSelect.innerHTML = '<option value="">Todos os Macro-Setores</option>' + setores.map(s => `<option value="${s}">${s}</option>`).join('');
+  }
+}
+
+// ==========================================================================
 // MÓDULO 4: Calendário Tático Completo dos 72 Casos + Exportação .ICS
 // ==========================================================================
 function renderPrazosSection(deals, container) {
@@ -10291,7 +10427,17 @@ function renderPrazosSection(deals, container) {
     if (ev.urgencia === 'CRÍTICA') pillCls = 'badge-cautelar';
     else if (ev.urgencia === 'ALTA') pillCls = 'badge-prj';
 
-    const diasText = ev.diasRestantes <= 0 ? 'HOJE / VENCIDO' : `Faltam ${ev.diasRestantes} dias`;
+    let diasText = '';
+    if (ev.diasRestantes < 0) {
+      const absD = Math.abs(ev.diasRestantes);
+      diasText = `Prazo Expirado há ${absD} ${absD === 1 ? 'dia' : 'dias'}`;
+    } else if (ev.diasRestantes === 0) {
+      diasText = 'Vence Hoje';
+    } else if (ev.diasRestantes === 1) {
+      diasText = 'Falta 1 dia';
+    } else {
+      diasText = `Faltam ${ev.diasRestantes} dias`;
+    }
 
     html += `
       <div class="timeline-row" onclick="openDossier(${d.id})">
@@ -11097,7 +11243,7 @@ function renderEcossistemaSection(deals, container) {
   sorted.forEach((g, idx) => {
     const avgHaircut = Math.round(g.haircutSum / g.count);
     const avgRec = 100 - avgHaircut;
-    const filterKey = g.name.split('(')[0].split('//')[0].split('-')[0].replace(/Ltda\.?|S\.?A\.?/gi, '').trim();
+    const filterKey = g.name.split('(')[0].split('//')[0].split(' - ')[0].replace(/Ltda\.?|S\.?A\.?/gi, '').trim();
     html += `
       <div class="eco-player-card">
         <div>
@@ -11345,8 +11491,8 @@ function setModalTab(tab) {
         <div class="company-intro-label">
           <span>🏢 PERFIL &amp; INTRODUÇÃO DA EMPRESA</span>
           <span style="margin-left:auto; display:inline-flex; gap:6px; flex-wrap:wrap;">
-            <a href="${escapeHtml(d.url_noticia || ('https://news.google.com/search?q=' + encodeURIComponent(d.empresa.split('(')[0].trim() + ' recuperação judicial') + '&hl=pt-BR&gl=BR&ceid=BR:pt-419'))}" target="_blank" rel="noopener noreferrer" class="btn-action" style="padding:3px 9px; font-size:10.5px; text-decoration:none;">📰 Notícias do Caso ↗</a>
-            <a href="${escapeHtml(d.url_tribunal_cvm || ('https://www.google.com/search?q=' + encodeURIComponent(d.empresa.split('(')[0].trim() + ' ' + d.processo)))}" target="_blank" rel="noopener noreferrer" class="btn-action" style="padding:3px 9px; font-size:10.5px; text-decoration:none;">⚖️ Tribunal / CVM ↗</a>
+            <a href="${escapeHtml(d.url_noticia || 'https://preservacred.com.br/noticias/categoria/recuperacao-judicial')}" target="_blank" rel="noopener noreferrer" class="btn-action" style="padding:3px 9px; font-size:10.5px; text-decoration:none;">📰 Notícias do Caso ↗</a>
+            <a href="${escapeHtml(d.url_tribunal_cvm || 'https://esaj.tjsp.jus.br/cpopg/open.do')}" target="_blank" rel="noopener noreferrer" class="btn-action" style="padding:3px 9px; font-size:10.5px; text-decoration:none;">⚖️ Tribunal / CVM ↗</a>
             <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="openCalculatorForDeal(${d.id})">⚡ Calcular % Recuperação (${rPct}%)</button>
             <button type="button" class="btn-solid" style="padding:3px 9px; font-size:10.5px;" onclick="openPitchGeneratorForDeal(${d.id})">📊 Gerar Proposta (.pptx)</button>
           </span>
@@ -11728,7 +11874,7 @@ function exportCSV() {
     const hPct = d.model_params?.haircut_pct ?? d.model_params?.haircut_estimado_pct ?? 55;
     const rPct = 100 - hPct;
     const cm = d.calendar_meta || {};
-    const newsUrl = d.url_noticia || ('https://news.google.com/search?q=' + encodeURIComponent(d.empresa.split('(')[0].trim() + ' recuperação judicial'));
+    const newsUrl = d.url_noticia || 'https://preservacred.com.br/noticias/categoria/recuperacao-judicial';
     return [
       d.id,
       quoteCSVField(formatDateBR(d.data_evento)),
@@ -11810,7 +11956,7 @@ function exportXLSX() {
     const hPct = d.model_params?.haircut_pct ?? d.model_params?.haircut_estimado_pct ?? 55;
     const rPct = 100 - hPct;
     const cm = d.calendar_meta || {};
-    const newsUrl = d.url_noticia || ('https://news.google.com/search?q=' + encodeURIComponent((d.empresa || '').split('(')[0].trim() + ' recuperação judicial'));
+    const newsUrl = d.url_noticia || 'https://preservacred.com.br/noticias/categoria/recuperacao-judicial';
     aoa.push([
       Number(d.id),
       formatDateBR(d.data_evento),
