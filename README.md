@@ -49,7 +49,7 @@ valknut-radar/
 ├── index.html        # Estrutura semântica limpa (< 200 linhas)
 ├── styles.css        # Design System e variáveis temáticas (Clean Dark FinTech)
 ├── app.js           # Controlador da aplicação, Leaflet e polling de 15 min
-├── deals.json        # Base local canônica atualizada (87 casos sincronizados - Fallback offline dinâmico)
+├── deals.json        # Base local canônica atualizada (64 casos - Fallback offline)
 ├── README.md         # Documentação técnica e de negócio
 └── .gitignore        # Arquivos de sistema e ambiente ignorados
 ```
