@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" href="assets/favicon-64.png">
+  <link rel="icon" type="image/png" href="favicon-64.png" id="faviconLink">
+  <link rel="apple-touch-icon" href="favicon-64.png" id="appleTouchIconLink">
+  <script>
+    (function() {
+      var fav = new Image();
+      fav.onerror = function() {
+        var l1 = document.getElementById('faviconLink');
+        var l2 = document.getElementById('appleTouchIconLink');
+        if (l1) l1.href = 'assets/favicon-64.png';
+        if (l2) l2.href = 'assets/favicon-64.png';
+      };
+      fav.src = 'favicon-64.png';
+    })();
+  </script>
   <title>VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal &amp; Distressed Debt</title>
 
   <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
@@ -27,7 +39,7 @@
   <nav class="top-navbar">
     <div class="brand-cluster" onclick="switchMainSection('operacao')" title="VALKNUT — SPECIAL SITUATIONS">
       <div class="brand-mark-wrap">
-        <img class="brand-mark-img" src="assets/valknut-symbol.png" alt="Valknut Special Situations Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <img class="brand-mark-img" src="valknut-symbol.png" alt="Valknut Special Situations Logo" onerror="if(!this.dataset.triedAssets){this.dataset.triedAssets='1';this.src='assets/valknut-symbol.png';}else{this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='block';}">
         <div style="display:none; width:42px; height:38px;"><svg class="valknut-svg-mark" viewBox="0 0 120 106" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <!-- Back Right Triangle (Petrol Blue #38686A) -->
   <path d="M68 18 L110 90 L38 90 L56 58 L65 58 L51 82 L96 82 L68 33 L59 48 L52 44 Z" fill="#38686A"/>
@@ -239,7 +251,7 @@
       <div class="tearsheet-header">
         <div style="flex:1;">
           <div class="tearsheet-brand-strip">
-            <img src="assets/valknut-symbol.png" alt="Valknut" style="width:28px; height:24px; object-fit:contain;" onerror="this.style.display='none';">
+            <img src="valknut-symbol.png" alt="Valknut" style="width:28px; height:24px; object-fit:contain;" onerror="if(!this.dataset.triedAssets){this.dataset.triedAssets='1';this.src='assets/valknut-symbol.png';}else{this.style.display='none';}">
             <span style="font-weight:800; letter-spacing:0.14em; color:#E6E9DC; font-size:13px;">VALKNUT</span>
             <span style="color:#A5AC82; font-size:9px; font-weight:700; letter-spacing:0.22em;">SPECIAL SITUATIONS // TEAR SHEET INSTITUCIONAL</span>
           </div>
