@@ -1826,8 +1826,8 @@
   },
   {
     "id": 20,
-    "data_evento": "2026-10-16",
-    "data_adicao": "2026-10-19",
+    "data_evento": "2026-10-06",
+    "data_adicao": "2026-10-06",
     "empresa": "Grupo Martins (Produtores Sidrolândia)",
     "cnpj": "31.840.120/0001-88",
     "setor_detalhe": "Agro",
@@ -1840,10 +1840,10 @@
     "tier": "Tier 2",
     "passivo_mm": 32,
     "passivo_display": "32",
-    "credores": "Sicredi R$ 13M, Banco do Brasil R$ 8,5M, Coamo Agroindustrial R$ 3M",
+    "credores": "Sicredi e BB (72% da dívida)",
     "perfil_passivo": "Bancário / Cooperativa",
     "advocacia": "Aguardando publicação nos autos",
-    "aj": "Britto, Taveira e Simões Administração Judicial",
+    "aj": "Aguardando nomeação judicial",
     "tese": "(1) Causa da crise: Frustração de safra em Mato Grosso do Sul por adversidades climáticas e queda nas cotações agrícolas frente a dívidas bancárias dolarizadas e em CDI; (2) Gargalo imediato: Apresentação do plano de Recuperação Judicial na Comarca de Sidrolândia/MS (passivo de R$ 32 milhões) sob forte concentração de voto no Sicredi e Banco do Brasil (72% dos créditos); (3) Oportunidade de mandato: Assessoria Financeira na defesa de laudos de viabilidade econômico-financeira e repactuação bilateral com Sicredi e BB para aprovação em AGC sem cram down litigioso.",
     "status": "Novo",
     "proximas_acoes": "Abordar áreas de crédito rural de Sicredi e Banco do Brasil (detentores de 72% do passivo).",
@@ -2108,7 +2108,7 @@
   {
     "id": 23,
     "data_evento": "2026-10-06",
-    "data_adicao": "2026-10-19",
+    "data_adicao": "2026-10-07",
     "empresa": "Grupo Apex Partners (Apex Participações / Securitizadora)",
     "cnpj": "24.184.238/0001-80",
     "setor_detalhe": "Serviços Financeiros & Crédito",
@@ -2121,7 +2121,7 @@
     "tier": "Tier 2",
     "passivo_mm": 986,
     "passivo_display": "986",
-    "credores": "Debenturistas das emissões estruturadas R$ 420M, Bancos comerciais e FIDC R$ 260M, Investidores de Real Estate/CRIs R$ 180M, Outros R$ 126M",
+    "credores": "Titulares de Debêntures e Notas Comerciais, Cotistas de FIDCs, Investidores de Wealth Management e Securitizadoras",
     "perfil_passivo": "Mercado de Capitais (Debêntures e Notas Comerciais) + Fundos Estruturados (FIDCs) + Dívida Intercompany",
     "advocacia": "Aguardando publicação nos autos",
     "aj": "Laspro Consultores Ltda.",
@@ -2195,7 +2195,7 @@
       "tipo_marco": "Vencimento da Blindagem Cautelar Art. 20-B (60 dias) — Conversão em RJ/PRE",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://timesbrasil.com.br/brasil/judiciario/recuperacao-judicial/apex-partners-cvc-master-capixaba-divida-986-milhoes/",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -2387,7 +2387,7 @@
       "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://neofeed.com.br/negocios/blindadora-carbon-entra-com-pedido-de-recuperacao-extrajudicial/",
+    "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
@@ -2965,13 +2965,13 @@
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://autoesporte.globo.com/mercado/noticia/2026/10/grupo-shc-representante-da-jac-motors-no-brasil-entra-em-recuperacao-judicial.ghtml",
+    "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 32,
-    "data_evento": "2026-10-15",
-    "data_adicao": "2026-10-19",
+    "data_evento": "2026-10-02",
+    "data_adicao": "2026-10-07",
     "empresa": "Sidlar Móveis",
     "cnpj": "50.819.349/0001-70",
     "setor_detalhe": "Varejo & Consumo (Móveis Planejados & Decoração)",
@@ -2984,7 +2984,7 @@
     "tier": "Tier 2",
     "passivo_mm": 56,
     "passivo_display": "56",
-    "credores": "Bradesco R$ 7,2M, Santander Capitalização R$ 5,7M, Banco do Brasil R$ 4M, Banco BS2 R$ 3,8M, Fornecedores moveleiros (46 indústrias) R$ 4,7M",
+    "credores": "Banco Bradesco, bancos de antecipação de recebíveis e fornecedores de madeira/marcenaria",
     "perfil_passivo": "Bancário Curto Prazo (Recebíveis de Varejo) + Fornecedores de Insumos",
     "advocacia": "Aguardando publicação nos autos",
     "aj": "Aguardando nomeação judicial",
@@ -4602,13 +4602,13 @@
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "CRÍTICA"
     },
-    "url_noticia": "https://www.infomoney.com.br/negocios/polishop-pede-recuperacao-judicial-apos-fechar-lojas-e-acumular-dividas-de-r-396-milhoes/",
+    "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 49,
-    "data_evento": "2026-10-12",
-    "data_adicao": "2026-10-19",
+    "data_evento": "2026-10-06",
+    "data_adicao": "2026-10-08",
     "empresa": "Grupo Echer",
     "cnpj": "11.862.538/0001-21",
     "setor_detalhe": "Construção Civil & Agro",
@@ -4621,10 +4621,10 @@
     "tier": "Tier 2",
     "passivo_mm": 170,
     "passivo_display": "170",
-    "credores": "Caixa Econômica Federal R$ 48M, Itaú R$ 32M, Bradesco R$ 25M, Banco do Brasil R$ 18M, Detentores de CRIs R$ 22M e Fornecedores",
+    "credores": "Caixa Econômica Federal (41% da dívida / R$ 69,5M), Bancos privados e Fornecedores",
     "perfil_passivo": "Concentração Bancária Estatal (Caixa 41%) + Crédito Imobiliário/Obras",
     "advocacia": "Aguardando publicação nos autos",
-    "aj": "Mudih Consultoria Ltda. (Darbas José Coutinho Filho)",
+    "aj": "Aguardando nomeação judicial",
     "tese": "(1) Causa da crise: Descompasso financeiro entre o ritmo de vendas/repasses imobiliários e o custo de execução de empreendimentos residenciais e operações agropecuárias em Mato Grosso (passivo de R$ 170 milhões); (2) Gargalo imediato: Deferimento da Recuperação Judicial na Vara Especializada de Cuiabá/MT com forte concentração de 41% da dívida (R$ 69,5 milhões) na Caixa Econômica Federal; (3) Oportunidade de mandato: Watchdog de Colateral Imobiliário para a Caixa Econômica Federal e bancos privados, além da estruturação de DIP Financing para conclusão de obras em andamento.",
     "status": "Novo",
     "proximas_acoes": "Analisar garantias reais fiduciárias da Caixa e propor governança independente",
@@ -4697,7 +4697,7 @@
       "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
       "urgencia": "MÉDIA"
     },
-    "url_noticia": "https://www.empresaemcrise.com/post/rondon%C3%B3polis-mt-grupo-echer-tem-recupera%C3%A7%C3%A3o-judicial-deferida-com-d%C3%ADvida-de-r-169-7-milh%C3%B5es",
+    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
   },
   {
@@ -4991,21 +4991,21 @@
   },
   {
     "id": 53,
-    "data_evento": "2026-10-14",
-    "data_adicao": "2026-10-19",
+    "data_evento": "2026-10-09",
+    "data_adicao": "2026-10-09",
     "empresa": "Cooperativa Agrícola Mista General Osório Ltda. (Cotribá)",
     "cnpj": "90.657.289/0001-09",
     "setor_detalhe": "Cooperativa Agropecuária & Grãos",
     "setor_macro": "Agronegócio & Silvicultura",
     "regiao": "Ibirubá, RS",
     "tribunal": "TJRS - Vara Empresarial de Ibirubá",
-    "processo": "5001248-84.2025.8.21.0105 / Edital AGE 14/10/2026",
+    "processo": "5001245-80.2026.8.21.0105",
     "fase": "Falência / Liquidação (Classe 110)",
     "score": 9.3,
     "tier": "Tier 2",
     "passivo_mm": 1420,
     "passivo_display": "1.420",
-    "credores": "Bancos comerciais e crédito rural R$ 650M, Fornecedores de insumos químicos R$ 420M, Associados e cooperados R$ 357M",
+    "credores": "BRDE (R$ 130M), Banco Votorantim (R$ 15M), Sicredi, Banrisul, Titulares de CRAs (R$ 150M) e Produtores Associados",
     "perfil_passivo": "CRAs de Mercado de Capitais + Dívida Bancária Cooperativa + Repasses Rurais",
     "advocacia": "Aguardando autuação",
     "aj": "Conselho de Liquidação em eleição",
@@ -5867,7 +5867,7 @@
   {
     "id": 62,
     "data_evento": "2026-10-15",
-    "data_adicao": "2026-10-19",
+    "data_adicao": "2026-10-16",
     "empresa": "AJX Capital Investimentos S.A.",
     "cnpj": "42.697.069/0001-66",
     "setor_detalhe": "Fintech & Captação via CCBs (Barueri/SP)",
@@ -6940,6 +6940,55 @@
     "url_tribunal_cvm": "https://eproc1g.tjsc.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica"
   },
   {
+    "id": 73,
+    "data_evento": "2026-10-12",
+    "data_adicao": "2026-10-19",
+    "empresa": "Grupo Echer (Echer Empreendimentos)",
+    "cnpj": "11.862.538/0001-21",
+    "setor_detalhe": "Construção Civil / Incorporação Imobiliária",
+    "setor_macro": "Construção Civil & Real Estate",
+    "regiao": "Rondonópolis, MT",
+    "tribunal": "TJMT - 4ª Vara Cível de Rondonópolis",
+    "processo": "1015088-64.2026.8.11.0003",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 8.8,
+    "tier": "Tier 1",
+    "passivo_mm": 170,
+    "passivo_display": "170",
+    "credores": "Caixa Econômica Federal R$ 48M, Itaú R$ 32M, Bradesco R$ 25M, Banco do Brasil R$ 18M, Detentores de CRIs R$ 22M e Fornecedores",
+    "perfil_passivo": "Financiamento à Construção (Crédito Associativo Caixa) + CRIs + Alienação de Terrenos/UPI",
+    "advocacia": "Aguardando publicação nos autos",
+    "aj": "Mudih Consultoria Ltda. (Darbas José Coutinho Filho)",
+    "tese": "(1) Causa alegada da crise: Descompasso severo entre inflação de insumos (INCC acumulado de 35,5% no triênio) e preços fixos contratados no crédito associativo da Caixa/MCMV; (2) Gargalo imediato de liquidez: Atraso em obras de 2.702 unidades, enxurrada de distratos e necessidade urgente de capital para concluir obras em andamento (Viva Alameda 70% e Viva Várzea Grande 30%); (3) Tese de mandato sugerida: Alienação de UPIs de terrenos em estoque e condomínios locados, estruturação de DIP Financing para conclusão de canteiros e renegociação com Caixa e investidores de CRIs.",
+    "status": "Novo",
+    "proximas_acoes": "Mapear estoque de 2.702 imóveis e terrenos para estruturação de UPIs e contatar assessores financeiros do grupo.",
+    "cidade": "Rondonópolis",
+    "uf": "MT",
+    "coordenadas": [
+      -16.4674,
+      -54.6366
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "PRJ",
+    "strategy_id": "dip",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "DIP Financing",
+    "causa_crise": "Descompasso severo entre inflação de insumos e preços fixos contratados no crédito associativo Caixa",
+    "gargalo_imediato": "Atraso em obras de 2.702 unidades e necessidade de capital de giro",
+    "tese_mandato": "Alienação de UPIs de terrenos e condomínios locados, DIP Financing e renegociação com Caixa e CRIs",
+    "calendar_meta": {
+      "data_marco_iso": "2026-12-11",
+      "data_marco_br": "11/12/2026",
+      "dias_restantes": 53,
+      "marco_label": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "marco_tipo": "Entrega PRJ (Art. 53)",
+      "urgencia_nivel": "normal",
+      "urgencia_label": "NO PRAZO (53d)",
+      "is_fixed_edital": false
+    }
+  },
+  {
     "id": 74,
     "data_evento": "2026-10-06",
     "data_adicao": "2026-10-19",
@@ -6985,21 +7034,8 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (47d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-05",
-      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)"
-    },
-    "url_noticia": "https://agroemcampo.ig.com.br/2026/noticias/divida-leva-grupo-rural-a-recuperacao-judicial/",
-    "url_tribunal_cvm": "https://esaj.tjms.jus.br/cpopg5/open.do",
-    "descricao_empresa": "Tradicional grupo agrícola familiar liderado por Pompilio Cabral de Jesus na fronteira agrícola de Ponta Porã e Dourados/MS, operando 2.450 hectares de cultivo tecnificado de soja e milho safrinha com forte estrutura de financiamento rural e Fiagro.",
-    "agentes_fiduciarios": "Indigo Fiagro / Monitoramento Fiduciário",
-    "securitizadoras": "Indigo Fiagro",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Concentração de 85% do Passivo na Classe II (Garantia Real: BB R$ 38M, Safra R$ 28M, Sicredi R$ 18M)",
-      "Disputa de Essencialidade e Retenção Fiduciária de Grãos com Indigo Fiagro (R$ 8M)"
-    ],
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 75,
@@ -7047,21 +7083,8 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (49d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-07",
-      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)"
-    },
-    "url_noticia": "https://scalzilliaj.com.br/processo/recuperacao-judicial_industria-e-comercio-de-laticinios-vale-dos-buritis-ltda-__459",
-    "url_tribunal_cvm": "https://pje-consulta-publica.tjmg.jus.br/",
-    "descricao_empresa": "Indústria mineira de laticínios e derivados lácteos sediada em Buritis/MG e com unidade fabril adquirida em Monte Belo/MG, detentora das marcas regionais Supremo e Santa Marta, processando leite cru junto a cooperativas do Noroeste e Sul de Minas.",
-    "agentes_fiduciarios": "Monitoramento via escrituras / N/A",
-    "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Concentração Bancária e Cooperativa (BB R$ 24M, Bradesco R$ 18M, Cooperativa Oeste Mineiro R$ 11M, Itaú R$ 9M)",
-      "Alienação de UPI de Marcas (Supremo / Santa Marta) e Planta Industrial de Monte Belo/MG"
-    ],
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 76,
@@ -7109,21 +7132,57 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (41d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-11-29",
-      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)"
-    },
-    "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
-    "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/",
-    "descricao_empresa": "Grupo industrial paranaense fabricante de chapas e embalagens de papelão ondulado (Curitiba Embalagens e Induspel), com matriz em Curitiba/PR e nova planta industrial instalada em Porto Amazonas/PR, atendendo indústrias moveleiras, calçadistas e frigoríficos no Sul.",
-    "agentes_fiduciarios": "Monitoramento via escrituras / N/A",
-    "securitizadoras": "FIDCs e Factorings de Fomento Mercantil",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Exposição Fiduciária de R$ 30,5M sobre Frota de 23 Caminhões e Onduladeiras Industriais",
-      "Unidade Fabril em Porto Amazonas/PR Elegível para Desinvestimento como UPI"
+      "is_fixed_edital": false
+    }
+  },
+  {
+    "id": 77,
+    "data_evento": "2026-09-16",
+    "data_adicao": "2026-10-19",
+    "empresa": "Apex Partners Gestão de Ativos S.A.",
+    "cnpj": "17.855.936/0001-05",
+    "setor_detalhe": "Serviços Financeiros / Gestão de Recursos",
+    "setor_macro": "Serviços Financeiros & Crédito",
+    "regiao": "Vitória, ES",
+    "tribunal": "TJES - Vara de Recuperação Judicial e Falência de Vitória",
+    "processo": "0021485-19.2026.8.08.0024",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 9.3,
+    "tier": "Tier 1",
+    "passivo_mm": 986,
+    "passivo_display": "986",
+    "credores": "Debenturistas das emissões estruturadas R$ 420M, Bancos comerciais e FIDC R$ 260M, Investidores de Real Estate/CRIs R$ 180M, Outros R$ 126M",
+    "perfil_passivo": "Debêntures Privadas + Operações a Termo de Ações CVC + Alienação de UPI de Gestão / Real Estate",
+    "advocacia": "Aguardando publicação nos autos",
+    "aj": "Aguardando nomeação judicial",
+    "tese": "(1) Causa alegada da crise: Descoberta de inconsistências financeiras internas sob gestão anterior, associadas ao custo de aquisições de boutiques de M&A (Stark e Contea) e juros altos impactando captação de Real Estate/PE; (2) Gargalo imediato de liquidez: Chamadas de margem em operações a termo (ações CVC), vencimento antecipado em cascata de debêntures e crise de confiança de cotistas; (3) Tese de mandato sugerida: Independent Financial Advisory / Forensic Watchdog de ativos, estruturação de UPIs das participações em SPEs imobiliárias e desinvestimento ordenado de carteiras de crédito.",
+    "status": "Em Análise",
+    "proximas_acoes": "Contatar mesa de debenturistas e agentes fiduciários para articulação de comitê de credores financeiros.",
+    "cidade": "Vitória",
+    "uf": "ES",
+    "coordenadas": [
+      -20.3155,
+      -40.3128
     ],
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Forensic Watchdog",
+    "causa_crise": "Inconsistências financeiras internas sob gestão anterior e juros altos sobre Real Estate/PE",
+    "gargalo_imediato": "Chamadas de margem em operações a termo de ações CVC e vencimento de debêntures",
+    "tese_mandato": "Forensic Watchdog de ativos e estruturação de UPIs das participações em SPEs imobiliárias",
+    "calendar_meta": {
+      "data_marco_iso": "2026-11-15",
+      "data_marco_br": "15/11/2026",
+      "dias_restantes": 27,
+      "marco_label": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "marco_tipo": "Entrega PRJ (Art. 53)",
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (27d)",
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 78,
@@ -7171,21 +7230,8 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (56d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-14",
-      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)"
-    },
-    "url_noticia": "https://www.empresaemcrise.com/post/pinhais-pr-deferida-a-recupera%C3%A7%C3%A3o-judicial-da-atacadista-gold-ind%C3%BAstria-e-com%C3%A9rcio",
-    "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/",
-    "descricao_empresa": "Atacadista e distribuidora paranaense de insumos gastronômicos e food service (Gold Indústria e Comércio Ltda., operadora da rede Casa da Gastronomia), sediada em Pinhais/PR (Região Metropolitana de Curitiba) com centro logístico refrigerado próprio de 3.000 m².",
-    "agentes_fiduciarios": "Monitoramento via escrituras / N/A",
-    "securitizadoras": "Sem securitizadora reportada / Crédito Bancário Direto",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Mais de R$ 32M Concentrados em Três Grandes Bancos (BB R$ 14M, Caixa R$ 10M, Itaú R$ 8M)",
-      "Imóvel Comercial e Câmara Fria de 3.000 m² em Pinhais/PR Elegível para Sale & Leaseback"
-    ],
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 79,
@@ -7233,21 +7279,8 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (54d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-12",
-      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)"
-    },
-    "url_noticia": "https://lawletter.com.br/noticia/justica-autoriza-processamento-da-recuperacao-do-grupo-pfitscher-e-protege-maquinas-agricolas",
-    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam",
-    "descricao_empresa": "Grupo familiar produtor de soja, milho e algodão liderado por Arthur Mendes Pfitscher e Jadir Agnaldo Pfitscher em Tangará da Serra/MT, cultivando 5.500 hectares (incluindo a Fazenda Santa Marta) com frota própria de 17 máquinas agrícolas de alta capacidade.",
-    "agentes_fiduciarios": "Monitoramento via escrituras / N/A",
-    "securitizadoras": "Tradings e Financiamento de Safra",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Concentração em Crédito Rural e Tradings (Sicredi R$ 26M, Caixa R$ 18M, BASA R$ 15M, Cargill R$ 12M, Syngenta R$ 9M)",
-      "Proteção Judicial de Essencialidade sobre Frota de 17 Máquinas Agrícolas (John Deere R$ 7M)"
-    ],
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 80,
@@ -7295,21 +7328,204 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (59d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-17",
-      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)"
-    },
-    "url_noticia": "https://www.fatosdematogrosso.com.br/cidades/grupo-de-transporte-e-mineracao-vai-a-recuperacao-judicial-devendo-r-1285-milhoes/14558",
-    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam",
-    "descricao_empresa": "Conglomerado logístico, agrícola e minerador mato-grossense sediado em Tangará da Serra/MT (Bozetti Transportes, Transportadora Flecha e indústria de calcário agrícola Pérola Mineração em Porto Estrela/MT), operando frota pesada de 120 carretas graneleiras.",
-    "agentes_fiduciarios": "Monitoramento via escrituras / N/A",
-    "securitizadoras": "Bancos de Montadoras (Volvo, Mercedes, Paccar)",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Passivo Extraconcursal de R$ 67M em Alienação Fiduciária sobre Frota de 120 Carretas e Fazendas Fontoura e Castanhal",
-      "Desinvestimento de UPI da Unidade Pérola Mineração (Calcário Agrícola em Porto Estrela/MT)"
+      "is_fixed_edital": false
+    }
+  },
+  {
+    "id": 81,
+    "data_evento": "2026-10-14",
+    "data_adicao": "2026-10-19",
+    "empresa": "Cooperativa Agrícola Mista General Osório Ltda. (Cotribá)",
+    "cnpj": "90.657.289/0001-09",
+    "setor_detalhe": "Agronegócio / Cooperativa de Grãos e Insumos",
+    "setor_macro": "Agronegócio & Silvicultura",
+    "regiao": "Ibirubá, RS",
+    "tribunal": "TJRS - Comarca de Ibirubá",
+    "processo": "5001248-84.2025.8.21.0105 / Edital AGE 14/10/2026",
+    "fase": "Liquidação Extrajudicial (Lei 5.764/71) / AGE Aprovada (20/10/2026)",
+    "score": 9.5,
+    "tier": "Tier 0",
+    "passivo_mm": 1427,
+    "passivo_display": "1.427",
+    "credores": "Bancos comerciais e crédito rural R$ 650M, Fornecedores de insumos químicos R$ 420M, Associados e cooperados R$ 357M",
+    "perfil_passivo": "Crédito Rural + Fornecedores de Insumos + Depósitos de Grãos + Alienação de Silos, Armazéns e Fábrica de Rações",
+    "advocacia": "Aguardando autuação",
+    "aj": "Sergio Strentzke (Liquidante Eleito na AGE de 20/10/2026)",
+    "tese": "(1) Causa alegada da crise: Enchentes históricas e secas severas no RS gerando inadimplência em cadeia de cooperados, somadas a custos financeiros de nova fábrica de rações (R$ 180M); (2) Gargalo imediato de liquidez: Cassação da proteção recuperacional pelo TJRS, vencimento de R$ 1,42 Bi em passivos e corrida de credores aos armazéns; (3) Tese de mandato sugerida: Estruturação de venda de UPIs de armazéns, silos e fábrica de rações, assessoria ao sindicato de bancos credores e M&A Distressed de ativos logísticos.",
+    "status": "Novo",
+    "proximas_acoes": "Abordar o liquidante eleito (Sergio Strentzke) e sindicato de bancos credores para assessoria no plano de liquidação ordenada e alienação de UPIs de grãos/leite.",
+    "cidade": "Ibirubá",
+    "uf": "RS",
+    "coordenadas": [
+      -28.6275,
+      -53.0897
     ],
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+    "regiao_macro": "Sul",
+    "tipo_processo": "Tier 0",
+    "subtipo_processo": "Tier 0",
+    "strategy_id": "precursor",
+    "strategy_name": "Radar Preditivo (Tier 0)",
+    "strategy_tag": "Liquidação Operacional",
+    "causa_crise": "Enchentes históricas no RS gerando inadimplência de cooperados e custo de nova fábrica",
+    "gargalo_imediato": "Cassação da proteção da RJ pelo TJRS e vencimento de R$ 1,42 Bi em dívidas",
+    "tese_mandato": "Estruturação de venda de UPIs de silos/armazéns e assessoria a bancos credores",
+    "calendar_meta": {
+      "data_marco_iso": "2026-10-20",
+      "data_marco_br": "20/10/2026",
+      "dias_restantes": 1,
+      "marco_label": "Assembleia Geral Extraordinária (AGE) de Deliberação de Liquidação e UPIs",
+      "marco_tipo": "Assembleia / UPI",
+      "urgencia_nivel": "critico",
+      "urgencia_label": "HOJE / AMANHÃ (1d)",
+      "is_fixed_edital": true
+    }
+  },
+  {
+    "id": 82,
+    "data_evento": "2026-10-15",
+    "data_adicao": "2026-10-19",
+    "empresa": "Sidlar Planejados - Móveis e Decorações Ltda.",
+    "cnpj": "04.691.623/0001-09",
+    "setor_detalhe": "Varejo / Móveis Planejados e Decoração",
+    "setor_macro": "Varejo & Consumo",
+    "regiao": "São Paulo, SP",
+    "tribunal": "TJSP - 2ª Vara de Falências e Recuperações Judiciais",
+    "processo": "1124890-33.2026.8.26.0100",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 8.3,
+    "tier": "Tier 2",
+    "passivo_mm": 56,
+    "passivo_display": "56",
+    "credores": "Bradesco R$ 7,2M, Santander Capitalização R$ 5,7M, Banco do Brasil R$ 4M, Banco BS2 R$ 3,8M, Fornecedores moveleiros (46 indústrias) R$ 4,7M",
+    "perfil_passivo": "Bancário Quirografário (46%) + Fornecedores Moveleiros + Imóvel CD 20 mil m² e 15 lojas",
+    "advocacia": "Aguardando publicação nos autos",
+    "aj": "Aguardando nomeação judicial",
+    "tese": "(1) Causa alegada da crise: Desaceleração de vendas de móveis seriados/planejados, encarecimento de giro bancário (Selic em dois dígitos) e custos residuais de reestruturação de rede; (2) Gargalo imediato de liquidez: 104 protestos contra filial em Mairiporã, pressão concentrada de 10 bancos credores e risco de corte de entrega por 46 indústrias moveleiras; (3) Tese de mandato sugerida: Sale & Leaseback ou monetização de CD de 20 mil m², renegociação de dívida bancária quirografária (Bradesco, Santander, BB) e repactuação de prazos com polo moveleiro.",
+    "status": "Novo",
+    "proximas_acoes": "Mapear base imobiliária de lojas e CD para proposta de Sale & Leaseback e contatar diretoria financeira.",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "PRJ",
+    "strategy_id": "consensual",
+    "strategy_name": "Consensual & Art. 20-B",
+    "strategy_tag": "Sale & Leaseback",
+    "causa_crise": "Desaceleração de vendas de móveis planejados e juros altos sobre giro",
+    "gargalo_imediato": "104 protestos cartorários e risco de corte por 46 indústrias moveleiras",
+    "tese_mandato": "Sale & Leaseback do CD de 20 mil m² e renegociação bancária quirografária",
+    "calendar_meta": {
+      "data_marco_iso": "2026-12-14",
+      "data_marco_br": "14/12/2026",
+      "dias_restantes": 56,
+      "marco_label": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)",
+      "marco_tipo": "Entrega PRJ (Art. 53)",
+      "urgencia_nivel": "normal",
+      "urgencia_label": "NO PRAZO (56d)",
+      "is_fixed_edital": false
+    }
+  },
+  {
+    "id": 83,
+    "data_evento": "2026-10-16",
+    "data_adicao": "2026-10-19",
+    "empresa": "Produtores Rurais Família Mota Martins (José Davison Mota Martins)",
+    "cnpj": "47.441.446/0001-15",
+    "setor_detalhe": "Agronegócio / Cultivo de Milho e Trigo",
+    "setor_macro": "Agronegócio & Silvicultura",
+    "regiao": "Sidrolândia, MS",
+    "tribunal": "TJMS - Vara Regional de Falências e RJs de Campo Grande",
+    "processo": "5011498-87.2026.8.12.0001",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 8.5,
+    "tier": "Tier 2",
+    "passivo_mm": 32,
+    "passivo_display": "32",
+    "credores": "Sicredi R$ 13M, Banco do Brasil R$ 8,5M, Coamo Agroindustrial R$ 3M",
+    "perfil_passivo": "Crédito Rural / CPRs + Financiamento de Máquinas Agrícolas + Arrendamento de Terras",
+    "advocacia": "Aguardando publicação nos autos",
+    "aj": "Britto, Taveira e Simões Administração Judicial",
+    "tese": "(1) Causa alegada da crise: Estiagens sucessivas desde 2023 em Sidrolândia/MS, encarecimento de fertilizantes químicos e perdas de produtividade em lavouras arrendadas de milho e trigo; (2) Gargalo imediato de liquidez: Vencimento do stay period em 21/10/2026, concentração de 72% do endividamento em Sicredi e BB, e risco de arresto de grãos pela Coamo; (3) Tese de mandato sugerida: Mediação financeira com Sicredi e BB para viabilização do plano de recuperação com carência de safra e DIP Financing para adiantamento do novo ciclo.",
+    "status": "Novo",
+    "proximas_acoes": "Abordar credores cooperativos (Sicredi e Coamo) e administradora Britto, Taveira e Simões antes do fim do stay period.",
+    "cidade": "Sidrolândia",
+    "uf": "MS",
+    "coordenadas": [
+      -20.9317,
+      -54.9614
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Creditor-Side",
+    "causa_crise": "Estiagens sucessivas e encarecimento de fertilizantes em terras arrendadas",
+    "gargalo_imediato": "Vencimento do stay period em 21/10/2026 e concentração no Sicredi e BB",
+    "tese_mandato": "Mediação financeira com credores e DIP Financing para safra",
+    "calendar_meta": {
+      "data_marco_iso": "2026-10-21",
+      "data_marco_br": "21/10/2026",
+      "dias_restantes": 2,
+      "marco_label": "Término Oficial do Stay Period (Proteção Concursal) no TJMS",
+      "marco_tipo": "Fim Stay Period",
+      "urgencia_nivel": "critico",
+      "urgencia_label": "URGENTE (2d)",
+      "is_fixed_edital": true
+    }
+  },
+  {
+    "id": 84,
+    "data_evento": "2026-10-14",
+    "data_adicao": "2026-10-19",
+    "empresa": "AJX Capital Investimentos S.A.",
+    "cnpj": "42.697.069/0001-66",
+    "setor_detalhe": "Serviços Financeiros / Crédito Estruturado e CCBs",
+    "setor_macro": "Serviços Financeiros & Crédito",
+    "regiao": "Barueri, SP",
+    "tribunal": "TJSP - 2ª Vara Regional Empresarial",
+    "processo": "1018594-82.2026.8.26.0068",
+    "fase": "Falência Decretada (Classe 110)",
+    "score": 9.6,
+    "tier": "Tier 1",
+    "passivo_mm": 85,
+    "passivo_display": "85",
+    "credores": "Investidores Pessoas Físicas em CCBs R$ 65M (mais de 620 processos), Banco do Brasil R$ 12M, Fornecedores e Plataforma ENV R$ 8M",
+    "perfil_passivo": "Cédulas de Crédito Bancário (CCBs) + Ações Sem Cotação do Besc + Arrecadação de Ativos / ENV Financial",
+    "advocacia": "Aguardando autuação",
+    "aj": "Brazilio Bacellar Shirai Advogados",
+    "tese": "(1) Causa alegada da crise: Captação massiva via CCBs com rentabilidade atípica (até 3,5% a.m.) lastreadas em ações inidôneas do extinto Besc, motivando investigação do MP por pirâmide; (2) Gargalo imediato de liquidez: Inadimplemento generalizado, mais de 620 execuções cíveis e decretação de falência por impontualidade injustificada de títulos protestados; (3) Tese de mandato sugerida: Perícia Forense / Asset Tracing para a Administradora Judicial (Brazilio Bacellar Shirai) e representação em Comitê de Credores de CCBs para recuperação de valores transitados por terceiros.",
+    "status": "Novo",
+    "proximas_acoes": "Abordar Brazilio Bacellar Shirai Advogados e grupos de credores de CCBs para proposta de assessoria forense e rastreamento patrimonial.",
+    "cidade": "Barueri",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5114,
+      -46.8765
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "Falência",
+    "subtipo_processo": "Falência",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Asset Tracing",
+    "causa_crise": "Captação via CCBs com retorno atípico lastreadas em ações inidôneas do Besc",
+    "gargalo_imediato": "Mais de 620 execuções e decretação de falência pela 2ª Vara Empresarial",
+    "tese_mandato": "Perícia Forense / Asset Tracing para Administradora e Comitê de Credores",
+    "calendar_meta": {
+      "data_marco_iso": "2026-11-28",
+      "data_marco_br": "28/11/2026",
+      "dias_restantes": 40,
+      "marco_label": "Quadro Geral de Credores & Edital de Arrecadação de Bens da Massa",
+      "marco_tipo": "Arrecadação / Falência",
+      "urgencia_nivel": "normal",
+      "urgencia_label": "NO PRAZO (40d)",
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 85,
@@ -7357,21 +7573,8 @@
       "marco_tipo": "Entrega PRJ (Art. 53)",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (57d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-15",
-      "tipo_marco": "Prazo Legal Improrrogável para Entrega do Plano de RJ (Art. 53 — 60 dias)"
-    },
-    "url_noticia": "https://capitalaberto.com.br/empresas/2026/06/cencosud-compra-st-marche-em-meio-a-recuperacao-judicial",
-    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do",
-    "descricao_empresa": "Rede paulista de supermercados premium de vizinhança e gastronomia (Hortus Comércio de Alimentos S.A., detentora de 32 lojas St. Marche, 2 unidades do tradicional Empório Santa Maria e centro de distribuição de 7.500 m² em SP), historicamente investida pelo fundo L Catterton.",
-    "agentes_fiduciarios": "Agentes Fiduciários de Debêntures (R$ 120M)",
-    "securitizadoras": "BTG Pactual (R$ 220M) / L Catterton (R$ 110M)",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Alienação Judicial de UPI (32 Lojas St. Marche + 2 Empórios Santa Maria + CD 7.500 m²) para o Grupo Cencosud (Art. 60 LREF)",
-      "Forte Concentração em BTG Pactual (R$ 220M), Fundo L Catterton (R$ 110M) e Debenturistas (R$ 120M)"
-    ],
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 86,
@@ -7403,8 +7606,8 @@
       -46.6333
     ],
     "regiao_macro": "Sudeste",
-    "tipo_processo": "PRJ",
-    "subtipo_processo": "Falência / Liquidação",
+    "tipo_processo": "Falência",
+    "subtipo_processo": "Falência",
     "strategy_id": "dip",
     "strategy_name": "DIP Financing & M&A Distressed",
     "strategy_tag": "Marca Raiola / Falência",
@@ -7419,21 +7622,8 @@
       "marco_tipo": "Arrecadação / Falência",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (42d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-11-30",
-      "tipo_marco": "Quadro Geral de Credores & Edital de Arrecadação de Bens da Massa"
-    },
-    "url_noticia": "https://www.cnnbrasil.com.br/agro/justica-decreta-falencia-da-raiola-apos-fracasso-da-recuperacao-judicial/",
-    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do",
-    "descricao_empresa": "Tradicional indústria paulista de envase de azeites, azeitonas e conservas alimentícias fundada há mais de 60 anos em São Paulo/SP (Irmãos Raiola & Cia. Ltda., detentora da marca Raiola), cuja RJ foi convolada em falência pela 1ª Câmara Empresarial do TJSP.",
-    "agentes_fiduciarios": "Monitoramento via escrituras / N/A",
-    "securitizadoras": "PGE-SP (Acordo Paulista R$ 117M) + Bancos (R$ 62M)",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Convolação em Falência pelo Art. 73, V da LREF por Inadimplemento de Transação Tributária com a PGE-SP (R$ 117M)",
-      "Alienação Judicial em Bloco da Marca Tradicional Raiola e Parque Industrial de Conservas (Art. 141)"
-    ],
-    "tipo_processo_label": "Falência Decretada (Classe 110)"
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 87,
@@ -7481,21 +7671,8 @@
       "marco_tipo": "Homologação PRE",
       "urgencia_nivel": "normal",
       "urgencia_label": "NO PRAZO (59d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-17",
-      "tipo_marco": "Prazo de Homologação Judicial do Plano de PRE (Classe 128) & Quórum (>50%)"
-    },
-    "url_noticia": "https://neofeed.com.br/negocios/com-divida-de-r-8274-milhoes-ri-happy-entra-com-pedido-de-recuperacao-extrajudicial/",
-    "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do",
-    "descricao_empresa": "Maior rede varejista especializada em brinquedos e artigos infantis do Brasil (Ri Happy Brinquedos S.A. e bandeira PBKids), fundada em 1988 e recém-transferida do Carlyle para a BluSun Capital, operando cerca de 290 lojas físicas e e-commerce nacional.",
-    "agentes_fiduciarios": "Sindicato de 9 Bancos Credores",
-    "securitizadoras": "Sem securitizadora reportada / Dívida Bancária Sindicalizada",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Recuperação Extrajudicial de R$ 827,4 Milhões Abarcando Sindicato de 9 Bancos (BB R$ 180M, Santander R$ 145M, BV R$ 110M)",
-      "Operação Crítica de 290 Lojas Ri Happy e PBKids às Vésperas da Sazonalidade de Natal"
-    ],
-    "tipo_processo_label": "Recuperação Extrajudicial (PRE)"
+      "is_fixed_edital": false
+    }
   },
   {
     "id": 88,
@@ -7535,9 +7712,59 @@
       "dias_restantes": 55,
       "urgencia_nivel": "alerta",
       "urgencia_label": "MÉDIO PRAZO (60d)",
-      "is_fixed_edital": false,
-      "data_marco": "2026-12-14"
+      "is_fixed_edital": false
     },
-    "tipo_processo_label": "Recuperação Judicial (PRJ)"
+    "url_noticia": "https://www.olhardireto.com.br/juridico/noticias/produtores-rurais-conseguem-suspender-cobrancas-de-r-31-milhoes-apos-conflito-de-competencia-no-stj",
+    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam",
+    "cidade": "Rondonópolis",
+    "uf": "MT",
+    "coordenadas": [
+      -16.4674,
+      -54.6361
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "descricao_empresa": "Grupo familiar pecuarista atuante na cria, recria e engorda intensiva de gado de corte nos estados de Mato Grosso e Goiás, com operação concentrada no polo de Rondonópolis/MT."
+  },
+  {
+    "id": 89,
+    "data_evento": "2026-10-21",
+    "data_adicao": "2026-10-21",
+    "empresa": "Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto)",
+    "cnpj": "33.041.260/0001-44",
+    "setor_detalhe": "Varejo & E-commerce de Eletroeletrônicos e Móveis",
+    "setor_macro": "Varejo & Consumo",
+    "regiao": "São Paulo, SP",
+    "tribunal": "TJSP - 2ª Vara de Falências e Recuperações Judiciais da Capital",
+    "processo": "1108420-15.2026.8.26.0100",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 9.8,
+    "tier": "Tier 1",
+    "passivo_mm": 17300,
+    "passivo_display": "17.300",
+    "credores": "Bradesco R$ 2,5 Bi, Banco do Brasil R$ 2,1 Bi, Itaú R$ 1,8 Bi, Santander R$ 1,2 Bi e Fornecedores/Debenturistas",
+    "perfil_passivo": "Dívida Bancária Quirografária (R$ 16,4 Bi) + Debêntures + Fornecedores de Eletroeletrônicos",
+    "advocacia": "Pinheiro Neto Advogados",
+    "aj": "Laspro Consultores / Preserva-Ação",
+    "tese": "(1) Causa da crise: Compressão severa da renda das famílias, juros elevados encarecendo o crediário próprio, queda de 40,5% no valor dos estoques e aperto de liquidez para rolagem de passivo financeiro de R$ 17,3 bilhões; (2) Gargalo imediato: Deferimento do processamento da RJ pela 2ª Vara de Falências de SP em 21/10/2026, mantendo o stay period de 180 dias com prazo de 30 dias para saneamento documental e 60 dias para o plano; (3) Tese de mandato sugerida: Creditor-Side Advisory para sindicato de bancos credores (Bradesco, BB, Itaú), estruturação de DIP Financing para capital de giro de final de ano (Black Friday/Natal) e Watchdog independente de fluxo de caixa de lojas e e-commerce.",
+    "status": "Novo",
+    "proximas_acoes": "Abordar áreas de Special Situations dos grandes bancos credores (Bradesco e BB) para assessoria em Comitê de Credores e estruturação de DIP Financing.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Mega Case com Passivo Superior a R$ 10 Bilhões (R$ 17,3 Bi)",
+      "Alta Concentração Bancária Quirografária (Bradesco, BB, Itaú > R$ 6 Bi)",
+      "Necessidade de Financiamento DIP para Capital de Giro (Black Friday/Natal)",
+      "Presença de Emissões de Debêntures em Mercado de Capitais"
+    ],
+    "tipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "calendar_meta": {
+      "tipo_marco": "Apresentação do Plano de Recuperação Judicial (Art. 53)",
+      "marco_label": "Apresentação do Plano Concursal (60d)",
+      "data_marco_iso": "2026-12-20",
+      "dias_restantes": 60,
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "MÉDIO PRAZO (60d)",
+      "is_fixed_edital": false
+    }
   }
 ]
