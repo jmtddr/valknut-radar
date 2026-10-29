@@ -33,7 +33,7 @@ function doGet(e) {
     const action = String(params.action || 'sheet').toLowerCase();
 
     if (action === 'rss' && params.url) {
-      return handleRssProxyRequest(params.url);
+      return handleRssProxyRequest(params.url, String(params.nocache || '') === '1');
     }
 
     if (action === 'djen') {
@@ -75,7 +75,7 @@ function handleMasterSheetRead() {
  * 2. Proxy Privado de RSS/XML com CacheService (Elimina 100% de erros CORS e Rate-Limit)
  * O front-end (`app.js`) chama automaticamente `${APPS_SCRIPT_URL}?action=rss&url=...`
  */
-function handleRssProxyRequest(targetUrl) {
+function handleRssProxyRequest(targetUrl, bypassCache) {
   const cleanUrl = String(targetUrl || '').trim();
   if (!cleanUrl.startsWith('http://') && !cleanUrl.startsWith('https://')) {
     return createJsonResponse({ status: 'error', message: 'URL inválida para proxy RSS.' });
@@ -85,7 +85,7 @@ function handleRssProxyRequest(targetUrl) {
   const cacheKey = 'vk_rss_' + Utilities.base64EncodeWebSafe(cleanUrl).slice(0, 180);
   const cachedXml = cache.get(cacheKey);
 
-  if (cachedXml) {
+  if (cachedXml && !bypassCache) {
     return createJsonResponse({
       status: 'ok',
       cached: true,

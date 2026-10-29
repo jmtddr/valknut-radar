@@ -30,7 +30,7 @@ let DEALS_DATA = [
     "aj": "N/A (Fase Cautelar)",
     "tese": "(1) Causa da crise: Desalavancagem operacional severa após encerramento antecipado de contratos de fornecimento de pás eólicas (Siemens Gamesa / WEG), ociosidade fabril no Ceará e compressão do caixa frente a R$ 1,0 bilhão em dívidas financeiras; (2) Gargalo imediato: Tutela cautelar antecedente (art. 20-B) para blindagem de caixa contra travas bancárias e negociação de standstill em AGDs das emissões de debêntures (AERI11/AERI12) junto a Vórtx e Pentágono; (3) Oportunidade de mandato: Financial Advisory junto ao sindicato bancário (Bradesco, Santander, Itaú), estruturação de DIP Financing para capital de giro e M&A Distressed da planta industrial no Porto do Pecém/CE.",
     "status": "Em Análise",
-    "proximas_acoes": "Abordar sindicato bancário (Bradesco, Itaú, Santander) e agentes fiduciários para assessoria na conversão em RJ/PRE.",
+    "proximas_acoes": "Acompanhar recurso da Oi contra falência no TJRJ e preparação de venda de UPI da subsidiária Tahto (Brasil Telecom Call Center), cujo plano de RJ foi homologado pela 7ª Vara Empresarial/RJ.",
     "watchdog_eligible": true,
     "watchdog_triggers": [
       "Alta Concentração de Dívida Institucional (CR4 > 60%)",
@@ -2039,9 +2039,9 @@ let DEALS_DATA = [
     "perfil_passivo": "Mercado Internacional (Bonds / Dívida Externa) + Sindicato Bancário Local e Global",
     "advocacia": "BMA Advogados // Davis Polk",
     "aj": "N/A (Fase Extrajudicial)",
-    "tese": "(1) Causa da crise: Passivo ambiental e contingências bilionárias decorrentes do evento geológico de Maceió/AL somados ao ciclo de baixa global dos spreads petroquímicos (PE/PP/PVC) sobre uma dívida bruta de R$ 58,0 bilhões; (2) Gargalo imediato: Negociações de standstill internacional com sindicato de bancos globais/locais (Citi, JPMorgan, Santander, Bradesco, Itaú) e bondholders, além da definição de reestruturação societária entre Petrobras, Novonor e fundos credores (IG4); (3) Oportunidade de mandato: Assessoria a comitês de credores quirografários e fornecedores estratégicos da cadeia química nacional, avaliação de carve-outs de ativos industriais (UPIs) e monitoramento de covenants de bonds e debêntures.",
+    "tese": "(1) Causa alegada da crise: Passivo socioambiental bilionário de Maceió/AL somado ao ciclo de baixa global dos spreads petroquímicos sobre dívida bruta de R$ 58,0 bilhões; (2) Gargalo imediato de liquidez: Standstill prorrogado até 30/10/2026 sob contraproposta de credores exigindo injeção de US$ 1,85 Bi em capital novo e conversão de até US$ 3,8 Bi de dívidas em equity, sob risco de aceleração de bonds e Chapter 11 nos EUA; (3) Tese de mandato sugerida: Creditor-Side Advisory para comitês de bondholders na modelagem da diluição societária e governança de corporation, e assessoria a fornecedores industriais estratégicos.",
     "status": "Novo",
-    "proximas_acoes": "Acompanhar negociação de standstill internacional e contraproposta de Petrobras e IG4.",
+    "proximas_acoes": "Monitorar prazo fatal de negociação com credores prorrogado até 30/10/2026, contraproposta de aporte de US$ 1,85 Bi pelos controladores, conversão de US$ 3,8 Bi de dívida em ações e resposta à B3 sobre transformação em corporation.",
     "watchdog_eligible": true,
     "watchdog_triggers": [
       "Alta Concentração de Dívida Institucional (CR4 > 60%)",
@@ -7164,9 +7164,9 @@ let DEALS_DATA = [
     "perfil_passivo": "Debêntures Privadas + Operações a Termo de Ações CVC + Alienação de UPI de Gestão / Real Estate",
     "advocacia": "Aguardando publicação nos autos",
     "aj": "Aguardando nomeação judicial",
-    "tese": "(1) Causa alegada da crise: Descoberta de inconsistências financeiras internas sob gestão anterior, associadas ao custo de aquisições de boutiques de M&A (Stark e Contea) e juros altos impactando captação de Real Estate/PE; (2) Gargalo imediato de liquidez: Chamadas de margem em operações a termo (ações CVC), vencimento antecipado em cascata de debêntures e crise de confiança de cotistas; (3) Tese de mandato sugerida: Independent Financial Advisory / Forensic Watchdog de ativos, estruturação de UPIs das participações em SPEs imobiliárias e desinvestimento ordenado de carteiras de crédito.",
+    "tese": "(1) Causa alegada da crise: Inconsistências contábeis sob antiga gestão e juros altos impactando carteiras de Real Estate e crédito privado; (2) Gargalo imediato: Decisão judicial de 20/10/2026 fixando prazo improrrogável de 30 dias para apresentação de balanços de 46 empresas e documentos de R$ 368,8M em debêntures sob risco de exclusão, autorizando abertura de mediação com credores (Sicoob e Rhino) e confirmando stay period até 03/02/2027; (3) Tese de mandato sugerida: Mediação concursal com credores debenturistas, reorganização das SPEs imobiliárias e alienação de participações.",
     "status": "Em Análise",
-    "proximas_acoes": "Contatar mesa de debenturistas e agentes fiduciários para articulação de comitê de credores financeiros.",
+    "proximas_acoes": "Acompanhar indicação do mediador judicial nos próximos 10 dias e sessão preparatória de mediação com debenturistas e securitizadoras.",
     "cidade": "Vitória",
     "uf": "ES",
     "coordenadas": [
@@ -7302,18 +7302,18 @@ let DEALS_DATA = [
     "regiao": "Tangará da Serra, MT",
     "tribunal": "TJMT - 1ª Vara Cível Especializada de Cuiabá",
     "processo": "1039388-73.2026.8.11.0041",
-    "fase": "Recuperação Judicial (Classe 129)",
+    "fase": "Recuperação Extrajudicial (Novo Plano R$ 5,7 Bi Apresentado)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 129,
-    "passivo_display": "129",
+    "passivo_mm": 5700,
+    "passivo_display": "5.700",
     "credores": "Donizete Borges R$ 25,5M, Bradesco R$ 14,3M, Sicredi Sudoeste R$ 4,4M, Sicoob Credisul R$ 4,3M, Banco Safra R$ 3,9M, BB R$ 1,7M, Bancos de Montadoras (Volvo, Mercedes, Paccar)",
     "perfil_passivo": "Alienação Fiduciária de Imóveis e Frotas (120 carretas) + Financiamento Rural + Indústria Pérola Mineração",
     "advocacia": "Aguardando publicação nos autos",
     "aj": "Zapaz Administração Judicial Ltda.",
-    "tese": "(1) Causa alegada da crise: Aquisição da indústria Pérola Mineração seguida de queda de 25% no preço do calcário, recusa de ligação de energia pela Energisa, juros altos e quebra de safra que reduziu fretes; (2) Gargalo imediato de liquidez: Dívida extraconcursal de R$ 67M em alienação fiduciária sobre frota de 120 carretas e Fazendas Fontoura e Castanhal sob risco de busca e apreensão; (3) Tese de mandato sugerida: Alienação de UPI da unidade mineradora Pérola Mineração em Porto Estrela/MT, renegociação de contratos fiduciários com bancos de montadoras e DIP Financing para giro logístico.",
+    "tese": "(1) Causa alegada da crise: Endividamento acelerado por M&As de clínicas oncológicas e juros altos impactando o fluxo financeiro; (2) Gargalo imediato de liquidez: Passivo de R$ 5,7 Bi em renegociação judicial e disputa de controle na CVM (Centaurus/Josephina III); (3) Tese de mandato sugerida: Creditor-Side Advisory para titulares de debêntures e bancos na escolha entre debêntures conversíveis em ações, haircuts negociados ou dação de ativos clínicos/imobiliários (UPIs).",
     "status": "Novo",
-    "proximas_acoes": "Contatar Zapaz Administração Judicial e diretoria do Grupo Bozetti para mapear desinvestimento da UPI de mineração.",
+    "proximas_acoes": "Acompanhar homologação do novo plano de RE de R$ 5,7 Bi protocolado em 26/10/2026, quórum de adesão para debêntures conversíveis/dação de ativos e desfecho da OPA na CVM.",
     "cidade": "Tangará da Serra",
     "uf": "MT",
     "coordenadas": [
@@ -7645,7 +7645,7 @@ let DEALS_DATA = [
     "regiao": "São Paulo, SP",
     "tribunal": "TJSP - 1ª Vara de Falências e RJs da Capital",
     "processo": "1125890-44.2026.8.26.0100",
-    "fase": "Recuperação Extrajudicial (Classe 128)",
+    "fase": "Recuperação Extrajudicial (Processamento Autorizado / 2ª Vara Falências SP)",
     "score": 9.7,
     "tier": "Tier 0",
     "passivo_mm": 827,
@@ -7653,10 +7653,10 @@ let DEALS_DATA = [
     "credores": "Banco do Brasil R$ 180M, Santander R$ 145M, Banco Votorantim BV R$ 110M, Demais bancos R$ 192M, Fornecedores de Brinquedos R$ 200M",
     "perfil_passivo": "Bancário Sindicalizado (9 bancos) + Fornecedores de Brinquedos + Marcas PBKids e Ri Happy (290 lojas)",
     "advocacia": "Aguardando autuação",
-    "aj": "N/A (Fase Extrajudicial)",
-    "tese": "(1) Causa alegada da crise: Juros altos, mudança de consumo infantil, concorrência digital e estresse de caixa pós-venda para a BluSun Capital; (2) Gargalo imediato de liquidez: Adesão de quórum qualificado de bancos (BB, Santander, BV) sem quebrar o fluxo de fornecimento para Black Friday e Natal em 290 lojas; (3) Tese de mandato sugerida: Creditor-Side Advisory para sindicato bancário, monitoramento de covenants operacionais e repactuação de recebíveis com indústrias de brinquedos.",
+    "aj": "Cabezón Administração Judicial Ltda.",
+    "tese": "(1) Causa alegada da crise: Desaceleração do varejo físico, concorrência externa e juros elevados com serviço anual da dívida de R$ 70 milhões; (2) Gargalo imediato de liquidez: Passivo de R$ 827,4M quirografário com stay period de 180 dias deferido pela 2ª Vara de Falências de SP, exigindo comprovação individual de quórum de cada uma das 6 empresas do polo ativo; (3) Tese de mandato sugerida: Creditor-Side Advisory para credores quirografários na validação dos quóruns perante a Cabezón AJ e estruturação de covenants operacionais para o período pós-homologação.",
     "status": "Novo",
-    "proximas_acoes": "Abordar sindicato de credores financeiros (BB, Santander e BV) para mandato de monitoramento do plano de recuperação extrajudicial.",
+    "proximas_acoes": "Acompanhar fiscalização de adesões de credores pela Cabezón AJ, comprovação individual de quórum por sociedade (rejeitada consolidação substancial) e publicação de edital para impugnações em 30d.",
     "cidade": "São Paulo",
     "uf": "SP",
     "coordenadas": [
@@ -7713,7 +7713,7 @@ let DEALS_DATA = [
       "Risco de Liquidez em Contratos de Arrendamento de Pastagem"
     ],
     "tipo_processo": "PRJ",
-    "strategy_id": "all",
+    "strategy_id": "consensual",
     "calendar_meta": {
       "tipo_marco": "Apresentação do Plano de Recuperação Judicial (Art. 53)",
       "marco_label": "Apresentação do Plano Concursal (60d)",
@@ -7723,9 +7723,16 @@ let DEALS_DATA = [
       "urgencia_label": "MÉDIO PRAZO (60d)",
       "is_fixed_edital": false
     },
-    "url_noticia": "https://www.olhardireto.com.br/juridico/noticias/produtores-rurais-conseguem-suspender-cobrancas-de-r-31-milhoes-apos-conflito-de-competencia-no-stj",
-    "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam",
-    "descricao_empresa": "Grupo familiar de pecuária de corte e confinamento bovino com fazendas em Mato Grosso e Goiás (Rondonópolis/MT), com passivo rural de R$ 31 milhões junto ao Banco do Brasil, Sicredi e fornecedores."
+    "cidade": "Rondonópolis",
+    "uf": "MT",
+    "coordenadas": [
+      -16.4674,
+      -54.6366
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "subtipo_processo": "PRJ",
+    "strategy_name": "Consensual & Art. 20-B",
+    "strategy_tag": "Renegociação Agro"
   },
   {
     "id": 89,
@@ -7738,18 +7745,18 @@ let DEALS_DATA = [
     "regiao": "São Paulo, SP",
     "tribunal": "TJSP - 2ª Vara de Falências e Recuperações Judiciais da Capital",
     "processo": "1108420-15.2026.8.26.0100",
-    "fase": "Recuperação Judicial (Classe 129)",
+    "fase": "Recuperação Judicial (Classe 129 - Deferida)",
     "score": 9.8,
     "tier": "Tier 1",
     "passivo_mm": 17300,
     "passivo_display": "17.300",
-    "credores": "Bradesco R$ 2,5 Bi, Banco do Brasil R$ 2,1 Bi, Itaú R$ 1,8 Bi, Santander R$ 1,2 Bi e Fornecedores/Debenturistas",
+    "credores": "Bradesco R$ 1,5 Bi, Itaú R$ 1,2 Bi, Banco do Brasil R$ 900M, Santander R$ 800M, Whirlpool (Brastemp/Consul) US$ 157M (~R$ 880M), Samsung e Zurich",
     "perfil_passivo": "Dívida Bancária Quirografária (R$ 16,4 Bi) + Debêntures + Fornecedores de Eletroeletrônicos",
-    "advocacia": "Pinheiro Neto Advogados",
+    "advocacia": "Pinheiro Neto Advogados // Althia Partners (Camille Faria) & Alvarez & Marsal",
     "aj": "Laspro Consultores / Preserva-Ação",
-    "tese": "(1) Causa da crise: Compressão severa da renda das famílias, juros elevados encarecendo o crediário próprio, queda de 40,5% no valor dos estoques e aperto de liquidez para rolagem de passivo financeiro de R$ 17,3 bilhões; (2) Gargalo imediato: Deferimento do processamento da RJ pela 2ª Vara de Falências de SP em 21/10/2026, mantendo o stay period de 180 dias com prazo de 30 dias para saneamento documental e 60 dias para o plano; (3) Tese de mandato sugerida: Creditor-Side Advisory para sindicato de bancos credores (Bradesco, BB, Itaú), estruturação de DIP Financing para capital de giro de final de ano (Black Friday/Natal) e Watchdog independente de fluxo de caixa de lojas e e-commerce.",
+    "tese": "(1) Causa alegada da crise: Desaceleração do varejo físico e eletroeletrônicos, juros altos encarecendo o funding de crediário e passivo de R$ 17,3 bilhões; (2) Gargalo imediato de liquidez: Queima de caixa e depósitos judiciais retidos de R$ 2,0 Bi, com exposição de fornecedores-chave como Whirlpool (US$ 157M) em renegociação de suprimentos; (3) Tese de mandato sugerida: Estruturação de financiamento DIP de até R$ 1,0 Bi (1ª tranche de R$ 200M negociada com Itaú), comitê de grandes fornecedores de linha branca/tecnologia e liberação de recebíveis retidos.",
     "status": "Novo",
-    "proximas_acoes": "Abordar áreas de Special Situations dos grandes bancos credores (Bradesco e BB) para assessoria em Comitê de Credores e estruturação de DIP Financing.",
+    "proximas_acoes": "Acompanhar negociações de fornecedores estratégicos (Whirlpool US$ 157M), estruturação da 1ª tranche de R$ 200M do DIP com Itaú e apresentação dos fluxos de caixa de 2023 de 4 subsidiárias.",
     "watchdog_eligible": true,
     "watchdog_triggers": [
       "Mega Case com Passivo Superior a R$ 10 Bilhões (R$ 17,3 Bi)",
@@ -7767,6 +7774,720 @@ let DEALS_DATA = [
       "urgencia_nivel": "alerta",
       "urgencia_label": "MÉDIO PRAZO (60d)",
       "is_fixed_edital": false
+    },
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "subtipo_processo": "PRJ",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Consórcio Bancário"
+  },
+  {
+    "id": 90,
+    "data_evento": "2026-10-14",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo Krohling (Produtores Rurais Família Krohling)",
+    "cnpj": "62.138.929/0001-39",
+    "setor_detalhe": "Cultivo de Soja, Milho & Armazenagem Rural",
+    "setor_macro": "Agronegócio & Silvicultura",
+    "regiao": "Cuiabá, MT",
+    "tribunal": "TJMT - 1ª Vara Cível de Cuiabá",
+    "processo": "1038412-19.2026.8.11.0041",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 8.8,
+    "tier": "Tier 2",
+    "passivo_mm": 71,
+    "passivo_display": "71",
+    "credores": "Rabobank R$ 29,7M (Extraconcursal), Banco do Brasil R$ 9,7M, Santander R$ 7,6M, Sicredi R$ 3,9M, CNH Industrial R$ 3,4M e Fertipar US$ 1,8M",
+    "perfil_passivo": "Garantia Real Bancária (BB/Santander/Sicredi) + Alienação Fiduciária de Máquinas (CNH/Rabobank) + Barter em Dólar (Fertipar/Basf/Bayer)",
+    "advocacia": "Aguardando publicação da procuração nos autos",
+    "aj": "Bino Sociedade Individual de Advocacia",
+    "tese": "(1) Causa alegada da crise: Descasamento cambial em contratos de barter com insumos dolarizados (Fertipar, Basf, Bayer), quebra climática de soja e elevação de juros em dívidas de garantia real; (2) Gargalo imediato de liquidez: Deferimento da RJ pela 1ª Vara Cível de Cuiabá com consolidação substancial da família Krohling e stay period de 180 dias; edital publicado abrindo prazo de 15 dias para habilitações perante a AJ Bino Advocacia; (3) Tese de mandato sugerida: Creditor-Side Advisory para bancos com garantia real (BB, Santander, Sicredi), renegociação de travas fiduciárias e proteção de ativos operacionais contra cobranças extraconcursais do Rabobank (R$ 29,7M).",
+    "status": "Novo",
+    "proximas_acoes": "Abordar a administradora judicial nomeada (Bino Sociedade de Advocacia) e áreas de crédito agro dos bancos credores para formação de Comitê de Credores.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Alta Concentração Bancária em Garantia Real (BB e Santander > R$ 17M)",
+      "Crédito Extraconcursal Relevante fora da RJ (Rabobank R$ 29,7M)",
+      "Exposição Dolarizada em Contratos de Barter (Fertipar US$ 1,8M)"
+    ],
+    "tipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "calendar_meta": {
+      "tipo_marco": "Habilitação de Créditos com Administrador Judicial (Edital Art. 52, §1º)",
+      "marco_label": "Edital Art. 52, §1º (Prazo de 15 dias)",
+      "data_marco_iso": "2026-10-29",
+      "dias_restantes": 7,
+      "urgencia_nivel": "critica",
+      "urgencia_label": "URGÊNCIA CRÍTICA (7d)",
+      "is_fixed_edital": true
+    },
+    "cidade": "Cuiabá",
+    "uf": "MT",
+    "coordenadas": [
+      -15.5989,
+      -56.0949
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "subtipo_processo": "PRJ",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Garantia Real"
+  },
+  {
+    "id": 91,
+    "data_evento": "2026-10-16",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo Ruiz Coffees (Ruiz Agropecuária / JRF Holding)",
+    "cnpj": "20.142.850/0001-49",
+    "setor_detalhe": "Cafeicultura em Larga Escala (Café Arábica) & Exportação",
+    "setor_macro": "Agronegócio & Silvicultura",
+    "regiao": "São José do Rio Preto, SP",
+    "tribunal": "TJSP - Vara Regional Empresarial de São José do Rio Preto",
+    "processo": "1024518-88.2026.8.26.0576",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 9.6,
+    "tier": "Tier 1",
+    "passivo_mm": 1600,
+    "passivo_display": "1.600",
+    "credores": "Caixa Econômica Federal R$ 130,8M, Vert Companhia Securitizadora R$ 109,3M, Sicoob R$ 77,9M, Bancos Nacionais e Titulares de CRAs",
+    "perfil_passivo": "Passivo Total R$ 1,6 Bi: R$ 775M concursais e R$ 820M extraconcursais (CRAs e Fiagros). Estrutura de Sale & Leaseback de 1,5 mil ha de café e 1,1 mil ha de cana com Suno Agro",
+    "advocacia": "Galdino & Coelho Advogados",
+    "aj": "Aguardando nomeação judicial",
+    "tese": "(1) Causa alegada da crise: Geadas de 2021, calor na florada de 2023 e seca de 2024 gerando quebras de 14% a 28% na colheita de café, somadas a travas de preços pré-alta e crédito restrito sobre passivo de R$ 1,6 Bi; (2) Gargalo imediato de liquidez: R$ 775M de passivo sujeito e R$ 820M extraconcursal sob proteção cautelar provisória na Vara Regional Empresarial de Rio Preto/SP; (3) Tese de mandato sugerida: Creditor-Side Advisory para investidores de CRAs da Vert Securitizadora e Fiagros, governança de fundos proprietários de terras arrendadas (1,5 mil ha) e estruturação de DIP Finance de safra.",
+    "status": "Novo",
+    "proximas_acoes": "Acompanhar deferimento definitivo do processamento pela Vara Regional Empresarial de São José do Rio Preto e negociação de arrendamento com Fiagro Suno Agro.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Mega Deal do Agronegócio com Passivo Superior a R$ 1,5 Bi",
+      "Exposição Elevada em CRAs / Mercado de Capitais (R$ 820M)",
+      "Previsão de Desinvestimento de Fazendas em Veículo UPI"
+    ],
+    "tipo_processo": "PRJ",
+    "strategy_id": "dip",
+    "calendar_meta": {
+      "tipo_marco": "Apresentação do Plano de Recuperação Judicial (Art. 53)",
+      "marco_label": "Apresentação do Plano Concursal (60d)",
+      "data_marco_iso": "2026-12-15",
+      "dias_restantes": 54,
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "MÉDIO PRAZO (60d)",
+      "is_fixed_edital": false
+    },
+    "cidade": "São José do Rio Preto",
+    "uf": "SP",
+    "coordenadas": [
+      -20.8113,
+      -49.3758
+    ],
+    "regiao_macro": "Sudeste",
+    "subtipo_processo": "PRJ",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "Fundo de Fazendas / CRA"
+  },
+  {
+    "id": 92,
+    "data_evento": "2026-10-16",
+    "data_adicao": "2026-10-22",
+    "empresa": "Usina Campo Lindo S.A. (Açúcar & Etanol)",
+    "cnpj": "08.411.332/0001-90",
+    "setor_detalhe": "Usinas de Açúcar, Etanol & Bioenergia",
+    "setor_macro": "Energia & Infraestrutura",
+    "regiao": "Palmares, PE",
+    "tribunal": "TJPE - Vara Cível da Comarca de Palmares",
+    "processo": "0001420-11.2026.8.17.3050",
+    "fase": "Falência / Liquidação (Classe 110)",
+    "score": 8.5,
+    "tier": "Tier 3",
+    "passivo_mm": 381,
+    "passivo_display": "381",
+    "credores": "BNDES R$ 110M, Banco do Nordeste (BNB) R$ 85M, Banco do Brasil R$ 65M e Fornecedores de Cana/Trabalhistas",
+    "perfil_passivo": "Bancário de Desenvolvimento (BNDES/BNB) + Passivo Sucroalcooleiro + Alienação de Parque Fabril e Terras Canavieiras",
+    "advocacia": "Aguardando juntada nos autos falimentares",
+    "aj": "AJ Judicial Nomeado pelo TJPE",
+    "tese": "(1) Causa alegada da crise: Endividamento histórico sucroalcooleiro, frustração de moagem por irregularidade pluviométrica no Nordeste e descumprimento do plano anterior de recuperação judicial; (2) Gargalo imediato: Convolação da recuperação judicial em falência decretada em 16/10/2026 com passivo de R$ 381 milhões, abrindo fase de arrecadação de ativos industriais e canaviais; (3) Tese de mandato sugerida: M&A Distressed de UPI Fabril e Ativos Canavieiros livre de sucessão (art. 141), assessoria a investidores para arrematação de parque industrial em leilão falimentar e negociação de créditos com BNB/BNDES.",
+    "status": "Novo",
+    "proximas_acoes": "Contatar o Administrador Judicial da massa falida para obter inventário e avaliação de ativos da UPI da Usina para compradores de biocombustíveis.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Convolação em Falência Decretada (Arrecadação de Ativos)",
+      "Leilão Judicial Iminente de UPI Fabril (Art. 141 da Lei 11.101/05)",
+      "Concentração de Créditos Públicos de Fomento (BNDES e BNB > R$ 195M)"
+    ],
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "Falência / Liquidação",
+    "strategy_id": "dip",
+    "calendar_meta": {
+      "tipo_marco": "Publicação do Edital de Arrecadação e Leilão da UPI Fabril",
+      "marco_label": "Leilão Judicial da UPI (Edital em Breve)",
+      "data_marco_iso": "2026-11-25",
+      "dias_restantes": 34,
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "MÉDIO PRAZO (35d)",
+      "is_fixed_edital": false
+    },
+    "cidade": "Palmares",
+    "uf": "PE",
+    "coordenadas": [
+      -8.6833,
+      -35.5917
+    ],
+    "regiao_macro": "Nordeste",
+    "strategy_name": "DIP Financing & M&A Distressed",
+    "strategy_tag": "Leilão UPI Fabril"
+  },
+  {
+    "id": 93,
+    "data_evento": "2026-09-02",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo MPP (4B Mining Corp / Mineração Pirâmide Participações)",
+    "cnpj": "42.331.156/0001-03",
+    "setor_detalhe": "Extração de Minério de Ferro & Logística Hidroviária",
+    "setor_macro": "Indústria & Manufatura",
+    "regiao": "Corumbá, MS",
+    "tribunal": "TJRJ - 6ª Vara Empresarial da Comarca da Capital",
+    "processo": "0084512-48.2026.8.19.0001",
+    "fase": "Recuperação Extrajudicial (Classe 128)",
+    "score": 9.2,
+    "tier": "Tier 1",
+    "passivo_mm": 375,
+    "passivo_display": "375",
+    "credores": "ArcelorMittal Brasil R$ 77,4M, Glencore International US$ 25,4M (~R$ 138M), Vetria Mineração e VRental",
+    "perfil_passivo": "Dívida Comercial e Offtake de Minério de Ferro + Dívida em Dólar (Glencore) + Arrendamento de Mina e Equipamentos Pesados",
+    "advocacia": "Lobo de Rizzo Advogados",
+    "aj": "Pinto Machado Advogados Associados",
+    "tese": "(1) Causa alegada da crise: Seca extrema na hidrovia do Rio Paraguai paralisando o escoamento de minério de ferro por mais de um ano, seguida pela queda nas cotações globais de ferro e encarecimento de fretes; (2) Gargalo imediato: Pedido de homologação de Recuperação Extrajudicial em tramitação na 6ª Vara Empresarial do RJ com decisão de 15/10 condicionando a blindagem à comprovação do quórum de 1/3; (3) Tese de mandato sugerida: Creditor-Side Advisory para credores estratégicos (ArcelorMittal, Glencore), assessoria na estruturação do arrendamento da operação para a Mineração Pantaneira e renegociação de dívidas de afretamento hidroviário.",
+    "status": "Novo",
+    "proximas_acoes": "Abordar a administradora judicial Pinto Machado e a assessoria financeira da ArcelorMittal para análise das condições de adesão ao plano de PRE.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Exposição Comercial Bilionária com Siderúrgicas Globais (ArcelorMittal e Glencore)",
+      "Arrendamento de Ativo Minerário em Estrutura de UPI Operacional",
+      "Homologação de PRE Dependente de Atingimento de Quórum Qualificado"
+    ],
+    "tipo_processo": "PRE",
+    "strategy_id": "consensual",
+    "calendar_meta": {
+      "tipo_marco": "Comprovação de Quórum de Adesão à Recuperação Extrajudicial",
+      "marco_label": "Prazo para Quórum de 1/3 e Adesão Maioritária",
+      "data_marco_iso": "2026-11-15",
+      "dias_restantes": 24,
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (25d)",
+      "is_fixed_edital": false
+    },
+    "cidade": "Corumbá",
+    "uf": "MS",
+    "coordenadas": [
+      -19.0097,
+      -57.6533
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "subtipo_processo": "PRE",
+    "strategy_name": "Consensual & Art. 20-B",
+    "strategy_tag": "Acordo Extrajudicial"
+  },
+  {
+    "id": 94,
+    "data_evento": "2026-10-20",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo Volpp (Produtores Rurais & Volpp Agropecuária)",
+    "cnpj": "38.412.980/0001-55",
+    "setor_detalhe": "Produção de Grãos (Soja e Milho) & Confinamento",
+    "setor_macro": "Agronegócio & Silvicultura",
+    "regiao": "Itaberaí, GO",
+    "tribunal": "TJGO - Vara Cível da Comarca de Itaberaí",
+    "processo": "5684120-10.2026.8.09.0079",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 8.9,
+    "tier": "Tier 2",
+    "passivo_mm": 288,
+    "passivo_display": "288",
+    "credores": "Banco do Brasil R$ 95M, Sicredi R$ 68M, Tradings de Grãos (Cargill, Bunge, ADM) R$ 75M e Revendas Locais de Insumos",
+    "perfil_passivo": "Crédito Rural de Custeio e Investimento + CPRs Físicas/Financeiras em Barter + Financiamento de Maquinários Agrícolas",
+    "advocacia": "Aguardando juntada da procuração nos autos",
+    "aj": "Aguardando nomeação judicial",
+    "tese": "(1) Causa alegada da crise: Elevação vertiginosa dos custos de insumos agrícolas no plantio anterior, seca prolongada em Goiás e aperto de liquidez por vencimento concentrado de CPRs de safra; (2) Gargalo imediato: Pedido de RJ distribuído em 20/10/2026 com determinação judicial de emenda à inicial em 15 dias para consolidação documental de 6 pessoas físicas e 2 pessoas jurídicas; (3) Tese de mandato sugerida: Financial Advisory de devedor para elaboração do plano de RJ e reestruturação do passivo de R$ 288 milhões, standstill preventivo com tradings de grãos e mediação no CEJUSC de Goiás.",
+    "status": "Novo",
+    "proximas_acoes": "Contatar os sócios do Grupo Volpp em Itaberaí/GO para proposta de assessoria financeira na emenda à inicial e elaboração do plano concursal.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Determinação de Emenda à Inicial em 15 Dias (Fase de Minuto Zero)",
+      "Alta Concentração Bancária em Crédito Rural (BB e Sicredi > R$ 160M)",
+      "Exposição a Tradings em Contratos de Barter de Grãos"
+    ],
+    "tipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "calendar_meta": {
+      "tipo_marco": "Emenda à Petição Inicial e Perícia Prévia (Art. 51-A)",
+      "marco_label": "Prazo de Emenda à Inicial (15 dias)",
+      "data_marco_iso": "2026-11-04",
+      "dias_restantes": 13,
+      "urgencia_nivel": "critica",
+      "urgencia_label": "URGÊNCIA CRÍTICA (13d)",
+      "is_fixed_edital": true
+    },
+    "cidade": "Itaberaí",
+    "uf": "GO",
+    "coordenadas": [
+      -16.0203,
+      -49.8106
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "subtipo_processo": "PRJ",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Standstill & CPRs"
+  },
+  {
+    "id": 95,
+    "data_evento": "2026-10-19",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo Produfértil (Produfértil Fertilizantes & Defensivos)",
+    "cnpj": "03.882.115/0001-40",
+    "setor_detalhe": "Distribuição de Fertilizantes, Químicos & Defensivos Agrícolas",
+    "setor_macro": "Agronegócio & Silvicultura",
+    "regiao": "Dourados, MS",
+    "tribunal": "TJMS - Vara Cível da Comarca de Dourados",
+    "processo": "0814250-70.2026.8.12.0002",
+    "fase": "Cautelar Antecedente (art. 20-B)",
+    "score": 9.3,
+    "tier": "Tier 1",
+    "passivo_mm": 254,
+    "passivo_display": "254",
+    "credores": "Bancos comerciais (Itaú, Bradesco, Santander), Fornecedores multinacionais de matérias-primas químicas e Tradings",
+    "perfil_passivo": "Capital de Giro Bancário + Travas de Recebíveis de Produtores Rurais + Importação de Insumos Fertilizantes Dolarizados",
+    "advocacia": "Aguardando publicação nos autos",
+    "aj": "N/A (Fase Cautelar)",
+    "tese": "(1) Causa alegada da crise: Inadimplência recorde de produtores rurais de soja e milho no MS, descasamento entre a compra de matérias-primas dolarizadas e recebimento de duplicatas agrícolas; (2) Gargalo imediato: Ajuizamento de tutela cautelar antecedente (art. 20-B) em Dourados/MS em 19/10/2026 para sustação de protestos e suspensão de travas bancárias sobre a conta de giro; (3) Tese de mandato sugerida: Financial Advisory para negociação de standstill de 60 dias com sindicato bancário, estruturação de DIP Finance com tradings e preparação para conversão em Recuperação Judicial/Extrajudicial.",
+    "status": "Novo",
+    "proximas_acoes": "Abordar a diretoria financeira do Grupo Produfértil em Dourados/MS para assessoria na renegociação bancária durante a janela da tutela cautelar de 60 dias.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Tutela Cautelar Antecedente (Art. 20-B) Protocolada em Outubro/2026",
+      "Blindagem de Caixa e Travas Bancárias de Recebíveis Agrícolas",
+      "Janela de 60 Dias para Conversão em RJ ou Recuperação Extrajudicial"
+    ],
+    "tipo_processo": "Cautelar / Pré-RJ",
+    "strategy_id": "consensual",
+    "calendar_meta": {
+      "tipo_marco": "Fim do Prazo da Tutela Cautelar Antecedente (Art. 20-B, §1º)",
+      "marco_label": "Janela Cautelar de Blindagem (60 dias)",
+      "data_marco_iso": "2026-12-18",
+      "dias_restantes": 57,
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "MÉDIO PRAZO (60d)",
+      "is_fixed_edital": false
+    },
+    "cidade": "Dourados",
+    "uf": "MS",
+    "coordenadas": [
+      -22.2236,
+      -54.8125
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "subtipo_processo": "Cautelar / Pré-RJ",
+    "strategy_name": "Consensual & Art. 20-B",
+    "strategy_tag": "Art. 20-B Cautelar"
+  },
+  {
+    "id": 96,
+    "data_evento": "2026-10-19",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo VETBR (Distribuidora de Saúde Animal VETBR)",
+    "cnpj": "19.412.875/0001-22",
+    "setor_detalhe": "Distribuição Atacadista de Medicamentos Veterinários & Vacinas",
+    "setor_macro": "Saúde & Farma",
+    "regiao": "Perdões, MG",
+    "tribunal": "TJMG - Vara Cível da Comarca de Perdões",
+    "processo": "5001420-15.2026.8.13.0499",
+    "fase": "Recuperação Extrajudicial (Classe 128)",
+    "score": 8.7,
+    "tier": "Tier 2",
+    "passivo_mm": 160,
+    "passivo_display": "160",
+    "credores": "Bancos credores de garantia real (Itaú, Bradesco, Santander R$ 85M), Laboratórios farmacêuticos veterinários e Quirografários (R$ 75M)",
+    "perfil_passivo": "Bancário Garantido (Alienação de Estoques e Recebíveis) + Fornecedores de Vacinas e Medicamentos Veterinários",
+    "advocacia": "Cescon Barrieu Advogados",
+    "aj": "N/A (Fase Extrajudicial)",
+    "tese": "(1) Causa alegada da crise: Desaceleração da demanda de confinamento bovino, compressão de margens na distribuição de medicamentos veterinários e alto custo do carregamento de estoques climatizados; (2) Gargalo imediato: Protocolo de pedido de homologação de Recuperação Extrajudicial em Perdões/MG com adesão inicial de 54,26% da garantia real e 48,97% dos quirografários; (3) Tese de mandato sugerida: Creditor-Side Advisory para laboratórios fornecedores de saúde animal e bancos de garantia real, assessoria na votação de credores dissidentes e monitoramento de covenants operacionais.",
+    "status": "Novo",
+    "proximas_acoes": "Contatar credores quirografários dissidentes e bancos com garantia de estoque para estruturação de comitê de acompanhamento da PRE.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Recuperação Extrajudicial com Quórum Inicial de 54,26% em Garantia Real",
+      "Exposição Relevante a Laboratórios Farmacêuticos Globais",
+      "Alienação Fiduciária sobre Estoques Climatizados e Centros de Distribuição"
+    ],
+    "tipo_processo": "PRE",
+    "strategy_id": "consensual",
+    "calendar_meta": {
+      "tipo_marco": "Edital de Impugnação de Credores e Homologação de PRE",
+      "marco_label": "Prazo de Homologação de PRE (30 dias)",
+      "data_marco_iso": "2026-11-20",
+      "dias_restantes": 29,
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (30d)",
+      "is_fixed_edital": false
+    },
+    "cidade": "Perdões",
+    "uf": "MG",
+    "coordenadas": [
+      -21.0917,
+      -45.0917
+    ],
+    "regiao_macro": "Sudeste",
+    "subtipo_processo": "PRE",
+    "strategy_name": "Consensual & Art. 20-B",
+    "strategy_tag": "Homologação PRE"
+  },
+  {
+    "id": 97,
+    "data_evento": "2026-10-21",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo Volo (Volo Logística & Distribuição de Moda)",
+    "cnpj": "24.118.990/0001-18",
+    "setor_detalhe": "Operador Logístico de Moda, E-commerce & Armazenagem",
+    "setor_macro": "Tecnologia & Serviços B2B",
+    "regiao": "São Paulo, SP",
+    "tribunal": "TJSP - 2ª Vara Regional Empresarial de São Paulo",
+    "processo": "1019842-12.2026.8.26.0260",
+    "fase": "Recuperação Extrajudicial (Classe 128)",
+    "score": 8.4,
+    "tier": "Tier 3",
+    "passivo_mm": 49,
+    "passivo_display": "49",
+    "credores": "Bancos comerciais (Santander, Bradesco, Daycoval), Empresas de locação de galpões e Frotistas terceirizados",
+    "perfil_passivo": "Bancário de Capital de Giro + Desconto de Recebíveis + Locação de Centros de Distribuição e Veículos Utilitários",
+    "advocacia": "Aguardando publicação nos autos",
+    "aj": "N/A (Fase Extrajudicial)",
+    "tese": "(1) Causa alegada da crise: Retração nas encomendas de malha logística do setor têxtil e de confecções, elevação dos custos de combustível e quebra de faturamento no varejo de moda; (2) Gargalo imediato: Protocolo de pedido de Recuperação Extrajudicial com R$ 49 milhões em créditos abrangidos na 2ª Vara Regional Empresarial de SP; (3) Tese de mandato sugerida: Advisory de renegociação de passivo de locação de galpões (Sale & Leaseback / revisão contratual) e reestruturação bilateral de capital de giro com bancos privados.",
+    "status": "Novo",
+    "proximas_acoes": "Abordar credores imobiliários e fundos proprietários de galpões logísticos para repactuação de contratos de locação atípicos (BTS).",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Recuperação Extrajudicial no Setor de Logística de Varejo",
+      "Passivo Concentrado em Locações de Galpões e Travas Bancárias",
+      "Oportunidade de Reestruturação Bilateral de Contratos Imobiliários"
+    ],
+    "tipo_processo": "PRE",
+    "strategy_id": "consensual",
+    "calendar_meta": {
+      "tipo_marco": "Homologação do Plano de Recuperação Extrajudicial",
+      "marco_label": "Prazo para Habilitações e Decisão de Homologação",
+      "data_marco_iso": "2026-11-30",
+      "dias_restantes": 39,
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "MÉDIO PRAZO (40d)",
+      "is_fixed_edital": false
+    },
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "subtipo_processo": "PRE",
+    "strategy_name": "Consensual & Art. 20-B",
+    "strategy_tag": "Sale & Leaseback"
+  },
+  {
+    "id": 98,
+    "data_evento": "2026-10-14",
+    "data_adicao": "2026-10-22",
+    "empresa": "Grupo Françolin (Frutas Françolin / Agro Comercial Françolin)",
+    "cnpj": "10.363.353/0001-00",
+    "setor_detalhe": "Fruticultura (Mamão, Banana, Citros) & Café Conilon",
+    "setor_macro": "Agronegócio & Silvicultura",
+    "regiao": "Teixeira de Freitas, BA",
+    "tribunal": "TJBA - 1ª Vara dos Feitos Cíveis de Teixeira de Freitas",
+    "processo": "8004512-05.2026.8.05.0256",
+    "fase": "Recuperação Judicial (Classe 129)",
+    "score": 8.6,
+    "tier": "Tier 2",
+    "passivo_mm": 36,
+    "passivo_display": "36",
+    "credores": "Banco do Brasil R$ 13,68M, Caixa Econômica Federal R$ 1,96M, Fornecedores de Insumos e Energia (Cemig/Coelba)",
+    "perfil_passivo": "Crédito Rural e Custeio Bancário (BB e CEF) + Fornecedores de Embalagens e Adubos + Contas de Energia Elétrica Rural",
+    "advocacia": "Aguardando procuração nos autos",
+    "aj": "Aguardando nomeação judicial",
+    "tese": "(1) Causa alegada da crise: Queda acentuada de preços de mamão e café conilon combinada ao investimento de capital próprio em 312 hectares de café em formação e recusa do Banco do Brasil em renovar limites sem garantia adicional; (2) Gargalo imediato: Ajuizamento de RJ na 1ª Vara Cível de Teixeira de Freitas/BA com R$ 35,5M em créditos sujeitos, com tutela de urgência pleiteada para impedir corte de energia pela Cemig e Coelba em packing house e bombas de irrigação; (3) Tese de mandato sugerida: Financial Advisory para elaboração do Plano de RJ com carência de 24 meses para maturação dos 312 ha de café e repactuação de operações de custeio com o Banco do Brasil.",
+    "status": "Novo",
+    "proximas_acoes": "Contatar os sócios do Grupo Françolin em Teixeira de Freitas/BA para oferta de assessoria financeira na modelagem do plano de pagamento aos credores bancários.",
+    "watchdog_eligible": true,
+    "watchdog_triggers": [
+      "Concentração Elevada em Banco do Brasil (> 40% do passivo total)",
+      "Risco Operacional com Concessionárias de Energia (Cemig/Coelba em packing house)",
+      "312 Hectares de Lavouras de Café em Formação (Potencial de Ativo Real)"
+    ],
+    "tipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "calendar_meta": {
+      "tipo_marco": "Decisão de Processamento e Nomeação de Administrador Judicial",
+      "marco_label": "Decisão de Processamento da RJ (Vara de Teixeira de Freitas)",
+      "data_marco_iso": "2026-11-05",
+      "dias_restantes": 14,
+      "urgencia_nivel": "critica",
+      "urgencia_label": "URGÊNCIA CRÍTICA (14d)",
+      "is_fixed_edital": true
+    },
+    "cidade": "Teixeira de Freitas",
+    "uf": "BA",
+    "coordenadas": [
+      -17.5369,
+      -39.7428
+    ],
+    "regiao_macro": "Nordeste",
+    "subtipo_processo": "PRJ",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Carência Agrícola"
+  },
+  {
+    "id": 99,
+    "data_evento": "2026-09-29",
+    "data_adicao": "2026-10-22",
+    "empresa": "FTS Participações Societárias S.A. (FTSPar / Terminal Portuário PAR50)",
+    "cnpj": "23.033.661/0001-19",
+    "setor_detalhe": "Infraestrutura Portuária & Movimentação de Granéis",
+    "setor_macro": "Logística, Transporte & Infraestrutura",
+    "regiao": "Paranaguá, PR",
+    "tribunal": "CVM // CR Securitizadora S.A.",
+    "processo": "Debêntures 1ª Emissão / Edital AGD Vencimento Antecipado",
+    "fase": "Distress Precursor / AGD de Vencimento Antecipado (Tier 0)",
+    "score": 8.5,
+    "tier": "Tier 0",
+    "passivo_mm": 110,
+    "passivo_display": "110",
+    "credores": "CR Securitizadora R$ 110M (Debenturistas / Titulares de CRIs), Bancos de Fomento e Fornecedores Portuários",
+    "perfil_passivo": "Debêntures Estruturadas + Arrendamento Portuário (Terminal PAR50 / Porto de Paranaguá)",
+    "advocacia": "Aguardando publicação de assessores legais nos autos da AGD",
+    "aj": "N/A (Fase Pré-Concursal / AGD)",
+    "tese": "(1) Causa alegada da crise: Descompasso entre investimentos intensivos de capex e outorga no terminal de granéis PAR50 (Porto de Paranaguá) e geração de caixa operacional; (2) Gargalo imediato de liquidez: Convocação de AGD pela CR Securitizadora para deliberar vencimento antecipado de R$ 110 milhões em debêntures; (3) Tese de mandato sugerida: Creditor-Side Advisory para titulares de CRIs/debêntures da CR Securitizadora para repactuação de covenants ou busca de sócio operador logístico.",
+    "status": "Novo",
+    "proximas_acoes": "Monitorar resultado da deliberação da AGD convocada pela CR Securitizadora e contatar assessores financeiros do grupo.",
+    "cidade": "Paranaguá",
+    "uf": "PR",
+    "coordenadas": [
+      -25.5161,
+      -48.5225
+    ],
+    "regiao_macro": "Sul",
+    "tipo_processo": "Tier 0",
+    "subtipo_processo": "Tier 0",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "AGD Debêntures",
+    "causa_crise": "Descompasso entre capex/outorga em terminal portuário PAR50 e geração de caixa operacional",
+    "gargalo_imediato": "Convocação de AGD pela CR Securitizadora para deliberar vencimento antecipado de R$ 110 milhões em debêntures",
+    "tese_mandato": "Creditor-Side Advisory para titulares de CRIs/debêntures da CR Securitizadora para repactuação de covenants",
+    "calendar_meta": {
+      "data_marco_iso": "2026-11-10",
+      "data_marco_br": "10/11/2026",
+      "dias_restantes": 19,
+      "marco_label": "Realização da Assembleia Geral de Debenturistas (AGD) da CR Securitizadora",
+      "marco_tipo": "AGD Vencimento Antecipado",
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (19d)",
+      "is_fixed_edital": true
+    }
+  },
+  {
+    "id": 100,
+    "data_evento": "2026-10-16",
+    "data_adicao": "2026-10-23",
+    "empresa": "Grupo Euro17 (Euro Securitizadora S.A. / Prime Euro Securitizadora)",
+    "cnpj": "29.044.139/0001-19",
+    "setor_detalhe": "Securitização de Crédito, Empréstimo Pessoal & Fintech",
+    "setor_macro": "Serviços Financeiros, Fintechs & Crédito",
+    "regiao": "São Paulo, SP",
+    "tribunal": "TJSP - 1ª Vara de Falências e Recuperações Judiciais da Capital",
+    "processo": "Recuperação Judicial / Consolidação Substancial (8 empresas)",
+    "fase": "Recuperação Judicial (Ajuizada / Em Análise de Deferimento)",
+    "score": 9.2,
+    "tier": "Tier 3",
+    "passivo_mm": 1720,
+    "passivo_display": "1.720",
+    "credores": "4.000+ investidores PF em debêntures privadas (R$ 1.280M em principal / R$ 1.460M a vencer), Bancos parceiros e Fornecedores",
+    "perfil_passivo": "Debêntures Privadas Subordinadas sem garantia real (9.393 contratos) + Carteira de Crédito Pessoal Classes C/D",
+    "advocacia": "F.Soares Advocacia Empresarial",
+    "aj": "A nomear (1ª Vara de Falências de SP)",
+    "tese": "(1) Causa alegada da crise: Descasamento de prazos entre captação de debêntures privadas e concessão de crédito pessoal C/D, alta de inadimplência e corrida de resgates (65%) após contágio do caso Banco Master; (2) Gargalo imediato de liquidez: Queima de R$ 30M a R$ 40M/mês, passivo de R$ 1,72 bilhão e R$ 1,07 bilhão vencendo até 2027 sob bloqueios judiciais após negativa de cautelar; (3) Tese de mandato sugerida: Creditor-Side Advisory e representação de comitê de debenturistas pessoas físicas, auditoria forense patrimonial e carve-out da carteira adimplente de crédito (UPI).",
+    "status": "Novo",
+    "proximas_acoes": "Monitorar decisão da 1ª Vara de Falências da Capital sobre processamento e nomeação de AJ; contatar advogados de grupos de debenturistas.",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "coordenadas": [
+      -23.5505,
+      -46.6333
+    ],
+    "regiao_macro": "Sudeste",
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Comitê de Debenturistas",
+    "causa_crise": "Descasamento de prazos entre captação de debêntures privadas e crédito C/D, inadimplência e corrida de resgates",
+    "gargalo_imediato": "Queima de R$ 30M-40M/mês, R$ 1,07 Bi vencendo até 2027 e bloqueios judiciais após negativa de liminar",
+    "tese_mandato": "Creditor-Side Advisory para grupo de debenturistas, auditoria forense patrimonial e carve-out de carteira adimplente",
+    "calendar_meta": {
+      "data_marco_iso": "2026-11-05",
+      "data_marco_br": "05/11/2026",
+      "dias_restantes": 13,
+      "marco_label": "Decisão sobre Processamento da Recuperação Judicial e Nomeação de AJ (1ª Vara de Falências/SP)",
+      "marco_tipo": "Deferimento de Processamento",
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (13d)",
+      "is_fixed_edital": false
+    }
+  },
+  {
+    "id": 101,
+    "data_evento": "2026-10-23",
+    "data_adicao": "2026-10-24",
+    "empresa": "Grupo Buuron (Osmar Buuron, Luiz Carlos Buuron & Produtores Associados)",
+    "cnpj": "48.215.490/0001-12",
+    "setor_detalhe": "Produção de Grãos & Cultivo Agrícola (Vale do Araguaia)",
+    "setor_macro": "Agronegócio & Insumos",
+    "regiao": "Canarana, MT",
+    "tribunal": "TJMT - 4ª Vara Cível de Rondonópolis (Vara Regionalizada de RJ e Falência)",
+    "processo": "1015842-50.2026.8.11.0003",
+    "fase": "Recuperação Judicial (Classe 129 - Deferida / Edital Art. 52 Publicado)",
+    "score": 8.7,
+    "tier": "Tier 1",
+    "passivo_mm": 130,
+    "passivo_display": "130",
+    "credores": "Sicoob Primavera R$ 37,0M (R$ 23,7M fiduciários), Caixa R$ 34,5M, Primacredi Credisis R$ 16,1M, Sicredi Araxingu R$ 11,2M, Pessoas Físicas R$ 11,1M, Santander R$ 7,5M, Banco do Brasil R$ 4,4M, Agrícola Alvorada R$ 4,4M",
+    "perfil_passivo": "Crédito Rural, CCBs e Cédulas Rotativas com Alienação Fiduciária de Imóveis Rurais (R$ 66,3M extraconcursais + R$ 63,6M concursais) em Canarana/MT",
+    "advocacia": "Banca Especializada em Reestruturação do Agronegócio (MT)",
+    "aj": "Mudih Consultoria Ltda. (Darbas José Coutinho Filho)",
+    "tese": "(1) Causa alegada da crise: Quebras climáticas sucessivas nas safras 2023 a 2025 no Vale do Araguaia, alta dos juros e custos de insumos; (2) Gargalo imediato de liquidez: Passivo de R$ 129,8M com 51% (R$ 66,3M) atrelado a garantias fiduciárias extraconcursais, intimações de consolidação de propriedade imobiliária em Canarana/MT e prazo de 60 dias para entrega do plano; (3) Tese de mandato sugerida: Creditor-Side Advisory para cooperativas de crédito (Sicoob, Primacredi e Sicredi detêm R$ 64,3M), estruturação de DIP de safra ou desinvestimento de fazendas em Canarana (UPI).",
+    "status": "Novo",
+    "proximas_acoes": "Monitorar prazo de 15 dias para habilitações de crédito junto à Mudih Consultoria e decisão judicial sobre essencialidade dos bens fiduciários.",
+    "cidade": "Canarana",
+    "uf": "MT",
+    "coordenadas": [
+      -13.5519,
+      -52.2708
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Defesa Fiduciária / Agro",
+    "causa_crise": "Quebras climáticas nas safras 2023-2025 no Vale do Araguaia, alta de juros e custos de insumos",
+    "gargalo_imediato": "51% do passivo (R$ 66,3M) extraconcursal com alienação fiduciária e intimações de consolidação imobiliária",
+    "tese_mandato": "Creditor-Side Advisory para cooperativas (Sicoob/Primacredi/Sicredi), DIP de safra ou venda de fazendas (UPI)",
+    "calendar_meta": {
+      "data_marco_iso": "2026-11-07",
+      "data_marco_br": "07/11/2026",
+      "dias_restantes": 14,
+      "marco_label": "Fim do Prazo de 15 Dias para Habilitações/Divergências à Lista de Credores (Art. 7º, § 1º)",
+      "marco_tipo": "Habilitação de Créditos",
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (14d)",
+      "is_fixed_edital": true
+    }
+  },
+  {
+    "id": 102,
+    "data_evento": "2026-10-20",
+    "data_adicao": "2026-10-25",
+    "empresa": "Grupo Família Sandoval (GBS Agro / Gilberto Barbosa Sandoval & Produtores Associados)",
+    "cnpj": "54.691.990/0001-80",
+    "setor_detalhe": "Produção de Soja e Milho & Cultivo Agrícola (Vale do Araguaia / TO)",
+    "setor_macro": "Agronegócio & Insumos",
+    "regiao": "Araguacema, TO",
+    "tribunal": "TJTO - Vara Cível da Comarca de Araguacema",
+    "processo": "0000255-59.2026.8.27.2704",
+    "fase": "Recuperação Judicial (Classe 129 - Deferida / Edital Art. 52 Publicado)",
+    "score": 8.6,
+    "tier": "Tier 1",
+    "passivo_mm": 74,
+    "passivo_display": "74",
+    "credores": "Banco do Brasil R$ 22M, Banco CNH Industrial R$ 12M, Banco John Deere R$ 9M, Tradings e Distribuidores de Insumos R$ 18M, Cooperativas e Fornecedores R$ 13M",
+    "perfil_passivo": "Cédulas de Crédito Bancário (CCBs), Financiamento de Maquinários e Cédulas de Produto Rural (CPRs) com Garantia Real",
+    "advocacia": "Banca Especializada em Direito do Agronegócio e Recuperação (TO/GO)",
+    "aj": "Veritas Administração Judicial (Goiânia-GO)",
+    "tese": "(1) Causa alegada da crise: Estresse hídrico no Vale do Araguaia tocantinense nas últimas safras, elevação dos custos de insumos e juros de financiamento; (2) Gargalo imediato de liquidez: Passivo de R$ 74,4M em 121 credores com vencimento antecipado de dívidas e risco de apreensão de maquinários, com consolidação substancial de ativos/passivos deferida pelo juízo de Araguacema/TO; (3) Tese de mandato sugerida: Creditor-Side Advisory para tradings e bancos de máquinas (CNH Capital e John Deere), ou estruturação de financiamento DIP de safra e desinvestimento de glebas agrícolas (UPI).",
+    "status": "Novo",
+    "proximas_acoes": "Monitorar prazo de 15 dias do edital do art. 52 para habilitações perante a Veritas AJ e protocolo do plano conjunto de soerguimento em 60 dias.",
+    "cidade": "Araguacema",
+    "uf": "TO",
+    "coordenadas": [
+      -8.8028,
+      -49.5564
+    ],
+    "regiao_macro": "Norte",
+    "tipo_processo": "PRJ",
+    "subtipo_processo": "PRJ",
+    "strategy_id": "watchdog",
+    "strategy_name": "Creditor-Side & Watchdog",
+    "strategy_tag": "Maquinários / Financiamento",
+    "causa_crise": "Estresse hídrico no Vale do Araguaia/TO, custos de insumos e juros de maquinários",
+    "gargalo_imediato": "Passivo de R$ 74,4M com risco de apreensão de frotas agrícolas e vencimento de CPRs",
+    "tese_mandato": "Creditor-Side Advisory para bancos de maquinários (CNH/John Deere), DIP safra e venda de terras (UPI)",
+    "calendar_meta": {
+      "data_marco_iso": "2026-11-04",
+      "data_marco_br": "04/11/2026",
+      "dias_restantes": 10,
+      "marco_label": "Prazo de 15 Dias para Habilitações e Divergências de Crédito (Veritas AJ / Edital Art. 52)",
+      "marco_tipo": "Habilitação de Créditos",
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (10d)",
+      "is_fixed_edital": true
+    }
+  },
+  {
+    "id": 103,
+    "data_evento": "2026-10-27",
+    "data_adicao": "2026-10-28",
+    "empresa": "Grupo Pelissari (Antonio Vitorio Pelissari, Emerson Pelissari & Associados)",
+    "cnpj": "53.413.680/0001-31",
+    "setor_detalhe": "Cultivo de Soja e Milho & Insumos Agrícolas (Sinop / MT)",
+    "setor_macro": "Agronegócio & Insumos",
+    "regiao": "Sinop, MT",
+    "tribunal": "TJMT - 4ª Vara Cível da Comarca de Sinop",
+    "processo": "Processo Falimentar (Ex-RJ Grupo Pelissari / Credibilita AJ)",
+    "fase": "Falência (Classe 110 - Convolação Decretada com Bloqueio de Ativos)",
+    "score": 9.3,
+    "tier": "Tier 1",
+    "passivo_mm": 45,
+    "passivo_display": "45",
+    "credores": "BlackPartners Miruna FIDC NP R$ 18M, Attua Comercial Agrícola R$ 9M, Maré Fertilizantes R$ 6M, Terra Forte Máquinas R$ 5M, Vicente Agro e Outros R$ 7M",
+    "perfil_passivo": "Insumos Agrícolas, Fertilizantes e Financiamento de Maquinários com Garantias sobre Imóveis Rurais e Lavouras em Sinop e Nova Canaã do Norte/MT",
+    "advocacia": "Banca de Reestruturação Agrícola (MT)",
+    "aj": "Credibilita Administração Judicial e Serviços Ltda.",
+    "tese": "(1) Causa alegada da crise: Endividamento em insumos e fertilizantes não equacionado na recuperação judicial iniciada em 2024, culminando na rejeição em AGC por 72,37% dos créditos e inadmissão dos planos alternativos; (2) Gargalo imediato de liquidez: Sentença de convolação em falência da 4ª Vara Cível de Sinop em 27/10/2026 com ordem de bloqueio patrimonial de R$ 45,3 milhões em contas, maquinários e lavouras; (3) Tese de mandato sugerida: M&A Distressed de terras e ativos agrícolas via leilão judicial de UPI falimentar livre de sucessão (art. 141 da Lei 11.101/05), e Creditor-Side Advisory para BlackPartners Miruna FIDC e fornecedores na arrecadação.",
+    "status": "Novo",
+    "proximas_acoes": "Monitorar arrecadação e avaliação de bens rurais pela Credibilita AJ e publicação do edital de convocação do leilão falimentar de ativos.",
+    "cidade": "Sinop",
+    "uf": "MT",
+    "coordenadas": [
+      -11.8608,
+      -55.5097
+    ],
+    "regiao_macro": "Centro-Oeste",
+    "tipo_processo": "Falência / Liquidação",
+    "subtipo_processo": "Falência",
+    "strategy_id": "special_ops",
+    "strategy_name": "Special Ops & UPI",
+    "strategy_tag": "Leilão Judicial Falimentar",
+    "causa_crise": "Endividamento severo em fertilizantes/insumos e rejeição do plano de RJ por 72,4% dos créditos em AGC",
+    "gargalo_imediato": "Sentença de convolação em falência da 4ª Vara de Sinop com ordem de bloqueio de bens de R$ 45,3M",
+    "tese_mandato": "M&A Distressed de fazendas via UPI livre de sucessão (art. 141) e Creditor-Side para FIDC e tradings",
+    "calendar_meta": {
+      "data_marco_iso": "2026-11-20",
+      "data_marco_br": "20/11/2026",
+      "dias_restantes": 23,
+      "marco_label": "Apresentação do Auto de Arrecadação e Avaliação de Bens pela Credibilita AJ",
+      "marco_tipo": "Arrecadação Falimentar",
+      "urgencia_nivel": "alerta",
+      "urgencia_label": "CURTO PRAZO (23d)",
+      "is_fixed_edital": false
     }
   }
 ];
@@ -7776,64 +8497,124 @@ const BRAZIL_UFS_GEOJSON = {"type": "FeatureCollection", "features": [{"type": "
 
 const NEWS_FEED_DATA = [
   {
-    "id": 131,
-    "data_hora": "21/10/2026 09:30",
-    "titulo": "Produtores rurais de MT e GO conseguem suspender cobranças de R$ 31 milhões após decisão de competência no STJ",
+    "id": 130,
+    "data_hora": "27/10/2026 17:45",
+    "titulo": "4ª Vara Cível de Sinop/MT convola RJ do Grupo Pelissari em falência (R$ 45,3 MM) após rejeição de 72,4% em AGC e bloqueia ativos",
     "fonte": "Jota / Tribunais",
     "setor": "Agronegócio & Silvicultura",
-    "categoria": "Pedido de RJ",
-    "resumo": "4ª Vara Cível de Rondonópolis/MT deferiu processamento da Recuperação Judicial e stay period de 180 dias para grupo pecuarista frente a execuções de Banco do Brasil (R$ 14M) e Sicredi (R$ 9M).",
-    "deal_id": 88,
-    "empresa_nome": "Grupo Familiar de Pecuaristas MT/GO (Pecuária de Corte)",
-    "url": "https://www.olhardireto.com.br/juridico/noticias/produtores-rurais-conseguem-suspender-cobrancas-de-r-31-milhoes-apos-conflito-de-competencia-no-stj"
-  },
-  {
-    "id": 130,
-    "data_hora": "20/10/2026 16:45",
-    "titulo": "Atacadista Gold (Casa da Gastronomia) tem RJ deferida no Paraná para reestruturar R$ 45 milhões com BB, Caixa e Itaú",
-    "fonte": "Jota / Tribunais",
-    "setor": "Varejo & Consumo",
-    "categoria": "Pedido de RJ",
-    "resumo": "3ª Vara de Falências de Curitiba concedeu stay period à distribuidora de food service de Pinhais/PR após 219 protestos e aperto de juros sobre obras do centro logístico refrigerado de 3.000 m².",
-    "deal_id": 78,
-    "empresa_nome": "Gold - Indústria e Comércio Ltda. (Casa da Gastronomia)",
-    "url": "https://www.empresaemcrise.com/post/pinhais-pr-deferida-a-recupera%C3%A7%C3%A3o-judicial-da-atacadista-gold-ind%C3%BAstria-e-com%C3%A9rcio"
+    "categoria": "Falência",
+    "resumo": "Sentença falimentar atinge grupo produtor de Sinop após reprovação do plano por BlackPartners Miruna FIDC NP (R$ 18M) e tradings de insumos; Credibilita AJ conduz arrecadação de bens.",
+    "url": "https://www.olharjuridico.com.br/",
+    "deal_id": 103,
+    "empresa_nome": "Grupo Pelissari (Sinop/MT)"
   },
   {
     "id": 129,
-    "data_hora": "20/10/2026 14:15",
-    "titulo": "Laticínios Vale dos Buritis (marcas Supremo e Santa Marta) avança em RJ de R$ 74 milhões em Minas Gerais",
-    "fonte": "Agentes Fiduciários",
-    "setor": "Agronegócio & Silvicultura",
-    "categoria": "Pedido de RJ",
-    "resumo": "Indústria láctea busca repactuar passivo concentrado em Banco do Brasil (R$ 24M), Bradesco (R$ 18M), Cooperativa Oeste Mineiro (R$ 11M), Itaú e Safra sob administração da Scalzilli & Chaves.",
-    "deal_id": 75,
-    "empresa_nome": "Laticínios Vale dos Buritis Ltda.",
-    "url": "https://scalzilliaj.com.br/processo/recuperacao-judicial_industria-e-comercio-de-laticinios-vale-dos-buritis-ltda-__459"
+    "data_hora": "26/10/2026 18:10",
+    "titulo": "Braskem (BRKM5) divulga Fato Relevante com projeções financeiras e termos trocados com debenturistas e bondholders na Recuperação Extrajudicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "resumo": "Petroquímica detalha cronograma de alavancagem, covenants e condições de reperfilamento das emissões de debêntures e bonds internacionais no âmbito da repactuação extrajudicial.",
+    "url": "https://economia.uol.com.br/noticias/redacao/2026/10/26/braskem-divulga-informacoes-trocadas-com-credores-na-renegociacao-da-recuperacao-extrajudicial.ghtm",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)"
   },
   {
     "id": 128,
-    "data_hora": "20/10/2026 11:20",
-    "titulo": "Grupo Pompilio obtém processamento de Recuperação Judicial no TJMS com R$ 110 MM e disputa retenção de grãos",
-    "fonte": "Valor Econômico",
-    "setor": "Agronegócio & Silvicultura",
-    "categoria": "Pedido de RJ",
-    "resumo": "Produtores de Ponta Porã e Dourados/MS enfrentam 85% da dívida concentrada na Classe II (BB R$ 38M, Safra R$ 28M e Sicredi R$ 18M) e travas fiduciárias de soja junto à Indigo Fiagro.",
-    "deal_id": 74,
-    "empresa_nome": "Grupo Pompilio (Pompilio Cabral de Jesus)",
-    "url": "https://agroemcampo.ig.com.br/2026/noticias/divida-leva-grupo-rural-a-recuperacao-judicial/"
+    "data_hora": "26/10/2026 11:30",
+    "titulo": "Justiça de SP autoriza processamento de Recuperação Extrajudicial da Ri Happy (R$ 827 MM) com prazo de 90 dias para quórum de credores",
+    "fonte": "Pipeline",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "resumo": "Rede varejista controlada pelo Carlyle obteve blindagem judicial para concluir coleta de adesões de bancos (Bradesco, Itaú, Santander) e titulares de dívida estruturada.",
+    "url": "https://c-level.folha.uol.com.br/negocios/2026/10/justica-aceita-pedido-de-recuperacao-extrajudicial-da-ri-happy.shtml",
+    "deal_id": 87,
+    "empresa_nome": "Ri Happy Brinquedos S.A. (Grupo Ri Happy)"
   },
   {
     "id": 127,
-    "data_hora": "19/10/2026 18:10",
-    "titulo": "Grupo Echer tem Recuperação Judicial deferida no Mato Grosso para reestruturar R$ 170 milhões em dívidas imobiliárias",
+    "data_hora": "23/10/2026 15:40",
+    "titulo": "Grupo Euro17 e Euro Securitizadora ajuízam Recuperação Judicial com dívida de R$ 1,72 bilhão perante 5.034 credores e debenturistas",
     "fonte": "Pipeline",
-    "setor": "Construção Civil & Real Estate",
-    "categoria": "Pedido de RJ",
-    "resumo": "Incorporadora busca equacionar passivo com Caixa Econômica Federal (R$ 48M), Itaú (R$ 32M), Bradesco (R$ 25M), BB (R$ 18M) e titulares de CRIs (R$ 22M) sob gestão da Mudih Consultoria.",
-    "deal_id": 49,
-    "empresa_nome": "Grupo Echer",
-    "url": "https://www.empresaemcrise.com/post/rondon%C3%B3polis-mt-grupo-echer-tem-recupera%C3%A7%C3%A3o-judicial-deferida-com-d%C3%ADvida-de-r-169-7-milh%C3%B5es"
+    "setor": "Serviços Financeiros & Crédito",
+    "categoria": "Waiver / AGD",
+    "resumo": "Após atrasos na remuneração de séries de debêntures e tentativa negada de cautelar em sigilo na 2ª Vara de Falências de SP, grupo financeiro busca stay period de 180 dias e consolidação substancial.",
+    "url": "https://neofeed.com.br/negocios/exclusivo-com-divida-de-r-172-bilhao-grupo-euro17-pede-recuperacao-judicial/",
+    "deal_id": 100,
+    "empresa_nome": "Grupo Euro17 (Euro Securitizadora)"
+  },
+  {
+    "id": 126,
+    "data_hora": "22/10/2026 16:20",
+    "titulo": "Grupo VETBR protocola Recuperação Extrajudicial de R$ 160 milhões com adesão inicial de 54,26% na classe de garantia real",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Saúde & Farma",
+    "categoria": "Waiver / AGD",
+    "resumo": "Distribuidora de medicamentos veterinários assessorada pelo Cescon Barrieu repactua passivo garantido por estoques e recebíveis junto a Itaú, Bradesco, Santander e laboratórios globais.",
+    "url": "https://www.valor.globo.com/",
+    "deal_id": 96,
+    "empresa_nome": "Grupo VETBR (Saúde Animal)"
+  },
+  {
+    "id": 125,
+    "data_hora": "22/10/2026 14:50",
+    "titulo": "FTS Participações (Terminal Portuário PAR50 - Paranaguá) negocia waiver e reperfilamento de R$ 110 MM em debêntures e CCBs",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Waiver / AGD",
+    "resumo": "Operador logístico portuário no corredor de exportação do Paraná busca adequação de curvas de amortização e covenants financeiros de capex de infraestrutura.",
+    "url": "https://www.valor.globo.com/",
+    "deal_id": 99,
+    "empresa_nome": "FTS Participações Societárias S.A. (FTSPar)"
+  },
+  {
+    "id": 124,
+    "data_hora": "21/10/2026 16:15",
+    "titulo": "Grupo Casas Bahia (BHIA3) avança na execução de reperfilamento de R$ 17,3 Bi e conversão de debêntures em participação acionária",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "resumo": "Acompanhamento de covenants operacionais, cronograma de conversão de tranches de debêntures detidas por Bradesco e Banco do Brasil e gestão de caixa nas operações de varejo.",
+    "url": "https://forbes.com.br/forbes-money/2026/10/de-raizen-a-casas-bahia-15-empresas-tentam-reestruturar-dividas-em-2026/",
+    "deal_id": 89,
+    "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3)"
+  },
+  {
+    "id": 123,
+    "data_hora": "21/10/2026 14:30",
+    "titulo": "Justiça homologa Recuperação Extrajudicial de R$ 4,57 Bi do GPA (PCAR3); B3 bloqueia debêntures CBRDA8/CBRDB8 e CRIs e abre prazo de 60 dias",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "resumo": "Sentença homologatória dá início ao prazo de 60 dias para opção de pagamento e substituição das debêntures CBRDA8/CBRDB8 e CRIs 23B0004401/23B0004402 pelas Novas Debêntures Emissão A e B.",
+    "url": "https://exame.com/invest/mercados/recuperacao-extrajudicial-do-gpa-b3-bloqueia-titulos-e-abre-prazo-de-60-dias/",
+    "deal_id": 16,
+    "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)"
+  },
+  {
+    "id": 122,
+    "data_hora": "20/10/2026 11:15",
+    "titulo": "Aeris Energy (AERI3) conduz AGDs das debêntures AERI11 e AERI12 (R$ 650 MM) junto a Vórtx e Pentágono sob Cautelar Art. 20-B",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Waiver / AGD",
+    "resumo": "Fabricante de pás eólicas no Porto do Pecém/CE negocia standstill e waiver de covenants financeiros com debenturistas e sindicato bancário (Bradesco, Santander, Itaú) para conversão em PRE/RJ.",
+    "url": "https://neofeed.com.br/negocios/aeris-aciona-tutela-cautelar-para-renegociar-divida-com-credores/",
+    "deal_id": 1,
+    "empresa_nome": "Aeris Energy (AERI3)"
+  },
+  {
+    "id": 121,
+    "data_hora": "19/10/2026 16:45",
+    "titulo": "Chilli Beans (Mustang 25) negocia waiver e standstill de R$ 89 MM em debêntures com a Vert Securitizadora para evitar cross-default em R$ 600 MM",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "resumo": "Holding controladora obteve tutela cautelar antecedente após notificação de vencimento antecipado por obrigações não-financeiras na 1ª emissão de debêntures securitizada pela Vert.",
+    "url": "https://exame.com/insight/chilli-beans-ganha-prazo-para-renegociar-divida-de-r-89-milhoes/p",
+    "deal_id": 10,
+    "empresa_nome": "Chilli Beans (Mustang 25 Participações)"
   },
   {
     "id": 101,
@@ -7876,19 +8657,21 @@ const NEWS_FEED_DATA = [
     "setor": "Energia & Infraestrutura",
     "categoria": "Downgrade Rating",
     "resumo": "Agência colocou as debêntures de infraestrutura da GDS Subholding (Colibri Capital) em Observação Negativa diante da deterioração do índice de cobertura do serviço da dívida (ICSD) das usinas fotovoltaicas.",
+    "url": "https://www.fitchratings.com/research/pt/infrastructure-project-finance/fitch-downgrades-to-bbb-bra-gds-subholdings-debentures-rating-watch-negative-08-10-2026",
     "deal_id": 69,
     "empresa_nome": "GDS Subholding S.A. (GDSolar)"
   },
   {
     "id": 105,
     "data_hora": "15/10/2026 15:30",
-    "titulo": "Grupo Pão de Açúcar (PCAR3) avança em negociação de Recuperação Extrajudicial de R$ 4,57 Bi e programa venda de imóveis",
+    "titulo": "Raízen (RAIZ4) detalha atualização de créditos e condições para debenturistas (RAIZ14/RAIZ24) no plano de Recuperação Extrajudicial",
     "fonte": "CVM / Fatos Relevantes",
-    "setor": "Varejo & Consumo",
+    "setor": "Energia & Infraestrutura",
     "categoria": "Waiver / AGD",
-    "resumo": "Varejista alimentar busca repactuação com sindicato bancário (Itaú, Bradesco, Santander) e debenturistas institucionais, acelerando desinvestimento de lojas próprias via Sale & Leaseback.",
-    "deal_id": 16,
-    "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)"
+    "resumo": "Companhia sucroenergética conduz repactuação de R$ 3,5 bilhões em emissões de debêntures e linhas sindicalizadas junto a Pentágono DTVM e Oliveira Trust, mantendo cronograma de venda de ativos de geração distribuída e E2G.",
+    "url": "https://investalk.bb.com.br/noticias/mercado/credito-privado-analise-emissores-Raizen-Out26",
+    "deal_id": 7,
+    "empresa_nome": "Raízen S.A. (RAIZ4)"
   },
   {
     "id": 106,
@@ -8057,7 +8840,6 @@ const NEWS_FEED_DATA = [
   }
 ];
 
-
 // ==========================================================================
 // Dynamic Deal Count & Flexible Text Resolver
 // ==========================================================================
@@ -8202,7 +8984,7 @@ const SECTION_CONFIG = {
     pageSubtitle: 'Feed de inteligência concursal monitorando pedidos de RJ/Cautelares, convocações de AGDs, fatos relevantes CVM e decisões judiciais.',
     showFilters: false,
     subtabs: [
-      { id: 'news_all', label: 'Todas as Notícias & Fatos ({NEWS_COUNT})', title: 'Feed Integrado de Inteligência Concursal & Mercado de Capitais', desc: 'Acompanhamento diário conectado diretamente às Fichas Analíticas (Tear Sheets) dos grupos econômicos monitorados.' },
+      { id: 'news_all', label: 'Todas as Notícias & Fatos', title: 'Feed Integrado de Inteligência Concursal & Mercado de Capitais', desc: 'Acompanhamento diário conectado diretamente às Fichas Analíticas (Tear Sheets) dos grupos econômicos monitorados.' },
       { id: 'news_rj', label: 'Pedidos de RJ & Cautelares 20-B', title: 'Ajuizamentos Recentes, Tutelas de Urgência e Decisões de Varas Empresariais', desc: 'Movimentações críticas em processos de Recuperação Judicial e Cautelares Antecedentes.' },
       { id: 'news_dcm', label: 'Waivers, AGDs & Downgrades Rating', title: 'Eventos de Mercado de Capitais: Debêntures, CRAs, CRIs e Agências de Rating', desc: 'Fatos relevantes CVM, convocações de agentes fiduciários e cortes de rating (Fitch / S&P / Moody\'s).' },
       { id: 'news_upi_falencia', label: 'Leilões de UPI & Falências', title: 'Editais de Alienação Judicial de UPIs e Sentenças de Quebra / Asset Tracing', desc: 'Oportunidades de M&A Distressed livre de sucessão e decretos de falência com arrecadação forense de ativos.' }
@@ -8384,7 +9166,30 @@ let calFilterMarcoType = '';
 // Comps State
 let selectedCompIds = [1, 17, 52, 55];
 
+let lastNewsAutoSyncTs = 0;
+
+function loadCachedLiveNewsFromStorage() {
+  try {
+    const raw = localStorage.getItem('vk_live_rss_cache_v4');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        liveRssNewsItems = parsed;
+      }
+    }
+  } catch (e) {}
+}
+
+function saveCachedLiveNewsToStorage(items) {
+  try {
+    if (Array.isArray(items) && items.length > 0) {
+      localStorage.setItem('vk_live_rss_cache_v4', JSON.stringify(items.slice(0, 24)));
+    }
+  } catch (e) {}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  loadCachedLiveNewsFromStorage();
   updateDynamicNavCounts();
   enrichAllDeals();
   populateDropdownFilters();
@@ -8393,13 +9198,20 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchLiveSheetInBackground();
   fetchLiveDistressedNews();
   fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate);
-  // Polling automático a cada 15 minutos para manter base e feed de notícias sempre atualizados
+
+  // Auto-refresh loop: atualiza automaticamente a cada 5 minutos em background
   setInterval(() => {
-    if (!document.hidden) {
-      fetchLiveSheetInBackground(false);
+    fetchLiveDistressedNews(false);
+    fetchLiveSheetInBackground(false);
+  }, 5 * 60 * 1000);
+
+  // Atualiza automaticamente sempre que o usuário volta para a aba após > 3 min
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && (Date.now() - lastNewsAutoSyncTs > 3 * 60 * 1000)) {
       fetchLiveDistressedNews(false);
+      fetchLiveSheetInBackground(false);
     }
-  }, 15 * 60 * 1000);
+  });
 });
 
 // ==========================================================================
@@ -8588,7 +9400,7 @@ function enrichAllDeals() {
   if (navOp) navOp.textContent = DEALS_DATA.length;
   if (navUpi) navUpi.textContent = DEALS_DATA.filter(isUpiEligible).length;
   if (navPrazos) navPrazos.textContent = DEALS_DATA.length;
-  if (navNews) navNews.textContent = (typeof getAllCombinedNews === 'function') ? getAllCombinedNews().length : NEWS_FEED_DATA.length;
+  if (navNews) navNews.textContent = typeof getAllCombinedNews === 'function' ? getAllCombinedNews().length : NEWS_FEED_DATA.length;
   if (navEng) navEng.textContent = DEALS_DATA.filter(d => d.setor_macro === 'Energia & Infraestrutura').length;
   if (navAgro) navAgro.textContent = DEALS_DATA.filter(d => d.setor_macro === 'Agronegócio & Silvicultura').length;
   const pill = document.getElementById('lastUpdateTime');
@@ -8728,9 +9540,11 @@ function getUpiCategory(d) {
 
 function isDebenturesEligible(d) {
   const perfilClean = String(d.perfil_passivo || '').replace(/bancário\s*[+/]\s*mercado de capitais/gi, '');
-  const blob = [perfilClean, d.credores || '', d.tese || '', d.processo || '', d.tribunal || '', d.agentes_fiduciarios || '', d.securitizadoras || '', ...(d.watchdog_triggers || [])].join(' ').toLowerCase();
-  const strictTerms = ['debênture', 'debenture', 'debenturista', 'cra', 'cri', 'fidc', 'cvm', 'agd', 'nota comercial', 'notas comerciais', 'vórtx', 'vortx', 'pentágono', 'pentagono', 'oliveira trust', 'virgo', 'opea', 'vert ', 'reit ', 'audax', 'covenant', 'waiver', 'ccbs', 'fitch', 'bonds'];
-  return strictTerms.some(k => blob.includes(k));
+  const afClean = String(d.agentes_fiduciarios || '').replace(/monitoramento via escrituras\s*\/\s*n\/a/gi, '').replace(/n\/a\s*\([^)]*\)/gi, '');
+  const secClean = String(d.securitizadoras || '').replace(/sem securitizadora reportada[^,]*/gi, '').replace(/n\/a\s*\([^)]*\)/gi, '');
+  const blob = [perfilClean, d.credores || '', d.tese || '', d.processo || '', d.tribunal || '', afClean, secClean, ...(d.watchdog_triggers || [])].join(' ');
+  const dcmRegex = /\b(deb[eê]ntures?|debenturistas?|cras?|cris?|fidcs?|cvm|agds?|notas?\s+comerciais|v[oó]rtx|pent[aá]gono|oliveira\s+trust|virgo|opea|vert\s+securitizadora|reit\s+securitizadora|audax|covenants?|waivers?|standstill|fitch|moody|bonds?|bondholders?)\b/i;
+  return dcmRegex.test(blob);
 }
 
 function hasScheduledAssemblyOrAuction(d) {
@@ -8831,6 +9645,16 @@ function renderSubTabs() {
         if (st.id === 'prazos_all' || st.id === 'prazos_calendario' || st.id === 'prazos_mensal') return true;
         if (st.id === 'prazos_agc') return hasScheduledAssemblyOrAuction(d);
         if (st.id === 'prazos_cautelar') return d.tipo_processo === 'Cautelar / Pré-RJ';
+        return true;
+      }).length;
+      countBadge = `<span class="pill-count">${cnt}</span>`;
+    } else if (currentMainSection === 'noticias' && typeof getAllCombinedNews === 'function') {
+      const allN = getAllCombinedNews();
+      const cnt = allN.filter(n => {
+        if (st.id === 'news_all') return true;
+        if (st.id === 'news_rj') return n.categoria === 'Pedido de RJ' || n.categoria === 'Cautelar 20-B';
+        if (st.id === 'news_dcm') return n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating';
+        if (st.id === 'news_upi_falencia') return n.categoria === 'Leilão de UPI' || n.categoria === 'Falência';
         return true;
       }).length;
       countBadge = `<span class="pill-count">${cnt}</span>`;
@@ -9820,9 +10644,61 @@ function initGeoJsonBrazilMap(deals) {
 }
 
 // ==========================================================================
-// 11. Nova Aba: Notícias & Fatos Relevantes (Feed Híbrido Mercado + Pipeline c/ Links Reais)
+// 11. Nova Aba: Notícias & Fatos Relevantes (Feed Híbrido Mercado + Pipeline + Multi-Stream RSS de Waivers/AGDs)
 // ==========================================================================
 const CURATED_MACRO_NEWS = [
+  {
+    id: 908,
+    data_hora: '28/10/2026 16:30',
+    titulo: 'De Raízen a Casas Bahia: 15 grandes empresas brasileiras renegociam dívidas, waivers de debêntures e recuperações extrajudiciais em 2026',
+    fonte: 'Brazil Journal',
+    setor: 'Mercado & Macro (RJ / Crédito)',
+    categoria: 'Waiver / AGD',
+    escopo: 'cvm',
+    resumo: 'Levantamento de mercado mapeia onda de repactuações em companhias abertas (Raízen, Braskem, GPA, Oncoclínicas, Casas Bahia e Aeris) com foco em alongamento de debêntures, waivers de covenants e conversão de dívida.',
+    url: 'https://forbes.com.br/forbes-money/2026/10/de-raizen-a-casas-bahia-15-empresas-tentam-reestruturar-dividas-em-2026/',
+    deal_id: 7,
+    empresa_nome: 'Panorama DCM // Raízen, Braskem, GPA & Companhias Abertas'
+  },
+  {
+    id: 907,
+    data_hora: '28/10/2026 14:15',
+    titulo: 'Justiça de SP defere recuperação judicial da varejista Marabraz, concede stay period de 180 dias e nomeia Deloitte como administradora judicial',
+    fonte: 'Jota / Tribunais',
+    setor: 'Varejo & Consumo',
+    categoria: 'Pedido de RJ',
+    escopo: 'mercado',
+    resumo: 'Juíza da Vara Empresarial de São Paulo autorizou consolidação processual do grupo varejista, garantiu manutenção do fornecimento de energia por Enel e CPFL e fixou prazo para entrega de documentos contábeis.',
+    url: 'https://c-level.folha.uol.com.br/negocios/2026/10/justica-aceita-pedido-de-recuperacao-judicial-da-marabraz.shtml',
+    deal_id: null,
+    empresa_nome: 'Rede Marabraz (Varejo Moveleiro)'
+  },
+  {
+    id: 906,
+    data_hora: '28/10/2026 10:20',
+    titulo: 'Estudo de IOF sobre debêntures incentivadas, CRIs e CRAs entra no radar de gestoras e pressiona prêmios de repactuação e waivers no secundário',
+    fonte: 'Valor Econômico',
+    setor: 'Mercado & Macro (RJ / Crédito)',
+    categoria: 'Waiver / AGD',
+    escopo: 'cvm',
+    resumo: 'Discussão tributária sobre títulos isentos (renúncia estimada em R$ 33 bilhões/ano) eleva exigência de spread por fundos de crédito privado em assembleias de debenturistas (AGDs) e novas emissões.',
+    url: 'https://www.infomoney.com.br/politica/governo-estuda-aplicar-iof-sobre-lci-lca-cri-cra-e-debentures-diz-jornal/',
+    deal_id: null,
+    empresa_nome: 'Mercado de Capitais (Debêntures, CRIs e CRAs)'
+  },
+  {
+    id: 905,
+    data_hora: '21/10/2026 19:05',
+    titulo: 'Fitch rebaixa rating nacional da PBG S.A. (Portobello) para RD(bra) após não pagamento de R$ 59,8 MM da 5ª e 6ª emissões de debêntures',
+    fonte: 'CVM / Fatos Relevantes',
+    setor: 'Indústria & Manufatura',
+    categoria: 'Downgrade Rating',
+    escopo: 'cvm',
+    resumo: 'Companhia líder em revestimentos cerâmicos reporta dívida total de R$ 1,655 bilhão (R$ 530 milhões em debêntures e R$ 325 milhões em PPE) e conduz reperfilamento para preservar liquidez de curto prazo.',
+    url: 'https://www.fitchratings.com/research/pt/corporate-finance/fitch-downgrades-pbgs-national-scale-ratings-to-rd-bra-21-10-2026',
+    deal_id: null,
+    empresa_nome: 'PBG S.A. / Portobello Grupo (PTBL3)'
+  },
   {
     id: 901,
     data_hora: '19/10/2026 09:15',
@@ -9887,568 +10763,455 @@ function buildNewsItemUrl(item) {
   return `https://news.google.com/search?q=${encodeURIComponent(queryTerms)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`;
 }
 
-function parseNewsTimestampScore(dtStr) {
-  if (!dtStr) return 0;
-  const s = String(dtStr).trim();
-  const mBr = s.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2}))?/);
-  if (mBr) {
-    const d = Number(mBr[1]), m = Number(mBr[2]), y = Number(mBr[3]);
-    const hh = Number(mBr[4] || 12), mm = Number(mBr[5] || 0);
-    return new Date(y, m - 1, d, hh, mm).getTime();
-  }
-  const mIso = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (mIso) {
-    return new Date(Number(mIso[1]), Number(mIso[2]) - 1, Number(mIso[3]), 12, 0).getTime();
-  }
-  return 0;
+function normalizeTextNoAccents(str) {
+  return String(str || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
 }
 
-// ==========================================================================
-// 11.B. Motor Multi-Proxy RSS & Polling Automático (Inteligência em Tempo Real)
-// ==========================================================================
-const RSS_PROXY_POOL = [
-  {
-    id: 'allorigins_raw',
-    name: 'AllOrigins Raw XML',
-    type: 'xml',
-    buildUrl: (feedUrl) => `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`
-  },
-  {
-    id: 'allorigins_get',
-    name: 'AllOrigins JSON Wrapper',
-    type: 'allorigins_json',
-    buildUrl: (feedUrl) => `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`
-  },
-  {
-    id: 'codetabs',
-    name: 'CodeTabs CORS Proxy',
-    type: 'xml',
-    buildUrl: (feedUrl) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(feedUrl)}`
-  },
-  {
-    id: 'corsproxy_io',
-    name: 'CorsProxy.io Stream',
-    type: 'xml',
-    buildUrl: (feedUrl) => `https://corsproxy.io/?${encodeURIComponent(feedUrl)}`
-  },
-  {
-    id: 'rss2json',
-    name: 'RSS2JSON API',
-    type: 'rss2json',
-    buildUrl: (feedUrl) => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`
-  },
-  {
-    id: 'valknut_gas',
-    name: 'Valknut GAS Proxy',
-    type: 'xml',
-    buildUrl: (feedUrl) => `${APPS_SCRIPT_URL}?action=rss&url=${encodeURIComponent(feedUrl)}`
+function parseNewsTimestamp(dataHoraStr) {
+  if (!dataHoraStr) return 0;
+  const s = String(dataHoraStr).trim();
+  // Format: DD/MM/YYYY HH:MM or DD/MM/YYYY
+  const m = s.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2}))?/);
+  if (m) {
+    const day = parseInt(m[1], 10);
+    const month = parseInt(m[2], 10) - 1;
+    const year = parseInt(m[3], 10);
+    const hour = m[4] ? parseInt(m[4], 10) : 12;
+    const min = m[5] ? parseInt(m[5], 10) : 0;
+    return new Date(year, month, day, hour, min).getTime();
   }
-];
-
-const RSS_FEED_SOURCES = [
-  {
-    id: 'neofeed_rj',
-    name: 'NeoFeed',
-    url: 'https://neofeed.com.br/tag/recuperacao-judicial/feed/',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    priority: 1
-  },
-  {
-    id: 'seudinheiro_rj',
-    name: 'Seu Dinheiro / Estadão',
-    url: 'https://www.seudinheiro.com/assuntos/recuperacao-judicial/feed/',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    priority: 1
-  },
-  {
-    id: 'infomoney_mercados',
-    name: 'InfoMoney',
-    url: 'https://www.infomoney.com.br/mercados/feed/',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    filterKeywords: true,
-    priority: 1
-  },
-  {
-    id: 'agfeed_agro',
-    name: 'AgFeed',
-    url: 'https://agfeed.com.br/feed/',
-    defaultSetor: 'Agronegócio & Silvicultura',
-    defaultEscopo: 'mercado',
-    filterKeywords: true,
-    priority: 1
-  },
-  {
-    id: 'theagribiz',
-    name: 'The AgriBiz',
-    url: 'https://www.theagribiz.com/feed/',
-    defaultSetor: 'Agronegócio & Silvicultura',
-    defaultEscopo: 'mercado',
-    filterKeywords: true,
-    priority: 1
-  },
-  {
-    id: 'conjur_judiciario',
-    name: 'Jota / Tribunais',
-    url: 'https://www.conjur.com.br/rss.xml',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    filterKeywords: true,
-    priority: 2
-  },
-  {
-    id: 'gnews_valor_pipeline',
-    name: 'Valor Econômico',
-    url: 'https://news.google.com/rss/search?q=site:valor.globo.com+(%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22fal%C3%AAncia%22+OR+%22deb%C3%AAntures%22+OR+%22reestrutura%C3%A7%C3%A3o%22)&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    isGoogleNewsRss: true,
-    priority: 1
-  },
-  {
-    id: 'gnews_braziljournal',
-    name: 'Brazil Journal',
-    url: 'https://news.google.com/rss/search?q=site:braziljournal.com+(%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22reestrutura%C3%A7%C3%A3o%22+OR+%22credores%22+OR+%22deb%C3%AAntures%22)&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    isGoogleNewsRss: true,
-    priority: 1
-  },
-  {
-    id: 'gnews_cvm_agentes',
-    name: 'CVM / Fatos Relevantes',
-    url: 'https://news.google.com/rss/search?q=(%22assembleia+geral+de+debenturistas%22+OR+%22vencimento+antecipado%22+OR+%22waiver%22+deb%C3%AAntures+OR+%22fato+relevante%22+%22recupera%C3%A7%C3%A3o%22)&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'cvm',
-    isGoogleNewsRss: true,
-    priority: 2
-  },
-  {
-    id: 'gnews_jota_stj',
-    name: 'Jota / Tribunais',
-    url: 'https://news.google.com/rss/search?q=site:jota.info+(%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22fal%C3%AAncia%22+OR+%22trava+banc%C3%A1ria%22+OR+%22cram+down%22)&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    isGoogleNewsRss: true,
-    priority: 2
-  },
-  {
-    id: 'gnews_special_sits',
-    name: 'Pipeline',
-    url: 'https://news.google.com/rss/search?q=(%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+20-B+OR+%22leil%C3%A3o+judicial%22+UPI+OR+%22special+situations%22+cr%C3%A9dito)&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-    defaultSetor: 'Mercado & Macro (RJ / Crédito)',
-    defaultEscopo: 'mercado',
-    isGoogleNewsRss: true,
-    priority: 2
-  }
-];
-
-const DISTRESSED_KEYWORDS_REGEX = /recupera[çc][ãa]o judicial|recupera[çc][ãa]o extrajudicial|fal[êe]ncia|cautelar|20-b|credores|deb[êe]ntur|covenant|waiver|inadimpl|reestrutura[çc][ãa]o|d[íi]vida|cr[ée]dito|execu[çc][ãa]o|penhora|arresto|leil[ãa]o|upi|fidc|cra\b|cri\b|stj|tj|vara empresarial|fitch|moody|s&p|rating|liquida[çc][ãa]o|bloqueio/i;
-
-let rssPollingIntervalMs = 5 * 60 * 1000; // Default: 5 minutos
-let rssPollingTimerId = null;
-let rssCountdownTimerId = null;
-let rssNextSyncTimestamp = Date.now() + rssPollingIntervalMs;
-let rssIsPollingEnabled = true;
-let rssIsFetchingNow = false;
-let rssProxyTelemetry = {
-  activeProxy: 'AllOrigins / Multi-Proxy Pool',
-  healthyProxies: RSS_PROXY_POOL.length,
-  feedsLoaded: 0,
-  totalFeeds: RSS_FEED_SOURCES.length,
-  lastSyncStr: 'Sincronizando...',
-  latencyMs: 0
-};
-
-function stripHtmlAndDecode(htmlStr) {
-  if (!htmlStr) return '';
-  try {
-    const doc = new DOMParser().parseFromString(String(htmlStr), 'text/html');
-    return (doc.body.textContent || '').replace(/\s+/g, ' ').trim();
-  } catch (e) {
-    return String(htmlStr).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-  }
+  const parsed = Date.parse(s);
+  return isNaN(parsed) ? 0 : parsed;
 }
 
-function classifyRssItemCategory(title, summary) {
-  const blob = `${title} ${summary}`.toLowerCase();
-  if (blob.includes('falência') || blob.includes('autofalência') || blob.includes('quebra') || blob.includes('convolação') || blob.includes('liquidação')) {
-    return 'Falência';
+function formatRssPubDateBR(pubDateRaw) {
+  if (!pubDateRaw) {
+    const now = new Date();
+    return `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
   }
-  if (blob.includes('upi') || blob.includes('leilão') || blob.includes('alienação') || blob.includes('arremat') || blob.includes('sale & leaseback')) {
-    return 'Leilão de UPI';
+  const dt = new Date(pubDateRaw);
+  if (!isNaN(dt.getTime())) {
+    const d = String(dt.getDate()).padStart(2, '0');
+    const m = String(dt.getMonth() + 1).padStart(2, '0');
+    const y = dt.getFullYear();
+    const hh = String(dt.getHours()).padStart(2, '0');
+    const mm = String(dt.getMinutes()).padStart(2, '0');
+    return `${d}/${m}/${y} ${hh}:${mm}`;
   }
-  if (blob.includes('rating') || blob.includes('fitch') || blob.includes('moody') || blob.includes('s&p') || blob.includes('rebaix') || blob.includes('downgrade')) {
-    return 'Downgrade Rating';
-  }
-  if (blob.includes('debêntur') || blob.includes('agd') || blob.includes('waiver') || blob.includes('covenant') || blob.includes('extrajudicial') || blob.includes('cra') || blob.includes('cri') || blob.includes('fidc')) {
-    return 'Waiver / AGD';
-  }
-  if (blob.includes('cautelar') || blob.includes('20-b') || blob.includes('mediação') || blob.includes('cejusc') || blob.includes('standstill')) {
-    return 'Cautelar 20-B';
-  }
-  return 'Pedido de RJ';
+  return formatDateBR(String(pubDateRaw).slice(0, 10));
 }
 
-function classifyRssItemSector(title, summary, defaultSetor) {
-  const blob = `${title} ${summary}`.toLowerCase();
-  if (/agro|soja|milho|safra|usina|açúcar|etanol|fertilizant|pecuári|grãos|cooperativa|cpr|fiagro/.test(blob)) return 'Agronegócio & Silvicultura';
-  if (/energia|elétric|eólic|solar|ccee|aneel|ons|subestação|transmissão|rodovi|concessão|porto|infraestrutura/.test(blob)) return 'Energia & Infraestrutura';
-  if (/hospital|saúde|clínica|onco|farma|medicamento|ans|laboratóri/.test(blob)) return 'Saúde & Farma';
-  if (/varejo|loja|supermercado|shopping|franquia|moda|brinquedo|consumo|e-commerce/.test(blob)) return 'Varejo & Consumo';
-  if (/construtor|incorporador|imobiliári|obra|terreno|incc|edifício/.test(blob)) return 'Construção Civil & Real Estate';
-  if (/banco|fintech|securitizadora|fidc|ccb|gestora|fundo|crédito/.test(blob)) return 'Serviços Financeiros & Crédito';
-  if (/indústria|fábrica|metalúrgic|siderúrgic|química|petroquímica|móveis|têxtil|embalagen/.test(blob)) return 'Indústria & Manufatura';
-  return defaultSetor || 'Mercado & Macro (RJ / Crédito)';
+function normalizeNewsSourceLabel(rawSource, blobNorm) {
+  const s = normalizeTextNoAccents(rawSource);
+  if (s.includes('valor') || s.includes('globo')) return 'Valor Econômico';
+  if (s.includes('pipeline')) return 'Pipeline';
+  if (s.includes('brazil journal') || s.includes('forbes') || s.includes('exame') || s.includes('neofeed')) return 'Brazil Journal';
+  if (s.includes('fitch') || s.includes('moody') || s.includes('s&p') || s.includes('cvm') || s.includes('rad.cvm') || s.includes('infomoney') || s.includes('seu dinheiro')) return 'CVM / Fatos Relevantes';
+  if (s.includes('vortx') || s.includes('pentagono') || s.includes('oliveira trust') || s.includes('opea') || s.includes('vert') || s.includes('virgo') || s.includes('fiduciario')) return 'Agentes Fiduciários';
+  if (s.includes('jota') || s.includes('conjur') || s.includes('migalhas') || s.includes('folha') || s.includes('uol') || s.includes('tribunal') || s.includes('tj')) return 'Jota / Tribunais';
+  if (blobNorm.includes('fitch') || blobNorm.includes('cvm') || blobNorm.includes('fato relevante')) return 'CVM / Fatos Relevantes';
+  if (blobNorm.includes('vortx') || blobNorm.includes('pentagono') || blobNorm.includes('oliveira trust') || blobNorm.includes('agd') || blobNorm.includes('waiver')) return 'Agentes Fiduciários';
+  return rawSource || 'Valor Econômico';
 }
 
-function matchHeadlineToDeal(title, summary) {
-  if (!Array.isArray(DEALS_DATA)) return null;
-  const blob = `${title} ${summary}`.toLowerCase();
+function classifyRssNewsItem(rawItem, defaultCategory = 'Pedido de RJ') {
+  const rawTitle = String(rawItem.title || '').replace(/\s+-\s+[^-]+$/, '').trim();
+  const sourceMatch = String(rawItem.title || '').match(/-\s+([^-]+)$/);
+  const rawSource = rawItem.source || (sourceMatch ? sourceMatch[1].trim() : (rawItem.author || 'Google News BR'));
+  const cleanDesc = String(rawItem.description || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const blobNorm = normalizeTextNoAccents(`${rawTitle} ${cleanDesc} ${rawSource}`);
+
+  let categoria = defaultCategory;
+  if (
+    blobNorm.includes('fitch') ||
+    blobNorm.includes('moody') ||
+    blobNorm.includes('s&p') ||
+    blobNorm.includes('rebaixamento') ||
+    blobNorm.includes('rebaixa') ||
+    blobNorm.includes('downgrade') ||
+    blobNorm.includes('rd(bra)') ||
+    blobNorm.includes('ccc(bra)') ||
+    blobNorm.includes('observacao negativa') ||
+    (blobNorm.includes('rating') && (blobNorm.includes('corte') || blobNorm.includes('corta') || blobNorm.includes('debenture') || blobNorm.includes('cra') || blobNorm.includes('default')))
+  ) {
+    categoria = 'Downgrade Rating';
+  } else if (
+    blobNorm.includes('waiver') ||
+    blobNorm.includes('covenant') ||
+    blobNorm.includes('agd') ||
+    blobNorm.includes('assembleia de debenturistas') ||
+    blobNorm.includes('debenturista') ||
+    blobNorm.includes('debenture') ||
+    blobNorm.includes('vencimento antecipado') ||
+    blobNorm.includes('standstill') ||
+    blobNorm.includes('reperfilamento') ||
+    blobNorm.includes('repactuacao') ||
+    blobNorm.includes('recuperacao extrajudicial') ||
+    blobNorm.includes('plano extrajudicial') ||
+    blobNorm.includes('securitizadora') ||
+    blobNorm.includes('agente fiduciario') ||
+    blobNorm.includes('vortx') ||
+    blobNorm.includes('pentagono') ||
+    blobNorm.includes('oliveira trust') ||
+    blobNorm.includes('opea') ||
+    blobNorm.includes('virgo') ||
+    blobNorm.includes('vert ') ||
+    blobNorm.includes('cra ') ||
+    blobNorm.includes('cras ') ||
+    blobNorm.includes('cri ') ||
+    blobNorm.includes('cris ') ||
+    blobNorm.includes('fidc')
+  ) {
+    categoria = 'Waiver / AGD';
+  } else if (
+    blobNorm.includes('falencia') ||
+    blobNorm.includes('autofalencia') ||
+    blobNorm.includes('quebra decretada') ||
+    blobNorm.includes('convolacao') ||
+    blobNorm.includes('massa falida')
+  ) {
+    categoria = 'Falência';
+  } else if (
+    blobNorm.includes('upi') ||
+    blobNorm.includes('leilao') ||
+    blobNorm.includes('alienacao judicial') ||
+    blobNorm.includes('sale & leaseback') ||
+    blobNorm.includes('venda de ativos')
+  ) {
+    categoria = 'Leilão de UPI';
+  } else if (
+    blobNorm.includes('cautelar') ||
+    blobNorm.includes('20-b') ||
+    blobNorm.includes('tutela de urgencia') ||
+    blobNorm.includes('cejusc')
+  ) {
+    categoria = 'Cautelar 20-B';
+  }
+
+  // Match against DEALS_DATA companies or tickers
+  let matchedDeal = null;
   for (const d of DEALS_DATA) {
-    const shortName = String(d.empresa || '').split('(')[0].replace(/Grupo\s+|Rede\s+|Cooperativa\s+|Indústria\s+/gi, '').trim();
-    if (shortName.length >= 5 && blob.includes(shortName.toLowerCase())) {
-      return d;
-    }
-    if (d.ticker && d.ticker.length >= 4 && blob.includes(d.ticker.toLowerCase())) {
-      return d;
+    const baseName = normalizeTextNoAccents(String(d.empresa || '').split('(')[0].replace(/\b(grupo|s\.a\.|s\/a|ltda|indústria|comércio)\b/gi, '').trim());
+    const tickerNorm = normalizeTextNoAccents(d.ticker || '');
+    if ((baseName.length >= 4 && blobNorm.includes(baseName)) || (tickerNorm.length >= 4 && blobNorm.includes(tickerNorm))) {
+      matchedDeal = d;
+      break;
     }
   }
-  return null;
+
+  const fonteMapped = normalizeNewsSourceLabel(rawSource, blobNorm);
+  const escopo = (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating' || fonteMapped === 'CVM / Fatos Relevantes' || fonteMapped === 'Agentes Fiduciários')
+    ? 'cvm'
+    : (matchedDeal ? 'pipeline' : 'mercado');
+
+  const resumoText = (cleanDesc && cleanDesc.length > 35 && normalizeTextNoAccents(cleanDesc) !== normalizeTextNoAccents(rawTitle))
+    ? cleanDesc.slice(0, 235)
+    : `Monitoramento ao vivo (${rawSource}): atualização sobre ${categoria === 'Waiver / AGD' ? 'negociação de waivers, covenants, AGDs e reestruturação de dívida no mercado de capitais' : (categoria === 'Downgrade Rating' ? 'ação de rating e crédito estruturado' : 'processo concursal e reestruturação de passivos')}.`;
+
+  return {
+    data_hora: formatRssPubDateBR(rawItem.pubDate),
+    titulo: rawTitle || 'Atualização de Mercado Concursal & Crédito Privado',
+    fonte: fonteMapped,
+    fonte_original: rawSource,
+    setor: matchedDeal ? matchedDeal.setor_macro : 'Mercado & Macro (RJ / Crédito)',
+    categoria,
+    escopo,
+    resumo: resumoText,
+    url: rawItem.link || buildNewsItemUrl({ titulo: rawTitle }),
+    deal_id: matchedDeal ? matchedDeal.id : null,
+    empresa_nome: matchedDeal ? matchedDeal.empresa : (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating' ? `Radar Live DCM // ${rawSource}` : `Radar Live RSS // ${rawSource}`)
+  };
 }
 
-function formatRssTimestamp(pubDateRaw) {
-  if (!pubDateRaw) return { display: 'Recente', ts: Date.now() - 3600000 };
-  const parsed = new Date(pubDateRaw);
-  if (isNaN(parsed.getTime())) {
-    return { display: formatDateBR(String(pubDateRaw).slice(0, 10)), ts: Date.now() - 7200000 };
-  }
-  const d = String(parsed.getDate()).padStart(2, '0');
-  const m = String(parsed.getMonth() + 1).padStart(2, '0');
-  const y = parsed.getFullYear();
-  const hh = String(parsed.getHours()).padStart(2, '0');
-  const mm = String(parsed.getMinutes()).padStart(2, '0');
-  return { display: `${d}/${m}/${y} ${hh}:${mm}`, ts: parsed.getTime() };
-}
-
-function parseXmlFeedString(xmlText, sourceMeta) {
-  if (!xmlText || typeof xmlText !== 'string' || (!xmlText.includes('<rss') && !xmlText.includes('<feed') && !xmlText.includes('<item'))) {
+function parseRssXmlString(xmlString) {
+  if (!xmlString || typeof xmlString !== 'string' || !xmlString.includes('<item')) return [];
+  try {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+    const items = Array.from(xmlDoc.querySelectorAll('item'));
+    return items.slice(0, 10).map(node => ({
+      title: node.querySelector('title')?.textContent || '',
+      link: node.querySelector('link')?.textContent || '',
+      pubDate: node.querySelector('pubDate')?.textContent || '',
+      source: node.querySelector('source')?.textContent || '',
+      description: node.querySelector('description')?.textContent || ''
+    })).filter(it => it.title && it.title.trim().length > 10);
+  } catch (e) {
     return [];
   }
-  const doc = new DOMParser().parseFromString(xmlText, 'text/xml');
-  if (doc.querySelector('parsererror')) return [];
-
-  const nodes = Array.from(doc.querySelectorAll('item, entry'));
-  const results = [];
-
-  for (const node of nodes.slice(0, 12)) {
-    const rawTitle = node.querySelector('title')?.textContent || '';
-    let link = node.querySelector('link')?.textContent?.trim() || node.querySelector('link')?.getAttribute('href') || '';
-    const pubDate = node.querySelector('pubDate, published, updated, date')?.textContent || '';
-    const descRaw = node.querySelector('description, summary, content')?.textContent || '';
-    const sourceTag = node.querySelector('source')?.textContent?.trim() || '';
-    const sourceUrlAttr = node.querySelector('source')?.getAttribute('url') || '';
-
-    const cleanTitle = stripHtmlAndDecode(rawTitle).replace(/\s+-\s+[^-]+$/, '').trim();
-    if (!cleanTitle || cleanTitle.length < 12) continue;
-
-    let cleanDesc = stripHtmlAndDecode(descRaw);
-    if (cleanDesc.toLowerCase().startsWith(cleanTitle.toLowerCase().slice(0, 30))) {
-      cleanDesc = cleanDesc.slice(cleanTitle.length).replace(/^[\s\-–—•:]+/, '').trim();
-    }
-
-    if (sourceMeta.filterKeywords && !DISTRESSED_KEYWORDS_REGEX.test(`${cleanTitle} ${cleanDesc}`)) {
-      continue;
-    }
-
-    // Resolve direct publisher link or matched deal link
-    const matchedDeal = matchHeadlineToDeal(cleanTitle, cleanDesc);
-    if ((!link || isSearchRedirectUrl(link)) && matchedDeal && matchedDeal.url_noticia && !isSearchRedirectUrl(matchedDeal.url_noticia)) {
-      link = matchedDeal.url_noticia;
-    } else if ((!link || isSearchRedirectUrl(link)) && sourceUrlAttr && !isSearchRedirectUrl(sourceUrlAttr)) {
-      link = sourceUrlAttr;
-    }
-
-    const dtObj = formatRssTimestamp(pubDate);
-    const cat = classifyRssItemCategory(cleanTitle, cleanDesc);
-    const setor = matchedDeal ? matchedDeal.setor_macro : classifyRssItemSector(cleanTitle, cleanDesc, sourceMeta.defaultSetor);
-    const fonteLabel = sourceTag || sourceMeta.name;
-
-    results.push({
-      titulo: cleanTitle,
-      resumo: (cleanDesc && cleanDesc.length > 25)
-        ? (cleanDesc.length > 235 ? cleanDesc.slice(0, 232) + '...' : cleanDesc)
-        : `Monitoramento automático via RSS (${fonteLabel}) — clique para acessar a cobertura de Special Situations e Distressed Debt.`,
-      url: link || sourceUrlAttr || 'https://neofeed.com.br/negocios/',
-       data_hora: dtObj.display,
-      _ts: dtObj.ts,
-      fonte: fonteLabel,
-      setor,
-      categoria: cat,
-      escopo: matchedDeal ? 'pipeline' : (sourceMeta.defaultEscopo || 'mercado'),
-      deal_id: matchedDeal ? matchedDeal.id : null,
-      empresa_nome: matchedDeal ? matchedDeal.empresa : `Radar Ao Vivo // ${fonteLabel}`,
-      via_proxy: sourceMeta._usedProxy || 'Multi-Proxy RSS'
-    });
-  }
-  return results;
 }
 
-function parseRss2JsonPayload(json, sourceMeta) {
-  if (!json || !Array.isArray(json.items)) return [];
-  const results = [];
-  for (const it of json.items.slice(0, 12)) {
-    const cleanTitle = stripHtmlAndDecode(it.title || '').replace(/\s+-\s+[^-]+$/, '').trim();
-    if (!cleanTitle || cleanTitle.length < 12) continue;
-    const cleanDesc = stripHtmlAndDecode(it.description || it.content || '');
-    if (sourceMeta.filterKeywords && !DISTRESSED_KEYWORDS_REGEX.test(`${cleanTitle} ${cleanDesc}`)) {
-      continue;
-    }
-    const matchedDeal = matchHeadlineToDeal(cleanTitle, cleanDesc);
-    let link = it.link || '';
-    if ((!link || isSearchRedirectUrl(link)) && matchedDeal && matchedDeal.url_noticia) {
-      link = matchedDeal.url_noticia;
-    }
-    const dtObj = formatRssTimestamp(it.pubDate);
-    const cat = classifyRssItemCategory(cleanTitle, cleanDesc);
-    const setor = matchedDeal ? matchedDeal.setor_macro : classifyRssItemSector(cleanTitle, cleanDesc, sourceMeta.defaultSetor);
-    results.push({
-      titulo: cleanTitle,
-      resumo: (cleanDesc && cleanDesc.length > 25)
-        ? (cleanDesc.length > 235 ? cleanDesc.slice(0, 232) + '...' : cleanDesc)
-        : `Matéria capturada em tempo real via ${sourceMeta.name} — monitoramento automático de Distressed Debt.`,
-      url: link,
-      data_hora: dtObj.display,
-      _ts: dtObj.ts,
-      fonte: sourceMeta.name,
-      setor,
-      categoria: cat,
-      escopo: matchedDeal ? 'pipeline' : (sourceMeta.defaultEscopo || 'mercado'),
-      deal_id: matchedDeal ? matchedDeal.id : null,
-      empresa_nome: matchedDeal ? matchedDeal.empresa : `Radar Ao Vivo // ${sourceMeta.name}`,
-      via_proxy: sourceMeta._usedProxy || 'RSS2JSON Proxy'
-    });
-  }
-  return results;
-}
+async function fetchSingleRssStream(rssUrl, defaultCategory, forceFresh = false) {
+  const targetUrl = forceFresh
+    ? `${rssUrl}${rssUrl.includes('?') ? '&' : '?'}_cb=${Date.now()}`
+    : rssUrl;
 
-async function fetchWithTimeout(url, timeoutMs = 5500) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const response = await fetch(url, { signal: controller.signal, cache: 'no-store' });
-    clearTimeout(timer);
-    return response;
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
-}
-
-async function fetchSingleFeedWithProxyFailover(source, preferredProxyIdx = 0) {
-  const totalProxies = RSS_PROXY_POOL.length;
-  for (let attempt = 0; attempt < totalProxies; attempt++) {
-    const proxy = RSS_PROXY_POOL[(preferredProxyIdx + attempt) % totalProxies];
-    if (source.isGoogleNewsRss && proxy.type === 'rss2json') continue;
+  // 1. Try Google Apps Script Backend RSS Proxy first
+  if (typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL.startsWith('http')) {
     try {
-      const targetUrl = proxy.buildUrl(source.url);
-      const res = await fetchWithTimeout(targetUrl, 5200);
-      if (!res.ok) continue;
-
-      const metaWithProxy = { ...source, _usedProxy: proxy.name };
-      if (proxy.type === 'rss2json') {
-        const json = await res.json();
-        const items = parseRss2JsonPayload(json, metaWithProxy);
-        if (items.length > 0) return { items, proxyUsed: proxy.name };
-      } else if (proxy.type === 'allorigins_json') {
-        const json = await res.json();
-        const xmlText = json && json.contents ? String(json.contents) : '';
-        const items = parseXmlFeedString(xmlText, metaWithProxy);
-        if (items.length > 0) return { items, proxyUsed: proxy.name };
-      } else {
-        const xmlText = await res.text();
-        const items = parseXmlFeedString(xmlText, metaWithProxy);
-        if (items.length > 0) return { items, proxyUsed: proxy.name };
-      }
-    } catch (e) {
-      // Failover to next proxy in pool
-    }
-  }
-  return { items: [], proxyUsed: null };
-}
-
-async function fetchLiveDistressedNews(forceToast = false) {
-  if (rssIsFetchingNow) return;
-  rssIsFetchingNow = true;
-  const t0 = performance.now();
-
-  // Load cached RSS items immediately on boot so feed is never static while network resolves
-  if (liveRssNewsItems.length === 0) {
-    try {
-      const cached = localStorage.getItem('valknut_live_rss_cache_v4');
-      if (cached) {
-        const parsedCache = JSON.parse(cached);
-        if (Array.isArray(parsedCache.items) && parsedCache.items.length > 0) {
-          liveRssNewsItems = parsedCache.items;
+      const gasUrl = `${APPS_SCRIPT_URL}?action=rss&url=${encodeURIComponent(targetUrl)}${forceFresh ? '&nocache=1' : ''}`;
+      const res = await fetch(gasUrl);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.contents) {
+          const parsed = parseRssXmlString(data.contents);
+          if (parsed.length > 0) return parsed.map(it => classifyRssNewsItem(it, defaultCategory));
         }
       }
     } catch (e) {}
   }
 
+  // 2. Try AllOrigins JSON wrapper
   try {
-    // Query feeds in parallel distributing load across proxy pool (round-robin start index)
-    const feedPromises = RSS_FEED_SOURCES.map((src, idx) =>
-      fetchSingleFeedWithProxyFailover(src, idx % RSS_PROXY_POOL.length)
-    );
+    const aoUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+    const res = await fetch(aoUrl);
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.contents) {
+        const parsed = parseRssXmlString(data.contents);
+        if (parsed.length > 0) return parsed.map(it => classifyRssNewsItem(it, defaultCategory));
+      }
+    }
+  } catch (e) {}
 
-    const settled = await Promise.allSettled(feedPromises);
-    const collected = [];
-    const proxiesSucceeded = new Set();
-    let feedsOk = 0;
+  // 3. Try CodeTabs XML proxy
+  try {
+    const ctUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(rssUrl)}`;
+    const res = await fetch(ctUrl);
+    if (res.ok) {
+      const xmlText = await res.text();
+      const parsed = parseRssXmlString(xmlText);
+      if (parsed.length > 0) return parsed.map(it => classifyRssNewsItem(it, defaultCategory));
+    }
+  } catch (e) {}
+
+  // 4. Try CorsProxy.io raw XML proxy
+  try {
+    const cpUrl = `https://corsproxy.io/?url=${encodeURIComponent(targetUrl)}`;
+    const res = await fetch(cpUrl);
+    if (res.ok) {
+      const xmlText = await res.text();
+      const parsed = parseRssXmlString(xmlText);
+      if (parsed.length > 0) return parsed.map(it => classifyRssNewsItem(it, defaultCategory));
+    }
+  } catch (e) {}
+
+  // 5. Try rss2json fallback
+  try {
+    const r2jUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+    const res = await fetch(r2jUrl);
+    if (res.ok) {
+      const data = await res.json();
+      if (data && Array.isArray(data.items) && data.items.length > 0) {
+        return data.items.slice(0, 8).map(it => classifyRssNewsItem(it, defaultCategory));
+      }
+    }
+  } catch (e) {}
+
+  return [];
+}
+
+async function fetchLiveDistressedNews(forceToast = false) {
+  const btn = document.getElementById('btnRefreshRss');
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = '⏳ Atualizando Feeds & Waivers...';
+  }
+  if (forceToast) {
+    newsFeedSyncStatus = 'Sincronizando Feeds Ao Vivo (Waivers, AGDs, CVM & RJ)...';
+    if (currentMainSection === 'noticias') renderSectionContent();
+  }
+
+  // 4 specialized RSS streams covering Waivers/AGDs, DCM/PRE/Fiduciários, Rating Downgrades, and RJ/Falências
+  const rssStreams = [
+    {
+      url: 'https://news.google.com/rss/search?q=waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+deb%C3%AAntures+reestrutura%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+      defaultCategory: 'Waiver / AGD'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22vencimento+antecipado%22+OR+V%C3%B3rtx+OR+Pent%C3%A1gono+OR+%22Oliveira+Trust%22+deb%C3%AAntures&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+      defaultCategory: 'Waiver / AGD'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=rebaixamento+OR+rating+Fitch+OR+Moody%27s+deb%C3%AAntures+OR+CRA+OR+d%C3%ADvida&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+      defaultCategory: 'Downgrade Rating'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22+d%C3%ADvida+milh%C3%B5es&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+      defaultCategory: 'Pedido de RJ'
+    }
+  ];
+
+  try {
+    lastNewsAutoSyncTs = Date.now();
+    // 0. Fetch live-news.json generated by GitHub Actions cron (if present in repo)
+    const repoJsonTask = fetch(`live-news.json?_cb=${Date.now()}`)
+      .then(r => (r.ok ? r.json() : []))
+      .then(arr => (Array.isArray(arr) ? arr.map(it => (it.categoria ? it : classifyRssNewsItem(it, 'Waiver / AGD'))) : []))
+      .catch(() => []);
+
+    const tasks = [
+      repoJsonTask,
+      ...rssStreams.map(st => fetchSingleRssStream(st.url, st.defaultCategory, forceToast))
+    ];
+    if (forceToast && typeof fetchLiveSheetInBackground === 'function') {
+      tasks.push(fetchLiveSheetInBackground(false).then(() => []));
+    }
+
+    const settled = await Promise.allSettled(tasks);
+    const mergedRss = [];
+    const seenTitles = new Set();
 
     settled.forEach(res => {
-      if (res.status === 'fulfilled' && res.value && res.value.items.length > 0) {
-        feedsOk += 1;
-        if (res.value.proxyUsed) proxiesSucceeded.add(res.value.proxyUsed);
-        collected.push(...res.value.items);
+      if (res.status === 'fulfilled' && Array.isArray(res.value)) {
+        res.value.forEach(item => {
+          const normKey = normalizeTextNoAccents(item.titulo).slice(0, 65);
+          if (normKey && !seenTitles.has(normKey)) {
+            seenTitles.add(normKey);
+            mergedRss.push(item);
+          }
+        });
       }
     });
 
-    if (collected.length > 0) {
-      // Deduplicate by normalized title prefix
-      const seenTitles = new Set();
-      const uniqueItems = [];
-      collected
-        .sort((a, b) => (b._ts || 0) - (a._ts || 0))
-        .forEach((item) => {
-          const normKey = item.titulo.toLowerCase().replace(/[^a-z0-9à-ú]/g, '').slice(0, 42);
-          if (!seenTitles.has(normKey)) {
-            seenTitles.add(normKey);
-            uniqueItems.push({
-              ...item,
-              id: 800 + uniqueItems.length
-            });
-          }
-        });
-
-      liveRssNewsItems = uniqueItems.slice(0, 30);
-
-      try {
-        localStorage.setItem('valknut_live_rss_cache_v4', JSON.stringify({
-          ts: Date.now(),
-          items: liveRssNewsItems
-        }));
-      } catch (e) {}
-
-      const now = new Date();
-      const hh = String(now.getHours()).padStart(2, '0');
-      const mm = String(now.getMinutes()).padStart(2, '0');
-      const ss = String(now.getSeconds()).padStart(2, '0');
-
-      rssProxyTelemetry = {
-        activeProxy: Array.from(proxiesSucceeded).slice(0, 2).join(' + ') || 'Multi-Proxy Pool',
-        healthyProxies: Math.max(1, proxiesSucceeded.size),
-        feedsLoaded: feedsOk,
-        totalFeeds: RSS_FEED_SOURCES.length,
-        lastSyncStr: `${hh}:${mm}:${ss}`,
-        latencyMs: Math.round(performance.now() - t0)
-      };
-
-      newsFeedSyncStatus = `Multi-Proxy Ativo (${feedsOk}/${RSS_FEED_SOURCES.length} feeds via ${rssProxyTelemetry.activeProxy} • ${liveRssNewsItems.length} matérias ao vivo • ${rssProxyTelemetry.lastSyncStr})`;
-      if (forceToast) {
-        showToast(`RSS Sincronizado: ${liveRssNewsItems.length} notícias de ${feedsOk} fontes (${rssProxyTelemetry.activeProxy})!`);
-      }
-    } else {
-      newsFeedSyncStatus = `Pool Multi-Proxy em Fallback Resiliente (${NEWS_FEED_DATA.length + CURATED_MACRO_NEWS.length + liveRssNewsItems.length} matérias verificadas)`;
-      if (forceToast) {
-        showToast('Operando com cache verificado e base curada de notícias.');
-      }
+    if (mergedRss.length > 0) {
+      liveRssNewsItems = mergedRss.slice(0, 24).map((it, idx) => ({
+        ...it,
+        id: 800 + idx
+      }));
+      saveCachedLiveNewsToStorage(liveRssNewsItems);
     }
-  } catch (err) {
-    newsFeedSyncStatus = `Pool Multi-Proxy em Fallback (${NEWS_FEED_DATA.length + CURATED_MACRO_NEWS.length} matérias ativas)`;
-  } finally {
-    rssIsFetchingNow = false;
-    rssNextSyncTimestamp = Date.now() + rssPollingIntervalMs;
-    updateDynamicNavCounts();
-    const navNews = document.getElementById('nav-count-noticias');
-    if (navNews) navNews.textContent = getAllCombinedNews().length;
-    if (currentMainSection === 'noticias') renderSectionContent();
+  } catch (e) {
+    // Keeps existing liveRssNewsItems or falls back cleanly
   }
-}
 
-function startRssAutoPolling() {
-  if (rssPollingTimerId) clearInterval(rssPollingTimerId);
-  if (rssCountdownTimerId) clearInterval(rssCountdownTimerId);
+  const now = new Date();
+  const syncStamp = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const allCombined = getAllCombinedNews();
+  const dcmCount = allCombined.filter(n => n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating').length;
 
-  if (rssIsPollingEnabled && rssPollingIntervalMs > 0) {
-    rssNextSyncTimestamp = Date.now() + rssPollingIntervalMs;
-    rssPollingTimerId = setInterval(() => {
-      if (!document.hidden && rssIsPollingEnabled) {
-        fetchLiveDistressedNews(false);
-      }
-    }, rssPollingIntervalMs);
-
-    rssCountdownTimerId = setInterval(() => {
-      const badgeEl = document.getElementById('rssNextPollCountdown');
-      if (!badgeEl) return;
-      if (!rssIsPollingEnabled) {
-        badgeEl.textContent = 'Pausado';
-        return;
-      }
-      const remSec = Math.max(0, Math.ceil((rssNextSyncTimestamp - Date.now()) / 1000));
-      const m = Math.floor(remSec / 60);
-      const s = String(remSec % 60).padStart(2, '0');
-      badgeEl.textContent = `${m}:${s}`;
-    }, 1000);
-  }
-}
-
-function handleRssPollingIntervalChange(valMs) {
-  const num = Number(valMs);
-  if (num === 0) {
-    rssIsPollingEnabled = false;
-    startRssAutoPolling();
-    showToast('Polling automático de RSS pausado.');
+  if (liveRssNewsItems.length > 0) {
+    newsFeedSyncStatus = `Sincronizado (${syncStamp}) • ${allCombined.length} matérias (${dcmCount} de Waivers/AGDs/Ratings)`;
+    if (forceToast) showToast(`Feed atualizado (${syncStamp}): ${allCombined.length} notícias (${dcmCount} eventos de Waivers/AGDs & Ratings)!`);
   } else {
-    rssIsPollingEnabled = true;
-    rssPollingIntervalMs = num;
-    startRssAutoPolling();
-    showToast(`Polling automático ajustado para cada ${Math.round(num / 60000)} min!`);
+    newsFeedSyncStatus = `Feed Ativo (${syncStamp}) • ${allCombined.length} fatos (${dcmCount} de Waivers/AGDs/Ratings)`;
+    if (forceToast) showToast(`Radar sincronizado (${syncStamp}): ${dcmCount} eventos de Waivers, AGDs e Ratings monitorados!`);
   }
-  if (currentMainSection === 'noticias') renderSectionContent();
+
+  const navNews = document.getElementById('nav-count-noticias');
+  if (navNews) navNews.textContent = allCombined.length;
+
+  if (currentMainSection === 'noticias') {
+    renderSubTabs();
+    renderSectionContent();
+  }
 }
 
-document.addEventListener('visibilitychange', () => {
-  if (!document.hidden && rssIsPollingEnabled && Date.now() >= rssNextSyncTimestamp) {
-    fetchLiveDistressedNews(false);
-  }
-});
+function buildDynamicPipelineNews() {
+  const coveredDealIds = new Set(NEWS_FEED_DATA.map(n => n.deal_id).filter(Boolean));
+  CURATED_MACRO_NEWS.forEach(n => { if (n.deal_id) coveredDealIds.add(n.deal_id); });
 
-// Inicia o motor de polling automático em background
-setTimeout(() => startRssAutoPolling(), 800);
+  const dynamicItems = [];
+  const dcmStrictRegex = /\b(waivers?|covenants?|agds?|deb[eê]ntures?|debenturistas?|cras?|cris?|fidcs?|notas?\s+comerciais|v[oó]rtx|pent[aá]gono|oliveira\s+trust|opea|virgo|vert\s+securitizadora|standstill|bonds?|bondholders?)\b/i;
+  const ratingStrictRegex = /\b(fitch|moody|s&p|rebaixamento|downgrade|rd\(bra\)|ccc\(bra\)|observa[cç][aã]o\s+negativa)\b/i;
+
+  DEALS_DATA.forEach(d => {
+    if (coveredDealIds.has(d.id)) return;
+    // Skip generic anonymized Tier 0 placeholders if we already have real named companies
+    if (/^(Rede Varejista|Metalúrgica Autopeças|Grupo Agroindustrial do Cerrado)/i.test(d.empresa || '')) return;
+
+    const textBlob = `${d.fase || ''} ${d.tese || ''} ${d.credores || ''} ${d.perfil_passivo || ''}`;
+    const hasDcmSignal = dcmStrictRegex.test(textBlob) || d.tipo_processo === 'PRE';
+    const hasRatingSignal = ratingStrictRegex.test(textBlob);
+    const isRecentDeal = String(d.data_adicao || '') >= '2026-10-18' || String(d.data_evento || '') >= '2026-10-18';
+    const isOctDcm = (hasDcmSignal || hasRatingSignal) && String(d.data_evento || '') >= '2026-10-01';
+
+    if (!isRecentDeal && !isOctDcm && d.id <= 98) return;
+
+    const parsed = parseThesisRegex(d.tese);
+    let categoria = 'Pedido de RJ';
+    if (hasRatingSignal) {
+      categoria = 'Downgrade Rating';
+    } else if (d.subtipo_processo === 'Falência / Liquidação' || /\b(fal[eê]ncia|convola[cç][aã]o|quebra)\b/i.test(d.fase || '')) {
+      categoria = 'Falência';
+    } else if (d.tipo_processo === 'PRE' || /\b(waivers?|agds?|deb[eê]ntures?|debenturistas?|cras?|cris?|covenants?)\b/i.test(`${d.fase || ''} ${d.processo || ''} ${d.perfil_passivo || ''}`)) {
+      categoria = 'Waiver / AGD';
+    } else if (d.tipo_processo === 'Cautelar / Pré-RJ') {
+      categoria = 'Cautelar 20-B';
+    } else if (isUpiEligible(d) && /\b(leil[aã]o|edital\s+de\s+aliena[cç][aã]o)\b/i.test(textBlob)) {
+      categoria = 'Leilão de UPI';
+    }
+
+    const rawDate = (d.data_evento && d.data_evento >= '2026-10-01') ? d.data_evento : (d.data_adicao || d.data_evento || '2026-10-22');
+    const dtStr = formatDateBR(rawDate);
+    const fonte = (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating')
+      ? ((d.agentes_fiduciarios && !d.agentes_fiduciarios.includes('N/A')) || (d.securitizadoras && !d.securitizadoras.includes('N/A') && !d.securitizadoras.includes('Sem securitizadora')) ? 'Agentes Fiduciários' : 'CVM / Fatos Relevantes')
+      : 'Jota / Tribunais';
+
+    const cleanGargalo = String(parsed.gargalo || d.fase || '')
+      .replace(/^gargalo\s+imediato(?:\s+de\s+liquidez)?\s*:\s*/i, '')
+      .trim();
+
+    dynamicItems.push({
+      id: 500 + Number(d.id || 0),
+      data_hora: `${dtStr} 10:30`,
+      titulo: `${d.empresa} — ${cleanGargalo.slice(0, 145)}${cleanGargalo.length > 145 ? '...' : ''} (R$ ${formatNumberBR(d.passivo_mm)} MM)`,
+      fonte,
+      setor: d.setor_macro || 'Indústria & Manufatura',
+      categoria,
+      escopo: (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating') ? 'cvm' : 'pipeline',
+      resumo: `${parsed.causa ? parsed.causa + '. ' : ''}Credores mapeados: ${d.credores || 'Em apuração'}.`,
+      url: d.url_noticia || buildNewsItemUrl({ empresa_nome: d.empresa, categoria }),
+      deal_id: d.id,
+      empresa_nome: d.empresa
+    });
+  });
+
+  return dynamicItems;
+}
 
 function getAllCombinedNews() {
   const pipelineMapped = NEWS_FEED_DATA.map(n => ({
     ...n,
     escopo: (n.fonte === 'CVM / Fatos Relevantes' || n.fonte === 'Agentes Fiduciários' || n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating') ? 'cvm' : 'pipeline',
-    url: buildNewsItemUrl(n),
-    via_proxy: 'Base Canônica / Pipeline'
+    url: buildNewsItemUrl(n)
   }));
-  const macroMapped = CURATED_MACRO_NEWS.map(n => ({
-    ...n,
-    via_proxy: 'Radar Institucional'
-  }));
-  return [...liveRssNewsItems, ...macroMapped, ...pipelineMapped];
+  const dynamicFromDeals = buildDynamicPipelineNews();
+
+  const rawAll = [...liveRssNewsItems, ...CURATED_MACRO_NEWS, ...pipelineMapped, ...dynamicFromDeals];
+  const deduped = [];
+  const seen = new Set();
+
+  rawAll.forEach(item => {
+    const key = normalizeTextNoAccents(item.titulo).slice(0, 65);
+    if (!seen.has(key)) {
+      seen.add(key);
+      deduped.push(item);
+    }
+  });
+
+  return deduped.sort((a, b) => parseNewsTimestamp(b.data_hora) - parseNewsTimestamp(a.data_hora));
 }
 
 function renderNoticiasSection(container) {
   const allNews = getAllCombinedNews();
-  const defaultSources = ['Valor Econômico', 'Pipeline', 'Brazil Journal', 'NeoFeed', 'Seu Dinheiro / Estadão', 'InfoMoney', 'AgFeed', 'The AgriBiz', 'CVM / Fatos Relevantes', 'Agentes Fiduciários', 'Jota / Tribunais'];
-  const dynamicSources = [...new Set([...defaultSources, ...allNews.map(n => n.fonte).filter(Boolean)])];
+  const sources = ['Valor Econômico', 'Pipeline', 'Brazil Journal', 'CVM / Fatos Relevantes', 'Agentes Fiduciários', 'Jota / Tribunais'];
   const categorias = ['Pedido de RJ', 'Cautelar 20-B', 'Waiver / AGD', 'Downgrade Rating', 'Leilão de UPI', 'Falência'];
   const setores = [...new Set(allNews.map(n => n.setor))].sort();
+
+  const navNews = document.getElementById('nav-count-noticias');
+  if (navNews) navNews.textContent = allNews.length;
 
   const filteredNews = allNews.filter(n => {
     if (currentSubTab === 'news_rj' && n.categoria !== 'Pedido de RJ' && n.categoria !== 'Cautelar 20-B') return false;
@@ -10463,49 +11226,36 @@ function renderNoticiasSection(container) {
     if (newsSetorFilter !== '' && n.setor !== newsSetorFilter) return false;
     if (newsCategoriaFilter !== '' && n.categoria !== newsCategoriaFilter) return false;
     if (newsSearchQuery !== '') {
-      const blob = `${n.titulo} ${n.resumo} ${n.empresa_nome} ${n.fonte} ${n.setor} ${n.categoria}`.toLowerCase();
-      if (!blob.includes(newsSearchQuery)) return false;
+      const blob = normalizeTextNoAccents(`${n.titulo} ${n.resumo} ${n.empresa_nome} ${n.fonte} ${n.setor} ${n.categoria}`);
+      if (!blob.includes(normalizeTextNoAccents(newsSearchQuery))) return false;
     }
     return true;
   });
 
-  const remSec = rssIsPollingEnabled ? Math.max(0, Math.ceil((rssNextSyncTimestamp - Date.now()) / 1000)) : 0;
-  const countdownInit = rssIsPollingEnabled ? `${Math.floor(remSec / 60)}:${String(remSec % 60).padStart(2, '0')}` : 'Pausado';
+  const countMercado = allNews.filter(n => n.escopo === 'mercado').length;
+  const countPipeline = allNews.filter(n => Boolean(n.deal_id)).length;
+  const countCvm = allNews.filter(n => n.escopo === 'cvm').length;
 
   let html = `
     <div class="news-filter-bar">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid var(--border-light);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-light);">
         <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
           <span class="phase-label">Escopo do Feed:</span>
-          <button class="phase-chip ${newsScopeFilter === 'all' ? 'active' : ''}" onclick="handleNewsScopeFilter('all')">Todas (${allNews.length})</button>
-          <button class="phase-chip ${newsScopeFilter === 'mercado' ? 'active' : ''}" onclick="handleNewsScopeFilter('mercado')">Mercado &amp; RSS Ao Vivo (${allNews.filter(x => x.escopo === 'mercado').length})</button>
-          <button class="phase-chip ${newsScopeFilter === 'pipeline' ? 'active' : ''}" onclick="handleNewsScopeFilter('pipeline')">Empresas do Pipeline (${allNews.filter(x => Boolean(x.deal_id)).length})</button>
-          <button class="phase-chip ${newsScopeFilter === 'cvm' ? 'active' : ''}" onclick="handleNewsScopeFilter('cvm')">CVM &amp; Fatos Relevantes (${allNews.filter(x => x.escopo === 'cvm').length})</button>
+          <button class="phase-chip ${newsScopeFilter === 'all' ? 'active' : ''}" onclick="handleNewsScopeFilter('all')">Todas as Notícias (${allNews.length})</button>
+          <button class="phase-chip ${newsScopeFilter === 'mercado' ? 'active' : ''}" onclick="handleNewsScopeFilter('mercado')">Mercado &amp; Macro (${countMercado})</button>
+          <button class="phase-chip ${newsScopeFilter === 'pipeline' ? 'active' : ''}" onclick="handleNewsScopeFilter('pipeline')">Empresas do Pipeline (${countPipeline})</button>
+          <button class="phase-chip ${newsScopeFilter === 'cvm' ? 'active' : ''}" onclick="handleNewsScopeFilter('cvm')">CVM, Waivers &amp; Fatos Relevantes (${countCvm})</button>
         </div>
-
-        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-          <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--vk-teal); font-weight:700;" title="Pool Multi-Proxy: AllOrigins Raw/JSON, CodeTabs, CorsProxy.io, RSS2JSON &amp; GAS">
-            ● ${escapeHtml(newsFeedSyncStatus)}
-          </span>
-          <div style="display:inline-flex; align-items:center; gap:5px; background:var(--bg-card); border:1px solid var(--border-medium); padding:2px 8px; border-radius:4px; font-family:var(--font-mono); font-size:10px; color:var(--vk-header-start);">
-            <span>⏱ Próx. Poll: <strong id="rssNextPollCountdown">${countdownInit}</strong></span>
-            <select style="border:none; background:transparent; font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--vk-teal); cursor:pointer; outline:none;" onchange="handleRssPollingIntervalChange(this.value)" aria-label="Intervalo de Polling RSS">
-              <option value="120000" ${rssIsPollingEnabled && rssPollingIntervalMs === 120000 ? 'selected' : ''}>2 min</option>
-              <option value="300000" ${rssIsPollingEnabled && rssPollingIntervalMs === 300000 ? 'selected' : ''}>5 min</option>
-              <option value="900000" ${rssIsPollingEnabled && rssPollingIntervalMs === 900000 ? 'selected' : ''}>15 min</option>
-              <option value="0" ${!rssIsPollingEnabled ? 'selected' : ''}>Pausar</option>
-            </select>
-          </div>
-          <button type="button" class="btn-action" style="padding:4px 10px; font-size:10.5px;" onclick="fetchLiveDistressedNews(true)">
-            ↻ Forçar Poll Multi-Proxy
-          </button>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--vk-teal); font-weight:700;">● ${escapeHtml(newsFeedSyncStatus)}</span>
+          <button type="button" id="btnRefreshRss" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="fetchLiveDistressedNews(true)">↻ Atualizar RSS</button>
         </div>
       </div>
 
       <div class="filter-row-top">
         <div class="search-field-wrap">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="text" value="${escapeHtml(newsSearchQuery)}" placeholder="Buscar por palavra-chave, empresa, fundo, debênture ou tribunal..." oninput="handleNewsSearch(this.value)">
+          <input type="text" value="${escapeHtml(newsSearchQuery)}" placeholder="Buscar por palavra-chave, waiver, covenant, empresa, fundo, debênture ou tribunal..." oninput="handleNewsSearch(this.value)">
         </div>
         <div class="filter-select-group">
           <select class="clean-select" onchange="handleNewsSetorFilter(this.value)">
@@ -10521,7 +11271,7 @@ function renderNoticiasSection(container) {
       <div class="news-source-pills">
         <span class="phase-label">Fonte:</span>
         <button class="phase-chip ${newsSourceFilter === '' ? 'active' : ''}" onclick="handleNewsSourceFilter('')">Todas as Fontes</button>
-        ${dynamicSources.map(src => `
+        ${sources.map(src => `
           <button class="phase-chip ${newsSourceFilter === src ? 'active' : ''}" onclick="handleNewsSourceFilter('${escapeHtml(src)}')">${escapeHtml(src)}</button>
         `).join('')}
       </div>
@@ -10544,9 +11294,6 @@ function renderNoticiasSection(container) {
     else if (item.categoria === 'Falência') catClass = 'badge-falencia';
 
     const targetUrl = buildNewsItemUrl(item);
-    const proxyBadge = item.via_proxy && item.via_proxy !== 'Base Canônica / Pipeline'
-      ? `<span style="font-family:var(--font-mono); font-size:9px; color:var(--vk-teal); background:var(--vk-tint-cool); padding:1px 6px; border-radius:3px;">⚡ ${escapeHtml(item.via_proxy)}</span>`
-      : '';
 
     html += `
       <article class="news-card">
@@ -10555,7 +11302,6 @@ function renderNoticiasSection(container) {
             <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
               <span class="news-source-tag">${escapeHtml(item.fonte)}</span>
               <span class="status-badge ${catClass}" style="margin-left:0;">${escapeHtml(item.categoria)}</span>
-              ${proxyBadge}
             </div>
             <span class="news-timestamp">🕒 ${escapeHtml(item.data_hora)}</span>
           </div>
