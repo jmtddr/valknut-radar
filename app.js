@@ -12277,6 +12277,7 @@ let currentSetor = '';
 let currentPorte = '';
 let currentSort = 'movimento_desc';
 let searchTerm = '';
+let searchDebounceTimer = null;
 let viewMode = 'table';
 
 // Dynamic Passivo Floor & Ceiling (R$ MM)
@@ -14623,7 +14624,12 @@ function parseNewsTimestamp(dataHoraStr) {
 }
 
 function formatRssPubDateBR(pubDateRaw) {
-  const dt = pubDateRaw ? new Date(pubDateRaw) : new Date();
+  let rawStr = pubDateRaw ? String(pubDateRaw).trim() : '';
+  // rss2json returns UTC timestamps as "YYYY-MM-DD HH:MM:SS" without "Z", which JS would otherwise parse as local time
+  if (/^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(:\d{2})?$/.test(rawStr)) {
+    rawStr = rawStr.replace(' ', 'T') + 'Z';
+  }
+  const dt = rawStr ? new Date(rawStr) : new Date();
   if (!isNaN(dt.getTime())) {
     try {
       const parts = new Intl.DateTimeFormat('pt-BR', {
@@ -14638,14 +14644,17 @@ function formatRssPubDateBR(pubDateRaw) {
       const map = {};
       parts.forEach(p => { map[p.type] = p.value; });
       if (map.day && map.month && map.year) {
-        return `${map.day}/${map.month}/${map.year} ${map.hour || '10'}:${map.minute || '00'}`;
+        const hh = map.hour === '24' ? '00' : (map.hour || '10');
+        return `${map.day}/${map.month}/${map.year} ${hh}:${map.minute || '00'}`;
       }
     } catch (e) {}
-    const d = String(dt.getDate()).padStart(2, '0');
-    const m = String(dt.getMonth() + 1).padStart(2, '0');
-    const y = dt.getFullYear();
-    const hh = String(dt.getHours()).padStart(2, '0');
-    const mm = String(dt.getMinutes()).padStart(2, '0');
+    // Fallback determinístico em UTC-3 (America/Sao_Paulo)
+    const brt = new Date(dt.getTime() - 3 * 3600 * 1000);
+    const d = String(brt.getUTCDate()).padStart(2, '0');
+    const m = String(brt.getUTCMonth() + 1).padStart(2, '0');
+    const y = brt.getUTCFullYear();
+    const hh = String(brt.getUTCHours()).padStart(2, '0');
+    const mm = String(brt.getUTCMinutes()).padStart(2, '0');
     return `${d}/${m}/${y} ${hh}:${mm}`;
   }
   return formatDateBR(String(pubDateRaw).slice(0, 10));
@@ -14850,18 +14859,7 @@ async function fetchSingleRssStream(rssUrl, defaultCategory, forceFresh = false)
     }
   } catch (e) {}
 
-  // 4. CorsProxy.io raw XML proxy
-  try {
-    const cpUrl = `https://corsproxy.io/?url=${encodeURIComponent(targetUrl)}`;
-    const res = await fetchWithTimeout(cpUrl, 5000);
-    if (res.ok) {
-      const xmlText = await res.text();
-      const valid = filterValidRecentRssItems(parseRssXmlString(xmlText), defaultCategory);
-      if (valid.length > 0) return valid;
-    }
-  } catch (e) {}
-
-  // 5. rss2json fallback
+  // 4. rss2json fallback
   try {
     const r2jUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
     const res = await fetchWithTimeout(r2jUrl, 5000);
@@ -17904,10 +17902,7 @@ function parseSheetNoticiasRows(rows) {
 
     let dtStr = String(r[0] || '').trim();
     if (dtStr.includes('T') || /^\d{4}-\d{2}-\d{2}/.test(dtStr)) {
-      const dt = new Date(dtStr);
-      if (!isNaN(dt.getTime())) {
-        dtStr = `${String(dt.getDate()).padStart(2, '0')}/${String(dt.getMonth() + 1).padStart(2, '0')}/${dt.getFullYear()} ${String(dt.getHours()).padStart(2, '0')}:${String(dt.getMinutes()).padStart(2, '0')}`;
-      }
+      dtStr = formatRssPubDateBR(dtStr);
     } else if (/^\d{2}\/\d{2}\/\d{4}$/.test(dtStr)) {
       dtStr = `${dtStr} 10:00`;
     }
