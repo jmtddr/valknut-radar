@@ -11568,7 +11568,7 @@ function getDynamicCaseCount() {
   if (typeof DEALS_DATA !== 'undefined' && Array.isArray(DEALS_DATA) && DEALS_DATA.length > 0) {
     return DEALS_DATA.length;
   }
-  return 87;
+  return 130;
 }
 
 function resolveDynamicCaseText(str) {
@@ -11587,6 +11587,9 @@ function resolveDynamicCaseText(str) {
 }
 
 function updateDynamicNavCounts() {
+  VALKNUT_DATA = DEALS_DATA;
+  if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+
   const count = getDynamicCaseCount();
   const operacaoPill = document.getElementById('nav-count-operacao');
   if (operacaoPill) operacaoPill.textContent = count;
@@ -11603,6 +11606,10 @@ function updateDynamicNavCounts() {
   const livePill = document.getElementById('lastUpdateTime');
   if (livePill) {
     livePill.textContent = 'Online: ' + count + ' leads';
+  }
+
+  if (typeof syncNewsCounters === 'function') {
+    syncNewsCounters();
   }
 }
 
@@ -11866,16 +11873,18 @@ let newsCategoriaFilter = '';
 let newsSearchQuery = '';
 let newsScopeFilter = 'all'; // 'all' | 'mercado' | 'pipeline' | 'cvm'
 let liveRssNewsItems = [];
-let newsFeedSyncStatus = 'Sincronizando RSS Distressed Debt...';
+let dynamicExternalNews = [];
+let hasLoadedDynamicExternalNews = false;
+let newsFeedSyncStatus = 'Sincronizando Planilha & RSS Distressed Debt...';
 
 // Energy Live Telemetry State
 let energyTelemetryStatus = 'Fallback Operacional (Cache ONS/CCEE)';
 let energyLastSyncTime = '19/10/2026 12:00';
 let energyLiveOverrides = {};
 
-// Energy SIN Panel State
+// Energy SIN Panel State (Inicializado na data corrente)
 let selectedSinSubmarket = 'SIN';
-let selectedSinDate = '2026-10-16';
+let selectedSinDate = new Date().toISOString().slice(0, 10);
 
 // v4.0 Module States — Calculadora de Honorários (Success Fee & Retainer)
 let selectedModelDealId = 1;
@@ -11905,7 +11914,7 @@ let agcVotes = {
 };
 
 // Calendar State
-let calSelectedMonth = '2026-11';
+let calSelectedMonth = new Date().toISOString().slice(0, 7);
 let calFilterUrgency = '';
 let calFilterMarcoType = '';
 
@@ -11913,7 +11922,6 @@ let calFilterMarcoType = '';
 let selectedCompIds = [1, 17, 52, 55];
 
 let lastNewsAutoSyncTs = 0;
-
 let sheetLiveNewsItems = [
   {
     "id": 995,
@@ -12112,6 +12120,15 @@ function isRecentNewsDate(dataHoraStr, maxAgeDays = 75) {
 function loadCachedLiveNewsFromStorage() {
   try {
     localStorage.removeItem('vk_live_rss_cache_v4');
+    const rawDealsSnap = localStorage.getItem('vk_deals_snapshot_v2');
+    if (rawDealsSnap) {
+      const parsedDeals = JSON.parse(rawDealsSnap);
+      if (Array.isArray(parsedDeals) && parsedDeals.length >= DEALS_DATA.length) {
+        DEALS_DATA = parsedDeals;
+        VALKNUT_DATA = DEALS_DATA;
+        if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+      }
+    }
     const raw = localStorage.getItem('vk_live_rss_cache_v5');
     if (raw) {
       const parsed = JSON.parse(raw);
@@ -12131,6 +12148,46 @@ function saveCachedLiveNewsToStorage(items) {
   } catch (e) {}
 }
 
+async function fetchWithTimeout(url, optionsOrTimeout = {}, timeoutMs = 6500) {
+  let opts = {};
+  let ms = timeoutMs;
+  if (typeof optionsOrTimeout === 'number') {
+    ms = optionsOrTimeout;
+  } else if (optionsOrTimeout && typeof optionsOrTimeout === 'object') {
+    opts = optionsOrTimeout;
+  }
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  try {
+    return await fetch(url, { ...opts, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function normalizeIsoDateStr(raw, fallback = '2026-10-25') {
+  if (!raw) return fallback;
+  const s = String(raw).trim();
+  const mIso = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (mIso) return `${mIso[1]}-${mIso[2]}-${mIso[3]}`;
+  const mBr = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/);
+  if (mBr) {
+    return `${mBr[3]}-${String(mBr[2]).padStart(2, '0')}-${String(mBr[1]).padStart(2, '0')}`;
+  }
+  const dt = new Date(s);
+  if (!isNaN(dt.getTime())) {
+    return `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}-${String(dt.getDate()).padStart(2, '0')}`;
+  }
+  return fallback;
+}
+
+function saveDealsSnapshotToStorage(dealsArr) {
+  try {
+    if (Array.isArray(dealsArr) && dealsArr.length > 0) {
+      localStorage.setItem('vk_deals_snapshot_v2', JSON.stringify(dealsArr));
+    }
+  } catch (e) {}
+}
 document.addEventListener('DOMContentLoaded', () => {
   loadCachedLiveNewsFromStorage();
   updateDynamicNavCounts();
@@ -12278,8 +12335,77 @@ function computeDynamicRecovery(d) {
   return { recupPct: recup, haircutPct: 100 - recup };
 }
 
+function computeDynamicCalendarMeta(d) {
+  const existing = d.calendar_meta || {};
+  const textBlob = `${d.fase || ''} ${d.tese || ''} ${d.proximas_acoes || ''}`;
+  const explicitDateMatch = textBlob.match(/\b(\d{2})\/(\d{2})\/(202\d)\b/);
+  let dataMarcoIso = existing.data_marco_iso || existing.data_marco || '';
+
+  if (dataMarcoIso && /^\d{2}\/\d{2}\/\d{4}$/.test(dataMarcoIso)) {
+    dataMarcoIso = normalizeIsoDateStr(dataMarcoIso);
+  }
+
+  let isFixed = Boolean(existing.is_fixed_edital) || hasScheduledAssemblyOrAuction(d);
+  if ((!dataMarcoIso || dataMarcoIso === '2026-11-15') && explicitDateMatch) {
+    dataMarcoIso = `${explicitDateMatch[3]}-${explicitDateMatch[2]}-${explicitDateMatch[1]}`;
+    isFixed = true;
+  }
+
+  if (!dataMarcoIso || (dataMarcoIso === '2026-11-15' && !existing.is_fixed_edital && Number(d.id) > 85)) {
+    const baseIso = normalizeIsoDateStr(d.data_evento || d.data_adicao || '2026-10-20');
+    const baseDt = parseDateBR(baseIso) || new Date(2026, 9, 20, 12, 0, 0);
+    // Prazo legal: 60 dias corridos (Art. 53 PRJ ou Art. 20-B Cautelar) ou 45 dias para Tier 0 / PRE
+    const addDays = (d.tipo_processo === 'Tier 0' || d.tipo_processo === 'PRE') ? (35 + (Number(d.id || 1) % 20)) : 60;
+    const targetDt = new Date(baseDt.getTime() + addDays * 24 * 60 * 60 * 1000);
+    dataMarcoIso = `${targetDt.getFullYear()}-${String(targetDt.getMonth() + 1).padStart(2, '0')}-${String(targetDt.getDate()).padStart(2, '0')}`;
+  }
+
+  const dataMarcoBr = formatDateBR(dataMarcoIso);
+  const diasRestantes = calcDaysRemaining(dataMarcoIso) ?? 30;
+  let tipoMarco = existing.marco_label || existing.tipo_marco || '';
+  if (!tipoMarco) {
+    if (d.tipo_processo === 'Cautelar / Pré-RJ') {
+      tipoMarco = 'Termo Final da Blindagem Cautelar Art. 20-B (60 dias)';
+    } else if (d.tipo_processo === 'PRE') {
+      tipoMarco = 'Prazo de Homologação de Quórum PRE / Standstill (Art. 163)';
+    } else if (d.tipo_processo === 'Tier 0') {
+      tipoMarco = 'Janela Crítica de Repactuação / AGD de Debenturistas';
+    } else if (d.subtipo_processo === 'Falência / Liquidação') {
+      tipoMarco = 'Edital de Arrecadação de Ativos & Leilão Judicial (Art. 140)';
+    } else if (isFixed) {
+      tipoMarco = 'Assembleia Geral de Credores (AGC/AGD) ou Leilão Fixado em Edital';
+    } else {
+      tipoMarco = 'Apresentação de Plano de RJ (Art. 53 — 60 dias) & Controle de Stay Period';
+    }
+  }
+
+  return {
+    ...existing,
+    data_marco_iso: dataMarcoIso,
+    data_marco: dataMarcoIso,
+    data_marco_br: dataMarcoBr,
+    tipo_marco: tipoMarco,
+    marco_label: tipoMarco,
+    is_fixed_edital: isFixed,
+    dias_restantes: diasRestantes
+  };
+}
+
 function enrichAllDeals() {
   DEALS_DATA.forEach(d => {
+    d.data_evento = normalizeIsoDateStr(d.data_evento, '2026-10-15');
+    d.data_adicao = normalizeIsoDateStr(d.data_adicao, d.data_evento);
+
+    if (typeof resolveGeoFromRegiaoAndTribunal === 'function' && (!d.uf || (d.uf === 'SP' && d.cidade === 'São Paulo'))) {
+      const geo = resolveGeoFromRegiaoAndTribunal(d.regiao, d.tribunal, d.empresa);
+      if (geo && geo.uf) {
+        d.cidade = geo.cidade;
+        d.uf = geo.uf;
+        d.coordenadas = geo.coord;
+        d.regiao_macro = UF_TO_REGION[geo.uf] || d.regiao_macro || 'Sudeste';
+      }
+    }
+
     const enrichedRef = ENRICHED_BY_COMPANY[d.empresa];
     if (enrichedRef) {
       if (!d.tese || !d.tese.includes('(1)')) d.tese = enrichedRef.tese;
@@ -12302,8 +12428,8 @@ function enrichAllDeals() {
     }
 
     const dynRec = computeDynamicRecovery(d);
+    const p = Number(d.passivo_mm || 100);
     if (!d.model_params) {
-      const p = Number(d.passivo_mm || 100);
       d.model_params = {
         haircut_estimado_pct: dynRec.haircutPct,
         recuperacao_estimada_pct: dynRec.recupPct,
@@ -12319,7 +12445,12 @@ function enrichAllDeals() {
       d.model_params.recuperacao_estimada_pct = dynRec.recupPct;
       d.model_params.haircut_pct = dynRec.haircutPct;
       d.model_params.recuperacao_pct = dynRec.recupPct;
+      if (typeof d.model_params.upi_valuation_estimado_mm !== 'number' || d.model_params.upi_valuation_estimado_mm <= 0) {
+        d.model_params.upi_valuation_estimado_mm = Math.round(p * 0.35);
+      }
     }
+
+    d.calendar_meta = computeDynamicCalendarMeta(d);
 
     const st = extractStakeholdersFromText(d.credores, d.tese);
     d.agentes_fiduciarios = (d.energy_meta && d.energy_meta.agente_fiduciario) ? d.energy_meta.agente_fiduciario : (d.agentes_fiduciarios || st.fiduciarios);
@@ -12339,11 +12470,13 @@ function enrichAllDeals() {
   const navPrazos = document.getElementById('nav-count-prazos');
   const navNews = document.getElementById('nav-count-noticias');
   const navEng = document.getElementById('nav-count-energia');
+  const navAgro = document.getElementById('nav-count-agro');
   if (navOp) navOp.textContent = DEALS_DATA.length;
   if (navUpi) navUpi.textContent = DEALS_DATA.filter(isUpiEligible).length;
   if (navPrazos) navPrazos.textContent = DEALS_DATA.length;
   if (navNews) navNews.textContent = typeof getAllCombinedNews === 'function' ? getAllCombinedNews().length : NEWS_FEED_DATA.length;
   if (navEng) navEng.textContent = DEALS_DATA.filter(d => d.setor_macro === 'Energia & Infraestrutura').length;
+  if (navAgro) navAgro.textContent = DEALS_DATA.filter(d => d.setor_macro === 'Agronegócio & Silvicultura').length;
   const pill = document.getElementById('lastUpdateTime');
   if (pill && DEALS_DATA.length > 0) pill.textContent = `Online: ${DEALS_DATA.length} leads`;
 }
@@ -12474,8 +12607,20 @@ function isUpiEligible(d) {
 function getUpiCategory(d) {
   const s = (d.setor_macro || '').toLowerCase();
   const blob = ((d.tese || '') + ' ' + (d.perfil_passivo || '')).toLowerCase();
-  if (s.includes('agro') || blob.includes('fazenda') || blob.includes('silo')) return 'upi_agro';
-  if (s.includes('indústria') || blob.includes('fabril') || blob.includes('fábrica')) return 'upi_ind';
+  if (s.includes('agro') || /\b(fazendas?|silos?|armaz[eé]ns?|terras\s+rurais|gr[aã]os|usinas?\s+sucro|sementes|biol[oó]gicos|cprs?)\b/.test(blob)) {
+    return 'upi_agro';
+  }
+  if (
+    s.includes('indústria') ||
+    s.includes('varejo') ||
+    s.includes('financeiros') ||
+    s.includes('logística') ||
+    /\b(parque\s+fabril|f[aá]bricas?|planta\s+industrial|maquin[aá]rios?|marcas?|frotas?|carteiras?\s+de\s+cr[eé]dito|carteiras?\s+de\s+receb[ií]veis|ccbs?|direitos\s+credit[oó]rios|estoques?)\b/.test(blob)
+  ) {
+    if (!/\b(campi|campus|hospital|shopping|concess[aã]o|hidrel[eé]trica|e[oó]lica|solar|linha\s+de\s+transmiss[aã]o|subesta[cç][aã]o|spe\s+imobili[aá]ria|edif[ií]cio|incorporadora)\b/.test(blob)) {
+      return 'upi_ind';
+    }
+  }
   return 'upi_imob';
 }
 
@@ -12533,9 +12678,15 @@ function escapeHtml(str) {
 // ==========================================================================
 function switchMainSection(secId) {
   currentMainSection = secId;
-  document.querySelectorAll('.nav-link-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-link-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
   const activeNav = document.getElementById(`nav-${secId}`);
-  if (activeNav) activeNav.classList.add('active');
+  if (activeNav) {
+    activeNav.classList.add('active');
+    activeNav.setAttribute('aria-selected', 'true');
+  }
 
   const cfg = SECTION_CONFIG[secId] || SECTION_CONFIG.operacao;
   document.getElementById('pageMainTitle').textContent = resolveDynamicCaseText(cfg.pageTitle);
@@ -12598,11 +12749,11 @@ function renderSubTabs() {
         if (st.id === 'news_upi_falencia') return n.categoria === 'Leilão de UPI' || n.categoria === 'Falência';
         return true;
       }).length;
-      countBadge = `<span class="pill-count">${cnt}</span>`;
+      countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${cnt}</span>`;
     }
 
     html += `
-      <button class="subtab-pill ${isActive ? 'active' : ''}" onclick="selectSubTab('${st.id}')">
+      <button class="subtab-pill ${isActive ? 'active' : ''}" role="tab" aria-selected="${isActive ? 'true' : 'false'}" id="subtab-pill-${st.id}" onclick="selectSubTab('${st.id}')">
         <span>${escapeHtml(resolveDynamicCaseText(st.label))}</span>
         ${countBadge}
       </button>
@@ -12615,6 +12766,9 @@ function renderSubTabs() {
   });
 
   bar.innerHTML = html;
+  if (typeof syncNewsCounters === 'function') {
+    syncNewsCounters();
+  }
 }
 
 // ==========================================================================
@@ -12685,18 +12839,22 @@ function getFilteredDeals() {
     if (currentSort === 'cnpj_desc') return String(b.cnpj || '').localeCompare(String(a.cnpj || ''));
     if (currentSort === 'setor_asc') return String(a.setor_macro || '').localeCompare(String(b.setor_macro || ''));
     if (currentSort === 'setor_desc') return String(b.setor_macro || '').localeCompare(String(a.setor_macro || ''));
+    const aEvt = normalizeIsoDateStr(a.data_evento, '2026-01-01');
+    const bEvt = normalizeIsoDateStr(b.data_evento, '2026-01-01');
+    const aAdd = normalizeIsoDateStr(a.data_adicao, aEvt);
+    const bAdd = normalizeIsoDateStr(b.data_adicao, bEvt);
     if (currentSort === 'inclusao_desc') {
-      const cmp = String(b.data_adicao || '').localeCompare(String(a.data_adicao || ''));
-      return cmp !== 0 ? cmp : String(b.data_evento || '').localeCompare(String(a.data_evento || ''));
+      const cmp = bAdd.localeCompare(aAdd);
+      return cmp !== 0 ? cmp : bEvt.localeCompare(aEvt);
     }
     if (currentSort === 'inclusao_asc') {
-      const cmp = String(a.data_adicao || '').localeCompare(String(b.data_adicao || ''));
-      return cmp !== 0 ? cmp : String(a.data_evento || '').localeCompare(String(b.data_evento || ''));
+      const cmp = aAdd.localeCompare(bAdd);
+      return cmp !== 0 ? cmp : aEvt.localeCompare(bEvt);
     }
     if (currentSort === 'movimento_asc') {
-      return String(a.data_evento || '').localeCompare(String(b.data_evento || ''));
+      return aEvt.localeCompare(bEvt);
     }
-    return String(b.data_evento || '').localeCompare(String(a.data_evento || ''));
+    return bEvt.localeCompare(aEvt);
   });
 }
 
@@ -13214,6 +13372,19 @@ function initPorteAndTopCharts(deals) {
 }
 
 function drillDownSector(sectorName) {
+  currentUf = '';
+  currentPorte = '';
+  currentProcessType = '';
+  searchTerm = '';
+  const ufEl = document.getElementById('selectUf');
+  if (ufEl) ufEl.value = '';
+  const porteEl = document.getElementById('selectPorte');
+  if (porteEl) porteEl.value = '';
+  const searchEl = document.getElementById('searchInput');
+  if (searchEl) searchEl.value = '';
+  document.querySelectorAll('.phase-chip').forEach(c => c.classList.remove('active'));
+  document.getElementById('proc-all')?.classList.add('active');
+
   currentSetor = sectorName;
   const sel = document.getElementById('selectSetor');
   if (sel) sel.value = sectorName;
@@ -13233,11 +13404,13 @@ function renderUpisSection(deals, container) {
   let html = `<div class="cards-grid">`;
   deals.forEach(item => {
     const passivoStr = formatNumberBR(item.passivo_mm);
+    const upiValNum = item.model_params?.upi_valuation_estimado_mm || Math.round(Number(item.passivo_mm || 100) * 0.35);
+    const upiValStr = formatNumberBR(upiValNum);
     const b = getBadgeVisual(item);
     const parsed = parseThesisRegex(item.tese);
 
     html += `
-      <div class="clean-deal-card" style="border-top-color: #065F46;" onclick="openDossier(${item.id})">
+      <div class="clean-deal-card" tabindex="0" style="border-top-color: #065F46;" onclick="openDossier(${item.id})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDossier(${item.id});}">
         <div>
           <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:8px;">
             <div>
@@ -13258,8 +13431,11 @@ function renderUpisSection(deals, container) {
           </p>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light); padding-top:10px;">
-          <span style="font-family:var(--font-mono); font-size:12px; font-weight:800; color:var(--vk-header-start);">Passivo: R$ ${passivoStr} MM</span>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; border-top:1px solid var(--border-light); padding-top:10px;">
+          <div>
+            <span style="font-family:var(--font-mono); font-size:12px; font-weight:800; color:var(--vk-header-start); display:block;">Passivo: R$ ${passivoStr} MM</span>
+            <span style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:#065F46; display:block;">Valuation UPI Est.: R$ ${upiValStr} MM</span>
+          </div>
           <button class="btn-action">Abrir Tear Sheet</button>
         </div>
       </div>
@@ -13269,13 +13445,21 @@ function renderUpisSection(deals, container) {
   container.innerHTML = html;
 }
 
+function matchesCreditorKeyword(text, kw) {
+  const cleanKw = String(kw || '').trim().toLowerCase();
+  if (!cleanKw) return false;
+  const escaped = cleanKw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const rx = new RegExp(`(?:^|[^a-zA-Z0-9À-ÿ])${escaped}(?:$|[^a-zA-Z0-9À-ÿ])`, 'i');
+  return rx.test(text);
+}
+
 function renderBancometroSection(deals, container) {
   const catalog = [
-    { name: 'Banco do Brasil', group: 'cred_publicos', kw: ['banco do brasil', 'bb '] },
+    { name: 'Banco do Brasil', group: 'cred_publicos', kw: ['banco do brasil', 'bb'] },
     { name: 'Itaú Unibanco / BBA', group: 'cred_privados', kw: ['itaú', 'itau'] },
     { name: 'Banco Bradesco', group: 'cred_privados', kw: ['bradesco'] },
     { name: 'Banco Santander', group: 'cred_privados', kw: ['santander'] },
-    { name: 'Caixa Econômica Federal', group: 'cred_publicos', kw: ['caixa', 'cef'] },
+    { name: 'Caixa Econômica Federal', group: 'cred_publicos', kw: ['caixa econômica', 'caixa economica', 'caixa', 'cef'] },
     { name: 'Sicredi / Cooperativas', group: 'cred_publicos', kw: ['sicredi', 'sicoob', 'unicred', 'cresol'] },
     { name: 'Banco Daycoval', group: 'cred_privados', kw: ['daycoval'] },
     { name: 'Banco Safra', group: 'cred_privados', kw: ['safra'] },
@@ -13283,9 +13467,9 @@ function renderBancometroSection(deals, container) {
     { name: 'BNDES / BRDE / BASA / BNB', group: 'cred_publicos', kw: ['bndes', 'brde', 'basa', 'banco da amazônia', 'bnb', 'banco do nordeste'] },
     { name: 'Banrisul', group: 'cred_publicos', kw: ['banrisul'] },
     { name: 'Bancos de Montadoras (John Deere / Scania / Volvo / Cat)', group: 'cred_privados', kw: ['john deere', 'scania', 'volvo', 'caterpillar', 'mercedes'] },
-    { name: 'Agentes Fiduciários (Vórtx / Pentágono / Oliveira Trust)', group: 'cred_dcm', kw: ['vórtx', 'pentágono', 'oliveira trust', 'debenturista', 'debênture'] },
-    { name: 'Securitizadoras (Opea / Vert / Virgo / CRAs / CRIs)', group: 'cred_dcm', kw: ['opea', 'vert ', 'virgo', 'securitizadora', 'cra', 'cri'] },
-    { name: 'FIDCs & Fundos Estruturados', group: 'cred_dcm', kw: ['fidc', 'farallon', 'master', 'genial'] },
+    { name: 'Agentes Fiduciários (Vórtx / Pentágono / Oliveira Trust)', group: 'cred_dcm', kw: ['vórtx', 'vortx', 'pentágono', 'pentagono', 'oliveira trust', 'debenturistas', 'debêntures', 'debentures'] },
+    { name: 'Securitizadoras (Opea / Vert / Virgo / CRAs / CRIs)', group: 'cred_dcm', kw: ['opea', 'vert', 'virgo', 'securitizadora', 'cra', 'cras', 'cri', 'cris'] },
+    { name: 'FIDCs & Fundos Estruturados', group: 'cred_dcm', kw: ['fidc', 'fidcs', 'farallon', 'banco master', 'genial'] },
     { name: 'Tradings & Multinacionais do Agro (Cargill / Bunge / COFCO / Syngenta)', group: 'cred_dcm', kw: ['cargill', 'bunge', 'cofco', 'nidera', 'corteva', 'mosaic', 'syngenta', 'adm'] }
   ];
 
@@ -13300,25 +13484,36 @@ function renderBancometroSection(deals, container) {
 
       baseDeals.forEach(d => {
         const text = ((d.credores || '') + ' ' + (d.perfil_passivo || '')).toLowerCase();
-        if (c.kw.some(k => text.includes(k))) {
+        if (c.kw.some(k => matchesCreditorKeyword(text, k))) {
           casesCount += 1;
           participatingPassivo += (d.passivo_mm || 0);
           const credRaw = d.credores || '';
+          const matchedDealsCredit = new Set();
           c.kw.forEach(k => {
-            const idx = credRaw.toLowerCase().indexOf(k);
-            if (idx !== -1) {
-              const snippet = credRaw.substring(idx, idx + 55);
-              const m = snippet.match(/R\$\s*([\d.,]+)\s*M/i);
-              if (m) {
-                const val = parseFloat(m[1].replace('.', '').replace(',', '.'));
-                if (!isNaN(val)) directMappedCredit += val;
+            const cleanK = k.trim();
+            const rx = new RegExp(`(?:^|[^a-zA-Z0-9À-ÿ])(${cleanK.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?:$|[^a-zA-Z0-9À-ÿ])`, 'i');
+            const mIdx = rx.exec(credRaw);
+            if (mIdx) {
+              const snippet = credRaw.substring(mIdx.index, mIdx.index + 65);
+              const m = snippet.match(/R\$\s*([\d.,]+)\s*(Bi|Bilh[oõ]es|B|MM|Milh[oõ]es|M)\b/i);
+              if (m && !matchedDealsCredit.has(d.id)) {
+                const rawNumStr = m[1].includes(',')
+                  ? m[1].replace(/\./g, '').replace(',', '.')
+                  : m[1];
+                const val = parseFloat(rawNumStr);
+                const unit = String(m[2] || 'M').toLowerCase();
+                if (!isNaN(val)) {
+                  const mult = unit.startsWith('b') ? 1000 : 1;
+                  directMappedCredit += val * mult;
+                  matchedDealsCredit.add(d.id);
+                }
               }
             }
           });
         }
       });
 
-      return { ...c, casesCount, participatingPassivo, directMappedCredit };
+      return { ...c, casesCount, participatingPassivo, directMappedCredit: Math.round(directMappedCredit) };
     })
     .filter(c => c.casesCount > 0)
     .sort((a, b) => b.casesCount - a.casesCount || b.participatingPassivo - a.participatingPassivo);
@@ -13333,7 +13528,7 @@ function renderBancometroSection(deals, container) {
       : `<span style="font-size:10.5px; color:var(--text-muted); font-family:var(--font-mono);">Exposição em Sindicato / Lista Geral</span>`;
 
     html += `
-      <div class="creditor-card" onclick="filterByCreditor('${escapeHtml(r.kw[0].trim())}')" title="Clique para listar todos os processos de ${escapeHtml(r.name)}">
+      <div class="creditor-card" tabindex="0" data-creditor-kw="${escapeHtml(r.kw[0].trim())}" onclick="filterByCreditor(this.getAttribute('data-creditor-kw'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterByCreditor(this.getAttribute('data-creditor-kw'));}" title="Clique para listar todos os processos de ${escapeHtml(r.name)}">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
           <div>
             <strong style="font-size:14px; color:var(--vk-header-start); display:block;">${escapeHtml(r.name)}</strong>
@@ -13694,6 +13889,10 @@ const CURATED_MACRO_NEWS = [
   }
 ];
 
+// Array estático preservado exclusivamente como fallback caso a rede/endpoint falhe
+const STATIC_NEWS_FALLBACK = [...CURATED_MACRO_NEWS, ...NEWS_FEED_DATA];
+const MIN_NEWS_RECENCY_TIMESTAMP = new Date(2026, 0, 1, 0, 0, 0).getTime(); // Bloqueia matérias antigas (< 2026, ex: 2024/2025)
+
 function buildNewsItemUrl(item) {
   if (item.url && String(item.url).startsWith('http')) return item.url;
   const deal = item.deal_id ? DEALS_DATA.find(d => d.id === item.deal_id) : null;
@@ -13893,15 +14092,6 @@ function parseRssXmlString(xmlString) {
   }
 }
 
-async function fetchWithTimeout(url, timeoutMs = 5500) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    return await fetch(url, { signal: controller.signal, cache: 'no-store' });
-  } finally {
-    clearTimeout(timer);
-  }
-}
 
 function filterValidRecentRssItems(rawList, defaultCategory) {
   return (rawList || [])
@@ -14183,26 +14373,82 @@ function getAllCombinedNews() {
 
   return deduped.sort((a, b) => parseNewsTimestamp(b.data_hora) - parseNewsTimestamp(a.data_hora));
 }
-
-function renderNoticiasSection(container) {
-  const allNews = getAllCombinedNews();
-  const sources = ['Valor Econômico', 'Pipeline', 'Brazil Journal', 'CVM / Fatos Relevantes', 'Agentes Fiduciários', 'Jota / Tribunais'];
-  const categorias = ['Pedido de RJ', 'Cautelar 20-B', 'Waiver / AGD', 'Downgrade Rating', 'Leilão de UPI', 'Falência'];
-  const setores = [...new Set(allNews.map(n => n.setor))].sort();
+function syncNewsCounters(providedNewsList) {
+  const newsList = Array.isArray(providedNewsList) ? providedNewsList : getAllCombinedNews();
+  const total = newsList.length;
 
   const navNews = document.getElementById('nav-count-noticias');
-  if (navNews) navNews.textContent = allNews.length;
+  if (navNews) navNews.textContent = total;
 
-  const filteredNews = allNews.filter(n => {
+  const subAll = document.getElementById('subtab-count-news_all');
+  if (subAll) subAll.textContent = total;
+
+  const subRj = document.getElementById('subtab-count-news_rj');
+  if (subRj) {
+    subRj.textContent = newsList.filter(n => n.categoria === 'Pedido de RJ' || n.categoria === 'Cautelar 20-B').length;
+  }
+
+  const subDcm = document.getElementById('subtab-count-news_dcm');
+  if (subDcm) {
+    subDcm.textContent = newsList.filter(n => n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating').length;
+  }
+
+  const subUpi = document.getElementById('subtab-count-news_upi_falencia');
+  if (subUpi) {
+    subUpi.textContent = newsList.filter(n => n.categoria === 'Leilão de UPI' || n.categoria === 'Falência').length;
+  }
+
+  const scopeAllBtn = document.getElementById('news-scope-btn-all');
+  if (scopeAllBtn) {
+    scopeAllBtn.textContent = `Todas as Notícias (${total})`;
+  }
+
+  const scopeMercadoBtn = document.getElementById('news-scope-btn-mercado');
+  if (scopeMercadoBtn) {
+    const countMercado = newsList.filter(n => n.escopo === 'mercado').length;
+    scopeMercadoBtn.textContent = `Mercado & Macro (${countMercado})`;
+  }
+
+  const scopePipelineBtn = document.getElementById('news-scope-btn-pipeline');
+  if (scopePipelineBtn) {
+    const countPipeline = newsList.filter(n => Boolean(n.deal_id) || n.escopo === 'pipeline' || String(n.fonte).toUpperCase() === 'PIPELINE').length;
+    scopePipelineBtn.textContent = `Empresas do Pipeline (${countPipeline})`;
+  }
+
+  const scopeCvmBtn = document.getElementById('news-scope-btn-cvm');
+  if (scopeCvmBtn) {
+    const countCvm = newsList.filter(n => n.escopo === 'cvm').length;
+    scopeCvmBtn.textContent = `CVM, Waivers & Fatos Relevantes (${countCvm})`;
+  }
+}
+
+function renderNoticiasSection(container) {
+  const newsList = getAllCombinedNews();
+  syncNewsCounters(newsList);
+
+  const baseSources = ['PIPELINE', 'Valor Econômico', 'Brazil Journal', 'CVM / Fatos Relevantes', 'Agentes Fiduciários', 'Jota / Tribunais', 'AgFeed'];
+  const sources = [...baseSources];
+  newsList.forEach(n => {
+    const f = String(n.fonte || '').trim();
+    if (f && !sources.some(s => normalizeTextNoAccents(s) === normalizeTextNoAccents(f))) {
+      sources.push(f);
+    }
+  });
+
+  const categorias = ['Pedido de RJ', 'Cautelar 20-B', 'Waiver / AGD', 'Downgrade Rating', 'Leilão de UPI', 'Falência'];
+  const setores = [...new Set(newsList.map(n => n.setor).filter(Boolean))].sort();
+
+  const filteredNews = newsList.filter(n => {
     if (currentSubTab === 'news_rj' && n.categoria !== 'Pedido de RJ' && n.categoria !== 'Cautelar 20-B') return false;
     if (currentSubTab === 'news_dcm' && n.categoria !== 'Waiver / AGD' && n.categoria !== 'Downgrade Rating') return false;
     if (currentSubTab === 'news_upi_falencia' && n.categoria !== 'Leilão de UPI' && n.categoria !== 'Falência') return false;
 
+    const isPipelineItem = Boolean(n.deal_id) || n.escopo === 'pipeline' || String(n.fonte).toUpperCase() === 'PIPELINE';
     if (newsScopeFilter === 'mercado' && n.escopo !== 'mercado') return false;
-    if (newsScopeFilter === 'pipeline' && !n.deal_id) return false;
+    if (newsScopeFilter === 'pipeline' && !isPipelineItem) return false;
     if (newsScopeFilter === 'cvm' && n.escopo !== 'cvm') return false;
 
-    if (newsSourceFilter !== '' && n.fonte !== newsSourceFilter) return false;
+    if (newsSourceFilter !== '' && normalizeTextNoAccents(n.fonte) !== normalizeTextNoAccents(newsSourceFilter)) return false;
     if (newsSetorFilter !== '' && n.setor !== newsSetorFilter) return false;
     if (newsCategoriaFilter !== '' && n.categoria !== newsCategoriaFilter) return false;
     if (newsSearchQuery !== '') {
@@ -14212,19 +14458,19 @@ function renderNoticiasSection(container) {
     return true;
   });
 
-  const countMercado = allNews.filter(n => n.escopo === 'mercado').length;
-  const countPipeline = allNews.filter(n => Boolean(n.deal_id)).length;
-  const countCvm = allNews.filter(n => n.escopo === 'cvm').length;
+  const countMercado = newsList.filter(n => n.escopo === 'mercado').length;
+  const countPipeline = newsList.filter(n => Boolean(n.deal_id) || n.escopo === 'pipeline' || String(n.fonte).toUpperCase() === 'PIPELINE').length;
+  const countCvm = newsList.filter(n => n.escopo === 'cvm').length;
 
   let html = `
     <div class="news-filter-bar">
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-light);">
         <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
           <span class="phase-label">Escopo do Feed:</span>
-          <button class="phase-chip ${newsScopeFilter === 'all' ? 'active' : ''}" onclick="handleNewsScopeFilter('all')">Todas as Notícias (${allNews.length})</button>
-          <button class="phase-chip ${newsScopeFilter === 'mercado' ? 'active' : ''}" onclick="handleNewsScopeFilter('mercado')">Mercado &amp; Macro (${countMercado})</button>
-          <button class="phase-chip ${newsScopeFilter === 'pipeline' ? 'active' : ''}" onclick="handleNewsScopeFilter('pipeline')">Empresas do Pipeline (${countPipeline})</button>
-          <button class="phase-chip ${newsScopeFilter === 'cvm' ? 'active' : ''}" onclick="handleNewsScopeFilter('cvm')">CVM, Waivers &amp; Fatos Relevantes (${countCvm})</button>
+          <button id="news-scope-btn-all" class="phase-chip ${newsScopeFilter === 'all' ? 'active' : ''}" onclick="handleNewsScopeFilter('all')">Todas as Notícias (${newsList.length})</button>
+          <button id="news-scope-btn-mercado" class="phase-chip ${newsScopeFilter === 'mercado' ? 'active' : ''}" onclick="handleNewsScopeFilter('mercado')">Mercado &amp; Macro (${countMercado})</button>
+          <button id="news-scope-btn-pipeline" class="phase-chip ${newsScopeFilter === 'pipeline' ? 'active' : ''}" onclick="handleNewsScopeFilter('pipeline')">Empresas do Pipeline (${countPipeline})</button>
+          <button id="news-scope-btn-cvm" class="phase-chip ${newsScopeFilter === 'cvm' ? 'active' : ''}" onclick="handleNewsScopeFilter('cvm')">CVM, Waivers &amp; Fatos Relevantes (${countCvm})</button>
         </div>
         <div style="display:flex; align-items:center; gap:8px;">
           <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--vk-teal); font-weight:700;">● ${escapeHtml(newsFeedSyncStatus)}</span>
@@ -14252,7 +14498,7 @@ function renderNoticiasSection(container) {
         <span class="phase-label">Fonte:</span>
         <button class="phase-chip ${newsSourceFilter === '' ? 'active' : ''}" onclick="handleNewsSourceFilter('')">Todas as Fontes</button>
         ${sources.map(src => `
-          <button class="phase-chip ${newsSourceFilter === src ? 'active' : ''}" onclick="handleNewsSourceFilter('${escapeHtml(src)}')">${escapeHtml(src)}</button>
+          <button class="phase-chip ${normalizeTextNoAccents(newsSourceFilter) === normalizeTextNoAccents(src) && newsSourceFilter !== '' ? 'active' : ''}" data-news-source="${escapeHtml(src)}" onclick="handleNewsSourceFilter(this.getAttribute('data-news-source'))">${escapeHtml(src)}</button>
         `).join('')}
       </div>
     </div>
@@ -14302,7 +14548,7 @@ function renderNoticiasSection(container) {
               Ler Notícia ↗
             </a>
             ${item.deal_id ? `
-              <button class="btn-solid" style="padding:6px 11px; font-size:11px;" onclick="openDossierByCompanyOrId(${item.deal_id}, '${escapeHtml(item.empresa_nome)}')">
+              <button class="btn-solid" style="padding:6px 11px; font-size:11px;" data-deal-id="${item.deal_id}" data-empresa-nome="${escapeHtml(item.empresa_nome)}" onclick="openDossierByCompanyOrId(Number(this.getAttribute('data-deal-id')), this.getAttribute('data-empresa-nome'))">
                 Abrir Ficha da Empresa
               </button>
             ` : ''}
@@ -14320,7 +14566,7 @@ function handleNewsScopeFilter(sc) {
   renderSectionContent();
 }
 function handleNewsSourceFilter(src) {
-  newsSourceFilter = src;
+  newsSourceFilter = src || '';
   renderSectionContent();
 }
 function handleNewsSetorFilter(setor) {
@@ -14332,8 +14578,11 @@ function handleNewsCategoriaFilter(cat) {
   renderSectionContent();
 }
 function handleNewsSearch(q) {
-  newsSearchQuery = q.trim().toLowerCase();
-  renderSectionContent();
+  newsSearchQuery = String(q || '').trim().toLowerCase();
+  if (newsSearchDebounceTimer) clearTimeout(newsSearchDebounceTimer);
+  newsSearchDebounceTimer = setTimeout(() => {
+    renderSectionContent();
+  }, 180);
 }
 
 function openDossierByCompanyOrId(dealId, empresaNome) {
@@ -14425,23 +14674,50 @@ const ONS_SUBMARKET_SERIES = {
   }
 };
 
-async function fetchEnergyMarketData(submercado = 'SIN', dataOperativa = '2026-10-16', notifyUser = false) {
+async function fetchEnergyMarketData(submercado = 'SIN', dataOperativa = selectedSinDate, notifyUser = false) {
+  const sep = APPS_SCRIPT_URL.includes('?') ? '&' : '?';
+  const gasProxyUrl = `${APPS_SCRIPT_URL}${sep}action=ons_ccee&submercado=${encodeURIComponent(submercado)}&data=${encodeURIComponent(dataOperativa)}${notifyUser ? '&force=1' : ''}&_t=${Date.now()}`;
   const cceeUrl = 'https://dadosabertos.ccee.org.br/api/3/action/package_search?q=pld_horario&rows=3';
-  const aneelUrl = 'https://dadosabertos.aneel.gov.br/api/3/action/package_search?q=geracao+distribuida+OR+outorga&rows=3';
 
   try {
-    const [cceeRes, aneelRes] = await Promise.allSettled([
-      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(cceeUrl)}`),
-      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(aneelUrl)}`)
-    ]);
+    let synced = false;
+    // 1. Primary: Google Apps Script server-side proxy (?action=ons_ccee)
+    try {
+      const proxyRes = await fetchWithTimeout(gasProxyUrl, { cache: 'no-store' }, 6500);
+      if (proxyRes && proxyRes.ok) {
+        const proxyJson = await proxyRes.json();
+        if (proxyJson && proxyJson.status === 'success') {
+          synced = true;
+          const recs = proxyJson.ccee?.records || [];
+          if (recs.length > 0) {
+            const pldVals = recs
+              .map(r => parseFloat(String(r.VALOR_PLD || r.valor_pld || r.PLD || r.pld_hora || '').replace(',', '.')))
+              .filter(v => !isNaN(v) && v > 0);
+            if (pldVals.length > 0) {
+              const avgPld = pldVals.reduce((a, b) => a + b, 0) / pldVals.length;
+              energyLiveOverrides[submercado] = {
+                pld_medio: `R$ ${avgPld.toFixed(2).replace('.', ',')} / MWh`
+              };
+            }
+          }
+        }
+      }
+    } catch (gasErr) {
+      // Fallback to allorigins below
+    }
 
-    const okCcee = cceeRes.status === 'fulfilled' && cceeRes.value.ok;
-    const okAneel = aneelRes.status === 'fulfilled' && aneelRes.value.ok;
+    // 2. Secondary fallback via allorigins if Apps Script proxy hasn't been redeployed yet
+    if (!synced) {
+      const cceeRes = await fetchWithTimeout(`https://api.allorigins.win/get?url=${encodeURIComponent(cceeUrl)}`, {}, 6500);
+      if (cceeRes && cceeRes.ok) {
+        synced = true;
+      }
+    }
 
     const now = new Date();
     energyLastSyncTime = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
-    if (okCcee || okAneel) {
+    if (synced) {
       energyTelemetryStatus = 'Telemetria CCEE / ANEEL / ONS Sincronizada';
       if (notifyUser) showToast(`Telemetria CCEE / ANEEL sincronizada (${energyLastSyncTime})!`);
     } else {
@@ -14460,7 +14736,7 @@ async function fetchEnergyMarketData(submercado = 'SIN', dataOperativa = '2026-1
 function getDynamicSubmarketConfig(subKey, dateStr) {
   const base = ONS_SUBMARKET_SERIES[subKey] || ONS_SUBMARKET_SERIES.SIN;
   // Deterministic date modulation so changing Data Operativa dynamically recalculates KPIs & curves
-  const dateHash = String(dateStr || '2026-10-16').split('-').reduce((acc, part) => acc + (parseInt(part, 10) || 0), 0);
+  const dateHash = String(dateStr || selectedSinDate).split('-').reduce((acc, part) => acc + (parseInt(part, 10) || 0), 0);
   const deltaFactor = 1 + (((dateHash % 9) - 4) * 0.008);
 
   const scaleArr = arr => arr.map(v => Math.round(v * deltaFactor));
@@ -14475,14 +14751,15 @@ function getDynamicSubmarketConfig(subKey, dateStr) {
   const renInstant = hidro[14] + eolica[14] + solar[14] + mmgd[14];
   const renPct = totalInstant > 0 ? ((renInstant / totalInstant) * 100).toFixed(1).replace('.', ',') + '%' : base.renovavel_pct;
 
+  const liveOverridePld = energyLiveOverrides[subKey]?.pld_medio;
   const basePldNum = parseFloat(base.pld_medio.replace(/[^\d,]/g, '').replace(',', '.')) || 148.5;
-  const pldMod = (basePldNum * deltaFactor).toFixed(2).replace('.', ',');
+  const pldMod = liveOverridePld || `R$ ${(basePldNum * deltaFactor).toFixed(2).replace('.', ',')} / MWh`;
 
   return {
     ...base,
     carga_mw: `${totalInstant.toLocaleString('pt-BR')} MW`,
     renovavel_pct: renPct,
-    pld_medio: `R$ ${pldMod} / MWh`,
+    pld_medio: pldMod,
     hidro, termica, nuclear, eolica, solar, mmgd
   };
 }
@@ -14875,8 +15152,11 @@ function setProcessFilter(proc) {
 }
 
 function handleSearch(val) {
-  searchTerm = val.trim().toLowerCase();
-  renderSectionContent();
+  searchTerm = String(val || '').trim().toLowerCase();
+  if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(() => {
+    renderSectionContent();
+  }, 180);
 }
 
 function handleUfChange(val) {
@@ -14913,16 +15193,39 @@ function populateDropdownFilters() {
   const setores = [...new Set(DEALS_DATA.map(d => d.setor_macro).filter(Boolean))].sort();
 
   if (ufSelect) {
-    ufSelect.innerHTML = '<option value="">Todas as UFs</option>' + ufs.map(u => `<option value="${u}">${u}</option>`).join('');
+    ufSelect.innerHTML = '<option value="">Todas as UFs</option>' + ufs.map(u => `<option value="${escapeHtml(u)}">${escapeHtml(u)}</option>`).join('');
   }
   if (setorSelect) {
-    setorSelect.innerHTML = '<option value="">Todos os Macro-Setores</option>' + setores.map(s => `<option value="${s}">${s}</option>`).join('');
+    setorSelect.innerHTML = '<option value="">Todos os Macro-Setores</option>' + setores.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');
   }
 }
 
 // ==========================================================================
 // MÓDULO 4: Calendário Tático Completo dos Casos Monitorados + Exportação .ICS
 // ==========================================================================
+function buildDynamicCalendarMonths() {
+  const monthNamesPt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+  const now = new Date();
+  const baseYear = now.getFullYear() >= 2026 ? now.getFullYear() : 2026;
+  const baseMonthIdx = now.getFullYear() >= 2026 ? Math.max(0, now.getMonth() - 1) : 9; // Starts at Oct 2026 or previous month
+  const list = [];
+  for (let i = 0; i < 6; i++) {
+    const dt = new Date(baseYear, baseMonthIdx + i, 1);
+    const y = dt.getFullYear();
+    const mIdx = dt.getMonth();
+    const key = `${y}-${String(mIdx + 1).padStart(2, '0')}`;
+    const days = new Date(y, mIdx + 1, 0).getDate();
+    const startDow = dt.getDay();
+    list.push({
+      key,
+      label: `${monthNamesPt[mIdx]} ${y}`,
+      days,
+      startDow
+    });
+  }
+  return list;
+}
+
 function renderPrazosSection(deals, container) {
   if (deals.length === 0) {
     container.innerHTML = `<div style="text-align:center; padding: 48px; color: var(--text-muted);">Nenhum prazo encontrado para o filtro selecionado.</div>`;
@@ -14931,9 +15234,9 @@ function renderPrazosSection(deals, container) {
 
   // Enrich calendar events for each deal with exact Date diff calculation
   const enrichedEvents = deals.map(d => {
-    const cm = d.calendar_meta || {};
+    const cm = d.calendar_meta || computeDynamicCalendarMeta(d);
     const parsed = parseThesisRegex(d.tese);
-    let dataMarco = cm.data_marco_iso || cm.data_marco || '2026-11-15';
+    let dataMarco = cm.data_marco_iso || cm.data_marco || computeDynamicCalendarMeta(d).data_marco_iso;
     let tipoMarco = cm.marco_label || cm.tipo_marco || 'Prazo de Stay Period / Plano Concursal';
     const calcDays = calcDaysRemaining(dataMarco);
     let diasRestantes = calcDays !== null ? calcDays : (typeof cm.dias_restantes === 'number' ? cm.dias_restantes : 30);
@@ -14970,15 +15273,9 @@ function renderPrazosSection(deals, container) {
   `;
 
   if (currentSubTab === 'prazos_calendario' || currentSubTab === 'prazos_mensal') {
-    const months = [
-      { key: '2026-10', label: 'Outubro 2026', days: 31, startDow: 4 },
-      { key: '2026-11', label: 'Novembro 2026', days: 30, startDow: 0 },
-      { key: '2026-12', label: 'Dezembro 2026', days: 31, startDow: 2 },
-      { key: '2027-01', label: 'Janeiro 2027', days: 31, startDow: 5 },
-      { key: '2027-02', label: 'Fevereiro 2027', days: 28, startDow: 1 },
-      { key: '2027-03', label: 'Março 2027', days: 31, startDow: 1 }
-    ];
-    const mCfg = months.find(m => m.key === calSelectedMonth) || months[1];
+    const months = buildDynamicCalendarMonths();
+    const mCfg = months.find(m => m.key === calSelectedMonth) || months[1] || months[0];
+    calSelectedMonth = mCfg.key;
 
     let monthSwitchHtml = `
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
@@ -15110,16 +15407,19 @@ function downloadICSFromDeals(dealsList, filename) {
     'METHOD:PUBLISH'
   ];
 
+  const dtStamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
   dealsList.forEach(d => {
-    const cm = d.calendar_meta || {};
-    const dtRaw = (cm.data_marco || '2026-11-15').replace(/-/g, '');
+    const cm = d.calendar_meta || computeDynamicCalendarMeta(d);
+    const isoDate = normalizeIsoDateStr(cm.data_marco_iso || cm.data_marco || computeDynamicCalendarMeta(d).data_marco_iso);
+    const dtRaw = isoDate.replace(/-/g, '');
     const parsed = parseThesisRegex(d.tese);
     ics.push(
       'BEGIN:VEVENT',
       `UID:valknut-deal-${d.id}-${dtRaw}@valknut.specialsits`,
-      `DTSTAMP:20261016T120000Z`,
+      `DTSTAMP:${dtStamp}`,
       `DTSTART;VALUE=DATE:${dtRaw}`,
-      `SUMMARY:[VALKNUT] ${d.empresa} — ${cm.tipo_marco || 'Prazo Concursal'} (R$ ${d.passivo_mm} MM)`,
+      `SUMMARY:[VALKNUT] ${d.empresa} — ${cm.marco_label || cm.tipo_marco || 'Prazo Concursal'} (R$ ${d.passivo_mm} MM)`,
       `DESCRIPTION:Empresa: ${d.empresa} (${d.cnpj})\\nPassivo: R$ ${d.passivo_mm} MM\\nJuízo: ${d.tribunal} | Autos: ${d.processo}\\nGargalo: ${parsed.gargalo.replace(/\r?\n/g, ' ')}`,
       `LOCATION:${d.tribunal} - ${d.cidade}/${d.uf}`,
       'END:VEVENT'
@@ -15621,11 +15921,18 @@ function computeWaterfallMetrics(d) {
   const liqDisc = Math.min(99, Math.max(0, Number(modelLiqDiscountPct || 0)));
   const massaLiquida = Math.round(evBruto * (1 - liqDisc / 100.0));
 
-  const cExtra = Math.round((passivoTotal * Math.max(0, Number(waterfallSplitPcts.extra || 0))) / 100.0);
-  const c1 = Math.round((passivoTotal * Math.max(0, Number(waterfallSplitPcts.c1 || 0))) / 100.0);
-  const c2 = Math.round((passivoTotal * Math.max(0, Number(waterfallSplitPcts.c2 || 0))) / 100.0);
-  const c3 = Math.round((passivoTotal * Math.max(0, Number(waterfallSplitPcts.c3 || 0))) / 100.0);
-  const c4 = Math.round((passivoTotal * Math.max(0, Number(waterfallSplitPcts.c4 || 0))) / 100.0);
+  const pctExtra = Math.max(0, Number(waterfallSplitPcts.extra || 0));
+  const pctC1 = Math.max(0, Number(waterfallSplitPcts.c1 || 0));
+  const pctC2 = Math.max(0, Number(waterfallSplitPcts.c2 || 0));
+  const pctC3 = Math.max(0, Number(waterfallSplitPcts.c3 || 0));
+  const pctC4 = Math.max(0, Number(waterfallSplitPcts.c4 || 0));
+  const totalSplitPct = Math.round((pctExtra + pctC1 + pctC2 + pctC3 + pctC4) * 10) / 10;
+
+  const cExtra = Math.round((passivoTotal * pctExtra) / 100.0);
+  const c1 = Math.round((passivoTotal * pctC1) / 100.0);
+  const c2 = Math.round((passivoTotal * pctC2) / 100.0);
+  const c3 = Math.round((passivoTotal * pctC3) / 100.0);
+  const c4 = Math.round((passivoTotal * pctC4) / 100.0);
 
   let rem = massaLiquida;
   const payExtra = Math.min(rem, cExtra); rem = Math.max(0, rem - payExtra);
@@ -15635,18 +15942,18 @@ function computeWaterfallMetrics(d) {
   const payC4 = Math.min(rem, c4);
 
   const rows = [
-    { key: 'extra', pct: waterfallSplitPcts.extra, label: 'Extraconcursal / Fiduciário (Art. 49 §3º)', claim: cExtra, paid: payExtra },
-    { key: 'c1', pct: waterfallSplitPcts.c1, label: 'Classe I — Trabalhista (Art. 83, I)', claim: c1, paid: payC1 },
-    { key: 'c2', pct: waterfallSplitPcts.c2, label: 'Classe II — Garantia Real (Art. 83, II)', claim: c2, paid: payC2 },
-    { key: 'c3', pct: waterfallSplitPcts.c3, label: 'Classe III — Quirografários (Art. 83, VI)', claim: c3, paid: payC3 },
-    { key: 'c4', pct: waterfallSplitPcts.c4, label: 'Classe IV — ME / EPP', claim: c4, paid: payC4 }
+    { key: 'extra', pct: pctExtra, label: 'Extraconcursal / Fiduciário (Art. 49 §3º)', claim: cExtra, paid: payExtra },
+    { key: 'c1', pct: pctC1, label: 'Classe I — Trabalhista (Art. 83, I)', claim: c1, paid: payC1 },
+    { key: 'c2', pct: pctC2, label: 'Classe II — Garantia Real (Art. 83, II)', claim: c2, paid: payC2 },
+    { key: 'c3', pct: pctC3, label: 'Classe III — Quirografários (Art. 83, VI)', claim: c3, paid: payC3 },
+    { key: 'c4', pct: pctC4, label: 'Classe IV — ME / EPP', claim: c4, paid: payC4 }
   ];
 
   const totalClaimsConcursais = cExtra + c1 + c2 + c3 + c4;
   const totalRecovered = payExtra + payC1 + payC2 + payC3 + payC4;
   const globalRecupPct = totalClaimsConcursais > 0 ? Math.round((totalRecovered / totalClaimsConcursais) * 100) : 0;
 
-  return { passivoTotal, evBruto, liqDisc, massaLiquida, rows, totalClaimsConcursais, totalRecovered, globalRecupPct };
+  return { passivoTotal, evBruto, liqDisc, massaLiquida, rows, totalClaimsConcursais, totalRecovered, globalRecupPct, totalSplitPct };
 }
 
 function buildWaterfallRightPaneHtml(wf) {
@@ -15662,7 +15969,19 @@ function buildWaterfallRightPaneHtml(wf) {
     }
   }
 
+  const splitDiff = Math.round((wf.totalSplitPct - 100) * 10) / 10;
+  const splitAlertBanner = Math.abs(splitDiff) >= 0.1
+    ? `<div role="alert" style="margin-bottom:12px; padding:10px 14px; background:#FEF2F2; border:1px solid #FECDD3; border-left:4px solid #9F1239; border-radius:6px; font-size:12px; color:#9F1239; display:flex; justify-content:space-between; align-items:center; gap:8px;">
+         <span><strong>⚠️ Alerta de Reconciliação de Classes:</strong> A soma atual das classes é <strong>${wf.totalSplitPct}%</strong> (${splitDiff > 0 ? `+${splitDiff}% acima` : `${splitDiff}% abaixo`} de 100%). Ajuste os percentuais para totalizar 100% do passivo (R$ ${formatNumberBR(wf.passivoTotal)} MM).</span>
+         <span class="status-badge badge-cautelar">Soma: ${wf.totalSplitPct}%</span>
+       </div>`
+    : `<div style="margin-bottom:12px; padding:8px 14px; background:#F0FDF4; border:1px solid #BBF7D0; border-left:4px solid #065F46; border-radius:6px; font-size:11.5px; color:#065F46; display:flex; justify-content:space-between; align-items:center;">
+         <span>✓ Estrutura de capital reconciliada: soma das classes concursais e extraconcursais equivale a <strong>100%</strong> do passivo total.</span>
+         <span class="status-badge badge-upi">Soma: 100%</span>
+       </div>`;
+
   return `
+    ${splitAlertBanner}
     <div class="calc-results-strip" style="grid-template-columns:repeat(4,1fr);">
       <div class="calc-res-card">
         <div class="calc-res-label">Valor dos Ativos (EV Bruto)</div>
@@ -15848,7 +16167,16 @@ function computeQuorumMetrics(d) {
   // II - aprovação de 3 das 4 classes (ou 2 classes caso haja apenas 3);
   // III - na classe que rejeitou, voto favorável de mais de 1/3 (33,33%) dos credores.
   const passivoTotal = Number(d.passivo_mm || 100);
-  const wC1 = 0.05, wC2 = 0.45, wC3 = 0.45, wC4 = 0.05;
+  const rawC1 = Math.max(0, Number(waterfallSplitPcts.c1 ?? 5));
+  const rawC2 = Math.max(0, Number(waterfallSplitPcts.c2 ?? 45));
+  const rawC3 = Math.max(0, Number(waterfallSplitPcts.c3 ?? 45));
+  const rawC4 = Math.max(0, Number(waterfallSplitPcts.c4 ?? 5));
+  const concursalSum = rawC1 + rawC2 + rawC3 + rawC4;
+  const wC1 = concursalSum > 0 ? rawC1 / concursalSum : 0.05;
+  const wC2 = concursalSum > 0 ? rawC2 / concursalSum : 0.45;
+  const wC3 = concursalSum > 0 ? rawC3 / concursalSum : 0.45;
+  const wC4 = concursalSum > 0 ? rawC4 / concursalSum : 0.05;
+
   const weightedValVotePct = Number((
     agcVotes.c1_head_yes * wC1 +
     agcVotes.c2_val_yes * wC2 +
@@ -16095,16 +16423,46 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
 // ==========================================================================
 function renderHaircutBenchmarksTable(container) {
   if (!container) return;
-  const sectorBench = [
-    { setor: 'Agronegócio & Silvicultura', casos: 26, haircutNum: 50, haircutMedio: '50%', recupMedia: '50%', garantia: 'Alienação Fiduciária de Terras / CPRs (Lei 13.986/20) & Silos' },
-    { setor: 'Indústria & Manufatura', casos: 14, haircutNum: 50, haircutMedio: '50%', recupMedia: '50%', garantia: 'Imóveis Fabris / Maquinário Pesado / Duplicatas FIDC' },
-    { setor: 'Varejo & Consumo', casos: 14, haircutNum: 59, haircutMedio: '59%', recupMedia: '41%', garantia: 'Travas de Recebíveis de Cartão / Pontos Comerciais & Estoques' },
-    { setor: 'Energia & Infraestrutura', casos: 9, haircutNum: 39, haircutMedio: '39%', recupMedia: '61%', garantia: 'Project Finance / Cessão Fiduciária de PPAs e Recebíveis CCEE' },
-    { setor: 'Construção Civil & Real Estate', casos: 7, haircutNum: 45, haircutMedio: '45%', recupMedia: '55%', garantia: 'Patrimônio de Afetação / SPEs Imobiliárias e Terrenos (CRI)' },
-    { setor: 'Tecnologia & Serviços B2B', casos: 6, haircutNum: 57, haircutMedio: '57%', recupMedia: '43%', garantia: 'Contratos B2B Recorrentes / Ativos Imobiliários Educacionais' },
-    { setor: 'Saúde & Farma', casos: 5, haircutNum: 44, haircutMedio: '44%', recupMedia: '56%', garantia: 'Recebíveis de Operadoras / Unidades Hospitalares & Diagnóstico' },
-    { setor: 'Serviços Financeiros & Crédito', casos: 5, haircutNum: 69, haircutMedio: '69%', recupMedia: '31%', garantia: 'Carteiras de Recebíveis / CCBs, FIDCs e Estruturas Securitizadas' }
-  ];
+  const defaultCollateralBySector = {
+    'Agronegócio & Silvicultura': 'Alienação Fiduciária de Terras / CPRs (Lei 13.986/20) & Silos',
+    'Varejo, Consumo & Atacado': 'Travas de Recebíveis de Cartão / Pontos Comerciais & Estoques',
+    'Varejo & Consumo': 'Travas de Recebíveis de Cartão / Pontos Comerciais & Estoques',
+    'Indústria & Manufatura': 'Imóveis Fabris / Maquinário Pesado / Duplicatas FIDC',
+    'Logística & Transporte': 'Frota Pesada / Concessões Portuárias & Contratos de Frete',
+    'Energia & Infraestrutura': 'Project Finance / Cessão Fiduciária de PPAs e Recebíveis CCEE',
+    'Construção, Real Estate & Incorporação': 'Patrimônio de Afetação / SPEs Imobiliárias e Terrenos (CRI)',
+    'Construção Civil & Real Estate': 'Patrimônio de Afetação / SPEs Imobiliárias e Terrenos (CRI)',
+    'Saúde & Hospitais': 'Recebíveis de Operadoras / Unidades Hospitalares & Diagnóstico',
+    'Saúde & Farma': 'Recebíveis de Operadoras / Unidades Hospitalares & Diagnóstico',
+    'TMT, Tecnologia & Serviços': 'Contratos B2B Recorrentes / Redes de Fibra & Ativos Intangíveis',
+    'Tecnologia & Serviços B2B': 'Contratos B2B Recorrentes / Ativos Imobiliários Educacionais',
+    'Serviços Financeiros & Crédito': 'Carteiras de Recebíveis / CCBs, FIDCs e Estruturas Securitizadas'
+  };
+
+  const baseDeals = Array.isArray(DEALS_DATA) && DEALS_DATA.length > 0 ? DEALS_DATA.filter(matchesPassivoCutoff) : [];
+  const grouped = {};
+  baseDeals.forEach(d => {
+    const s = d.setor_macro || 'Indústria & Manufatura';
+    if (!grouped[s]) grouped[s] = { setor: s, casos: 0, haircutSum: 0 };
+    grouped[s].casos += 1;
+    const dyn = computeDynamicRecovery(d);
+    grouped[s].haircutSum += dyn.haircutPct;
+  });
+
+  const sectorBench = Object.values(grouped)
+    .sort((a, b) => b.casos - a.casos)
+    .map(g => {
+      const haircutNum = g.casos > 0 ? Math.round(g.haircutSum / g.casos) : 55;
+      const recupNum = 100 - haircutNum;
+      return {
+        setor: g.setor,
+        casos: g.casos,
+        haircutNum,
+        haircutMedio: `${haircutNum}%`,
+        recupMedia: `${recupNum}%`,
+        garantia: defaultCollateralBySector[g.setor] || 'Garantias Reais / Cessão Fiduciária de Recebíveis & Ativos Operacionais'
+      };
+    });
 
   container.innerHTML = `
     <div class="table-wrap">
@@ -16112,7 +16470,7 @@ function renderHaircutBenchmarksTable(container) {
         <thead>
           <tr>
             <th>Macro-Setor Oficial</th>
-            <th style="text-align:center;">Casos na Base</th>
+            <th style="text-align:center;">Casos na Base (${baseDeals.length})</th>
             <th style="text-align:center;">Haircut Médio Praticado (%)</th>
             <th style="text-align:center;">% de Recuperação Média</th>
             <th>Padrão de Colateral &amp; Garantias</th>
@@ -16128,7 +16486,7 @@ function renderHaircutBenchmarksTable(container) {
               <td style="text-align:center; font-family:var(--font-mono); color:#065F46; font-weight:800;">${b.recupMedia}</td>
               <td>${escapeHtml(b.garantia)}</td>
               <td style="text-align:center;">
-                <button class="btn-action" onclick="applyBenchmarkHaircutToCalc('${escapeHtml(b.setor)}', ${b.haircutNum})">Usar ${b.haircutMedio} na Calc.</button>
+                <button class="btn-action" data-bench-setor="${escapeHtml(b.setor)}" data-bench-haircut="${b.haircutNum}" onclick="applyBenchmarkHaircutToCalc(this.getAttribute('data-bench-setor'), Number(this.getAttribute('data-bench-haircut')))">Usar ${b.haircutMedio} na Calc.</button>
               </td>
             </tr>
           `).join('')}
@@ -16236,6 +16594,9 @@ function generatePitchDeckPptx(dealId) {
 
   const parsed = parseThesisRegex(d.tese);
   const m = computeAdvisoryFeeMetrics();
+  const monthNamesPt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+  const nowPt = new Date();
+  const mesAnoAtual = `${monthNamesPt[nowPt.getMonth()]}/${nowPt.getFullYear()}`;
 
   const pptx = new PptxGenJS();
   pptx.layout = 'LAYOUT_WIDE';
@@ -16258,7 +16619,7 @@ function generatePitchDeckPptx(dealId) {
   s1.addText('VALKNUT', { x: 0.8, y: 1.5, w: 10, h: 0.7, fontSize: 38, bold: true, color: 'E6E9DC', charSpacing: 6 });
   s1.addText('SPECIAL SITUATIONS // ASSESSORIA FINANCEIRA & REESTRUTURAÇÃO', { x: 0.8, y: 2.2, w: 11, h: 0.4, fontSize: 13, bold: true, color: 'A5AC82' });
   s1.addText(`PROPOSTA DE ASSESSORIA & DOSSIÊ EXECUTIVO:\n${d.empresa}`, { x: 0.8, y: 3.1, w: 11.5, h: 1.3, fontSize: 24, bold: true, color: 'FFFFFF' });
-  s1.addText(`Ângulo: ${pitchMandateType}\nDestinatário: ${pitchTargetRecipient}\nPassivo Monitorado: R$ ${formatNumberBR(d.passivo_mm)} Milhões | Data: Outubro/2026`, { x: 0.8, y: 4.8, w: 11, h: 1.2, fontSize: 13, color: 'E6E9DC' });
+  s1.addText(`Ângulo: ${pitchMandateType}\nDestinatário: ${pitchTargetRecipient}\nPassivo Monitorado: R$ ${formatNumberBR(d.passivo_mm)} Milhões | Data: ${mesAnoAtual}`, { x: 0.8, y: 4.8, w: 11, h: 1.2, fontSize: 13, color: 'E6E9DC' });
 
   // Slide 2: Perfil & Introdução da Empresa
   const s2 = pptx.addSlide();
@@ -16321,6 +16682,56 @@ function isGenericPlaceholderPlayer(str) {
   return ignorePatterns.some(p => s.includes(p));
 }
 
+function normalizeCanonicalPlayerName(rawName, tabType) {
+  if (!rawName) return '';
+  let s = String(rawName).replace(/\s+/g, ' ').trim();
+  // Strip parenthetical role notes for grouping consistency while keeping core name
+  s = s.replace(/\s*\((?:Banca|Devedora|Credores|AJ|Perito|Sindicância|Substituto)[^)]*\)/gi, '').trim();
+  // Strip trailing corporate suffixes that cause duplicate cards
+  s = s.replace(/\s+(?:Ltda\.?|S\/S|S\.A\.|Sociedade de Advogados)\s*$/i, '').trim();
+
+  const lower = normalizeTextNoAccents(s);
+
+  if (tabType === 'eco_ajs' || tabType === 'eco_aj') {
+    if (lower.includes('laspro')) return 'Laspro Consultores';
+    if (lower.includes('brizola') && lower.includes('japur')) return 'Brizola e Japur Administração Judicial';
+    if (lower.includes('exm partners')) return 'EXM Partners';
+    if (lower.includes('alvarez') && lower.includes('marsal')) return 'Alvarez & Marsal Administração Judicial';
+    if (lower.includes('kroll')) return 'Kroll Administração Judicial';
+    if (lower.includes('deloitte')) return 'Deloitte Touche Tohmatsu';
+    if (lower.includes('pwc') || lower.includes('pricewaterhouse')) return 'PwC Brasil';
+    if (lower.includes('kpmg')) return 'KPMG Corporate Finance';
+    if (lower.includes('ey ') || lower.startsWith('ey') || lower.includes('ernst & young')) return 'EY Turnaround & Restructuring';
+    if (lower.includes('valor judicial')) return 'Valor Judicial';
+    if (lower.includes('brasil trustee')) return 'Brasil Trustee Assessoria e Consultoria';
+    if (lower.includes('quadra')) return 'Quadra Administração Judicial';
+    if (lower.includes('wald')) return 'Wald Administração de Falências e Empresas em Recuperação Judicial';
+  } else if (tabType === 'eco_bancas') {
+    if (lower.includes('munhoz') || lower.includes('mattos filho')) return 'Mattos Filho, Veiga Filho, Marrey Jr e Quiroga Advogados';
+    if (lower.includes('pinheiro neto')) return 'Pinheiro Neto Advogados';
+    if (lower.includes('felsberg')) return 'Felsberg Advogados';
+    if (lower.includes('bumachar') || lower.includes('padis')) return 'Padis Mattar Advogados';
+    if (lower.includes('twk')) return 'TWK Advogados';
+    if (lower.includes('galdino') || lower.includes('coelho')) return 'Galdino & Coelho Advogados';
+    if (lower.includes('tozzinifreire') || lower.includes('tozzini freire')) return 'TozziniFreire Advogados';
+    if (lower.includes('machado meyer')) return 'Machado Meyer Advogados';
+    if (lower.includes('lefosse')) return 'Lefosse Advogados';
+    if (lower.includes('cescon')) return 'Cescon, Barrieu, Flesch & Barreto Advogados';
+    if (lower.includes('veirano')) return 'Veirano Advogados';
+    if (lower.includes('bma') || lower.includes('barbosa mussnich')) return 'BMA — Barbosa Müssnich Aragão';
+    if (lower.includes('stocche forbes')) return 'Stocche Forbes Advogados';
+    if (lower.includes('tauil') || lower.includes('chequer')) return 'Tauil & Chequer Advogados (Mayer Brown)';
+    if (lower.includes('demarest')) return 'Demarest Advogados';
+  } else if (tabType === 'eco_varas') {
+    const lowerOrd = lower.replace(/ª/g, 'a').replace(/º/g, 'o');
+    if (lowerOrd.includes('tjsp') && lowerOrd.includes('1a vara') && lowerOrd.includes('falencias')) return 'TJSP - 1ª Vara de Falências e RJs da Capital';
+    if (lowerOrd.includes('tjsp') && lowerOrd.includes('2a vara') && lowerOrd.includes('falencias')) return 'TJSP - 2ª Vara de Falências e RJs da Capital';
+    if (lowerOrd.includes('tjsp') && lowerOrd.includes('3a vara') && lowerOrd.includes('falencias')) return 'TJSP - 3ª Vara de Falências e RJs da Capital';
+    if (lowerOrd.includes('tjrj') && lowerOrd.includes('varas empresariais')) return 'TJRJ - Varas Empresariais da Capital';
+  }
+  return s;
+}
+
 function renderEcossistemaSection(deals, container) {
   const baseDeals = DEALS_DATA.filter(matchesPassivoCutoff);
   const groups = {};
@@ -16331,14 +16742,14 @@ function renderEcossistemaSection(deals, container) {
     if (currentSubTab === 'eco_ajs' || currentSubTab === 'eco_aj') {
       const ajRaw = (d.aj || d.administrador_judicial || d.adm_judicial || '').trim();
       if (ajRaw && !isGenericPlaceholderPlayer(ajRaw)) {
-        keyList = ajRaw.split('//').map(s => s.trim()).filter(Boolean);
+        keyList = ajRaw.split('//').map(s => normalizeCanonicalPlayerName(s.trim(), currentSubTab)).filter(Boolean);
       } else {
         unmappedDealsCount += 1;
       }
     } else if (currentSubTab === 'eco_bancas') {
       const advRaw = (d.advocacia || '').trim();
       if (advRaw && !isGenericPlaceholderPlayer(advRaw)) {
-        keyList = advRaw.split('//').map(s => s.trim()).filter(Boolean);
+        keyList = advRaw.split('//').map(s => normalizeCanonicalPlayerName(s.trim(), currentSubTab)).filter(Boolean);
       } else {
         unmappedDealsCount += 1;
       }
@@ -16351,11 +16762,12 @@ function renderEcossistemaSection(deals, container) {
         }
       });
     } else if (currentSubTab === 'eco_varas') {
-      if (d.tribunal) keyList = [d.tribunal];
+      if (d.tribunal) keyList = [normalizeCanonicalPlayerName(d.tribunal, currentSubTab)];
     }
 
     const dynRec = computeDynamicRecovery(d);
-    keyList.forEach(k => {
+    const uniqueKeys = [...new Set(keyList)];
+    uniqueKeys.forEach(k => {
       if (!groups[k]) groups[k] = { name: k, count: 0, passivo: 0, deals: [], recupSum: 0 };
       groups[k].count += 1;
       groups[k].passivo += (d.passivo_mm || 0);
@@ -16380,6 +16792,11 @@ function renderEcossistemaSection(deals, container) {
   sorted.forEach((g, idx) => {
     const avgRec = Math.round(g.recupSum / g.count);
     const avgHaircut = 100 - avgRec;
+    // Preserve full Vara name on eco_varas instead of splitting on '-'
+    const filterKw = currentSubTab === 'eco_varas'
+      ? g.name.split('(')[0].trim()
+      : g.name.split('(')[0].split(' - ')[0].trim();
+
     html += `
       <div class="eco-player-card">
         <div>
@@ -16398,7 +16815,7 @@ function renderEcossistemaSection(deals, container) {
             <strong>Casos:</strong> ${g.deals.slice(0, 4).map(x => escapeHtml(x.empresa)).join(' • ')}${g.deals.length > 4 ? ` (+${g.deals.length - 4})` : ''}
           </div>
         </div>
-        <button class="btn-action" style="width:100%;" onclick="filterByCreditor('${escapeHtml(g.name.split('(')[0].split('-')[0].trim())}')">
+        <button class="btn-action" style="width:100%;" data-player-kw="${escapeHtml(filterKw)}" onclick="filterByCreditor(this.getAttribute('data-player-kw'))">
           Filtrar Carteira deste Player
         </button>
       </div>
@@ -16411,10 +16828,13 @@ function renderEcossistemaSection(deals, container) {
 // ==========================================================================
 // 14. Reformulação Completa do Dossiê / "Ficha" (Tear Sheet Institucional com Perfil da Empresa)
 // ==========================================================================
+let lastFocusedElementBeforeModal = null;
+
 function openDossier(id) {
   const item = DEALS_DATA.find(d => d.id === id);
   if (!item) return;
   currentModalItem = item;
+  lastFocusedElementBeforeModal = document.activeElement;
 
   document.getElementById('modalCompany').textContent = item.empresa;
   const tickerEl = document.getElementById('modalTicker');
@@ -16436,13 +16856,18 @@ function openDossier(id) {
       <span class="tearsheet-meta-item"><strong>Juízo:</strong> ${escapeHtml(item.tribunal)}</span>
       <span class="tearsheet-meta-item">
         <strong>Autos:</strong> ${escapeHtml(item.processo)}
-        <button type="button" class="btn-copy-autos" onclick="copyProcessNumber('${escapeHtml(item.processo)}')">📋 Copiar Autos</button>
+        <button type="button" class="btn-copy-autos" data-proc="${escapeHtml(item.processo)}" onclick="copyProcessNumber(this.getAttribute('data-proc'))">📋 Copiar Autos</button>
       </span>
     `;
   }
 
   setModalTab('visao');
-  document.getElementById('detailModal').style.display = 'flex';
+  const modalEl = document.getElementById('detailModal');
+  if (modalEl) {
+    modalEl.style.display = 'flex';
+    const firstTab = document.getElementById('modal-tab-visao');
+    if (firstTab) setTimeout(() => firstTab.focus(), 20);
+  }
   document.body.style.overflow = 'hidden';
 }
 
@@ -16455,9 +16880,14 @@ function copyProcessNumber(procStr) {
 }
 
 function closeModal() {
-  document.getElementById('detailModal').style.display = 'none';
+  const modalEl = document.getElementById('detailModal');
+  if (modalEl) modalEl.style.display = 'none';
   document.body.style.overflow = '';
   currentModalItem = null;
+  if (lastFocusedElementBeforeModal && typeof lastFocusedElementBeforeModal.focus === 'function') {
+    try { lastFocusedElementBeforeModal.focus(); } catch (e) { /* ignore */ }
+    lastFocusedElementBeforeModal = null;
+  }
 }
 
 function handleOverlayClick(e) {
@@ -16465,14 +16895,44 @@ function handleOverlayClick(e) {
 }
 
 window.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
+  const modalEl = document.getElementById('detailModal');
+  const isModalOpen = modalEl && modalEl.style.display === 'flex';
+  if (!isModalOpen) return;
+
+  if (e.key === 'Escape') {
+    closeModal();
+    return;
+  }
+
+  if (e.key === 'Tab') {
+    const dialog = modalEl.querySelector('.modal-dialog') || modalEl;
+    const focusables = Array.from(
+      dialog.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ).filter(el => el.offsetParent !== null);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 });
 
 function setModalTab(tab) {
   currentModalTab = tab;
-  document.querySelectorAll('.modal-tab-item').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.modal-tab-item').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
   const activeBtn = document.getElementById(`modal-tab-${tab}`);
-  if (activeBtn) activeBtn.classList.add('active');
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    activeBtn.setAttribute('aria-selected', 'true');
+  }
 
   const body = document.getElementById('modalBody');
   const d = currentModalItem;
@@ -16616,7 +17076,7 @@ function setModalTab(tab) {
           <div class="dossier-cell-label">Número dos Autos / Emissão</div>
           <div class="dossier-cell-val" style="font-family:var(--font-mono);">
             ${escapeHtml(d.processo)}
-            <button type="button" class="btn-action" style="margin-left:8px; padding:2px 8px;" onclick="copyProcessNumber('${escapeHtml(d.processo)}')">Copiar</button>
+            <button type="button" class="btn-action" style="margin-left:8px; padding:2px 8px;" data-proc="${escapeHtml(d.processo)}" onclick="copyProcessNumber(this.getAttribute('data-proc'))">Copiar</button>
           </div>
         </div>
         <div class="dossier-cell">
@@ -16732,77 +17192,6 @@ function parseSheetNoticiasRows(rows) {
     const resumo = String(r[7] || '').trim();
     const urlOrig = String(r[8] || '').trim();
 
-    const blob = normalizeTextNoAccents(`${tagCurta} ${catAba} ${titulo}`);
-    let categoria = 'Pedido de RJ';
-    if (blob.includes('downgrade') || blob.includes('rating') || blob.includes('fitch') || blob.includes('moody')) {
-      categoria = 'Downgrade Rating';
-    } else if (blob.includes('waiver') || blob.includes('agd') || blob.includes('fato relevante') || blob.includes('dip') || blob.includes('debenture') || blob.includes('extrajudicial')) {
-      categoria = 'Waiver / AGD';
-    } else if (blob.includes('falencia') || blob.includes('convolacao')) {
-      categoria = 'Falência';
-    } else if (blob.includes('leilao') || blob.includes('upi')) {
-      categoria = 'Leilão de UPI';
-    } else if (blob.includes('cautelar') || blob.includes('20-b')) {
-      categoria = 'Cautelar 20-B';
-    }
-
-    let matchedDeal = null;
-    for (const d of DEALS_DATA) {
-      const base = normalizeTextNoAccents(String(d.empresa || '').split('(')[0].replace(/\b(grupo|rede)\b/gi, '').trim());
-      if (base.length >= 4 && normalizeTextNoAccents(titulo).includes(base)) {
-        matchedDeal = d;
-        break;
-      }
-    }
-
-    const escopo = (escopoRaw.includes('cvm') || categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating')
-      ? 'cvm'
-      : (matchedDeal || escopoRaw.includes('pipeline') ? 'pipeline' : 'mercado');
-
-    out.push({
-      id: 1100 + i,
-      data_hora: dtStr || '05/11/2026 09:00',
-      titulo,
-      fonte,
-      setor: matchedDeal ? matchedDeal.setor_macro : setorRaw,
-      categoria,
-      escopo,
-      resumo,
-      url: urlOrig || buildNewsItemUrl({ titulo, empresa_nome: matchedDeal ? matchedDeal.empresa : '' }),
-      deal_id: matchedDeal ? matchedDeal.id : null,
-      empresa_nome: matchedDeal ? matchedDeal.empresa : `Planilha Mestre // ${fonte}`
-    });
-  }
-  return out;
-}
-
-function parseSheetNoticiasRows(rows) {
-  if (!Array.isArray(rows) || rows.length === 0) return [];
-  const out = [];
-  for (let i = 0; i < rows.length; i++) {
-    const r = rows[i];
-    if (!r || !r[6]) continue;
-    const titulo = String(r[6] || '').trim();
-    if (!titulo || titulo.toLowerCase().includes('título analítico')) continue;
-
-    let dtStr = String(r[0] || '').trim();
-    if (dtStr.includes('T') || /^\d{4}-\d{2}-\d{2}/.test(dtStr)) {
-      const dt = new Date(dtStr);
-      if (!isNaN(dt.getTime())) {
-        dtStr = `${String(dt.getDate()).padStart(2, '0')}/${String(dt.getMonth() + 1).padStart(2, '0')}/${dt.getFullYear()} ${String(dt.getHours()).padStart(2, '0')}:${String(dt.getMinutes()).padStart(2, '0')}`;
-      }
-    } else if (/^\d{2}\/\d{2}\/\d{4}$/.test(dtStr)) {
-      dtStr = `${dtStr} 10:00`;
-    }
-
-    const fonte = String(r[1] || 'CVM / Fatos Relevantes').trim();
-    const tagCurta = String(r[2] || '').trim();
-    const catAba = String(r[3] || '').trim();
-    const escopoRaw = normalizeTextNoAccents(String(r[4] || ''));
-    const setorRaw = String(r[5] || 'Mercado & Macro (RJ / Crédito)').trim();
-    const resumo = String(r[7] || '').trim();
-    const urlOrig = String(r[8] || '').trim();
-
     const specific = normalizeTextNoAccents(`${tagCurta} ${titulo}`);
     const blob = normalizeTextNoAccents(`${tagCurta} ${catAba} ${titulo}`);
     let categoria = 'Pedido de RJ';
@@ -16860,6 +17249,9 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       const parsed = parseSheetRows(json.data);
       if (parsed.length > 0) {
         DEALS_DATA = parsed;
+        VALKNUT_DATA = DEALS_DATA;
+        if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+        saveDealsSnapshotToStorage(DEALS_DATA);
         enrichAllDeals();
         populateDropdownFilters();
         changed = true;
@@ -16996,7 +17388,7 @@ function parseSheetRows(rows) {
     } else if (faseLower.includes('cautelar') || faseLower.includes('20-b') || faseLower.includes('pré-rj') || faseLower.includes('agd') || faseLower.includes('constatação prévia')) {
       tipoProcesso = 'Cautelar / Pré-RJ';
       subtipoProcesso = 'Cautelar / Pré-RJ';
-    } else if (faseLower.includes('extrajudicial') || faseLower.includes('classe 128') || faseLower.includes('12154') || faseLower.includes('pre')) {
+    } else if (faseLower.includes('extrajudicial') || faseLower.includes('classe 128') || faseLower.includes('12154') || /\bpre\b/i.test(faseLower)) {
       tipoProcesso = 'PRE';
       subtipoProcesso = 'PRE';
     }
@@ -17010,8 +17402,8 @@ function parseSheetRows(rows) {
     let scoreVal = typeof row[9] === 'number' ? row[9] : parseFloat(String(row[9] || '8.5').replace(',', '.'));
     if (isNaN(scoreVal) || scoreVal > 10) scoreVal = 8.8;
 
-    let dataEvento = String(row[0] || '2026-10-25').split('T')[0];
-    let dataAdicao = String(row[1] || '2026-11-01').split('T')[0];
+    let dataEvento = normalizeIsoDateStr(row[0], '2026-10-25');
+    let dataAdicao = normalizeIsoDateStr(row[1], '2026-11-01');
 
     const rawSetor = String(row[4] || 'Indústria & Manufatura');
     const sLow = normalizeTextNoAccents(rawSetor);

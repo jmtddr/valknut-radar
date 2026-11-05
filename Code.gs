@@ -30,6 +30,10 @@ function doGet(e) {
       return handleDjenProxyRequest(params);
     }
 
+    if (action === 'ons_ccee') {
+      return handleOnsCceeProxyRequest(params);
+    }
+
     if (action === 'sync') {
       const result = sincronizarRadarAutomatico();
       return createJsonResponse({ status: 'success', syncResult: result });
@@ -48,6 +52,7 @@ function doGet(e) {
  * 1. Leitura Unificada da Planilha Mestre:
  *    - Aba "Radar de Originação (Leads)" -> campo `data`
  *    - Aba "Noticias"                    -> campo `noticias`
+ *    - Aba "Radar Preditivo (Tier 0)"    -> campo `tier0`
  */
 function handleMasterSheetRead() {
   const ss = SpreadsheetApp.openById(SHEET_ID);
@@ -67,14 +72,63 @@ function handleMasterSheetRead() {
     }) : [];
   }
 
+  const tier0Sheet = ss.getSheetByName('Radar Preditivo (Tier 0)');
+  let tier0Rows = [];
+  if (tier0Sheet) {
+    const tRows = tier0Sheet.getDataRange().getValues();
+    tier0Rows = tRows.length > 1 ? tRows.slice(1).filter(function(r) {
+      return r && String(r[0] || r[1] || r[2] || '').trim() !== '';
+    }) : [];
+  }
+
   return createJsonResponse({
     status: 'success',
     updated_at: new Date().toISOString(),
     count: dataRows.length,
     data: dataRows,
     noticias_count: noticiasRows.length,
-    noticias: noticiasRows
+    noticias: noticiasRows,
+    tier0_count: tier0Rows.length,
+    tier0: tier0Rows
   });
+}
+
+/**
+ * 1B. Proxy com Cache para Telemetria ONS & PLD Horário Oficial da CCEE
+ */
+function handleOnsCceeProxyRequest(params) {
+  const submarket = String((params && params.submarket) || 'SIN').toUpperCase();
+  const dateStr = String((params && params.date) || Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd'));
+  const cache = CacheService.getScriptCache();
+  const cacheKey = 'vk_ons_ccee_' + submarket + '_' + dateStr;
+  const cached = cache.get(cacheKey);
+  if (cached && String(params.nocache || '') !== '1') {
+    return ContentService.createTextOutput(cached).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  let onsData = null;
+  try {
+    const onsRes = UrlFetchApp.fetch('https://integra.ons.org.br/api/energiaagora/GetBalancoEnergetico/null', {
+      method: 'get',
+      muteHttpExceptions: true,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (onsRes.getResponseCode() >= 200 && onsRes.getResponseCode() < 300) {
+      onsData = JSON.parse(onsRes.getContentText('UTF-8'));
+    }
+  } catch (e) {}
+
+  const payloadStr = JSON.stringify({
+    status: 'ok',
+    submarket: submarket,
+    date: dateStr,
+    ons: onsData,
+    updated_at: new Date().toISOString()
+  });
+  try {
+    cache.put(cacheKey, payloadStr, CACHE_TTL_SECONDS);
+  } catch (e) {}
+  return ContentService.createTextOutput(payloadStr).setMimeType(ContentService.MimeType.JSON);
 }
 
 /**
