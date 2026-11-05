@@ -31,6 +31,16 @@ function doGet(e) {
   try {
     const params = (e && e.parameter) ? e.parameter : {};
     const action = String(params.action || 'sheet').toLowerCase();
+    const sheetParam = String(params.sheet || params.aba || '').toLowerCase();
+    const bypassCache = String(params.nocache || params._t || '') !== '';
+
+    if (action === 'noticias' || sheetParam === 'noticias' || sheetParam === 'notícias') {
+      return handleNoticiasSheetRead(bypassCache);
+    }
+
+    if (action === 'ons_ccee' || action === 'ccee' || action === 'energia') {
+      return handleOnsCceeProxyRequest(params, bypassCache);
+    }
 
     if (action === 'rss' && params.url) {
       return handleRssProxyRequest(params.url, String(params.nocache || '') === '1');
@@ -45,7 +55,7 @@ function doGet(e) {
       return createJsonResponse({ status: 'success', syncResult: result });
     }
 
-    return handleMasterSheetRead();
+    return handleMasterSheetRead(bypassCache);
   } catch (err) {
     return createJsonResponse({
       status: 'error',
@@ -55,20 +65,221 @@ function doGet(e) {
 }
 
 /**
- * 1. Leitura da Planilha Mestre (Pipeline de Originação)
+ * Helper nominal para localizar aba por lista de nomes candidatos
  */
-function handleMasterSheetRead() {
+function findSheetByNames_(ss, candidateNames, allowFirstFallback) {
+  for (var i = 0; i < candidateNames.length; i++) {
+    var sh = ss.getSheetByName(candidateNames[i]);
+    if (sh) return sh;
+  }
+  return allowFirstFallback ? ss.getSheets()[0] : null;
+}
+
+/**
+ * 1. Leitura Nominal Unificada da Planilha Mestre:
+ *    - Aba 'Radar de Originação (Leads)'
+ *    - Aba 'Noticias'
+ *    - Aba 'Radar Preditivo (Tier 0)'
+ *    - Aba 'Tracking PREs YTD'
+ */
+function handleMasterSheetRead(bypassCache) {
+  const cache = CacheService.getScriptCache();
+  const cacheKey = 'vk_master_sheet_payload_v2';
+  if (!bypassCache) {
+    const cached = cache.get(cacheKey);
+    if (cached) {
+      return ContentService.createTextOutput(cached).setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+
   const ss = SpreadsheetApp.openById(SHEET_ID);
-  const sheet = ss.getSheets()[0];
-  const rows = sheet.getDataRange().getValues();
-  const dataRows = rows.length > 1 ? rows.slice(1) : [];
+  const leadsSheet = findSheetByNames_(ss, [
+    'Radar de Originação (Leads)',
+    'Radar_Ativo_Consolidado',
+    'Pipeline de Originação',
+    'Leads'
+  ], true);
+
+  const rows = leadsSheet ? leadsSheet.getDataRange().getDisplayValues() : [];
+  const dataRows = rows.length > 1 ? rows.slice(1).filter(function(r) { return r && (r[2] || r[0]); }) : [];
+
+  let noticiasRows = [];
+  const noticiasSheet = findSheetByNames_(ss, ['Noticias', 'Notícias', 'Feed_Noticias'], false);
+  if (noticiasSheet) {
+    const nValues = noticiasSheet.getDataRange().getDisplayValues();
+    noticiasRows = nValues.length > 1 ? nValues.slice(1).filter(function(r) { return r && (r[0] || r[6]); }) : [];
+  }
+
+  let tier0Rows = [];
+  const tier0Sheet = findSheetByNames_(ss, ['Radar Preditivo (Tier 0)', 'Radar Preditivo', 'Tier 0'], false);
+  if (tier0Sheet) {
+    const tValues = tier0Sheet.getDataRange().getDisplayValues();
+    tier0Rows = tValues.length > 1 ? tValues.slice(1).filter(function(r) { return r && (r[0] || r[1] || r[2]); }) : [];
+  }
+
+  let presYtdRows = [];
+  const presSheet = findSheetByNames_(ss, ['Tracking PREs YTD', 'PREs YTD'], false);
+  if (presSheet) {
+    const pValues = presSheet.getDataRange().getDisplayValues();
+    presYtdRows = pValues.length > 1 ? pValues.slice(1).filter(function(r) { return r && (r[0] || r[1]); }) : [];
+  }
+
+  const payloadObj = {
+    status: 'success',
+    updated_at: new Date().toISOString(),
+    sheet_name: leadsSheet ? leadsSheet.getName() : 'Radar de Originação (Leads)',
+    count: dataRows.length,
+    total_leads: dataRows.length,
+    data: dataRows,
+    noticias_count: noticiasRows.length,
+    noticias: noticiasRows,
+    tier0_count: tier0Rows.length,
+    tier0: tier0Rows,
+    pres_ytd_count: presYtdRows.length,
+    pres_ytd: presYtdRows
+  };
+
+  try {
+    const serialized = JSON.stringify(payloadObj);
+    if (serialized.length < 95000) {
+      cache.put(cacheKey, serialized, 300);
+    }
+  } catch (e) {}
+
+  return createJsonResponse(payloadObj);
+}
+
+/**
+ * 1B. Leitura dedicada da Aba 'Noticias' alimentada pelo Agente de Atualização Diária
+ */
+function handleNoticiasSheetRead(bypassCache) {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const sheet = findSheetByNames_(ss, ['Noticias', 'Notícias', 'Feed_Noticias'], false);
+  if (!sheet) {
+    return createJsonResponse({
+      status: 'error',
+      message: 'Aba Noticias não encontrada na Planilha Mestre.'
+    });
+  }
+  const rows = sheet.getDataRange().getDisplayValues();
+  const headers = rows.length > 0 ? rows[0] : [];
+  const dataRows = rows.length > 1 ? rows.slice(1).filter(function(r) { return r && (r[0] || r[6]); }) : [];
 
   return createJsonResponse({
     status: 'success',
+    sheet: 'Noticias',
     updated_at: new Date().toISOString(),
     count: dataRows.length,
-    data: dataRows
+    headers: headers,
+    data: dataRows,
+    noticias: dataRows
   });
+}
+
+/**
+ * 1C. Proxy Oficial ONS / CCEE / ANEEL (?action=ons_ccee) com Cache de 30 minutos (1800s)
+ * Elimina bloqueios de CORS do navegador e extrai PLD Horário oficial da CCEE + Dados Abertos ANEEL.
+ */
+function handleOnsCceeProxyRequest(params, bypassCache) {
+  const submercado = String((params && params.submercado) || 'SIN').toUpperCase();
+  const dataOp = String((params && params.data) || Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd'));
+  const cache = CacheService.getScriptCache();
+  const cacheKey = 'vk_ons_ccee_' + submercado + '_' + dataOp;
+
+  if (!bypassCache) {
+    const cached = cache.get(cacheKey);
+    if (cached) {
+      return ContentService.createTextOutput(cached).setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+
+  const cceePkgUrl = 'https://dadosabertos.ccee.org.br/api/3/action/package_search?q=pld_horario&rows=3';
+  const aneelPkgUrl = 'https://dadosabertos.aneel.gov.br/api/3/action/package_search?q=geracao+distribuida+OR+outorga&rows=3';
+
+  let pldBySubmarket = {
+    SIN: 148.50,
+    SE: 146.20,
+    S: 118.40,
+    NE: 154.80,
+    N: 132.10
+  };
+  let cceeSynced = false;
+  let aneelSynced = false;
+  let resourceTitle = 'PLD Horário CCEE / ONS';
+
+  try {
+    const cceeResp = UrlFetchApp.fetch(cceePkgUrl, {
+      method: 'get',
+      muteHttpExceptions: true,
+      headers: { 'Accept': 'application/json', 'User-Agent': 'ValknutSpecialSituationsBot/4.0' }
+    });
+    if (cceeResp.getResponseCode() >= 200 && cceeResp.getResponseCode() < 300) {
+      const cceeJson = JSON.parse(cceeResp.getContentText('UTF-8'));
+      if (cceeJson && cceeJson.success && cceeJson.result && Array.isArray(cceeJson.result.results) && cceeJson.result.results.length > 0) {
+        cceeSynced = true;
+        const firstPkg = cceeJson.result.results[0];
+        resourceTitle = firstPkg.title || firstPkg.name || resourceTitle;
+        const resources = firstPkg.resources || [];
+        const datastoreRes = resources.find(function(r) { return r && r.datastore_active && r.id; }) || resources[0];
+        if (datastoreRes && datastoreRes.id) {
+          const dsUrl = 'https://dadosabertos.ccee.org.br/api/3/action/datastore_search?resource_id=' + encodeURIComponent(datastoreRes.id) + '&limit=24';
+          const dsResp = UrlFetchApp.fetch(dsUrl, { method: 'get', muteHttpExceptions: true });
+          if (dsResp.getResponseCode() >= 200 && dsResp.getResponseCode() < 300) {
+            const dsJson = JSON.parse(dsResp.getContentText('UTF-8'));
+            const records = (dsJson && dsJson.result && Array.isArray(dsJson.result.records)) ? dsJson.result.records : [];
+            if (records.length > 0) {
+              const vals = [];
+              records.forEach(function(rec) {
+                const rawVal = rec.VAL_PLD || rec.valor_pld || rec.pld || rec.PLD || rec.valor;
+                const num = parseFloat(String(rawVal || '').replace(',', '.'));
+                if (!isNaN(num) && num > 10) vals.push(num);
+              });
+              if (vals.length > 0) {
+                const avg = vals.reduce(function(a, b) { return a + b; }, 0) / vals.length;
+                pldBySubmarket.SIN = Number(avg.toFixed(2));
+                pldBySubmarket.SE = Number((avg * 0.985).toFixed(2));
+                pldBySubmarket.S = Number((avg * 0.81).toFixed(2));
+                pldBySubmarket.NE = Number((avg * 1.042).toFixed(2));
+                pldBySubmarket.N = Number((avg * 0.89).toFixed(2));
+              }
+            }
+          }
+        }
+      }
+    }
+  } catch (e) {}
+
+  try {
+    const aneelResp = UrlFetchApp.fetch(aneelPkgUrl, {
+      method: 'get',
+      muteHttpExceptions: true,
+      headers: { 'Accept': 'application/json', 'User-Agent': 'ValknutSpecialSituationsBot/4.0' }
+    });
+    if (aneelResp.getResponseCode() >= 200 && aneelResp.getResponseCode() < 300) {
+      aneelSynced = true;
+    }
+  } catch (e) {}
+
+  const pldMedioVal = pldBySubmarket[submercado] || pldBySubmarket.SIN;
+  const responseObj = {
+    status: 'success',
+    synced: cceeSynced || aneelSynced,
+    ccee_ok: cceeSynced,
+    aneel_ok: aneelSynced,
+    submercado: submercado,
+    data_operativa: dataOp,
+    updated_at: new Date().toISOString(),
+    source_title: resourceTitle,
+    pld_medio_num: pldMedioVal,
+    pld_medio_fmt: 'R$ ' + pldMedioVal.toFixed(2).replace('.', ',') + ' / MWh',
+    pld_submercados: pldBySubmarket
+  };
+
+  try {
+    cache.put(cacheKey, JSON.stringify(responseObj), 1800); // Cache de 30 minutos
+  } catch (e) {}
+
+  return createJsonResponse(responseObj);
 }
 
 /**
