@@ -13,15 +13,15 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 10000,
-    "passivo_display": "10.000",
+    "passivo_mm": 1000,
+    "passivo_display": "1.000",
     "credores": "Bradesco, Santander, Itaú e Debenturistas (Vórtx/Pentágono)",
     "perfil_passivo": "Bancário Concentrado + Debêntures",
     "advocacia": "BMA Advogados",
     "aj": "N/A (Fase Cautelar)",
     "tese": "(1) Causa da crise: Desalavancagem operacional severa após encerramento antecipado de contratos de fornecimento de pás eólicas (Siemens Gamesa / WEG), ociosidade fabril no Ceará e compressão do caixa frente a R$ 1,0 bilhão em dívidas financeiras; (2) Gargalo imediato: Tutela cautelar antecedente (art. 20-B) para blindagem de caixa contra travas bancárias e negociação de standstill em AGDs das emissões de debêntures (AERI11/AERI12) junto a Vórtx e Pentágono; (3) Oportunidade de mandato: Financial Advisory junto ao sindicato bancário (Bradesco, Santander, Itaú), estruturação de DIP Financing para capital de giro e M&A Distressed da planta industrial no Porto do Pecém/CE.",
     "status": "Em Análise",
-    "proximas_acoes": "Abordar sindicato bancário (Bradesco, Itaú, Santander) e agentes fiduciários para assessoria na conversão em RJ/PRE.",
+    "proximas_acoes": "ATUALIZAÇÃO 04/11/2026: Pedido de Recuperação Extrajudicial protocolado (R$ 1,52 bilhão, abrangendo debêntures AERI11/AERI12 e dívida bancária com BTG Pactual, Santander e Bradesco). Abordar sindicato bancário (Bradesco, Itaú, Santander) e agentes fiduciários para assessoria na conversão em RJ/PRE.",
     "watchdog_eligible": true,
     "watchdog_triggers": [
       "Alta Concentração de Dívida Institucional (CR4 > 60%)",
@@ -95,7 +95,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://neofeed.com.br/negocios/aeris-aciona-tutela-cautelar-para-renegociar-divida-com-credores/",
     "url_tribunal_cvm": "https://esaj.tjce.jus.br/cpopg/open.do"
@@ -114,8 +118,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 17968,
-    "passivo_display": "17.968",
+    "passivo_mm": 179.68,
+    "passivo_display": "179,68",
     "credores": "Bancos comerciais privados (Itaú, Santander, Bradesco) e Fornecedores químicos",
     "perfil_passivo": "Bancário (Capital de Giro e Recebíveis)",
     "advocacia": "Aguardando publicação nos autos",
@@ -183,7 +187,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -202,8 +210,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 338,
-    "passivo_display": "338",
+    "passivo_mm": 33.8,
+    "passivo_display": "33,80",
     "credores": "Bancos de Montadoras (Scania, Volvo), Bancos privados e Postos de Combustível",
     "perfil_passivo": "Finame / Alienação Fiduciária de Frotas",
     "advocacia": "Aguardando publicação nos autos",
@@ -270,7 +278,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -289,8 +301,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 6.5,
     "tier": "Tier 3",
-    "passivo_mm": 2950,
-    "passivo_display": "2.950",
+    "passivo_mm": 295,
+    "passivo_display": "295",
     "credores": "Bancos regionais (Banrisul, BRDE, Sicredi), Itaú e Fornecedores de aço",
     "perfil_passivo": "Bancário Regional + Fornecedores",
     "advocacia": "Aguardando publicação nos autos",
@@ -357,10 +369,14 @@
     },
     "calendar_meta": {
       "marco_principal": "AGD / Deliberação de Waiver & Standstill",
-      "data_limite": "2026-11-07",
+      "data_limite": "2026-11-09",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-09",
+      "data_marco": "09/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -379,8 +395,8 @@
     "fase": "Homologação de PRE (Classe 12154)",
     "score": 6.5,
     "tier": "Tier 3",
-    "passivo_mm": 11400,
-    "passivo_display": "11.400",
+    "passivo_mm": 1140,
+    "passivo_display": "1.140",
     "credores": "Debenturistas (emissões públicas e privadas) e Bancos credores",
     "perfil_passivo": "Mercado de Capitais + Financiamentos Estruturados",
     "advocacia": "BMA Advogados",
@@ -447,10 +463,14 @@
     },
     "calendar_meta": {
       "marco_principal": "AGD / Deliberação de Waiver & Standstill",
-      "data_limite": "2026-11-14",
+      "data_limite": "2026-11-16",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-16",
+      "data_marco": "16/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://www.infomoney.com.br/mercados/allianca-saude-obtem-homologacao-do-plano-de-recuperacao-extrajudicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -469,8 +489,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 450,
-    "passivo_display": "450",
+    "passivo_mm": 45,
+    "passivo_display": "45",
     "credores": "Tradings agrícolas, Revendas locais de insumos e Bancos de fomento (BB, Sicredi)",
     "perfil_passivo": "Tradings (Barter) + Financiamento de Máquinas",
     "advocacia": "Aguardando publicação nos autos",
@@ -534,10 +554,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-21",
+      "data_limite": "2026-11-23",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-23",
+      "data_marco": "23/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -556,8 +580,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 6.5,
     "tier": "Tier 3",
-    "passivo_mm": 35000,
-    "passivo_display": "35.000",
+    "passivo_mm": 3500,
+    "passivo_display": "3.500",
     "credores": "Debenturistas institucionais (múltiplas emissões), Sindicato de bancos nacionais e globais",
     "perfil_passivo": "Mercado de Capitais (Debêntures) + Sindicato Bancário",
     "advocacia": "Pinheiro Neto Advogados",
@@ -631,10 +655,14 @@
     },
     "calendar_meta": {
       "marco_principal": "AGD / Deliberação de Waiver & Standstill",
-      "data_limite": "2026-11-28",
+      "data_limite": "2026-11-30",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-30",
+      "data_marco": "30/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://www.infomoney.com.br/mercados/raizen-detalha-reestruturacao-veja-o-que-esta-em-jogo-para-credores-e-acionistas/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -653,8 +681,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 5.5,
     "tier": "Tier 2",
-    "passivo_mm": 39400,
-    "passivo_display": "39.400",
+    "passivo_mm": 3940,
+    "passivo_display": "3.940",
     "credores": "Bancos privados (Santander, Bradesco, Itaú, BB) e Credores comerciais de concentrado de cobre (Glencore, Trafigura)",
     "perfil_passivo": "Sindicato Bancário + Tradings Internacionais",
     "advocacia": "Felsberg Advogados",
@@ -722,7 +750,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www.infomoney.com.br/business/paranapanema-celebra-liquidacao-parcial-de-acordo-global-de-r-42-bi-com-credores/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -741,8 +773,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 5.5,
     "tier": "Tier 2",
-    "passivo_mm": 80000,
-    "passivo_display": "80.000",
+    "passivo_mm": 8000,
+    "passivo_display": "8.000",
     "credores": "Prumo Logística (Porto do Açu), Debenturistas e Fornecedores marítimos",
     "perfil_passivo": "Créditos Estruturados + Passivo Operacional",
     "advocacia": "Galdino & Coelho Advogados",
@@ -819,7 +851,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www.osx.com.br/show.aspx?idCanal=kDpD2GF4+JsaRZWpTtZJHQ==",
     "url_tribunal_cvm": "https://www3.tjrj.jus.br/consultaprocessual/"
@@ -838,8 +874,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 6000,
-    "passivo_display": "6.000",
+    "passivo_mm": 600,
+    "passivo_display": "600",
     "credores": "Securitizadora Vert (R$ 89M de debêntures vencidas), Bancos de Capital de Giro",
     "perfil_passivo": "Mercado de Capitais (Debêntures exigíveis em 3 dias) + Bancário",
     "advocacia": "Aguardando autuação",
@@ -905,7 +941,7 @@
       "upi_valuation_estimado_mm": 210.0
     },
     "calendar_meta": {
-      "data_marco_iso": "2026-10-25",
+      "data_marco_iso": "2026-10-26",
       "data_marco_br": "25/10/2026",
       "dias_restantes": 9,
       "marco_label": "Vencimento da Janela de Standstill / Cura da 1ª Emissão de Debêntures (Vert)",
@@ -913,9 +949,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (9d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-25",
+      "data_marco": "26/10/2026",
       "tipo_marco": "Vencimento da Janela de Standstill / Cura da 1ª Emissão de Debêntures (Vert)",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-26",
+      "marco_principal": "Vencimento da Janela de Standstill / Cura da 1ª Emissão de Debêntures (Vert)"
     },
     "url_noticia": "https://exame.com/insight/chilli-beans-ganha-prazo-para-renegociar-divida-de-r-89-milhoes/p",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -934,8 +972,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 1430,
-    "passivo_display": "1.430",
+    "passivo_mm": 143,
+    "passivo_display": "143",
     "credores": "Banco Master, Fundos de Investimento e Debenturistas",
     "perfil_passivo": "Conflito Societário + Dívida com Fundo/Banco",
     "advocacia": "Aguardando autuação",
@@ -1005,7 +1043,11 @@
       "data_limite": "2026-11-13",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-13",
+      "data_marco": "13/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://www.metropoles.com/colunas/demetrio-vecchioli/vorcaro-negociou-com-justus-fechou-com-brb-e-recebeu-170-a-mais",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -1024,8 +1066,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 2100,
-    "passivo_display": "2.100",
+    "passivo_mm": 210,
+    "passivo_display": "210",
     "credores": "Banco Daycoval, CCEE e Contrapartes do Mercado Livre de Energia",
     "perfil_passivo": "Financiamento Estruturado + Garantias de Energia",
     "advocacia": "Aguardando publicação nos autos",
@@ -1100,7 +1142,11 @@
       "data_limite": "2026-11-20",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-20",
+      "data_marco": "20/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://consulta.tjpr.jus.br/projudi_consulta/",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
@@ -1119,8 +1165,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 6.0,
     "tier": "Tier 2",
-    "passivo_mm": 15000,
-    "passivo_display": "15.000",
+    "passivo_mm": 1500,
+    "passivo_display": "1.500",
     "credores": "Banco Master, Banco Genial, FIDC Calêndula e Credores Trabalhistas",
     "perfil_passivo": "Fundos Estruturados (FIDCs) + Passivo Trabalhista",
     "advocacia": "Aguardando publicação nos autos",
@@ -1188,7 +1234,11 @@
       "data_limite": "2026-11-27",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-27",
+      "data_marco": "27/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www.extraclasse.org.br/educacao/2026/10/as-conexoes-entre-ulbra-banco-genial-fundos-de-investimento-e-o-master/",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -1207,8 +1257,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 8.5,
     "tier": "Tier 3",
-    "passivo_mm": 3860,
-    "passivo_display": "3.860",
+    "passivo_mm": 386,
+    "passivo_display": "386",
     "credores": "Debenturistas de emissões privadas e bancos comerciais",
     "perfil_passivo": "Mercado de Capitais (Debêntures) + Quirografários",
     "advocacia": "Aguardando publicação nos autos",
@@ -1278,7 +1328,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://www.seudinheiro.com/2026/empresas/de-novo-lupatech-lupa3-entrega-plano-de-recuperacao-extrajudicial-a-cvm-entenda-a-crise-kaes/",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -1297,8 +1351,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 376,
-    "passivo_display": "376",
+    "passivo_mm": 37.6,
+    "passivo_display": "37,60",
     "credores": "Banco do Brasil e Caixa Econômica Federal (concentram 79% da dívida), fornecedores de insumos/nutrição",
     "perfil_passivo": "Bancário Público Concentrado (BB e Caixa) + Crédito Rural",
     "advocacia": "Aguardando publicação nos autos",
@@ -1366,7 +1420,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -1385,8 +1443,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 8.5,
     "tier": "Tier 3",
-    "passivo_mm": 45680,
-    "passivo_display": "45.680",
+    "passivo_mm": 4568,
+    "passivo_display": "4.568",
     "credores": "Sindicato de bancos privados (Itaú, Bradesco, Santander), Debenturistas institucionais e Fundos Imobiliários (locadores)",
     "perfil_passivo": "Bancário Comercial + Mercado de Capitais (Debêntures) + Aluguéis Comerciais",
     "advocacia": "Pinheiro Neto Advogados",
@@ -1458,7 +1516,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://capitalaberto.com.br/empresas/2026/09/reestruturacao-bilionaria-do-gpa-esbarra-em-disputas",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -1477,8 +1539,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 8.0,
     "tier": "Tier 3",
-    "passivo_mm": 51000,
-    "passivo_display": "51.000",
+    "passivo_mm": 5100,
+    "passivo_display": "5.100",
     "credores": "Titulares de Debêntures e CRIs, Securitizadoras e Agentes Fiduciários (Vórtx, Pentágono, Oliveira Trust)",
     "perfil_passivo": "Mercado de Capitais (Debêntures e CRIs) + Bancário de Saúde",
     "advocacia": "Spinelli Advogados // Mattos Filho",
@@ -1552,9 +1614,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (14d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-30",
+      "data_marco": "30/10/2026",
       "tipo_marco": "Fim do Prazo Judicial Peremptório (15d) — Quórum RE & AGDs ONCO3",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-30",
+      "marco_principal": "Fim do Prazo Judicial Peremptório (15d) — Quórum RE & AGDs ONCO3"
     },
     "url_noticia": "https://www.moneytimes.com.br/oncoclinicas-onco3-amplia-apoio-ao-plano-de-recuperacao-extrajudicial-e-alcanca-adesao-de-746-dos-creditos-lmrs/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -1573,8 +1637,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 2010,
-    "passivo_display": "2.010",
+    "passivo_mm": 201,
+    "passivo_display": "201",
     "credores": "Bancos financiadores à produção (Caixa, Bradesco, Santander), adquirentes de imóveis e fornecedores de materiais (cimento/aço)",
     "perfil_passivo": "Financiamento à Produção (Plano Empresário) + Fornecedores",
     "advocacia": "Aguardando publicação nos autos",
@@ -1648,7 +1712,11 @@
       "data_limite": "2026-11-18",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-18",
+      "data_marco": "18/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam"
@@ -1667,8 +1735,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 2520,
-    "passivo_display": "2.520",
+    "passivo_mm": 252,
+    "passivo_display": "252",
     "credores": "Fosnor (R$ 87,4M garantia real), SLC Agrícola (R$ 115,9M), Securitizadoras Virgo e Reit (R$ 304,5M extraconcursais) e BRDE",
     "perfil_passivo": "Alienação Fiduciária de Terras (Securitizadoras/CRI) + Fornecedores de Insumos (Fosnor) + BRDE",
     "advocacia": "Aguardando publicação nos autos",
@@ -1738,7 +1806,11 @@
       "data_limite": "2026-11-25",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-25",
+      "data_marco": "25/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
@@ -1757,8 +1829,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 3171,
-    "passivo_display": "3.171",
+    "passivo_mm": 31.71,
+    "passivo_display": "31,71",
     "credores": "Sicredi e BB (72% da dívida)",
     "perfil_passivo": "Bancário / Cooperativa",
     "advocacia": "Aguardando publicação nos autos",
@@ -1826,7 +1898,11 @@
       "data_limite": "2026-12-03",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-03",
+      "data_marco": "03/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjms.jus.br/cpopg5/open.do"
@@ -1845,8 +1921,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 1963,
-    "passivo_display": "1.963",
+    "passivo_mm": 196.3,
+    "passivo_display": "196,30",
     "credores": "BTG Pactual e Itaú",
     "perfil_passivo": "Bancário Privado",
     "advocacia": "Aguardando publicação nos autos",
@@ -1914,7 +1990,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjms.jus.br/cpopg5/open.do"
@@ -1933,8 +2013,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 9.0,
     "tier": "Tier 3",
-    "passivo_mm": 580000,
-    "passivo_display": "580.000",
+    "passivo_mm": 58000,
+    "passivo_display": "58.000",
     "credores": "Sindicato internacional de bancos (Citi, JPMorgan, Santander, Bradesco, Itaú), titulares de bonds no exterior e Petrobras",
     "perfil_passivo": "Mercado Internacional (Bonds / Dívida Externa) + Sindicato Bancário Local e Global",
     "advocacia": "BMA Advogados // Davis Polk",
@@ -2004,7 +2084,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://neofeed.com.br/negocios/o-impasse-de-us-109-bilhoes-braskem-recorre-a-recuperacao-extrajudicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2023,8 +2107,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 9856,
-    "passivo_display": "9.856",
+    "passivo_mm": 985.6,
+    "passivo_display": "985,60",
     "credores": "Titulares de Debêntures e Notas Comerciais, Cotistas de FIDCs, Investidores de Wealth Management e Securitizadoras",
     "perfil_passivo": "Mercado de Capitais (Debêntures e Notas Comerciais) + Fundos Estruturados (FIDCs) + Dívida Intercompany",
     "advocacia": "Aguardando publicação nos autos",
@@ -2092,7 +2176,11 @@
       "data_limite": "2026-11-10",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-10",
+      "data_marco": "10/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam"
@@ -2111,8 +2199,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 1045,
-    "passivo_display": "1.045",
+    "passivo_mm": 104.5,
+    "passivo_display": "104,50",
     "credores": "FIDC Pangu (R$ 24,83M), Itaú Unibanco (R$ 17,73M), Bradesco (R$ 17,11M), Santander (R$ 13,39M) e AGP do Brasil (R$ 9,74M) - 4 credores detêm 70%",
     "perfil_passivo": "FIDC / Direitos Creditórios + Bancário Concentrado (Itaú, Bradesco, Santander) + Fornecedor",
     "advocacia": "Mange Advogados (Dr. Eduardo Foz Mange)",
@@ -2184,7 +2272,11 @@
       "data_limite": "2026-11-17",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-17",
+      "data_marco": "17/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2203,8 +2295,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 9.0,
     "tier": "Tier 3",
-    "passivo_mm": 37147,
-    "passivo_display": "37.147",
+    "passivo_mm": 371.47,
+    "passivo_display": "371,47",
     "credores": "FIDC Amadeus (R$ 95,2M), Banco Digimais (R$ 61,4M em debêntures), FIDC SSG (R$ 38,4M), Banco do Brasil (R$ 35,7M), Bradesco, Santander e Porto Seguro (R$ 16-17M cada)",
     "perfil_passivo": "FIDCs Estruturados (R$ 133M) + Debêntures (Digimais) + Bancário Comercial (BB, Bradesco, Santander)",
     "advocacia": "Aguardando publicação nos autos",
@@ -2274,7 +2366,11 @@
       "data_limite": "2026-11-24",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-24",
+      "data_marco": "24/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2293,8 +2389,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 1903,
-    "passivo_display": "1.903",
+    "passivo_mm": 190.3,
+    "passivo_display": "190,30",
     "credores": "FIDC de direitos creditórios, bancos comerciais de antecipação de recebíveis públicos e fornecedores de alimentos",
     "perfil_passivo": "FIDCs / Antecipação de Recebíveis de Contratos Públicos + Bancário Curto Prazo",
     "advocacia": "Aguardando publicação nos autos",
@@ -2364,7 +2460,11 @@
       "data_limite": "2026-12-01",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-01",
+      "data_marco": "01/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2383,8 +2483,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 19823,
-    "passivo_display": "19.823",
+    "passivo_mm": 198.23,
+    "passivo_display": "198,23",
     "credores": "Bancos privados (travas bancárias e vencimento antecipado), tradings globais e produtores rurais devedores/credores de CPRs",
     "perfil_passivo": "Linhas de Financiamento à Exportação (ACC/ACE) + CPRs / Barter de Grãos",
     "advocacia": "Aguardando publicação nos autos",
@@ -2456,7 +2556,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjms.jus.br/cpopg5/open.do"
@@ -2475,8 +2579,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.0,
     "tier": "Tier 1",
-    "passivo_mm": 9556,
-    "passivo_display": "9.556",
+    "passivo_mm": 955.6,
+    "passivo_display": "955,60",
     "credores": "Bancos de fomento e infraestrutura, consórcios parceiros e debenturistas",
     "perfil_passivo": "Project Finance + Dívida Corporativa Bancária",
     "advocacia": "Aguardando publicação nos autos",
@@ -2555,7 +2659,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/grupo-progen-tutela-cautelar-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2574,8 +2682,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 49797,
-    "passivo_display": "49.797",
+    "passivo_mm": 497.97,
+    "passivo_display": "497,97",
     "credores": "Bancos de capital de giro, fundos de crédito privado e fornecedores de licenças de software/hardware",
     "perfil_passivo": "Bancário Curto Prazo + Dívida Trabalhista de Especialistas de TI + Fornecedores Tech",
     "advocacia": "Aguardando publicação nos autos",
@@ -2640,10 +2748,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-07",
+      "data_limite": "2026-11-09",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-09",
+      "data_marco": "09/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/grupo-qintess-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2662,8 +2774,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 12767,
-    "passivo_display": "12.767",
+    "passivo_mm": 127.67,
+    "passivo_display": "127,67",
     "credores": "Banrisul, Sicredi, Banco do Brasil, Tradings de Insumos e Securitizadoras de CRA",
     "perfil_passivo": "Crédito Rural Bancário e Cooperativo + Financiamento de Safra",
     "advocacia": "Aguardando publicação nos autos",
@@ -2728,10 +2840,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-14",
+      "data_limite": "2026-11-16",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-16",
+      "data_marco": "16/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -2750,8 +2866,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.0,
     "tier": "Tier 2",
-    "passivo_mm": 2400,
-    "passivo_display": "2.400",
+    "passivo_mm": 240,
+    "passivo_display": "240",
     "credores": "Bancos de capital de giro e financiamento de estoque, montadora chinesa JAC e rede de concessionárias",
     "perfil_passivo": "Financiamento de Estoque de Veículos (Floor Plan) + Fornecedores Internacionais",
     "advocacia": "Aguardando publicação nos autos",
@@ -2818,10 +2934,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-21",
+      "data_limite": "2026-11-23",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-23",
+      "data_marco": "23/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2840,8 +2960,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 560,
-    "passivo_display": "560",
+    "passivo_mm": 56,
+    "passivo_display": "56",
     "credores": "Banco Bradesco, bancos de antecipação de recebíveis e fornecedores de madeira/marcenaria",
     "perfil_passivo": "Bancário Curto Prazo (Recebíveis de Varejo) + Fornecedores de Insumos",
     "advocacia": "Aguardando publicação nos autos",
@@ -2906,10 +3026,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-28",
+      "data_limite": "2026-11-30",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-30",
+      "data_marco": "30/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -2928,8 +3052,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.0,
     "tier": "Tier 2",
-    "passivo_mm": 2650,
-    "passivo_display": "2.650",
+    "passivo_mm": 265,
+    "passivo_display": "265",
     "credores": "Bancos privados comerciais, fornecedores de alimentos e distribuidores de insumos de cozinhas centrais",
     "perfil_passivo": "Bancário Comercial + Fornecedores da Rede de Franquias",
     "advocacia": "Aguardando publicação nos autos",
@@ -2996,10 +3120,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-12-05",
+      "data_limite": "2026-12-07",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-07",
+      "data_marco": "07/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www.cnnbrasil.com.br/economia/money/negocios/habibs-entra-em-recuperacao-judicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -3018,8 +3146,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.5,
     "tier": "Tier 1",
-    "passivo_mm": 19800,
-    "passivo_display": "19.800",
+    "passivo_mm": 1980,
+    "passivo_display": "1.980",
     "credores": "Bancos fornecedores de crédito agro (BB, Santander, Bradesco), tradings multinacionais e importadores de matéria-prima química",
     "perfil_passivo": "Linhas de Financiamento Agro / Comércio Exterior + Dívida Comercial com Fornecedores Globais de NPK",
     "advocacia": "Aguardando publicação nos autos",
@@ -3091,7 +3219,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://agfeed.com.br/negocios/justica-concede-folego-de-60-dias-para-fertilizantes-heringer-negociar-com-credores/",
     "url_tribunal_cvm": "https://sistemas.tjes.jus.br/pje/ConsultaPublica/listView.seam"
@@ -3110,8 +3242,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 920,
-    "passivo_display": "920",
+    "passivo_mm": 92,
+    "passivo_display": "92",
     "credores": "Fabricantes globais de módulos solares e inversores (China), bancos de fomento comercial e transportadoras",
     "perfil_passivo": "Fornecedores Internacionais de Painéis Solares + Bancário de Giro",
     "advocacia": "Aguardando publicação nos autos",
@@ -3186,7 +3318,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
@@ -3205,8 +3341,8 @@
     "fase": "Constatação Prévia (art. 51-A)",
     "score": 8.5,
     "tier": "Tier 1",
-    "passivo_mm": 830,
-    "passivo_display": "830",
+    "passivo_mm": 83,
+    "passivo_display": "83",
     "credores": "Instituições financeiras de leasing de frotas hospitalares, prestadores de serviços de incineração e fornecedores de equipamentos",
     "perfil_passivo": "Leasing de Frotas / Financiamento de Ativos + Fornecedores Operacionais",
     "advocacia": "Aguardando publicação nos autos",
@@ -3274,7 +3410,11 @@
       "data_limite": "2026-11-11",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-11",
+      "data_marco": "11/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/b-green-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -3293,8 +3433,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 8.0,
     "tier": "Tier 3",
-    "passivo_mm": 6000,
-    "passivo_display": "6.000",
+    "passivo_mm": 600,
+    "passivo_display": "600",
     "credores": "Bancos de capital de giro e debenturistas da rede de lojas",
     "perfil_passivo": "Bancário Comercial + Debêntures",
     "advocacia": "Spinelli Advogados",
@@ -3364,7 +3504,11 @@
       "data_limite": "2026-11-18",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-18",
+      "data_marco": "18/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://neofeed.com.br/negocios/grupo-toky-amplia-a-lista-de-empresas-que-recorrem-a-recuperacao-judicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -3383,8 +3527,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 7.5,
     "tier": "Tier 3",
-    "passivo_mm": 3050,
-    "passivo_display": "3.050",
+    "passivo_mm": 305,
+    "passivo_display": "305",
     "credores": "Fornecedores industriais do setor siderúrgico e bancos de crédito corporativo",
     "perfil_passivo": "Quirografário Comercial com Cadeia Siderúrgica + Bancário",
     "advocacia": "Aguardando publicação nos autos",
@@ -3452,7 +3596,11 @@
       "data_limite": "2026-11-25",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-25",
+      "data_marco": "25/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje-consulta-publica.tjmg.jus.br/"
@@ -3471,8 +3619,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 9.4,
     "tier": "Tier 0",
-    "passivo_mm": 1850,
-    "passivo_display": "1.850",
+    "passivo_mm": 185,
+    "passivo_display": "185",
     "credores": "Tradings Globais (Cargill, Bunge, ADM), Revendas de Insumos e Bancos do Agro (BB, Sicredi)",
     "perfil_passivo": "Barter / CPR Física e Financeira + Crédito Rural de Custeio",
     "advocacia": "Em prospecção (Contatos com bancas de MT e SP)",
@@ -3542,7 +3690,11 @@
       "data_limite": "2026-12-02",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-02",
+      "data_marco": "02/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -3561,8 +3713,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 9.2,
     "tier": "Tier 0",
-    "passivo_mm": 2600,
-    "passivo_display": "2.600",
+    "passivo_mm": 260,
+    "passivo_display": "260",
     "credores": "Bancos comerciais (Itaú, Bradesco, Santander), Fornecedores de OPME e Distribuidores de Medicamentos",
     "perfil_passivo": "Bancário Capital de Giro + Fornecedores Médicos + Passivo Trabalhista",
     "advocacia": "Banca regional especializada em saúde em negociação",
@@ -3632,7 +3784,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
     "url_tribunal_cvm": "https://www.gov.br/ans/pt-br"
@@ -3651,8 +3807,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 9.1,
     "tier": "Tier 0",
-    "passivo_mm": 3400,
-    "passivo_display": "3.400",
+    "passivo_mm": 340,
+    "passivo_display": "340",
     "credores": "Debenturistas da 2ª Emissão, Bancos repassadores BNDES e Agentes da CCEE",
     "perfil_passivo": "Debêntures de Infraestrutura + Garantias Financeiras MCP CCEE",
     "advocacia": "Em consulta com banca de infraestrutura e energia",
@@ -3733,9 +3889,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (11d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-27",
+      "data_marco": "27/10/2026",
       "tipo_marco": "Assembleia Geral de Debenturistas (AGD — 2ª Emissão RNVE12) & Garantias CCEE",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-27",
+      "marco_principal": "Assembleia Geral de Debenturistas (AGD — 2ª Emissão RNVE12) & Garantias CCEE"
     },
     "url_noticia": "https://www.pentagonotrustee.com.br/",
     "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
@@ -3754,8 +3912,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 8.8,
     "tier": "Tier 0",
-    "passivo_mm": 1450,
-    "passivo_display": "1.450",
+    "passivo_mm": 145,
+    "passivo_display": "145",
     "credores": "Bancos privados (Itaú, Santander, Bradesco, Safra, Daycoval), Shopping Centers e Confeccionistas",
     "perfil_passivo": "Capital de Giro + Aluguéis Comerciais Mínimos + Fornecedores",
     "advocacia": "Em sondagem preliminar",
@@ -3822,10 +3980,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-08",
+      "data_limite": "2026-11-09",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-09",
+      "data_marco": "09/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -3844,8 +4006,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 8.6,
     "tier": "Tier 0",
-    "passivo_mm": 950,
-    "passivo_display": "950",
+    "passivo_mm": 95,
+    "passivo_display": "95",
     "credores": "FIDC de Duplicatas Mercantis, Bancos Industriais (Bradesco, Santander) e Fornecedores de Aço",
     "perfil_passivo": "Antecipação de Recebíveis Bloqueados + Garantia Real de Galpão Fabril",
     "advocacia": "Em estruturação de governança emergencial",
@@ -3912,10 +4074,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-15",
+      "data_limite": "2026-11-16",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-16",
+      "data_marco": "16/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
     "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
@@ -3934,8 +4100,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 8.5,
     "tier": "Tier 0",
-    "passivo_mm": 1200,
-    "passivo_display": "1.200",
+    "passivo_mm": 120,
+    "passivo_display": "120",
     "credores": "Bancos de Montadoras (Mercedes-Benz Bank, Scania Banco, Volvo Financial), Distribuidoras de Diesel e Bancos Privados",
     "perfil_passivo": "Alienação Fiduciária de Frota (Finame/Leasing) + Combustível",
     "advocacia": "Em consulta com banca cível e societária",
@@ -4002,10 +4168,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-22",
+      "data_limite": "2026-11-23",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-23",
+      "data_marco": "23/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -4024,8 +4194,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 8.9,
     "tier": "Tier 0",
-    "passivo_mm": 2100,
-    "passivo_display": "2.100",
+    "passivo_mm": 210,
+    "passivo_display": "210",
     "credores": "Seguradoras Garantidoras (Pomerania, Pottencial, Junto), Bancos de Fiança (Daycoval, ABC Brasil) e Subempreiteiros",
     "perfil_passivo": "Seguro Garantia / Fianças Bancárias em Execução + Fornecedores de Maquinário",
     "advocacia": "Banca de infraestrutura em Belo Horizonte",
@@ -4092,10 +4262,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-29",
+      "data_limite": "2026-11-30",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-30",
+      "data_marco": "30/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx",
     "url_tribunal_cvm": "https://pje-consulta-publica.tjmg.jus.br/"
@@ -4114,8 +4288,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 9.6,
     "tier": "Tier 0",
-    "passivo_mm": 4200,
-    "passivo_display": "4.200",
+    "passivo_mm": 420,
+    "passivo_display": "420",
     "credores": "Debenturistas da 1ª e 2ª Emissão, BNDES, Agência Reguladora (Multas Contratuais) e Construtoras",
     "perfil_passivo": "Project Finance Não-Recurso + Debêntures Incentivadas (Lei 12.431)",
     "advocacia": "Em tratativas com bancas regulatórias",
@@ -4198,9 +4372,11 @@
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (19d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-11-04",
+      "data_marco": "04/11/2026",
       "tipo_marco": "Assembleia Geral de Debenturistas (CLTI11/12) & Defesa de Caducidade ARTESP",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-11-04",
+      "marco_principal": "Assembleia Geral de Debenturistas (CLTI11/12) & Defesa de Caducidade ARTESP"
     },
     "url_noticia": "https://www.artesp.sp.gov.br/",
     "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
@@ -4219,8 +4395,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 46700,
-    "passivo_display": "46.700",
+    "passivo_mm": 4670,
+    "passivo_display": "4.670",
     "credores": "Banco do Brasil (R$ 391M), Securitizadoras de CRAs (Vert, Opea), Itaú, Bradesco, Santander e Tradings",
     "perfil_passivo": "CRAs (Mercado de Capitais) + FIDCs de Insumos + Dívida Bancária Comercial",
     "advocacia": "Padis Mattar Advogados // E.Munhoz Advogados",
@@ -4292,7 +4468,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://conteudos.xpi.com.br/renda-fixa/relatorios/recuperacao-judicial-da-agrogalaxy-acompanhe/",
     "url_tribunal_cvm": "https://projudi.tjgo.jus.br/BuscaProcessoPublica"
@@ -4311,8 +4491,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.2,
     "tier": "Tier 2",
-    "passivo_mm": 3960,
-    "passivo_display": "3.960",
+    "passivo_mm": 396,
+    "passivo_display": "396",
     "credores": "Banco do Brasil, BMP Money Plus, Zurich Minas Brasil Seguros, Administradoras de Shoppings e Fornecedores",
     "perfil_passivo": "Bancário Capital de Giro + Aluguéis Comerciais Mínimos + Fornecedores de Eletroportáteis",
     "advocacia": "Dasa Advogados",
@@ -4382,27 +4562,31 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://esaj.tjsp.jus.br/cpopg/open.do",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 49,
-    "data_evento": "2026-10-06",
-    "data_adicao": "2026-10-08",
+    "data_evento": "2026-10-12",
+    "data_adicao": "2026-10-19",
     "empresa": "Grupo Echer",
     "cnpj": "11.862.538/0001-21",
     "setor_detalhe": "Construção Civil / Incorporação Imobiliária",
     "setor_macro": "Construção Civil & Real Estate",
     "regiao": "Cuiabá, MT",
     "tribunal": "TJMT - Vara de Falências de Cuiabá",
-    "processo": "1001234-56.2026.8.11.0041",
+    "processo": "1015088-64.2026.8.11.0003",
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.2,
     "tier": "Tier 2",
-    "passivo_mm": 1697,
-    "passivo_display": "1.697",
+    "passivo_mm": 170,
+    "passivo_display": "170",
     "credores": "Caixa Econômica Federal (41% da dívida / R$ 69,5M), Bancos privados e Fornecedores",
     "perfil_passivo": "Concentração Bancária Estatal (Caixa 41%) + Crédito Imobiliário/Obras",
     "advocacia": "Aguardando publicação nos autos",
@@ -4458,7 +4642,11 @@
       "data_limite": "2026-11-13",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-13",
+      "data_marco": "13/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Echer+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1015088-64.2026.8.11.0003"
@@ -4477,8 +4665,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 1150,
-    "passivo_display": "1.150",
+    "passivo_mm": 115,
+    "passivo_display": "115",
     "credores": "Bancos comerciais privados (Itaú, Santander, Bradesco), Fornecedores de Medicamentos e Laboratórios",
     "perfil_passivo": "Bancário Curto Prazo (Capital de Giro e Alavancagem) + Fornecedores Farmacêuticos",
     "advocacia": "Aguardando publicação nos autos",
@@ -4546,7 +4734,11 @@
       "data_limite": "2026-11-20",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-20",
+      "data_marco": "20/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -4565,8 +4757,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.4,
     "tier": "Tier 2",
-    "passivo_mm": 17800,
-    "passivo_display": "17.800",
+    "passivo_mm": 1780,
+    "passivo_display": "1.780",
     "credores": "Tradings Internacionais (Cargill, Bunge, Cofco), Bancos (Banco do Brasil, Bradesco, Santander), Fornecedores de Insumos e CPRs",
     "perfil_passivo": "CPRs + Barter Comercial + Dívida Bancária Estruturada",
     "advocacia": "Aguardando publicação nos autos",
@@ -4640,7 +4832,11 @@
       "data_limite": "2026-11-27",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-27",
+      "data_marco": "27/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://boanoticias.com.br/2026/10/08/sorriso-tjmt-mantem-ex-prefeito-dilceu-rossato-afastado-do-comando-do-grupo-safras-em-recuperacao-judicial-de-r-178-bilhao/",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -4659,8 +4855,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.5,
     "tier": "Tier 2",
-    "passivo_mm": 25480,
-    "passivo_display": "25.480",
+    "passivo_mm": 2548,
+    "passivo_display": "2.548",
     "credores": "Corteva Agriscience, Mosaic Fertilizantes, UPL do Brasil, FMC Química, Helm do Brasil, Banco Votorantim, Banco Daycoval",
     "perfil_passivo": "Fornecedores Multinacionais de Insumos/Fertilizantes + Dívida Bancária Comercial",
     "advocacia": "Galdino & Coelho Advogados",
@@ -4729,30 +4925,34 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-12-05",
+      "data_limite": "2026-12-07",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-07",
+      "data_marco": "07/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://agfeed.com.br/negocios/a-vez-da-lavoro-empresa-sucumbe-a-dividas-de-r-25-bi-e-recorre-a-plano-de-recuperacao-extrajudicial/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
   },
   {
     "id": 53,
-    "data_evento": "2026-10-09",
-    "data_adicao": "2026-10-09",
+    "data_evento": "2026-10-14",
+    "data_adicao": "2026-10-19",
     "empresa": "Cooperativa Agrícola Mista General Osório Ltda. (Cotribá)",
     "cnpj": "90.657.289/0001-09",
     "setor_detalhe": "Agronegócio / Cooperativa de Grãos e Insumos",
     "setor_macro": "Agronegócio & Silvicultura",
     "regiao": "Ibirubá, RS",
     "tribunal": "TJRS - Vara Empresarial de Ibirubá",
-    "processo": "5001245-80.2026.8.21.0105",
-    "fase": "Falência / Liquidação (Classe 110)",
+    "processo": "5001248-84.2025.8.21.0105 / Edital AGE 14/10/2026",
+    "fase": "Liquidação Extrajudicial (Lei 5.764/71) / AGE Aprovada (20/10/2026)",
     "score": 9.3,
     "tier": "Tier 2",
-    "passivo_mm": 14200,
-    "passivo_display": "14.200",
+    "passivo_mm": 1427,
+    "passivo_display": "1.427",
     "credores": "BRDE (R$ 130M), Banco Votorantim (R$ 15M), Sicredi, Banrisul, Titulares de CRAs (R$ 150M) e Produtores Associados",
     "perfil_passivo": "CRAs de Mercado de Capitais + Dívida Bancária Cooperativa + Repasses Rurais",
     "advocacia": "Aguardando autuação",
@@ -4811,7 +5011,11 @@
       "marco_tipo": "Assembleia / UPI",
       "urgencia_nivel": "critico",
       "urgencia_label": "HOJE / AMANHÃ (1d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-10-20",
+      "data_marco": "20/10/2026",
+      "marco_principal": "Assembleia Geral Extraordinária (AGE) de Deliberação de Liquidação e UPIs",
+      "tipo_marco": "Assembleia Geral Extraordinária (AGE) de Deliberação de Liquidação e UPIs"
     },
     "url_noticia": "https://news.google.com/search?q=Cooperativa+Agrícola+Mista+General+Osório+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5001248-84.2025.8.21.0105"
@@ -4830,8 +5034,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.1,
     "tier": "Tier 2",
-    "passivo_mm": 2220,
-    "passivo_display": "2.220",
+    "passivo_mm": 222,
+    "passivo_display": "222",
     "credores": "Banco do Brasil (R$ 68,3M), Itaú Unibanco (R$ 42,4M), Santander Brasil (R$ 37,4M) e Fornecedores Industriais",
     "perfil_passivo": "Bancário Curto Prazo Concentrado (CR3 > 82%) + Fornecedores Químicos",
     "advocacia": "Aguardando publicação",
@@ -4903,7 +5107,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://agfeed.com.br/negocios/o-essere-group-planejava-faturar-r-1-bi-em-2026-mas-foi-atropelado-pelos-juros-e-acabou-pedindo-rj/",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -4922,8 +5130,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.4,
     "tier": "Tier 2",
-    "passivo_mm": 42000,
-    "passivo_display": "42.000",
+    "passivo_mm": 4200,
+    "passivo_display": "4.200",
     "credores": "Mais de 13 mil investidores PF/PJ em contratos de mútuo e debêntures (R$ 4.200M), Bancos Comerciais e Cotistas de SCPs",
     "perfil_passivo": "Mercado de Capitais (Debêntures/Mútuos) + Alienação de Participações Societárias/UPIs",
     "advocacia": "Aguardando autuação",
@@ -4999,9 +5207,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (13d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-29",
+      "data_marco": "29/10/2026",
       "tipo_marco": "Prazo Fatal para Apresentação de Objeções ao Plano de RJ (Art. 55)",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-29",
+      "marco_principal": "Prazo Fatal para Apresentação de Objeções ao Plano de RJ (Art. 55)"
     },
     "url_noticia": "https://braziljournal.com/pericia-pede-mais-informacoes-antes-de-opiniao-sobre-rj-da-fictor",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -5020,8 +5230,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.7,
     "tier": "Tier 2",
-    "passivo_mm": 640,
-    "passivo_display": "640",
+    "passivo_mm": 64,
+    "passivo_display": "64",
     "credores": "Banco do Brasil R$ 15,2M, Banco John Deere R$ 9,1M (extraconcursal), Dionísio Barbosa R$ 9,3M, João Zeferino Lerner R$ 6,8M, Pedro Kinfuku R$ 5,2M, Agrocella R$ 4,7M, Agromave R$ 1,9M, Caixa R$ 1,8M, Sicredi R$ 1,6M, DLL R$ 0,4M, Santander R$ 0,15M, Bradesco R$ 0,11M",
     "perfil_passivo": "Bancário Concentrado (Garantia Real + CPR) + Fornecedores de Insumos/Grãos + Maquinário em Alienação Fiduciária",
     "advocacia": "Tiago Pacheco Sociedade Individual de Advocacia",
@@ -5097,9 +5307,11 @@
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (27d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-11-12",
+      "data_marco": "12/11/2026",
       "tipo_marco": "Assembleia Geral de Credores (AGC — 1ª Convocação Virtual)",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-11-12",
+      "marco_principal": "Assembleia Geral de Credores (AGC — 1ª Convocação Virtual)"
     },
     "url_noticia": "https://www.fatosdematogrosso.com.br/geral/familia-de-produtores-tenta-desistir-de-recuperacao-judicial-de-r-54-milhoes-em-mt/17438",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -5118,8 +5330,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.2,
     "tier": "Tier 1",
-    "passivo_mm": 1400,
-    "passivo_display": "1.400",
+    "passivo_mm": 140,
+    "passivo_display": "140",
     "credores": "Banco do Brasil R$ 90M (6 execuções com hipotecas), Caixa Econômica Federal R$ 50M (alienação fiduciária de terrenos)",
     "perfil_passivo": "Bancário Concentrado (100% BB e Caixa) + Leilão de Ativos Imobiliários / UPIs (Condomínio Canto da Brava em Itajaí/SC avaliado em R$ 23,86M, terrenos em Gravataí/Alvorada e salas em Porto Alegre)",
     "advocacia": "Aguardando autuação",
@@ -5195,9 +5407,11 @@
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (21d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-11-06",
+      "data_marco": "06/11/2026",
       "tipo_marco": "Sessão Oficial de Mediação Concursal no CEJUSC Empresarial de Porto Alegre",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-11-06",
+      "marco_principal": "Sessão Oficial de Mediação Concursal no CEJUSC Empresarial de Porto Alegre"
     },
     "url_noticia": "https://preservacred.com.br/noticias/grupo-nex-tutela-cautelar-mediacao-2026",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -5216,8 +5430,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.9,
     "tier": "Tier 2",
-    "passivo_mm": 3040,
-    "passivo_display": "3.040",
+    "passivo_mm": 304,
+    "passivo_display": "304",
     "credores": "Credores Quirografários e Bancários R$ 180,1M (244 registros), Credores Trabalhistas R$ 117,9M (1.087 registros), Credores com Garantia Real R$ 6,1M (2 registros)",
     "perfil_passivo": "Quirografário/Bancário (59%) + Passivo Trabalhista (39%) + Ativos Imobiliários Educacionais (Campi em Curitiba/PR, Maringá/PR e São Paulo/SP)",
     "advocacia": "Aguardando autuação (recurso em curso)",
@@ -5289,7 +5503,11 @@
       "data_limite": "2026-12-09",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-09",
+      "data_marco": "09/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/grupo-uniandrade-recuperacao-judicial-negada-2026",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
@@ -5308,8 +5526,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.1,
     "tier": "Tier 2",
-    "passivo_mm": 1510,
-    "passivo_display": "1.510",
+    "passivo_mm": 151,
+    "passivo_display": "151",
     "credores": "COFCO International Brasil (Nidera) R$ 62,18M (41% do passivo), Banco Santander R$ 6,38M, Banco Bradesco R$ 6,36M, Oliveira Cred Fomento Mercantil R$ 0,48M, Trabalhistas R$ 17,8M (Mais R$ 100,8M de passivo fiscal PGFN/PGE-SP)",
     "perfil_passivo": "Trading/Fornecedor Concentrado (COFCO 41%) + Bancário (Santander/Bradesco) + Planta Moageira, Silos em Cotia/SP e Marcas (A Nata, Nadine, Corina)",
     "advocacia": "Aguardando autuação",
@@ -5381,7 +5599,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/moinho-corina-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://esaj.tjsp.jus.br/cpopg/open.do"
@@ -5400,8 +5622,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.3,
     "tier": "Tier 2",
-    "passivo_mm": 4490,
-    "passivo_display": "4.490",
+    "passivo_mm": 449,
+    "passivo_display": "449",
     "credores": "Banco do Brasil R$ 76,9M (28 contratos garantia real), Itaú Unibanco R$ 75,0M (extraconcursal com alienação de 2 fazendas), Caixa Econômica Federal R$ 32,9M, Banco Daycoval R$ 25,5M, Sementes Plante R$ 19,4M, Syngenta R$ 14,4M, Banco John Deere (apreensão de máquinas), Mútuos PF R$ 103,3M",
     "perfil_passivo": "Bancário Concentrado + Tradings/Insumos + Ativos/UPIs (Silos/Armazéns Santa Luzia e 50 Unidades Produtivas de Soja, Milho, Tomate e Laranja em GO)",
     "advocacia": "Aguardando autuação",
@@ -5477,9 +5699,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (6d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-22",
+      "data_marco": "22/10/2026",
       "tipo_marco": "Vencimento do Prazo Judicial (15d) para Emenda da Inicial e Laudo de Essencialidade",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-22",
+      "marco_principal": "Vencimento do Prazo Judicial (15d) para Emenda da Inicial e Laudo de Essencialidade"
     },
     "url_noticia": "https://preservacred.com.br/noticias/grupo-jmr-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://projudi.tjgo.jus.br/BuscaProcessoPublica"
@@ -5498,8 +5722,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 660,
-    "passivo_display": "660",
+    "passivo_mm": 66,
+    "passivo_display": "66",
     "credores": "Banco Safra R$ 21,33M, Banco da Amazônia (BASA) R$ 12,06M, Banco Santander R$ 11,80M, Banco do Brasil R$ 7,80M (85% do passivo concentrado em 8 bancos na Classe II)",
     "perfil_passivo": "Bancário Concentrado (85% Garantia Real / Travas de Cartão) + Imóvel Logístico em Ananindeua/PA e 8 Lojas em Belém/PA",
     "advocacia": "Aguardando autuação",
@@ -5568,10 +5792,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-15",
+      "data_limite": "2026-11-16",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-16",
+      "data_marco": "16/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://preservacred.com.br/noticias/importadora-oplima-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://consultas.tjpa.jus.br/consultaunificada/"
@@ -5579,19 +5807,19 @@
   {
     "id": 62,
     "data_evento": "2026-10-15",
-    "data_adicao": "2026-10-16",
+    "data_adicao": "2026-10-19",
     "empresa": "AJX Capital Investimentos S.A.",
     "cnpj": "42.697.069/0001-66",
     "setor_detalhe": "Serviços Financeiros / Crédito Estruturado e CCBs",
     "setor_macro": "Serviços Financeiros & Crédito",
     "regiao": "Barueri, SP",
     "tribunal": "TJSP - 2ª Vara Regional Empresarial",
-    "processo": "1008941-12.2026.8.26.0260",
+    "processo": "1018594-82.2026.8.26.0068",
     "fase": "Falência Decretada (Classe 110)",
     "score": 9.1,
     "tier": "Tier 2",
-    "passivo_mm": 3500,
-    "passivo_display": "3.500",
+    "passivo_mm": 350,
+    "passivo_display": "350",
     "credores": "Cerca de 10 mil investidores titulares de CCBs endossadas (prejuízo estimado em R$ 350M, incluindo grupo de 278 investidores com R$ 34,9M representados por Jorge Calazans)",
     "perfil_passivo": "Mercado de Capitais / Cédulas de Crédito Bancário (CCBs) Pulverizadas + Bloqueio Judicial de Contas, Imóveis e Veículos",
     "advocacia": "Em substituição para interposição de agravo",
@@ -5644,10 +5872,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Arrecadação de Ativos & Leilão Falimentar",
-      "data_limite": "2026-11-22",
+      "data_limite": "2026-11-23",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-23",
+      "data_marco": "23/11/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://news.google.com/search?q=AJX+Capital+Investimentos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1018594-82.2026.8.26.0068"
@@ -5666,8 +5898,8 @@
     "fase": "Constatação Prévia (art. 51-A)",
     "score": 8.9,
     "tier": "Tier 1",
-    "passivo_mm": 550,
-    "passivo_display": "550",
+    "passivo_mm": 55,
+    "passivo_display": "55",
     "credores": "Sicredi R$ 17,77M (R$ 11,22M fiduciário garantido pelo imóvel da fábrica + R$ 6,55M quirografário), Itaú Unibanco R$ 7,61M, Banco Santander R$ 3,46M, Caixa Econômica Federal R$ 3,13M, Gerdau Aços Longos R$ 0,57M (pedido de falência)",
     "perfil_passivo": "Bancário Concentrado (Sicredi, Itaú, Santander, Caixa) + Imóvel Fabril em Alienação Fiduciária em Passo Fundo/RS + Passivo Fiscal R$ 20,41M",
     "advocacia": "Aguardando autuação",
@@ -5743,9 +5975,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (5d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-21",
+      "data_marco": "21/10/2026",
       "tipo_marco": "Entrega do Laudo de Constatação Prévia (Art. 51-A — 5 dias)",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-21",
+      "marco_principal": "Entrega do Laudo de Constatação Prévia (Art. 51-A — 5 dias)"
     },
     "url_noticia": "https://preservacred.com.br/noticias/ezata-recuperacao-judicial-2026",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -5764,8 +5998,8 @@
     "fase": "Falência Decretada (Classe 110)",
     "score": 9.0,
     "tier": "Tier 2",
-    "passivo_mm": 850,
-    "passivo_display": "850",
+    "passivo_mm": 85,
+    "passivo_display": "85",
     "credores": "Bancos Regionais e Privados (Banrisul, Sicredi, Bradesco, Itaú), Fornecedores da Cadeia Moveleira e Passivo Trabalhista/Fiscal",
     "perfil_passivo": "Bancário + Fornecedores Industriais + Alienação Judicial de UPI (Parque Fabril em Monte Belo do Sul/RS em operação com 101 funcionários, lance inicial R$ 48M)",
     "advocacia": "Massa Falida sob gestão judicial",
@@ -5841,9 +6075,11 @@
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (25d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-11-10",
+      "data_marco": "10/11/2026",
       "tipo_marco": "Leilão Judicial da UPI Parque Fabril Ditália (Lance Inicial R$ 48 MM)",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-11-10",
+      "marco_principal": "Leilão Judicial da UPI Parque Fabril Ditália (Lance Inicial R$ 48 MM)"
     },
     "url_noticia": "https://gazeta-rs.com.br/2026/10/ditalia-moveis-leilao-48-milhoes/",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -5862,8 +6098,8 @@
     "fase": "Falência Decretada (Classe 110)",
     "score": 8.6,
     "tier": "Tier 2",
-    "passivo_mm": 380,
-    "passivo_display": "380",
+    "passivo_mm": 38,
+    "passivo_display": "38",
     "credores": "Banco Santander R$ 4,26M, Banco Sofisa R$ 3,50M, Whirlpool R$ 2,66M, BMP Money Plus R$ 2,00M, Siri Comércio R$ 1,80M, Elgin R$ 1,77M, Banco Bradesco R$ 1,72M, Semp TCL R$ 1,57M, Color Visão R$ 1,11M, Gazin R$ 1,09M, Panasonic R$ 1,07M, Climazon R$ 1,06M, Atlas R$ 0,79M, LG Electronics R$ 0,70M, Banco Daycoval R$ 0,65M",
     "perfil_passivo": "Bancário Capital de Giro (Santander, Sofisa, BMP, Bradesco, Daycoval) + Indústria de Eletrodomésticos/Móveis + Rastreamento de Centro de Distribuição e Frota",
     "advocacia": "Souza Gomes Cruz Advogados",
@@ -5932,10 +6168,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Arrecadação de Ativos & Leilão Falimentar",
-      "data_limite": "2026-12-13",
+      "data_limite": "2026-12-14",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-14",
+      "data_marco": "14/12/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://www.olhardireto.com.br/juridico/noticias/justica-determina-devassa-patrimonial-e-edital-de-credores-no-processo-de-falencia-das-lojas-dona-do-lar",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -5954,8 +6194,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 820,
-    "passivo_display": "820",
+    "passivo_mm": 82,
+    "passivo_display": "82",
     "credores": "Caixa Econômica Federal R$ 10,34M, Banco Caterpillar R$ 6,08M, Garson e Votorantim S.A. (cessões fiduciárias discutidas sobre contratos Petrobras), Fornecedores de Infraestrutura (R$ 76,41M sujeitos + R$ 5,87M fiscais)",
     "perfil_passivo": "Bancário/Maquinário (Caixa e Banco Caterpillar) + Cessão Fiduciária de Recebíveis Petrobras Depositados em Conta Judicial",
     "advocacia": "Aguardando publicação de edital",
@@ -6027,7 +6267,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www3.tjrj.jus.br/gedcacheweb/default.aspx?UZIP=1&GEDID=0004A8609F2F3B6F728B157B13A74240F08AC51A2E521F1F",
     "url_tribunal_cvm": "https://www3.tjrj.jus.br/consultaprocessual/"
@@ -6046,8 +6290,8 @@
     "fase": "Falência Decretada (Classe 110)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 3600,
-    "passivo_display": "3.600",
+    "passivo_mm": 360,
+    "passivo_display": "360",
     "credores": "PGFN / União R$ 357M, Credores Trabalhistas R$ 30M (mais de 1.200 empregados, R$ 3,14M liberados para folha de set/26), Bancos e Fornecedores Operacionais",
     "perfil_passivo": "Passivo Tributário Federal (PGFN R$ 357M) + Trabalhista (R$ 30M) + Ativos/UPIs (Imóveis, Frota de Carros-Fortes, Precatório contra o Município de Manaus e Plantas Inbra-Pack e Plast Nor)",
     "advocacia": "Em recurso de agravo perante o TJPI",
@@ -6123,9 +6367,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (4d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-20",
+      "data_marco": "20/10/2026",
       "tipo_marco": "Prazo Judicial (5d) para Arrecadação Forense de Bens e Precatório",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-20",
+      "marco_principal": "Prazo Judicial (5d) para Arrecadação Forense de Bens e Precatório"
     },
     "url_noticia": "https://recuperacaojudicial.servi-san.com.br/",
     "url_tribunal_cvm": "https://pje.tjpi.jus.br/1g/ConsultaPublica/listView.seam"
@@ -6144,8 +6390,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.0,
     "tier": "Tier 1",
-    "passivo_mm": 550,
-    "passivo_display": "550",
+    "passivo_mm": 55,
+    "passivo_display": "55",
     "credores": "Banco Santander, Banco ABC Brasil, Caixa Econômica Federal, Banco RNX, Unicred Eleva, Audax Capital Securitizadora e Hope I FIDC Multissegmentos (total bancário de R$ 44,26M)",
     "perfil_passivo": "Bancário e FIDCs (R$ 44,26M: R$ 33,8M Wolfstore + R$ 10,46M W Nordeste) + Máquina Dubladora e Estoque Têxtil Declarados Essenciais em Novo Hamburgo/RS e Poções/BA",
     "advocacia": "Aguardando autuação do pedido principal",
@@ -6221,9 +6467,11 @@
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (7d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-10-23",
+      "data_marco": "23/10/2026",
       "tipo_marco": "Deliberação Pós-Sessão de Mediação CEJUSC com Pool de 7 Credores Financeiros",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-10-23",
+      "marco_principal": "Deliberação Pós-Sessão de Mediação CEJUSC com Pool de 7 Credores Financeiros"
     },
     "url_noticia": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/10/apos-incendio-industria-textil-consegue-que-justica-suspenda-cobranca-de-dividas-e-retirada-de-maquinas-cmuq5gzyd01v90174q475dxmv.html",
     "url_tribunal_cvm": "https://www.tjrs.jus.br/novo/busca/?return=proc&client=wp_index"
@@ -6242,8 +6490,8 @@
     "fase": "Sinal Precursor (Tier 0)",
     "score": 8.9,
     "tier": "Tier 0",
-    "passivo_mm": 4100,
-    "passivo_display": "4.100",
+    "passivo_mm": 410,
+    "passivo_display": "410",
     "credores": "Debenturistas da 1ª Emissão de Debêntures Verdes de Infraestrutura (GDSS11 - R$ 410M, coordenada pelo Itaú BBA)",
     "perfil_passivo": "Mercado de Capitais (Debêntures de Infraestrutura GDSS11 R$ 410M) + Portfólio de Usinas Solares Fotovoltaicas (UFVs GDS) de Geração Distribuída",
     "advocacia": "Monitoramento preventivo DCM",
@@ -6326,9 +6574,11 @@
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (20d)",
       "is_fixed_edital": true,
-      "data_marco": "2026-11-05",
+      "data_marco": "05/11/2026",
       "tipo_marco": "Revisão de Covenants ICSD & AGD Preventiva da 1ª Emissão Verde (GDSS11)",
-      "urgencia": "CRÍTICA"
+      "urgencia": "CRÍTICA",
+      "data_limite": "2026-11-05",
+      "marco_principal": "Revisão de Covenants ICSD & AGD Preventiva da 1ª Emissão Verde (GDSS11)"
     },
     "url_noticia": "https://www.fitchratings.com/research/pt/infrastructure-project-finance/fitch-downgrades-to-bbb-bra-gds-subholdings-debentures-rating-watch-negative-08-10-2026",
     "url_tribunal_cvm": "https://rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx"
@@ -6347,8 +6597,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 9.0,
     "tier": "Tier 1",
-    "passivo_mm": 770,
-    "passivo_display": "770",
+    "passivo_mm": 77,
+    "passivo_display": "77",
     "credores": "CCAB Agro R$ 9,77M (55 notas fiscais), Caixa Econômica Federal R$ 8,75M, Banco Bradesco R$ 7,34M (mais 23 contratos em dólar e cessões fiduciárias de recebíveis em 37 credores)",
     "perfil_passivo": "Bancário (Caixa e Bradesco com cessão fiduciária de recebíveis) + Defensivos/Insumos (CCAB Agro e dívida em USD) + Operações em Primavera do Leste e Canarana/MT",
     "advocacia": "Aguardando decisão liminar e conversão em RJ",
@@ -6420,7 +6670,11 @@
       "data_limite": "2026-12-03",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-03",
+      "data_marco": "03/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://pje.tjmt.jus.br/pje/ConsultaPublica/listView.seam"
@@ -6439,8 +6693,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 9.2,
     "tier": "Tier 3",
-    "passivo_mm": 6580,
-    "passivo_display": "6.580",
+    "passivo_mm": 658,
+    "passivo_display": "658",
     "credores": "Bancos Credores do Agronegócio, Fundos Imobiliários/Agrícolas, Titulares de CRAs e Partes Relacionadas (Belagrícola S/A e Bela Sementes Ltda.)",
     "perfil_passivo": "Quirografário Financeiro + Ativos Imobiliários Rurais, Silos e Unidades de Recebimento de Grãos da Rede Belagrícola no PR",
     "advocacia": "Aguardando homologação judicial",
@@ -6512,7 +6766,11 @@
       "data_limite": "2026-12-10",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-10",
+      "data_marco": "10/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/recuperacao-judicial",
     "url_tribunal_cvm": "https://consulta.tjpr.jus.br/projudi_consulta/"
@@ -6531,8 +6789,8 @@
     "fase": "Falência Decretada (Classe 110)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 1830,
-    "passivo_display": "1.830",
+    "passivo_mm": 183,
+    "passivo_display": "183",
     "credores": "Banco do Brasil S.A., Cresol Centro Sul (Cooperativa de Crédito), Fazenda Pública / PGFN (R$ 152,6M) e Credores de Comércio Exterior (R$ 30,6M)",
     "perfil_passivo": "Passivo Tributário de Importação (R$ 152,6M) + Bancário/Cooperativo (Banco do Brasil e Cresol Centro Sul - R$ 30,6M)",
     "advocacia": "Aguardando sentença de quebra",
@@ -6604,86 +6862,14 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://preservacred.com.br/noticias/categoria/falencia",
     "url_tribunal_cvm": "https://eproc1g.tjsc.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica"
-  },
-  {
-    "id": 73,
-    "data_evento": "2026-10-12",
-    "data_adicao": "2026-10-19",
-    "empresa": "Grupo Echer (Echer Empreendimentos)",
-    "cnpj": "11.862.538/0001-21",
-    "setor_detalhe": "Construção Civil / Incorporação Imobiliária",
-    "setor_macro": "Construção Civil & Real Estate",
-    "regiao": "MT",
-    "tribunal": "TJMT - 4ª Vara Cível de Rondonópolis",
-    "processo": "1015088-64.2026.8.11.0003",
-    "fase": "Recuperação Judicial (Classe 129)",
-    "score": 8.8,
-    "tier": "Tier 1",
-    "passivo_mm": 1700,
-    "passivo_display": "1.700",
-    "credores": "Caixa Econômica Federal R$ 48M, Itaú R$ 32M, Bradesco R$ 25M, Banco do Brasil R$ 18M, Detentores de CRIs R$ 22M e Fornecedores",
-    "perfil_passivo": "Financiamento à Construção (Crédito Associativo Caixa) + CRIs + Alienação de Terrenos/UPI",
-    "advocacia": "Aguardando publicação nos autos",
-    "aj": "Mudih Consultoria Ltda. (Darbas José Coutinho Filho)",
-    "tese": "(1) Causa alegada da crise: Descompasso severo entre inflação de insumos (INCC acumulado de 35,5% no triênio) e preços fixos contratados no crédito associativo da Caixa/MCMV; (2) Gargalo imediato de liquidez: Atraso em obras de 2.702 unidades, enxurrada de distratos e necessidade urgente de capital para concluir obras em andamento (Viva Alameda 70% e Viva Várzea Grande 30%); (3) Tese de mandato sugerida: Alienação de UPIs de terrenos em estoque e condomínios locados, estruturação de DIP Financing para conclusão de canteiros e renegociação com Caixa e investidores de CRIs.",
-    "status": "Novo",
-    "proximas_acoes": "Mapear estoque de 2.702 imóveis e terrenos para estruturação de UPIs e contatar assessores financeiros do grupo.",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Monitoramento de Passivo e Garantias Fiduciárias",
-      "Ativos / UPIs Elegíveis para M&A Distressed"
-    ],
-    "cidade": "Rondonópolis",
-    "uf": "MT",
-    "coordenadas": [
-      -16.4674,
-      -54.6366
-    ],
-    "regiao_macro": "Centro-Oeste",
-    "tipo_processo": "PRJ",
-    "tipo_processo_label": "Recuperação Judicial",
-    "strategy_id": "dip",
-    "strategy_name": "DIP Financing & M&A Distressed",
-    "strategy_tag": "DIP / M&A UPI",
-    "institutional_triggers": [],
-    "subtipo_processo": "PRJ",
-    "causa_crise": "Causa alegada da crise: Descompasso severo entre inflação de insumos (INCC acumulado de 35,5% no triênio) e preços fixos contratados no crédito associativo da Caixa/MCMV",
-    "gargalo_imediato": "Gargalo imediato de liquidez: Atraso em obras de 2.702 unidades, enxurrada de distratos e necessidade urgente de capital para concluir obras em andamento (Viva Alameda 70% e Viva Várzea Grande 30%)",
-    "tese_mandato": "Tese de mandato sugerida: Alienação de UPIs de terrenos em estoque e condomínios locados, estruturação de DIP Financing para conclusão de canteiros e renegociação com Caixa e investidores de CRIs.",
-    "agentes_fiduciarios": "N/A (Dívida Bancária Bilateral / Sindicalizada)",
-    "securitizadoras": "Sem securitizadora mapeada",
-    "energy_meta": null,
-    "descricao_empresa": "Grupo econômico brasileiro atuante no segmento de Construção Civil / Incorporação Imobiliária (Rondonópolis/MT), com passivo concursal/financeiro monitorado de R$ 1.700 milhões perante TJMT - 4ª Vara Cível de Rondonópolis.",
-    "model_params": {
-      "haircut_estimado_pct": 58,
-      "recuperacao_estimada_pct": 42,
-      "desconto_secundario_pct": 35,
-      "ev_estimado_mm": 714,
-      "liquidez_forcada_desconto_pct": 40,
-      "classes_pct": {
-        "c1_trabalhista": 8,
-        "c2_garantia_real": 36,
-        "c3_quirografario": 49,
-        "c4_me_epp": 7,
-        "extraconcursal_fiduciario": 22,
-        "passivo_fiscal_estimado_mm": 374
-      },
-      "dip_necessidade_mm": 204,
-      "upi_valuation_estimado_mm": 595
-    },
-    "calendar_meta": {
-      "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-12",
-      "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
-      "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
-    },
-    "url_noticia": "https://news.google.com/search?q=Grupo+Echer+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1015088-64.2026.8.11.0003"
   },
   {
     "id": 74,
@@ -6699,8 +6885,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.6,
     "tier": "Tier 2",
-    "passivo_mm": 1100,
-    "passivo_display": "1.100",
+    "passivo_mm": 110,
+    "passivo_display": "110",
     "credores": "Banco do Brasil R$ 38M, Banco Safra R$ 28M, Sicredi Centro Sul R$ 18M, Caixa R$ 9M, Indigo Fiagro R$ 8M, Agro Directa R$ 5M",
     "perfil_passivo": "Crédito Rural com Garantia Real (85% Classe II) + Alienação Fiduciária de Grãos / Fiagro",
     "advocacia": "Aguardando publicação nos autos",
@@ -6756,7 +6942,11 @@
       "data_limite": "2026-11-19",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-19",
+      "data_marco": "19/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Pompilio+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0806199-81.2026.8.12.0002"
@@ -6775,8 +6965,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 740,
-    "passivo_display": "740",
+    "passivo_mm": 74,
+    "passivo_display": "74",
     "credores": "Banco do Brasil R$ 24M, Bradesco R$ 18M, Cooperativa Oeste Mineiro R$ 11M, Itaú R$ 9M, Banco Safra R$ 6M, Caixa R$ 4M",
     "perfil_passivo": "Bancário Concentrado + Cooperativas de Crédito + Alienação Fiduciária (Safra) + Marcas Supremo e Santa Marta",
     "advocacia": "Aguardando publicação nos autos",
@@ -6832,7 +7022,11 @@
       "data_limite": "2026-11-26",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-26",
+      "data_marco": "26/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Laticínios+Vale+dos+Buritis+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5000618-24.2026.8.13.0093"
@@ -6851,8 +7045,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.4,
     "tier": "Tier 2",
-    "passivo_mm": 840,
-    "passivo_display": "840",
+    "passivo_mm": 84,
+    "passivo_display": "84",
     "credores": "Bancos comerciais e Fomento R$ 42M, Fornecedores de aparas de papel R$ 19M, Credores fiduciários R$ 30,5M",
     "perfil_passivo": "Bancário / Operações de Fomento + Alienação Fiduciária de Frota e Maquinário + Unidade Fabril Porto Amazonas",
     "advocacia": "Aguardando publicação nos autos",
@@ -6908,7 +7102,11 @@
       "data_limite": "2026-12-03",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-03",
+      "data_marco": "03/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Induspel+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0015604-72.2026.8.16.0194"
@@ -6927,8 +7125,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.3,
     "tier": "Tier 1",
-    "passivo_mm": 9860,
-    "passivo_display": "9.860",
+    "passivo_mm": 986,
+    "passivo_display": "986",
     "credores": "Debenturistas das emissões estruturadas R$ 420M, Bancos comerciais e FIDC R$ 260M, Investidores de Real Estate/CRIs R$ 180M, Outros R$ 126M",
     "perfil_passivo": "Debêntures Privadas + Operações a Termo de Ações CVC + Alienação de UPI de Gestão / Real Estate",
     "advocacia": "Aguardando publicação nos autos",
@@ -6984,7 +7182,11 @@
       "data_limite": "2026-12-10",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-10",
+      "data_marco": "10/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Apex+Partners+Gestão+de+Ativos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0021485-19.2026.8.08.0024"
@@ -7003,8 +7205,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.2,
     "tier": "Tier 2",
-    "passivo_mm": 450,
-    "passivo_display": "450",
+    "passivo_mm": 45,
+    "passivo_display": "45",
     "credores": "Banco do Brasil R$ 14M, Caixa Econômica Federal R$ 10M, Itaú R$ 8M, Euro Paraná R$ 4M, Fornecedores alimentícios (Zeppone, Flor de Açaí) R$ 8M",
     "perfil_passivo": "Bancário Concentrado (BB, Caixa, Itaú) + Fornecedores Food Service + Imóvel Comercial / Atacarejo",
     "advocacia": "Aguardando publicação nos autos",
@@ -7060,7 +7262,11 @@
       "data_limite": "2026-12-17",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-17",
+      "data_marco": "17/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Gold+-+Indústria+e+Comércio+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0003754-66.2026.8.16.0179"
@@ -7079,8 +7285,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.7,
     "tier": "Tier 1",
-    "passivo_mm": 1200,
-    "passivo_display": "1.200",
+    "passivo_mm": 120,
+    "passivo_display": "120",
     "credores": "Sicredi R$ 26M, Caixa Econômica Federal R$ 18M, Banco da Amazônia R$ 15M, Cargill R$ 12M, Syngenta R$ 9M, Bayer/Basf R$ 8M, Banco John Deere R$ 7M",
     "perfil_passivo": "Crédito Rural / CPRs + Financiamento de Maquinário (Deere/DLL) + Barter de Insumos + Fazenda Santa Marta",
     "advocacia": "RJV Advogados (Dr. Julierme Romero e Dr. Rubem Vandoni)",
@@ -7136,7 +7342,11 @@
       "data_limite": "2026-11-09",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-09",
+      "data_marco": "09/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Pfitscher+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1045210-44.2026.8.11.0041"
@@ -7155,8 +7365,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 1290,
-    "passivo_display": "1.290",
+    "passivo_mm": 129,
+    "passivo_display": "129",
     "credores": "Donizete Borges R$ 25,5M, Bradesco R$ 14,3M, Sicredi Sudoeste R$ 4,4M, Sicoob Credisul R$ 4,3M, Banco Safra R$ 3,9M, BB R$ 1,7M, Bancos de Montadoras (Volvo, Mercedes, Paccar)",
     "perfil_passivo": "Alienação Fiduciária de Imóveis e Frotas (120 carretas) + Financiamento Rural + Indústria Pérola Mineração",
     "advocacia": "Aguardando publicação nos autos",
@@ -7212,89 +7422,14 @@
       "data_limite": "2026-11-16",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-16",
+      "data_marco": "16/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Bozetti+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1039388-73.2026.8.11.0041"
-  },
-  {
-    "id": 81,
-    "data_evento": "2026-10-14",
-    "data_adicao": "2026-10-19",
-    "empresa": "Cooperativa Agrícola Mista General Osório Ltda. (Cotribá)",
-    "cnpj": "90.657.289/0001-09",
-    "setor_detalhe": "Agronegócio / Cooperativa de Grãos e Insumos",
-    "setor_macro": "Agronegócio & Silvicultura",
-    "regiao": "RS",
-    "tribunal": "TJRS - Comarca de Ibirubá",
-    "processo": "5001248-84.2025.8.21.0105 / Edital AGE 14/10/2026",
-    "fase": "Liquidação Extrajudicial (Lei 5.764/71) / AGE Aprovada (20/10/2026)",
-    "score": 9.5,
-    "tier": "Tier 0",
-    "passivo_mm": 14270,
-    "passivo_display": "14.270",
-    "credores": "Bancos comerciais e crédito rural R$ 650M, Fornecedores de insumos químicos R$ 420M, Associados e cooperados R$ 357M",
-    "perfil_passivo": "Crédito Rural + Fornecedores de Insumos + Depósitos de Grãos + Alienação de Silos, Armazéns e Fábrica de Rações",
-    "advocacia": "Aguardando autuação",
-    "aj": "Sergio Strentzke (Liquidante Eleito na AGE de 20/10/2026)",
-    "tese": "(1) Causa alegada da crise: Enchentes históricas e secas severas no RS gerando inadimplência em cadeia de cooperados, somadas a custos financeiros de nova fábrica de rações (R$ 180M); (2) Gargalo imediato de liquidez: Cassação da proteção recuperacional pelo TJRS, vencimento de R$ 1,42 Bi em passivos e corrida de credores aos armazéns; (3) Tese de mandato sugerida: Estruturação de venda de UPIs de armazéns, silos e fábrica de rações, assessoria ao sindicato de bancos credores e M&A Distressed de ativos logísticos.",
-    "status": "Novo",
-    "proximas_acoes": "Abordar o liquidante eleito (Sergio Strentzke) e sindicato de bancos credores para assessoria no plano de liquidação ordenada e alienação de UPIs de grãos/leite.",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Monitoramento de Passivo e Garantias Fiduciárias",
-      "Ativos / UPIs Elegíveis para M&A Distressed"
-    ],
-    "cidade": "Ibirubá",
-    "uf": "RS",
-    "coordenadas": [
-      -28.6275,
-      -53.0897
-    ],
-    "regiao_macro": "Sul",
-    "tipo_processo": "Tier 0",
-    "tipo_processo_label": "Sinal Forense Tier 0",
-    "strategy_id": "precursor",
-    "strategy_name": "Radar Preditivo (Tier 0)",
-    "strategy_tag": "TIER 0 / EARLY WARNING",
-    "institutional_triggers": [],
-    "subtipo_processo": "Tier 0",
-    "causa_crise": "Causa alegada da crise: Enchentes históricas e secas severas no RS gerando inadimplência em cadeia de cooperados, somadas a custos financeiros de nova fábrica de rações (R$ 180M)",
-    "gargalo_imediato": "Gargalo imediato de liquidez: Cassação da proteção recuperacional pelo TJRS, vencimento de R$ 1,42 Bi em passivos e corrida de credores aos armazéns",
-    "tese_mandato": "Tese de mandato sugerida: Estruturação de venda de UPIs de armazéns, silos e fábrica de rações, assessoria ao sindicato de bancos credores e M&A Distressed de ativos logísticos.",
-    "agentes_fiduciarios": "N/A (Dívida Bancária Bilateral / Sindicalizada)",
-    "securitizadoras": "Sem securitizadora mapeada",
-    "energy_meta": null,
-    "descricao_empresa": "Grupo econômico brasileiro atuante no segmento de Agronegócio / Cooperativa de Grãos e Insumos (Ibirubá/RS), com passivo concursal/financeiro monitorado de R$ 14.270 milhões perante TJRS - Comarca de Ibirubá.",
-    "model_params": {
-      "haircut_estimado_pct": 58,
-      "recuperacao_estimada_pct": 42,
-      "desconto_secundario_pct": 35,
-      "ev_estimado_mm": 5993,
-      "liquidez_forcada_desconto_pct": 40,
-      "classes_pct": {
-        "c1_trabalhista": 8,
-        "c2_garantia_real": 36,
-        "c3_quirografario": 49,
-        "c4_me_epp": 7,
-        "extraconcursal_fiduciario": 22,
-        "passivo_fiscal_estimado_mm": 3139
-      },
-      "dip_necessidade_mm": 1712,
-      "upi_valuation_estimado_mm": 4994
-    },
-    "calendar_meta": {
-      "data_marco_iso": "2026-10-20",
-      "data_marco_br": "20/10/2026",
-      "dias_restantes": 1,
-      "marco_label": "Assembleia Geral Extraordinária (AGE) de Deliberação de Liquidação e UPIs",
-      "marco_tipo": "Assembleia / UPI",
-      "urgencia_nivel": "critico",
-      "urgencia_label": "HOJE / AMANHÃ (1d)",
-      "is_fixed_edital": true
-    },
-    "url_noticia": "https://news.google.com/search?q=Cooperativa+Agrícola+Mista+General+Osório+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5001248-84.2025.8.21.0105"
   },
   {
     "id": 82,
@@ -7310,8 +7445,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.3,
     "tier": "Tier 2",
-    "passivo_mm": 560,
-    "passivo_display": "560",
+    "passivo_mm": 56,
+    "passivo_display": "56",
     "credores": "Bradesco R$ 7,2M, Santander Capitalização R$ 5,7M, Banco do Brasil R$ 4M, Banco BS2 R$ 3,8M, Fornecedores moveleiros (46 indústrias) R$ 4,7M",
     "perfil_passivo": "Bancário Quirografário (46%) + Fornecedores Moveleiros + Imóvel CD 20 mil m² e 15 lojas",
     "advocacia": "Aguardando publicação nos autos",
@@ -7367,7 +7502,11 @@
       "data_limite": "2026-11-30",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-30",
+      "data_marco": "30/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Sidlar+Planejados+-+Móveis+e+Decorações+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1124890-33.2026.8.26.0100"
@@ -7386,8 +7525,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.5,
     "tier": "Tier 2",
-    "passivo_mm": 320,
-    "passivo_display": "320",
+    "passivo_mm": 32,
+    "passivo_display": "32",
     "credores": "Sicredi R$ 13M, Banco do Brasil R$ 8,5M, Coamo Agroindustrial R$ 3M",
     "perfil_passivo": "Crédito Rural / CPRs + Financiamento de Máquinas Agrícolas + Arrendamento de Terras",
     "advocacia": "Aguardando publicação nos autos",
@@ -7446,86 +7585,14 @@
       "marco_tipo": "Fim Stay Period",
       "urgencia_nivel": "critico",
       "urgencia_label": "URGENTE (2d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-10-21",
+      "data_marco": "21/10/2026",
+      "marco_principal": "Término Oficial do Stay Period (Proteção Concursal) no TJMS",
+      "tipo_marco": "Término Oficial do Stay Period (Proteção Concursal) no TJMS"
     },
     "url_noticia": "https://news.google.com/search?q=Produtores+Rurais+Família+Mota+Martins+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5011498-87.2026.8.12.0001"
-  },
-  {
-    "id": 84,
-    "data_evento": "2026-10-14",
-    "data_adicao": "2026-10-19",
-    "empresa": "AJX Capital Investimentos S.A.",
-    "cnpj": "42.697.069/0001-66",
-    "setor_detalhe": "Serviços Financeiros / Crédito Estruturado e CCBs",
-    "setor_macro": "Serviços Financeiros & Crédito",
-    "regiao": "SP",
-    "tribunal": "TJSP - 2ª Vara Regional Empresarial",
-    "processo": "1018594-82.2026.8.26.0068",
-    "fase": "Falência Decretada (Classe 110)",
-    "score": 9.6,
-    "tier": "Tier 1",
-    "passivo_mm": 850,
-    "passivo_display": "850",
-    "credores": "Investidores Pessoas Físicas em CCBs R$ 65M (mais de 620 processos), Banco do Brasil R$ 12M, Fornecedores e Plataforma ENV R$ 8M",
-    "perfil_passivo": "Cédulas de Crédito Bancário (CCBs) + Ações Sem Cotação do Besc + Arrecadação de Ativos / ENV Financial",
-    "advocacia": "Aguardando autuação",
-    "aj": "Brazilio Bacellar Shirai Advogados",
-    "tese": "(1) Causa alegada da crise: Captação massiva via CCBs com rentabilidade atípica (até 3,5% a.m.) lastreadas em ações inidôneas do extinto Besc, motivando investigação do MP por pirâmide; (2) Gargalo imediato de liquidez: Inadimplemento generalizado, mais de 620 execuções cíveis e decretação de falência por impontualidade injustificada de títulos protestados; (3) Tese de mandato sugerida: Perícia Forense / Asset Tracing para a Administradora Judicial (Brazilio Bacellar Shirai) e representação em Comitê de Credores de CCBs para recuperação de valores transitados por terceiros.",
-    "status": "Novo",
-    "proximas_acoes": "Abordar Brazilio Bacellar Shirai Advogados e grupos de credores de CCBs para proposta de assessoria forense e rastreamento patrimonial.",
-    "watchdog_eligible": true,
-    "watchdog_triggers": [
-      "Monitoramento de Passivo e Garantias Fiduciárias",
-      "Acompanhamento de Prazos, Editais e AGCs"
-    ],
-    "cidade": "Barueri",
-    "uf": "SP",
-    "coordenadas": [
-      -23.5114,
-      -46.8765
-    ],
-    "regiao_macro": "Sudeste",
-    "tipo_processo": "PRJ",
-    "tipo_processo_label": "Falência / Convolação",
-    "strategy_id": "watchdog",
-    "strategy_name": "Creditor-Side & Watchdog",
-    "strategy_tag": "CREDITOR WATCHDOG",
-    "institutional_triggers": [],
-    "subtipo_processo": "Falência / Liquidação",
-    "causa_crise": "Causa alegada da crise: Captação massiva via CCBs com rentabilidade atípica (até 3,5% a.m.) lastreadas em ações inidôneas do extinto Besc, motivando investigação do MP por pirâmide",
-    "gargalo_imediato": "Gargalo imediato de liquidez: Inadimplemento generalizado, mais de 620 execuções cíveis e decretação de falência por impontualidade injustificada de títulos protestados",
-    "tese_mandato": "Tese de mandato sugerida: Perícia Forense / Asset Tracing para a Administradora Judicial (Brazilio Bacellar Shirai) e representação em Comitê de Credores de CCBs para recuperação de valores transitados por terceiros.",
-    "agentes_fiduciarios": "N/A (Dívida Bancária Bilateral / Sindicalizada)",
-    "securitizadoras": "Sem securitizadora mapeada",
-    "energy_meta": null,
-    "descricao_empresa": "Grupo econômico brasileiro atuante no segmento de Serviços Financeiros / Crédito Estruturado e CCBs (Barueri/SP), com passivo concursal/financeiro monitorado de R$ 850 milhões perante TJSP - 2ª Vara Regional Empresarial.",
-    "model_params": {
-      "haircut_estimado_pct": 78,
-      "recuperacao_estimada_pct": 22,
-      "desconto_secundario_pct": 35,
-      "ev_estimado_mm": 187,
-      "liquidez_forcada_desconto_pct": 40,
-      "classes_pct": {
-        "c1_trabalhista": 8,
-        "c2_garantia_real": 36,
-        "c3_quirografario": 49,
-        "c4_me_epp": 7,
-        "extraconcursal_fiduciario": 22,
-        "passivo_fiscal_estimado_mm": 187
-      },
-      "dip_necessidade_mm": 102,
-      "upi_valuation_estimado_mm": 298
-    },
-    "calendar_meta": {
-      "marco_principal": "Arrecadação de Ativos & Leilão Falimentar",
-      "data_limite": "2026-12-14",
-      "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
-      "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
-    },
-    "url_noticia": "https://news.google.com/search?q=AJX+Capital+Investimentos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1018594-82.2026.8.26.0068"
   },
   {
     "id": 85,
@@ -7541,8 +7608,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 9.4,
     "tier": "Tier 0",
-    "passivo_mm": 5320,
-    "passivo_display": "5.320",
+    "passivo_mm": 532,
+    "passivo_display": "532",
     "credores": "BTG Pactual R$ 220M, Fundo L Catterton R$ 110M, Debenturistas e Bancos R$ 120M, Fornecedores Alimentícios R$ 82M",
     "perfil_passivo": "Financiamentos Estruturados + Debêntures + Alienação Judicial de UPI (32 Lojas + CD 7.500 m²)",
     "advocacia": "Aguardando publicação nos autos",
@@ -7598,7 +7665,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Hortus+Comércio+de+Alimentos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1032145-66.2026.8.26.0100"
@@ -7617,8 +7688,8 @@
     "fase": "Falência Decretada por Convolação (Classe 110)",
     "score": 9.2,
     "tier": "Tier 1",
-    "passivo_mm": 1990,
-    "passivo_display": "1.990",
+    "passivo_mm": 199,
+    "passivo_display": "199",
     "credores": "Procuradoria-Geral do Estado de SP (PGE-SP) R$ 117M, Bancos comerciais e Fomento R$ 62M, Credores extraconcursais R$ 20M",
     "perfil_passivo": "Passivo Tributário em Transação Quebrada (Acordo Paulista) + Bancário + Marca Raiola / Parque Industrial",
     "advocacia": "Casseb Advogados",
@@ -7674,7 +7745,11 @@
       "data_limite": "2026-11-13",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-13",
+      "data_marco": "13/11/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://news.google.com/search?q=Irmãos+Raiola+&+Cia.+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=2087716-26.2026.8.26.0000"
@@ -7693,8 +7768,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 9.7,
     "tier": "Tier 0",
-    "passivo_mm": 8270,
-    "passivo_display": "8.270",
+    "passivo_mm": 827,
+    "passivo_display": "827",
     "credores": "Banco do Brasil R$ 180M, Santander R$ 145M, Banco Votorantim BV R$ 110M, Demais bancos R$ 192M, Fornecedores de Brinquedos R$ 200M",
     "perfil_passivo": "Bancário Sindicalizado (9 bancos) + Fornecedores de Brinquedos + Marcas PBKids e Ri Happy (290 lojas)",
     "advocacia": "Aguardando autuação",
@@ -7750,7 +7825,11 @@
       "data_limite": "2026-11-20",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-20",
+      "data_marco": "20/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Ri+Happy+Brinquedos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1125890-44.2026.8.26.0100"
@@ -7769,8 +7848,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 310,
-    "passivo_display": "310",
+    "passivo_mm": 31,
+    "passivo_display": "31",
     "credores": "Banco do Brasil R$ 14M, Sicredi R$ 9M, Tradings de Insumos & Arrendadores R$ 8M",
     "perfil_passivo": "Crédito Rural de Custeio + Alienação Fiduciária de Rebanho e Arrendamento de Pastagens",
     "advocacia": "Frange Advogados",
@@ -7824,10 +7903,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-28",
+      "data_limite": "2026-11-30",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-30",
+      "data_marco": "30/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Familiar+de+Pecuaristas+MT/GO+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1018942-35.2026.8.11.0003"
@@ -7846,8 +7929,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 173000,
-    "passivo_display": "173.000",
+    "passivo_mm": 17300,
+    "passivo_display": "17.300",
     "credores": "Bradesco R$ 2,5 Bi, Banco do Brasil R$ 2,1 Bi, Itaú R$ 1,8 Bi, Santander R$ 1,2 Bi e Fornecedores/Debenturistas",
     "perfil_passivo": "Dívida Bancária Quirografária (R$ 16,4 Bi) + Debêntures + Fornecedores de Eletroeletrônicos",
     "advocacia": "Pinheiro Neto Advogados",
@@ -7902,10 +7985,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-12-06",
+      "data_limite": "2026-12-07",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-07",
+      "data_marco": "07/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://aciara.com.br/financiamento-dip-da-casas-bahia-com-itau-avanca/",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1108420-15.2026.8.26.0100"
@@ -7924,8 +8011,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 710,
-    "passivo_display": "710",
+    "passivo_mm": 71,
+    "passivo_display": "71",
     "credores": "Rabobank R$ 29,7M (Extraconcursal), Banco do Brasil R$ 9,7M, Santander R$ 7,6M, Sicredi R$ 3,9M, CNH Industrial R$ 3,4M e Fertipar US$ 1,8M",
     "perfil_passivo": "Garantia Real Bancária (BB/Santander/Sicredi) + Alienação Fiduciária de Máquinas (CNH/Rabobank) + Barter em Dólar (Fertipar/Basf/Bayer)",
     "advocacia": "Aguardando publicação da procuração nos autos",
@@ -7984,7 +8071,10 @@
       "dias_restantes": 7,
       "urgencia_nivel": "critica",
       "urgencia_label": "URGÊNCIA CRÍTICA (7d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-10-29",
+      "data_marco": "29/10/2026",
+      "marco_principal": "Edital Art. 52, §1º (Prazo de 15 dias)"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Krohling+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1038412-19.2026.8.11.0041"
@@ -8003,8 +8093,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 16000,
-    "passivo_display": "16.000",
+    "passivo_mm": 1600,
+    "passivo_display": "1.600",
     "credores": "Credores de CRAs e Fundos Faria Lima R$ 820M, Banco do Brasil R$ 280M, Santander R$ 190M, Rabobank R$ 140M e Tradings",
     "perfil_passivo": "Mercado de Capitais (CRAs / Securitizadoras) + Dívida Bancária em Garantia Real + Alienação Fiduciária de Fazendas de Café",
     "advocacia": "Galdino & Coelho Advogados",
@@ -8061,7 +8151,11 @@
       "data_limite": "2026-11-06",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-06",
+      "data_marco": "06/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Ruiz+Coffees+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1024518-88.2026.8.26.0576"
@@ -8080,8 +8174,8 @@
     "fase": "Falência / Liquidação (Classe 110)",
     "score": 8.8,
     "tier": "Tier 3",
-    "passivo_mm": 3810,
-    "passivo_display": "3.810",
+    "passivo_mm": 381,
+    "passivo_display": "381",
     "credores": "BNDES R$ 110M, Banco do Nordeste (BNB) R$ 85M, Banco do Brasil R$ 65M e Fornecedores de Cana/Trabalhistas",
     "perfil_passivo": "Bancário de Desenvolvimento (BNDES/BNB) + Passivo Sucroalcooleiro + Alienação de Parque Fabril e Terras Canavieiras",
     "advocacia": "Aguardando juntada nos autos falimentares",
@@ -8138,7 +8232,11 @@
       "data_limite": "2026-11-13",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-13",
+      "data_marco": "13/11/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://news.google.com/search?q=Usina+Campo+Lindo+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0001420-11.2026.8.17.3050"
@@ -8157,8 +8255,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 3750,
-    "passivo_display": "3.750",
+    "passivo_mm": 375,
+    "passivo_display": "375",
     "credores": "ArcelorMittal Brasil R$ 77,4M, Glencore International US$ 25,4M (~R$ 138M), Vetria Mineração e VRental",
     "perfil_passivo": "Dívida Comercial e Offtake de Minério de Ferro + Dívida em Dólar (Glencore) + Arrendamento de Mina e Equipamentos Pesados",
     "advocacia": "Lobo de Rizzo Advogados",
@@ -8215,7 +8313,11 @@
       "data_limite": "2026-11-20",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-20",
+      "data_marco": "20/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+MPP+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0084512-48.2026.8.19.0001"
@@ -8234,8 +8336,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 2880,
-    "passivo_display": "2.880",
+    "passivo_mm": 288,
+    "passivo_display": "288",
     "credores": "Banco do Brasil R$ 95M, Sicredi R$ 68M, Tradings de Grãos (Cargill, Bunge, ADM) R$ 75M e Revendas Locais de Insumos",
     "perfil_passivo": "Crédito Rural de Custeio e Investimento + CPRs Físicas/Financeiras em Barter + Financiamento de Maquinários Agrícolas",
     "advocacia": "Aguardando juntada da procuração nos autos",
@@ -8294,7 +8396,10 @@
       "dias_restantes": 13,
       "urgencia_nivel": "critica",
       "urgencia_label": "URGÊNCIA CRÍTICA (13d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-11-04",
+      "data_marco": "04/11/2026",
+      "marco_principal": "Prazo de Emenda à Inicial (15 dias)"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Volpp+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5684120-10.2026.8.09.0079"
@@ -8313,8 +8418,8 @@
     "fase": "Cautelar Antecedente (art. 20-B)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 2540,
-    "passivo_display": "2.540",
+    "passivo_mm": 254,
+    "passivo_display": "254",
     "credores": "Bancos comerciais (Itaú, Bradesco, Santander), Fornecedores multinacionais de matérias-primas químicas e Tradings",
     "perfil_passivo": "Capital de Giro Bancário + Travas de Recebíveis de Produtores Rurais + Importação de Insumos Fertilizantes Dolarizados",
     "advocacia": "Aguardando publicação nos autos",
@@ -8371,7 +8476,11 @@
       "data_limite": "2026-12-04",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-04",
+      "data_marco": "04/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Produfértil+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0814250-70.2026.8.12.0002"
@@ -8390,8 +8499,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 1600,
-    "passivo_display": "1.600",
+    "passivo_mm": 160,
+    "passivo_display": "160",
     "credores": "Bancos credores de garantia real (Itaú, Bradesco, Santander R$ 85M), Laboratórios farmacêuticos veterinários e Quirografários (R$ 75M)",
     "perfil_passivo": "Bancário Garantido (Alienação de Estoques e Recebíveis) + Fornecedores de Vacinas e Medicamentos Veterinários",
     "advocacia": "Cescon Barrieu Advogados",
@@ -8448,7 +8557,11 @@
       "data_limite": "2026-12-11",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-11",
+      "data_marco": "11/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+VETBR+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5001420-15.2026.8.13.0499"
@@ -8467,8 +8580,8 @@
     "fase": "Recuperação Extrajudicial (Classe 128)",
     "score": 8.8,
     "tier": "Tier 3",
-    "passivo_mm": 490,
-    "passivo_display": "490",
+    "passivo_mm": 49,
+    "passivo_display": "49",
     "credores": "Bancos comerciais (Santander, Bradesco, Daycoval), Empresas de locação de galpões e Frotistas terceirizados",
     "perfil_passivo": "Bancário de Capital de Giro + Desconto de Recebíveis + Locação de Centros de Distribuição e Veículos Utilitários",
     "advocacia": "Aguardando publicação nos autos",
@@ -8525,7 +8638,11 @@
       "data_limite": "2026-12-18",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-18",
+      "data_marco": "18/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Volo+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1019842-12.2026.8.26.0260"
@@ -8544,8 +8661,8 @@
     "fase": "Recuperação Judicial (Classe 129)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 360,
-    "passivo_display": "360",
+    "passivo_mm": 36,
+    "passivo_display": "36",
     "credores": "Banco do Brasil R$ 13,68M, Caixa Econômica Federal R$ 1,96M, Fornecedores de Insumos e Energia (Cemig/Coelba)",
     "perfil_passivo": "Crédito Rural e Custeio Bancário (BB e CEF) + Fornecedores de Embalagens e Adubos + Contas de Energia Elétrica Rural",
     "advocacia": "Aguardando procuração nos autos",
@@ -8604,7 +8721,10 @@
       "dias_restantes": 14,
       "urgencia_nivel": "critica",
       "urgencia_label": "URGÊNCIA CRÍTICA (14d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-11-05",
+      "data_marco": "05/11/2026",
+      "marco_principal": "Decisão de Processamento da RJ (Vara de Teixeira de Freitas)"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Françolin+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=8004512-05.2026.8.05.0256"
@@ -8623,8 +8743,8 @@
     "fase": "Distress Precursor / AGD de Vencimento Antecipado (Tier 0)",
     "score": 8.8,
     "tier": "Tier 0",
-    "passivo_mm": 1100,
-    "passivo_display": "1.100",
+    "passivo_mm": 110,
+    "passivo_display": "110",
     "credores": "CR Securitizadora R$ 110M (Debenturistas / Titulares de CRIs), Bancos de Fomento e Fornecedores Portuários",
     "perfil_passivo": "Debêntures Estruturadas + Arrendamento Portuário (Terminal PAR50 / Porto de Paranaguá)",
     "advocacia": "Aguardando publicação de assessores legais nos autos da AGD",
@@ -8683,7 +8803,11 @@
       "marco_tipo": "AGD Vencimento Antecipado",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (19d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-11-10",
+      "data_marco": "10/11/2026",
+      "marco_principal": "Realização da Assembleia Geral de Debenturistas (AGD) da CR Securitizadora",
+      "tipo_marco": "Realização da Assembleia Geral de Debenturistas (AGD) da CR Securitizadora"
     },
     "url_noticia": "https://news.google.com/search?q=FTS+Participações+Societárias+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=Debêntures"
@@ -8702,8 +8826,8 @@
     "fase": "Recuperação Judicial (Ajuizada / Em Análise de Deferimento)",
     "score": 8.8,
     "tier": "Tier 3",
-    "passivo_mm": 17200,
-    "passivo_display": "17.200",
+    "passivo_mm": 1720,
+    "passivo_display": "1.720",
     "credores": "4.000+ investidores PF em debêntures privadas (R$ 1.280M em principal / R$ 1.460M a vencer), Bancos parceiros e Fornecedores",
     "perfil_passivo": "Debêntures Privadas Subordinadas sem garantia real (9.393 contratos) + Carteira de Crédito Pessoal Classes C/D",
     "advocacia": "F.Soares Advocacia Empresarial",
@@ -8759,7 +8883,11 @@
       "data_limite": "2026-11-25",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-25",
+      "data_marco": "25/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://c-level.folha.uol.com.br/negocios/2026/10/grupo-euro17-pede-recuperacao-judicial-com-divida-de-r-17-bilhao-e-mais-de-5000-credores.shtml",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=Recuperação"
@@ -8778,8 +8906,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida / Edital Art. 52 Publicado)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 1300,
-    "passivo_display": "1.300",
+    "passivo_mm": 130,
+    "passivo_display": "130",
     "credores": "Sicoob Primavera R$ 37,0M (R$ 23,7M fiduciários), Caixa R$ 34,5M, Primacredi Credisis R$ 16,1M, Sicredi Araxingu R$ 11,2M, Pessoas Físicas R$ 11,1M, Santander R$ 7,5M, Banco do Brasil R$ 4,4M, Agrícola Alvorada R$ 4,4M",
     "perfil_passivo": "Crédito Rural, CCBs e Cédulas Rotativas com Alienação Fiduciária de Imóveis Rurais (R$ 66,3M extraconcursais + R$ 63,6M concursais) em Canarana/MT",
     "advocacia": "Banca Especializada em Reestruturação do Agronegócio (MT)",
@@ -8831,14 +8959,18 @@
       "upi_valuation_estimado_mm": 455
     },
     "calendar_meta": {
-      "data_marco_iso": "2026-11-07",
+      "data_marco_iso": "2026-11-09",
       "data_marco_br": "07/11/2026",
       "dias_restantes": 14,
       "marco_label": "Fim do Prazo de 15 Dias para Habilitações/Divergências à Lista de Credores (Art. 7º, § 1º)",
       "marco_tipo": "Habilitação de Créditos",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (14d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-11-09",
+      "data_marco": "09/11/2026",
+      "marco_principal": "Fim do Prazo de 15 Dias para Habilitações/Divergências à Lista de Credores (Art. 7º, § 1º)",
+      "tipo_marco": "Fim do Prazo de 15 Dias para Habilitações/Divergências à Lista de Credores (Art. 7º, § 1º)"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Buuron+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1015842-50.2026.8.11.0003"
@@ -8857,8 +8989,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida / Edital Art. 52 Publicado)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 740,
-    "passivo_display": "740",
+    "passivo_mm": 74,
+    "passivo_display": "74",
     "credores": "Banco do Brasil R$ 22M, Banco CNH Industrial R$ 12M, Banco John Deere R$ 9M, Tradings e Distribuidores de Insumos R$ 18M, Cooperativas e Fornecedores R$ 13M",
     "perfil_passivo": "Cédulas de Crédito Bancário (CCBs), Financiamento de Maquinários e Cédulas de Produto Rural (CPRs) com Garantia Real",
     "advocacia": "Banca Especializada em Direito do Agronegócio e Recuperação (TO/GO)",
@@ -8917,7 +9049,11 @@
       "marco_tipo": "Habilitação de Créditos",
       "urgencia_nivel": "alerta",
       "urgencia_label": "CURTO PRAZO (10d)",
-      "is_fixed_edital": true
+      "is_fixed_edital": true,
+      "data_limite": "2026-11-04",
+      "data_marco": "04/11/2026",
+      "marco_principal": "Prazo de 15 Dias para Habilitações e Divergências de Crédito (Veritas AJ / Edital Art. 52)",
+      "tipo_marco": "Prazo de 15 Dias para Habilitações e Divergências de Crédito (Veritas AJ / Edital Art. 52)"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Família+Sandoval+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0000255-59.2026.8.27.2704"
@@ -8936,8 +9072,8 @@
     "fase": "Falência (Classe 110 - Convolação Decretada com Bloqueio de Ativos)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 450,
-    "passivo_display": "450",
+    "passivo_mm": 45,
+    "passivo_display": "45",
     "credores": "BlackPartners Miruna FIDC NP R$ 18M, Attua Comercial Agrícola R$ 9M, Maré Fertilizantes R$ 6M, Terra Forte Máquinas R$ 5M, Vicente Agro e Outros R$ 7M",
     "perfil_passivo": "Insumos Agrícolas, Fertilizantes e Financiamento de Maquinários com Garantias sobre Imóveis Rurais e Lavouras em Sinop e Nova Canaã do Norte/MT",
     "advocacia": "Banca de Reestruturação Agrícola (MT)",
@@ -8993,7 +9129,11 @@
       "data_limite": "2026-12-21",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-21",
+      "data_marco": "21/12/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Pelissari+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=Processo"
@@ -9012,8 +9152,8 @@
     "fase": "Constatação Prévia (Art. 51-A da LREF) / Pedido de RJ",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 740,
-    "passivo_display": "740",
+    "passivo_mm": 74,
+    "passivo_display": "74",
     "credores": "Exequentes de cumprimento de sentença e promitentes compradores R$ 74,3M, Credores trabalhistas R$ 105k, Fornecedores e empreiteiros imobiliários",
     "perfil_passivo": "Passivo quirografário decorrente de rescisões e execuções de compradores; estoque de ativos imobiliários, recebíveis de vendas e canteiros em SP",
     "advocacia": "Banca de Reestruturação Imobiliária e Arbitragem (SP)",
@@ -9066,10 +9206,14 @@
     },
     "calendar_meta": {
       "marco_principal": "AGD / Deliberação de Waiver & Standstill",
-      "data_limite": "2026-11-14",
+      "data_limite": "2026-11-16",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-16",
+      "data_marco": "16/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Capistrano+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1131456-39.2026.8.26.0100"
@@ -9088,8 +9232,8 @@
     "fase": "Tutela Cautelar Antecedente (Art. 20-B da LREF) / Mediação Cejusc",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 830,
-    "passivo_display": "830",
+    "passivo_mm": 83,
+    "passivo_display": "83",
     "credores": "Itaú Unibanco R$ 10,15M, Sicredi União RS/ES R$ 8,66M, Santander R$ 7,70M, Banco do Brasil R$ 4,47M, Safra R$ 3,63M, Banrisul R$ 3,05M, Cresol R$ 2,71M, Bradesco R$ 160k",
     "perfil_passivo": "Dívida bancária e cooperativas com cessão fiduciária de recebíveis em contas vinculadas; 88% no curto prazo; R$ 8,13M em duplicatas vencidas de produtores",
     "advocacia": "Patrono constituído no TJRS (Direito Concursal e Agronegócio)",
@@ -9142,10 +9286,14 @@
     },
     "calendar_meta": {
       "marco_principal": "AGD / Deliberação de Waiver & Standstill",
-      "data_limite": "2026-11-21",
+      "data_limite": "2026-11-23",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-23",
+      "data_marco": "23/11/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://news.google.com/search?q=Agro+Campo+Indústria+e+Comércio+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5003512-82.2026.8.21.0028"
@@ -9164,8 +9312,8 @@
     "fase": "Recuperação Judicial (Deferida com Stay Period de 180 dias)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 1400,
-    "passivo_display": "1.400",
+    "passivo_mm": 140,
+    "passivo_display": "140",
     "credores": "Bancos de capital de giro (Itaú, Bradesco, Santander, Banco do Brasil, Safra), Fornecedores de móveis e eletrodomésticos, Locadores de shopping centers e lojas de rua, Concessionárias Enel e CPFL",
     "perfil_passivo": "Linhas de capital de giro sem lastro imobiliário após disputa societária familiar; passivo locatício de imóveis comerciais e fornecedores mercantis",
     "advocacia": "Banca de Reestruturação Societária e Concursal (SP)",
@@ -9218,10 +9366,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-28",
+      "data_limite": "2026-11-30",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-30",
+      "data_marco": "30/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://c-level.folha.uol.com.br/negocios/2026/10/justica-aceita-pedido-de-recuperacao-judicial-da-marabraz.shtml",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1107521-71.2026.8.26.0100"
@@ -9240,8 +9392,8 @@
     "fase": "Falência (Classe 110 - Convolação Decretada com Lacração Fabril)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 510,
-    "passivo_display": "510",
+    "passivo_mm": 51,
+    "passivo_display": "51",
     "credores": "Credores com garantia real e quirografários industriais, Fornecedores de insumos minerais, gás e energia elétrica, 9 acordos trabalhistas inadimplidos (R$ 367k), Despesas de vigilância patrimonial (R$ 33k)",
     "perfil_passivo": "Dívidas concursais e extraconcursais de antiga RJ descumprida; parque fabril de revestimentos cerâmicos em Limeira/SP para leilão judicial de UPI",
     "advocacia": "Banca de Direito Empresarial e Falimentar (Limeira/SP)",
@@ -9294,10 +9446,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Arrecadação de Ativos & Leilão Falimentar",
-      "data_limite": "2026-12-05",
+      "data_limite": "2026-12-07",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-07",
+      "data_marco": "07/12/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://news.google.com/search?q=Unigrês+Cerâmica+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1003445-05.2016.8.26.0320"
@@ -9316,8 +9472,8 @@
     "fase": "Recuperação Judicial (Pedido Ajuizado / Redistribuição Territorial)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 3000,
-    "passivo_display": "3.000",
+    "passivo_mm": 300,
+    "passivo_display": "300",
     "credores": "Fornecedores industriais de matérias-primas e ferragens de luxo, Mais de 133 clientes consumidores com ações de rescisão/restituição (SP, DF, MG, CE), Locadores de imóveis comerciais e lojas de rua, Bancos de capital de giro",
     "perfil_passivo": "Passivo quirografário com clientes de alta renda (projetos pagos e atrasados), fornecedores de madeira/pedras/ferragens e dívidas locatícias; fábrica própria na Via Dutra em Guarulhos e marca sexagenária",
     "advocacia": "Banca de Reestruturação Empresarial e Concursal (SP)",
@@ -9370,10 +9526,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-12-12",
+      "data_limite": "2026-12-14",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-14",
+      "data_marco": "14/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www1.folha.uol.com.br/colunas/painelsa/2026/11/lista-de-credores-da-kitchens-tem-de-ex-ministro-a-empresarios-famosos.shtml",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=4213329-13.2026.8.26.0100"
@@ -9392,8 +9552,8 @@
     "fase": "Tutela Cautelar Antecedente (Art. 20-B da LREF) / Mediação Pré-Concursal",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 19000,
-    "passivo_display": "19.000",
+    "passivo_mm": 1900,
+    "passivo_display": "1.900",
     "credores": "Debenturistas das emissões de dívida do grupo, Bancos credores de capital de giro (Itaú, Bradesco, Santander, Banco do Brasil, BTG Pactual), Indústrias farmacêuticas fornecedoras de medicamentos, Empresas de locação de frotas e logística",
     "perfil_passivo": "Dívida de R$ 1,9 Bi decorrente de M&As alavancados atrelados ao CDI; emissões de debêntures no mercado de capitais; risco iminente de retomada de frota locada de distribuição farmacêutica",
     "advocacia": "Banca de Reestruturação Empresarial e Mercado de Capitais (SP)",
@@ -9446,10 +9606,14 @@
     },
     "calendar_meta": {
       "marco_principal": "AGD / Deliberação de Waiver & Standstill",
-      "data_limite": "2026-12-20",
+      "data_limite": "2026-12-21",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-21",
+      "data_marco": "21/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://www.bloomberglinea.com.br/negocios/elfa-pede-tutela-cautelar-para-negociar-com-credores-dois-meses-apos-saida-do-patria/",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1133528-52.2026.8.26.0100"
@@ -9468,8 +9632,8 @@
     "fase": "Recuperação Judicial (Pedido Ajuizado com Tutela Cautelar e Plano Único)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 940,
-    "passivo_display": "940",
+    "passivo_mm": 94,
+    "passivo_display": "94",
     "credores": "Instituições financeiras credoras com garantias imobiliárias, Fornecedores operacionais de hotelaria, alimentação e serviços, Credores trabalhistas de hotelaria e eventos, Concessionárias de serviços públicos do RS",
     "perfil_passivo": "Passivo de R$ 94M decorrente de choques climáticos severos e enchentes em Porto Alegre; créditos não sujeitos com garantia real imobiliária sobre complexo hoteleiro e centro de eventos no bairro Floresta",
     "advocacia": "Banca de Direito Societário e Recuperação Empresarial (RS)",
@@ -9522,10 +9686,14 @@
     },
     "calendar_meta": {
       "marco_principal": "AGD / Deliberação de Waiver & Standstill",
-      "data_limite": "2026-12-27",
+      "data_limite": "2026-12-28",
       "artigo_lei": "Art. 20-B / Art. 163 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-28",
+      "data_marco": "28/12/2026",
+      "marco_label": "AGD / Deliberação de Waiver & Standstill",
+      "tipo_marco": "AGD / Deliberação de Waiver & Standstill"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Hotel+Continental+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5098412-25.2026.8.21.0001"
@@ -9544,8 +9712,8 @@
     "fase": "Falência (Classe 110 - Convolação Decretada com Operação Provisória de 90 dias)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 670,
-    "passivo_display": "670",
+    "passivo_mm": 67,
+    "passivo_display": "67",
     "credores": "Fazenda Nacional / PGFN R$ 51,2M, Instituições financeiras credoras de frotas e consórcios de caminhões-tanque R$ 15,5M, Fornecedores de combustíveis e peças, Credores trabalhistas operacionais",
     "perfil_passivo": "Frota especializada de caminhões-tanque para transporte de químicos e líquidos a granel; passivo fiscal federal e consórcios de pesados; continuidade operacional temporária sob supervisão do AJ",
     "advocacia": "Banca de Direito Empresarial e Falimentar (RJ)",
@@ -9601,7 +9769,11 @@
       "data_limite": "2026-11-20",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-20",
+      "data_marco": "20/11/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Trelsa-Log+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0812345-87.2024.8.19.0001"
@@ -9620,8 +9792,8 @@
     "fase": "Falência (Classe 110 - Convolação Decretada após Rejeição de Plano em AGC)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 320,
-    "passivo_display": "320",
+    "passivo_mm": 32,
+    "passivo_display": "32",
     "credores": "Credores com garantia real de CPRs e CCBs agrícolas R$ 20,66M (Bancos e Tradings), Credores quirografários de insumos, defensivos e fertilizantes R$ 10,8M, Credores trabalhistas agrícolas R$ 300k",
     "perfil_passivo": "Financiamento de lavouras e maquinários com garantia real sobre terras e produção de grãos em Mineiros/GO; acervo patrimonial agrícola sob ordem de arrecadação judicial",
     "advocacia": "Banca Especializada em Agronegócio e Insolvência (GO)",
@@ -9677,7 +9849,11 @@
       "data_limite": "2026-11-27",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-27",
+      "data_marco": "27/11/2026",
+      "marco_label": "Arrecadação de Ativos & Leilão Falimentar",
+      "tipo_marco": "Arrecadação de Ativos & Leilão Falimentar"
     },
     "url_noticia": "https://news.google.com/search?q=Produtores+Rurais+de+Mineiros/GO+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5498123-48.2023.8.09.0105"
@@ -9696,8 +9872,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Plano c/ DIP de R$ 75M Deferido)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 17100,
-    "passivo_display": "17.100",
+    "passivo_mm": 1710,
+    "passivo_display": "1.710",
     "credores": "Santander R$ 280M, Itaú R$ 220M, Bradesco R$ 180M, Banco do Brasil R$ 110M, Debenturistas R$ 350M, Fornecedores e Outros R$ 570M",
     "perfil_passivo": "Endividamento bancário e debêntures pós-fusão Casa & Vídeo / Le Biscuit, com autorização judicial de financiamento DIP de R$ 75M (art. 69-A / art. 84, I-B)",
     "advocacia": "Galdino & Coelho, Pimenta, Takemi, Ayoub Advogados",
@@ -9753,7 +9929,11 @@
       "data_limite": "2026-12-04",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-04",
+      "data_marco": "04/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+CVLB+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=3001714-28.2026.8.19.0001"
@@ -9772,8 +9952,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferimento c/ Blindagem de Frota)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 800,
-    "passivo_display": "800",
+    "passivo_mm": 80,
+    "passivo_display": "80",
     "credores": "Bancos de leasing e CDC de frota R$ 38M (Safra, Itaú, Bradesco), Distribuidoras de combustíveis e lubrificantes R$ 25M, Fornecedores quirografários R$ 14M, Trabalhistas R$ 3M",
     "perfil_passivo": "Leasing e financiamento de caminhões e semirreboques sob risco de busca e apreensão, dívidas de óleo diesel/lubrificantes e passivo tributário estadual/federal",
     "advocacia": "Banca Regional Especializada em Transporte e Insolvência (RS)",
@@ -9829,7 +10009,11 @@
       "data_limite": "2026-12-11",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-11",
+      "data_marco": "11/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Hammes+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5021369-29.2026.8.21.0022"
@@ -9848,8 +10032,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferimento sob Consolidação Processual)",
     "score": 9.0,
     "tier": "Tier 2",
-    "passivo_mm": 1020,
-    "passivo_display": "1.020",
+    "passivo_mm": 102,
+    "passivo_display": "102",
     "credores": "Sicredi R$ 18M, BRDE R$ 12M, New Invest R$ 9M, Banco do Brasil R$ 8M, Itaú R$ 5M, Siderquímica R$ 16M, Ekonova Química R$ 12M, NS Importação R$ 6M",
     "perfil_passivo": "Insumos químicos e corantes de tinturaria (R$ 38M), dívida bancária extraconcursal fiduciária (Sicredi, BRDE) e ativos rurais/biometano",
     "advocacia": "Banca Regional Especializada em Reestruturação Têxtil e Agro (SC)",
@@ -9902,10 +10086,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-12-19",
+      "data_limite": "2026-12-21",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-21",
+      "data_marco": "21/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Willrich+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5000842-82.2026.8.24.0536"
@@ -9924,8 +10112,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferimento c/ Liminar de Energia)",
     "score": 8.9,
     "tier": "Tier 2",
-    "passivo_mm": 950,
-    "passivo_display": "950",
+    "passivo_mm": 95,
+    "passivo_display": "95",
     "credores": "Soma Securitizadora R$ 22M, Santander R$ 18M, Itaú R$ 14M, M.H.C. Plásticos R$ 12M, Alpla Clean Bottle R$ 8M, Sofisa R$ 7M, Alyfer Comércio R$ 5M, Outros R$ 9M",
     "perfil_passivo": "Cessão fiduciária de recebíveis com securitizadora (Soma Securitizadora R$ 35,3M extraconcursais), crédito bancário com Santander/Itaú e fornecedores de resinas",
     "advocacia": "Banca Regional Especializada em Reestruturação Industrial (PR)",
@@ -9978,10 +10166,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-12-26",
+      "data_limite": "2026-12-28",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-28",
+      "data_marco": "28/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Clean+Plastic+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0011354-93.2026.8.16.0194"
@@ -10000,8 +10192,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferimento c/ Blindagem de Terras e Grãos)",
     "score": 8.8,
     "tier": "Tier 2",
-    "passivo_mm": 320,
-    "passivo_display": "320",
+    "passivo_mm": 32,
+    "passivo_display": "32",
     "credores": "Banco do Brasil R$ 12M, Agropecuária Alô Brasil R$ 6M, Banco John Deere R$ 4M, Banco Randon R$ 3M, Gran Pará Representações R$ 3M, Parasul e Agrex R$ 4M",
     "perfil_passivo": "Crédito rural e CPRs com garantia real/penhor de safra e alienação fiduciária de maquinários (R$ 5,1M extraconcursais com Banco Randon e John Deere), além de dívidas com revendas de insumos",
     "advocacia": "Banca Especializada em Agronegócio e Insolvência Rural (PA)",
@@ -10057,7 +10249,11 @@
       "data_limite": "2026-11-18",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Crítica (< 15 dias)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-18",
+      "data_marco": "18/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Araújo+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0803079-41.2026.8.14.0045"
@@ -10076,8 +10272,8 @@
     "fase": "Recuperação Judicial (Classe 129 - AGC Convocada para Continuação em 10/11/2026)",
     "score": 9.3,
     "tier": "Tier 1",
-    "passivo_mm": 2170,
-    "passivo_display": "2.170",
+    "passivo_mm": 217,
+    "passivo_display": "217",
     "credores": "Banco do Brasil R$ 134,2M (SP e NY), Banco Safra R$ 23,1M, Banco Santander Luxemburgo R$ 18,7M, Banco Bradesco R$ 16,8M, Caixa Econômica Federal R$ 16,5M, Citibank R$ 6,5M",
     "perfil_passivo": "Dívida bancária internacional e local concentrada no Banco do Brasil (>60%), linhas de financiamento à exportação/custeio, e infraestrutura de silos para 20.000 toneladas de grãos em Itapetininga",
     "advocacia": "Lobo & Vaz Advogados (Dr. Fernando Gomes dos Reis Lobo)",
@@ -10133,7 +10329,11 @@
       "data_limite": "2026-11-25",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-25",
+      "data_marco": "25/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Tagui+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=4000266-16.2026.8.26.0354"
@@ -10152,8 +10352,8 @@
     "fase": "Recuperação Judicial Deferida (Stay Period de 180 dias / Publicação de Edital)",
     "score": 8.9,
     "tier": "Tier 2",
-    "passivo_mm": 1200,
-    "passivo_display": "1.200",
+    "passivo_mm": 120,
+    "passivo_display": "120",
     "credores": "Banco do Brasil S.A. (Garantia Real e Quirografário), Agrotekne Comércio e Representações Ltda. (Garantia Real e Quirografário) [ambos somam ~88% do passivo concursal], Banco Santander (Brasil) S.A., Agro-Fito Insumos Agrícolas Ltda., Coplacana (Cooperativa dos Plantadores de Cana do Estado de SP), Banco Bradesco S.A., Banco De Lage Landen S.A.",
     "perfil_passivo": "Passivo concursal de R$ 88,17M (Classe II R$ 31,14M; Classe III R$ 57,01M; Classe I R$ 21,7k) concentrado em bancos e revenda de insumos (BB e Agrotekne concentram ~88%), acrescido de R$ 31,89M em créditos extraconcursais fiduciários (BB, Santander, Bradesco e CPR Agro-Fito)",
     "advocacia": "Adriano de Oliveira Martins Sociedade de Advogados (Dr. Adriano de Oliveira Martins, OAB/SP 221.127)",
@@ -10209,7 +10409,11 @@
       "data_limite": "2026-12-03",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-03",
+      "data_marco": "03/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Hungaro+&+Garcia+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=4000580-44.2026.8.26.0359"
@@ -10228,8 +10432,8 @@
     "fase": "Recuperação Judicial Deferida (Stay Period em Curso / Fase de Edital e PRJ)",
     "score": 9.1,
     "tier": "Tier 1",
-    "passivo_mm": 2400,
-    "passivo_display": "2.400",
+    "passivo_mm": 240,
+    "passivo_display": "240",
     "credores": "Banco Santander (Brasil) S.A. R$ 78M, Banco do Brasil S.A. R$ 56M, Itaú Unibanco S.A. R$ 42M, Sicoob Paulista R$ 28M, Credores Comerciais/Insumos Químicos R$ 36M",
     "perfil_passivo": "Passivo bancário concentrado em capital de giro, financiamento para aquisição de fazendas e novos arrendamentos, associado a dívidas com tradings e revendas de defensivos agrícolas; ativos incluem revendas, frotas de transporte, fábrica de nutrição animal e áreas rurais próprias",
     "advocacia": "RM2F Advogados (Dr. Rodrigo Menezes) & Quist Investimentos (Assessoria Financeira)",
@@ -10285,7 +10489,11 @@
       "data_limite": "2026-12-10",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-10",
+      "data_marco": "10/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Sefert+/+Myra+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=4000518-59.2026.8.26.0373"
@@ -10304,8 +10512,8 @@
     "fase": "Recuperação Judicial Deferida (Stay Period e Plano de Recuperação Judicial em Andamento)",
     "score": 9.6,
     "tier": "Tier 0",
-    "passivo_mm": 13010,
-    "passivo_display": "13.010",
+    "passivo_mm": 1301,
+    "passivo_display": "1.301",
     "credores": "Banco do Brasil S.A. R$ 410M, Banco da Amazônia (BASA) R$ 265M, Caixa Econômica Federal R$ 180M, Banco Santander (Brasil) S.A. R$ 145M, Virgo Securitizadora / CRAs (Riza RZAG11, Kijani) R$ 117M, Rabobank e credores comerciais de sementes e insumos químicos R$ 184M",
     "perfil_passivo": "Passivo concursal bilionário concentrado em crédito rural e capital de giro nos bancos públicos e privados, emissão de CRAs de R$ 117M com garantia fiduciária sobre fazendas em TO e MS, e débitos com fornecedores de tecnologia agrícola; parque fabril de processamento de grãos, algodão e sementes no Cerrado",
     "advocacia": "Federiche Mincache Advogados Associados (Dr. Alan Rogério Mincache, OAB/PR 38.307)",
@@ -10361,7 +10569,11 @@
       "data_limite": "2026-12-17",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-17",
+      "data_marco": "17/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Formoso+/+Uniggel+Sementes+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0059038-03.2025.8.27.2729"
@@ -10380,8 +10592,8 @@
     "fase": "Recuperação Judicial Deferida (Stay Period e Plano de Recuperação Judicial em Andamento)",
     "score": 9.4,
     "tier": "Tier 1",
-    "passivo_mm": 4980,
-    "passivo_display": "4.980",
+    "passivo_mm": 498,
+    "passivo_display": "498",
     "credores": "BRD Brasil Distressed Consultoria R$ 56,6M, Vale do Norte Empreendimentos R$ 42M, Origin Investimentos R$ 30M, Utility Credit FIDC R$ 29,1M, Banco Bradesco S.A. R$ 27,7M, Banco BTG Pactual S.A. (oponente RJ anterior), Transação Tributária PGFN R$ 48,4M",
     "perfil_passivo": "Passivo concursal de R$ 497,7M (Classe I: R$ 11,4M; Classe II: R$ 69,6M; Classe III: R$ 401,7M; Classe IV: R$ 14,9M) concentrado em fundos de distressed debt, FIDCs e dívida bancária, acrescido de R$ 48,4M tributários; ativos incluem usina de açúcar/etanol (1,5M ton/safra) e 6.428 ha de terras próprias em Vila Boa/GO",
     "advocacia": "Amorim e Castro Advogados Associados (Dr. Eládio Augusto Amorim Mesquita / Dra. Carolina Marquez Castro e Silva)",
@@ -10437,7 +10649,11 @@
       "data_limite": "2026-12-24",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-24",
+      "data_marco": "24/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+CBB+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5753981-17.2026.8.09.0182"
@@ -10456,8 +10672,8 @@
     "fase": "Recuperação Judicial Deferida (Stay Period e Plano de Recuperação sob Questionamento Fiscal)",
     "score": 9.7,
     "tier": "Tier 0",
-    "passivo_mm": 15000,
-    "passivo_display": "15.000",
+    "passivo_mm": 1500,
+    "passivo_display": "1.500",
     "credores": "PGE/PA (Dívida Ativa ICMS/ST) R$ 6.225M, PGFN (Passivo Fiscal Federal) R$ 2.600M, Itaú Unibanco S.A., Santos e Klauck Advogados R$ 5,6M, Ayres Britto Consultoria Jurídica R$ 3,3M, Martins Cardozo Advogados R$ 2,7M",
     "perfil_passivo": "Passivo fiscal bilionário em litígio com a PGE (R$ 6,2B) e MPPA (R$ 2,6B), passivo concursal de R$ 39,2M com R$ 11,6M em honorários trabalhistas (Classe I); ativos incluem parque fabril cervejeiro em Belém avaliado em R$ 603M e dois imóveis de R$ 118M oferecidos em garantia para DIP Financing de R$ 60M",
     "advocacia": "Santos e Klauck Sociedade de Advogados, Ayres Britto Consultoria Jurídica & Martins Cardozo Advogados Associados",
@@ -10513,7 +10729,11 @@
       "data_limite": "2027-01-01",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2027-01-01",
+      "data_marco": "01/01/2027",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Cerpa+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0864321-78.2026.8.14.0301"
@@ -10532,8 +10752,8 @@
     "fase": "Recuperação Judicial Deferida (Stay Period e Apresentação do PRJ sob Consolidação Processual)",
     "score": 9.0,
     "tier": "Tier 1",
-    "passivo_mm": 1370,
-    "passivo_display": "1.370",
+    "passivo_mm": 137,
+    "passivo_display": "137",
     "credores": "Itaú Unibanco S.A. R$ 26M, Banco Bradesco S.A. R$ 21M, Banco do Brasil S.A. R$ 18M, Banco Safra S.A. R$ 12M, Banco ABC Brasil S.A. R$ 7M, Banco Votorantim S.A. R$ 5,5M, Cooperativa Sicredi R$ 4M (Bancos concentram R$ 93,5M - 68%)",
     "perfil_passivo": "Passivo concursal de R$ 137,3M (Classe I: R$ 212k; Classe II: R$ 3,1M; Classe III: R$ 132,3M; Classe IV: R$ 1,7M) fortemente concentrado em dívida bancária de longo prazo para expansão fabril (68%), além de créditos fiduciários sobre estoques; ativos incluem parque fabril de injeção plástica em Maceió/AL, centro de distribuição automatizado em São José dos Pinhais/PR e frota própria",
     "advocacia": "Banca Regional Especializada em Reestruturação Empresarial e Varejo (PR)",
@@ -10589,7 +10809,11 @@
       "data_limite": "2026-11-24",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-24",
+      "data_marco": "24/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Bel+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0016799-92.2026.8.16.0194"
@@ -10608,8 +10832,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Stay Period e Elaboração do PRJ)",
     "score": 9.1,
     "tier": "Tier 1",
-    "passivo_mm": 1390,
-    "passivo_display": "1.390",
+    "passivo_mm": 139,
+    "passivo_display": "139",
     "credores": "BASF S.A. R$ 56,3M, Sumitomo Chemical Brasil R$ 21,1M, Fiagro B.OND Insumos Agro R$ 12,0M, Banco Bradesco S.A. R$ 9,7M, Itaú Unibanco S.A. R$ 7,5M, Rainbow Defensivos R$ 4,4M, Ouro Fino Química R$ 3,8M (Multinacionais químicas e bancos concentram mais de R$ 110M)",
     "perfil_passivo": "Passivo concursal de R$ 138,3M concentrado na Classe III (quirografários fornecedores e bancos de giro) e crédito de Fiagro (R$ 12M); ativos contam com matriz e centro de distribuição em Patos de Minas, rede de 7 filiais estratégicas no Alto Paranaíba e moderna Unidade de Beneficiamento de Sementes (UBS)",
     "advocacia": "Banca Especializada em Agronegócio e Reestruturação (MG)",
@@ -10665,7 +10889,11 @@
       "data_limite": "2026-12-01",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-01",
+      "data_marco": "01/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Sagra+Insumos+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1010293-82.2026.8.13.0480"
@@ -10684,8 +10912,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida sob Consolidação Processual e Substancial / Stay Period)",
     "score": 8.9,
     "tier": "Tier 1",
-    "passivo_mm": 1160,
-    "passivo_display": "1.160",
+    "passivo_mm": 116,
+    "passivo_display": "116",
     "credores": "Banco do Brasil S.A. R$ 51,1M (garantia real), CNH Industrial Capital R$ 2,2M, Agro Amazônia R$ 1,8M, Sicoob Credip R$ 1,8M, Bertuol Fertilizantes R$ 1,5M, Agrogalaxy R$ 1,2M, LongPing R$ 851k, Fiagril Ltda. (extraconcursal CPR barter), Agrosyn Insumos (extraconcursal) e Itaú Unibanco (extraconcursal alienação fiduciária)",
     "perfil_passivo": "Passivo total de R$ 116,1M (R$ 62,3M concursais, sendo R$ 51,1M com garantia real ao BB, e R$ 53,8M extraconcursais em CPRs barter e alienação fiduciária com Fiagril, Agrosyn e Itaú); ativos incluem 4.309 ha em Novo Horizonte do Norte/Juara (MT), 820 ha em Guarapuava (PR), armazéns próprios com secadores e silos (F. Zanatta Armazéns) e frota de colheitadeiras/tratores",
     "advocacia": "Banca Especializada em Reestruturação do Agronegócio (MT)",
@@ -10741,7 +10969,11 @@
       "data_limite": "2026-12-08",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-08",
+      "data_marco": "08/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www.empresaemcrise.com/post/novo-horizonte-do-norte-mt-grupo-zanatta-tem-recupera%C3%A7%C3%A3o-judicial-deferida-com-d%C3%ADvida-de-r-116-1-m",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1006896-09.2026.8.11.0015"
@@ -10760,8 +10992,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida sob Consolidação Substancial / Stay Period)",
     "score": 9.2,
     "tier": "Tier 1",
-    "passivo_mm": 2480,
-    "passivo_display": "2.480",
+    "passivo_mm": 248,
+    "passivo_display": "248",
     "credores": "Banco do Brasil S.A. R$ 85M (garantia real e quirografário), Caixa Econômica Federal R$ 42M (garantia real), Sicredi Uniestados R$ 28M, Sicoob Crediauc R$ 19M, Banrisul R$ 14M, KLA Rural R$ 8M, C. Vaccaro & Cia. R$ 6M (Bancos e cooperativas concentram mais de R$ 190M)",
     "perfil_passivo": "Passivo concursal de R$ 248,3M com forte concentração em garantia real (Classe II) e crédito de custeio/investimento rural junto a BB, Caixa e cooperativas; ativos incluem mais de 4.056 ha próprios no RS (Fazendas Pinhalzinho e Linha São Paulo) e 1.498 ha no TO (Fazenda Terra Prometida e Silo em Aparecida do Rio Negro/TO), rebanho bovino e frota de colheitadeiras",
     "advocacia": "Banca Especializada em Agronegócio e Direito Concursal (RS)",
@@ -10817,7 +11049,11 @@
       "data_limite": "2026-12-16",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-16",
+      "data_marco": "16/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Schneider+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5013015-18.2026.8.21.0021"
@@ -10836,8 +11072,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida sob Consolidação Substancial / Stay Period)",
     "score": 8.8,
     "tier": "Tier 1",
-    "passivo_mm": 550,
-    "passivo_display": "550",
+    "passivo_mm": 55,
+    "passivo_display": "55",
     "credores": "Banco Volvo Brasil S.A. R$ 14M (extraconcursal alienação fiduciária), Banco Paccar S.A. R$ 8,9M (extraconcursal cross-default), Scania Banco S.A. R$ 6M (extraconcursal), Banco Volkswagen S.A. R$ 4M (extraconcursal), Banco do Brasil S.A. R$ 3,2M (concursal capital de giro), Paraíso Cobrança R$ 2,5M, Sicredi Confederação R$ 2M, Rede de Postos Apolo R$ 1,5M, Carboni Distribuidora R$ 900k, ZL Cimentos R$ 600k (Bancos de montadora concentram R$ 35M extraconcursais)",
     "perfil_passivo": "Passivo total de R$ 54,9M (R$ 8,7M concursais na Classe III quirografários e R$ 34,9M extraconcursais em financiamentos de frota com alienação fiduciária e débitos fiscais); frota própria de 139 veículos (61 cavalos mecânicos com idade média de 4,7 anos, sendo 58% modelos 2023-2026), centro operacional em Araquari/SC e contratos de frete com grandes embarcadores (DOX Brasil, Intercement, Maifer)",
     "advocacia": "Banca Especializada em Direito Empresarial e Logística (SC)",
@@ -10893,7 +11129,11 @@
       "data_limite": "2026-12-23",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-23",
+      "data_marco": "23/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Valmir+Borba+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=5000551-82.2026.8.24.0536"
@@ -10912,8 +11152,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida sob Consolidação Processual / Stay Period)",
     "score": 9.0,
     "tier": "Tier 1",
-    "passivo_mm": 1640,
-    "passivo_display": "1.640",
+    "passivo_mm": 164,
+    "passivo_display": "164",
     "credores": "Banco Daycoval S.A. R$ 31,8M (extraconcursal fiduciário), Banco do Brasil S.A. R$ 38M, Caixa Econômica Federal R$ 26M, Debenturistas da Chatuba S.A. R$ 22M, Banco Bradesco S.A. R$ 16M, Banco ABC Brasil S.A. R$ 11M, Banco Safra S.A. R$ 8M, Sicredi R$ 5M, passivo trabalhista R$ 5,2M (161 credores) e fornecedores industriais de tintas, louças e cerâmicas",
     "perfil_passivo": "Passivo total de R$ 164,1M (R$ 132,4M concursais, sendo R$ 126,2M quirografários da Classe III entre bancos, debêntures e fornecedores, e R$ 31,8M extraconcursais com Banco Daycoval); rede de 13 lojas amplas (Nilópolis, Barra da Tijuca, Tijuca, Nova Iguaçu, Duque de Caxias, São Gonçalo, Niterói), Centro de Distribuição na Rodovia Presidente Dutra (Belford Roxo), marca sexagenária 5x eleita a melhor do RJ pela ANAMACO e mais de 800 colaboradores",
     "advocacia": "Banca Especializada em Reestruturação e Varejo (RJ)",
@@ -10969,7 +11209,11 @@
       "data_limite": "2026-12-30",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-30",
+      "data_marco": "30/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www.empresaemcrise.com/post/nil%C3%B3polis-rj-recupera%C3%A7%C3%A3o-judicial-do-grupo-chatuba-%C3%A9-deferida-com-d%C3%ADvida-total-de-r-164-1-milh%C3%B5es",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0813249-95.2025.8.19.0036"
@@ -10988,8 +11232,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida sob Consolidação Processual e Substancial / Stay Period)",
     "score": 9.4,
     "tier": "Tier 0",
-    "passivo_mm": 7400,
-    "passivo_display": "7.400",
+    "passivo_mm": 740,
+    "passivo_display": "740",
     "credores": "Itaú Unibanco S.A. R$ 135,2M, Caixa Econômica Federal R$ 123,9M, Ignis (Notas Comerciais) R$ 91,5M, Banco do Brasil S.A. R$ 85,3M (garantia real e quirografário), FIDC Banminas R$ 43,2M, GV do Brasil Indústria e Comércio de Aço Ltda. R$ 31,0M, Banco Votorantim S.A. R$ 27,4M, além de passivo extraconcursal de R$ 16,3M (R$ 9,7M financeiro e R$ 6,6M tributário)",
     "perfil_passivo": "Passivo total de R$ 739,6M (R$ 723,4M concursais, sendo R$ 59,7M em garantia real e R$ 663,6M quirografários da Classe III fortemente concentrados em bancos, notas comerciais e fornecedores siderúrgicos); ativos contam com parque de armazenagem de bobinas e perfis, galpões industriais da Santa Clara Incorporação em Piracicaba, planta de beneficiamento da Metalúrgica Sul Fluminense e frota da Ideal Transportes",
     "advocacia": "Banca Especializada em Recuperação Judicial e Siderurgia (SP)",
@@ -11042,10 +11286,14 @@
     },
     "calendar_meta": {
       "marco_principal": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
-      "data_limite": "2026-11-22",
+      "data_limite": "2026-11-23",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-23",
+      "data_marco": "23/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://www.empresaemcrise.com/post/piracicaba-sp-grupo-manetoni-tem-recupera%C3%A7%C3%A3o-judicial-deferida-com-d%C3%ADvida-de-r-739-6-milh%C3%B5es",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=4000943-46.2026.8.26.0354"
@@ -11064,8 +11312,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida sob Consolidação Substancial / Stay Period)",
     "score": 9.3,
     "tier": "Tier 0",
-    "passivo_mm": 5680,
-    "passivo_display": "5.680",
+    "passivo_mm": 568,
+    "passivo_display": "568",
     "credores": "Banco do Brasil S.A. R$ 145M, Banco Santander (Brasil) S.A. R$ 110M, Banco BTG Pactual S.A. R$ 85M, Banco Rabobank International S.A. R$ 70M, Itaú Unibanco S.A. R$ 55M, Juparana Comercial Agrícola Ltda. R$ 38M, além de revendas locais de insumos, tradings de grãos e credores trabalhistas (R$ 121k)",
     "perfil_passivo": "Passivo concursal total de R$ 567,6M fortemente concentrado em bancos nacionais e internacionais de crédito agro/custeio (BB, Santander, BTG, Rabobank, Itaú) e fornecedores de insumos (Juparana); ativos contam com mais de 15.000 hectares de terras férteis no MATOPIBA (Fazendas Santa Helena e Arco-Íris), rebanho bovino de corte, silos e moderna frota de máquinas agrícolas",
     "advocacia": "Equipe Sergio Schmidt Advocacia",
@@ -11121,7 +11369,11 @@
       "data_limite": "2026-11-30",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-11-30",
+      "data_marco": "30/11/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Arco-Íris+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=0810707-44.2025.8.10.0040"
@@ -11140,8 +11392,8 @@
     "fase": "Recuperação Judicial (Classe 129 - Deferida sob Consolidação Processual e Substancial / Stay Period)",
     "score": 9.1,
     "tier": "Tier 1",
-    "passivo_mm": 2580,
-    "passivo_display": "2.580",
+    "passivo_mm": 258,
+    "passivo_display": "258",
     "credores": "Banco do Brasil S.A. R$ 78M (concursal e extraconcursal), Caixa Econômica Federal R$ 45M (garantia real), Banco Santander Brasil S/A R$ 26M (extraconcursal CCR), Pantanal Agrícola S.A. R$ 22M, Banco Bradesco S.A. R$ 19M, Banco John Deere R$ 14M (financiamento de máquinas), Cooperativa Comigo R$ 8M, J.C. dos Santos Construtora R$ 7M (Bancos e revendas concentram mais de R$ 200M)",
     "perfil_passivo": "Passivo total de R$ 258,4M (R$ 219,8M concursais distribuídos entre 156 credores e R$ 38,6M extraconcursais fiduciários com Santander, John Deere e BB); ativos somam mais de 4.100 ha de lavoura em Guiratinga e Torixoréu/MT (Fazenda Boa Fé da Mangabeira), Fazendas Santo Antônio (Piranhas/GO) e Buriti Alegre (Aporé/GO), rebanho bovino e ativos imobiliários da Kinbor SPE em Praia Grande/SP",
     "advocacia": "Banca Especializada em Agronegócio e Direito Concursal (MT)",
@@ -11197,7 +11449,11 @@
       "data_limite": "2026-12-07",
       "artigo_lei": "Art. 6º §4º / Art. 53 LRF",
       "urgencia": "Alta (Nov–Dez/2026)",
-      "is_fixed_edital": false
+      "is_fixed_edital": false,
+      "data_marco_iso": "2026-12-07",
+      "data_marco": "07/12/2026",
+      "marco_label": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period",
+      "tipo_marco": "Prazo Art. 7º §1º / Edital Art. 52 & Stay Period"
     },
     "url_noticia": "https://news.google.com/search?q=Grupo+Garcia+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "url_tribunal_cvm": "https://comunica.pje.jus.br/consulta?texto=1007025-50.2026.8.11.0003"

@@ -1,5 +1,18 @@
 [
   {
+    "id": 996,
+    "data_hora": "04/11/2026 20:15",
+    "titulo": "Aeris Energy (AERI3) protocola pedido de Recuperação Extrajudicial de R$ 1,52 bilhão após conversão de tutela cautelar no Ceará",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fabricante de pás eólicas converteu tutela cautelar antecedente em plano de Recuperação Extrajudicial abrangendo R$ 1,52 bilhão em debêntures (AERI11/AERI12) e linhas bancárias junto a BTG Pactual, Santander, Bradesco e Vórtx.",
+    "url": "https://neofeed.com.br/negocios/aeris-aciona-tutela-cautelar-para-renegociar-divida-com-credores/",
+    "deal_id": 1,
+    "empresa_nome": "Aeris Energy (AERI3)"
+  },
+  {
     "id": 995,
     "data_hora": "05/11/2026 09:30",
     "titulo": "Oncoclínicas (ONCO3) amplia adesão de credores para 74,6% dos créditos (R$ 4,3 bilhões em debêntures e certificados) no plano de recuperação extrajudicial",
@@ -9,7 +22,7 @@
     "escopo": "cvm",
     "resumo": "Companhia comunicou ao mercado que atingiu quórum amplamente superior ao mínimo legal junto a debenturistas e credores financeiros (representados em AGDs por Vórtx, Pentágono e Oliveira Trust) para homologação do plano extrajudicial.",
     "url": "https://www.moneytimes.com.br/oncoclinicas-onco3-amplia-apoio-ao-plano-de-recuperacao-extrajudicial-e-alcanca-adesao-de-746-dos-creditos-lmrs/",
-    "deal_id": null,
+    "deal_id": 17,
     "empresa_nome": "Oncoclínicas do Brasil (ONCO3)"
   },
   {
@@ -35,7 +48,7 @@
     "escopo": "pipeline",
     "resumo": "Tradicional fabricante de mobiliário sob medida de alto padrão lista mais de 1.200 clientes e credores financeiros na RJ distribuída no TJSP; passivo bancário concentra-se em capital de giro e travas de recebíveis.",
     "url": "https://www1.folha.uol.com.br/colunas/painelsa/2026/11/lista-de-credores-da-kitchens-tem-de-ex-ministro-a-empresarios-famosos.shtml",
-    "deal_id": 108,
+    "deal_id": 105,
     "empresa_nome": "Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas)"
   },
   {
@@ -48,7 +61,7 @@
     "escopo": "cvm",
     "resumo": "Após período de perdão temporário (waiver) concedido pelos debenturistas até outubro, grupo cerâmico de Tijucas/SC retém pagamento para renegociar passivo bruto de R$ 1,65 bilhão e preservar caixa operacional.",
     "url": "https://jornalrazao.com/economia/portobello-tijucas-fitch-rebaixa-nota-inadimplencia-debentures",
-    "deal_id": null,
+    "deal_id": 115,
     "empresa_nome": "PBG S.A. / Portobello Grupo (PTBL3)"
   },
   {
@@ -61,7 +74,7 @@
     "escopo": "cvm",
     "resumo": "Distribuidora hospitalar suspende vencimento antecipado de debêntures e execuções por 60 dias na 3ª Vara de Falências/SP para estruturar reperfilamento consensual de R$ 1,9 bilhão em dívidas.",
     "url": "https://www.bloomberglinea.com.br/negocios/elfa-pede-tutela-cautelar-para-negociar-com-credores-dois-meses-apos-saida-do-patria/",
-    "deal_id": 109,
+    "deal_id": 106,
     "empresa_nome": "Grupo Elfa (Elfa Medicamentos S.A. & 13 Subsidiárias)"
   },
   {
@@ -74,7 +87,7 @@
     "escopo": "cvm",
     "resumo": "Grupo de crédito e securitização busca reestruturação judicial na 1ª Vara de Falências de São Paulo frente ao descasamento entre carteira de recebíveis estressados e debêntures/títulos emitidos.",
     "url": "https://c-level.folha.uol.com.br/negocios/2026/10/grupo-euro17-pede-recuperacao-judicial-com-divida-de-r-17-bilhao-e-mais-de-5000-credores.shtml",
-    "deal_id": 100,
+    "deal_id": 97,
     "empresa_nome": "Grupo Euro17 (Euro Securitizadora S.A. / Prime Euro Securitizadora)"
   },
   {
@@ -87,7 +100,7 @@
     "escopo": "pipeline",
     "resumo": "Conglomerado siderúrgico de Piracicaba/SP obteve deferimento na Vara Especializada das 4ª e 10ª RAJs (Proc. 4000943-46.2026.8.26.0354), protegendo operação integrada contra corte de linhas de crédito de Itaú, Caixa e R$ 91,5M em notas comerciais da Ignis.",
     "url": "https://www.empresaemcrise.com/post/piracicaba-sp-grupo-manetoni-tem-recupera%C3%A7%C3%A3o-judicial-deferida-com-d%C3%ADvida-de-r-739-6-milh%C3%B5es",
-    "deal_id": 130,
+    "deal_id": 127,
     "empresa_nome": "Grupo Manetoni (Manetoni Distribuidora de Produtos Siderúrgicos, Ideal Soluções em Transportes, Santa Clara Incorporação & Metalúrgica Sul Fluminense)"
   },
   {
@@ -100,8 +113,8 @@
     "escopo": "cvm",
     "resumo": "Companhia em recuperação judicial reporta renúncia na diretoria financeira e consolidação de novo bloco controlador com mais de 81% do capital votante após aumento de capital decorrente da conversão de créditos concursais da RJ.",
     "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-paranapanema-pmam3-a-renuncia-dupla-que-mexe-no-comando-financeiro",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // CVM / Fatos Relevantes"
+    "deal_id": 8,
+    "empresa_nome": "Paranapanema S.A. (PMAM3)"
   },
   {
     "id": 953,
@@ -113,8 +126,8 @@
     "escopo": "cvm",
     "resumo": "Varejista avança na estruturação de dinheiro novo para abastecimento de estoques para Black Friday/Natal, negociando tranche inicial de R$ 200M com Itaú com potencial de sindicação de até R$ 1,0 Bi junto ao sindicato de credores.",
     "url": "https://aciara.com.br/financiamento-dip-da-casas-bahia-com-itau-avanca/",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // Pipeline"
+    "deal_id": 86,
+    "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3)"
   },
   {
     "id": 954,
@@ -126,7 +139,7 @@
     "escopo": "pipeline",
     "resumo": "Tradicional rede fluminense de materiais de construção teve processamento acolhido na 1ª Vara Cível de Nilópolis (Proc. 0813249-95.2025.8.19.0036), com stay period de 180 dias e passivo extraconcursal de R$ 31,8M concentrado com Banco Daycoval.",
     "url": "https://www.empresaemcrise.com/post/nil%C3%B3polis-rj-recupera%C3%A7%C3%A3o-judicial-do-grupo-chatuba-%C3%A9-deferida-com-d%C3%ADvida-total-de-r-164-1-milh%C3%B5es",
-    "deal_id": 129,
+    "deal_id": 126,
     "empresa_nome": "Grupo Chatuba (Fornecedora Chatuba de Nilópolis S.A. & CTA Distribuidora Ltda.)"
   },
   {
@@ -139,7 +152,7 @@
     "escopo": "pipeline",
     "resumo": "4ª Vara Cível de Sinop deferiu processamento sob consolidação substancial (Proc. 1006896-09.2026.8.11.0015); grupo rural familiar opera 5.129 ha entre MT e PR com armazenagem própria, tendo R$ 51,1M em garantia real ao BB e R$ 53,8M em CPRs barter extraconcursais com Fiagril e Agrosyn.",
     "url": "https://www.empresaemcrise.com/post/novo-horizonte-do-norte-mt-grupo-zanatta-tem-recupera%C3%A7%C3%A3o-judicial-deferida-com-d%C3%ADvida-de-r-116-1-m",
-    "deal_id": 126,
+    "deal_id": 123,
     "empresa_nome": "Grupo Zanatta (F. Zanatta Armazéns Ltda., Fernando Zanatta, Priscila Zanatta & Egon Mayer)"
   },
   {
@@ -152,8 +165,8 @@
     "escopo": "cvm",
     "resumo": "Juízo suspendeu provisoriamente obrigações perante a CVM, viabilizando continuidade das tratativas com agentes fiduciários (Vórtx, Pentágono e Oliveira Trust) para repactuação de debêntures e CRIs no âmbito do plano de Recuperação Extrajudicial.",
     "url": "https://br.advfn.com/noticias/PAPERBR/2026/artigo/99588266",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // Agentes Fiduciários"
+    "deal_id": 17,
+    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)"
   },
   {
     "id": 957,
@@ -161,12 +174,12 @@
     "titulo": "TJRJ homologa plano de RJ da Tahto e autoriza leilão judicial de UPI com preço mínimo de R$ 130 milhões",
     "fonte": "Valor Econômico",
     "setor": "Energia & Infraestrutura",
-    "categoria": "Falência",
+    "categoria": "Leilão de UPI",
     "escopo": "pipeline",
     "resumo": "7ª Vara Empresarial da Capital homologou plano concursal da subsidiária de call center da Oi S.A., viabilizando a alienação da UPI Tahto livre de sucessão trabalhista e tributária com base no art. 141 da Lei 11.101/2005.",
     "url": "https://www.empresaemcrise.com/post/rio-de-janeiro-rj-recuperacao-judicial-tahto-upi-leilao",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // Valor Econômico"
+    "deal_id": 124,
+    "empresa_nome": "Tahto S.A. (Ex-Brasil Telecom Call Center / Subsidiária Oi)"
   },
   {
     "id": 958,
@@ -178,7 +191,7 @@
     "escopo": "pipeline",
     "resumo": "4ª Vara Cível de Rondonópolis/MT decretou falência das empresas do Grupo Braki (Proc. 1003325-71.2023.8.11.0003) com base no art. 73, IV, da LRF, após 22 meses de inércia na prestação de contas e entrega de demonstrativos contábeis à administradora judicial Ex Lege.",
     "url": "https://www.empresaemcrise.com/post/vila-rica-mt-fal%C3%AAncia-do-grupo-braki",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // Jota / Tribunais"
+    "deal_id": 125,
+    "empresa_nome": "Grupo Braki (Vila Rica/MT)"
   }
 ]
