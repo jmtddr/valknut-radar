@@ -19,7 +19,7 @@
   <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261105">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
 
     <div class="main-nav-links" role="tablist" aria-label="Módulos da Plataforma">
       <button class="nav-link-btn active" id="nav-operacao" onclick="switchMainSection('operacao')">
-        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">130</span>
+        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">132</span>
       </button>
       <button class="nav-link-btn" id="nav-precificacao" onclick="switchMainSection('precificacao')">
         Precificação &amp; Modelagem <span class="nav-count-pill" style="background:rgba(165,172,130,0.3); color:#E6E9DC;">% / PPTX</span>
@@ -56,7 +56,7 @@
         Dashboards &amp; Mercado
       </button>
       <button class="nav-link-btn" id="nav-upis" onclick="switchMainSection('upis')">
-        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">88</span>
+        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">40</span>
       </button>
       <button class="nav-link-btn" id="nav-bancometro" onclick="switchMainSection('bancometro')">
         Bancômetro
@@ -65,23 +65,23 @@
         Ecossistema &amp; Players
       </button>
       <button class="nav-link-btn" id="nav-prazos" onclick="switchMainSection('prazos')">
-        Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">130</span>
+        Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">132</span>
       </button>
       <button class="nav-link-btn" id="nav-mapa" onclick="switchMainSection('mapa')">
         Mapa Geográfico
       </button>
       <button class="nav-link-btn" id="nav-noticias" onclick="switchMainSection('noticias')">
-        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">112</span>
+        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">95</span>
       </button>
       <button class="nav-link-btn" id="nav-energia" onclick="switchMainSection('energia')">
-        Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">13</span>
+        Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">9</span>
       </button>
     </div>
 
     <div class="top-nav-actions">
       <button class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar em tempo real com a base mestre">
         <span class="pulse-dot"></span>
-        <span id="lastUpdateTime">Online: 130 leads</span>
+        <span id="lastUpdateTime">Online: 132 leads</span>
       </button>
       <button class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV padrão Excel PT-BR">
         ⬇ Exportar CSV
@@ -234,7 +234,7 @@
   </main>
 
   <!-- Modal do Dossiê / "Ficha" (Tear Sheet Institucional de Special Situations) -->
-  <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="modalCompany">
+  <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="tearsheet-header">
         <div style="flex:1;">
@@ -254,11 +254,11 @@
         <button class="modal-close-x" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
       </div>
 
-      <div class="modal-tab-strip" role="tablist" aria-label="Seções do Tear Sheet">
-        <button class="modal-tab-item active" role="tab" aria-selected="true" id="modal-tab-visao" onclick="setModalTab('visao')">Tear Sheet Completo (One-Pager)</button>
-        <button class="modal-tab-item" role="tab" aria-selected="false" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
-        <button class="modal-tab-item" role="tab" aria-selected="false" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
-        <button class="modal-tab-item" role="tab" aria-selected="false" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
+      <div class="modal-tab-strip">
+        <button class="modal-tab-item active" id="modal-tab-visao" onclick="setModalTab('visao')">Tear Sheet Completo (One-Pager)</button>
+        <button class="modal-tab-item" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
+        <button class="modal-tab-item" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
+        <button class="modal-tab-item" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
       </div>
 
       <div class="modal-content-body" id="modalBody"></div>
@@ -276,16 +276,6 @@
   <!-- Toast Notification -->
   <div class="toast-banner" id="toastBanner"></div>
 
-  <script src="app.js"></script>
-</body>
-</html>ss="btn-solid" onclick="closeModal()">Fechar Tear Sheet</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification -->
-  <div class="toast-banner" id="toastBanner"></div>
-
-  <script src="app.js"></script>
+  <script src="app.js?v=20261105"></script>
 </body>
 </html>

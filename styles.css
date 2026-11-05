@@ -32,7 +32,6 @@
   --border-light: #E2E8F0;
   --border-medium: #CBD5E1;
   --border-sage: #A5AC82;
-  --shadow-xs: 0 1px 2px rgba(6, 54, 48, 0.05);
   --shadow-card: 0 2px 12px rgba(6, 54, 48, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
   --shadow-elevated: 0 16px 40px rgba(6, 54, 48, 0.18);
 
@@ -77,11 +76,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-:focus-visible {
-  outline: 2px solid var(--vk-sage) !important;
-  outline-offset: 2px !important;
 }
 
 body {
