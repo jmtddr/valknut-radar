@@ -152,7 +152,7 @@ body {
 
 .brand-subtitle-spec {
   font-family: var(--font-sans);
-  font-size: 8.8px;
+  font-size: 10.5px;
   font-weight: 700;
   color: #A5AC82;
   letter-spacing: 0.22em;
@@ -337,7 +337,7 @@ body {
 
 .cutoff-field label {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -390,7 +390,7 @@ body {
 
 .cutoff-quick-label {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -990,7 +990,7 @@ body {
 }
 
 .card-metric-cell { text-align: center; }
-.card-metric-label { font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+.card-metric-label { font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
 .card-metric-val { font-family: var(--font-mono); font-size: 12px; font-weight: 800; color: var(--vk-header-start); margin-top: 2px; }
 
 .creditor-grid {
@@ -1117,7 +1117,7 @@ body {
   border-radius: 3px;
   padding: 1px 5px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10.5px;
   font-weight: 800;
   color: #F8FAFC;
   white-space: nowrap;
@@ -1128,7 +1128,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 600;
   color: #94A3B8;
-  font-size: 8.5px;
+  font-size: 10.5px;
 }
 
 .map-floating-legend {
@@ -1149,7 +1149,7 @@ body {
 
 .legend-section-title {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 800;
   text-transform: uppercase;
   color: var(--vk-header-start);
@@ -1347,7 +1347,7 @@ body {
 
 .ons-mini-kpi-label {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -1388,7 +1388,7 @@ body {
 .energy-trigger-item span {
   display: block;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10.5px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -1581,7 +1581,7 @@ body {
 
 .ts-kpi-label {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -1724,7 +1724,7 @@ body {
 
 .dossier-cell-label {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -1961,7 +1961,7 @@ body {
 
 .result-kpi-label {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 800;
   text-transform: uppercase;
   color: var(--text-muted);

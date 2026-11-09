@@ -12,14 +12,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-  <!-- Chart.js 4.4.1, Leaflet 1.9.4 & SheetJS (XLSX) CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous"/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js" crossorigin="anonymous"></script>
+  <!-- Chart.js 4.4.1, Leaflet 1.9.4 & SheetJS (XLSX) CDN with Subresource Integrity (SRI) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js" integrity="sha384-gx12pQMMYnabkTgbCHqqrT65RwDnXI/f/dU2H9JUmT0KUeiMF5bf+yroQBmX0Nuk" crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css?v=20261105v44">
+  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js" integrity="sha384-Cck14aA9cifjYolcnjebXRfWGkz5ltHMBiG4px/j8GS+xQcb7OhNQWZYyWjQ+UwQ" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css?v=20261109v45">
 </head>
 <body>
 
@@ -46,42 +46,42 @@
     </div>
 
     <div class="main-nav-links" role="tablist" aria-label="Módulos da Plataforma">
-      <button class="nav-link-btn active" role="tab" aria-selected="true" id="nav-operacao" onclick="switchMainSection('operacao')">
-        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">130</span>
+      <button class="nav-link-btn active" role="tab" aria-selected="true" aria-controls="mainWorkspace" id="nav-operacao" onclick="switchMainSection('operacao')">
+        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">146</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-precificacao" onclick="switchMainSection('precificacao')">
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-precificacao" onclick="switchMainSection('precificacao')">
         Precificação &amp; Modelagem <span class="nav-count-pill" style="background:rgba(165,172,130,0.3); color:#E6E9DC;">% / PPTX</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-dashboards" onclick="switchMainSection('dashboards')">
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-dashboards" onclick="switchMainSection('dashboards')">
         Dashboards &amp; Mercado
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-upis" onclick="switchMainSection('upis')">
-        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">86</span>
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-upis" onclick="switchMainSection('upis')">
+        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">101</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-bancometro" onclick="switchMainSection('bancometro')">
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-bancometro" onclick="switchMainSection('bancometro')">
         Bancômetro
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-ecossistema" onclick="switchMainSection('ecossistema')">
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-ecossistema" onclick="switchMainSection('ecossistema')">
         Ecossistema &amp; Players
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-prazos" onclick="switchMainSection('prazos')">
-        Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">130</span>
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-prazos" onclick="switchMainSection('prazos')">
+        Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">146</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-mapa" onclick="switchMainSection('mapa')">
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-mapa" onclick="switchMainSection('mapa')">
         Mapa Geográfico
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-noticias" onclick="switchMainSection('noticias')">
-        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">117</span>
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-noticias" onclick="switchMainSection('noticias')">
+        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">125</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" id="nav-energia" onclick="switchMainSection('energia')">
-        Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">9</span>
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-energia" onclick="switchMainSection('energia')">
+        Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">18</span>
       </button>
     </div>
 
     <div class="top-nav-actions">
       <button class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar em tempo real com a base mestre">
         <span class="pulse-dot"></span>
-        <span id="lastUpdateTime">Online: 130 leads</span>
+        <span id="lastUpdateTime">Online: 146 leads</span>
       </button>
       <button class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV padrão Excel PT-BR">
         ⬇ Exportar CSV
@@ -93,7 +93,7 @@
   </nav>
 
   <!-- Main Institutional Workspace -->
-  <main class="page-wrapper">
+  <main class="page-wrapper" id="mainWorkspace">
 
     <!-- Dynamic Section Title & Dynamic Liability Cutoff Controls (Piso e Teto em R$ MM) -->
     <div class="section-hero-row">

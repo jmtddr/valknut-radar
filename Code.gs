@@ -60,11 +60,56 @@ function doGet(e) {
  *    - Aba "Pipeline Ativo (Mandatos)"         -> campo `mandatos`
  *    - Aba "Diretrizes & Fontes Monitoradas"   -> campo `diretrizes`
  */
+function putChunkedCache(cache, baseKey, str, ttl) {
+  try {
+    const chunkSize = 85000;
+    const count = Math.ceil(str.length / chunkSize);
+    if (count > 8) return;
+    const pairs = {};
+    pairs[baseKey + '_meta'] = String(count);
+    for (var i = 0; i < count; i++) {
+      pairs[baseKey + '_' + i] = str.substring(i * chunkSize, (i + 1) * chunkSize);
+    }
+    cache.putAll(pairs, ttl);
+  } catch (e) {}
+}
+
+function getChunkedCache(cache, baseKey) {
+  try {
+    const meta = cache.get(baseKey + '_meta');
+    if (!meta) return cache.get(baseKey);
+    const count = parseInt(meta, 10);
+    if (!count || count < 1 || count > 8) return null;
+    const keys = [];
+    for (var i = 0; i < count; i++) {
+      keys.push(baseKey + '_' + i);
+    }
+    const map = cache.getAll(keys);
+    let out = '';
+    for (var j = 0; j < count; j++) {
+      const part = map[baseKey + '_' + j];
+      if (typeof part !== 'string') return null;
+      out += part;
+    }
+    return out;
+  } catch (e) {
+    return null;
+  }
+}
+
+function clearChunkedCache(cache, baseKey) {
+  try {
+    const keys = [baseKey, baseKey + '_meta'];
+    for (var i = 0; i < 8; i++) keys.push(baseKey + '_' + i);
+    cache.removeAll(keys);
+  } catch (e) {}
+}
+
 function handleMasterSheetRead(bypassCache) {
   const cache = CacheService.getScriptCache();
-  const cacheKey = 'vk_master_sheet_v44';
+  const cacheKey = 'vk_master_sheet_v45';
   if (!bypassCache) {
-    const cachedPayload = cache.get(cacheKey);
+    const cachedPayload = getChunkedCache(cache, cacheKey);
     if (cachedPayload) {
       return ContentService.createTextOutput(cachedPayload).setMimeType(ContentService.MimeType.JSON);
     }
@@ -79,13 +124,13 @@ function handleMasterSheetRead(bypassCache) {
     return r && String(r[2] || '').trim() !== '';
   }) : [];
 
-  // 2. Noticias
+  // 2. Noticias (suporta layout padrão r[6]=Título e layout alternativo linhas 17-25 r[2]=Título)
   const noticiasSheet = ss.getSheetByName('Noticias');
   let noticiasRows = [];
   if (noticiasSheet) {
     const nRows = noticiasSheet.getDataRange().getValues();
     noticiasRows = nRows.length > 1 ? nRows.slice(1).filter(function(r) {
-      return r && String(r[6] || '').trim() !== '';
+      return r && (String(r[6] || '').trim() !== '' || String(r[2] || '').trim() !== '');
     }) : [];
   }
 
@@ -138,6 +183,7 @@ function handleMasterSheetRead(bypassCache) {
     noticias: noticiasRows,
     tracking_pres_count: trackingPresRows.length,
     tracking_pres: trackingPresRows,
+    pres: trackingPresRows,
     tier0_count: tier0Rows.length,
     tier0: tier0Rows,
     mandatos_count: mandatosRows.length,
@@ -146,11 +192,7 @@ function handleMasterSheetRead(bypassCache) {
   };
 
   const jsonStr = JSON.stringify(payloadObj);
-  try {
-    if (jsonStr.length < 95000) {
-      cache.put(cacheKey, jsonStr, CACHE_TTL_SECONDS);
-    }
-  } catch (e) {}
+  putChunkedCache(cache, cacheKey, jsonStr, CACHE_TTL_SECONDS);
 
   return ContentService.createTextOutput(jsonStr).setMimeType(ContentService.MimeType.JSON);
 }
@@ -296,116 +338,133 @@ function handleDjenProxyRequest(params) {
  * 4. Rotina Autônoma 24/7 de Varredura RSS e Gravação Direta na Aba `Noticias`
  */
 function sincronizarRadarAutomatico() {
-  const feedsConfig = [
-    {
-      url: 'https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+%22deb%C3%AAntures%22%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+vencimento%29+when%3A7d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-      tag: 'WAIVER / AGD',
-      catAba: 'Waivers, AGDs & Downgrades Rating',
-      escopo: 'CVM & Fatos Relevantes'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22vencimento+antecipado%22+OR+V%C3%B3rtx+OR+Pent%C3%A1gono+OR+%22Oliveira+Trust%22+deb%C3%AAntures+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-      tag: 'RE / DEBÊNTURES',
-      catAba: 'Waivers, AGDs & Downgrades Rating',
-      escopo: 'CVM & Fatos Relevantes'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=rebaixamento+OR+rating+Fitch+OR+Moody%27s+deb%C3%AAntures+OR+CRA+OR+d%C3%ADvida+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-      tag: 'DOWNGRADE RATING',
-      catAba: 'Waivers, AGDs & Downgrades Rating',
-      escopo: 'CVM & Fatos Relevantes'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22+d%C3%ADvida+milh%C3%B5es+when%3A14d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
-      tag: 'PEDIDO DE RJ',
-      catAba: 'Pedidos de RJ & Cautelares 20-B',
-      escopo: 'Mercado & Macro'
-    }
-  ];
-
-  const ss = SpreadsheetApp.openById(SHEET_ID);
-  let noticiasSheet = ss.getSheetByName('Noticias');
-  if (!noticiasSheet) {
-    noticiasSheet = ss.insertSheet('Noticias');
-    noticiasSheet.appendRow(['Data e Hora', 'Fonte', 'Tag Curta', 'Categoria da Aba', 'Escopo', 'Macro-Setor', 'Título Analítico', 'Resumo Técnico', 'URL Original']);
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(10000)) {
+    return {
+      timestamp: new Date().toISOString(),
+      skipped: true,
+      reason: 'LockService ocupado por outra execução concorrente.'
+    };
   }
 
-  const existingValues = noticiasSheet.getDataRange().getValues();
-  const seenKeys = {};
-  for (let i = 1; i < existingValues.length; i++) {
-    const t = String(existingValues[i][6] || '').toLowerCase().trim().slice(0, 58);
-    if (t) seenKeys[t] = true;
-  }
-
-  let aquecidos = 0;
-  let gravadas = 0;
-  const novasLinhas = [];
-
-  feedsConfig.forEach(function(fc) {
-    try {
-      const resp = UrlFetchApp.fetch(fc.url, { muteHttpExceptions: true, followRedirects: true });
-      if (resp.getResponseCode() >= 200 && resp.getResponseCode() < 300) {
-        aquecidos++;
-        const xmlText = resp.getContentText('UTF-8');
-        const cache = CacheService.getScriptCache();
-        const cacheKey = 'vk_rss_' + Utilities.base64EncodeWebSafe(fc.url).slice(0, 180);
-        if (xmlText.length < 95000) cache.put(cacheKey, xmlText, CACHE_TTL_SECONDS);
-
-        const itemMatches = xmlText.match(/<item>[\s\S]*?<\/item>/gi) || [];
-        itemMatches.slice(0, 8).forEach(function(itemXml) {
-          const titleMatch = itemXml.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/i);
-          const linkMatch = itemXml.match(/<link>([\s\S]*?)<\/link>/i);
-          const pubDateMatch = itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/i);
-          const sourceMatch = itemXml.match(/<source[^>]*>([\s\S]*?)<\/source>/i);
-
-          let rawTitle = titleMatch ? titleMatch[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim() : '';
-          let sourceName = sourceMatch ? sourceMatch[1].trim() : 'Mercado / Agências';
-          if (rawTitle.indexOf(' - ') !== -1) {
-            const parts = rawTitle.split(' - ');
-            sourceName = parts.pop().trim() || sourceName;
-            rawTitle = parts.join(' - ').trim();
-          }
-          if (!rawTitle || rawTitle.length < 18) return;
-
-          const normKey = rawTitle.toLowerCase().slice(0, 58);
-          if (seenKeys[normKey]) return;
-
-          const pubDate = pubDateMatch ? new Date(pubDateMatch[1].trim()) : new Date();
-          if (isNaN(pubDate.getTime()) || pubDate.getFullYear() < 2026) return;
-
-          const dtFmt = Utilities.formatDate(pubDate, 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm');
-          const linkUrl = linkMatch ? linkMatch[1].trim() : '';
-
-          seenKeys[normKey] = true;
-          novasLinhas.push([
-            dtFmt,
-            sourceName,
-            fc.tag,
-            fc.catAba,
-            fc.escopo,
-            'Mercado & Macro (RJ / Crédito)',
-            rawTitle,
-            'Capturado automaticamente pelo Motor Valknut 24/7 (' + sourceName + ').',
-            linkUrl
-          ]);
-        });
+  try {
+    const feedsConfig = [
+      {
+        url: 'https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+%22deb%C3%AAntures%22%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+vencimento%29+when%3A7d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        tag: 'WAIVER / AGD',
+        catAba: 'Waivers, AGDs & Downgrades Rating',
+        escopo: 'CVM & Fatos Relevantes'
+      },
+      {
+        url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22vencimento+antecipado%22+OR+V%C3%B3rtx+OR+Pent%C3%A1gono+OR+%22Oliveira+Trust%22+deb%C3%AAntures+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        tag: 'RE / DEBÊNTURES',
+        catAba: 'Waivers, AGDs & Downgrades Rating',
+        escopo: 'CVM & Fatos Relevantes'
+      },
+      {
+        url: 'https://news.google.com/rss/search?q=rebaixamento+OR+rating+Fitch+OR+Moody%27s+deb%C3%AAntures+OR+CRA+OR+d%C3%ADvida+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        tag: 'DOWNGRADE RATING',
+        catAba: 'Waivers, AGDs & Downgrades Rating',
+        escopo: 'CVM & Fatos Relevantes'
+      },
+      {
+        url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22+d%C3%ADvida+milh%C3%B5es+when%3A14d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        tag: 'PEDIDO DE RJ',
+        catAba: 'Pedidos de RJ & Cautelares 20-B',
+        escopo: 'Mercado & Macro'
       }
-    } catch (e) {}
-  });
+    ];
 
-  if (novasLinhas.length > 0) {
-    noticiasSheet.getRange(noticiasSheet.getLastRow() + 1, 1, novasLinhas.length, 9).setValues(novasLinhas);
-    gravadas = novasLinhas.length;
+    const ss = SpreadsheetApp.openById(SHEET_ID);
+    let noticiasSheet = ss.getSheetByName('Noticias');
+    if (!noticiasSheet) {
+      noticiasSheet = ss.insertSheet('Noticias');
+      noticiasSheet.appendRow(['Data e Hora', 'Fonte', 'Tag Curta', 'Categoria da Aba', 'Escopo', 'Macro-Setor', 'Título Analítico', 'Resumo Técnico', 'URL Original']);
+    }
+
+    const existingValues = noticiasSheet.getDataRange().getValues();
+    const seenKeys = {};
+    for (let i = 1; i < existingValues.length; i++) {
+      const c0 = String(existingValues[i][0] || '').trim();
+      const c6 = String(existingValues[i][6] || '').trim();
+      const isAlt = /^\d+$/.test(c0) && /^https?:\/\//i.test(c6);
+      const rawT = isAlt ? String(existingValues[i][2] || '') : c6;
+      const t = rawT.toLowerCase().trim().slice(0, 58);
+      if (t) seenKeys[t] = true;
+    }
+
+    let aquecidos = 0;
+    let gravadas = 0;
+    const novasLinhas = [];
+
+    feedsConfig.forEach(function(fc) {
+      try {
+        const resp = UrlFetchApp.fetch(fc.url, { muteHttpExceptions: true, followRedirects: true });
+        if (resp.getResponseCode() >= 200 && resp.getResponseCode() < 300) {
+          aquecidos++;
+          const xmlText = resp.getContentText('UTF-8');
+          const cache = CacheService.getScriptCache();
+          const cacheKey = 'vk_rss_' + Utilities.base64EncodeWebSafe(fc.url).slice(0, 180);
+          if (xmlText.length < 95000) cache.put(cacheKey, xmlText, CACHE_TTL_SECONDS);
+
+          const itemMatches = xmlText.match(/<item>[\s\S]*?<\/item>/gi) || [];
+          itemMatches.slice(0, 8).forEach(function(itemXml) {
+            const titleMatch = itemXml.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/i);
+            const linkMatch = itemXml.match(/<link>([\s\S]*?)<\/link>/i);
+            const pubDateMatch = itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/i);
+            const sourceMatch = itemXml.match(/<source[^>]*>([\s\S]*?)<\/source>/i);
+
+            let rawTitle = titleMatch ? titleMatch[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim() : '';
+            let sourceName = sourceMatch ? sourceMatch[1].trim() : 'Mercado / Agências';
+            if (rawTitle.indexOf(' - ') !== -1) {
+              const parts = rawTitle.split(' - ');
+              sourceName = parts.pop().trim() || sourceName;
+              rawTitle = parts.join(' - ').trim();
+            }
+            if (!rawTitle || rawTitle.length < 18) return;
+
+            const normKey = rawTitle.toLowerCase().slice(0, 58);
+            if (seenKeys[normKey]) return;
+
+            const pubDate = pubDateMatch ? new Date(pubDateMatch[1].trim()) : new Date();
+            if (isNaN(pubDate.getTime()) || pubDate.getFullYear() < 2026) return;
+
+            const dtFmt = Utilities.formatDate(pubDate, 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm');
+            const linkUrl = linkMatch ? linkMatch[1].trim() : '';
+
+            seenKeys[normKey] = true;
+            novasLinhas.push([
+              dtFmt,
+              sourceName,
+              fc.tag,
+              fc.catAba,
+              fc.escopo,
+              'Mercado & Macro (RJ / Crédito)',
+              rawTitle,
+              'Capturado automaticamente pelo Motor Valknut 24/7 (' + sourceName + ').',
+              linkUrl
+            ]);
+          });
+        }
+      } catch (e) {}
+    });
+
+    if (novasLinhas.length > 0) {
+      noticiasSheet.getRange(noticiasSheet.getLastRow() + 1, 1, novasLinhas.length, 9).setValues(novasLinhas);
+      gravadas = novasLinhas.length;
+      clearChunkedCache(CacheService.getScriptCache(), 'vk_master_sheet_v45');
+    }
+
+    return {
+      timestamp: new Date().toISOString(),
+      feedsAquecidos: aquecidos,
+      novasNoticiasGravadasNaPlanilha: gravadas
+    };
+  } finally {
     try {
-      CacheService.getScriptCache().remove('vk_master_sheet_v44');
+      lock.releaseLock();
     } catch (e) {}
   }
-
-  return {
-    timestamp: new Date().toISOString(),
-    feedsAquecidos: aquecidos,
-    novasNoticiasGravadasNaPlanilha: gravadas
-  };
 }
 
 function instalarGatilhosAutomaticos() {
