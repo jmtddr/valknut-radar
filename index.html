@@ -3,6 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plataforma institucional de inteligência concursal, Special Situations, Distressed Debt, Recuperação Judicial (Lei 11.101/05), UPIs e mercado de capitais no Brasil.">
+  <meta name="theme-color" content="#063630">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://raw.githubusercontent.com https://api.allorigins.win https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com;">
+  <link rel="canonical" href="https://jmtddr.github.io/valknut-radar/">
+
+  <!-- OpenGraph & Twitter Meta -->
+  <meta property="og:title" content="VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal &amp; Distressed Debt">
+  <meta property="og:description" content="Plataforma institucional de inteligência concursal, Special Situations, Distressed Debt, Recuperação Judicial (Lei 11.101/05), UPIs e mercado de capitais no Brasil.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jmtddr.github.io/valknut-radar/">
+  <meta property="og:image" content="https://jmtddr.github.io/valknut-radar/valknut-symbol.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal &amp; Distressed Debt">
+  <meta name="twitter:description" content="Plataforma institucional de inteligência concursal, Special Situations, Distressed Debt, Recuperação Judicial (Lei 11.101/05), UPIs e mercado de capitais no Brasil.">
+  <meta name="twitter:image" content="https://jmtddr.github.io/valknut-radar/valknut-symbol.png">
+
   <link rel="icon" id="app-favicon" type="image/png" href="favicon-64.png">
   <link rel="apple-touch-icon" id="app-touch-icon" href="favicon-64.png">
   <title>VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal &amp; Distressed Debt</title>
@@ -12,14 +30,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-  <!-- Chart.js 4.4.1, Leaflet 1.9.4 & SheetJS (XLSX) CDN with Subresource Integrity (SRI) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js" integrity="sha384-gx12pQMMYnabkTgbCHqqrT65RwDnXI/f/dU2H9JUmT0KUeiMF5bf+yroQBmX0Nuk" crossorigin="anonymous"></script>
+  <!-- Core Stylesheets Loaded First (Zero Render-Blocking Scripts Before CSS) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css?v=20261111v47">
 
-  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js" integrity="sha384-Cck14aA9cifjYolcnjebXRfWGkz5ltHMBiG4px/j8GS+xQcb7OhNQWZYyWjQ+UwQ" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css?v=20261111v46">
+  <!-- Deferred Analytics/Visualization Engines with SRI (SheetJS & PptxGenJS Lazy-Loaded on Demand) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -162,7 +179,7 @@
     <section class="workspace-card">
 
       <!-- Contextual Sub-Tab Pills Bar -->
-      <div class="subtab-pills-bar" id="subtabPillsBar" role="tablist"></div>
+      <div class="subtab-pills-bar" id="subtabPillsBar" role="tablist" aria-label="Sub-módulos da Seção"></div>
 
       <!-- Sub-Section Title & Description -->
       <div class="subsection-header">
@@ -177,8 +194,8 @@
       <div class="filter-console" id="filterConsole">
         <div class="filter-row-top">
           <div class="search-field-wrap">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" id="searchInput" placeholder="Filtrar por empresa, credor (ex: Itaú, BB, Vórtx, Opea), comarca, CNPJ ou ativo..." oninput="handleSearch(this.value)" aria-label="Buscar processos e empresas">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="searchInput" placeholder="Filtrar por empresa, credor (ex: Itaú, BB, Vórtx, Opea), comarca, CNPJ ou ativo... (tecle / para buscar)" oninput="handleSearch(this.value)" aria-label="Buscar processos e empresas">
           </div>
           <div class="filter-select-group">
             <select class="clean-select" id="selectUf" onchange="handleUfChange(this.value)" aria-label="Filtrar por UF">
@@ -225,17 +242,30 @@
           <button class="phase-chip" id="proc-falencia" onclick="setProcessFilter('Falência / Liquidação')">Falências &amp; Liquidações (<span id="proc-count-falencia">0</span>)</button>
           <button class="phase-chip" id="proc-tier0" onclick="setProcessFilter('Tier 0')">Sinais Forenses Tier 0 (<span id="proc-count-tier0">0</span>)</button>
         </div>
+
+        <!-- Active Entity Filter Bar (Ecossistema / Bancômetro / UF) -->
+        <div id="activeEntityFilterBar" class="active-entity-chip-bar" style="display:none;" aria-live="polite"></div>
       </div>
 
-      <!-- Dynamic Section Body -->
-      <div id="sectionContentArea" aria-live="polite"></div>
+      <!-- Dynamic Section Body (Initial Institutional Skeleton Loading Table) -->
+      <div id="sectionContentArea" aria-live="polite">
+        <div class="skeleton-table-wrap" role="status" aria-busy="true">
+          <div class="skeleton-caption">Sincronizando casos concursais e sinais forenses...</div>
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+        </div>
+      </div>
 
     </section>
 
   </main>
 
   <!-- Modal do Dossiê / "Ficha" (Tear Sheet Institucional de Special Situations) -->
-  <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="modalCompany">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="tearsheet-header">
         <div style="flex:1;">
@@ -255,14 +285,14 @@
         <button class="modal-close-x" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
       </div>
 
-      <div class="modal-tab-strip">
-        <button class="modal-tab-item active" id="modal-tab-visao" onclick="setModalTab('visao')">Tear Sheet Completo (One-Pager)</button>
-        <button class="modal-tab-item" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
-        <button class="modal-tab-item" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
-        <button class="modal-tab-item" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
+      <div class="modal-tab-strip" role="tablist" aria-label="Abas do Tear Sheet">
+        <button class="modal-tab-item active" role="tab" aria-selected="true" aria-controls="modalBody" id="modal-tab-visao" onclick="setModalTab('visao')">Tear Sheet Completo (One-Pager)</button>
+        <button class="modal-tab-item" role="tab" aria-selected="false" aria-controls="modalBody" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
+        <button class="modal-tab-item" role="tab" aria-selected="false" aria-controls="modalBody" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
+        <button class="modal-tab-item" role="tab" aria-selected="false" aria-controls="modalBody" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
       </div>
 
-      <div class="modal-content-body" id="modalBody"></div>
+      <div class="modal-content-body" id="modalBody" role="tabpanel"></div>
 
       <div class="modal-bottom">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -275,9 +305,38 @@
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div class="toast-banner" id="toastBanner"></div>
+  <!-- Side-by-Side Case Comparator (Comps) Floating Bar & Modal -->
+  <div class="comps-floating-bar" id="compsFloatingBar" style="display:none;" role="region" aria-label="Bandeja de Comparação de Casos"></div>
 
-  <script src="app.js?v=20261111v46"></script>
+  <div class="modal-overlay" id="compsModal" onclick="if(event.target===this && typeof closeCompsModal==='function') closeCompsModal()" role="dialog" aria-modal="true" aria-labelledby="compsModalTitle">
+    <div class="modal-box comps-modal-box" onclick="event.stopPropagation()">
+      <div class="tearsheet-header">
+        <div style="flex:1;">
+          <div class="tearsheet-brand-strip">
+            <img src="valknut-symbol.png" alt="Valknut" style="width:28px; height:24px; object-fit:contain;" onerror="this.style.display='none';">
+            <span style="font-weight:800; letter-spacing:0.14em; color:#E6E9DC; font-size:13px;">VALKNUT</span>
+            <span style="color:#A5AC82; font-size:9px; font-weight:700; letter-spacing:0.22em;">SPECIAL SITUATIONS // COMPARATIVO LADO A LADO (COMPS)</span>
+          </div>
+          <div class="tearsheet-company-row">
+            <h2 id="compsModalTitle">Matriz Comparativa de Casos</h2>
+          </div>
+        </div>
+        <button class="modal-close-x" onclick="if(typeof closeCompsModal==='function') closeCompsModal()" aria-label="Fechar comparativo">&times;</button>
+      </div>
+      <div class="modal-content-body" id="compsModalBody"></div>
+      <div class="modal-bottom">
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn-action" onclick="window.print()">🖨️ Imprimir Comparativo / PDF</button>
+          <button class="btn-action" onclick="if(typeof clearCompSelection==='function') clearCompSelection()">✕ Limpar Seleção</button>
+        </div>
+        <button class="btn-solid" onclick="if(typeof closeCompsModal==='function') closeCompsModal()">Fechar Comparativo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-banner" id="toastBanner" role="status" aria-live="polite"></div>
+
+  <script defer src="app.js?v=20261111v47"></script>
 </body>
 </html>

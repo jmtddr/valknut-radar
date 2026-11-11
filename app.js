@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal & Distressed Debt
- * Platform Release v4.6 — Decoupled Data Architecture, Live Sheet Sync & Tear Sheet
+ * Platform Release v4.7 — 6-Bucket Concursal Engine, Lazy Exports, Entity Filter & Comps
  * ==========================================================================
  */
 
@@ -12,7 +12,7 @@ let VALKNUT_DATA = [];
 const ENRICHED_BY_COMPANY = {};
 const BASE_CURATED_BY_CNPJ = new Map();
 const BASE_CURATED_BY_STEM = new Map();
-let MAX_CURATED_DEAL_ID = 146;
+let MAX_CURATED_DEAL_ID = 154;
 let TRACKING_PRES_YTD_DATA = [
   {
     "data": "2026-11-04",
@@ -28,7 +28,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Não",
     "tese": "Creditor-Side Advisory & Conversão de Debêntures",
     "obs": "Plano de RE abrange debenturistas e bancos credores",
-    "assessor_legal": "Pinheiro Neto / Galdino & Coelho",
+    "assessor_legal": "BMA Advogados // Pinheiro Neto",
     "deal_id": 1
   },
   {
@@ -78,7 +78,7 @@ let TRACKING_PRES_YTD_DATA = [
     "credores": "Itaú, Bradesco, Santander e debenturistas",
     "dip": "Não",
     "tese": "Venda de Ativos Imobiliários (Sale & Leaseback)",
-    "obs": "Homologado hoje pela Justiça de SP; ações dispararam",
+    "obs": "Homologado pela Justiça de SP; venda de ativos non-core",
     "assessor_legal": "Pinheiro Neto Advogados",
     "deal_id": 16
   },
@@ -89,13 +89,13 @@ let TRACKING_PRES_YTD_DATA = [
     "setor": "Varejo & Consumo",
     "regiao": "SP/Nacional",
     "passivo_mm": 4100,
-    "status": "Homologado / Em Cumprimento",
+    "status": "Homologado / Em Cumprimento (1ª Série R$ 4,1 Bi; Consolidado #86 R$ 17,3 Bi)",
     "quorum": "54,7% de adesão inicial",
-    "quorum_status": "Homologado / Em Cumprimento • 54,7% de adesão inicial",
+    "quorum_status": "Homologado / Em Cumprimento • R$ 4,1 Bi 1ª Série PRE (R$ 17,3 Bi consolidado #86)",
     "credores": "Bradesco, Banco do Brasil e debenturistas",
     "dip": "Não",
     "tese": "Creditor-side / Monitoramento de Repactuação",
-    "obs": "Alongamento de prazos até 2030 com carência",
+    "obs": "Alongamento de prazos até 2030 com carência (R$ 4,1 Bi na 1ª PRE; R$ 17,3 Bi passivo consolidado no dossiê #86)",
     "assessor_legal": "Pinheiro Neto Advogados",
     "deal_id": 86
   },
@@ -105,7 +105,7 @@ let TRACKING_PRES_YTD_DATA = [
     "cnpj": "12.104.241/0001-09",
     "setor": "Saúde & Farma",
     "regiao": "SP/RJ/Nacional",
-    "passivo_mm": 2000,
+    "passivo_mm": 5100,
     "status": "Pedido de Homologação Protocolado",
     "quorum": "Em deliberação em AGDs",
     "quorum_status": "Pedido de Homologação Protocolado • Em deliberação em AGDs",
@@ -130,7 +130,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Sim",
     "tese": "Financial Advisory na Mediação / DIP",
     "obs": "Suspensão de 60 dias para mediação prévia",
-    "assessor_legal": "Financial Advisory na Mediação / DIP",
+    "assessor_legal": "Aguardando publicação nos autos",
     "deal_id": 34
   },
   {
@@ -181,7 +181,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Sim",
     "tese": "Financial Advisory para repactuação de debêntures",
     "obs": "Proposta de repactuação apresentada ao mercado",
-    "assessor_legal": "Financial Advisory para repactuação de debêntures",
+    "assessor_legal": "Aguardando publicação nos autos",
     "deal_id": 14
   },
   {
@@ -198,7 +198,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Sim (DIP de R$ 60M a R$ 100M)",
     "tese": "Watchdog de Contas Escrow do DIP + Assessoria aos Bancos Dissidentes",
     "obs": "Prevê atração de dinheiro novo prioritário",
-    "assessor_legal": "Watchdog de Contas Escrow do DIP + Assessoria aos Bancos Dissidentes",
+    "assessor_legal": "Aguardando publicação nos autos",
     "deal_id": 25
   },
   {
@@ -215,7 +215,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Não",
     "tese": "Assessoria a Credores Quirografários",
     "obs": "Plano submetido para créditos quirografários",
-    "assessor_legal": "Assessoria a Credores Quirografários",
+    "assessor_legal": "Aguardando publicação nos autos",
     "deal_id": 38
   },
   {
@@ -232,7 +232,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Não",
     "tese": "Venda de UPI Fabril",
     "obs": "20 empresas do polo gaúcho",
-    "assessor_legal": "Venda de UPI Fabril",
+    "assessor_legal": "Aguardando publicação nos autos",
     "deal_id": 4
   },
   {
@@ -249,7 +249,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Não",
     "tese": "Financial Advisory",
     "obs": "Alongamento de perfil de amortização de longo prazo",
-    "assessor_legal": "Financial Advisory",
+    "assessor_legal": "Aguardando publicação nos autos",
     "deal_id": null
   },
   {
@@ -266,7 +266,7 @@ let TRACKING_PRES_YTD_DATA = [
     "dip": "Não",
     "tese": "Creditor-Side",
     "obs": "Plano focado nas dívidas com os dois bancos públicos estaduais",
-    "assessor_legal": "Creditor-Side",
+    "assessor_legal": "Aguardando publicação nos autos",
     "deal_id": null
   }
 ];
@@ -278,18 +278,29 @@ let baseStaticNewsItems = [];
 // ==========================================================================
 // Dynamic Deal Count & Flexible Text Resolver
 // ==========================================================================
+function getBrazilThreeMonthWindowLabel() {
+  const monthAbbr = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+  let baseMonthIdx = 9;
+  try {
+    const iso = new Date().toLocaleDateString('sv-SE', { timeZone: 'America/Sao_Paulo' });
+    const parsedM = parseInt(iso.slice(5, 7), 10);
+    if (!isNaN(parsedM) && parsedM >= 1 && parsedM <= 12) baseMonthIdx = parsedM - 1;
+  } catch (e) {}
+  return `${monthAbbr[baseMonthIdx]}/${monthAbbr[(baseMonthIdx + 1) % 12]}/${monthAbbr[(baseMonthIdx + 2) % 12]}`;
+}
+
 function getDynamicCaseCount() {
   if (typeof DEALS_DATA !== 'undefined' && Array.isArray(DEALS_DATA) && DEALS_DATA.length > 0) {
     return DEALS_DATA.length;
   }
-  return 146;
+  return 0;
 }
 
 function getDynamicEnergyCount() {
   if (typeof DEALS_DATA !== 'undefined' && Array.isArray(DEALS_DATA) && DEALS_DATA.length > 0) {
     return DEALS_DATA.filter(d => d.setor_macro === 'Energia & Infraestrutura').length;
   }
-  return 18;
+  return 0;
 }
 
 function resolveDynamicCaseText(str) {
@@ -333,7 +344,13 @@ function updateDynamicNavCounts() {
 
   const livePill = document.getElementById('lastUpdateTime');
   if (livePill) {
-    livePill.textContent = 'Online: ' + count + ' leads';
+    if (count > 0) {
+      livePill.textContent = 'Online: ' + count + ' leads';
+    } else if (typeof initialLoadFailed !== 'undefined' && initialLoadFailed) {
+      livePill.textContent = 'Offline • Falha ao carregar base';
+    } else {
+      livePill.textContent = 'Sincronizando base...';
+    }
   }
 
   if (typeof syncNewsCounters === 'function') {
@@ -361,7 +378,7 @@ const SECTION_CONFIG = {
     showFilters: false,
     subtabs: [
       { id: 'calc_haircut', label: 'Calculadora Success Fee & Retainer', title: 'Calculadora de Honorários para Assessorias de Reestruturação (Retainer + Success Fee)', desc: 'Modelagem financeira 100% digitável de mandatos de reestruturação (Debtor-Side / Turnaround e Creditor-Side / Watchdog): Retainer fixo mensal, prazo do projeto, Success Fee por base de incidência e cláusula de abatimento (Offset).' },
-      { id: 'waterfall_classes', label: 'Waterfall de Classes (RJ vs. Falência)', title: 'Cascata de Alocação de Valor de Ativos por Classe (Art. 83 vs. Plano RJ)', desc: 'Comparativo percentual digitável de recuperação por classe (Extraconcursal, Classe I Trabalhista, Classe II Garantia Real, Classe III Quirografária e Classe IV ME/EPP).' },
+      { id: 'waterfall_classes', label: 'Waterfall de Classes (RJ vs. Falência)', title: 'Cascata de Alocação de Valor de Ativos por Classe (Art. 83 vs. Plano RJ)', desc: 'Comparativo percentual digitável de recuperação por classe (Extraconcursal, Fiscal/Tributário, Classe I Trabalhista, Classe II Garantia Real, Classe III Quirografária e Classe IV ME/EPP).' },
       { id: 'quorum_agc', label: 'Simulador Quórum AGC & Cram Down', title: 'Simulador de Votação em Assembleia Geral de Credores (Art. 45 e Art. 58, §1º)', desc: 'Cálculo interativo com % digitável de aprovação ordinária por classe (por Cabeça e por Valor), requisitos de Cram Down e posição de bloqueio (Blocking Position > 33,3% ou > 50%).' },
       { id: 'benchmarks_setor', label: 'Benchmarks de Haircut por Setor', title: 'Tabela de Referência de Mercado: % de Haircut e % de Recuperação por Macro-Setor', desc: 'Parâmetros médios observados nos {COUNT} casos monitorados para calibragem rápida de propostas, modelagem de planos e avaliação de colateral.' },
       { id: 'pitch_pptx', label: 'Gerador de Proposta Comercial (.pptx)', title: 'Gerador Automático de Pitch Deck & Proposta de Honorários em PowerPoint (.pptx)', desc: 'Exportação instantânea de apresentação institucional widescreen (7 slides) com Perfil da Empresa, Diagnóstico, Estrutura de Retainer + Success Fee e Cronograma.' }
@@ -417,7 +434,7 @@ const SECTION_CONFIG = {
     showFilters: true,
     subtabs: [
       { id: 'prazos_all', label: 'Cronograma Completo ({COUNT} Casos)', title: 'Linha do Tempo Completa dos {COUNT} Grupos Monitorados (Contagem Regressiva)', desc: 'Todos os {COUNT} casos com data de vencimento calculada ou fixada em edital, ordenada por urgência e com exportação para Google Calendar / Outlook (.ics).' },
-      { id: 'prazos_calendario', label: 'Grade Mensal Interativa (Out/Nov/Dez)', title: 'Visão de Calendário Mensal de Eventos Críticos, AGCs, AGDs e Leilões', desc: 'Grade mensal interativa destacando dias com assembleias, leilões de UPIs, mediações CEJUSC e vencimentos de blindagem cautelar.' },
+      { id: 'prazos_calendario', label: `Grade Mensal Interativa (${getBrazilThreeMonthWindowLabel()})`, title: 'Visão de Calendário Mensal de Eventos Críticos, AGCs, AGDs e Leilões', desc: 'Grade mensal interativa destacando dias com assembleias, leilões de UPIs, mediações CEJUSC e vencimentos de blindagem cautelar.' },
       { id: 'prazos_agc', label: 'AGCs, AGDs & Leilões com Edital', title: 'Eventos com Data Fixada em Edital (AGCs, AGDs, Mediações e Leilões)', desc: 'Compromissos concursais iminentes com data certa publicada nos autos ou na CVM.' },
       { id: 'prazos_cautelar', label: 'Janelas Cautelares Art. 20-B (60d)', title: 'Monitoramento de Tutelas Cautelares Antecedentes e Prazos de Plano (Art. 53)', desc: 'Controle estrito do prazo de 60 dias corridos de suspensão de execuções e apresentação do Plano de Recuperação Judicial.' }
     ]
@@ -559,8 +576,30 @@ const CITY_COORDINATES = {
   'Porto Velho,RO': [-8.7619, -63.9039],
   'Rio Branco,AC': [-9.9754, -67.8249],
   'Macapá,AP': [0.0349, -51.0694],
-  'Boa Vista,RR': [2.8235, -60.6758]
+  'Boa Vista,RR': [2.8235, -60.6758],
+  'Santo André,SP': [-23.6639, -46.5383],
+  'Aparecida do Taboado,MS': [-20.0867, -51.0936],
+  'Jaborandi,BA': [-13.6194, -44.4328],
+  'Cáceres,MT': [-16.0764, -57.6789],
+  'Itapira,SP': [-22.4356, -46.8222],
+  'Sacramento,MG': [-19.8653, -47.4400]
 };
+
+let _cityCoordNormalizedIndex = null;
+function lookupCityCoordinates(cidade, uf) {
+  if (!cidade || !uf) return null;
+  const directKey = `${String(cidade).trim()},${String(uf).trim().toUpperCase()}`;
+  if (CITY_COORDINATES[directKey]) return CITY_COORDINATES[directKey];
+  if (!_cityCoordNormalizedIndex) {
+    _cityCoordNormalizedIndex = new Map();
+    Object.entries(CITY_COORDINATES).forEach(([k, coord]) => {
+      const normK = k.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
+      _cityCoordNormalizedIndex.set(normK, coord);
+    });
+  }
+  const normTarget = directKey.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
+  return _cityCoordNormalizedIndex.get(normTarget) || null;
+}
 
 const UF_TO_REGION = {
   'SP': 'Sudeste', 'RJ': 'Sudeste', 'MG': 'Sudeste', 'ES': 'Sudeste',
@@ -584,8 +623,43 @@ const TICKER_MAP = {
   'Fertilizantes Heringer': 'FHER3',
   'Grupo Toky': 'MBLY3',
   'AgroGalaxy': 'AGXY3',
-  'GDS Subholding': 'GDSS11'
+  'GDS Subholding': 'GDSS11',
+  'Casas Bahia': 'BHIA3',
+  'Gol': 'GOLL4',
+  'Ambipar': 'AMBP3'
 };
+
+// Helper de Data e Hora no Fuso Horário Oficial de Brasília (America/Sao_Paulo)
+function getBrazilTodayIso() {
+  try {
+    return new Date().toLocaleDateString('sv-SE', { timeZone: 'America/Sao_Paulo' });
+  } catch (e) {
+    const d = new Date(Date.now() - 3 * 60 * 60 * 1000);
+    return d.toISOString().slice(0, 10);
+  }
+}
+
+function formatBrazilNowDateTime() {
+  try {
+    const parts = new Intl.DateTimeFormat('pt-BR', {
+      timeZone: 'America/Sao_Paulo',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }).formatToParts(new Date());
+    const map = {};
+    parts.forEach(p => { map[p.type] = p.value; });
+    if (map.day && map.month && map.year) {
+      const hh = map.hour === '24' ? '00' : (map.hour || '12');
+      return `${map.day}/${map.month}/${map.year} ${hh}:${map.minute || '00'}`;
+    }
+  } catch (e) {}
+  const brt = new Date(Date.now() - 3 * 3600 * 1000);
+  return `${String(brt.getUTCDate()).padStart(2, '0')}/${String(brt.getUTCMonth() + 1).padStart(2, '0')}/${brt.getUTCFullYear()} ${String(brt.getUTCHours()).padStart(2, '0')}:${String(brt.getUTCMinutes()).padStart(2, '0')}`;
+}
 
 // Application State
 let currentMainSection = 'operacao';
@@ -597,6 +671,7 @@ let currentPorte = '';
 let currentSort = 'movimento_desc';
 let searchTerm = '';
 let searchDebounceTimer = null;
+let passivoCutoffDebounceTimer = null;
 let viewMode = 'table';
 let currentPage = 1;
 let pageSize = 50;
@@ -606,6 +681,14 @@ let minPassivoMM = 30;
 let maxPassivoMM = null;
 let activeQuickToggle = 'all';
 
+// Structured Entity Filter State (Ecossistema / Bancômetro / UF)
+let activeEntityFilter = null; // { label: string, category: string, dealIds: Set<string> }
+const entityFilterRegistry = new Map();
+
+// Backend Router Capability & Initial Load State
+let gasSupportsActionRouter = null; // null = unknown, true = v4.6/v4.7 router, false = legacy single-sheet
+let initialLoadFailed = false;
+
 // Map & Charts State
 let leafletMapInstance = null;
 let leafletGeoJsonLayer = null;
@@ -614,6 +697,7 @@ let leafletCapitalsLayer = null;
 let currentModalItem = null;
 let currentModalTab = 'visao';
 let activeCharts = [];
+let pendingChartTimers = [];
 
 // News Filter State
 let newsSourceFilter = '';
@@ -623,31 +707,19 @@ let newsSearchQuery = '';
 let newsSearchDebounceTimer = null;
 let newsScopeFilter = 'all'; // 'all' | 'mercado' | 'pipeline' | 'cvm'
 let liveRssNewsItems = [];
-let dynamicExternalNews = [];
-let hasLoadedDynamicExternalNews = false;
 let newsFeedSyncStatus = 'Sincronizando Planilha & RSS Distressed Debt...';
 
 // Energy Live Telemetry State
 let energyTelemetryStatus = 'Fallback Operacional (Cache ONS/CCEE)';
-let energyLastSyncTime = '19/10/2026 12:00';
+let energyLastSyncTime = formatBrazilNowDateTime();
 let energyLiveOverrides = {};
-
-// Helper de Data no Fuso Horário Oficial de Brasília (America/Sao_Paulo)
-function getBrazilTodayIso() {
-  try {
-    return new Date().toLocaleDateString('sv-SE', { timeZone: 'America/Sao_Paulo' });
-  } catch (e) {
-    const d = new Date(Date.now() - 3 * 60 * 60 * 1000);
-    return d.toISOString().slice(0, 10);
-  }
-}
 
 // Energy SIN Panel State (Inicializado na data corrente de Brasília)
 let selectedSinSubmarket = 'SIN';
 let selectedSinDate = getBrazilTodayIso();
 let upiSortMode = 'valuation_desc';
 
-// v4.6 Module States — Calculadora de Honorários (Success Fee & Retainer)
+// v4.7 Module States — Calculadora de Honorários (Success Fee & Retainer)
 let selectedModelDealId = 1;
 let selectedTier0CalcTarget = null;
 let modelCustomPassivo = 1000;
@@ -658,21 +730,18 @@ let modelMandateMonths = 12;
 let modelRetainerOffsetPct = 50;
 let modelEvAtivos = 550;
 let modelLiqDiscountPct = 40;
-let modelDipAmount = 100;
-let modelDipCollateral = 220;
-let modelUpiValuation = 300;
-let modelUpiBid = 165;
+let pitchCreditorExposureMM = 200;
 let pitchMandateType = 'Debtor-Side / Financial Advisory & Turnaround';
 let pitchTargetRecipient = 'Conselho de Administração / Diretoria Financeira ou Comitê de Credores';
 let pitchRetainerMensal = 95;
 let pitchSuccessFeePct = 2.0;
 
-// AGC Quorum State
+// AGC Quorum State (Art. 45 & Art. 58 §1º — Cabeça e Valor)
 let agcVotes = {
-  c1_head_yes: 85,
+  c1_val_yes: 85, c1_head_yes: 85,
   c2_val_yes: 62, c2_head_yes: 60,
   c3_val_yes: 46, c3_head_yes: 54,
-  c4_head_yes: 72
+  c4_val_yes: 72, c4_head_yes: 72
 };
 
 // Calendar State
@@ -680,12 +749,69 @@ let calSelectedMonth = getBrazilTodayIso().slice(0, 7);
 let calFilterUrgency = '';
 let calFilterMarcoType = '';
 
-// Comps State
-let selectedCompIds = [1, 17, 52, 55];
+// Side-by-Side Case Comparator (Comps) State (up to 4 deals)
+let selectedCompIds = [];
 
 let lastNewsAutoSyncTs = 0;
 let sheetLiveNewsItems = [];
-const STATIC_BUNDLE_VERSION = '20261111v46';
+const STATIC_BUNDLE_VERSION = '20261111v47';
+
+// ==========================================================================
+// On-Demand CDN Lazy Script Loader (SheetJS .xlsx & PptxGenJS .pptx)
+// ==========================================================================
+const SHEETJS_PRIMARY_URL = 'https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js';
+const SHEETJS_PRIMARY_SRI = 'sha384-gx12pQMMYnabkTgbCHqqrT65RwDnXI/f/dU2H9JUmT0KUeiMF5bf+yroQBmX0Nuk';
+const SHEETJS_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+const PPTXGEN_CDN_URL = 'https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js';
+const PPTXGEN_CDN_SRI = 'sha384-Cck14aA9cifjYolcnjebXRfWGkz5ltHMBiG4px/j8GS+xQcb7OhNQWZYyWjQ+UwQ';
+const _externalScriptPromises = new Map();
+
+function loadExternalScriptOnce(src, integrity) {
+  if (!src) return Promise.reject(new Error('Missing script src'));
+  if (_externalScriptPromises.has(src)) {
+    return _externalScriptPromises.get(src);
+  }
+  const p = new Promise((resolve, reject) => {
+    if (typeof document === 'undefined' || !document.head) {
+      reject(new Error('DOM unavailable'));
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    if (integrity) {
+      script.integrity = integrity;
+      script.crossOrigin = 'anonymous';
+    }
+    script.onload = () => resolve(true);
+    script.onerror = () => {
+      _externalScriptPromises.delete(src);
+      try { script.remove(); } catch (e) {}
+      reject(new Error(`Failed to load ${src}`));
+    };
+    document.head.appendChild(script);
+  });
+  _externalScriptPromises.set(src, p);
+  return p;
+}
+
+async function ensureSheetJsLoaded() {
+  if (typeof XLSX !== 'undefined') return true;
+  showToast('Carregando motor Excel (.xlsx)...');
+  try {
+    await loadExternalScriptOnce(SHEETJS_PRIMARY_URL, SHEETJS_PRIMARY_SRI);
+  } catch (primaryErr) {
+    await loadExternalScriptOnce(SHEETJS_FALLBACK_URL, null);
+  }
+  return typeof XLSX !== 'undefined';
+}
+
+async function ensurePptxGenLoaded() {
+  if (typeof PptxGenJS !== 'undefined') return true;
+  showToast('Carregando motor PowerPoint (.pptx)...');
+  await loadExternalScriptOnce(PPTXGEN_CDN_URL, PPTXGEN_CDN_SRI);
+  return typeof PptxGenJS !== 'undefined';
+}
 
 function isRecentNewsDate(dataHoraStr, maxAgeDays = 75) {
   const ts = parseNewsTimestamp(dataHoraStr);
@@ -697,16 +823,61 @@ function isRecentNewsDate(dataHoraStr, maxAgeDays = 75) {
   return true;
 }
 
+function sanitizeIncomingStaticNewsItem(it) {
+  if (!it || !it.titulo || isBlockedEntityToken(it.titulo) || isBlockedEntityToken(it.empresa_nome)) return null;
+  const copy = { ...it };
+  if (String(copy.fonte || '').trim().toUpperCase() === 'PIPELINE') {
+    copy.fonte = 'Pipeline Valor';
+  }
+  return copy;
+}
+
+async function fetchLiveNewsJson(cacheBust = false) {
+  const localUrl = cacheBust ? `live-news.json?_cb=${Date.now()}` : `live-news.json?v=${STATIC_BUNDLE_VERSION}`;
+  const rawGhUrl = 'https://raw.githubusercontent.com/jmtddr/valknut-radar/main/live-news.json';
+
+  const extractArr = val => {
+    if (!val) return [];
+    if (Array.isArray(val)) return val;
+    return Array.isArray(val.items) ? val.items : [];
+  };
+
+  const [localRes, rawGhRes] = await Promise.allSettled([
+    fetchWithTimeout(localUrl, {}, 8000).then(r => (r && r.ok ? r.json() : [])),
+    fetchWithTimeout(rawGhUrl, {}, 5000).then(r => (r && r.ok ? r.json() : [])).catch(() => [])
+  ]);
+
+  const ghItems = rawGhRes.status === 'fulfilled' ? extractArr(rawGhRes.value) : [];
+  const localItems = localRes.status === 'fulfilled' ? extractArr(localRes.value) : [];
+
+  const merged = [];
+  const seenTitles = new Set();
+  // Prefer GitHub raw first so newly committed Actions items take precedence before Pages rebuilds
+  [...ghItems, ...localItems].forEach(raw => {
+    const clean = sanitizeIncomingStaticNewsItem(raw);
+    if (!clean) return;
+    const key = String(clean.titulo || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 80);
+    if (key && !seenTitles.has(key)) {
+      seenTitles.add(key);
+      merged.push(clean);
+    }
+  });
+  return merged;
+}
+
 async function loadStaticBaseData() {
   const [dealsRes, newsRes] = await Promise.allSettled([
     fetchWithTimeout(`deals.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     }),
-    fetchWithTimeout(`live-news.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
+    fetchLiveNewsJson(false)
   ]);
 
   if (dealsRes.status === 'fulfilled' && Array.isArray(dealsRes.value) && dealsRes.value.length > 0) {
@@ -715,13 +886,11 @@ async function loadStaticBaseData() {
     DEALS_DATA = cleanDeals.map(d => ({ ...d }));
     VALKNUT_DATA = DEALS_DATA;
     if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+    initialLoadFailed = false;
   }
 
-  if (newsRes.status === 'fulfilled' && newsRes.value) {
-    const rawItems = Array.isArray(newsRes.value)
-      ? newsRes.value
-      : (Array.isArray(newsRes.value.items) ? newsRes.value.items : []);
-    baseStaticNewsItems = rawItems.filter(it => it && !isBlockedEntityToken(it.titulo));
+  if (newsRes.status === 'fulfilled' && Array.isArray(newsRes.value) && newsRes.value.length > 0) {
+    baseStaticNewsItems = newsRes.value;
   }
 }
 
@@ -730,7 +899,7 @@ function reconcileDealsWithCuratedBase(incomingArr) {
   const seenCuratedIds = new Set();
   const seenCnpj = new Set();
   const seenStem = new Set();
-  let nextNewId = Math.max(146, MAX_CURATED_DEAL_ID) + 1;
+  let nextNewId = Math.max(154, MAX_CURATED_DEAL_ID) + 1;
   const merged = [];
 
   incomingArr.forEach(item => {
@@ -761,6 +930,12 @@ function reconcileDealsWithCuratedBase(incomingArr) {
       merged.push({ ...curated });
     }
   });
+  BASE_CURATED_BY_STEM.forEach(curated => {
+    if (curated && !seenCuratedIds.has(curated.id) && !isBlockedEntityToken(curated.empresa)) {
+      seenCuratedIds.add(curated.id);
+      merged.push({ ...curated });
+    }
+  });
 
   return merged;
 }
@@ -771,7 +946,8 @@ function loadCachedLiveNewsFromStorage() {
     localStorage.removeItem('vk_deals_snapshot_v2');
     localStorage.removeItem('vk_deals_snapshot_v3');
     localStorage.removeItem('vk_deals_snapshot_v4');
-    const rawDealsSnap = localStorage.getItem('vk_deals_snapshot_v5');
+    localStorage.removeItem('vk_deals_snapshot_v5');
+    const rawDealsSnap = localStorage.getItem('vk_deals_snapshot_v6');
     if (rawDealsSnap) {
       const parsedDeals = JSON.parse(rawDealsSnap);
       const totalSnapPassivo = Array.isArray(parsedDeals) ? parsedDeals.reduce((s, x) => s + Number(x.passivo_mm || 0), 0) : 0;
@@ -781,6 +957,7 @@ function loadCachedLiveNewsFromStorage() {
           DEALS_DATA = reconciled;
           VALKNUT_DATA = DEALS_DATA;
           if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+          initialLoadFailed = false;
         }
       }
     }
@@ -788,7 +965,9 @@ function loadCachedLiveNewsFromStorage() {
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        liveRssNewsItems = parsed.filter(it => it && !isBlockedEntityToken(it.titulo) && isRecentNewsDate(it.data_hora, 75));
+        liveRssNewsItems = parsed
+          .map(sanitizeIncomingStaticNewsItem)
+          .filter(it => it && isRecentNewsDate(it.data_hora, 75));
       }
     }
   } catch (e) {}
@@ -859,13 +1038,13 @@ function shiftWeekendToNextBusinessDay(isoStr) {
 function saveDealsSnapshotToStorage(dealsArr) {
   try {
     if (Array.isArray(dealsArr) && dealsArr.length > 0) {
-      localStorage.setItem('vk_deals_snapshot_v5', JSON.stringify(dealsArr));
+      localStorage.setItem('vk_deals_snapshot_v6', JSON.stringify(dealsArr));
     }
   } catch (e) {}
 }
 
 let isApplyingUrlHash = false;
-function updateUrlHash() {
+function syncUrlHash(pushHistory = false) {
   if (isApplyingUrlHash || typeof window === 'undefined' || !window.history) return;
   const params = new URLSearchParams();
   if (currentMainSection && currentMainSection !== 'operacao') params.set('sec', currentMainSection);
@@ -880,21 +1059,68 @@ function updateUrlHash() {
   if (maxPassivoMM !== null) params.set('max', String(maxPassivoMM));
   if (currentSort && currentSort !== 'movimento_desc') params.set('sort', currentSort);
   const newHash = params.toString() ? `#${params.toString()}` : '';
-  if (window.location.hash !== newHash) {
+  const currentHash = window.location.hash === '#' ? '' : (window.location.hash || '');
+  if (currentHash !== newHash) {
+    const targetUrl = newHash || (window.location.pathname + window.location.search);
     try {
-      window.history.replaceState(null, '', newHash || window.location.pathname + window.location.search);
+      if (pushHistory) {
+        window.history.pushState(null, '', targetUrl);
+      } else {
+        window.history.replaceState(null, '', targetUrl);
+      }
     } catch (e) {}
   }
 }
+const updateUrlHash = syncUrlHash;
 
-function applyUrlHash() {
-  if (typeof window === 'undefined' || !window.location.hash) return;
-  const rawHash = window.location.hash.replace(/^#/, '');
-  if (!rawHash) return;
+function syncFilterDomControlsFromState() {
+  const sIn = document.getElementById('searchInput');
+  if (sIn) sIn.value = searchTerm || '';
+  const ufEl = document.getElementById('selectUf');
+  if (ufEl) ufEl.value = currentUf || '';
+  const setEl = document.getElementById('selectSetor');
+  if (setEl) setEl.value = currentSetor || '';
+  const pEl = document.getElementById('selectPorte');
+  if (pEl) pEl.value = currentPorte || '';
+  const sortEl = document.getElementById('selectSort');
+  if (sortEl) sortEl.value = currentSort || 'movimento_desc';
+  const minEl = document.getElementById('inputMinPassivo');
+  if (minEl) minEl.value = String(minPassivoMM ?? 30);
+  const maxEl = document.getElementById('inputMaxPassivo');
+  if (maxEl) maxEl.value = maxPassivoMM !== null ? String(maxPassivoMM) : '';
+
+  document.querySelectorAll('.phase-chip[id^="proc-"]').forEach(b => b.classList.remove('active'));
+  const procMap = {
+    '': 'proc-all',
+    'PRJ': 'proc-prj',
+    'Cautelar / Pré-RJ': 'proc-cautelar',
+    'PRE': 'proc-pre',
+    'Falência / Liquidação': 'proc-falencia',
+    'Tier 0': 'proc-tier0'
+  };
+  document.getElementById(procMap[currentProcessType] || 'proc-all')?.classList.add('active');
+
+  document.querySelectorAll('.quick-toggle-btn[id^="qtoggle-"]').forEach(b => b.classList.remove('active'));
+  if ((minPassivoMM === 0 || minPassivoMM === 30) && maxPassivoMM === null) {
+    document.getElementById('qtoggle-all')?.classList.add('active');
+  } else if (minPassivoMM === 30 && maxPassivoMM === 10000) {
+    document.getElementById('qtoggle-no_outliers')?.classList.add('active');
+  } else if (minPassivoMM === 30 && maxPassivoMM === 500) {
+    document.getElementById('qtoggle-middle')?.classList.add('active');
+  }
+}
+
+function applyUrlHash(fromPopOrHashEvent = false) {
+  if (typeof window === 'undefined') return;
+  const rawHash = (window.location.hash || '').replace(/^#/, '');
+
+  // If initial boot has empty hash and we haven't navigated yet, keep default rendered state cleanly
+  if (!rawHash && !fromPopOrHashEvent) return;
+
   isApplyingUrlHash = true;
   try {
     const params = new URLSearchParams(rawHash);
-    let sec = params.get('sec');
+    let sec = params.get('sec') || 'operacao';
     let sub = params.get('sub');
     const dealId = params.get('deal');
 
@@ -902,116 +1128,162 @@ function applyUrlHash() {
     if (sec === 'dashboards' && sub === 'benchmarks_setor') {
       sec = 'precificacao';
     }
-    if ((sec || currentMainSection) === 'energia' && sub) {
+    if (!SECTION_CONFIG[sec]) sec = 'operacao';
+    if (sec === 'energia' && sub) {
       if (sub === 'pld_horario' || sub === 'risco_curtailment') sub = 'pld_curtailment';
       else if (sub === 'hidrologia_ena' || sub === 'outorgas_aneel') sub = 'sin_tempo_real';
     }
 
-    let filtersChanged = false;
-    if (params.has('q')) {
-      searchTerm = params.get('q').trim().toLowerCase();
-      const sIn = document.getElementById('searchInput');
-      if (sIn) sIn.value = params.get('q');
-      filtersChanged = true;
-    }
-    if (params.has('uf')) {
-      currentUf = params.get('uf');
-      const ufEl = document.getElementById('selectUf');
-      if (ufEl) ufEl.value = currentUf;
-      filtersChanged = true;
-    }
-    if (params.has('setor')) {
-      currentSetor = params.get('setor');
-      const setEl = document.getElementById('selectSetor');
-      if (setEl) setEl.value = currentSetor;
-      filtersChanged = true;
-    }
-    if (params.has('porte')) {
-      currentPorte = params.get('porte');
-      const pEl = document.getElementById('selectPorte');
-      if (pEl) pEl.value = currentPorte;
-      if (currentPorte === 'small' && !params.has('min') && minPassivoMM > 0) {
-        minPassivoMM = 0;
-        const minEl = document.getElementById('inputMinPassivo');
-        if (minEl) minEl.value = '0';
-      }
-      filtersChanged = true;
-    }
-    if (params.has('proc')) {
-      currentProcessType = params.get('proc');
-      document.querySelectorAll('.phase-chip').forEach(b => b.classList.remove('active'));
-      const procMap = {
-        '': 'proc-all',
-        'PRJ': 'proc-prj',
-        'Cautelar / Pré-RJ': 'proc-cautelar',
-        'PRE': 'proc-pre',
-        'Falência / Liquidação': 'proc-falencia',
-        'Tier 0': 'proc-tier0'
-      };
-      const chipEl = document.getElementById(procMap[currentProcessType] || 'proc-all');
-      if (chipEl) chipEl.classList.add('active');
-      filtersChanged = true;
-    }
+    // Reset filters to defaults whenever omitted in URL hash (supports browser Back to default state)
+    searchTerm = params.has('q') ? params.get('q').trim().toLowerCase() : '';
+    currentUf = params.has('uf') ? params.get('uf') : '';
+    currentSetor = params.has('setor') ? params.get('setor') : '';
+    currentPorte = params.has('porte') ? params.get('porte') : '';
+    currentProcessType = params.has('proc') ? params.get('proc') : '';
+    minPassivoMM = 30;
+    maxPassivoMM = null;
     if (params.has('min')) {
       const minVal = parseFloat(params.get('min'));
-      if (!isNaN(minVal) && minVal >= 0) {
-        minPassivoMM = minVal;
-        const minEl = document.getElementById('inputMinPassivo');
-        if (minEl) minEl.value = String(minVal);
-        document.querySelectorAll('.quick-toggle-btn').forEach(b => b.classList.remove('active'));
-        filtersChanged = true;
-      }
+      if (!isNaN(minVal) && minVal >= 0) minPassivoMM = minVal;
+    } else if (currentPorte === 'small') {
+      minPassivoMM = 0;
     }
     if (params.has('max')) {
       const maxVal = parseFloat(params.get('max'));
-      if (!isNaN(maxVal) && maxVal > 0) {
-        maxPassivoMM = maxVal;
-        const maxEl = document.getElementById('inputMaxPassivo');
-        if (maxEl) maxEl.value = String(maxVal);
-        document.querySelectorAll('.quick-toggle-btn').forEach(b => b.classList.remove('active'));
-        filtersChanged = true;
-      }
+      if (!isNaN(maxVal) && maxVal > 0) maxPassivoMM = maxVal;
     }
-    if (params.has('sort')) {
-      currentSort = params.get('sort');
-      const sortEl = document.getElementById('selectSort');
-      if (sortEl) sortEl.value = currentSort;
-      filtersChanged = true;
+    currentSort = params.get('sort') || 'movimento_desc';
+
+    if (!rawHash && activeEntityFilter) {
+      activeEntityFilter = null;
+    }
+    syncFilterDomControlsFromState();
+    if (typeof renderActiveEntityFilterBar === 'function') {
+      renderActiveEntityFilterBar();
     }
 
-    if (sec && SECTION_CONFIG[sec]) {
-      switchMainSection(sec);
+    if (sec !== 'mapa' && leafletMapInstance) {
+      try { leafletMapInstance.remove(); } catch (e) {}
+      leafletMapInstance = null;
     }
-    if (sub) {
-      const cfg = SECTION_CONFIG[currentMainSection] || SECTION_CONFIG.operacao;
-      if (cfg.subtabs.some(s => s.id === sub)) {
-        selectSubTab(sub);
-      }
-    } else if (filtersChanged && !sec) {
-      currentPage = 1;
-      renderSubTabs();
-      renderSectionContent();
+
+    currentMainSection = sec;
+    currentPage = 1;
+    document.querySelectorAll('.nav-link-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    const activeNav = document.getElementById(`nav-${sec}`);
+    if (activeNav) {
+      activeNav.classList.add('active');
+      activeNav.setAttribute('aria-selected', 'true');
     }
+
+    const cfg = SECTION_CONFIG[sec] || SECTION_CONFIG.operacao;
+    const titleEl = document.getElementById('pageMainTitle');
+    const subEl = document.getElementById('pageMainSubtitle');
+    const filterEl = document.getElementById('filterConsole');
+    if (titleEl) titleEl.textContent = resolveDynamicCaseText(cfg.pageTitle);
+    if (subEl) subEl.textContent = resolveDynamicCaseText(cfg.pageSubtitle);
+    if (filterEl) filterEl.style.display = cfg.showFilters ? 'flex' : 'none';
+
+    currentSubTab = (sub && cfg.subtabs.some(s => s.id === sub)) ? sub : cfg.subtabs[0].id;
+    renderSubTabs();
+    renderSectionContent();
+
     if (dealId) {
       const numId = Number(dealId);
       if (!isNaN(numId)) openDossier(numId);
+    } else {
+      if (currentModalItem) closeModal(true);
+      if (typeof closeCompsModal === 'function') closeCompsModal();
     }
   } catch (e) {} finally {
     isApplyingUrlHash = false;
   }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+async function retryInitialDataLoad() {
+  initialLoadFailed = false;
+  updateDynamicNavCounts();
+  const container = document.getElementById('sectionContentArea');
+  if (container) {
+    container.innerHTML = `<div style="text-align:center; padding:48px; color:var(--text-muted);">Reconectando e sincronizando base concursal...</div>`;
+  }
   await loadStaticBaseData();
   loadCachedLiveNewsFromStorage();
+  if (DEALS_DATA.length === 0) {
+    await fetchLiveSheetInBackground(false);
+  }
+  if (DEALS_DATA.length === 0) {
+    initialLoadFailed = true;
+    updateDynamicNavCounts();
+    renderSectionContent();
+    return;
+  }
+  initialLoadFailed = false;
   enrichAllDeals();
   if (DEALS_DATA[0]) calibrateAdvisoryDefaultsForDeal(DEALS_DATA[0]);
   populateDropdownFilters();
   updateDynamicNavCounts();
   renderSubTabs();
   renderSectionContent();
-  applyUrlHash();
-  window.addEventListener('hashchange', applyUrlHash);
+  showToast(`Base sincronizada com sucesso (${DEALS_DATA.length} casos)!`);
+}
+
+let _hasBootedValknutApp = false;
+async function bootValknutApp() {
+  if (_hasBootedValknutApp) return;
+  _hasBootedValknutApp = true;
+
+  await loadStaticBaseData();
+  loadCachedLiveNewsFromStorage();
+
+  if (DEALS_DATA.length === 0) {
+    initialLoadFailed = true;
+  } else {
+    initialLoadFailed = false;
+    enrichAllDeals();
+    if (DEALS_DATA[0]) calibrateAdvisoryDefaultsForDeal(DEALS_DATA[0]);
+  }
+
+  populateDropdownFilters();
+  updateDynamicNavCounts();
+  renderSubTabs();
+  renderSectionContent();
+  if (typeof renderCompsFloatingBar === 'function') renderCompsFloatingBar();
+  applyUrlHash(false);
+
+  window.addEventListener('hashchange', () => applyUrlHash(true));
+  window.addEventListener('popstate', () => applyUrlHash(true));
+
+  // Global keyboard shortcut: '/' or Ctrl+K / Cmd+K focuses #searchInput
+  window.addEventListener('keydown', e => {
+    const isCmdK = (e.ctrlKey || e.metaKey) && String(e.key || '').toLowerCase() === 'k';
+    const isSlash = e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey;
+    if (!isCmdK && !isSlash) return;
+
+    const active = document.activeElement;
+    const tag = active && active.tagName ? active.tagName.toUpperCase() : '';
+    const isTypingField = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || Boolean(active && active.isContentEditable);
+    if (isSlash && isTypingField) return;
+
+    const detailOpen = document.getElementById('detailModal')?.style.display === 'flex';
+    const compsOpen = document.getElementById('compsModal')?.style.display === 'flex';
+    if (detailOpen || compsOpen) return;
+
+    e.preventDefault();
+    const cfg = SECTION_CONFIG[currentMainSection] || SECTION_CONFIG.operacao;
+    if (!cfg.showFilters) {
+      switchMainSection('operacao');
+    }
+    const searchEl = document.getElementById('searchInput');
+    if (searchEl) {
+      searchEl.focus();
+      if (typeof searchEl.select === 'function') searchEl.select();
+    }
+  });
+
   fetchLiveSheetInBackground();
   fetchLiveDistressedNews();
   fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate);
@@ -1029,7 +1301,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       fetchLiveSheetInBackground(false);
     }
   });
-});
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootValknutApp);
+  } else {
+    bootValknutApp();
+  }
+}
 
 // ==========================================================================
 // 1. Data Enrichment & Smart Thesis Regex Parser
@@ -1061,20 +1341,99 @@ function parseThesisRegex(teseStr) {
   };
 }
 
-function extractStakeholdersFromText(credoresStr, teseStr) {
-  const blob = `${credoresStr || ''} ${teseStr || ''}`;
+const RX_REIT_SEC = /\breit\s+securitizadora\b/i;
+const RX_VERT_SEC = /\bvert\s+(?:securitizadora|cia\.?\s+securitizadora|companhia\s+securitizadora)\b/i;
+const RX_EURO_SEC = /\beuro\s+securitizadora\b/i;
+
+function extractStrictSecuritizadorasList(text) {
+  const blob = String(text || '');
+  if (!blob) return [];
+  const rules = [
+    { name: 'Opea Securitizadora', rx: /\bopea(?:\s+securitizadora)?\b/i },
+    { name: 'Vert Securitizadora', rx: RX_VERT_SEC },
+    { name: 'Virgo Companhia de Securitização', rx: /\bvirgo(?:\s+(?:securitizadora|cia|companhia))?\b/i },
+    { name: 'Reit Securitizadora', rx: RX_REIT_SEC },
+    { name: 'Audax Securitizadora', rx: /\baudax(?:\s+securitizadora)?\b/i },
+    { name: 'True Securitizadora', rx: /\btrue\s+securitizadora\b/i },
+    { name: 'Bari Securitizadora', rx: /\bbari\s+securitizadora\b/i },
+    { name: 'Isec Securitizadora', rx: /\bisec(?:\s+securitizadora)?\b/i },
+    { name: 'Euro Securitizadora', rx: RX_EURO_SEC },
+    { name: 'Ignis Securitizadora', rx: /\bignis(?:\s+securitizadora)?\b/i }
+  ];
+  const found = [];
+  rules.forEach(r => {
+    if (r.rx.test(blob)) found.push(r.name);
+  });
+  return found;
+}
+
+function extractStakeholdersFromText(credoresStr, teseStr, extraStr = '') {
+  const blob = `${credoresStr || ''} ${teseStr || ''} ${extraStr || ''}`;
   const fiduciarios = [];
-  ['Vórtx', 'Pentágono', 'Oliveira Trust', 'Simplific Pavarini', 'Planner'].forEach(ag => {
-    if (blob.toLowerCase().includes(ag.toLowerCase())) fiduciarios.push(`${ag} DTVM`);
+  [
+    { label: 'Vórtx DTVM', rx: /\bv[oó]rtx\b/i },
+    { label: 'Pentágono DTVM', rx: /\bpent[aá]gono\b/i },
+    { label: 'Oliveira Trust DTVM', rx: /\boliveira\s+trust\b/i },
+    { label: 'Simplific Pavarini DTVM', rx: /\bsimplific\s+pavarini\b/i },
+    { label: 'Planner Trustee DTVM', rx: /\bplanner(?:\s+trustee|\s+dtvm|\s+corretora)?\b/i }
+  ].forEach(ag => {
+    if (ag.rx.test(blob)) fiduciarios.push(ag.label);
   });
-  const securitizadoras = [];
-  ['Opea', 'Vert', 'Virgo', 'Reit', 'Audax', 'True', 'Bari', 'Isec', 'Euro', 'Ignis'].forEach(sec => {
-    if (blob.toLowerCase().includes(sec.toLowerCase())) securitizadoras.push(`${sec} Securitizadora`);
-  });
+  const securitizadoras = extractStrictSecuritizadorasList(blob);
   return {
     fiduciarios: fiduciarios.length > 0 ? fiduciarios.join(' • ') : 'N/A (Dívida Bancária / Bilaterais)',
     securitizadoras: securitizadoras.length > 0 ? securitizadoras.join(' • ') : 'N/A (Sem Emissão Securitizada Reportada)'
   };
+}
+
+function reconcileSixBucketSplit(rawObj) {
+  const src = rawObj || {};
+  const hasExplicit = (
+    src.extraconcursal_pct !== undefined || src.extraconcursal_fiduciario !== undefined ||
+    src.fiscal_pct !== undefined || src.fiscal_tributario !== undefined ||
+    src.classe_i_pct !== undefined || src.c1_trabalhista !== undefined ||
+    src.classe_ii_pct !== undefined || src.c2_garantia_real !== undefined ||
+    src.classe_iii_pct !== undefined || src.c3_quirografario !== undefined ||
+    src.classe_iv_pct !== undefined || src.c4_me_epp !== undefined
+  );
+  if (!hasExplicit) {
+    return { extra: 18, fiscal: 7, c1: 3, c2: 42, c3: 27, c4: 3 };
+  }
+  let extra = Math.max(0, Number(src.extraconcursal_pct ?? src.extraconcursal_fiduciario ?? src.extra ?? 0) || 0);
+  let fiscal = Math.max(0, Number(src.fiscal_pct ?? src.fiscal_tributario ?? src.fiscal ?? 0) || 0);
+  let c1 = Math.max(0, Number(src.classe_i_pct ?? src.c1_trabalhista ?? src.c1 ?? 0) || 0);
+  let c2 = Math.max(0, Number(src.classe_ii_pct ?? src.c2_garantia_real ?? src.c2 ?? 0) || 0);
+  let c3 = Math.max(0, Number(src.classe_iii_pct ?? src.c3_quirografario ?? src.c3 ?? 0) || 0);
+  let c4 = Math.max(0, Number(src.classe_iv_pct ?? src.c4_me_epp ?? src.c4 ?? 0) || 0);
+
+  const sum = extra + fiscal + c1 + c2 + c3 + c4;
+  if (sum <= 0) {
+    return { extra: 18, fiscal: 7, c1: 3, c2: 42, c3: 27, c4: 3 };
+  }
+  if (Math.abs(sum - 100) < 0.05) {
+    return { extra, fiscal, c1, c2, c3, c4 };
+  }
+  // Proportional normalization to exact 100% with largest-bucket residual adjustment
+  const keys = ['extra', 'fiscal', 'c1', 'c2', 'c3', 'c4'];
+  const rawVals = { extra, fiscal, c1, c2, c3, c4 };
+  const rounded = {};
+  let rSum = 0;
+  let maxKey = 'c2';
+  let maxVal = -1;
+  keys.forEach(k => {
+    const scaled = Math.round((rawVals[k] / sum) * 1000) / 10;
+    rounded[k] = scaled;
+    rSum += scaled;
+    if (scaled > maxVal) {
+      maxVal = scaled;
+      maxKey = k;
+    }
+  });
+  const diff = Math.round((100 - rSum) * 10) / 10;
+  if (diff !== 0) {
+    rounded[maxKey] = Math.max(0, Math.round((rounded[maxKey] + diff) * 10) / 10);
+  }
+  return rounded;
 }
 
 function resolveTicker(empresaName) {
@@ -1147,7 +1506,6 @@ function computeDynamicRecovery(d) {
     recup += 3;
   }
 
-  // Deterministic id-based micro-variation (-2 to +2%) so peer cases in same sector/tier reflect their specific collateral profile
   const offset = ((Number(d.id || 1) * 7) % 5) - 2;
   recup = Math.min(82, Math.max(15, recup + offset));
   return { recupPct: recup, haircutPct: 100 - recup };
@@ -1163,8 +1521,8 @@ function computeDynamicCalendarMeta(d) {
     dataMarcoIso = normalizeIsoDateStr(dataMarcoIso);
   }
 
-  const todayIso = typeof getBrazilTodayIso === 'function' ? getBrazilTodayIso() : '2026-11-09';
-  const refToday = parseDateBR(todayIso) || new Date(2026, 10, 9, 12, 0, 0);
+  const todayIso = typeof getBrazilTodayIso === 'function' ? getBrazilTodayIso() : '2026-11-11';
+  const refToday = parseDateBR(todayIso) || new Date();
 
   let isFixed = Boolean(existing.is_fixed_edital) || hasScheduledAssemblyOrAuction(d);
   if ((!dataMarcoIso || dataMarcoIso === '2026-11-15') && explicitDateMatch) {
@@ -1175,7 +1533,6 @@ function computeDynamicCalendarMeta(d) {
     }
   }
 
-  // P0-4 Fix: Ancorar projeção prospectiva em Math.max(data_evento, data_adicao) sempre que o evento original + 60d já tiver expirado
   const addDays = (d.tipo_processo === 'Tier 0' || d.tipo_processo === 'PRE') ? (35 + (Number(d.id || 1) % 20)) : 60;
   const evIso = normalizeIsoDateStr(d.data_evento || '2026-10-20');
   const addIso = normalizeIsoDateStr(d.data_adicao || evIso);
@@ -1230,7 +1587,7 @@ function computeDynamicCalendarMeta(d) {
 }
 
 function enrichAllDeals() {
-  const todayIso = typeof getBrazilTodayIso === 'function' ? getBrazilTodayIso() : '2026-11-09';
+  const todayIso = typeof getBrazilTodayIso === 'function' ? getBrazilTodayIso() : '2026-11-11';
   DEALS_DATA.forEach(d => {
     d.data_evento = normalizeIsoDateStr(d.data_evento, '2026-10-15');
     d.data_adicao = normalizeIsoDateStr(d.data_adicao, d.data_evento);
@@ -1271,13 +1628,32 @@ function enrichAllDeals() {
     const dynRec = computeDynamicRecovery(d);
     const p = Number(d.passivo_mm || 100);
     if (!d.model_params) {
+      const defSplit = { extra: 18, fiscal: 7, c1: 3, c2: 42, c3: 27, c4: 3 };
       d.model_params = {
+        haircut_pct: dynRec.haircutPct,
+        recuperacao_pct: dynRec.recupPct,
         haircut_estimado_pct: dynRec.haircutPct,
         recuperacao_estimada_pct: dynRec.recupPct,
         desconto_secundario_pct: 35,
         ev_estimado_mm: Math.round(p * (dynRec.recupPct / 100.0)),
         liquidez_forcada_desconto_pct: 40,
-        classes_pct: { c1_trabalhista: 8, c2_garantia_real: 35, c3_quirografario: 50, c4_me_epp: 7, extraconcursal_fiduciario: 20, passivo_fiscal_estimado_mm: Math.round(p * 0.22) },
+        split_classes: {
+          extraconcursal_pct: defSplit.extra,
+          fiscal_pct: defSplit.fiscal,
+          classe_i_pct: defSplit.c1,
+          classe_ii_pct: defSplit.c2,
+          classe_iii_pct: defSplit.c3,
+          classe_iv_pct: defSplit.c4
+        },
+        classes_pct: {
+          extraconcursal_fiduciario: defSplit.extra,
+          fiscal_tributario: defSplit.fiscal,
+          c1_trabalhista: defSplit.c1,
+          c2_garantia_real: defSplit.c2,
+          c3_quirografario: defSplit.c3,
+          c4_me_epp: defSplit.c4,
+          passivo_fiscal_estimado_mm: Math.round(p * (defSplit.fiscal / 100) * 10) / 10
+        },
         dip_necessidade_mm: Math.round(Math.max(15, p * 0.12)),
         upi_valuation_estimado_mm: Math.round(p * 0.35)
       };
@@ -1286,6 +1662,25 @@ function enrichAllDeals() {
       d.model_params.recuperacao_estimada_pct = dynRec.recupPct;
       d.model_params.haircut_pct = dynRec.haircutPct;
       d.model_params.recuperacao_pct = dynRec.recupPct;
+      const recSplit = reconcileSixBucketSplit(d.model_params.split_classes || d.model_params.classes_pct);
+      d.model_params.split_classes = {
+        extraconcursal_pct: recSplit.extra,
+        fiscal_pct: recSplit.fiscal,
+        classe_i_pct: recSplit.c1,
+        classe_ii_pct: recSplit.c2,
+        classe_iii_pct: recSplit.c3,
+        classe_iv_pct: recSplit.c4
+      };
+      d.model_params.classes_pct = {
+        ...(d.model_params.classes_pct || {}),
+        extraconcursal_fiduciario: recSplit.extra,
+        fiscal_tributario: recSplit.fiscal,
+        c1_trabalhista: recSplit.c1,
+        c2_garantia_real: recSplit.c2,
+        c3_quirografario: recSplit.c3,
+        c4_me_epp: recSplit.c4,
+        passivo_fiscal_estimado_mm: Math.round(p * (recSplit.fiscal / 100) * 10) / 10
+      };
       if (typeof d.model_params.upi_valuation_estimado_mm !== 'number' || d.model_params.upi_valuation_estimado_mm <= 0) {
         d.model_params.upi_valuation_estimado_mm = Math.round(p * 0.35);
       }
@@ -1293,31 +1688,32 @@ function enrichAllDeals() {
 
     d.calendar_meta = computeDynamicCalendarMeta(d);
 
-    const st = extractStakeholdersFromText(d.credores, d.tese);
+    const st = extractStakeholdersFromText(d.credores, d.tese, d.perfil_passivo);
     d.agentes_fiduciarios = (d.energy_meta && d.energy_meta.agente_fiduciario) ? d.energy_meta.agente_fiduciario : (d.agentes_fiduciarios || st.fiduciarios);
-    d.securitizadoras = d.securitizadoras || st.securitizadoras;
-    d.ticker = resolveTicker(d.empresa);
+    if (!d.securitizadoras || /^n\/a\b/i.test(String(d.securitizadoras).trim())) {
+      d.securitizadoras = st.securitizadoras;
+    } else {
+      // Sanitize any legacy non-contextual Reit/Vert/Euro token if raw deal fields lack contextual match
+      const rawEvidence = `${d.credores || ''} ${d.tese || ''} ${d.perfil_passivo || ''} ${d.descricao_empresa || ''}`;
+      const tokens = String(d.securitizadoras).split(/\s*(?:•|,|;|\/)\s*/).filter(Boolean).filter(tok => {
+        if (/^reit\b/i.test(tok) && !RX_REIT_SEC.test(rawEvidence) && !RX_REIT_SEC.test(tok)) return false;
+        if (/^vert\b/i.test(tok) && !RX_VERT_SEC.test(rawEvidence) && !RX_VERT_SEC.test(tok)) return false;
+        if (/^euro\b/i.test(tok) && !RX_EURO_SEC.test(rawEvidence) && !RX_EURO_SEC.test(tok)) return false;
+        return true;
+      });
+      d.securitizadoras = tokens.length > 0 ? tokens.join(' • ') : st.securitizadoras;
+    }
+    d.ticker = d.ticker || resolveTicker(d.empresa);
 
     const faseL = (d.fase || '').toLowerCase();
-    if (faseL.includes('falência') || faseL.includes('autofalência') || faseL.includes('liquidação') || faseL.includes('classe 110')) {
+    if (faseL.includes('falência') || faseL.includes('falencia') || faseL.includes('autofalência') || faseL.includes('liquidação') || faseL.includes('liquidacao') || faseL.includes('classe 110')) {
       d.subtipo_processo = 'Falência / Liquidação';
     } else {
       d.subtipo_processo = d.tipo_processo || 'PRJ';
     }
   });
 
-  const navOp = document.getElementById('nav-count-operacao');
-  const navUpi = document.getElementById('nav-count-upis');
-  const navPrazos = document.getElementById('nav-count-prazos');
-  const navNews = document.getElementById('nav-count-noticias');
-  const navEng = document.getElementById('nav-count-energia');
-  if (navOp) navOp.textContent = DEALS_DATA.length;
-  if (navUpi) navUpi.textContent = DEALS_DATA.filter(isUpiEligible).length;
-  if (navPrazos) navPrazos.textContent = DEALS_DATA.length;
-  if (navNews) navNews.textContent = typeof getAllCombinedNews === 'function' ? getAllCombinedNews().length : (baseStaticNewsItems || []).length;
-  if (navEng) navEng.textContent = DEALS_DATA.filter(d => d.setor_macro === 'Energia & Infraestrutura').length;
-  const pill = document.getElementById('lastUpdateTime');
-  if (pill && DEALS_DATA.length > 0) pill.textContent = `Online: ${DEALS_DATA.length} leads`;
+  updateDynamicNavCounts();
 }
 
 function showToast(msg) {
@@ -1325,12 +1721,14 @@ function showToast(msg) {
   if (!t) return;
   t.textContent = msg;
   t.style.display = 'block';
-  clearTimeout(window._toastTimer);
-  window._toastTimer = setTimeout(() => { t.style.display = 'none'; }, 3200);
+  if (typeof window !== 'undefined') {
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => { t.style.display = 'none'; }, 3200);
+  }
 }
 
 // ==========================================================================
-// 2. Dynamic Liability Cutoff Controls (Piso e Teto em R$ MM + Quick Toggles)
+// 2. Dynamic Liability Cutoff Controls & Structured Entity Filter
 // ==========================================================================
 function matchesPassivoCutoff(item) {
   const val = Number(item.passivo_mm || 0);
@@ -1339,7 +1737,7 @@ function matchesPassivoCutoff(item) {
   return true;
 }
 
-function handlePassivoCutoffInput() {
+function applyPassivoCutoffImmediate() {
   const minEl = document.getElementById('inputMinPassivo');
   const maxEl = document.getElementById('inputMaxPassivo');
 
@@ -1364,7 +1762,12 @@ function handlePassivoCutoffInput() {
   currentPage = 1;
   renderSubTabs();
   renderSectionContent();
-  updateUrlHash();
+  syncUrlHash(false);
+}
+
+function handlePassivoCutoffInput() {
+  clearTimeout(passivoCutoffDebounceTimer);
+  passivoCutoffDebounceTimer = setTimeout(applyPassivoCutoffImmediate, 120);
 }
 
 function setPassivoQuickToggle(mode) {
@@ -1399,9 +1802,77 @@ function setPassivoQuickToggle(mode) {
 
   renderSubTabs();
   renderSectionContent();
-  updateUrlHash();
+  syncUrlHash(false);
 }
 
+function renderActiveEntityFilterBar() {
+  const bar = document.getElementById('activeEntityFilterBar');
+  if (!bar) return;
+  if (!activeEntityFilter || !activeEntityFilter.dealIds) {
+    bar.style.display = 'none';
+    bar.innerHTML = '';
+    return;
+  }
+  const cnt = activeEntityFilter.dealIds.size;
+  bar.style.display = 'flex';
+  bar.innerHTML = `
+    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+      <span style="font-size:11px; font-weight:800; color:#063630; text-transform:uppercase; letter-spacing:0.04em;">Filtro de Entidade Ativo:</span>
+      <span class="entity-filter-chip">
+        <span>${escapeHtml(activeEntityFilter.category)} &mdash; ${escapeHtml(activeEntityFilter.label)} (${cnt} ${cnt === 1 ? 'caso' : 'casos'})</span>
+        <button type="button" class="entity-chip-dismiss" onclick="clearEntityFilter()" aria-label="Remover filtro de entidade">&#10005;</button>
+      </span>
+    </div>
+    <button type="button" class="btn-action" style="padding:3px 10px; font-size:11px;" onclick="clearEntityFilter()">&#10005; Limpar</button>
+  `;
+}
+
+function clearEntityFilter() {
+  activeEntityFilter = null;
+  currentPage = 1;
+  renderActiveEntityFilterBar();
+  renderSubTabs();
+  renderSectionContent();
+  syncUrlHash(true);
+  showToast('Filtro de entidade removido.');
+}
+
+function activateEntityFilter(category, label, dealIdsIterable) {
+  const dealIds = new Set(Array.from(dealIdsIterable || [], id => String(id)));
+  activeEntityFilter = {
+    category: String(category || 'Entidade'),
+    label: String(label || ''),
+    dealIds
+  };
+
+  // Ensure no secondary filter or passivo cutoff hides any of the exact N matched cases
+  currentProcessType = '';
+  currentUf = '';
+  currentSetor = '';
+  currentPorte = '';
+  searchTerm = '';
+
+  const matchedDeals = DEALS_DATA.filter(d => dealIds.has(String(d.id)));
+  const hasBelowFloor = matchedDeals.some(d => Number(d.passivo_mm || 0) < (minPassivoMM || 0));
+  const hasAboveCeil = maxPassivoMM !== null && matchedDeals.some(d => Number(d.passivo_mm || 0) > maxPassivoMM);
+  if (hasBelowFloor) {
+    minPassivoMM = 0;
+  }
+  if (hasAboveCeil) {
+    maxPassivoMM = null;
+  }
+
+  syncFilterDomControlsFromState();
+  renderActiveEntityFilterBar();
+  switchMainSection('operacao');
+  showToast(`${activeEntityFilter.category}: ${activeEntityFilter.label} (${dealIds.size} ${dealIds.size === 1 ? 'caso' : 'casos'})`);
+}
+
+function activateEntityFilterFromCard(regKey) {
+  const entry = entityFilterRegistry.get(regKey) || entityFilterRegistry[regKey];
+  if (!entry) return;
+  activateEntityFilter(entry.category, entry.label, entry.dealIds);
+}
 
 function resetAllFilters() {
   currentProcessType = '';
@@ -1413,31 +1884,14 @@ function resetAllFilters() {
   minPassivoMM = 30;
   maxPassivoMM = null;
   activeQuickToggle = 'all';
+  activeEntityFilter = null;
   currentPage = 1;
 
-  const searchEl = document.getElementById('searchInput');
-  if (searchEl) searchEl.value = '';
-  const ufEl = document.getElementById('selectUf');
-  if (ufEl) ufEl.value = '';
-  const setorEl = document.getElementById('selectSetor');
-  if (setorEl) setorEl.value = '';
-  const porteEl = document.getElementById('selectPorte');
-  if (porteEl) porteEl.value = '';
-  const sortEl = document.getElementById('selectSort');
-  if (sortEl) sortEl.value = 'movimento_desc';
-  const minEl = document.getElementById('inputMinPassivo');
-  if (minEl) minEl.value = '30';
-  const maxEl = document.getElementById('inputMaxPassivo');
-  if (maxEl) maxEl.value = '';
-
-  document.querySelectorAll('.quick-toggle-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('qtoggle-all')?.classList.add('active');
-  document.querySelectorAll('.phase-chip').forEach(c => c.classList.remove('active'));
-  document.getElementById('proc-all')?.classList.add('active');
-
+  syncFilterDomControlsFromState();
+  renderActiveEntityFilterBar();
   renderSubTabs();
   renderSectionContent();
-  updateUrlHash();
+  syncUrlHash(true);
   showToast('Todos os filtros foram limpos (Piso restaurado para R$ 30 MM).');
 }
 
@@ -1474,7 +1928,7 @@ function isDebenturesEligible(d) {
   const afClean = String(d.agentes_fiduciarios || '').replace(/monitoramento via escrituras\s*\/\s*n\/a/gi, '').replace(/n\/a\s*\([^)]*\)/gi, '');
   const secClean = String(d.securitizadoras || '').replace(/sem securitizadora reportada[^,]*/gi, '').replace(/n\/a\s*\([^)]*\)/gi, '');
   const blob = [perfilClean, d.credores || '', d.tese || '', d.processo || '', d.tribunal || '', afClean, secClean, ...(d.watchdog_triggers || [])].join(' ');
-  const dcmRegex = /\b(deb[eê]ntures?|debenturistas?|cras?|cris?|fidcs?|cvm|agds?|notas?\s+comerciais|v[oó]rtx|pent[aá]gono|oliveira\s+trust|virgo|opea|vert\s+securitizadora|reit\s+securitizadora|audax|covenants?|waivers?|standstill|fitch|moody|bonds?|bondholders?)\b/i;
+  const dcmRegex = /\b(deb[eê]ntures?|debenturistas?|cras?|cris?|fidcs?|cvm|agds?|notas?\s+comerciais|v[oó]rtx|pent[aá]gono|oliveira\s+trust|virgo|opea|vert\s+(?:cia\.?\s+|companhia\s+)?securitizadora|reit\s+securitizadora|euro\s+securitizadora|audax|covenants?|waivers?|standstill|fitch|moody|bonds?|bondholders?)\b/i;
   return dcmRegex.test(blob);
 }
 
@@ -1485,14 +1939,19 @@ function hasScheduledAssemblyOrAuction(d) {
   if (/\b(agc|agd|assembleia|leil[aã]o|hasta\s+p[uú]blica|media[cç][aã]o)\b/i.test(blob)) return true;
 
   const todayDt = parseDateBR(getBrazilTodayIso()) || new Date();
-  const dateRegex = /\b(\d{1,2})\/(\d{1,2})(?:\/(202\d))?\b/g;
+  // Require either an explicit 4-digit year (DD/MM/202X) OR a date preposition before DD/MM, excluding legal quorum fractions (1/3, 2/3, 3/4)
+  const dateRegex = /(?:(\b\d{1,2})\/(\d{1,2})\/(202\d)\b)|(?:\b(?:dia|em|para|data|realizar-se\s+em|marcada\s+para)\s+(\d{1,2})\/(\d{1,2})(?:\/(202\d))?\b)/gi;
   let m;
   while ((m = dateRegex.exec(rawBlob)) !== null) {
-    const day = parseInt(m[1], 10);
-    const mon = parseInt(m[2], 10);
+    const day = parseInt(m[1] || m[4], 10);
+    const mon = parseInt(m[2] || m[5], 10);
+    const yrRaw = m[3] || m[6];
     if (day < 1 || day > 31 || mon < 1 || mon > 12) continue;
-    const yr = m[3] ? parseInt(m[3], 10) : todayDt.getFullYear();
+    const prefixCtx = rawBlob.slice(Math.max(0, m.index - 24), m.index).toLowerCase();
+    if (/(?:qu[oó]rum|mais\s+de|m[ií]nimo\s+de|aprova[cç][aã]o\s+de)\s*$/.test(prefixCtx) && !yrRaw) continue;
+    const yr = yrRaw ? parseInt(yrRaw, 10) : todayDt.getFullYear();
     const cand = new Date(yr, mon - 1, day, 12, 0, 0);
+    if (cand.getFullYear() !== yr || cand.getMonth() !== mon - 1 || cand.getDate() !== day) continue;
     const diffDays = Math.round((cand.getTime() - todayDt.getTime()) / 86400000);
     if (diffDays >= -7 && diffDays <= 120) return true;
   }
@@ -1535,9 +1994,13 @@ function escapeHtml(str) {
 }
 
 // ==========================================================================
-// 4. Main Section & Sub-Tab Navigation
+// 4. Main Section & Sub-Tab Navigation + Tier 0 Deduplication
 // ==========================================================================
 function switchMainSection(secId) {
+  if (secId !== 'mapa' && leafletMapInstance) {
+    try { leafletMapInstance.remove(); } catch (e) {}
+    leafletMapInstance = null;
+  }
   currentMainSection = secId;
   currentPage = 1;
   document.querySelectorAll('.nav-link-btn').forEach(b => {
@@ -1551,14 +2014,17 @@ function switchMainSection(secId) {
   }
 
   const cfg = SECTION_CONFIG[secId] || SECTION_CONFIG.operacao;
-  document.getElementById('pageMainTitle').textContent = resolveDynamicCaseText(cfg.pageTitle);
-  document.getElementById('pageMainSubtitle').textContent = resolveDynamicCaseText(cfg.pageSubtitle);
-  document.getElementById('filterConsole').style.display = cfg.showFilters ? 'flex' : 'none';
+  const titleEl = document.getElementById('pageMainTitle');
+  const subEl = document.getElementById('pageMainSubtitle');
+  const filterEl = document.getElementById('filterConsole');
+  if (titleEl) titleEl.textContent = resolveDynamicCaseText(cfg.pageTitle);
+  if (subEl) subEl.textContent = resolveDynamicCaseText(cfg.pageSubtitle);
+  if (filterEl) filterEl.style.display = cfg.showFilters ? 'flex' : 'none';
 
   currentSubTab = cfg.subtabs[0].id;
   renderSubTabs();
   renderSectionContent();
-  updateUrlHash();
+  syncUrlHash(true);
 }
 
 function selectSubTab(subId) {
@@ -1574,44 +2040,82 @@ function selectSubTab(subId) {
   }
   renderSubTabs();
   renderSectionContent();
-  updateUrlHash();
+  syncUrlHash(true);
+}
+
+function getMergedTier0Targets() {
+  if (!Array.isArray(LIVE_TIER0_DATA) || LIVE_TIER0_DATA.length === 0) return [];
+  const existingCnpjs = new Set();
+  const existingBaseNames = new Set();
+  const existingStems = new Set();
+
+  (DEALS_DATA || []).forEach(d => {
+    if (!d) return;
+    const digits = String(d.cnpj || '').replace(/\D/g, '');
+    if (digits.length >= 11) existingCnpjs.add(digits);
+    const baseName = normalizeTextNoAccents(String(d.empresa || '').split('(')[0].trim());
+    if (baseName.length >= 3) existingBaseNames.add(baseName);
+    const stem = normalizeCompanyStem(d.empresa);
+    if (stem.length >= 3) existingStems.add(stem);
+  });
+
+  const uniqueTargets = [];
+  LIVE_TIER0_DATA.forEach((t0, origIdx) => {
+    if (!t0 || !t0.empresa || isBlockedEntityToken(t0.empresa)) return;
+    const digits = String(t0.cnpj || '').replace(/\D/g, '');
+    const baseName = normalizeTextNoAccents(String(t0.empresa || '').split('(')[0].trim());
+    const stem = normalizeCompanyStem(t0.empresa);
+    if (digits.length >= 11 && existingCnpjs.has(digits)) return;
+    if (baseName.length >= 3 && existingBaseNames.has(baseName)) return;
+    if (stem.length >= 3 && existingStems.has(stem)) return;
+
+    if (digits.length >= 11) existingCnpjs.add(digits);
+    if (baseName.length >= 3) existingBaseNames.add(baseName);
+    if (stem.length >= 3) existingStems.add(stem);
+    uniqueTargets.push({ ...t0, _origIdx: origIdx });
+  });
+  return uniqueTargets;
 }
 
 function getFilteredTier0Targets() {
-  if (!Array.isArray(LIVE_TIER0_DATA) || LIVE_TIER0_DATA.length === 0) return [];
-  return LIVE_TIER0_DATA
-    .map((t0, origIdx) => ({ ...t0, _origIdx: origIdx }))
-    .filter(t0 => {
-      if (!matchesPassivoCutoff(t0)) return false;
-      if (currentSetor !== '') {
-        const sMatch = t0.setor_macro === currentSetor
-          || (currentSetor === 'Imobiliário & Construção' && String(t0.setor_macro || '').includes('Construção'));
-        if (!sMatch) return false;
-      }
-      if (currentUf !== '') {
-        const regUpper = String(t0.regiao || '').toUpperCase();
-        if (!new RegExp(`\\b${currentUf}\\b`).test(regUpper)) return false;
-      }
-      if (currentPorte !== '') {
-        const p = Number(t0.passivo_mm || 0);
-        if (currentPorte === 'small' && p >= 30) return false;
-        if (currentPorte === 'mid' && (p < 30 || p >= 100)) return false;
-        if (currentPorte === 'upper' && (p < 100 || p >= 500)) return false;
-        if (currentPorte === 'large' && (p < 500 || p >= 1000)) return false;
-        if (currentPorte === 'mega' && p < 1000) return false;
-      }
-      if (searchTerm !== '') {
-        const blob = [t0.empresa, t0.cnpj, t0.setor_macro, t0.regiao, t0.vetores, t0.tese, t0.fontes].join(' ').toLowerCase();
-        if (!blob.includes(searchTerm)) return false;
-      }
-      return true;
-    });
+  if (activeEntityFilter && activeEntityFilter.dealIds) return [];
+  const merged = getMergedTier0Targets();
+  if (merged.length === 0) return [];
+  return merged.filter(t0 => {
+    if (!matchesPassivoCutoff(t0)) return false;
+    if (currentSetor !== '') {
+      const sMatch = t0.setor_macro === currentSetor
+        || (currentSetor === 'Imobiliário & Construção' && String(t0.setor_macro || '').includes('Construção'));
+      if (!sMatch) return false;
+    }
+    if (currentUf !== '') {
+      const regUpper = String(t0.regiao || '').toUpperCase();
+      if (!new RegExp(`\\b${currentUf}\\b`).test(regUpper)) return false;
+    }
+    if (currentPorte !== '') {
+      const p = Number(t0.passivo_mm || 0);
+      if (currentPorte === 'small' && p >= 30) return false;
+      if (currentPorte === 'mid' && (p < 30 || p >= 100)) return false;
+      if (currentPorte === 'upper' && (p < 100 || p >= 500)) return false;
+      if (currentPorte === 'large' && (p < 500 || p >= 1000)) return false;
+      if (currentPorte === 'mega' && p < 1000) return false;
+    }
+    if (searchTerm !== '') {
+      const blob = [t0.empresa, t0.cnpj, t0.setor_macro, t0.regiao, t0.vetores, t0.tese, t0.fontes].join(' ').toLowerCase();
+      if (!blob.includes(searchTerm)) return false;
+    }
+    return true;
+  });
 }
 
 function renderSubTabs() {
   const cfg = SECTION_CONFIG[currentMainSection] || SECTION_CONFIG.operacao;
   const bar = document.getElementById('subtabPillsBar');
-  const baseDeals = DEALS_DATA.filter(matchesPassivoCutoff);
+  if (!bar) return;
+  const baseDeals = DEALS_DATA.filter(d => {
+    if (activeEntityFilter && activeEntityFilter.dealIds && !activeEntityFilter.dealIds.has(String(d.id))) return false;
+    return matchesPassivoCutoff(d);
+  });
 
   let html = '';
   cfg.subtabs.forEach(st => {
@@ -1623,8 +2127,8 @@ function renderSubTabs() {
         if (st.id === 'debentures') return isDebenturesEligible(d);
         return d.strategy_id === st.id;
       }).length;
-      if (st.id === 'precursor' && Array.isArray(LIVE_TIER0_DATA)) {
-        cnt += LIVE_TIER0_DATA.filter(matchesPassivoCutoff).length;
+      if (st.id === 'precursor' && !activeEntityFilter) {
+        cnt += getMergedTier0Targets().filter(matchesPassivoCutoff).length;
       }
       countBadge = `<span class="pill-count">${cnt}</span>`;
     } else if (currentMainSection === 'upis') {
@@ -1662,8 +2166,10 @@ function renderSubTabs() {
     `;
 
     if (isActive) {
-      document.getElementById('subSectionTitle').textContent = resolveDynamicCaseText(st.title);
-      document.getElementById('subSectionDesc').textContent = resolveDynamicCaseText(st.desc);
+      const titleEl = document.getElementById('subSectionTitle');
+      const descEl = document.getElementById('subSectionDesc');
+      if (titleEl) titleEl.textContent = resolveDynamicCaseText(st.title);
+      if (descEl) descEl.textContent = resolveDynamicCaseText(st.desc);
     }
   });
 
@@ -1676,8 +2182,38 @@ function renderSubTabs() {
 // ==========================================================================
 // 5. Filtering, Sorting & KPI Recalculation Engine
 // ==========================================================================
+function matchesEnergySubmarketFilter(item) {
+  if (!selectedSinSubmarket || selectedSinSubmarket === 'SIN') return true;
+  const subMeta = String(item.energy_meta?.submercado || '').toLowerCase();
+  const reg = String(item.regiao_macro || '').toLowerCase();
+  const uf = String(item.uf || '').toUpperCase();
+  if (selectedSinSubmarket === 'SE') {
+    return subMeta.includes('sudeste') || subMeta.includes('se/co') || reg === 'sudeste' || reg === 'centro-oeste' || ['SP', 'RJ', 'MG', 'ES', 'GO', 'MT', 'MS', 'DF'].includes(uf);
+  }
+  if (selectedSinSubmarket === 'S') {
+    return subMeta.includes('sul') || reg === 'sul' || ['PR', 'SC', 'RS'].includes(uf);
+  }
+  if (selectedSinSubmarket === 'NE') {
+    return subMeta.includes('nordeste') || reg === 'nordeste' || ['BA', 'CE', 'PE', 'RN', 'PB', 'AL', 'SE', 'PI'].includes(uf);
+  }
+  if (selectedSinSubmarket === 'N') {
+    return subMeta.includes('norte') || reg === 'norte' || ['PA', 'AM', 'TO', 'MA', 'RO', 'AP', 'RR', 'AC'].includes(uf);
+  }
+  return true;
+}
+
 function getFilteredDeals() {
   const base = DEALS_DATA.filter(item => {
+    if (activeEntityFilter && activeEntityFilter.dealIds) {
+      if (!activeEntityFilter.dealIds.has(String(item.id))) return false;
+    }
+
+    if (currentMainSection === 'energia') {
+      if (item.setor_macro !== 'Energia & Infraestrutura') return false;
+      if (!matchesEnergySubmarketFilter(item)) return false;
+      return true;
+    }
+
     if (!matchesPassivoCutoff(item)) return false;
 
     if (currentMainSection === 'operacao') {
@@ -1709,7 +2245,7 @@ function getFilteredDeals() {
         }
       }
       if (currentUf !== '' && item.uf !== currentUf) return false;
-      if (currentMainSection !== 'upis' && currentSetor !== '' && item.setor_macro !== currentSetor) return false;
+      if (currentSetor !== '' && item.setor_macro !== currentSetor) return false;
       if (currentPorte !== '') {
         const p = item.passivo_mm || 0;
         if (currentPorte === 'small' && p >= 30) return false;
@@ -1723,6 +2259,7 @@ function getFilteredDeals() {
           item.empresa, item.cnpj, item.credores, item.tribunal,
           item.processo, item.tese, item.setor_macro, item.cidade,
           item.uf, item.perfil_passivo, item.advocacia, item.aj,
+          item.agentes_fiduciarios, item.securitizadoras, item.ticker,
           item.descricao_empresa, ...(item.watchdog_triggers || [])
         ].join(' ').toLowerCase();
         if (!blob.includes(searchTerm)) return false;
@@ -1783,7 +2320,7 @@ function toggleTableColumnSort(colKey) {
     sel.value = currentSort;
   }
   renderSectionContent();
-  updateUrlHash();
+  syncUrlHash(false);
 }
 
 function updateExecutiveKPIs(deals) {
@@ -1805,34 +2342,86 @@ function updateExecutiveKPIs(deals) {
     cutoffDesc += ` | Sem teto`;
   }
 
-  document.getElementById('kpiTotalVolume').textContent = `R$ ${formatKpiScale(totalVol)}`;
-  document.getElementById('kpiVolumeSub').textContent = cutoffDesc;
-  document.getElementById('kpiActiveDeals').textContent = combinedForKpi.length;
-  document.getElementById('kpiAvgTicket').textContent = `R$ ${formatKpiScale(avgVol)}`;
-  document.getElementById('kpiMaxPassivo').textContent = `R$ ${formatKpiScale(maxDeal.passivo_mm)}`;
-  document.getElementById('kpiMaxCompany').textContent = maxDeal.empresa;
-  document.getElementById('kpiJurisdictions').textContent = `${ufs.size} UFs`;
-  document.getElementById('kpiUpiCountSub').textContent = `${upiCount} casos com UPIs mapeadas`;
+  const kpiVolEl = document.getElementById('kpiTotalVolume');
+  if (kpiVolEl) kpiVolEl.textContent = `R$ ${formatKpiScale(totalVol)}`;
+  const kpiSubEl = document.getElementById('kpiVolumeSub');
+  if (kpiSubEl) kpiSubEl.textContent = cutoffDesc;
+  const kpiDealsEl = document.getElementById('kpiActiveDeals');
+  if (kpiDealsEl) kpiDealsEl.textContent = combinedForKpi.length;
+  const kpiAvgEl = document.getElementById('kpiAvgTicket');
+  if (kpiAvgEl) kpiAvgEl.textContent = `R$ ${formatKpiScale(avgVol)}`;
+  const kpiMaxEl = document.getElementById('kpiMaxPassivo');
+  if (kpiMaxEl) kpiMaxEl.textContent = `R$ ${formatKpiScale(maxDeal.passivo_mm)}`;
+  const kpiMaxCompEl = document.getElementById('kpiMaxCompany');
+  if (kpiMaxCompEl) kpiMaxCompEl.textContent = maxDeal.empresa;
+  const kpiJurEl = document.getElementById('kpiJurisdictions');
+  if (kpiJurEl) kpiJurEl.textContent = `${ufs.size} UFs`;
+  const kpiUpiEl = document.getElementById('kpiUpiCountSub');
+  if (kpiUpiEl) kpiUpiEl.textContent = `${upiCount} casos com UPIs mapeadas`;
 
-  const baseWithoutPhase = DEALS_DATA.filter(matchesPassivoCutoff);
-  document.getElementById('proc-count-all').textContent = baseWithoutPhase.length;
-  document.getElementById('proc-count-prj').textContent = baseWithoutPhase.filter(d => d.tipo_processo === 'PRJ' && d.subtipo_processo !== 'Falência / Liquidação').length;
-  document.getElementById('proc-count-cautelar').textContent = baseWithoutPhase.filter(d => d.tipo_processo === 'Cautelar / Pré-RJ').length;
-  document.getElementById('proc-count-pre').textContent = baseWithoutPhase.filter(d => d.tipo_processo === 'PRE').length;
-  document.getElementById('proc-count-falencia').textContent = baseWithoutPhase.filter(d => d.subtipo_processo === 'Falência / Liquidação').length;
-  document.getElementById('proc-count-tier0').textContent = baseWithoutPhase.filter(d => d.tipo_processo === 'Tier 0').length;
+  const baseWithoutPhase = DEALS_DATA.filter(d => {
+    if (activeEntityFilter && activeEntityFilter.dealIds && !activeEntityFilter.dealIds.has(String(d.id))) return false;
+    return matchesPassivoCutoff(d);
+  });
+  const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setTxt('proc-count-all', baseWithoutPhase.length);
+  setTxt('proc-count-prj', baseWithoutPhase.filter(d => d.tipo_processo === 'PRJ' && d.subtipo_processo !== 'Falência / Liquidação').length);
+  setTxt('proc-count-cautelar', baseWithoutPhase.filter(d => d.tipo_processo === 'Cautelar / Pré-RJ').length);
+  setTxt('proc-count-pre', baseWithoutPhase.filter(d => d.tipo_processo === 'PRE').length);
+  setTxt('proc-count-falencia', baseWithoutPhase.filter(d => d.subtipo_processo === 'Falência / Liquidação').length);
+  setTxt('proc-count-tier0', baseWithoutPhase.filter(d => d.tipo_processo === 'Tier 0').length);
 }
 
 // ==========================================================================
-// 6. Section Dispatcher (12 Modules)
+// 6. Section Dispatcher & Chart Lifecycle Guard
 // ==========================================================================
+function scheduleChartInit(fn, delayMs = 40) {
+  const timerId = setTimeout(() => {
+    pendingChartTimers = pendingChartTimers.filter(t => t !== timerId);
+    try { fn(); } catch (e) {}
+  }, delayMs);
+  pendingChartTimers.push(timerId);
+  return timerId;
+}
+
+function createManagedChart(canvasOrId, config) {
+  if (typeof Chart === 'undefined') return null;
+  const canvas = typeof canvasOrId === 'string' ? document.getElementById(canvasOrId) : canvasOrId;
+  if (!canvas) return null;
+  try {
+    if (typeof Chart.getChart === 'function') {
+      const existing = Chart.getChart(canvas);
+      if (existing) existing.destroy();
+    }
+  } catch (e) {}
+  const chart = new Chart(canvas, config);
+  activeCharts.push(chart);
+  return chart;
+}
+
 function renderSectionContent() {
-  activeCharts.forEach(c => { try { c.destroy(); } catch(e){} });
+  pendingChartTimers.forEach(t => clearTimeout(t));
+  pendingChartTimers = [];
+  activeCharts.forEach(c => { try { c.destroy(); } catch (e) {} });
   activeCharts = [];
 
+  renderActiveEntityFilterBar();
   const deals = getFilteredDeals();
   updateExecutiveKPIs(deals);
   const container = document.getElementById('sectionContentArea');
+  if (!container) return;
+
+  if (DEALS_DATA.length === 0 && initialLoadFailed && currentMainSection !== 'noticias') {
+    container.innerHTML = `
+      <div style="max-width:560px; margin:36px auto; background:#FFFFFF; border:1px solid #FCA5A5; border-radius:12px; padding:28px 24px; text-align:center; box-shadow:0 4px 16px rgba(153,27,27,0.06);">
+        <div style="font-size:12px; font-weight:800; color:#991B1B; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">Offline &bull; Falha ao Carregar Base</div>
+        <h3 style="font-size:16px; color:var(--vk-header-start); margin:0 0 8px;">Não foi possível carregar os dossiês concursais</h3>
+        <p style="font-size:12.5px; color:var(--text-secondary); line-height:1.5; margin:0 0 18px;">Verifique sua conexão de rede ou tente sincronizar novamente com o repositório estático e a planilha mestre.</p>
+        <button type="button" class="btn-action" style="padding:8px 18px; font-size:12.5px;" onclick="retryInitialDataLoad()">&#8635; Tentar Novamente</button>
+      </div>
+    `;
+    return;
+  }
 
   if (currentMainSection === 'operacao') {
     if (viewMode === 'table') renderTableView(deals, container);
@@ -1858,6 +2447,30 @@ function renderSectionContent() {
   }
 }
 
+function buildNewerDealNewsAlertMap() {
+  const alertMap = new Map();
+  if (typeof getAllCombinedNews !== 'function') return alertMap;
+  const allNews = getAllCombinedNews();
+  const latestByDeal = new Map();
+  for (let i = 0; i < allNews.length; i++) {
+    const n = allNews[i];
+    const dId = Number(n && n.deal_id);
+    if (!dId || latestByDeal.has(dId)) continue;
+    latestByDeal.set(dId, n);
+  }
+  DEALS_DATA.forEach(d => {
+    const latestNews = latestByDeal.get(Number(d.id));
+    if (!latestNews) return;
+    const newsTs = parseNewsTimestamp(latestNews.data_hora);
+    const dealEvtIso = normalizeIsoDateStr(d.data_evento, '2026-01-01');
+    const dealEvtTs = parseDateBR(dealEvtIso)?.getTime() || 0;
+    if (newsTs > dealEvtTs + 12 * 3600 * 1000) {
+      alertMap.set(Number(d.id), latestNews);
+    }
+  });
+  return alertMap;
+}
+
 function getNewerDealNewsAlert(item) {
   if (!item || !item.id || typeof getAllCombinedNews !== 'function') return null;
   const allNews = getAllCombinedNews();
@@ -1867,7 +2480,6 @@ function getNewerDealNewsAlert(item) {
   const newsTs = parseNewsTimestamp(latestNews.data_hora);
   const dealEvtIso = normalizeIsoDateStr(item.data_evento, '2026-01-01');
   const dealEvtTs = parseDateBR(dealEvtIso)?.getTime() || 0;
-  // Trigger if news is at least 12h newer than the deal's last recorded data_evento
   if (newsTs > dealEvtTs + 12 * 3600 * 1000) {
     return latestNews;
   }
@@ -1965,8 +2577,8 @@ function renderTier0ForensicPanelHtml() {
     <div class="tier0-section-wrap">
       <div style="background:#FFFBEB; border:1px solid #FCD34D; border-radius:8px; padding:12px 16px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
         <div>
-          <strong style="font-size:13px; color:#92400E;">Radar Preditivo Forense (Tier 0 Antecedente) — ${targets.length} Alvos Pré-Concursais Ativos (R$ ${formatNumberBR(totalT0Passivo)} MM)</strong>
-          <div style="font-size:11.5px; color:#78350F; margin-top:2px;">Companhias sem RJ ajuizada capturadas via protestos CENPROT, execuções fiscais PGFN, CVM Fundos.NET, CCEE e agências reguladoras (janela de 30 a 90 dias antes do ajuizamento).</div>
+          <strong style="font-size:13px; color:#92400E;">Radar Preditivo Forense (Tier 0 Antecedente) — ${targets.length} Alvos Extras da Planilha Ao Vivo (R$ ${formatNumberBR(totalT0Passivo)} MM)</strong>
+          <div style="font-size:11.5px; color:#78350F; margin-top:2px;">Companhias inéditas sem RJ ajuizada capturadas na aba Tier 0 (protestos CENPROT, PGFN, CVM Fundos.NET, CCEE e agências reguladoras).</div>
         </div>
         <span class="status-badge badge-tier0">JANELA ANTECEDENTE: 30 A 90 DIAS</span>
       </div>
@@ -2028,6 +2640,8 @@ function renderTableView(deals, container) {
   }
 
   const pagedDeals = paginateDeals(deals);
+  const newsAlertMap = buildNewerDealNewsAlertMap();
+  const compSet = new Set(selectedCompIds.map(Number));
 
   const empArrow = currentSort === 'empresa_asc' ? '↑' : (currentSort === 'empresa_desc' ? '↓' : '↕');
   const cnpjArrow = currentSort === 'cnpj_asc' ? '↑' : (currentSort === 'cnpj_desc' ? '↓' : '↕');
@@ -2050,7 +2664,7 @@ function renderTableView(deals, container) {
             <th class="sortable-th" style="width: 10%;" onclick="toggleTableColumnSort('cnpj')" title="Ordenar por CNPJ">
               CNPJ <span class="sort-indicator">${cnpjArrow}</span>
             </th>
-            <th class="sortable-th" style="width: 12%;" onclick="toggleTableColumnSort('setor')" title="Ordenar por Macro-Setor">
+            <th class="sortable-th" style="width: 11%;" onclick="toggleTableColumnSort('setor')" title="Ordenar por Macro-Setor">
               Macro-Setor <span class="sort-indicator">${setArrow}</span>
             </th>
             <th style="width: 14%;">Fase Concursal &amp; Autos</th>
@@ -2064,11 +2678,11 @@ function renderTableView(deals, container) {
             <th class="sortable-th" style="width: 8%; text-align: right;" onclick="toggleTableColumnSort('passivo')" title="Ordenar por Passivo">
               Passivo (R$ MM) <span class="sort-indicator">${pasArrow}</span>
             </th>
-            <th style="width: 9%;">Principais Credores</th>
+            <th style="width: 8%;">Principais Credores</th>
             <th class="sortable-th" style="width: 4%; text-align: center;" onclick="toggleTableColumnSort('score')" title="Ordenar por Score Forense">
               Score <span class="sort-indicator">${scoArrow}</span>
             </th>
-            <th style="width: 4%; text-align: center;">Ficha</th>
+            <th style="width: 6%; text-align: center;">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -2079,11 +2693,12 @@ function renderTableView(deals, container) {
     const b = getBadgeVisual(item);
     const upiTag = isUpiEligible(item) ? `<span class="status-badge badge-upi" title="Contém ativos/UPIs elegíveis">UPI</span>` : '';
     const tickerBadge = item.ticker ? `<span style="font-family:var(--font-mono); font-size:9.5px; background:#E6E9DC; color:#063630; padding:1px 5px; border-radius:3px; font-weight:800; margin-left:5px;">${escapeHtml(item.ticker)}</span>` : '';
-    const newerAlert = getNewerDealNewsAlert(item);
+    const newerAlert = newsAlertMap.get(Number(item.id)) || null;
     const alertBadgeHtml = newerAlert
       ? `<div style="margin-top:3px;"><span class="status-badge badge-cautelar" style="margin-left:0; font-size:9px; cursor:pointer;" onclick="event.stopPropagation(); openDossier(${item.id})" title="Fato Relevante Recente (${escapeHtml(newerAlert.data_hora)}): ${escapeHtml(newerAlert.titulo)}">⚡ Fato Relevante (${escapeHtml(newerAlert.data_hora.slice(0, 5))})</span></div>`
       : '';
     const credoresTrunc = (item.credores && item.credores.length > 44) ? `${item.credores.substring(0, 44)}...` : (item.credores || 'Em apuração');
+    const isCompSelected = compSet.has(Number(item.id));
 
     html += `
       <tr>
@@ -2106,8 +2721,11 @@ function renderTableView(deals, container) {
         <td class="td-passivo">R$ ${escapeHtml(passivoStr)}</td>
         <td style="font-size: 11px; color: var(--text-secondary);" title="${escapeHtml(item.credores)}">${escapeHtml(credoresTrunc)}</td>
         <td class="td-score">${formatScoreBR(item.score)}</td>
-        <td style="text-align: center;">
-          <button class="btn-action" onclick="openDossier(${item.id})">Ficha</button>
+        <td style="text-align: center; white-space: nowrap;">
+          <div style="display:inline-flex; align-items:center; gap:4px;">
+            <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" onclick="toggleCompDeal(${item.id}, event)" title="${isCompSelected ? 'Remover do Comparador (Comps)' : 'Adicionar ao Comparador Lado a Lado (até 4 casos)'}" aria-pressed="${isCompSelected ? 'true' : 'false'}">⚖️</button>
+            <button type="button" class="btn-action" onclick="openDossier(${item.id})">Ficha</button>
+          </div>
         </td>
       </tr>
     `;
@@ -2129,11 +2747,13 @@ function renderCardsView(deals, container) {
   }
 
   const pagedDeals = paginateDeals(deals);
+  const compSet = new Set(selectedCompIds.map(Number));
   let html = tier0PanelHtml + `<div class="cards-grid">`;
   pagedDeals.forEach(item => {
     const passivoStr = formatNumberBR(item.passivo_mm);
     const b = getBadgeVisual(item);
     const parsed = parseThesisRegex(item.tese);
+    const isCompSelected = compSet.has(Number(item.id));
 
     html += `
       <div class="clean-deal-card" onclick="openDossier(${item.id})">
@@ -2170,9 +2790,12 @@ function renderCardsView(deals, container) {
             <strong style="color:var(--vk-header-start);">Gargalo:</strong> ${escapeHtml(parsed.gargalo.length > 125 ? parsed.gargalo.substring(0, 125) + '...' : parsed.gargalo)}
           </div>
         </div>
-        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light); padding-top:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; border-top:1px solid var(--border-light); padding-top:10px;">
           <span class="td-sector-pill">${escapeHtml(item.setor_macro)}</span>
-          <button class="btn-action">Abrir Tear Sheet</button>
+          <div style="display:inline-flex; align-items:center; gap:5px;">
+            <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" onclick="toggleCompDeal(${item.id}, event)" title="${isCompSelected ? 'Remover do Comparador' : 'Comparar Lado a Lado'}" aria-pressed="${isCompSelected ? 'true' : 'false'}">⚖️ Comps</button>
+            <button type="button" class="btn-action">Abrir Tear Sheet</button>
+          </div>
         </div>
       </div>
     `;
@@ -2304,7 +2927,7 @@ function renderDashboardsSection(deals, container) {
       </div>
     `;
     container.innerHTML = html;
-    setTimeout(() => initMonthlySafraChart(deals), 20);
+    scheduleChartInit(() => initMonthlySafraChart(deals), 20);
     return;
   }
 
@@ -2333,7 +2956,7 @@ function renderDashboardsSection(deals, container) {
         </div>
       </div>
     `;
-    setTimeout(() => initPorteAndTopCharts(deals), 20);
+    scheduleChartInit(() => initPorteAndTopCharts(deals), 20);
     return;
   }
 
@@ -2382,7 +3005,7 @@ function renderDashboardsSection(deals, container) {
     </div>
   `;
 
-  setTimeout(() => initSectorAndPhaseCharts(deals, sectorsSorted), 20);
+  scheduleChartInit(() => initSectorAndPhaseCharts(deals, sectorsSorted), 20);
 }
 
 function initSectorAndPhaseCharts(deals, sectorsSorted) {
@@ -2392,37 +3015,31 @@ function initSectorAndPhaseCharts(deals, sectorsSorted) {
   const counts = sectorsSorted.map(s => s.count);
   const paletteColors = ['#063630', '#08332C', '#235C5B', '#38686A', '#A5AC82', '#C8CEB0', '#64748B'];
 
-  const ctxVol = document.getElementById('chartSectorVolume');
-  if (ctxVol) {
-    activeCharts.push(new Chart(ctxVol, {
-      type: 'bar',
-      data: { labels, datasets: [{ label: 'Passivo (R$ MM)', data: volumes, backgroundColor: '#063630', borderRadius: 5 }] },
-      options: {
-        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: '#E2E8F0' }, ticks: { font: { family: 'JetBrains Mono', size: 10 } } },
-          y: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' }, color: '#063630' } }
-        }
+  createManagedChart('chartSectorVolume', {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Passivo (R$ MM)', data: volumes, backgroundColor: '#063630', borderRadius: 5 }] },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: '#E2E8F0' }, ticks: { font: { family: 'JetBrains Mono', size: 10 } } },
+        y: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' }, color: '#063630' } }
       }
-    }));
-  }
+    }
+  });
 
-  const ctxCnt = document.getElementById('chartSectorCount');
-  if (ctxCnt) {
-    activeCharts.push(new Chart(ctxCnt, {
-      type: 'bar',
-      data: { labels, datasets: [{ label: 'Casos Ativos', data: counts, backgroundColor: '#38686A', borderRadius: 5 }] },
-      options: {
-        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: '#E2E8F0' }, ticks: { stepSize: 2, font: { family: 'JetBrains Mono', size: 10 } } },
-          y: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' }, color: '#063630' } }
-        }
+  createManagedChart('chartSectorCount', {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Casos Ativos', data: counts, backgroundColor: '#38686A', borderRadius: 5 }] },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: '#E2E8F0' }, ticks: { stepSize: 2, font: { family: 'JetBrains Mono', size: 10 } } },
+        y: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' }, color: '#063630' } }
       }
-    }));
-  }
+    }
+  });
 
   const prjCnt = deals.filter(d => d.tipo_processo === 'PRJ' && d.subtipo_processo !== 'Falência / Liquidação').length;
   const cautCnt = deals.filter(d => d.tipo_processo === 'Cautelar / Pré-RJ').length;
@@ -2430,78 +3047,71 @@ function initSectorAndPhaseCharts(deals, sectorsSorted) {
   const falCnt = deals.filter(d => d.subtipo_processo === 'Falência / Liquidação').length;
   const t0Cnt = deals.filter(d => d.tipo_processo === 'Tier 0').length;
 
-  const ctxPhase = document.getElementById('chartPhaseMix');
-  if (ctxPhase) {
-    activeCharts.push(new Chart(ctxPhase, {
-      type: 'doughnut',
-      data: {
-        labels: ['Recuperação Judicial (PRJ)', 'Cautelar Art. 20-B / Pré-RJ', 'Recuperação Extrajudicial (PRE)', 'Sinais Forenses (Tier 0)', 'Falência / Liquidação'],
-        datasets: [{ data: [prjCnt, cautCnt, preCnt, t0Cnt, falCnt], backgroundColor: ['#063630', '#38686A', '#A5AC82', '#C8CEB0', '#64748B'], borderWidth: 2, borderColor: '#FFFFFF' }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { position: 'right', labels: { font: { family: 'Plus Jakarta Sans', size: 11 }, color: '#1E293B' } } }
-      }
-    }));
-  }
+  createManagedChart('chartPhaseMix', {
+    type: 'doughnut',
+    data: {
+      labels: ['Recuperação Judicial (PRJ)', 'Cautelar Art. 20-B / Pré-RJ', 'Recuperação Extrajudicial (PRE)', 'Sinais Forenses (Tier 0)', 'Falência / Liquidação'],
+      datasets: [{ data: [prjCnt, cautCnt, preCnt, t0Cnt, falCnt], backgroundColor: ['#063630', '#38686A', '#A5AC82', '#C8CEB0', '#64748B'], borderWidth: 2, borderColor: '#FFFFFF' }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'right', labels: { font: { family: 'Plus Jakarta Sans', size: 11 }, color: '#1E293B' } } }
+    }
+  });
 
   const ufMap = {};
   deals.forEach(d => { if (d.uf) ufMap[d.uf] = (ufMap[d.uf] || 0) + 1; });
   const ufSorted = Object.entries(ufMap).sort((a, b) => b[1] - a[1]).slice(0, 10);
-  const ctxUf = document.getElementById('chartUfMix');
-  if (ctxUf) {
-    activeCharts.push(new Chart(ctxUf, {
-      type: 'bar',
-      data: { labels: ufSorted.map(u => u[0]), datasets: [{ label: 'Processos na UF', data: ufSorted.map(u => u[1]), backgroundColor: paletteColors, borderRadius: 5 }] },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { grid: { color: '#E2E8F0' }, ticks: { font: { family: 'JetBrains Mono', size: 10 } } },
-          x: { grid: { display: false }, ticks: { font: { family: 'JetBrains Mono', size: 11, weight: '700' }, color: '#063630' } }
-        }
+  createManagedChart('chartUfMix', {
+    type: 'bar',
+    data: { labels: ufSorted.map(u => u[0]), datasets: [{ label: 'Processos na UF', data: ufSorted.map(u => u[1]), backgroundColor: paletteColors, borderRadius: 5 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { grid: { color: '#E2E8F0' }, ticks: { font: { family: 'JetBrains Mono', size: 10 } } },
+        x: { grid: { display: false }, ticks: { font: { family: 'JetBrains Mono', size: 11, weight: '700' }, color: '#063630' } }
       }
-    }));
-  }
+    }
+  });
 }
 
 function initPorteAndTopCharts(deals) {
   if (typeof Chart === 'undefined') return;
-  const mid = deals.filter(d => Number(d.passivo_mm || 0) < 100).length;
+  const sub30 = deals.filter(d => Number(d.passivo_mm || 0) < 30).length;
+  const mid = deals.filter(d => Number(d.passivo_mm || 0) >= 30 && Number(d.passivo_mm || 0) < 100).length;
   const upper = deals.filter(d => Number(d.passivo_mm || 0) >= 100 && Number(d.passivo_mm || 0) < 500).length;
   const large = deals.filter(d => Number(d.passivo_mm || 0) >= 500 && Number(d.passivo_mm || 0) < 1000).length;
   const mega = deals.filter(d => Number(d.passivo_mm || 0) >= 1000).length;
 
-  const ctxPorte = document.getElementById('chartPorteCount');
-  if (ctxPorte) {
-    activeCharts.push(new Chart(ctxPorte, {
-      type: 'bar',
-      data: {
-        labels: ['Mid-Market (30M-100M)', 'Upper-Mid (100M-500M)', 'Large Cap (500M-1Bi)', 'Mega Cases (> 1Bi)'],
-        datasets: [{ label: 'Nº de Casos', data: [mid, upper, large, mega], backgroundColor: ['#C8CEB0', '#A5AC82', '#38686A', '#063630'], borderRadius: 6 }]
-      },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-    }));
-  }
+  const labels = sub30 > 0
+    ? ['Sub-30M (<30M)', 'Mid-Market (30M-100M)', 'Upper-Mid (100M-500M)', 'Large Cap (500M-1Bi)', 'Mega Cases (> 1Bi)']
+    : ['Mid-Market (30M-100M)', 'Upper-Mid (100M-500M)', 'Large Cap (500M-1Bi)', 'Mega Cases (> 1Bi)'];
+  const dataArr = sub30 > 0 ? [sub30, mid, upper, large, mega] : [mid, upper, large, mega];
+  const bgArr = sub30 > 0 ? ['#E2E8F0', '#C8CEB0', '#A5AC82', '#38686A', '#063630'] : ['#C8CEB0', '#A5AC82', '#38686A', '#063630'];
+
+  createManagedChart('chartPorteCount', {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ label: 'Nº de Casos', data: dataArr, backgroundColor: bgArr, borderRadius: 6 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+  });
 
   const top12 = [...deals].sort((a, b) => (b.passivo_mm || 0) - (a.passivo_mm || 0)).slice(0, 12);
-  const ctxTop = document.getElementById('chartTopDeals');
-  if (ctxTop) {
-    activeCharts.push(new Chart(ctxTop, {
-      type: 'bar',
-      data: {
-        labels: top12.map(d => d.empresa.length > 26 ? d.empresa.substring(0, 26) + '...' : d.empresa),
-        datasets: [{ label: 'Passivo (R$ MM)', data: top12.map(d => d.passivo_mm), backgroundColor: '#063630', borderRadius: 4 }]
-      },
-      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-    }));
-  }
+  createManagedChart('chartTopDeals', {
+    type: 'bar',
+    data: {
+      labels: top12.map(d => d.empresa.length > 26 ? d.empresa.substring(0, 26) + '...' : d.empresa),
+      datasets: [{ label: 'Passivo (R$ MM)', data: top12.map(d => d.passivo_mm), backgroundColor: '#063630', borderRadius: 4 }]
+    },
+    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+  });
 }
 
 function initMonthlySafraChart(deals) {
   if (typeof Chart === 'undefined') return;
-  const ctx = document.getElementById('chartMonthlySafra');
-  if (!ctx) return;
   const monthBuckets = {};
   deals.forEach(d => {
     const ym = normalizeIsoDateStr(d.data_evento, '2026-10-01').slice(0, 7);
@@ -2516,7 +3126,7 @@ function initMonthlySafraChart(deals) {
   });
   const counts = sortedMonths.map(ym => monthBuckets[ym].count);
   const vols = sortedMonths.map(ym => Number(monthBuckets[ym].passivoBi.toFixed(2)));
-  activeCharts.push(new Chart(ctx, {
+  createManagedChart('chartMonthlySafra', {
     type: 'bar',
     data: {
       labels,
@@ -2533,26 +3143,18 @@ function initMonthlySafraChart(deals) {
         y1: { type: 'linear', position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Passivo (R$ Bi)' } }
       }
     }
-  }));
+  });
 }
 
 function drillDownSector(sectorName) {
+  activeEntityFilter = null;
   currentUf = '';
   currentPorte = '';
   currentProcessType = '';
   searchTerm = '';
-  const ufEl = document.getElementById('selectUf');
-  if (ufEl) ufEl.value = '';
-  const porteEl = document.getElementById('selectPorte');
-  if (porteEl) porteEl.value = '';
-  const searchEl = document.getElementById('searchInput');
-  if (searchEl) searchEl.value = '';
-  document.querySelectorAll('.phase-chip').forEach(c => c.classList.remove('active'));
-  document.getElementById('proc-all')?.classList.add('active');
-
   currentSetor = sectorName;
-  const sel = document.getElementById('selectSetor');
-  if (sel) sel.value = sectorName;
+  syncFilterDomControlsFromState();
+  renderActiveEntityFilterBar();
   switchMainSection('operacao');
   showToast(`Filtrando casos do setor: ${sectorName}`);
 }
@@ -2644,12 +3246,16 @@ function renderUpisSection(deals, container) {
 function matchesCreditorKeyword(text, kw) {
   const cleanKw = String(kw || '').trim().toLowerCase();
   if (!cleanKw) return false;
+  if (cleanKw === 'reit') return RX_REIT_SEC.test(text);
+  if (cleanKw === 'vert') return RX_VERT_SEC.test(text);
+  if (cleanKw === 'euro') return RX_EURO_SEC.test(text);
   const escaped = cleanKw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const rx = new RegExp(`(?:^|[^a-zA-Z0-9À-ÿ])${escaped}(?:$|[^a-zA-Z0-9À-ÿ])`, 'i');
   return rx.test(text);
 }
 
 function renderBancometroSection(deals, container) {
+  entityFilterRegistry.clear();
   const catalog = [
     { name: 'Banco do Brasil', group: 'cred_publicos', kw: ['banco do brasil', 'bb'] },
     { name: 'Itaú Unibanco / BBA', group: 'cred_privados', kw: ['itaú', 'itau'] },
@@ -2665,8 +3271,8 @@ function renderBancometroSection(deals, container) {
     { name: 'BNDES / BRDE / BASA / BNB', group: 'cred_publicos', kw: ['bndes', 'brde', 'basa', 'banco da amazônia', 'bnb', 'banco do nordeste'] },
     { name: 'Banrisul', group: 'cred_publicos', kw: ['banrisul'] },
     { name: 'Bancos de Montadoras (John Deere / Scania / Volvo / Cat)', group: 'cred_privados', kw: ['john deere', 'scania', 'volvo', 'caterpillar', 'mercedes', 'cnh'] },
-    { name: 'Agentes Fiduciários (Vórtx / Pentágono / Oliveira Trust)', group: 'cred_dcm', kw: ['vórtx', 'vortx', 'pentágono', 'pentagono', 'oliveira trust', 'debenturistas', 'debêntures', 'debentures'] },
-    { name: 'Securitizadoras (Opea / Vert / Virgo / Euro / Ignis / CRAs / CRIs)', group: 'cred_dcm', kw: ['opea', 'vert', 'virgo', 'reit', 'euro securitizadora', 'ignis', 'securitizadora', 'cra', 'cras', 'cri', 'cris'] },
+    { name: 'Agentes Fiduciários (Vórtx / Pentágono / Oliveira Trust)', group: 'cred_dcm', kw: ['vórtx', 'vortx', 'pentágono', 'pentagono', 'oliveira trust', 'simplific pavarini', 'planner trustee', 'debenturistas', 'debêntures', 'debentures'] },
+    { name: 'Securitizadoras (Opea / Vert / Virgo / Euro / Ignis / CRAs / CRIs)', group: 'cred_dcm', kw: ['opea', 'vert securitizadora', 'virgo', 'reit securitizadora', 'euro securitizadora', 'ignis', 'audax securitizadora', 'true securitizadora', 'bari securitizadora', 'isec', 'securitizadora', 'cra', 'cras', 'cri', 'cris'] },
     { name: 'FIDCs & Fundos Estruturados', group: 'cred_dcm', kw: ['fidc', 'fidcs', 'farallon', 'banco master', 'genial', 'blackpartners'] },
     { name: 'Tradings & Multinacionais do Agro (Cargill / Bunge / COFCO / Syngenta)', group: 'cred_dcm', kw: ['cargill', 'bunge', 'cofco', 'nidera', 'corteva', 'mosaic', 'syngenta', 'adm', 'fiagril', 'input', 'iharga'] }
   ];
@@ -2675,16 +3281,20 @@ function renderBancometroSection(deals, container) {
 
   const results = catalog
     .filter(c => currentSubTab === 'cred_all' || c.group === currentSubTab)
-    .map(c => {
+    .map((c, catIdx) => {
       let casesCount = 0;
       let participatingPassivo = 0;
       let directMappedCredit = 0;
+      const dealIds = new Set();
 
       baseDeals.forEach(d => {
-        const text = ((d.credores || '') + ' ' + (d.perfil_passivo || '')).toLowerCase();
+        const afClean = String(d.agentes_fiduciarios || '').replace(/n\/a\s*\([^)]*\)/gi, '');
+        const secClean = String(d.securitizadoras || '').replace(/n\/a\s*\([^)]*\)/gi, '');
+        const text = `${d.credores || ''} ${d.perfil_passivo || ''} ${afClean} ${secClean}`.toLowerCase();
         if (c.kw.some(k => matchesCreditorKeyword(text, k))) {
           casesCount += 1;
           participatingPassivo += (d.passivo_mm || 0);
+          dealIds.add(String(d.id));
           const credRaw = `${d.credores || ''} ; ${d.tese || ''}`;
           for (const k of c.kw) {
             const cleanK = k.trim();
@@ -2710,7 +3320,14 @@ function renderBancometroSection(deals, container) {
         }
       });
 
-      return { ...c, casesCount, participatingPassivo, directMappedCredit: Math.round(directMappedCredit) };
+      const regKey = `banco_${catIdx}`;
+      entityFilterRegistry.set(regKey, {
+        category: 'Bancômetro',
+        label: c.name,
+        dealIds
+      });
+
+      return { ...c, regKey, dealIds, casesCount, participatingPassivo, directMappedCredit: Math.round(directMappedCredit) };
     })
     .filter(c => c.casesCount > 0)
     .sort((a, b) => b.casesCount - a.casesCount || b.participatingPassivo - a.participatingPassivo);
@@ -2725,7 +3342,7 @@ function renderBancometroSection(deals, container) {
       : `<span style="font-size:10.5px; color:var(--text-muted); font-family:var(--font-mono);">Exposição em Sindicato / Lista Geral</span>`;
 
     html += `
-      <div class="creditor-card" tabindex="0" data-creditor-kw="${escapeHtml(r.kw[0].trim())}" onclick="filterByCreditor(this.getAttribute('data-creditor-kw'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterByCreditor(this.getAttribute('data-creditor-kw'));}" title="Clique para listar todos os processos de ${escapeHtml(r.name)}">
+      <div class="creditor-card" tabindex="0" onclick="activateEntityFilterFromCard('${r.regKey}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();activateEntityFilterFromCard('${r.regKey}');}" title="Clique para listar todos os ${r.casesCount} processos de ${escapeHtml(r.name)}">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
           <div>
             <strong style="font-size:14px; color:var(--vk-header-start); display:block;">${escapeHtml(r.name)}</strong>
@@ -2748,28 +3365,34 @@ function renderBancometroSection(deals, container) {
 }
 
 function filterByCreditor(keyword) {
+  const kwClean = String(keyword || '').trim();
+  const matchedIds = new Set();
+  DEALS_DATA.forEach(d => {
+    const afClean = String(d.agentes_fiduciarios || '').replace(/n\/a\s*\([^)]*\)/gi, '');
+    const secClean = String(d.securitizadoras || '').replace(/n\/a\s*\([^)]*\)/gi, '');
+    const text = `${d.credores || ''} ${d.perfil_passivo || ''} ${afClean} ${secClean} ${d.tese || ''}`.toLowerCase();
+    if (matchesCreditorKeyword(text, kwClean)) {
+      matchedIds.add(String(d.id));
+    }
+  });
+  if (matchedIds.size > 0) {
+    activateEntityFilter('Credor', kwClean, matchedIds);
+    return;
+  }
+  activeEntityFilter = null;
   currentSetor = '';
   currentUf = '';
   currentPorte = '';
   currentProcessType = '';
-  const ufEl = document.getElementById('selectUf');
-  if (ufEl) ufEl.value = '';
-  const setorEl = document.getElementById('selectSetor');
-  if (setorEl) setorEl.value = '';
-  const porteEl = document.getElementById('selectPorte');
-  if (porteEl) porteEl.value = '';
-  document.querySelectorAll('.phase-chip').forEach(c => c.classList.remove('active'));
-  document.getElementById('proc-all')?.classList.add('active');
-
-  searchTerm = keyword.toLowerCase();
-  const input = document.getElementById('searchInput');
-  if (input) input.value = keyword;
+  searchTerm = kwClean.toLowerCase();
+  syncFilterDomControlsFromState();
+  renderActiveEntityFilterBar();
   switchMainSection('operacao');
-  showToast(`Exibindo carteira de processos com exposição a: "${keyword.toUpperCase()}"`);
+  showToast(`Exibindo carteira de processos com exposição a: "${kwClean.toUpperCase()}"`);
 }
 
 // ==========================================================================
-// 10. Section: Redesign do Mapa Geográfico (Oceano Azul #CFE2F3 + GeoJSON Brasil #F1F5F9)
+// 10. Section: Redesign do Mapa Geográfico (Oceano Azul #090d16 + GeoJSON Brasil)
 // ==========================================================================
 function renderMapaSection(deals, container) {
   const ufStats = {};
@@ -2836,7 +3459,7 @@ function renderMapaSection(deals, container) {
     </div>
   `;
 
-  setTimeout(() => initGeoJsonBrazilMap(deals), 50);
+  scheduleChartInit(() => initGeoJsonBrazilMap(deals), 50);
 }
 
 function filterMapByUf(uf) {
@@ -2844,6 +3467,7 @@ function filterMapByUf(uf) {
   const sel = document.getElementById('selectUf');
   if (sel) sel.value = uf;
   renderSectionContent();
+  syncUrlHash(true);
 }
 
 function initGeoJsonBrazilMap(deals) {
@@ -2851,7 +3475,6 @@ function initGeoJsonBrazilMap(deals) {
   const mapEl = document.getElementById('map');
   if (!mapEl) return;
 
-  // Apply Dark Mode Ocean Background (#090d16)
   mapEl.style.background = '#090d16';
 
   if (leafletMapInstance) {
@@ -2922,7 +3545,7 @@ function initGeoJsonBrazilMap(deals) {
     }
   });
 
-  const GOLDEN_ANGLE = 2.399963229728653; // ~137.5 degrees in radians
+  const GOLDEN_ANGLE = 2.399963229728653;
 
   Object.keys(coordGroups).forEach(k => {
     const group = coordGroups[k];
@@ -2990,7 +3613,7 @@ function initGeoJsonBrazilMap(deals) {
     leafletMapInstance.fitBounds(bounds, { padding: [45, 45], maxZoom: 6.5 });
   }
 
-  if (!window._vkMapResizeBound) {
+  if (typeof window !== 'undefined' && !window._vkMapResizeBound) {
     window._vkMapResizeBound = true;
     window.addEventListener('resize', () => {
       if (leafletMapInstance && currentMainSection === 'mapa') {
@@ -3082,10 +3705,10 @@ function normalizeNewsSourceLabel(rawSource, blobNorm) {
   if (s.includes('pipeline')) return 'Pipeline';
   if (s.includes('brazil journal') || s.includes('forbes') || s.includes('exame') || s.includes('neofeed')) return 'Brazil Journal';
   if (s.includes('fitch') || s.includes('moody') || s.includes('s&p') || s.includes('cvm') || s.includes('rad.cvm') || s.includes('infomoney') || s.includes('seu dinheiro')) return 'CVM / Fatos Relevantes';
-  if (s.includes('vortx') || s.includes('pentagono') || s.includes('oliveira trust') || s.includes('opea') || s.includes('vert') || s.includes('virgo') || s.includes('fiduciario')) return 'Agentes Fiduciários';
+  if (s.includes('vortx') || s.includes('pentagono') || s.includes('oliveira trust') || s.includes('opea') || s.includes('virgo') || s.includes('fiduciario') || RX_VERT_SEC.test(rawSource) || RX_REIT_SEC.test(rawSource) || RX_EURO_SEC.test(rawSource)) return 'Agentes Fiduciários';
   if (s.includes('jota') || s.includes('conjur') || s.includes('migalhas') || s.includes('folha') || s.includes('uol') || s.includes('tribunal') || s.includes('tj')) return 'Jota / Tribunais';
   if (blobNorm.includes('fitch') || blobNorm.includes('cvm') || blobNorm.includes('fato relevante')) return 'CVM / Fatos Relevantes';
-  if (blobNorm.includes('vortx') || blobNorm.includes('pentagono') || blobNorm.includes('oliveira trust') || blobNorm.includes('agd') || blobNorm.includes('waiver')) return 'Agentes Fiduciários';
+  if (blobNorm.includes('vortx') || blobNorm.includes('pentagono') || blobNorm.includes('oliveira trust') || blobNorm.includes('agd') || blobNorm.includes('waiver') || RX_VERT_SEC.test(blobNorm) || RX_REIT_SEC.test(blobNorm) || RX_EURO_SEC.test(blobNorm)) return 'Agentes Fiduciários';
   return rawSource || 'Valor Econômico';
 }
 
@@ -3140,7 +3763,9 @@ function classifyRssNewsItem(rawItem, defaultCategory = 'Pedido de RJ') {
     blobNorm.includes('oliveira trust') ||
     blobNorm.includes('opea') ||
     blobNorm.includes('virgo') ||
-    blobNorm.includes('vert ') ||
+    RX_VERT_SEC.test(blobNorm) ||
+    RX_REIT_SEC.test(blobNorm) ||
+    RX_EURO_SEC.test(blobNorm) ||
     blobNorm.includes('cra ') ||
     blobNorm.includes('cras ') ||
     blobNorm.includes('cri ') ||
@@ -3173,7 +3798,6 @@ function classifyRssNewsItem(rawItem, defaultCategory = 'Pedido de RJ') {
     categoria = 'Cautelar 20-B';
   }
 
-  // Match against DEALS_DATA companies or tickers
   let matchedDeal = null;
   for (const d of DEALS_DATA) {
     const baseName = normalizeCompanyStem(d.empresa);
@@ -3226,11 +3850,36 @@ function parseRssXmlString(xmlString) {
   }
 }
 
-
 function filterValidRecentRssItems(rawList, defaultCategory) {
   return (rawList || [])
     .map(it => classifyRssNewsItem(it, defaultCategory))
     .filter(item => item && item.titulo && isRecentNewsDate(item.data_hora, 75));
+}
+
+async function fetchLiveNewsJsonMerged() {
+  const localTask = fetchWithTimeout(`./live-news.json?_cb=${Date.now()}`, { cache: 'no-store' }, 4500)
+    .then(r => (r && r.ok ? r.json() : []))
+    .catch(() => []);
+  const rawGhTask = fetchWithTimeout(`https://raw.githubusercontent.com/jmtddr/valknut-radar/main/live-news.json?_cb=${Date.now()}`, { cache: 'no-store' }, 5000)
+    .then(r => (r && r.ok ? r.json() : []))
+    .catch(() => []);
+  const [localArr, ghArr] = await Promise.all([localTask, rawGhTask]);
+  const combined = [...(Array.isArray(ghArr) ? ghArr : []), ...(Array.isArray(localArr) ? localArr : [])];
+  const deduped = [];
+  const seen = new Set();
+  combined.forEach(it => {
+    if (!it || !it.titulo || isBlockedEntityToken(it.titulo)) return;
+    const key = normalizeTextNoAccents(it.titulo).slice(0, 65);
+    if (key && !seen.has(key)) {
+      seen.add(key);
+      deduped.push(it);
+    }
+  });
+  if (deduped.length > 0) {
+    deduped.sort((a, b) => parseNewsTimestamp(b.data_hora) - parseNewsTimestamp(a.data_hora));
+    baseStaticNewsItems = deduped;
+  }
+  return deduped;
 }
 
 async function fetchSingleRssStream(rssUrl, defaultCategory, forceFresh = false) {
@@ -3238,14 +3887,17 @@ async function fetchSingleRssStream(rssUrl, defaultCategory, forceFresh = false)
     ? `${rssUrl}${rssUrl.includes('?') ? '&' : '?'}_cb=${Date.now()}`
     : rssUrl;
 
-  // 1. Google Apps Script Backend RSS Proxy (sem CORS e com CacheService)
-  if (typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL.startsWith('http')) {
+  // 1. Google Apps Script Backend RSS Proxy (skipped if legacy GAS deployment detected)
+  if (gasSupportsActionRouter !== false && typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL.startsWith('http')) {
     try {
       const gasUrl = `${APPS_SCRIPT_URL}?action=rss&url=${encodeURIComponent(targetUrl)}${forceFresh ? '&nocache=1' : ''}`;
       const res = await fetchWithTimeout(gasUrl, 5500);
-      if (res.ok) {
+      if (res && res.ok) {
         const data = await res.json();
-        if (data && data.contents) {
+        if (data && Array.isArray(data.data) && !data.contents && !data.ons) {
+          gasSupportsActionRouter = false;
+        } else if (data && data.contents) {
+          gasSupportsActionRouter = true;
           const valid = filterValidRecentRssItems(parseRssXmlString(data.contents), defaultCategory);
           if (valid.length > 0) return valid;
         }
@@ -3257,34 +3909,10 @@ async function fetchSingleRssStream(rssUrl, defaultCategory, forceFresh = false)
   try {
     const aoUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
     const res = await fetchWithTimeout(aoUrl, 5000);
-    if (res.ok) {
+    if (res && res.ok) {
       const data = await res.json();
       if (data && data.contents) {
         const valid = filterValidRecentRssItems(parseRssXmlString(data.contents), defaultCategory);
-        if (valid.length > 0) return valid;
-      }
-    }
-  } catch (e) {}
-
-  // 3. CodeTabs XML proxy
-  try {
-    const ctUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(rssUrl)}`;
-    const res = await fetchWithTimeout(ctUrl, 5000);
-    if (res.ok) {
-      const xmlText = await res.text();
-      const valid = filterValidRecentRssItems(parseRssXmlString(xmlText), defaultCategory);
-      if (valid.length > 0) return valid;
-    }
-  } catch (e) {}
-
-  // 4. rss2json fallback
-  try {
-    const r2jUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-    const res = await fetchWithTimeout(r2jUrl, 5000);
-    if (res.ok) {
-      const data = await res.json();
-      if (data && Array.isArray(data.items) && data.items.length > 0) {
-        const valid = filterValidRecentRssItems(data.items.slice(0, 10), defaultCategory);
         if (valid.length > 0) return valid;
       }
     }
@@ -3304,7 +3932,6 @@ async function fetchLiveDistressedNews(forceToast = false) {
     if (currentMainSection === 'noticias') renderSectionContent();
   }
 
-  // 5 specialized RSS streams with strict +when:7d / +when:30d recency windows (blocks 2024/2025 stale articles)
   const rssStreams = [
     {
       url: 'https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+%22deb%C3%AAntures%22%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+vencimento+OR+apoio%29+when%3A7d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
@@ -3330,15 +3957,7 @@ async function fetchLiveDistressedNews(forceToast = false) {
 
   try {
     lastNewsAutoSyncTs = Date.now();
-    const repoJsonTask = fetchWithTimeout(`live-news.json?_cb=${Date.now()}`, 4500)
-      .then(r => (r.ok ? r.json() : []))
-      .then(arr => {
-        if (Array.isArray(arr) && arr.length > 0) {
-          baseStaticNewsItems = arr.filter(it => it && it.titulo && !isBlockedEntityToken(it.titulo));
-        }
-        return [];
-      })
-      .catch(() => []);
+    const repoJsonTask = fetchLiveNewsJsonMerged().then(() => []).catch(() => []);
 
     const tasks = [
       repoJsonTask,
@@ -3380,8 +3999,8 @@ async function fetchLiveDistressedNews(forceToast = false) {
     btn.textContent = '↻ Atualizar RSS';
   }
 
-  const now = new Date();
-  const syncStamp = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const brNowFull = formatBrazilNowDateTime();
+  const syncStamp = `${brNowFull.slice(0, 5)}${brNowFull.slice(10)}`;
   const allCombined = getAllCombinedNews();
   const dcmCount = allCombined.filter(n => n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating').length;
 
@@ -3428,7 +4047,11 @@ function buildDynamicPipelineNews() {
     const parsedPre = parseThesisRegex(d.tese);
     const coreDebtBlob = `${d.fase || ''} ${d.processo || ''} ${d.credores || ''} ${d.perfil_passivo || ''} ${parsedPre.causa || ''} ${parsedPre.gargalo || ''}`;
     const textBlob = `${coreDebtBlob} ${d.tese || ''}`;
-    const hasDcmSignal = / (waivers?|covenants?|agds?|deb[eê]ntures?|debenturistas?|cras?|cris?|notas?\s+comerciais|v[oó]rtx|pent[aá]gono|oliveira\s+trust|opea|virgo|vert\s+securitizadora|euro\s+securitizadora|ignis|standstill|bonds?|bondholders?) /i.test(coreDebtBlob) || d.tipo_processo === 'PRE';
+    const hasDcmSignal = /\b(waivers?|covenants?|agds?|deb[eê]ntures?|debenturistas?|cras?|cris?|notas?\s+comerciais|v[oó]rtx|pent[aá]gono|oliveira\s+trust|opea|virgo|ignis|standstill|bonds?|bondholders?)\b/i.test(coreDebtBlob)
+      || RX_VERT_SEC.test(coreDebtBlob)
+      || RX_REIT_SEC.test(coreDebtBlob)
+      || RX_EURO_SEC.test(coreDebtBlob)
+      || d.tipo_processo === 'PRE';
     const hasRatingSignal = ratingStrictRegex.test(textBlob);
     const isRecentDeal = String(d.data_adicao || '') >= '2026-10-18' || String(d.data_evento || '') >= '2026-10-18';
     const isOctDcm = (hasDcmSignal || hasRatingSignal) && (String(d.data_evento || '') >= '2026-10-01' || String(d.data_adicao || '') >= '2026-10-01');
@@ -3451,7 +4074,7 @@ function buildDynamicPipelineNews() {
 
     const evIso = String(d.data_evento || '');
     const adIso = String(d.data_adicao || '');
-    const rawDate = (adIso && evIso) ? (adIso > evIso ? adIso : evIso) : (adIso || evIso || '2026-11-01');
+    const rawDate = (adIso && evIso) ? (adIso > evIso ? adIso : evIso) : (adIso || evIso || getBrazilTodayIso());
     const dtStr = formatDateBR(rawDate);
     const fonte = (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating')
       ? ((d.agentes_fiduciarios && !d.agentes_fiduciarios.includes('N/A')) || (d.securitizadoras && !d.securitizadoras.includes('N/A') && !d.securitizadoras.includes('Sem securitizadora')) ? 'Agentes Fiduciários' : 'CVM / Fatos Relevantes')
@@ -3828,30 +4451,35 @@ async function fetchEnergyMarketData(submercado = 'SIN', dataOperativa = selecte
 
   try {
     let synced = false;
-    // 1. Primary: Google Apps Script server-side proxy (?action=ons_ccee)
-    try {
-      const proxyRes = await fetchWithTimeout(gasProxyUrl, { cache: 'no-store' }, 6500);
-      if (proxyRes && proxyRes.ok) {
-        const proxyJson = await proxyRes.json();
-        const isOnsPayload = proxyJson && (proxyJson.ccee !== undefined || proxyJson.ons !== undefined || Array.isArray(proxyJson.records));
-        if (isOnsPayload && (proxyJson.status === 'success' || proxyJson.status === 'ok')) {
-          synced = true;
-          const recs = proxyJson.ccee?.records || proxyJson.records || [];
-          if (recs.length > 0) {
-            const pldVals = recs
-              .map(r => parseFloat(String(r.VALOR_PLD || r.valor_pld || r.PLD || r.pld_hora || '').replace(',', '.')))
-              .filter(v => !isNaN(v) && v > 0);
-            if (pldVals.length > 0) {
-              const avgPld = pldVals.reduce((a, b) => a + b, 0) / pldVals.length;
-              energyLiveOverrides[submercado] = {
-                pld_medio: `R$ ${avgPld.toFixed(2).replace('.', ',')} / MWh`
-              };
+    // 1. Primary: Google Apps Script server-side proxy (?action=ons_ccee), skipped if legacy deployment
+    if (gasSupportsActionRouter !== false && typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL.startsWith('http')) {
+      try {
+        const proxyRes = await fetchWithTimeout(gasProxyUrl, { cache: 'no-store' }, 6500);
+        if (proxyRes && proxyRes.ok) {
+          const proxyJson = await proxyRes.json();
+          if (proxyJson && Array.isArray(proxyJson.data) && !proxyJson.contents && !proxyJson.ons && !proxyJson.ccee) {
+            gasSupportsActionRouter = false;
+          } else {
+            const isOnsPayload = proxyJson && (proxyJson.ccee !== undefined || proxyJson.ons !== undefined || Array.isArray(proxyJson.records));
+            if (isOnsPayload && (proxyJson.status === 'success' || proxyJson.status === 'ok')) {
+              gasSupportsActionRouter = true;
+              synced = true;
+              const recs = proxyJson.ccee?.records || proxyJson.records || [];
+              if (recs.length > 0) {
+                const pldVals = recs
+                  .map(r => parseFloat(String(r.VALOR_PLD || r.valor_pld || r.PLD || r.pld_hora || '').replace(',', '.')))
+                  .filter(v => !isNaN(v) && v > 0);
+                if (pldVals.length > 0) {
+                  const avgPld = pldVals.reduce((a, b) => a + b, 0) / pldVals.length;
+                  energyLiveOverrides[submercado] = {
+                    pld_medio: `R$ ${avgPld.toFixed(2).replace('.', ',')} / MWh`
+                  };
+                }
+              }
             }
           }
         }
-      }
-    } catch (gasErr) {
-      // Fallback to allorigins below
+      } catch (gasErr) {}
     }
 
     // 2. Secondary fallback via allorigins if Apps Script proxy hasn't been redeployed yet
@@ -3862,8 +4490,7 @@ async function fetchEnergyMarketData(submercado = 'SIN', dataOperativa = selecte
       }
     }
 
-    const now = new Date();
-    energyLastSyncTime = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    energyLastSyncTime = formatBrazilNowDateTime();
 
     if (synced) {
       const hasLivePld = Boolean(energyLiveOverrides[submercado]?.pld_medio);
@@ -3909,16 +4536,7 @@ function getDynamicSubmarketConfig(subKey) {
 
 function renderEnergiaSection(container) {
   const subCfg = getDynamicSubmarketConfig(selectedSinSubmarket);
-  const allEnergyDeals = DEALS_DATA.filter(d => d.setor_macro === 'Energia & Infraestrutura');
-  const energyDeals = allEnergyDeals.filter(d => {
-    if (selectedSinSubmarket === 'SIN') return true;
-    const sm = String(d.energy_meta?.submercado || '').toLowerCase();
-    if (selectedSinSubmarket === 'SE') return sm.includes('sudeste') || d.regiao_macro === 'Sudeste' || d.regiao_macro === 'Centro-Oeste';
-    if (selectedSinSubmarket === 'S') return sm.includes('sul') || d.regiao_macro === 'Sul';
-    if (selectedSinSubmarket === 'NE') return sm.includes('nordeste') || d.regiao_macro === 'Nordeste';
-    if (selectedSinSubmarket === 'N') return sm.includes('norte') || d.regiao_macro === 'Norte';
-    return true;
-  });
+  const energyDeals = getFilteredDeals().filter(d => d.setor_macro === 'Energia & Infraestrutura' && matchesEnergySubmarketFilter(d));
 
   const isSynced = energyTelemetryStatus.includes('PLD Real');
 
@@ -4118,7 +4736,7 @@ function renderEnergiaSection(container) {
   container.innerHTML = html;
 
   if (currentSubTab !== 'pipeline_energia') {
-    setTimeout(() => initOnsStackedChart(subCfg), 30);
+    scheduleChartInit(() => initOnsStackedChart(subCfg), 30);
   }
 }
 
@@ -4144,7 +4762,7 @@ function initOnsStackedChart(subCfg) {
       const pldSE = [138, 134, 130, 128, 131, 142, 155, 162, 158, 149, 142, 139, 141, 146, 154, 168, 185, 210, 224, 218, 195, 174, 158, 145];
       const pldNE = [145, 140, 136, 135, 138, 148, 160, 165, 152, 138, 125, 118, 120, 128, 142, 165, 192, 225, 242, 235, 210, 185, 165, 152];
       const pldS  = [110, 108, 105, 104, 106, 112, 118, 122, 120, 116, 112, 110, 112, 115, 119, 126, 135, 148, 155, 150, 138, 128, 120, 114];
-      activeCharts.push(new Chart(ctxPld, {
+      createManagedChart(ctxPld, {
         type: 'line',
         data: {
           labels: hours,
@@ -4155,14 +4773,14 @@ function initOnsStackedChart(subCfg) {
           ]
         },
         options: { responsive: true, maintainAspectRatio: false }
-      }));
+      });
     }
 
     const ctxCurt = document.getElementById('chartOnsCurtailment');
     if (ctxCurt) {
       const curtEolica = [420, 480, 510, 550, 490, 380, 620, 1150, 1850, 2420, 2890, 3120, 3250, 2980, 2450, 1680, 890, 520, 410, 390, 410, 430, 450, 440];
       const curtSolar  = [0, 0, 0, 0, 0, 0, 180, 640, 1420, 2180, 2760, 3050, 3180, 2890, 2150, 1120, 290, 0, 0, 0, 0, 0, 0, 0];
-      activeCharts.push(new Chart(ctxCurt, {
+      createManagedChart(ctxCurt, {
         type: 'bar',
         data: {
           labels: hours,
@@ -4172,7 +4790,7 @@ function initOnsStackedChart(subCfg) {
           ]
         },
         options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
-      }));
+      });
     }
     return;
   }
@@ -4183,7 +4801,7 @@ function initOnsStackedChart(subCfg) {
   const cargaRealizada = hours.map((_, i) => subCfg.hidro[i] + subCfg.termica[i] + subCfg.nuclear[i] + subCfg.eolica[i] + subCfg.solar[i] + subCfg.mmgd[i]);
   const cargaPrevista = cargaRealizada.map((v, i) => Math.round(v * (i % 2 === 0 ? 1.018 : 0.988)));
 
-  activeCharts.push(new Chart(ctx, {
+  createManagedChart(ctx, {
     type: 'line',
     data: {
       labels: hours,
@@ -4304,7 +4922,7 @@ function initOnsStackedChart(subCfg) {
         }
       }
     }
-  }));
+  });
 }
 
 // ==========================================================================
@@ -4413,9 +5031,10 @@ function populateDropdownFilters() {
 // ==========================================================================
 function buildDynamicCalendarMonths() {
   const monthNamesPt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-  const now = new Date();
-  const baseYear = now.getFullYear() >= 2026 ? now.getFullYear() : 2026;
-  const baseMonthIdx = now.getFullYear() >= 2026 ? Math.max(0, now.getMonth() - 1) : 9; // Starts at Oct 2026 or previous month
+  const brIso = getBrazilTodayIso();
+  const [brY, brM] = brIso.split('-').map(Number);
+  const baseYear = brY >= 2026 ? brY : 2026;
+  const baseMonthIdx = brY >= 2026 ? Math.max(0, (brM - 1) - 1) : 9;
   const list = [];
   for (let i = 0; i < 6; i++) {
     const dt = new Date(baseYear, baseMonthIdx + i, 1);
@@ -4607,6 +5226,14 @@ function exportCalendarICS() {
   downloadICSFromDeals(deals, `valknut_calendario_concursal_${ deals.length }_casos.ics`);
 }
 
+function escapeIcsText(str) {
+  return String(str || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/\r?\n|\r/g, '\\n')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,');
+}
+
 function downloadICSFromDeals(dealsList, filename) {
   let ics = [
     'BEGIN:VCALENDAR',
@@ -4620,17 +5247,24 @@ function downloadICSFromDeals(dealsList, filename) {
 
   dealsList.forEach(d => {
     const cm = computeDynamicCalendarMeta(d);
-    const isoDate = normalizeIsoDateStr(cm.data_marco_iso);
+    const isoDate = normalizeIsoDateStr(cm.data_marco_iso, getBrazilTodayIso());
+    const [yy, mm, dd] = isoDate.split('-').map(Number);
     const dtRaw = isoDate.replace(/-/g, '');
+    const nextUtc = new Date(Date.UTC(yy || 2026, (mm || 1) - 1, (dd || 1) + 1));
+    const dtEndRaw = `${nextUtc.getUTCFullYear()}${String(nextUtc.getUTCMonth() + 1).padStart(2, '0')}${String(nextUtc.getUTCDate()).padStart(2, '0')}`;
     const parsed = parseThesisRegex(d.tese);
+    const summaryTxt = escapeIcsText(`[VALKNUT] ${d.empresa} — ${cm.marco_label || cm.tipo_marco || 'Prazo Concursal'} (R$ ${d.passivo_mm} MM)`);
+    const descTxt = escapeIcsText(`Empresa: ${d.empresa} (${d.cnpj})\nPassivo: R$ ${d.passivo_mm} MM\nJuízo: ${d.tribunal} | Autos: ${d.processo}\nGargalo: ${parsed.gargalo}`);
+    const locTxt = escapeIcsText(`${d.tribunal} - ${d.cidade}/${d.uf}`);
     ics.push(
       'BEGIN:VEVENT',
       `UID:valknut-deal-${d.id}-${dtRaw}@valknut.specialsits`,
       `DTSTAMP:${dtStamp}`,
       `DTSTART;VALUE=DATE:${dtRaw}`,
-      `SUMMARY:[VALKNUT] ${d.empresa} — ${cm.marco_label || cm.tipo_marco || 'Prazo Concursal'} (R$ ${d.passivo_mm} MM)`,
-      `DESCRIPTION:Empresa: ${d.empresa} (${d.cnpj})\\nPassivo: R$ ${d.passivo_mm} MM\\nJuízo: ${d.tribunal} | Autos: ${d.processo}\\nGargalo: ${parsed.gargalo.replace(/\r?\n/g, ' ')}`,
-      `LOCATION:${d.tribunal} - ${d.cidade}/${d.uf}`,
+      `DTEND;VALUE=DATE:${dtEndRaw}`,
+      `SUMMARY:${summaryTxt}`,
+      `DESCRIPTION:${descTxt}`,
+      `LOCATION:${locTxt}`,
       'END:VEVENT'
     );
   });
@@ -4653,28 +5287,47 @@ function downloadICSFromDeals(dealsList, filename) {
 // ==========================================================================
 let waterfallSplitPcts = {
   extra: 18,
+  fiscal: 7,
   c1: 3,
   c2: 42,
   c3: 27,
   c4: 3
 };
 
+function getActiveModelingDeal() {
+  if (selectedTier0CalcTarget) {
+    return selectedTier0CalcTarget;
+  }
+  return DEALS_DATA.find(x => Number(x.id) === Number(selectedModelDealId)) || DEALS_DATA[0] || null;
+}
+
 function calibrateAdvisoryDefaultsForDeal(d) {
+  if (!d) return;
   const passivo = Number(d.passivo_mm || 100);
   const mp = d.model_params || {};
   modelCustomPassivo = passivo;
+  pitchCreditorExposureMM = Math.max(5, Math.round(passivo * 0.25));
   modelHaircutPct = typeof mp.haircut_estimado_pct === 'number' ? mp.haircut_estimado_pct : 55;
   modelSecondaryDiscountPct = typeof mp.desconto_secundario_pct === 'number' ? mp.desconto_secundario_pct : 35;
   modelEvAtivos = typeof mp.ev_estimado_mm === 'number' ? mp.ev_estimado_mm : Math.round(passivo * 0.55);
   modelLiqDiscountPct = typeof mp.liquidez_forcada_desconto_pct === 'number' ? mp.liquidez_forcada_desconto_pct : 40;
 
   const sc = mp.split_classes || mp.classes_pct || {};
+  const rec = reconcileSixBucketSplit({
+    extra: sc.extraconcursal_pct ?? sc.extraconcursal_fiduciario ?? 18,
+    fiscal: sc.fiscal_pct ?? sc.fiscal_tributario ?? 7,
+    c1: sc.classe_i_pct ?? sc.c1_trabalhista ?? 3,
+    c2: sc.classe_ii_pct ?? sc.c2_garantia_real ?? 42,
+    c3: sc.classe_iii_pct ?? sc.c3_quirografario ?? 27,
+    c4: sc.classe_iv_pct ?? sc.c4_me_epp ?? 3
+  });
   waterfallSplitPcts = {
-    extra: typeof sc.extraconcursal_pct === 'number' ? sc.extraconcursal_pct : (typeof sc.extraconcursal_fiduciario === 'number' ? sc.extraconcursal_fiduciario : 18),
-    c1: typeof sc.classe_i_pct === 'number' ? sc.classe_i_pct : (typeof sc.c1_trabalhista === 'number' ? sc.c1_trabalhista : 3),
-    c2: typeof sc.classe_ii_pct === 'number' ? sc.classe_ii_pct : (typeof sc.c2_garantia_real === 'number' ? sc.c2_garantia_real : 42),
-    c3: typeof sc.classe_iii_pct === 'number' ? sc.classe_iii_pct : (typeof sc.c3_quirografario === 'number' ? sc.c3_quirografario : 27),
-    c4: typeof sc.classe_iv_pct === 'number' ? sc.classe_iv_pct : (typeof sc.c4_me_epp === 'number' ? sc.c4_me_epp : 3)
+    extra: rec.extra,
+    fiscal: rec.fiscal,
+    c1: rec.c1,
+    c2: rec.c2,
+    c3: rec.c3,
+    c4: rec.c4
   };
 
   if (passivo >= 2000) {
@@ -4716,18 +5369,20 @@ function computeAdvisoryFeeMetrics() {
   const recupPct = Math.max(0, Number((100 - haircutPct).toFixed(2)));
   const economiaMM = (passivoMM * haircutPct) / 100.0;
   const creditoRecupMM = (passivoMM * recupPct) / 100.0;
+  const creditorExposureMM = Math.max(1, Number(pitchCreditorExposureMM || Math.round(passivoMM * 0.25)));
+  const creditorRecoveredMM = (creditorExposureMM * recupPct) / 100.0;
 
   let baseCalculoMM = passivoMM;
-  let baseLabel = 'Passivo Total Reestruturado';
+  let baseLabel = 'Passivo Total Reestruturado (Debtor-Side)';
   let baseShortLabel = 'Passivo Total';
   if (modelFeeBasis === 'haircut_economia') {
     baseCalculoMM = economiaMM;
-    baseLabel = `Economia / Redução de Dívida (Haircut ${haircutPct}%)`;
-    baseShortLabel = `Economia (Haircut ${haircutPct}%)`;
+    baseLabel = `Economia / Redução de Dívida Obtida (Debtor-Side — Haircut ${haircutPct}%)`;
+    baseShortLabel = `Economia Debtor (Haircut ${haircutPct}%)`;
   } else if (modelFeeBasis === 'credito_recuperado') {
-    baseCalculoMM = creditoRecupMM;
-    baseLabel = `Crédito Efetivamente Recuperado (${recupPct}%)`;
-    baseShortLabel = `Crédito Recuperado (${recupPct}%)`;
+    baseCalculoMM = creditorRecoveredMM;
+    baseLabel = `Crédito Recuperado pelo Credor (${recupPct}% s/ Exposição R$ ${formatNumberBR(creditorExposureMM)}M)`;
+    baseShortLabel = `Créd. Recuperado Credor (${recupPct}%)`;
   }
 
   const retainerMensalMil = Math.max(0, Number(pitchRetainerMensal || 0));
@@ -4742,13 +5397,18 @@ function computeAdvisoryFeeMetrics() {
   const successLiquidoMM = Math.max(0, successBrutoMM - offsetDeduzidoMM);
 
   const totalHonorariosMM = retainerTotalMM + successLiquidoMM;
-  const takeRatePassivoPct = passivoMM > 0 ? (totalHonorariosMM / passivoMM) * 100.0 : 0;
+  const refExposureForTakeRate = modelFeeBasis === 'credito_recuperado' ? creditorExposureMM : passivoMM;
+  const takeRatePassivoPct = refExposureForTakeRate > 0 ? (totalHonorariosMM / refExposureForTakeRate) * 100.0 : 0;
   const shareVariavelPct = totalHonorariosMM > 0 ? Math.round((successLiquidoMM / totalHonorariosMM) * 100) : 0;
   const shareFixoPct = 100 - shareVariavelPct;
-  const roiClienteEconomia = totalHonorariosMM > 0 ? (economiaMM / totalHonorariosMM) : 0;
+  const roiClienteEconomia = totalHonorariosMM > 0
+    ? ((modelFeeBasis === 'credito_recuperado' ? creditorRecoveredMM : economiaMM) / totalHonorariosMM)
+    : 0;
 
   return {
     passivoMM,
+    creditorExposureMM,
+    creditorRecoveredMM,
     haircutPct,
     recupPct,
     economiaMM,
@@ -4797,23 +5457,47 @@ function openCalculatorForTier0(idx) {
   if (!t0) return;
   closeModal();
   const ufMatch = String(t0.regiao || 'SP').match(/\b([A-Z]{2})\b/);
+  const passivoNum = Math.max(10, Number(t0.passivo_mm || 150));
+  const cleanVetores = String(t0.vetores || '').replace(/\r?\n/g, ' • ').trim();
+  const todayIso = getBrazilTodayIso();
+
   selectedTier0CalcTarget = {
     id: 'tier0',
-    empresa: t0.empresa,
-    cnpj: t0.cnpj,
-    setor_macro: t0.setor_macro,
+    empresa: t0.empresa || 'Alvo Radar Preditivo Tier 0',
+    cnpj: t0.cnpj || 'Em apuração (Tier 0)',
+    setor_macro: t0.setor_macro || 'Indústria & Manufatura',
     uf: ufMatch ? ufMatch[1] : 'SP',
-    cidade: String(t0.regiao || 'SP').split('/')[0].trim(),
-    tribunal: 'Radar Pré-Concursal (Tier 0)',
-    processo: t0.fontes || 'Monitoramento Antecedente',
+    cidade: String(t0.regiao || 'São Paulo').split('/')[0].split('(')[0].trim() || 'São Paulo',
+    tribunal: 'Radar Pré-Concursal (Fase Antecedente — Sem RJ Ajuizada)',
+    processo: t0.fontes || 'Monitoramento Forense Antecedente',
+    fase: 'Sinal Precursor (Tier 0)',
+    tier: 'Tier 0',
+    score: Number(t0.score || 9.0),
     tipo_processo: 'Tier 0',
-    subtipo_processo: `Tier 0 (${t0.janela})`,
-    passivo_mm: Number(t0.passivo_mm || 150),
-    tese: `${t0.vetores || ''} Mandato sugerido: ${t0.tese || ''}`.trim(),
-    descricao_empresa: t0.vetores || '',
-    bancos_credores: t0.fontes || 'Credores Financeiros & Mercado de Capitais'
+    subtipo_processo: `Tier 0 (${t0.janela || '30-60 dias'})`,
+    passivo_mm: passivoNum,
+    data_evento: todayIso,
+    data_adicao: todayIso,
+    credores: t0.tese || 'Credores Financeiros & Mercado de Capitais',
+    perfil_passivo: t0.fontes || 'Bancário + Mercado de Capitais',
+    agentes_fiduciarios: 'Monitoramento Preventivo CVM / Escrituras',
+    securitizadoras: 'Sem securitizadora reportada',
+    advocacia: 'Mandato Preventivo em Prospecção',
+    aj: 'Não aplicável (Fase Pré-Processual)',
+    proximas_acoes: `Abordagem confidencial na janela antecedente (${t0.janela || '30-60 dias'}) para diagnóstico de liquidez, standstill e mediação pré-processual.`,
+    tese: `(1) Contexto e Causa da Crise: ${cleanVetores || ' Deterioração de liquidez capturada por sinais antecedentes.'} (2) Gargalo Imediato: Janela crítica de ${t0.janela || '30-60 dias'} sob pressão de ${t0.fontes || 'dívida bancária e mercado de capitais'}. (3) Tese de Mandato: Estruturação preventiva de standstill / reperfilamento extrajudicial junto a ${t0.tese || 'credores financeiros'}.`,
+    descricao_empresa: cleanVetores || 'Companhia monitorada preventivamente pelo Radar Forense Tier 0.',
+    bancos_credores: t0.tese || 'Credores Financeiros & Mercado de Capitais',
+    model_params: {
+      haircut_estimado_pct: 42,
+      desconto_secundario_pct: 32,
+      ev_estimado_mm: Math.round(passivoNum * 0.62),
+      liquidez_forcada_desconto_pct: 38,
+      split_classes: { extraconcursal_pct: 20, fiscal_pct: 10, classe_i_pct: 4, classe_ii_pct: 36, classe_iii_pct: 27, classe_iv_pct: 3 }
+    }
   };
-  modelCustomPassivo = Math.max(10, Number(t0.passivo_mm || 150));
+  calibrateAdvisoryDefaultsForDeal(selectedTier0CalcTarget);
+  modelCustomPassivo = passivoNum;
   modelHaircutPct = 42;
   modelFeeBasis = 'passivo_total';
   modelMandateMonths = 9;
@@ -4828,6 +5512,7 @@ function openCalculatorForTier0(idx) {
 
 function openPitchGeneratorForDeal(dealId) {
   closeModal();
+  selectedTier0CalcTarget = null;
   selectedModelDealId = Number(dealId);
   currentMainSection = 'precificacao';
   document.querySelectorAll('.nav-link-btn').forEach(b => b.classList.remove('active'));
@@ -4840,11 +5525,14 @@ function openPitchGeneratorForDeal(dealId) {
   selectDealForCalculator(dealId);
   renderSubTabs();
   renderSectionContent();
+  syncUrlHash(true);
   showToast('Caso carregado no Gerador de Proposta Comercial (.pptx)!');
 }
 
 function buildFeeCalculatorRightPaneHtml(m) {
   const feeRateScenarios = [0.75, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0];
+  const takeRateLabel = modelFeeBasis === 'credito_recuperado' ? 's/ Exposição Credor' : 's/ Passivo Total';
+  const refDenom = modelFeeBasis === 'credito_recuperado' ? m.creditorExposureMM : m.passivoMM;
   return `
     <div class="calc-results-strip">
       <div class="calc-res-card">
@@ -4865,7 +5553,7 @@ function buildFeeCalculatorRightPaneHtml(m) {
       <div class="calc-res-card">
         <div class="calc-res-label">Honorários Totais do Mandato</div>
         <div class="calc-res-val" style="color:#065F46;">R$ ${m.totalHonorariosMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
-        <div class="calc-res-sub">Take Rate: <strong>${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}%</strong> s/ Passivo (${m.shareVariavelPct}% Êxito)</div>
+        <div class="calc-res-sub">Take Rate: <strong>${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}%</strong> ${takeRateLabel} (${m.shareVariavelPct}% Êxito)</div>
       </div>
     </div>
 
@@ -4897,7 +5585,7 @@ function buildFeeCalculatorRightPaneHtml(m) {
                 <th style="text-align:right;">Fee Bruto (R$ MM)</th>
                 <th style="text-align:right;">Success Líq. (R$ MM)</th>
                 <th style="text-align:right;">Honorários Totais</th>
-                <th style="text-align:right;">% Efetivo s/ Passivo</th>
+                <th style="text-align:right;">% Efetivo (${takeRateLabel})</th>
               </tr>
             </thead>
             <tbody>
@@ -4906,7 +5594,7 @@ function buildFeeCalculatorRightPaneHtml(m) {
                 const sDed = Math.min(sBruto, m.retainerTotalMM * (m.offsetPct / 100.0));
                 const sLiq = Math.max(0, sBruto - sDed);
                 const totFee = m.retainerTotalMM + sLiq;
-                const effPct = m.passivoMM > 0 ? (totFee / m.passivoMM) * 100.0 : 0;
+                const effPct = refDenom > 0 ? (totFee / refDenom) * 100.0 : 0;
                 const isCurrent = Math.abs(rate - m.successFeePct) < 0.15;
                 return `
                   <tr style="${isCurrent ? 'background:#DCE7E7; font-weight:700;' : ''}">
@@ -4927,12 +5615,10 @@ function buildFeeCalculatorRightPaneHtml(m) {
 }
 
 function drawFeeCalculatorChart(m) {
-  activeCharts.forEach(c => { try { c.destroy(); } catch(e){} });
-  activeCharts = [];
   if (typeof Chart === 'undefined') return;
   const ctx = document.getElementById('chartSimpleRecovery');
   if (ctx) {
-    activeCharts.push(new Chart(ctx, {
+    createManagedChart(ctx, {
       type: 'bar',
       data: {
         labels: [
@@ -4964,17 +5650,28 @@ function drawFeeCalculatorChart(m) {
           x: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 10.5, weight: '700' } } }
         }
       }
-    }));
+    });
   }
+}
+
+function parseNonDestructiveDecimal(rawVal) {
+  if (rawVal === null || rawVal === undefined) return null;
+  const s = String(rawVal).trim().replace(',', '.');
+  if (!s || s === '-' || s === '.' || s.endsWith('.')) return null;
+  const parsed = parseFloat(s);
+  return isNaN(parsed) ? null : parsed;
 }
 
 function updateSimpleCalcLive(field, val) {
   if (field === 'basis') {
     modelFeeBasis = String(val);
+    const expWrap = document.getElementById('creditorExposureFieldWrap');
+    if (expWrap) expWrap.style.display = modelFeeBasis === 'credito_recuperado' ? 'block' : 'none';
   } else {
-    const num = parseFloat(val);
-    if (isNaN(num)) return;
+    const num = parseNonDestructiveDecimal(val);
+    if (num === null || isNaN(num)) return;
     if (field === 'passivo' || field === 'credito') modelCustomPassivo = Math.max(1, num);
+    else if (field === 'creditor_exposure') pitchCreditorExposureMM = Math.max(1, num);
     else if (field === 'haircut') modelHaircutPct = Math.min(99, Math.max(0, num));
     else if (field === 'retainer') pitchRetainerMensal = Math.max(0, num);
     else if (field === 'meses') modelMandateMonths = Math.min(60, Math.max(1, Math.round(num)));
@@ -4984,16 +5681,19 @@ function updateSimpleCalcLive(field, val) {
 
   const m = computeAdvisoryFeeMetrics();
 
-  // Update badges in left panel without destroying input focus
   const bPassivo = document.getElementById('badge-fee-passivo');
   if (bPassivo) bPassivo.textContent = `R$ ${formatNumberBR(m.passivoMM)} MM`;
+  const bCredExp = document.getElementById('badge-fee-cred-exp');
+  if (bCredExp) bCredExp.textContent = `R$ ${formatNumberBR(m.creditorExposureMM)} MM`;
   const bBasis = document.getElementById('badge-fee-basis');
   if (bBasis) bBasis.textContent = `R$ ${m.baseCalculoMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} MM`;
   const bHaircut = document.getElementById('badge-fee-haircut');
   if (bHaircut) bHaircut.textContent = `Recup. Implícita: ${m.recupPct}%`;
   const bEconSub = document.getElementById('sub-fee-economia');
   if (bEconSub) {
-    bEconSub.innerHTML = `<span>Economia: <strong>R$ ${m.economiaMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Dívida Pós-Plano: <strong>R$ ${m.creditoRecupMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`;
+    bEconSub.innerHTML = modelFeeBasis === 'credito_recuperado'
+      ? `<span>Exposição Credor: <strong>R$ ${m.creditorExposureMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Recuperado Credor: <strong>R$ ${m.creditorRecoveredMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`
+      : `<span>Economia: <strong>R$ ${m.economiaMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Dívida Pós-Plano: <strong>R$ ${m.creditoRecupMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`;
   }
   const bRet = document.getElementById('badge-fee-retainer');
   if (bRet) bRet.textContent = `R$ ${m.retainerMensalMil}k/mês`;
@@ -5012,12 +5712,11 @@ function updateSimpleCalcLive(field, val) {
 }
 
 function renderPrecificacaoSection(container) {
-  const baseDeal = DEALS_DATA.find(x => x.id === Number(selectedModelDealId)) || DEALS_DATA[0];
-  if (!baseDeal && !selectedTier0CalcTarget) {
+  const d = getActiveModelingDeal();
+  if (!d) {
     container.innerHTML = `<div style="text-align:center; padding:48px; color:var(--text-muted);">Carregando base de casos...</div>`;
     return;
   }
-  const d = selectedTier0CalcTarget ? { ...(baseDeal || {}), ...selectedTier0CalcTarget } : baseDeal;
 
   const selectorBar = `
     <div style="background:linear-gradient(90deg, #063630 0%, #0D4B43 100%); color:#E6E9DC; border-radius:10px; padding:14px 18px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
@@ -5061,7 +5760,6 @@ function renderPrecificacaoSection(container) {
     return;
   }
 
-  // Default: Sub-Módulo 1 — Calculadora de Success Fee & Retainer (100% Digitável em %)
   const m = computeAdvisoryFeeMetrics();
 
   container.innerHTML = selectorBar + `
@@ -5073,10 +5771,10 @@ function renderPrecificacaoSection(container) {
 
         <div class="calc-field-group">
           <div class="calc-field-label">
-            <span>1. Passivo / Dívida Alvo (R$ MM)</span>
+            <span>1. Passivo Total da Devedora (R$ MM)</span>
             <span class="val-badge" id="badge-fee-passivo">R$ ${formatNumberBR(m.passivoMM)} MM</span>
           </div>
-          <input type="number" class="calc-num-input" value="${m.passivoMM}" min="1" step="10" oninput="updateSimpleCalcLive('passivo', this.value)">
+          <input type="text" inputmode="decimal" class="calc-num-input" value="${m.passivoMM}" oninput="updateSimpleCalcLive('passivo', this.value)">
         </div>
 
         <div class="calc-field-group">
@@ -5085,10 +5783,18 @@ function renderPrecificacaoSection(container) {
             <span class="val-badge" id="badge-fee-basis">R$ ${m.baseCalculoMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} MM</span>
           </div>
           <select class="clean-select" style="width:100%;" onchange="updateSimpleCalcLive('basis', this.value)">
-            <option value="passivo_total" ${modelFeeBasis === 'passivo_total' ? 'selected' : ''}>Sobre Passivo Total Reestruturado (100% da Dívida)</option>
-            <option value="haircut_economia" ${modelFeeBasis === 'haircut_economia' ? 'selected' : ''}>Sobre Economia / Redução de Dívida Obtida (Haircut — Debtor-Side)</option>
-            <option value="credito_recuperado" ${modelFeeBasis === 'credito_recuperado' ? 'selected' : ''}>Sobre Crédito Efetivamente Recuperado (Creditor-Side / Watchdog)</option>
+            <option value="passivo_total" ${modelFeeBasis === 'passivo_total' ? 'selected' : ''}>Debtor-Side: Sobre Passivo Total Reestruturado (100% da Dívida)</option>
+            <option value="haircut_economia" ${modelFeeBasis === 'haircut_economia' ? 'selected' : ''}>Debtor-Side: Sobre Economia / Redução de Dívida Obtida (Haircut)</option>
+            <option value="credito_recuperado" ${modelFeeBasis === 'credito_recuperado' ? 'selected' : ''}>Creditor-Side: Sobre Crédito Efetivamente Recuperado pelo Credor</option>
           </select>
+        </div>
+
+        <div class="calc-field-group" id="creditorExposureFieldWrap" style="display:${modelFeeBasis === 'credito_recuperado' ? 'block' : 'none'};">
+          <div class="calc-field-label">
+            <span>2B. Exposição do Credor / Pool Assessorado (R$ MM)</span>
+            <span class="val-badge" id="badge-fee-cred-exp">R$ ${formatNumberBR(m.creditorExposureMM)} MM</span>
+          </div>
+          <input type="text" inputmode="decimal" class="calc-num-input" value="${m.creditorExposureMM}" oninput="updateSimpleCalcLive('creditor_exposure', this.value)">
         </div>
 
         <div class="calc-field-group">
@@ -5097,12 +5803,13 @@ function renderPrecificacaoSection(container) {
             <span class="val-badge" id="badge-fee-haircut">Recup. Implícita: ${m.recupPct}%</span>
           </div>
           <div class="pct-input-wrap">
-            <input type="number" class="calc-num-input" min="0" max="99" step="0.5" value="${m.haircutPct}" oninput="updateSimpleCalcLive('haircut', this.value)">
+            <input type="text" inputmode="decimal" class="calc-num-input" value="${m.haircutPct}" oninput="updateSimpleCalcLive('haircut', this.value)">
             <span class="pct-suffix">%</span>
           </div>
           <div id="sub-fee-economia" style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-top:5px;">
-            <span>Economia: <strong>R$ ${m.economiaMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>
-            <span>Dívida Pós-Plano: <strong>R$ ${m.creditoRecupMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>
+            ${modelFeeBasis === 'credito_recuperado'
+              ? `<span>Exposição Credor: <strong>R$ ${m.creditorExposureMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Recuperado Credor: <strong>R$ ${m.creditorRecoveredMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`
+              : `<span>Economia: <strong>R$ ${m.economiaMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Dívida Pós-Plano: <strong>R$ ${m.creditoRecupMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`}
           </div>
         </div>
 
@@ -5112,7 +5819,7 @@ function renderPrecificacaoSection(container) {
               <span>4. Retainer (R$ mil/mês)</span>
               <span class="val-badge" id="badge-fee-retainer">R$ ${m.retainerMensalMil}k/mês</span>
             </div>
-            <input type="number" class="calc-num-input" value="${m.retainerMensalMil}" min="0" step="5" oninput="updateSimpleCalcLive('retainer', this.value)">
+            <input type="text" inputmode="decimal" class="calc-num-input" value="${m.retainerMensalMil}" oninput="updateSimpleCalcLive('retainer', this.value)">
           </div>
 
           <div class="calc-field-group">
@@ -5120,7 +5827,7 @@ function renderPrecificacaoSection(container) {
               <span>5. Prazo (Meses)</span>
               <span class="val-badge" id="badge-fee-meses">${m.mesesMandato} meses</span>
             </div>
-            <input type="number" class="calc-num-input" value="${m.mesesMandato}" min="1" max="60" step="1" oninput="updateSimpleCalcLive('meses', this.value)">
+            <input type="text" inputmode="numeric" class="calc-num-input" value="${m.mesesMandato}" oninput="updateSimpleCalcLive('meses', this.value)">
           </div>
         </div>
 
@@ -5131,7 +5838,7 @@ function renderPrecificacaoSection(container) {
               <span class="val-badge" id="badge-fee-success">Bruto: R$ ${m.successBrutoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</span>
             </div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" min="0" max="25" step="0.25" value="${m.successFeePct}" oninput="updateSimpleCalcLive('success_pct', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${m.successFeePct}" oninput="updateSimpleCalcLive('success_pct', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
@@ -5142,7 +5849,7 @@ function renderPrecificacaoSection(container) {
               <span class="val-badge" id="badge-fee-offset">Deduz: R$ ${m.offsetDeduzidoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</span>
             </div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" min="0" max="100" step="5" value="${m.offsetPct}" oninput="updateSimpleCalcLive('offset_pct', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${m.offsetPct}" oninput="updateSimpleCalcLive('offset_pct', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
@@ -5161,74 +5868,124 @@ function renderPrecificacaoSection(container) {
     </div>
   `;
 
-  setTimeout(() => drawFeeCalculatorChart(m), 20);
+  scheduleChartInit(() => drawFeeCalculatorChart(m), 20);
 }
 
 // ==========================================================================
-// SUB-MÓDULO 2: Waterfall de Classes (RJ vs. Falência) — 100% Digitável em %
+// SUB-MÓDULO 2: Waterfall de Classes (RJ vs. Falência — Lei 11.101/05 & Lei 14.112/20)
 // ==========================================================================
 function computeWaterfallMetrics(d) {
-  const passivoTotal = Math.max(1, Number(modelCustomPassivo || d.passivo_mm || 100));
+  const targetDeal = d || getActiveModelingDeal() || { id: 0, empresa: 'Caso em Modelagem', passivo_mm: 100 };
+  const passivoTotal = Math.max(0.1, Number(modelCustomPassivo || targetDeal.passivo_mm || 100));
   const evBruto = Math.max(0, Number(modelEvAtivos || 0));
   const liqDisc = Math.min(99, Math.max(0, Number(modelLiqDiscountPct || 0)));
-  const massaLiquida = Math.round(evBruto * (1 - liqDisc / 100.0));
+  const massaLiquida = Number((evBruto * (1 - liqDisc / 100.0)).toFixed(2));
 
-  const pctExtra = Math.max(0, Number(waterfallSplitPcts.extra || 0));
-  const pctC1 = Math.max(0, Number(waterfallSplitPcts.c1 || 0));
-  const pctC2 = Math.max(0, Number(waterfallSplitPcts.c2 || 0));
-  const pctC3 = Math.max(0, Number(waterfallSplitPcts.c3 || 0));
-  const pctC4 = Math.max(0, Number(waterfallSplitPcts.c4 || 0));
-  const totalSplitPct = Math.round((pctExtra + pctC1 + pctC2 + pctC3 + pctC4) * 10) / 10;
+  const pctExtra = Math.max(0, Number(waterfallSplitPcts.extra ?? 0));
+  const pctFiscal = Math.max(0, Number(waterfallSplitPcts.fiscal ?? 0));
+  const pctC1 = Math.max(0, Number(waterfallSplitPcts.c1 ?? 0));
+  const pctC2 = Math.max(0, Number(waterfallSplitPcts.c2 ?? 0));
+  const pctC3 = Math.max(0, Number(waterfallSplitPcts.c3 ?? 0));
+  const pctC4 = Math.max(0, Number(waterfallSplitPcts.c4 ?? 0));
+  const totalSplitPct = Math.round((pctExtra + pctFiscal + pctC1 + pctC2 + pctC3 + pctC4) * 10) / 10;
 
-  const cExtra = Math.round((passivoTotal * pctExtra) / 100.0);
-  const c1 = Math.round((passivoTotal * pctC1) / 100.0);
-  const c2 = Math.round((passivoTotal * pctC2) / 100.0);
-  const c3 = Math.round((passivoTotal * pctC3) / 100.0);
-  const c4 = Math.round((passivoTotal * pctC4) / 100.0);
+  const cExtra = Number(((passivoTotal * pctExtra) / 100.0).toFixed(2));
+  const cFiscal = Number(((passivoTotal * pctFiscal) / 100.0).toFixed(2));
+  const c1 = Number(((passivoTotal * pctC1) / 100.0).toFixed(2));
+  const c2 = Number(((passivoTotal * pctC2) / 100.0).toFixed(2));
+  const c3 = Number(((passivoTotal * pctC3) / 100.0).toFixed(2));
+  const c4 = Number(((passivoTotal * pctC4) / 100.0).toFixed(2));
 
+  // Ordem legal estrita na Liquidação Forçada / Falência (Lei 14.112/20 Arts. 49 §3º, 83 e 84):
+  // 1º Extraconcursal / Fiduciário (Arts. 49 §3º e 84) -> 2º Classe I (Art. 83, I) -> 3º Classe II (Art. 83, II)
+  // -> 4º Fiscal / Tributário ANTES dos quirografários (Art. 83, III) -> 5º Classe III + IV PARI PASSU (Art. 83, VI)
   let rem = massaLiquida;
-  const payExtra = Math.min(rem, cExtra); rem = Math.max(0, rem - payExtra);
-  const payC1 = Math.min(rem, c1); rem = Math.max(0, rem - payC1);
-  const payC2 = Math.min(rem, c2); rem = Math.max(0, rem - payC2);
-  const payC3 = Math.min(rem, c3); rem = Math.max(0, rem - payC3);
-  const payC4 = Math.min(rem, c4);
+  const payExtra = Number(Math.min(rem, cExtra).toFixed(2));
+  rem = Math.max(0, Number((rem - payExtra).toFixed(2)));
+
+  const payC1 = Number(Math.min(rem, c1).toFixed(2));
+  rem = Math.max(0, Number((rem - payC1).toFixed(2)));
+
+  const payC2 = Number(Math.min(rem, c2).toFixed(2));
+  rem = Math.max(0, Number((rem - payC2).toFixed(2)));
+
+  const payFiscal = Number(Math.min(rem, cFiscal).toFixed(2));
+  rem = Math.max(0, Number((rem - payFiscal).toFixed(2)));
+
+  const unsecuredPoolClaim = Number((c3 + c4).toFixed(2));
+  let payC3 = 0;
+  let payC4 = 0;
+  if (unsecuredPoolClaim > 0 && rem > 0) {
+    if (rem >= unsecuredPoolClaim) {
+      payC3 = c3;
+      payC4 = c4;
+      rem = Math.max(0, Number((rem - unsecuredPoolClaim).toFixed(2)));
+    } else {
+      payC3 = Number((rem * (c3 / unsecuredPoolClaim)).toFixed(2));
+      payC4 = Math.max(0, Number((rem - payC3).toFixed(2)));
+      rem = 0;
+    }
+  }
 
   const rows = [
-    { key: 'extra', pct: pctExtra, label: 'Extraconcursal / Fiduciário (Art. 49 §3º)', claim: cExtra, paid: payExtra },
-    { key: 'c1', pct: pctC1, label: 'Classe I — Trabalhista (Art. 83, I)', claim: c1, paid: payC1 },
-    { key: 'c2', pct: pctC2, label: 'Classe II — Garantia Real (Art. 83, II)', claim: c2, paid: payC2 },
-    { key: 'c3', pct: pctC3, label: 'Classe III — Quirografários (Art. 83, VI)', claim: c3, paid: payC3 },
-    { key: 'c4', pct: pctC4, label: 'Classe IV — ME / EPP', claim: c4, paid: payC4 }
+    { key: 'extra', order: '1º', pct: pctExtra, label: 'Extraconcursal / Fiduciário (Arts. 49 §3º e 84)', claim: cExtra, paid: payExtra, isConcursal: false },
+    { key: 'c1', order: '2º', pct: pctC1, label: 'Classe I — Trabalhista (Art. 83, I)', claim: c1, paid: payC1, isConcursal: true },
+    { key: 'c2', order: '3º', pct: pctC2, label: 'Classe II — Garantia Real (Art. 83, II)', claim: c2, paid: payC2, isConcursal: true },
+    { key: 'fiscal', order: '4º', pct: pctFiscal, label: 'Fiscal / Tributário — PGFN (Art. 83, III / Art. 6º §7º-B)', claim: cFiscal, paid: payFiscal, isConcursal: false },
+    { key: 'c3', order: '5º (Pari Passu)', pct: pctC3, label: 'Classe III — Quirografários (Art. 83, VI — Pari Passu)', claim: c3, paid: payC3, isConcursal: true },
+    { key: 'c4', order: '5º (Pari Passu)', pct: pctC4, label: 'Classe IV — ME / EPP (Art. 83, VI — Pari Passu c/ Cl. III)', claim: c4, paid: payC4, isConcursal: true }
   ];
 
-  const totalClaimsConcursais = cExtra + c1 + c2 + c3 + c4;
-  const totalRecovered = payExtra + payC1 + payC2 + payC3 + payC4;
-  const globalRecupPct = totalClaimsConcursais > 0 ? Math.round((totalRecovered / totalClaimsConcursais) * 100) : 0;
+  const totalClaimsAll = Number((cExtra + cFiscal + c1 + c2 + c3 + c4).toFixed(2));
+  const totalClaimsConcursais = Number((c1 + c2 + c3 + c4).toFixed(2));
+  const totalRecovered = Number((payExtra + payFiscal + payC1 + payC2 + payC3 + payC4).toFixed(2));
+  const totalRecoveredConcursal = Number((payC1 + payC2 + payC3 + payC4).toFixed(2));
 
-  return { passivoTotal, evBruto, liqDisc, massaLiquida, rows, totalClaimsConcursais, totalRecovered, globalRecupPct, totalSplitPct };
+  const globalRecupPct = passivoTotal > 0 ? Math.min(100, Math.round((totalRecovered / passivoTotal) * 1000) / 10) : 0;
+  const concursalRecupPct = totalClaimsConcursais > 0 ? Math.min(100, Math.round((totalRecoveredConcursal / totalClaimsConcursais) * 1000) / 10) : 0;
+
+  return {
+    passivoTotal, evBruto, liqDisc, massaLiquida, rows,
+    totalClaimsAll, totalClaimsConcursais, totalRecovered, totalRecoveredConcursal,
+    globalRecupPct, concursalRecupPct, totalSplitPct
+  };
+}
+const computeWaterfallModel = computeWaterfallMetrics;
+
+function normalizeWaterfallSplitTo100() {
+  waterfallSplitPcts = { ...reconcileSixBucketSplit(waterfallSplitPcts) };
+  renderSectionContent();
+  showToast('Estrutura de capital reconciliada proporcionalmente para 100,0%!');
 }
 
 function buildWaterfallRightPaneHtml(wf) {
   let fulcrumClass = 'N/A (Cobertura Integral)';
+  const partialLabels = [];
   for (const r of wf.rows) {
-    const recPct = r.claim > 0 ? Math.round((r.paid / r.claim) * 100) : 100;
-    if (recPct < 100 && recPct > 0) {
-      fulcrumClass = r.label.split('—')[0].trim();
-      break;
-    } else if (recPct === 0 && fulcrumClass === 'N/A (Cobertura Integral)') {
-      fulcrumClass = r.label.split('—')[0].trim();
-      break;
+    if (r.claim <= 0) continue;
+    const recPct = (r.paid / r.claim) * 100;
+    if (recPct < 99.95 && recPct > 0.05) {
+      partialLabels.push(r.label.split('—')[0].split('(')[0].trim());
     }
+  }
+  if (partialLabels.length > 0) {
+    fulcrumClass = partialLabels.join(' + ');
+  } else {
+    const firstZero = wf.rows.find(r => r.claim > 0 && r.paid <= 0);
+    if (firstZero) fulcrumClass = firstZero.label.split('—')[0].split('(')[0].trim();
   }
 
   const splitDiff = Math.round((wf.totalSplitPct - 100) * 10) / 10;
   const splitAlertBanner = Math.abs(splitDiff) >= 0.1
-    ? `<div role="alert" style="margin-bottom:12px; padding:10px 14px; background:#FEF2F2; border:1px solid #FECDD3; border-left:4px solid #9F1239; border-radius:6px; font-size:12px; color:#9F1239; display:flex; justify-content:space-between; align-items:center; gap:8px;">
-         <span><strong>⚠️ Alerta de Reconciliação de Classes:</strong> A soma atual das classes é <strong>${wf.totalSplitPct}%</strong> (${splitDiff > 0 ? `+${splitDiff}% acima` : `${splitDiff}% abaixo`} de 100%). Ajuste os percentuais para totalizar 100% do passivo (R$ ${formatNumberBR(wf.passivoTotal)} MM).</span>
-         <span class="status-badge badge-cautelar">Soma: ${wf.totalSplitPct}%</span>
+    ? `<div role="alert" style="margin-bottom:12px; padding:10px 14px; background:#FEF2F2; border:1px solid #FECDD3; border-left:4px solid #9F1239; border-radius:6px; font-size:12px; color:#9F1239; display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+         <span><strong>⚠️ Alerta de Reconciliação de Classes:</strong> Soma atual das 6 faixas = <strong>${String(wf.totalSplitPct).replace('.', ',')}%</strong> (${splitDiff > 0 ? `+${String(splitDiff).replace('.', ',')}% acima` : `${String(splitDiff).replace('.', ',')}% abaixo`} de 100%).</span>
+         <div style="display:flex; align-items:center; gap:8px;">
+           <span class="status-badge badge-cautelar">Soma: ${String(wf.totalSplitPct).replace('.', ',')}%</span>
+           <button type="button" class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="normalizeWaterfallSplitTo100()">Reconciliar p/ 100%</button>
+         </div>
        </div>`
-    : `<div style="margin-bottom:12px; padding:8px 14px; background:#F0FDF4; border:1px solid #BBF7D0; border-left:4px solid #065F46; border-radius:6px; font-size:11.5px; color:#065F46; display:flex; justify-content:space-between; align-items:center;">
-         <span>✓ Estrutura de capital reconciliada: soma das classes concursais e extraconcursais equivale a <strong>100%</strong> do passivo total.</span>
+    : `<div style="margin-bottom:12px; padding:8px 14px; background:#F0FDF4; border:1px solid #BBF7D0; border-left:4px solid #065F46; border-radius:6px; font-size:11.5px; color:#065F46; display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+         <span>✓ Estrutura de capital 100% reconciliada (6 faixas: Extraconcursal + Fiscal + Classes I a IV = R$ ${formatNumberBR(wf.passivoTotal)} MM) sob Lei 14.112/20 (Arts. 83 e 84).</span>
          <span class="status-badge badge-upi">Soma: 100%</span>
        </div>`;
 
@@ -5236,24 +5993,24 @@ function buildWaterfallRightPaneHtml(wf) {
     ${splitAlertBanner}
     <div class="calc-results-strip" style="grid-template-columns:repeat(4,1fr);">
       <div class="calc-res-card">
-        <div class="calc-res-label">Valor dos Ativos (EV Bruto)</div>
-        <div class="calc-res-val">R$ ${formatNumberBR(wf.evBruto)} MM</div>
-        <div class="calc-res-sub">Base de Avaliação Operacional</div>
+        <div class="calc-res-label">Ativos (EV) &amp; Massa Líquida</div>
+        <div class="calc-res-val">R$ ${formatNumberBR(wf.massaLiquida)} MM</div>
+        <div class="calc-res-sub">EV R$ ${formatNumberBR(wf.evBruto)}M (&minus;${wf.liqDisc}% deságio forçado)</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Deságio de Liquidação</div>
-        <div class="calc-res-val" style="color:#9F1239;">&minus;${wf.liqDisc}%</div>
-        <div class="calc-res-sub">Perda em Venda Forçada: R$ ${formatNumberBR(Math.max(0, wf.evBruto - wf.massaLiquida))}M</div>
+        <div class="calc-res-label">Recup. Global (s/ Passivo Total)</div>
+        <div class="calc-res-val" style="color:#065F46;">${wf.globalRecupPct.toFixed(1).replace('.', ',')}%</div>
+        <div class="calc-res-sub">R$ ${formatNumberBR(wf.totalRecovered)}M de R$ ${formatNumberBR(wf.passivoTotal)}M totais</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Massa Líquida Distribuível</div>
-        <div class="calc-res-val" style="color:#065F46;">R$ ${formatNumberBR(wf.massaLiquida)} MM</div>
-        <div class="calc-res-sub">Recuperação Média Global: <strong>${wf.globalRecupPct}%</strong></div>
+        <div class="calc-res-label">Recup. Concursal (Classes I–IV)</div>
+        <div class="calc-res-val" style="color:var(--vk-header-start);">${wf.concursalRecupPct.toFixed(1).replace('.', ',')}%</div>
+        <div class="calc-res-sub">R$ ${formatNumberBR(wf.totalRecoveredConcursal)}M de R$ ${formatNumberBR(wf.totalClaimsConcursais)}M concursais</div>
       </div>
       <div class="calc-res-card">
         <div class="calc-res-label">Classe Fulcrum (Corte de Valor)</div>
-        <div class="calc-res-val" style="font-size:15px; color:var(--vk-teal);">${escapeHtml(fulcrumClass)}</div>
-        <div class="calc-res-sub">Onde o valor de liquidação se esgota</div>
+        <div class="calc-res-val" style="font-size:14.5px; color:var(--vk-teal);">${escapeHtml(fulcrumClass)}</div>
+        <div class="calc-res-sub">Onde a massa líquida se esgota</div>
       </div>
     </div>
 
@@ -5261,30 +6018,34 @@ function buildWaterfallRightPaneHtml(wf) {
       <table class="clean-table">
         <thead>
           <tr>
-            <th>Classe Concursal</th>
-            <th style="text-align:right;">% do Passivo</th>
-            <th style="text-align:right;">Crédito da Classe (R$ MM)</th>
-            <th style="text-align:right;">Valor Recuperado (R$ MM)</th>
-            <th style="text-align:right;">% de Recuperação</th>
-            <th style="text-align:right;">% de Haircut Implícito</th>
+            <th style="text-align:center;">Ordem Legal</th>
+            <th>Faixa / Classe (Lei 14.112/20)</th>
+            <th style="text-align:right;">% Passivo</th>
+            <th style="text-align:right;">Crédito (R$ MM)</th>
+            <th style="text-align:right;">Recuperado (R$ MM)</th>
+            <th style="text-align:right;">% Recuperação</th>
+            <th style="text-align:right;">% Haircut</th>
             <th style="text-align:center;">Status na Cascata</th>
           </tr>
         </thead>
         <tbody>
           ${wf.rows.map(r => {
-            const recPct = r.claim > 0 ? Math.round((r.paid / r.claim) * 100) : 100;
-            const hPct = 100 - recPct;
-            const statusTag = recPct === 100
-              ? '<span class="status-badge badge-upi">INTEGRAL (100%)</span>'
-              : (recPct > 0 ? '<span class="status-badge badge-prj">CLASSE FULCRUM</span>' : '<span class="status-badge badge-cautelar">ZERO RECUP. (0%)</span>');
+            const recPct = r.claim > 0 ? Math.round((r.paid / r.claim) * 1000) / 10 : 100;
+            const hPct = Math.max(0, Math.round((100 - recPct) * 10) / 10);
+            const statusTag = r.claim <= 0
+              ? '<span class="status-badge" style="background:#F1F5F9; color:#64748B;">SEM SALDO (0%)</span>'
+              : (recPct >= 99.95
+                ? '<span class="status-badge badge-upi">INTEGRAL (100%)</span>'
+                : (recPct > 0 ? '<span class="status-badge badge-prj">CLASSE FULCRUM</span>' : '<span class="status-badge badge-cautelar">ZERO RECUP. (0%)</span>'));
             return `
               <tr>
-                <td><strong>${r.label}</strong></td>
-                <td style="text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">${r.pct}%</td>
+                <td style="text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--text-secondary);">${escapeHtml(r.order)}</td>
+                <td><strong>${escapeHtml(r.label)}</strong></td>
+                <td style="text-align:right; font-family:var(--font-mono); color:var(--text-secondary);">${String(r.pct).replace('.', ',')}%</td>
                 <td style="text-align:right; font-family:var(--font-mono);">R$ ${formatNumberBR(r.claim)} MM</td>
                 <td style="text-align:right; font-family:var(--font-mono); font-weight:700; color:#065F46;">R$ ${formatNumberBR(r.paid)} MM</td>
-                <td style="text-align:right; font-family:var(--font-mono); font-weight:800;">${recPct}%</td>
-                <td style="text-align:right; font-family:var(--font-mono); color:#9F1239;">${hPct}%</td>
+                <td style="text-align:right; font-family:var(--font-mono); font-weight:800;">${r.claim > 0 ? `${recPct.toFixed(1).replace('.', ',')}%` : '—'}</td>
+                <td style="text-align:right; font-family:var(--font-mono); color:#9F1239;">${r.claim > 0 ? `${hPct.toFixed(1).replace('.', ',')}%` : '—'}</td>
                 <td style="text-align:center;">${statusTag}</td>
               </tr>
             `;
@@ -5296,13 +6057,13 @@ function buildWaterfallRightPaneHtml(wf) {
 }
 
 function updateWaterfallLive(field, val) {
-  const num = parseFloat(val);
-  if (isNaN(num)) return;
+  const num = parseNonDestructiveDecimal(val);
+  if (num === null) return;
   if (field === 'ev') modelEvAtivos = Math.max(0, num);
   else if (field === 'liq_disc') modelLiqDiscountPct = Math.min(99, Math.max(0, num));
   else if (field in waterfallSplitPcts) waterfallSplitPcts[field] = Math.min(100, Math.max(0, num));
 
-  const d = DEALS_DATA.find(x => x.id === Number(selectedModelDealId)) || DEALS_DATA[0];
+  const d = getActiveModelingDeal();
   const wf = computeWaterfallMetrics(d);
 
   const bEv = document.getElementById('badge-wf-ev');
@@ -5325,7 +6086,7 @@ function renderWaterfallSubmodule(d, selectorBar, container) {
     <div class="calc-layout-grid">
       <div class="calc-controls-panel">
         <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border-light);">
-          Parâmetros de Ativos &amp; Liquidação (% Digitável)
+          Parâmetros de Ativos &amp; Liquidação Forçada (Lei 14.112/20)
         </div>
 
         <div class="calc-field-group">
@@ -5333,16 +6094,16 @@ function renderWaterfallSubmodule(d, selectorBar, container) {
             <span>1. Valor Estimado dos Ativos / EV (R$ MM)</span>
             <span class="val-badge" id="badge-wf-ev">R$ ${formatNumberBR(wf.evBruto)} MM</span>
           </div>
-          <input type="number" class="calc-num-input" value="${wf.evBruto}" min="0" step="10" oninput="updateWaterfallLive('ev', this.value)">
+          <input type="text" inputmode="decimal" class="calc-num-input" value="${wf.evBruto}" oninput="updateWaterfallLive('ev', this.value)">
         </div>
 
         <div class="calc-field-group">
           <div class="calc-field-label">
-            <span>2. Deságio de Liquidação Forçada (% Digitável)</span>
+            <span>2. Deságio de Liquidação Forçada (%)</span>
             <span class="val-badge" id="badge-wf-disc">${wf.liqDisc}%</span>
           </div>
           <div class="pct-input-wrap">
-            <input type="number" class="calc-num-input" min="0" max="99" step="1" value="${wf.liqDisc}" oninput="updateWaterfallLive('liq_disc', this.value)">
+            <input type="text" inputmode="decimal" class="calc-num-input" value="${wf.liqDisc}" oninput="updateWaterfallLive('liq_disc', this.value)">
             <span class="pct-suffix">%</span>
           </div>
         </div>
@@ -5352,43 +6113,53 @@ function renderWaterfallSubmodule(d, selectorBar, container) {
           <span id="badge-wf-massa" style="font-family:var(--font-mono); font-weight:800; font-size:13.5px; color:var(--vk-header-start);">R$ ${formatNumberBR(wf.massaLiquida)} MM</span>
         </div>
 
-        <div style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--text-secondary); text-transform:uppercase; margin-bottom:10px; padding-top:6px; border-top:1px dashed var(--border-medium);">
-          Estrutura do Passivo por Classe (% Digitável)
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding-top:6px; border-top:1px dashed var(--border-medium);">
+          <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--text-secondary); text-transform:uppercase;">
+            Estrutura de Capital — 6 Faixas (% Digitável)
+          </span>
+          <button type="button" class="btn-action" style="padding:2px 8px; font-size:10.5px;" onclick="normalizeWaterfallSplitTo100()">100%</button>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <div class="wf-grid-responsive">
           <div class="calc-field-group" style="margin-bottom:6px;">
-            <div class="calc-field-label"><span>Extraconcursal (%)</span></div>
+            <div class="calc-field-label"><span>Extraconcursal / Fid. (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" min="0" max="100" step="1" value="${waterfallSplitPcts.extra}" oninput="updateWaterfallLive('extra', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.extra}" oninput="updateWaterfallLive('extra', this.value)">
+              <span class="pct-suffix">%</span>
+            </div>
+          </div>
+          <div class="calc-field-group" style="margin-bottom:6px;">
+            <div class="calc-field-label"><span>Fiscal / Trib. (Art. 83 III)</span></div>
+            <div class="pct-input-wrap">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.fiscal}" oninput="updateWaterfallLive('fiscal', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Classe I Trab. (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" min="0" max="100" step="1" value="${waterfallSplitPcts.c1}" oninput="updateWaterfallLive('c1', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c1}" oninput="updateWaterfallLive('c1', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Classe II Real (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" min="0" max="100" step="1" value="${waterfallSplitPcts.c2}" oninput="updateWaterfallLive('c2', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c2}" oninput="updateWaterfallLive('c2', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Classe III Quirog. (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" min="0" max="100" step="1" value="${waterfallSplitPcts.c3}" oninput="updateWaterfallLive('c3', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c3}" oninput="updateWaterfallLive('c3', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
-          <div class="calc-field-group" style="grid-column:1/-1; margin-bottom:0;">
-            <div class="calc-field-label"><span>Classe IV ME / EPP (%)</span></div>
+          <div class="calc-field-group" style="margin-bottom:6px;">
+            <div class="calc-field-label"><span>Classe IV ME/EPP (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" min="0" max="100" step="1" value="${waterfallSplitPcts.c4}" oninput="updateWaterfallLive('c4', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c4}" oninput="updateWaterfallLive('c4', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
@@ -5403,124 +6174,165 @@ function renderWaterfallSubmodule(d, selectorBar, container) {
 }
 
 // ==========================================================================
-// SUB-MÓDULO 3: Simulador de Quórum AGC & Cram Down (Art. 45 e Art. 58, §1º) — 100% Digitável em %
+// SUB-MÓDULO 3: Simulador de Quórum AGC & Cram Down (Art. 45 e Art. 58, §1º)
 // ==========================================================================
 function computeQuorumMetrics(d) {
-  const c1Ok = agcVotes.c1_head_yes > 50;
-  const c2Ok = agcVotes.c2_val_yes > 50 && agcVotes.c2_head_yes > 50;
-  const c3Ok = agcVotes.c3_val_yes > 50 && agcVotes.c3_head_yes > 50;
-  const c4Ok = agcVotes.c4_head_yes > 50;
+  const targetDeal = d || getActiveModelingDeal() || { id: 0, empresa: 'Caso em Modelagem', passivo_mm: 100 };
+  const passivoTotal = Math.max(0.1, Number(modelCustomPassivo || targetDeal.passivo_mm || 100));
 
-  const classesApproved = [c1Ok, c2Ok, c3Ok, c4Ok].filter(Boolean).length;
-  const ordinaryApproved = classesApproved === 4;
-
-  // Cram Down (Art. 58, §1º):
-  // I - voto favorável de credores que representem mais de 50% do valor de todos os créditos presentes;
-  // II - aprovação de 3 das 4 classes (ou 2 classes caso haja apenas 3);
-  // III - na classe que rejeitou, voto favorável de mais de 1/3 (33,33%) dos credores.
-  const passivoTotal = Number(d.passivo_mm || 100);
-  const rawC1 = Math.max(0, Number(waterfallSplitPcts.c1 ?? 5));
-  const rawC2 = Math.max(0, Number(waterfallSplitPcts.c2 ?? 45));
-  const rawC3 = Math.max(0, Number(waterfallSplitPcts.c3 ?? 45));
-  const rawC4 = Math.max(0, Number(waterfallSplitPcts.c4 ?? 5));
+  const rawC1 = Math.max(0, Number(waterfallSplitPcts.c1 ?? 3));
+  const rawC2 = Math.max(0, Number(waterfallSplitPcts.c2 ?? 42));
+  const rawC3 = Math.max(0, Number(waterfallSplitPcts.c3 ?? 27));
+  const rawC4 = Math.max(0, Number(waterfallSplitPcts.c4 ?? 3));
   const concursalSum = rawC1 + rawC2 + rawC3 + rawC4;
+
+  const allZero = concursalSum <= 0;
+  const activeC1 = allZero || rawC1 > 0;
+  const activeC2 = allZero || rawC2 > 0;
+  const activeC3 = allZero || rawC3 > 0;
+  const activeC4 = allZero || rawC4 > 0;
+
+  const c1ValYes = Number(agcVotes.c1_val_yes ?? agcVotes.c1_head_yes ?? 0);
+  const c1HeadYes = Number(agcVotes.c1_head_yes ?? 0);
+  const c2ValYes = Number(agcVotes.c2_val_yes ?? 0);
+  const c2HeadYes = Number(agcVotes.c2_head_yes ?? 0);
+  const c3ValYes = Number(agcVotes.c3_val_yes ?? 0);
+  const c3HeadYes = Number(agcVotes.c3_head_yes ?? 0);
+  const c4ValYes = Number(agcVotes.c4_val_yes ?? agcVotes.c4_head_yes ?? 0);
+  const c4HeadYes = Number(agcVotes.c4_head_yes ?? 0);
+
+  // Quórum Ordinário (Art. 45 §§1º e 2º): Classes I e IV (>50% cabeça); Classes II e III (>50% valor E >50% cabeça)
+  const c1Ok = c1HeadYes > 50;
+  const c2Ok = c2ValYes > 50 && c2HeadYes > 50;
+  const c3Ok = c3ValYes > 50 && c3HeadYes > 50;
+  const c4Ok = c4HeadYes > 50;
+
+  const activeFlags = [
+    { key: 'c1', active: activeC1, ok: c1Ok },
+    { key: 'c2', active: activeC2, ok: c2Ok },
+    { key: 'c3', active: activeC3, ok: c3Ok },
+    { key: 'c4', active: activeC4, ok: c4Ok }
+  ];
+  const votingClassesCount = activeFlags.filter(x => x.active).length;
+  const classesApproved = activeFlags.filter(x => x.active && x.ok).length;
+  const ordinaryApproved = votingClassesCount > 0 && classesApproved === votingClassesCount;
+
+  // Cram Down — Art. 58, §1º, I a III:
+  // I - voto favorável > 50% do VALOR de todos os créditos presentes à AGC;
+  // II - aprovação de 3 das 4 classes (ou 2 de 3; ou 1 de 2);
+  // III - na classe dissidente, > 1/3 (33,333...%) computado conforme §§1º e 2º do Art. 45.
   const wC1 = concursalSum > 0 ? rawC1 / concursalSum : 0.05;
   const wC2 = concursalSum > 0 ? rawC2 / concursalSum : 0.45;
   const wC3 = concursalSum > 0 ? rawC3 / concursalSum : 0.45;
   const wC4 = concursalSum > 0 ? rawC4 / concursalSum : 0.05;
 
   const weightedValVotePct = Number((
-    agcVotes.c1_head_yes * wC1 +
-    agcVotes.c2_val_yes * wC2 +
-    agcVotes.c3_val_yes * wC3 +
-    agcVotes.c4_head_yes * wC4
-  ).toFixed(1));
+    c1ValYes * wC1 +
+    c2ValYes * wC2 +
+    c3ValYes * wC3 +
+    c4ValYes * wC4
+  ).toFixed(2));
 
-  const rejectedClassesPassOneThird = (
-    (c1Ok || agcVotes.c1_head_yes > 33.33) &&
-    (c2Ok || (agcVotes.c2_val_yes > 33.33 && agcVotes.c2_head_yes > 33.33)) &&
-    (c3Ok || (agcVotes.c3_val_yes > 33.33 && agcVotes.c3_head_yes > 33.33)) &&
-    (c4Ok || agcVotes.c4_head_yes > 33.33)
-  );
+  const cramDownReqI = weightedValVotePct > 50;
+  const requiredClassesForCramDown = votingClassesCount >= 4 ? 3 : (votingClassesCount === 3 ? 2 : 1);
+  const cramDownReqII = classesApproved >= requiredClassesForCramDown;
 
-  const cramDownEligible = !ordinaryApproved && weightedValVotePct > 50 && classesApproved >= 2 && rejectedClassesPassOneThird;
+  const ONE_THIRD = 100 / 3;
+  const c1PassThird = !activeC1 || c1Ok || c1HeadYes > ONE_THIRD;
+  const c2PassThird = !activeC2 || c2Ok || (c2ValYes > ONE_THIRD && c2HeadYes > ONE_THIRD);
+  const c3PassThird = !activeC3 || c3Ok || (c3ValYes > ONE_THIRD && c3HeadYes > ONE_THIRD);
+  const c4PassThird = !activeC4 || c4Ok || c4HeadYes > ONE_THIRD;
+  const rejectedClassesPassOneThird = c1PassThird && c2PassThird && c3PassThird && c4PassThird;
 
-  const c3ClaimMM = Math.round(passivoTotal * ((waterfallSplitPcts.c3 || 27) / 100.0));
-  const c2ClaimMM = Math.round(passivoTotal * ((waterfallSplitPcts.c2 || 42) / 100.0));
-  const blockingC3MM = Math.round(c3ClaimMM * 0.667);
-  const blockingC2MM = Math.round(c2ClaimMM * 0.667);
+  const cramDownEligible = !ordinaryApproved && cramDownReqI && cramDownReqII && rejectedClassesPassOneThird;
+
+  const c2ClaimMM = Math.round(passivoTotal * (rawC2 / 100.0));
+  const c3ClaimMM = Math.round(passivoTotal * (rawC3 / 100.0));
+  const blockingC2MM = Math.round(c2ClaimMM * (2 / 3));
+  const blockingC3MM = Math.round(c3ClaimMM * (2 / 3));
 
   return {
     c1Ok, c2Ok, c3Ok, c4Ok,
-    classesApproved,
-    ordinaryApproved,
-    weightedValVotePct,
-    rejectedClassesPassOneThird,
-    cramDownEligible,
-    c2ClaimMM,
-    c3ClaimMM,
-    blockingC2MM,
-    blockingC3MM
+    activeC1, activeC2, activeC3, activeC4,
+    c1ValYes, c1HeadYes, c2ValYes, c2HeadYes, c3ValYes, c3HeadYes, c4ValYes, c4HeadYes,
+    c1PassThird, c2PassThird, c3PassThird, c4PassThird,
+    votingClassesCount, requiredClassesForCramDown, classesApproved, ordinaryApproved,
+    weightedValVotePct, cramDownReqI, cramDownReqII, rejectedClassesPassOneThird, cramDownEligible,
+    c2ClaimMM, c3ClaimMM, blockingC2MM, blockingC3MM
   };
 }
 
 function buildQuorumRightPaneHtml(d, q) {
+  const ONE_THIRD = 100 / 3;
   const classRows = [
     {
       nome: 'Classe I — Trabalhista (Art. 45, §2º)',
-      regra: 'Maioria simples (> 50%) por Cabeça',
-      votoValor: 'N/A (Voto por Cabeça)',
-      votoCabeca: `${agcVotes.c1_head_yes}%`,
-      cramDownMin: agcVotes.c1_head_yes > 33.33 ? 'Atende (> 33,3%)' : 'Abaixo de 1/3',
+      active: q.activeC1,
+      regra: 'Maioria simples (> 50%) por Cabeça (Valor compõe Art. 58 §1º, I)',
+      votoValor: `${q.c1ValYes}%`,
+      votoCabeca: `${q.c1HeadYes}%`,
+      cramDownMin: !q.activeC1 ? 'Sem créditos' : (q.c1HeadYes > ONE_THIRD ? 'Atende (> 33,33%)' : 'Bloqueia (&le; 33,33%)'),
       ok: q.c1Ok
     },
     {
       nome: 'Classe II — Garantia Real (Art. 45, §1º)',
+      active: q.activeC2,
       regra: 'Dupla maioria (> 50% Valor E > 50% Cabeça)',
-      votoValor: `${agcVotes.c2_val_yes}%`,
-      votoCabeca: `${agcVotes.c2_head_yes}%`,
-      cramDownMin: (agcVotes.c2_val_yes > 33.33 && agcVotes.c2_head_yes > 33.33) ? 'Atende (> 33,3%)' : 'Abaixo de 1/3',
+      votoValor: `${q.c2ValYes}%`,
+      votoCabeca: `${q.c2HeadYes}%`,
+      cramDownMin: !q.activeC2 ? 'Sem créditos' : ((q.c2ValYes > ONE_THIRD && q.c2HeadYes > ONE_THIRD) ? 'Atende (> 33,33%)' : 'Bloqueia (&le; 33,33%)'),
       ok: q.c2Ok
     },
     {
       nome: 'Classe III — Quirografários (Art. 45, §1º)',
+      active: q.activeC3,
       regra: 'Dupla maioria (> 50% Valor E > 50% Cabeça)',
-      votoValor: `${agcVotes.c3_val_yes}%`,
-      votoCabeca: `${agcVotes.c3_head_yes}%`,
-      cramDownMin: (agcVotes.c3_val_yes > 33.33 && agcVotes.c3_head_yes > 33.33) ? 'Atende (> 33,3%)' : 'Abaixo de 1/3',
+      votoValor: `${q.c3ValYes}%`,
+      votoCabeca: `${q.c3HeadYes}%`,
+      cramDownMin: !q.activeC3 ? 'Sem créditos' : ((q.c3ValYes > ONE_THIRD && q.c3HeadYes > ONE_THIRD) ? 'Atende (> 33,33%)' : 'Bloqueia (&le; 33,33%)'),
       ok: q.c3Ok
     },
     {
       nome: 'Classe IV — ME e EPP (Art. 45, §2º)',
-      regra: 'Maioria simples (> 50%) por Cabeça',
-      votoValor: 'N/A (Voto por Cabeça)',
-      votoCabeca: `${agcVotes.c4_head_yes}%`,
-      cramDownMin: agcVotes.c4_head_yes > 33.33 ? 'Atende (> 33,3%)' : 'Abaixo de 1/3',
+      active: q.activeC4,
+      regra: 'Maioria simples (> 50%) por Cabeça (Valor compõe Art. 58 §1º, I)',
+      votoValor: `${q.c4ValYes}%`,
+      votoCabeca: `${q.c4HeadYes}%`,
+      cramDownMin: !q.activeC4 ? 'Sem créditos' : (q.c4HeadYes > ONE_THIRD ? 'Atende (> 33,33%)' : 'Bloqueia (&le; 33,33%)'),
       ok: q.c4Ok
     }
   ];
+
+  let cramBlockReason = `Exige >= ${q.requiredClassesForCramDown}/${q.votingClassesCount} classes + >50% valor + >1/3 dissidente`;
+  if (!q.ordinaryApproved && !q.cramDownEligible) {
+    const reasons = [];
+    if (!q.cramDownReqI) reasons.push(`Inc. I: valor ${q.weightedValVotePct.toFixed(1).replace('.', ',')}% <= 50%`);
+    if (!q.cramDownReqII) reasons.push(`Inc. II: ${q.classesApproved}/${q.votingClassesCount} classes (mín. ${q.requiredClassesForCramDown})`);
+    if (!q.rejectedClassesPassOneThird) reasons.push('Inc. III: dissidente <= 1/3');
+    cramBlockReason = reasons.join(' • ');
+  }
 
   return `
     <div class="calc-results-strip" style="grid-template-columns:repeat(4,1fr);">
       <div class="calc-res-card">
         <div class="calc-res-label">Quórum Ordinário (Art. 45)</div>
-        <div class="calc-res-val" style="color:${q.ordinaryApproved ? '#065F46' : '#9F1239'};">${q.ordinaryApproved ? 'APROVADO (4/4)' : `REJEITADO (${q.classesApproved}/4)`}</div>
-        <div class="calc-res-sub">Exige aprovação nas 4 classes</div>
+        <div class="calc-res-val" style="color:${q.ordinaryApproved ? '#065F46' : '#9F1239'};">${q.ordinaryApproved ? `APROVADO (${q.classesApproved}/${q.votingClassesCount})` : `REJEITADO (${q.classesApproved}/${q.votingClassesCount})`}</div>
+        <div class="calc-res-sub">Unanimidade das ${q.votingClassesCount} classes votantes</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Cram Down (Art. 58, §1º)</div>
-        <div class="calc-res-val" style="color:${q.cramDownEligible || q.ordinaryApproved ? '#065F46' : '#92400E'};">${q.ordinaryApproved ? 'DESNECESSÁRIO' : (q.cramDownEligible ? 'VIÁVEL (> 1/3)' : 'BLOQUEADO')}</div>
-        <div class="calc-res-sub">>50% geral + 2/3 classes + >1/3 na dissidente</div>
+        <div class="calc-res-label">Cram Down (Art. 58, §1º, I–III)</div>
+        <div class="calc-res-val" style="color:${q.cramDownEligible || q.ordinaryApproved ? '#065F46' : '#9F1239'};">${q.ordinaryApproved ? 'DESNECESSÁRIO' : (q.cramDownEligible ? `VIÁVEL (${q.classesApproved}/${q.votingClassesCount})` : 'BLOQUEADO')}</div>
+        <div class="calc-res-sub">${escapeHtml(cramBlockReason)}</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Aprovação Ponderada Geral</div>
-        <div class="calc-res-val" style="color:${q.weightedValVotePct > 50 ? '#065F46' : '#9F1239'};">${q.weightedValVotePct.toFixed(1).replace('.', ',')}%</div>
-        <div class="calc-res-sub">Requisito Art. 58, §1º, I: > 50,0%</div>
+        <div class="calc-res-label">Voto Geral por Valor (Inc. I)</div>
+        <div class="calc-res-val" style="color:${q.cramDownReqI ? '#065F46' : '#9F1239'};">${q.weightedValVotePct.toFixed(1).replace('.', ',')}%</div>
+        <div class="calc-res-sub">Ponderado nas classes concursais (&gt; 50,0%)</div>
       </div>
       <div class="calc-res-card">
         <div class="calc-res-label">Minoria de Bloqueio (Veto 2/3)</div>
-        <div class="calc-res-val" style="font-size:16px;">Cl. II: R$ ${formatNumberBR(q.blockingC2MM)}M | Cl. III: R$ ${formatNumberBR(q.blockingC3MM)}M</div>
-        <div class="calc-res-sub">66,7% da classe barra Cram Down</div>
+        <div class="calc-res-val" style="font-size:15.5px;">Cl. II: R$ ${formatNumberBR(q.blockingC2MM)}M | Cl. III: R$ ${formatNumberBR(q.blockingC3MM)}M</div>
+        <div class="calc-res-sub">&ge; 66,67% da classe barra Cram Down (Inc. III)</div>
       </div>
     </div>
 
@@ -5529,25 +6341,27 @@ function buildQuorumRightPaneHtml(d, q) {
         <thead>
           <tr>
             <th>Classe da Assembleia (AGC)</th>
-            <th>Critério Legal (Art. 45)</th>
-            <th style="text-align:center;">% Voto por Valor</th>
-            <th style="text-align:center;">% Voto por Cabeça</th>
-            <th style="text-align:center;">Piso Cram Down (> 33,3%)</th>
-            <th style="text-align:center;">Resultado na Classe</th>
+            <th>Critério Legal (Art. 45 &amp; Art. 58 §1º)</th>
+            <th style="text-align:center;">% Voto Valor</th>
+            <th style="text-align:center;">% Voto Cabeça</th>
+            <th style="text-align:center;">Piso Cram Down (&gt; 1/3)</th>
+            <th style="text-align:center;">Deliberação</th>
           </tr>
         </thead>
         <tbody>
           ${classRows.map(r => `
-            <tr>
+            <tr style="${!r.active ? 'opacity:0.55;' : ''}">
               <td><strong>${r.nome}</strong></td>
               <td style="font-size:11.5px; color:var(--text-secondary);">${r.regra}</td>
               <td style="text-align:center; font-family:var(--font-mono); font-weight:700;">${r.votoValor}</td>
               <td style="text-align:center; font-family:var(--font-mono); font-weight:700;">${r.votoCabeca}</td>
               <td style="text-align:center; font-family:var(--font-mono); font-size:11px;">${r.cramDownMin}</td>
               <td style="text-align:center;">
-                ${r.ok
-                  ? '<span class="status-badge badge-upi">APROVADA (> 50%)</span>'
-                  : '<span class="status-badge badge-cautelar">REJEITADA (&le; 50%)</span>'}
+                ${!r.active
+                  ? '<span class="status-badge" style="background:#F1F5F9; color:#64748B;">INATIVA (0%)</span>'
+                  : (r.ok
+                    ? '<span class="status-badge badge-upi">APROVADA (&gt; 50%)</span>'
+                    : '<span class="status-badge badge-cautelar">REJEITADA (&le; 50%)</span>')}
               </td>
             </tr>
           `).join('')}
@@ -5558,22 +6372,22 @@ function buildQuorumRightPaneHtml(d, q) {
 }
 
 function updateQuorumLive(field, val) {
-  const num = parseFloat(val);
-  if (isNaN(num)) return;
+  const num = parseNonDestructiveDecimal(val);
+  if (num === null) return;
   const clamped = Math.min(100, Math.max(0, num));
   agcVotes[field] = clamped;
 
-  const d = DEALS_DATA.find(x => x.id === Number(selectedModelDealId)) || DEALS_DATA[0];
+  const d = getActiveModelingDeal();
   const q = computeQuorumMetrics(d);
 
   const b1 = document.getElementById('badge-q-c1');
-  if (b1) b1.textContent = q.c1Ok ? 'APROVADA' : 'REJEITADA';
+  if (b1) b1.textContent = !q.activeC1 ? 'INATIVA' : (q.c1Ok ? 'APROVADA' : 'REJEITADA');
   const b2 = document.getElementById('badge-q-c2');
-  if (b2) b2.textContent = q.c2Ok ? 'APROVADA' : 'REJEITADA';
+  if (b2) b2.textContent = !q.activeC2 ? 'INATIVA' : (q.c2Ok ? 'APROVADA' : 'REJEITADA');
   const b3 = document.getElementById('badge-q-c3');
-  if (b3) b3.textContent = q.c3Ok ? 'APROVADA' : 'REJEITADA';
+  if (b3) b3.textContent = !q.activeC3 ? 'INATIVA' : (q.c3Ok ? 'APROVADA' : 'REJEITADA');
   const b4 = document.getElementById('badge-q-c4');
-  if (b4) b4.textContent = q.c4Ok ? 'APROVADA' : 'REJEITADA';
+  if (b4) b4.textContent = !q.activeC4 ? 'INATIVA' : (q.c4Ok ? 'APROVADA' : 'REJEITADA');
 
   const rightPane = document.getElementById('quorumRightPane');
   if (rightPane) {
@@ -5588,38 +6402,49 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
     <div class="calc-layout-grid">
       <div class="calc-controls-panel">
         <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-light);">
-          Simulação de Votos por Classe (% Digitável — Art. 45)
+          Simulação de Votos por Classe (Art. 45 &amp; Art. 58, §1º)
         </div>
 
         <div class="quorum-class-box">
           <div class="quorum-class-header">
             <span>Classe I — Trabalhista</span>
-            <span class="val-badge" id="badge-q-c1">${q.c1Ok ? 'APROVADA' : 'REJEITADA'}</span>
+            <span class="val-badge" id="badge-q-c1">${!q.activeC1 ? 'INATIVA' : (q.c1Ok ? 'APROVADA' : 'REJEITADA')}</span>
           </div>
-          <div class="calc-field-label"><span>Aprovação por Cabeça (% Digitável)</span></div>
-          <div class="pct-input-wrap">
-            <input type="number" class="calc-num-input" min="0" max="100" step="0.5" value="${agcVotes.c1_head_yes}" oninput="updateQuorumLive('c1_head_yes', this.value)">
-            <span class="pct-suffix">%</span>
+          <div class="quorum-grid-responsive">
+            <div>
+              <div class="calc-field-label"><span>% Cabeça (Art. 45 §2º)</span></div>
+              <div class="pct-input-wrap">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c1_head_yes}" oninput="updateQuorumLive('c1_head_yes', this.value)">
+                <span class="pct-suffix">%</span>
+              </div>
+            </div>
+            <div>
+              <div class="calc-field-label"><span>% Valor (Art. 58 §1º, I)</span></div>
+              <div class="pct-input-wrap">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c1_val_yes}" oninput="updateQuorumLive('c1_val_yes', this.value)">
+                <span class="pct-suffix">%</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="quorum-class-box">
           <div class="quorum-class-header">
             <span>Classe II — Garantia Real</span>
-            <span class="val-badge" id="badge-q-c2">${q.c2Ok ? 'APROVADA' : 'REJEITADA'}</span>
+            <span class="val-badge" id="badge-q-c2">${!q.activeC2 ? 'INATIVA' : (q.c2Ok ? 'APROVADA' : 'REJEITADA')}</span>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div class="quorum-grid-responsive">
             <div>
               <div class="calc-field-label"><span>% por Valor</span></div>
               <div class="pct-input-wrap">
-                <input type="number" class="calc-num-input" min="0" max="100" step="0.5" value="${agcVotes.c2_val_yes}" oninput="updateQuorumLive('c2_val_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c2_val_yes}" oninput="updateQuorumLive('c2_val_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
             <div>
               <div class="calc-field-label"><span>% por Cabeça</span></div>
               <div class="pct-input-wrap">
-                <input type="number" class="calc-num-input" min="0" max="100" step="0.5" value="${agcVotes.c2_head_yes}" oninput="updateQuorumLive('c2_head_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c2_head_yes}" oninput="updateQuorumLive('c2_head_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
@@ -5629,20 +6454,20 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
         <div class="quorum-class-box">
           <div class="quorum-class-header">
             <span>Classe III — Quirografários</span>
-            <span class="val-badge" id="badge-q-c3">${q.c3Ok ? 'APROVADA' : 'REJEITADA'}</span>
+            <span class="val-badge" id="badge-q-c3">${!q.activeC3 ? 'INATIVA' : (q.c3Ok ? 'APROVADA' : 'REJEITADA')}</span>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div class="quorum-grid-responsive">
             <div>
               <div class="calc-field-label"><span>% por Valor</span></div>
               <div class="pct-input-wrap">
-                <input type="number" class="calc-num-input" min="0" max="100" step="0.5" value="${agcVotes.c3_val_yes}" oninput="updateQuorumLive('c3_val_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c3_val_yes}" oninput="updateQuorumLive('c3_val_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
             <div>
               <div class="calc-field-label"><span>% por Cabeça</span></div>
               <div class="pct-input-wrap">
-                <input type="number" class="calc-num-input" min="0" max="100" step="0.5" value="${agcVotes.c3_head_yes}" oninput="updateQuorumLive('c3_head_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c3_head_yes}" oninput="updateQuorumLive('c3_head_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
@@ -5652,12 +6477,23 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
         <div class="quorum-class-box" style="margin-bottom:0;">
           <div class="quorum-class-header">
             <span>Classe IV — ME / EPP</span>
-            <span class="val-badge" id="badge-q-c4">${q.c4Ok ? 'APROVADA' : 'REJEITADA'}</span>
+            <span class="val-badge" id="badge-q-c4">${!q.activeC4 ? 'INATIVA' : (q.c4Ok ? 'APROVADA' : 'REJEITADA')}</span>
           </div>
-          <div class="calc-field-label"><span>Aprovação por Cabeça (% Digitável)</span></div>
-          <div class="pct-input-wrap">
-            <input type="number" class="calc-num-input" min="0" max="100" step="0.5" value="${agcVotes.c4_head_yes}" oninput="updateQuorumLive('c4_head_yes', this.value)">
-            <span class="pct-suffix">%</span>
+          <div class="quorum-grid-responsive">
+            <div>
+              <div class="calc-field-label"><span>% Cabeça (Art. 45 §2º)</span></div>
+              <div class="pct-input-wrap">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c4_head_yes}" oninput="updateQuorumLive('c4_head_yes', this.value)">
+                <span class="pct-suffix">%</span>
+              </div>
+            </div>
+            <div>
+              <div class="calc-field-label"><span>% Valor (Art. 58 §1º, I)</span></div>
+              <div class="pct-input-wrap">
+                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c4_val_yes}" oninput="updateQuorumLive('c4_val_yes', this.value)">
+                <span class="pct-suffix">%</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -5837,26 +6673,62 @@ function renderPitchPptxSubmodule(d, selectorBar, container) {
   `;
 }
 
-function generatePitchDeckPptx(dealId) {
-  const d = (typeof selectedTier0CalcTarget !== 'undefined' && selectedTier0CalcTarget && String(selectedTier0CalcTarget.id) === String(dealId))
-    ? selectedTier0CalcTarget
-    : (DEALS_DATA.find(x => x.id === Number(dealId)) || DEALS_DATA[0]);
-  if (typeof PptxGenJS === 'undefined') {
-    showToast('Biblioteca PptxGenJS em carregamento. Tente novamente em instantes.');
+async function generatePitchDeckPptx(dealId) {
+  const ok = await ensurePptxGenLoaded();
+  if (!ok || typeof PptxGenJS === 'undefined') {
+    showToast('Não foi possível carregar o motor PowerPoint (.pptx). Verifique sua conexão.');
     return;
   }
 
-  const parsed = parseThesisRegex(d.tese);
+  let d = null;
+  if (typeof selectedTier0CalcTarget !== 'undefined' && selectedTier0CalcTarget && (String(dealId) === 'tier0' || String(selectedTier0CalcTarget.id) === String(dealId))) {
+    d = selectedTier0CalcTarget;
+  } else if (dealId !== undefined && dealId !== null && String(dealId) !== '') {
+    d = DEALS_DATA.find(x => String(x.id) === String(dealId)) || null;
+  }
+  if (!d) d = getActiveModelingDeal();
+  if (!d) {
+    showToast('Selecione um caso válido antes de gerar a apresentação.');
+    return;
+  }
+
+  const safeStr = (val, fb) => {
+    const s = val === undefined || val === null ? '' : String(val).trim();
+    return (!s || s === 'undefined' || s === 'null') ? fb : s;
+  };
+
+  const empresaNome = safeStr(d.empresa, 'Caso em Monitoramento');
+  const cnpjTxt = safeStr(d.cnpj, 'Em apuração cadastral');
+  const setorTxt = safeStr(d.setor_macro, 'Corporate / Special Situations');
+  const cidadeTxt = safeStr(d.cidade, 'São Paulo');
+  const ufTxt = safeStr(d.uf, 'SP');
+  const descEmpresa = safeStr(d.descricao_empresa, `${empresaNome} — operação monitorada pela mesa Valknut Special Situations no segmento de ${setorTxt}.`);
+  const faseTxt = safeStr(d.fase, 'Sinal Precursor (Tier 0)');
+  const tribunalTxt = safeStr(d.tribunal, 'Monitoramento Pré-Processual / CVM');
+  const processoTxt = safeStr(d.processo, 'Monitoramento Extrajudicial / Pré-RJ');
+  const tierTxt = safeStr(d.tier, 'Tier 0');
+  const advTxt = safeStr(d.advocacia, 'Mandato Preventivo em Prospecção');
+  const ajTxt = safeStr(d.aj, 'Não aplicável (Fase Pré-Processual)');
+  const credoresTxt = safeStr(d.credores, 'Credores financeiros, mercado de capitais e fornecedores estratégicos em mapeamento.');
+  const perfilPassivoTxt = safeStr(d.perfil_passivo, 'Passivo financeiro e operacional sujeito a reperfilamento estruturado.');
+  const afTxt = safeStr(d.agentes_fiduciarios, 'N/A / Em levantamento de escrituras');
+  const secTxt = safeStr(d.securitizadoras, 'Sem securitizadora reportada / Crédito Bancário Direto');
+  const proxAcoesTxt = safeStr(d.proximas_acoes, 'Diagnóstico econômico-financeiro de caixa 13 semanas, standstill com credores-chave e estruturação de mandato.');
+  const passivoNum = Number(d.passivo_mm || modelCustomPassivo || 100);
+  const scoreNum = Number(d.score || 8.5);
+
+  const parsed = parseThesisRegex(safeStr(d.tese, descEmpresa));
   const m = computeAdvisoryFeeMetrics();
   const monthNamesPt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-  const nowPt = new Date();
-  const mesAnoAtual = `${monthNamesPt[nowPt.getMonth()]}/${nowPt.getFullYear()}`;
+  const isoToday = getBrazilTodayIso();
+  const [yrStr, moStr] = isoToday.split('-');
+  const mesAnoAtual = `${monthNamesPt[Math.max(0, (Number(moStr) || 1) - 1)]}/${yrStr}`;
 
   const pptx = new PptxGenJS();
   pptx.layout = 'LAYOUT_WIDE';
   pptx.author = 'VALKNUT — SPECIAL SITUATIONS';
   pptx.company = 'Valknut Special Situations';
-  pptx.title = `Proposta Executiva - ${d.empresa}`;
+  pptx.title = `Proposta Executiva - ${empresaNome}`;
 
   function addSlideHeader(slide, titleText, subtitleText) {
     slide.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: '100%', h: 0.9, fill: { color: '063630' } });
@@ -5872,56 +6744,60 @@ function generatePitchDeckPptx(dealId) {
   s1.background = { color: '063630' };
   s1.addText('VALKNUT', { x: 0.8, y: 1.5, w: 10, h: 0.7, fontSize: 38, bold: true, color: 'E6E9DC', charSpacing: 6 });
   s1.addText('SPECIAL SITUATIONS // ASSESSORIA FINANCEIRA & REESTRUTURAÇÃO', { x: 0.8, y: 2.2, w: 11, h: 0.4, fontSize: 13, bold: true, color: 'A5AC82' });
-  s1.addText(`PROPOSTA DE ASSESSORIA & DOSSIÊ EXECUTIVO:\n${d.empresa}`, { x: 0.8, y: 3.1, w: 11.5, h: 1.3, fontSize: 24, bold: true, color: 'FFFFFF' });
-  s1.addText(`Ângulo: ${pitchMandateType}\nDestinatário: ${pitchTargetRecipient}\nPassivo Monitorado: R$ ${formatNumberBR(d.passivo_mm)} Milhões | Data: ${mesAnoAtual}`, { x: 0.8, y: 4.8, w: 11, h: 1.2, fontSize: 13, color: 'E6E9DC' });
+  s1.addText(`PROPOSTA DE ASSESSORIA & DOSSIÊ EXECUTIVO:\n${empresaNome}`, { x: 0.8, y: 3.1, w: 11.5, h: 1.3, fontSize: 24, bold: true, color: 'FFFFFF' });
+  s1.addText(`Ângulo: ${safeStr(pitchMandateType, 'Financial Advisory & Turnaround')}\nDestinatário: ${safeStr(pitchTargetRecipient, 'Conselho de Administração / Comitê')}\nPassivo Monitorado: R$ ${formatNumberBR(passivoNum)} Milhões | Data: ${mesAnoAtual}`, { x: 0.8, y: 4.8, w: 11, h: 1.2, fontSize: 13, color: 'E6E9DC' });
 
   // Slide 2: Perfil & Introdução da Empresa
   const s2 = pptx.addSlide();
-  addSlideHeader(s2, `1. Perfil & Introdução da Empresa — ${d.empresa}`, `${d.cnpj} | ${d.setor_macro} | ${d.cidade}/${d.uf}`);
+  addSlideHeader(s2, `1. Perfil & Introdução da Empresa — ${empresaNome}`, `${cnpjTxt} | ${setorTxt} | ${cidadeTxt}/${ufTxt}`);
   s2.addText([
     { text: 'PERFIL OPERACIONAL & INTRODUÇÃO DA DEVEDORA:\n', options: { bold: true, color: '063630', fontSize: 13 } },
-    { text: `${d.descricao_empresa}\n\n`, options: { color: '1E293B', fontSize: 12 } },
+    { text: `${descEmpresa}\n\n`, options: { color: '1E293B', fontSize: 12 } },
     { text: 'DADOS PROCESSUAIS & MÉTRICAS CHAVE:\n', options: { bold: true, color: '063630', fontSize: 13 } },
-    { text: `• Passivo Total Estimado: R$ ${formatNumberBR(d.passivo_mm)} MM\n• Fase Concursal: ${d.fase}\n• Juízo Competente: ${d.tribunal} (Autos: ${d.processo})\n• Score Forense Valknut: ${formatScoreBR(d.score)} / 10,0 (${d.tier})\n• Banca da Devedora: ${d.advocacia} | Administrador Judicial: ${d.aj}`, options: { color: '1E293B', fontSize: 12 } }
+    { text: `• Passivo Total Estimado: R$ ${formatNumberBR(passivoNum)} MM\n• Fase Concursal: ${faseTxt}\n• Juízo / Monitoramento: ${tribunalTxt} (Ref.: ${processoTxt})\n• Score Forense Valknut: ${formatScoreBR(scoreNum)} / 10,0 (${tierTxt})\n• Banca Jurídica: ${advTxt} | Administrador Judicial: ${ajTxt}`, options: { color: '1E293B', fontSize: 12 } }
   ], { x: 0.6, y: 1.4, w: 12.1, h: 5.2, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, margin: 14 });
 
   // Slide 3: Diagnóstico Forense (3 Pilares)
   const s3 = pptx.addSlide();
   addSlideHeader(s3, '2. Diagnóstico Forense em 3 Pilares', 'Análise estruturada da causa da crise, gargalo imediato e oportunidade de mandato');
-  s3.addText(`1. CAUSA DA CRISE:\n${parsed.causa}`, { x: 0.5, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
-  s3.addText(`2. GARGALO IMEDIATO:\n${parsed.gargalo}`, { x: 4.7, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'FFFBEB' }, line: { color: 'B45309', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
-  s3.addText(`3. TESE DE MANDATO:\n${parsed.mandato}`, { x: 8.9, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'F0FDF4' }, line: { color: '065F46', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
+  s3.addText(`1. CAUSA DA CRISE:\n${safeStr(parsed.causa, descEmpresa)}`, { x: 0.5, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
+  s3.addText(`2. GARGALO IMEDIATO:\n${safeStr(parsed.gargalo, faseTxt)}`, { x: 4.7, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'FFFBEB' }, line: { color: 'B45309', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
+  s3.addText(`3. TESE DE MANDATO:\n${safeStr(parsed.mandato, proxAcoesTxt)}`, { x: 8.9, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'F0FDF4' }, line: { color: '065F46', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
 
   // Slide 4: Credores e Stakeholders
   const s4 = pptx.addSlide();
   addSlideHeader(s4, '3. Quadro de Credores & Stakeholders Fiduciários', 'Mapeamento de exposições bancárias, agentes fiduciários, securitizadoras e garantias');
-  s4.addText(`• Principais Credores Mapeados:\n${d.credores}\n\n• Perfil do Passivo & Colateral:\n${d.perfil_passivo}\n\n• Agentes Fiduciários: ${d.agentes_fiduciarios}\n• Securitizadoras: ${d.securitizadoras}`, { x: 0.6, y: 1.4, w: 12.1, h: 5.2, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, fontSize: 12.5, color: '1E293B', valign: 'top', margin: 14 });
+  s4.addText(`• Principais Credores Mapeados:\n${credoresTxt}\n\n• Perfil do Passivo & Colateral:\n${perfilPassivoTxt}\n\n• Agentes Fiduciários: ${afTxt}\n• Securitizadoras: ${secTxt}`, { x: 0.6, y: 1.4, w: 12.1, h: 5.2, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, fontSize: 12.5, color: '1E293B', valign: 'top', margin: 14 });
 
-  // Slide 5: Modelagem de Desalavancagem & Geração de Valor
+  // Slide 5: Modelagem de Desalavancagem & Estrutura de Capital (6 Faixas)
   const s5 = pptx.addSlide();
-  addSlideHeader(s5, '4. Dimensionamento da Reestruturação & Geração de Valor', 'Impacto estimado do plano de reestruturação sobre o passivo alvo');
-  s5.addText(`• Passivo / Dívida Alvo do Mandato: R$ ${formatNumberBR(m.passivoMM)} MM (100%)\n• Haircut / Deságio Projetado no Plano: ${m.haircutPct}%\n• Economia / Redução Nominal de Dívida Gerada: R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM\n• Passivo Reperfilado Pós-Plano (${m.recupPct}%): R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')} MM\n• Base Selecionada para Success Fee: ${m.baseLabel} (R$ ${m.baseCalculoMM.toFixed(1).replace('.', ',')} MM)`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 14, bold: true, color: '063630', valign: 'middle', margin: 18 });
+  const splitTxt = `Extraconcursal ${waterfallSplitPcts.extra}% | Fiscal ${waterfallSplitPcts.fiscal}% | Cl. I ${waterfallSplitPcts.c1}% | Cl. II ${waterfallSplitPcts.c2}% | Cl. III ${waterfallSplitPcts.c3}% | Cl. IV ${waterfallSplitPcts.c4}%`;
+  addSlideHeader(s5, '4. Dimensionamento da Reestruturação & Geração de Valor', 'Impacto estimado do plano de reestruturação e abertura reconciliada do passivo');
+  s5.addText(`• Passivo / Dívida Alvo do Mandato: R$ ${formatNumberBR(m.passivoMM)} MM (100%)\n• Estrutura de Capital (6 Faixas): ${splitTxt}\n• Haircut / Deságio Projetado no Plano: ${m.haircutPct}% (Recuperação Implícita: ${m.recupPct}%)\n• Economia / Redução Nominal de Dívida Gerada: R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM\n• Passivo Reperfilado Pós-Plano: R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')} MM\n• Base Selecionada para Success Fee: ${m.baseLabel} (R$ ${m.baseCalculoMM.toFixed(1).replace('.', ',')} MM)`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 13.5, bold: true, color: '063630', valign: 'middle', margin: 18 });
 
   // Slide 6: Cronograma, Fatos Relevantes Recentes e Próximas Ações
   const s6 = pptx.addSlide();
   addSlideHeader(s6, '5. Cronograma Tático, Fatos Relevantes & Plano de Ação', 'Marcos legais da Lei 11.101/05, últimas notícias vinculadas e diligências');
   const cm = computeDynamicCalendarMeta(d);
-  const marcoDt = cm.data_marco_br || formatDateBR(cm.data_marco_iso);
-  const marcoDesc = cm.marco_label || cm.marco_principal || cm.tipo_marco || 'Prazo Concursal';
+  const marcoDt = safeStr(cm.data_marco_br || formatDateBR(cm.data_marco_iso), formatDateBR(isoToday));
+  const marcoDesc = safeStr(cm.marco_label || cm.marco_principal || cm.tipo_marco, 'Monitoramento Tático Concursal');
   const diasRem = typeof cm.dias_restantes === 'number' ? ` (Faltam ${cm.dias_restantes} dias)` : '';
-  const dealNews = (typeof getAllCombinedNews === 'function' ? getAllCombinedNews() : []).filter(n => Number(n.deal_id) === Number(d.id)).slice(0, 2);
+  const dealNews = (typeof getAllCombinedNews === 'function' ? getAllCombinedNews() : []).filter(n => Number(n.deal_id) === Number(d.id) && Number(d.id) > 0).slice(0, 2);
   const newsBullets = dealNews.length > 0
-    ? '\n\n• Últimos Fatos Relevantes & Notícias Capturadas no Radar:\n' + dealNews.map(n => `  - [${n.data_hora}] ${n.titulo} (${n.fonte})`).join('\n')
+    ? '\n\n• Últimos Fatos Relevantes & Notícias Capturadas no Radar:\n' + dealNews.map(n => `  - [${safeStr(n.data_hora, isoToday)}] ${safeStr(n.titulo, '')} (${safeStr(n.fonte, 'Radar')})`).join('\n')
     : '';
-  s6.addText(`• Último Movimento Processual: ${formatDateBR(d.data_evento)}\n• Próximo Marco Fatal / Assembleia (Dia Útil): ${marcoDt}${diasRem} — ${marcoDesc}\n• Horizonte Estimado do Mandato: ${m.mesesMandato} meses\n\n• Plano de Ação Recomendado pela Mesa Valknut:\n${d.proximas_acoes}${newsBullets}`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, fontSize: 12, color: '1E293B', valign: 'top', margin: 14 });
+  const ultMovTxt = formatDateBR(d.data_evento || isoToday);
+  s6.addText(`• Último Movimento / Gatilho Mapeado: ${ultMovTxt}\n• Próximo Marco Fatal / Assembleia (Dia Útil): ${marcoDt}${diasRem} — ${marcoDesc}\n• Horizonte Estimado do Mandato: ${m.mesesMandato} meses\n\n• Plano de Ação Recomendado pela Mesa Valknut:\n${proxAcoesTxt}${newsBullets}`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, fontSize: 12, color: '1E293B', valign: 'top', margin: 14 });
 
   // Slide 7: Proposta Comercial (Retainer & Success Fee)
   const s7 = pptx.addSlide();
-  addSlideHeader(s7, '6. Proposta de Honorários (Retainer & Success Fee)', `Mandato proposto: ${pitchMandateType}`);
-  s7.addText(`• Modalidade de Atuação: ${pitchMandateType}\n• Destinatário: ${pitchTargetRecipient}\n\nESTRUTURA DE REMUNERAÇÃO PROPOSTA:\n1. Retainer Fixo Mensal: R$ ${m.retainerMensalMil} mil/mês por ${m.mesesMandato} meses (Total Fixo: R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM)\n2. Taxa de Êxito (Success Fee Bruto): ${m.successFeePct.toFixed(2).replace('.', ',')}% sobre ${m.baseLabel} = R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM\n3. Cláusula de Abatimento (Offset de ${m.offsetPct}% do Retainer): -R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM\n4. Success Fee Líquido no Fechamento: R$ ${m.successLiquidoMM.toFixed(2).replace('.', ',')} MM\n5. Remuneração Total Estimada do Mandato: R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM (${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do Passivo Total)`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: 'A5AC82', pt: 2 }, fontSize: 13, bold: true, color: '063630', valign: 'top', margin: 18 });
+  const safeMandate = safeStr(pitchMandateType, 'Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)');
+  const safeRecipient = safeStr(pitchTargetRecipient, 'Conselho de Administração / Diretoria Financeira');
+  addSlideHeader(s7, '6. Proposta de Honorários (Retainer & Success Fee)', `Mandato proposto: ${safeMandate}`);
+  s7.addText(`• Modalidade de Atuação: ${safeMandate}\n• Destinatário: ${safeRecipient}\n\nESTRUTURA DE REMUNERAÇÃO PROPOSTA:\n1. Retainer Fixo Mensal: R$ ${m.retainerMensalMil} mil/mês por ${m.mesesMandato} meses (Total Fixo: R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM)\n2. Taxa de Êxito (Success Fee Bruto): ${m.successFeePct.toFixed(2).replace('.', ',')}% sobre ${m.baseLabel} = R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM\n3. Cláusula de Abatimento (Offset de ${m.offsetPct}% do Retainer): -R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM\n4. Success Fee Líquido no Fechamento: R$ ${m.successLiquidoMM.toFixed(2).replace('.', ',')} MM\n5. Remuneração Total Estimada do Mandato: R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM (${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do Passivo Total)`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: 'A5AC82', pt: 2 }, fontSize: 13, bold: true, color: '063630', valign: 'top', margin: 18 });
 
-  pptx.writeFile({ fileName: `Valknut_Proposta_Honorarios_${d.empresa.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 25)}.pptx` });
-  showToast(`Proposta Comercial (.pptx) gerada com Retainer e Success Fee para ${d.empresa}!`);
+  await pptx.writeFile({ fileName: `Valknut_Proposta_Honorarios_${empresaNome.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 25)}.pptx` });
+  showToast(`Proposta Comercial (.pptx) gerada com sucesso para ${empresaNome}!`);
 }
 
 // ==========================================================================
@@ -5945,9 +6821,7 @@ function isGenericPlaceholderPlayer(str) {
 function normalizeCanonicalPlayerName(rawName, tabType) {
   if (!rawName) return '';
   let s = String(rawName).replace(/\s+/g, ' ').trim();
-  // Strip parenthetical role notes for grouping consistency while keeping core name
   s = s.replace(/\s*\((?:Banca|Devedora|Credores|AJ|Perito|Sindicância|Substituto)[^)]*\)/gi, '').trim();
-  // Strip trailing corporate suffixes that cause duplicate cards
   s = s.replace(/\s+(?:Ltda\.?|S\/S|S\.A\.|Sociedade de Advogados)\s*$/i, '').trim();
 
   const lower = normalizeTextNoAccents(s);
@@ -5961,7 +6835,7 @@ function normalizeCanonicalPlayerName(rawName, tabType) {
     if (lower.includes('deloitte')) return 'Deloitte Touche Tohmatsu';
     if (lower.includes('pwc') || lower.includes('pricewaterhouse')) return 'PwC Brasil';
     if (lower.includes('kpmg')) return 'KPMG Corporate Finance';
-    if (lower.includes('ey ') || lower.startsWith('ey') || lower.includes('ernst & young')) return 'EY Turnaround & Restructuring';
+    if (/\bey\b/.test(lower) || lower.includes('ernst & young')) return 'EY Turnaround & Restructuring';
     if (lower.includes('valor judicial')) return 'Valor Judicial';
     if (lower.includes('brasil trustee')) return 'Brasil Trustee Assessoria e Consultoria';
     if (lower.includes('quadra')) return 'Quadra Administração Judicial';
@@ -5971,14 +6845,14 @@ function normalizeCanonicalPlayerName(rawName, tabType) {
     if (lower.includes('pinheiro neto')) return 'Pinheiro Neto Advogados';
     if (lower.includes('felsberg')) return 'Felsberg Advogados';
     if (lower.includes('bumachar') || lower.includes('padis')) return 'Padis Mattar Advogados';
-    if (lower.includes('twk')) return 'TWK Advogados';
+    if (/\btwk\b/.test(lower)) return 'TWK Advogados';
     if (lower.includes('galdino') || lower.includes('coelho')) return 'Galdino & Coelho Advogados';
     if (lower.includes('tozzinifreire') || lower.includes('tozzini freire')) return 'TozziniFreire Advogados';
     if (lower.includes('machado meyer')) return 'Machado Meyer Advogados';
     if (lower.includes('lefosse')) return 'Lefosse Advogados';
     if (lower.includes('cescon')) return 'Cescon, Barrieu, Flesch & Barreto Advogados';
     if (lower.includes('veirano')) return 'Veirano Advogados';
-    if (lower.includes('bma') || lower.includes('barbosa mussnich')) return 'BMA — Barbosa Müssnich Aragão';
+    if (/\bbma\b/.test(lower) || lower.includes('barbosa mussnich')) return 'BMA — Barbosa Müssnich Aragão';
     if (lower.includes('stocche forbes')) return 'Stocche Forbes Advogados';
     if (lower.includes('tauil') || lower.includes('chequer')) return 'Tauil & Chequer Advogados (Mayer Brown)';
     if (lower.includes('demarest')) return 'Demarest Advogados';
@@ -5992,10 +6866,37 @@ function normalizeCanonicalPlayerName(rawName, tabType) {
   return s;
 }
 
+const ECO_FIDUCIARIOS_MATCHERS = [
+  { name: 'Vórtx DTVM', test: (raw, norm) => norm.includes('vortx') },
+  { name: 'Pentágono DTVM', test: (raw, norm) => norm.includes('pentagono') },
+  { name: 'Oliveira Trust DTVM', test: (raw, norm) => norm.includes('oliveira trust') },
+  { name: 'Simplific Pavarini DTVM', test: (raw, norm) => norm.includes('pavarini') || norm.includes('simplific') },
+  { name: 'Opea Securitizadora', test: (raw, norm) => /\bopea\b/.test(norm) },
+  { name: 'Vert Securitizadora', test: (raw) => RX_VERT_SEC.test(raw) },
+  { name: 'Virgo Securitizadora', test: (raw, norm) => /\bvirgo\b/.test(norm) },
+  { name: 'Reit Securitizadora', test: (raw) => RX_REIT_SEC.test(raw) },
+  { name: 'Euro Securitizadora', test: (raw) => RX_EURO_SEC.test(raw) },
+  { name: 'True Securitizadora', test: (raw, norm) => /\btrue\s+securitizadora\b/.test(norm) },
+  { name: 'Habitasec Securitizadora', test: (raw, norm) => /\bhabitasec\b/.test(norm) },
+  { name: 'Canal Securitizadora', test: (raw, norm) => /\bcanal\s+securitizadora\b/.test(norm) },
+  { name: 'Isec Securitizadora', test: (raw, norm) => /\bisec\b/.test(norm) },
+  { name: 'Ignis Securitizadora', test: (raw, norm) => /\bignis\s+securitizadora\b/.test(norm) },
+  { name: 'Audax Securitizadora', test: (raw, norm) => /\baudax\s+securitizadora\b/.test(norm) }
+];
+
 function renderEcossistemaSection(deals, container) {
   const baseDeals = DEALS_DATA.filter(matchesPassivoCutoff);
   const groups = {};
   let unmappedDealsCount = 0;
+
+  const categoryMap = {
+    eco_bancas: 'Ecossistema • Banca Jurídica',
+    eco_ajs: 'Ecossistema • Administrador Judicial',
+    eco_aj: 'Ecossistema • Administrador Judicial',
+    eco_fiduciarios: 'Ecossistema • Agente Fiduciário / Securitizadora',
+    eco_varas: 'Ecossistema • Juízo / Vara Empresarial'
+  };
+  const categoryLabel = categoryMap[currentSubTab] || 'Ecossistema';
 
   baseDeals.forEach(d => {
     let keyList = [];
@@ -6014,11 +6915,11 @@ function renderEcossistemaSection(deals, container) {
         unmappedDealsCount += 1;
       }
     } else if (currentSubTab === 'eco_fiduciarios') {
-      const af = d.agentes_fiduciarios || '';
-      const sec = d.securitizadoras || '';
-      ['Vórtx DTVM', 'Pentágono DTVM', 'Oliveira Trust DTVM', 'Opea Securitizadora', 'Vert Securitizadora', 'Virgo Securitizadora', 'Reit Securitizadora', 'Euro Securitizadora', 'Ignis Securitizadora', 'Audax Securitizadora'].forEach(p => {
-        if ((af + ' ' + sec + ' ' + d.credores + ' ' + d.tese).toLowerCase().includes(p.split(' ')[0].toLowerCase())) {
-          keyList.push(p);
+      const rawFiduciaryCorpus = [d.agentes_fiduciarios || '', d.securitizadoras || '', d.credores || '', d.perfil_passivo || '', d.tese || ''].join(' ');
+      const normFiduciaryCorpus = normalizeTextNoAccents(rawFiduciaryCorpus);
+      ECO_FIDUCIARIOS_MATCHERS.forEach(m => {
+        if (m.test(rawFiduciaryCorpus, normFiduciaryCorpus)) {
+          keyList.push(m.name);
         }
       });
     } else if (currentSubTab === 'eco_varas') {
@@ -6028,11 +6929,15 @@ function renderEcossistemaSection(deals, container) {
     const dynRec = computeDynamicRecovery(d);
     const uniqueKeys = [...new Set(keyList)];
     uniqueKeys.forEach(k => {
-      if (!groups[k]) groups[k] = { name: k, count: 0, passivo: 0, deals: [], recupSum: 0 };
-      groups[k].count += 1;
-      groups[k].passivo += (d.passivo_mm || 0);
-      groups[k].deals.push(d);
-      groups[k].recupSum += dynRec.recupPct;
+      if (!groups[k]) groups[k] = { name: k, count: 0, passivo: 0, deals: [], dealIds: new Set(), recupSum: 0 };
+      const idStr = String(d.id);
+      if (!groups[k].dealIds.has(idStr)) {
+        groups[k].dealIds.add(idStr);
+        groups[k].count += 1;
+        groups[k].passivo += (d.passivo_mm || 0);
+        groups[k].deals.push(d);
+        groups[k].recupSum += dynRec.recupPct;
+      }
     });
   });
 
@@ -6048,17 +6953,20 @@ function renderEcossistemaSection(deals, container) {
     `;
   }
 
+  entityFilterRegistry.clear();
   html += `<div class="eco-cards-grid">`;
   sorted.forEach((g, idx) => {
     const avgRec = Math.round(g.recupSum / g.count);
     const avgHaircut = 100 - avgRec;
-    // Preserve full Vara name on eco_varas instead of splitting on '-'
-    const filterKw = currentSubTab === 'eco_varas'
-      ? g.name.split('(')[0].trim()
-      : g.name.split('(')[0].split(' - ')[0].trim();
+    const regKey = `eco_${currentSubTab}_${idx}`;
+    entityFilterRegistry.set(regKey, {
+      label: g.name,
+      category: categoryLabel,
+      dealIds: new Set(g.dealIds)
+    });
 
     html += `
-      <div class="eco-player-card">
+      <div class="eco-player-card" style="cursor:pointer;" onclick="activateEntityFilterFromCard('${regKey}')">
         <div>
           <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:8px;">
             <div>
@@ -6075,8 +6983,8 @@ function renderEcossistemaSection(deals, container) {
             <strong>Casos:</strong> ${g.deals.slice(0, 4).map(x => escapeHtml(x.empresa)).join(' • ')}${g.deals.length > 4 ? ` (+${g.deals.length - 4})` : ''}
           </div>
         </div>
-        <button class="btn-action" style="width:100%;" data-player-kw="${escapeHtml(filterKw)}" onclick="filterByCreditor(this.getAttribute('data-player-kw'))">
-          Filtrar Carteira deste Player
+        <button type="button" class="btn-action" style="width:100%;" onclick="event.stopPropagation(); activateEntityFilterFromCard('${regKey}')">
+          Filtrar Carteira deste Player (${g.count})
         </button>
       </div>
     `;
@@ -6117,7 +7025,7 @@ function resolveTribunalCvmUrl(d) {
 }
 
 function openDossier(id) {
-  const item = DEALS_DATA.find(d => d.id === id);
+  const item = DEALS_DATA.find(d => Number(d.id) === Number(id));
   if (!item) return;
   currentModalItem = item;
   lastFocusedElementBeforeModal = document.activeElement;
@@ -6162,8 +7070,9 @@ function openDossier(id) {
     const firstTab = document.getElementById('modal-tab-visao');
     if (firstTab) setTimeout(() => firstTab.focus(), 20);
   }
+  document.body.classList.toggle('modal-open', true);
   document.body.style.overflow = 'hidden';
-  updateUrlHash();
+  syncUrlHash(true);
 }
 
 function copyProcessNumber(procStr) {
@@ -6177,9 +7086,12 @@ function copyProcessNumber(procStr) {
 function closeModal() {
   const modalEl = document.getElementById('detailModal');
   if (modalEl) modalEl.style.display = 'none';
-  document.body.style.overflow = '';
+  document.body.classList.toggle('modal-open', false);
+  if (!document.body.classList.contains('comps-modal-open')) {
+    document.body.style.overflow = '';
+  }
   currentModalItem = null;
-  updateUrlHash();
+  syncUrlHash(true);
   if (lastFocusedElementBeforeModal && typeof lastFocusedElementBeforeModal.focus === 'function') {
     try { lastFocusedElementBeforeModal.focus(); } catch (e) { /* ignore */ }
     lastFocusedElementBeforeModal = null;
@@ -6206,9 +7118,17 @@ window.addEventListener('keydown', e => {
     return;
   }
 
+  const compsModalEl = document.getElementById('compsModal');
+  const isCompsOpen = Boolean(compsModalEl && compsModalEl.style.display === 'flex');
+  if (isCompsOpen && e.key === 'Escape') {
+    closeCompsModal();
+    return;
+  }
+
   const modalEl = document.getElementById('detailModal');
-  const isModalOpen = modalEl && modalEl.style.display === 'flex';
-  if (!isModalOpen) return;
+  const isModalOpen = Boolean(modalEl && modalEl.style.display === 'flex');
+  const activeOverlay = isCompsOpen ? compsModalEl : (isModalOpen ? modalEl : null);
+  if (!activeOverlay) return;
 
   if (e.key === 'Escape') {
     closeModal();
@@ -6216,7 +7136,7 @@ window.addEventListener('keydown', e => {
   }
 
   if (e.key === 'Tab') {
-    const dialog = modalEl.querySelector('.modal-dialog') || modalEl;
+    const dialog = activeOverlay.querySelector('.modal-dialog') || activeOverlay;
     const focusables = Array.from(
       dialog.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
     ).filter(el => el.offsetParent !== null);
@@ -6232,6 +7152,43 @@ window.addEventListener('keydown', e => {
     }
   }
 });
+
+function buildSixBucketStripHtml(d) {
+  const sc = d.model_params?.split_classes || {};
+  const cp = d.model_params?.classes_pct || {};
+  const split = reconcileSixBucketSplit({
+    extra: sc.extraconcursal_pct ?? cp.extraconcursal_fiduciario ?? 18,
+    fiscal: sc.fiscal_pct ?? cp.fiscal_tributario ?? 7,
+    c1: sc.classe_i_pct ?? cp.c1_trabalhista ?? 3,
+    c2: sc.classe_ii_pct ?? cp.c2_garantia_real ?? 42,
+    c3: sc.classe_iii_pct ?? cp.c3_quirografario ?? 27,
+    c4: sc.classe_iv_pct ?? cp.c4_me_epp ?? 3
+  });
+  const items = [
+    { label: 'Extraconcursal / Fid.', pct: split.extra, color: '#063630' },
+    { label: 'Fiscal / Tributário', pct: split.fiscal, color: '#92400E' },
+    { label: 'Classe I (Trab.)', pct: split.c1, color: '#1E40AF' },
+    { label: 'Classe II (Real)', pct: split.c2, color: '#0F766E' },
+    { label: 'Classe III (Quirog.)', pct: split.c3, color: '#475569' },
+    { label: 'Classe IV (ME/EPP)', pct: split.c4, color: '#6D28D9' }
+  ];
+  return `
+    <div style="margin-top:10px; padding:10px 12px; background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:6px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-header-start); margin-bottom:6px;">
+        <span>ESTRUTURA DE CAPITAL ESTIMADA — 6 FAIXAS (LEI 11.101/05 &amp; LEI 14.112/20)</span>
+        <span class="status-badge badge-upi" style="font-size:9.5px;">Soma: 100%</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(125px, 1fr)); gap:6px;">
+        ${items.map(it => `
+          <div style="background:#FFFFFF; border:1px solid var(--border-light); border-left:3px solid ${it.color}; border-radius:4px; padding:5px 8px;">
+            <div style="font-size:10px; color:var(--text-secondary);">${it.label}</div>
+            <div style="font-family:var(--font-mono); font-size:12.5px; font-weight:800; color:${it.color};">${String(it.pct).replace('.', ',')}%</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
 
 function setModalTab(tab) {
   currentModalTab = tab;
@@ -6257,6 +7214,7 @@ function setModalTab(tab) {
   const hPct = d.model_params?.haircut_estimado_pct || 55;
   const rPct = 100 - hPct;
   const tribUrl = resolveTribunalCvmUrl(d);
+  const isCompSelected = selectedCompIds.map(Number).includes(Number(d.id));
 
   const credChips = parseCreditorsList(d.credores);
 
@@ -6277,6 +7235,7 @@ function setModalTab(tab) {
         <div class="company-intro-label">
           <span>🏢 PERFIL &amp; INTRODUÇÃO DA EMPRESA</span>
           <span style="margin-left:auto; display:inline-flex; gap:6px; flex-wrap:wrap;">
+            <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" style="padding:3px 9px; font-size:10.5px;" onclick="toggleCompDeal(${d.id}, event); setModalTab('visao');">⚖️ ${isCompSelected ? 'No Comps ✓' : 'Comparar'}</button>
             <a href="${escapeHtml(tribUrl)}" target="_blank" rel="noopener noreferrer" class="btn-tribunal-link">⚖️ Consultar Autos / CVM ↗</a>
             <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="openCalculatorForDeal(${d.id})">⚡ Simular Fee &amp; Retainer (${rPct}% Recup.)</button>
             <button type="button" class="btn-solid" style="padding:3px 9px; font-size:10.5px;" onclick="openPitchGeneratorForDeal(${d.id})">📊 Gerar Proposta (.pptx)</button>
@@ -6334,6 +7293,8 @@ function setModalTab(tab) {
           ${credChips.map(c => `<span class="creditor-chip">${escapeHtml(c)}</span>`).join('')}
         </div>
 
+        ${buildSixBucketStripHtml(d)}
+
         <div class="dossier-grid" style="margin-top:12px;">
           <div class="dossier-cell">
             <div class="dossier-cell-label">Agentes Fiduciários Mapeados</div>
@@ -6369,6 +7330,7 @@ function setModalTab(tab) {
         <div class="creditor-exposure-chips">
           ${credChips.map(c => `<span class="creditor-chip">${escapeHtml(c)}</span>`).join('')}
         </div>
+        ${buildSixBucketStripHtml(d)}
       </div>
       <div class="dossier-grid">
         <div class="dossier-cell">
@@ -6478,8 +7440,283 @@ function copyDossierSummary() {
 }
 
 function printDossier() {
+  document.body.classList.toggle('modal-open', true);
   setModalTab('visao');
   setTimeout(() => window.print(), 80);
+}
+
+// ==========================================================================
+// 14B. Comparador Lado a Lado de Casos Concursais (Comps — Até 4 Casos)
+// ==========================================================================
+function toggleCompDeal(dealId, evt) {
+  if (evt && typeof evt.stopPropagation === 'function') {
+    evt.stopPropagation();
+  }
+  const numId = Number(dealId);
+  if (!numId || isNaN(numId)) return;
+
+  const existingIdx = selectedCompIds.findIndex(x => Number(x) === numId);
+  if (existingIdx !== -1) {
+    selectedCompIds.splice(existingIdx, 1);
+  } else {
+    if (selectedCompIds.length >= 4) {
+      showToast('Limite máximo de 4 casos no comparador (Comps) atingido.');
+      return;
+    }
+    selectedCompIds.push(numId);
+  }
+
+  renderCompsFloatingBar();
+  const compsModalEl = document.getElementById('compsModal');
+  if (compsModalEl && compsModalEl.style.display === 'flex') {
+    if (selectedCompIds.length === 0) {
+      closeCompsModal();
+    } else {
+      openCompsModal();
+    }
+  }
+  if (currentMainSection === 'operacao' || currentMainSection === 'precursor' || currentMainSection === 'upis') {
+    renderSectionContent();
+  }
+}
+
+function removeCompDeal(dealId) {
+  const numId = Number(dealId);
+  selectedCompIds = selectedCompIds.filter(x => Number(x) !== numId);
+  renderCompsFloatingBar();
+  const compsModalEl = document.getElementById('compsModal');
+  if (compsModalEl && compsModalEl.style.display === 'flex') {
+    if (selectedCompIds.length === 0) closeCompsModal();
+    else openCompsModal();
+  }
+  if (currentMainSection === 'operacao' || currentMainSection === 'precursor' || currentMainSection === 'upis') {
+    renderSectionContent();
+  }
+}
+
+function clearCompSelection() {
+  selectedCompIds = [];
+  closeCompsModal();
+  renderCompsFloatingBar();
+  if (currentMainSection === 'operacao' || currentMainSection === 'precursor' || currentMainSection === 'upis') {
+    renderSectionContent();
+  }
+}
+const clearCompDeals = clearCompSelection;
+
+function renderCompsFloatingBar() {
+  const bar = document.getElementById('compsFloatingBar');
+  if (!bar) return;
+
+  const validDeals = selectedCompIds
+    .map(id => DEALS_DATA.find(d => Number(d.id) === Number(id)))
+    .filter(Boolean);
+
+  if (validDeals.length === 0) {
+    bar.style.display = 'none';
+    bar.innerHTML = '';
+    return;
+  }
+
+  bar.style.display = 'flex';
+  bar.innerHTML = `
+    <div class="comps-chips-list">
+      <strong style="font-family:var(--font-mono); font-size:11.5px; color:#E6E9DC; white-space:nowrap;">⚖️ COMPS (${validDeals.length}/4):</strong>
+      ${validDeals.map(d => `
+        <span class="comps-chip">
+          <span>${escapeHtml(d.empresa.length > 26 ? d.empresa.slice(0, 26) + '…' : d.empresa)}</span>
+          <button type="button" class="comps-chip-remove" onclick="removeCompDeal(${d.id})" title="Remover ${escapeHtml(d.empresa)}" aria-label="Remover ${escapeHtml(d.empresa)}">&times;</button>
+        </span>
+      `).join('')}
+    </div>
+    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+      <button type="button" class="btn-solid" style="padding:6px 12px; font-size:11.5px;" onclick="openCompsModal()">
+        ⚖️ Comparar Lado a Lado (${validDeals.length})
+      </button>
+      <button type="button" class="btn-action" style="padding:5px 10px; font-size:11px; background:#FFFFFF;" onclick="exportCompsXlsx()">
+        📊 Excel (.xlsx)
+      </button>
+      <button type="button" class="btn-reset" style="padding:5px 10px; font-size:11px; color:#FEE2E2;" onclick="clearCompSelection()">
+        ✕ Limpar
+      </button>
+    </div>
+  `;
+}
+
+function openCompsModal() {
+  const validDeals = selectedCompIds
+    .map(id => DEALS_DATA.find(d => Number(d.id) === Number(id)))
+    .filter(Boolean);
+
+  if (validDeals.length === 0) {
+    showToast('Selecione ao menos 1 caso no botão ⚖️ para abrir o comparador.');
+    return;
+  }
+
+  const modalEl = document.getElementById('compsModal');
+  const titleEl = document.getElementById('compsModalTitle');
+  const bodyEl = document.getElementById('compsModalBody');
+  if (!modalEl || !bodyEl) return;
+
+  if (titleEl) {
+    const totalPassivo = validDeals.reduce((acc, d) => acc + (Number(d.passivo_mm) || 0), 0);
+    titleEl.textContent = `Comparativo Lado a Lado (${validDeals.length} ${validDeals.length === 1 ? 'Caso' : 'Casos'} • Passivo Agregado: R$ ${formatNumberBR(Math.round(totalPassivo))} MM)`;
+  }
+
+  const dealCols = validDeals.map(d => {
+    const dyn = computeDynamicRecovery(d);
+    const parsed = parseThesisRegex(d.tese);
+    const sc = d.model_params?.split_classes || {};
+    const cp = d.model_params?.classes_pct || {};
+    const split = reconcileSixBucketSplit({
+      extra: sc.extraconcursal_pct ?? cp.extraconcursal_fiduciario ?? 18,
+      fiscal: sc.fiscal_pct ?? cp.fiscal_tributario ?? 7,
+      c1: sc.classe_i_pct ?? cp.c1_trabalhista ?? 3,
+      c2: sc.classe_ii_pct ?? cp.c2_garantia_real ?? 42,
+      c3: sc.classe_iii_pct ?? cp.c3_quirografario ?? 27,
+      c4: sc.classe_iv_pct ?? cp.c4_me_epp ?? 3
+    });
+    const evEst = Math.round(Number(d.model_params?.ev_ativos_mm || (Number(d.passivo_mm || 100) * 0.58)));
+    const liqDisc = Number(d.model_params?.desagio_liquidacao_pct || 38);
+    const massaEst = Math.round(evEst * (1 - liqDisc / 100));
+    const badge = getBadgeVisual(d);
+    return { d, dyn, parsed, split, evEst, liqDisc, massaEst, badge };
+  });
+
+  bodyEl.innerHTML = `
+    <div class="comps-matrix-wrap">
+      <table class="comps-matrix-table">
+        <thead>
+          <tr>
+            <th style="min-width:170px;">Métrica / Dimensão Forense</th>
+            ${dealCols.map(c => `
+              <th style="min-width:220px;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:6px;">
+                  <div>
+                    <strong style="font-size:13px; color:#E6E9DC; text-decoration:underline; text-underline-offset:2px; cursor:pointer;" onclick="closeCompsModal(); openDossier(${c.d.id});">${escapeHtml(c.d.empresa)}</strong>
+                    <div style="font-family:var(--font-mono); font-size:10px; color:#C8CEB0; font-weight:500; margin-top:2px;">${escapeHtml(c.d.cnpj)} • ${escapeHtml(c.d.setor_macro)}</div>
+                  </div>
+                  <button type="button" style="background:rgba(255,255,255,0.14); border:1px solid rgba(230,233,220,0.35); color:#FFFFFF; border-radius:4px; padding:2px 6px; font-size:11px; cursor:pointer;" onclick="removeCompDeal(${c.d.id})" title="Remover coluna" aria-label="Remover ${escapeHtml(c.d.empresa)}">&times;</button>
+                </div>
+              </th>
+            `).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Passivo Total Estimado</strong></td>
+            ${dealCols.map(c => `<td class="comp-num" data-numeric="true" style="font-weight:800; font-size:13.5px;">R$ ${formatNumberBR(c.d.passivo_mm)} MM</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>2. Fase / Classe CNJ</strong></td>
+            ${dealCols.map(c => `<td><span class="status-badge ${c.badge.cls}">${escapeHtml(c.d.fase)}</span><div style="font-family:var(--font-mono); font-size:10.5px; color:var(--text-muted); margin-top:4px;">${escapeHtml(c.d.processo || 'Em autuação')}</div></td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>3. Polo &amp; Juízo Competente</strong></td>
+            ${dealCols.map(c => `<td><strong>${escapeHtml(c.d.cidade)}/${escapeHtml(c.d.uf)}</strong><br><span style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(c.d.tribunal)}</span></td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>4. Score Forense &amp; Tier</strong></td>
+            ${dealCols.map(c => `<td class="comp-num" data-numeric="true"><strong>${formatScoreBR(c.d.score)} / 10,0</strong> <span class="status-badge badge-upi">${escapeHtml(c.d.tier)}</span></td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>5. Haircut &amp; % Recuperação</strong></td>
+            ${dealCols.map(c => `<td class="comp-num" data-numeric="true"><span style="color:#9F1239; font-weight:700;">Haircut: ${c.dyn.haircutPct}%</span><br><span style="color:#065F46; font-weight:800;">Recup. Implícita: ${c.dyn.recupPct}%</span></td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>6. EV &amp; Massa Líquida Est.</strong></td>
+            ${dealCols.map(c => `<td class="comp-num" data-numeric="true" style="font-size:11.5px;">EV Ativos: <strong>R$ ${formatNumberBR(c.evEst)} MM</strong><br>Massa (&minus;${c.liqDisc}%): <strong>R$ ${formatNumberBR(c.massaEst)} MM</strong> ${isUpiEligible(c.d) ? '<span class="status-badge badge-upi">UPI</span>' : ''}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>7. Estrutura de Capital (100%)</strong></td>
+            ${dealCols.map(c => `<td class="comp-num" data-numeric="true" style="font-size:11px; line-height:1.5;">
+              Extra/Fid: <strong>${c.split.extra}%</strong> | Fiscal: <strong>${c.split.fiscal}%</strong><br>
+              Cl. I: <strong>${c.split.c1}%</strong> | Cl. II: <strong>${c.split.c2}%</strong><br>
+              Cl. III: <strong>${c.split.c3}%</strong> | Cl. IV: <strong>${c.split.c4}%</strong>
+            </td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>8. Principais Credores</strong></td>
+            ${dealCols.map(c => `<td style="font-size:11.5px; line-height:1.45;">${escapeHtml(c.d.credores || 'Em apuração')}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>9. Fiduciários &amp; Securitizadoras</strong></td>
+            ${dealCols.map(c => `<td style="font-size:11.5px;"><strong>AF:</strong> ${escapeHtml(c.d.agentes_fiduciarios || 'N/A')}<br><strong>Sec.:</strong> ${escapeHtml(c.d.securitizadoras || 'N/A')}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>10. Banca &amp; Adm. Judicial</strong></td>
+            ${dealCols.map(c => `<td style="font-size:11.5px;"><strong>Banca:</strong> ${escapeHtml(c.d.advocacia || 'Em definição')}<br><strong>AJ:</strong> ${escapeHtml(c.d.aj || 'Aguardando nomeação')}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>11. Gargalo &amp; Tese de Mandato</strong></td>
+            ${dealCols.map(c => `<td style="font-size:11.5px; line-height:1.45;"><strong>Gargalo:</strong> ${escapeHtml(c.parsed.gargalo)}<br><br><strong>Mandato:</strong> ${escapeHtml(c.parsed.mandato)}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>12. Ações Executivas</strong></td>
+            ${dealCols.map(c => `<td>
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <button type="button" class="btn-action" style="font-size:11px;" onclick="closeCompsModal(); openDossier(${c.d.id});">Abrir Ficha</button>
+                <button type="button" class="btn-solid" style="font-size:11px;" onclick="closeCompsModal(); openCalculatorForDeal(${c.d.id});">Modelar</button>
+              </div>
+            </td>`).join('')}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  modalEl.style.display = 'flex';
+  document.body.classList.toggle('comps-modal-open', true);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCompsModal() {
+  const modalEl = document.getElementById('compsModal');
+  if (modalEl) modalEl.style.display = 'none';
+  document.body.classList.toggle('comps-modal-open', false);
+  if (!document.body.classList.contains('modal-open')) {
+    document.body.style.overflow = '';
+  }
+}
+
+async function exportCompsXlsx() {
+  const validDeals = selectedCompIds
+    .map(id => DEALS_DATA.find(d => Number(d.id) === Number(id)))
+    .filter(Boolean);
+  if (validDeals.length === 0) {
+    showToast('Selecione casos no comparador (Comps) antes de exportar.');
+    return;
+  }
+  const ok = await ensureSheetJsLoaded();
+  if (!ok || typeof XLSX === 'undefined') {
+    showToast('Não foi possível carregar o motor Excel (.xlsx).');
+    return;
+  }
+  const rows = [
+    ['Métrica / Campo', ...validDeals.map(d => d.empresa)],
+    ['CNPJ', ...validDeals.map(d => d.cnpj || '')],
+    ['Macro-Setor', ...validDeals.map(d => d.setor_macro || '')],
+    ['Passivo Total (R$ MM)', ...validDeals.map(d => Number(d.passivo_mm || 0))],
+    ['Fase Concursal', ...validDeals.map(d => d.fase || '')],
+    ['Polo (Cidade/UF)', ...validDeals.map(d => `${d.cidade || ''}/${d.uf || ''}`)],
+    ['Juízo / Vara', ...validDeals.map(d => d.tribunal || '')],
+    ['Autos', ...validDeals.map(d => d.processo || '')],
+    ['Score Forense', ...validDeals.map(d => Number(d.score || 0))],
+    ['Haircut Estimado (%)', ...validDeals.map(d => computeDynamicRecovery(d).haircutPct)],
+    ['Recuperação Implícita (%)', ...validDeals.map(d => computeDynamicRecovery(d).recupPct)],
+    ['Principais Credores', ...validDeals.map(d => d.credores || '')],
+    ['Agentes Fiduciários', ...validDeals.map(d => d.agentes_fiduciarios || '')],
+    ['Securitizadoras', ...validDeals.map(d => d.securitizadoras || '')],
+    ['Banca Jurídica', ...validDeals.map(d => d.advocacia || '')],
+    ['Administrador Judicial (AJ)', ...validDeals.map(d => d.aj || '')],
+    ['Próximas Ações', ...validDeals.map(d => d.proximas_acoes || '')]
+  ];
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [{ wch: 28 }, ...validDeals.map(() => ({ wch: 36 }))];
+  XLSX.utils.book_append_sheet(wb, ws, 'Comps Lado a Lado');
+  XLSX.writeFile(wb, `Valknut_Comps_Concursais_${getBrazilTodayIso()}.xlsx`);
+  showToast(`Matriz comparativa (.xlsx) exportada com ${validDeals.length} casos!`);
 }
 
 
@@ -6578,7 +7815,7 @@ function parseSheetNoticiasRows(rows) {
 
     out.push({
       id: 1100 + i,
-      data_hora: dtStr || '09/11/2026 09:00',
+      data_hora: dtStr || formatBrazilNowDateTime(),
       titulo,
       fonte,
       setor: matchedDeal ? matchedDeal.setor_macro : setorRaw,
@@ -6849,16 +8086,29 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
   const pill = document.getElementById('lastUpdateTime');
   try {
     const res = await fetchWithTimeout(`${APPS_SCRIPT_URL}?_cb=${Date.now()}`, 8000);
-    if (!res.ok) return;
+    if (!res.ok) {
+      if (DEALS_DATA.length === 0) {
+        initialLoadFailed = true;
+        if (pill) pill.textContent = 'Offline • Falha ao carregar base';
+        renderSectionContent();
+      }
+      return;
+    }
     const json = await res.json();
+
+    // Detecta se o endpoint Apps Script possui o roteador moderno v4.6/v4.7 ou se é implantação legada de aba única
+    const hasModernRouter = Boolean(json && (json.version || Array.isArray(json.noticias) || Array.isArray(json.tier0)));
+    gasSupportsActionRouter = hasModernRouter;
+
     let changed = false;
 
-    if (json.status === 'success' && Array.isArray(json.data) && json.data.length > 0) {
+    if (json && json.status === 'success' && Array.isArray(json.data) && json.data.length > 0) {
       const parsed = parseSheetRows(json.data);
       if (parsed.length > 0) {
         DEALS_DATA = parsed;
         VALKNUT_DATA = DEALS_DATA;
         if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+        initialLoadFailed = false;
         saveDealsSnapshotToStorage(DEALS_DATA);
         enrichAllDeals();
         populateDropdownFilters();
@@ -6866,11 +8116,11 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       }
     }
 
-    // P0-2 Fix: Ler a partir de startIdx = 0 quando o cabeçalho já foi removido pelo Code.gs (preserva Braskem S/A R$ 58 Bi) e corrigir índices de colunas [0..10]
     const rawPresList = Array.isArray(json.tracking_pres) ? json.tracking_pres : (Array.isArray(json.pres) ? json.pres : []);
-    if (json.status === 'success' && rawPresList.length > 0) {
+    if (json && json.status === 'success' && rawPresList.length > 0) {
       const parsedPres = [];
       const startIdx = String((rawPresList[0] && rawPresList[0][0]) || '').toLowerCase().includes('data') ? 1 : 0;
+      const fallbackTodayIso = getBrazilTodayIso();
       for (let i = startIdx; i < rawPresList.length; i++) {
         const r = rawPresList[i];
         if (!r || !r[1]) continue;
@@ -6880,7 +8130,7 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
         const statusProcedimento = String(r[5] || 'Em Negociação').trim();
         const quorumAdesao = String(r[6] || '').trim();
         parsedPres.push({
-          data: normalizeIsoDateStr(r[0], '2026-10-26'),
+          data: normalizeIsoDateStr(r[0], fallbackTodayIso),
           empresa: emp,
           cnpj: matched ? matched.cnpj : (emp.toLowerCase().includes('braskem') ? '42.150.391/0001-70' : 'Mercado de Capitais'),
           setor: String(r[2] || (matched ? matched.setor_macro : 'Mercado de Capitais')).trim(),
@@ -6907,8 +8157,7 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       }
     }
 
-    // P0-2 Fix: Consumir json.tier0 (8 casos da aba Radar Preditivo Tier 0)
-    if (json.status === 'success' && Array.isArray(json.tier0) && json.tier0.length > 0) {
+    if (json && json.status === 'success' && Array.isArray(json.tier0) && json.tier0.length > 0) {
       const t0Start = String((json.tier0[0] && json.tier0[0][0]) || '').toLowerCase().includes('empresa') ? 1 : 0;
       const parsedT0 = [];
       for (let i = t0Start; i < json.tier0.length; i++) {
@@ -6933,7 +8182,7 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       }
     }
 
-    if (json.status === 'success' && Array.isArray(json.noticias) && json.noticias.length > 0) {
+    if (json && json.status === 'success' && Array.isArray(json.noticias) && json.noticias.length > 0) {
       const fromSheetNews = parseSheetNoticiasRows(json.noticias);
       if (fromSheetNews.length > 0) {
         const mergedSeed = [...fromSheetNews, ...(sheetLiveNewsItems || [])];
@@ -6967,15 +8216,26 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
         if (subTitleEl) subTitleEl.textContent = resolveDynamicCaseText(curSt.title);
         if (subDescEl) subDescEl.textContent = resolveDynamicCaseText(curSt.desc);
       }
-      if (pill) pill.textContent = `Online: ${DEALS_DATA.length} leads`;
+      if (pill) pill.textContent = DEALS_DATA.length > 0 ? `Online: ${DEALS_DATA.length} leads` : 'Offline • Falha ao carregar base';
       if (notifyUser) showToast(`Sincronizado: ${DEALS_DATA.length} casos ativos e ${getAllCombinedNews().length} notícias carregadas!`);
+    } else if (DEALS_DATA.length === 0) {
+      initialLoadFailed = true;
+      if (pill) pill.textContent = 'Offline • Falha ao carregar base';
+      renderSectionContent();
     }
   } catch (err) {
-    if (pill && DEALS_DATA.length > 0) pill.textContent = `Base Ativa: ${DEALS_DATA.length} leads`;
+    if (DEALS_DATA.length > 0) {
+      if (pill) pill.textContent = `Base Ativa: ${DEALS_DATA.length} leads`;
+    } else {
+      initialLoadFailed = true;
+      if (pill) pill.textContent = 'Offline • Falha ao carregar base';
+      renderSectionContent();
+    }
   }
 }
+const syncFromGoogleSheets = fetchLiveSheetInBackground;
 
-// P1-1B Fix: Cobertura completa das 27 Unidades Federativas do Brasil (incluindo RN para o Grupo JMT em Natal/RN)
+// Cobertura completa das 27 Unidades Federativas do Brasil
 const UF_CAPITAL_FALLBACKS = {
   SP: ['São Paulo', [-23.5505, -46.6333]],
   RJ: ['Rio de Janeiro', [-22.9068, -43.1729]],
@@ -7021,9 +8281,60 @@ function parsePassivoMmValue(rawVal) {
   return isNaN(num) ? 0 : Math.round(num * 100) / 100;
 }
 
+function finalizeParsedDealStructure(item) {
+  if (!item) return item;
+  const rawBlob = `${item.credores || ''} ${item.perfil_passivo || ''} ${item.tese || ''} ${item.securitizadoras || ''}`;
+  const strictSecs = extractStrictSecuritizadorasList(rawBlob);
+  if (strictSecs.length > 0) {
+    item.securitizadoras = strictSecs.join(', ');
+  } else if (item.securitizadoras && (/\breit\b/i.test(item.securitizadoras) || /\bvert\b/i.test(item.securitizadoras) || /\beuro\b/i.test(item.securitizadoras))) {
+    item.securitizadoras = 'Sem securitizadora reportada / Crédito Bancário Direto';
+  } else if (!item.securitizadoras) {
+    item.securitizadoras = 'Sem securitizadora reportada / Crédito Bancário Direto';
+  }
+
+  const mp = item.model_params || {};
+  const sc = mp.split_classes || {};
+  const cp = mp.classes_pct || {};
+  const split = reconcileSixBucketSplit({
+    extra: sc.extraconcursal_pct ?? cp.extraconcursal_fiduciario ?? 18,
+    fiscal: sc.fiscal_pct ?? cp.fiscal_tributario ?? 7,
+    c1: sc.classe_i_pct ?? cp.c1_trabalhista ?? 3,
+    c2: sc.classe_ii_pct ?? cp.c2_garantia_real ?? 42,
+    c3: sc.classe_iii_pct ?? cp.c3_quirografario ?? 27,
+    c4: sc.classe_iv_pct ?? cp.c4_me_epp ?? 3
+  });
+  const haircutEst = Number(mp.haircut_estimado_pct || 55);
+  item.model_params = {
+    ...mp,
+    haircut_estimado_pct: haircutEst,
+    recuperacao_estimada_pct: 100 - haircutEst,
+    ev_ativos_mm: Number(mp.ev_ativos_mm || Math.max(10, Math.round((Number(item.passivo_mm) || 100) * 0.58))),
+    desagio_liquidacao_pct: Number(mp.desagio_liquidacao_pct || 38),
+    split_classes: {
+      extraconcursal_pct: split.extra,
+      fiscal_pct: split.fiscal,
+      classe_i_pct: split.c1,
+      classe_ii_pct: split.c2,
+      classe_iii_pct: split.c3,
+      classe_iv_pct: split.c4
+    },
+    classes_pct: {
+      extraconcursal_fiduciario: split.extra,
+      fiscal_tributario: split.fiscal,
+      c1_trabalhista: split.c1,
+      c2_garantia_real: split.c2,
+      c3_quirografario: split.c3,
+      c4_me_epp: split.c4
+    }
+  };
+  return item;
+}
+
 function parseSheetRows(rows) {
   const rawList = [];
   const sortedCityKeys = Object.keys(CITY_COORDINATES).sort((a, b) => b.split(',')[0].length - a.split(',')[0].length);
+  const todayIso = getBrazilTodayIso();
 
   for (let r = 0; r < rows.length; r++) {
     const row = rows[r];
@@ -7040,7 +8351,6 @@ function parseSheetRows(rows) {
     const tese = String(row[16] || '');
     const credoresStr = String(row[12] || 'Mapeamento em curso');
 
-    // P1-1A Fix: Priorizar a Cidade Sede da Empresa (reg -> empresa) antes da Comarca Regional do Tribunal (trib)
     let cidade = '';
     let uf = '';
     for (const key of sortedCityKeys) {
@@ -7095,18 +8405,28 @@ function parseSheetRows(rows) {
       || [-23.5505, -46.6333];
     const regiaoMacro = UF_TO_REGION[uf] || 'Sudeste';
 
-    // P0-3 Fix: Priorizar Classe Processual Real (Col. E / fase) sobre o Tier Comercial (Col. K / tier)
+    // Precedência estrita: Falência / Liquidação (incluindo "Liquidação Extrajudicial" BACEN/SUSEP/ANS!) DEVE vir ANTES de "extrajudicial" (PRE Classe 128)!
     const faseLower = fase.toLowerCase();
     const tierLower = tier.toLowerCase();
     let tipoProcesso = 'PRJ';
     let subtipoProcesso = 'PRJ';
-    if (faseLower.includes('extrajudicial') || faseLower.includes('classe 128') || faseLower.includes('128') || faseLower.includes('12154') || /\bpre\b/i.test(faseLower)) {
-      tipoProcesso = 'PRE';
-      subtipoProcesso = 'PRE';
-    } else if (faseLower.includes('falência') || faseLower.includes('falencia') || faseLower.includes('autofalência') || faseLower.includes('liquidação') || faseLower.includes('liquidacao') || faseLower.includes('classe 110') || faseLower.includes('convolação')) {
+    if (
+      faseLower.includes('falência') ||
+      faseLower.includes('falencia') ||
+      faseLower.includes('autofalência') ||
+      faseLower.includes('autofalencia') ||
+      faseLower.includes('liquidação') ||
+      faseLower.includes('liquidacao') ||
+      faseLower.includes('classe 110') ||
+      faseLower.includes('convolação') ||
+      faseLower.includes('convolacao')
+    ) {
       tipoProcesso = 'PRJ';
       subtipoProcesso = 'Falência / Liquidação';
-    } else if (faseLower.includes('cautelar') || faseLower.includes('20-b') || faseLower.includes('pré-rj') || faseLower.includes('tutela') || faseLower.includes('constatação prévia')) {
+    } else if (faseLower.includes('extrajudicial') || faseLower.includes('classe 128') || faseLower.includes('128') || faseLower.includes('12154') || /\bpre\b/i.test(faseLower)) {
+      tipoProcesso = 'PRE';
+      subtipoProcesso = 'PRE';
+    } else if (faseLower.includes('cautelar') || faseLower.includes('20-b') || faseLower.includes('pré-rj') || faseLower.includes('pre-rj') || faseLower.includes('tutela') || faseLower.includes('constatação prévia') || faseLower.includes('constatacao previa')) {
       tipoProcesso = 'Cautelar / Pré-RJ';
       subtipoProcesso = 'Cautelar / Pré-RJ';
     } else if (
@@ -7130,10 +8450,9 @@ function parseSheetRows(rows) {
     let scoreVal = typeof row[9] === 'number' ? row[9] : parseFloat(String(row[9] || '8.5').replace(',', '.'));
     if (isNaN(scoreVal) || scoreVal > 10) scoreVal = 8.8;
 
-    let dataEvento = normalizeIsoDateStr(row[0], '2026-10-25');
-    let dataAdicao = normalizeIsoDateStr(row[1], '2026-11-01');
+    const dataEvento = normalizeIsoDateStr(row[0], todayIso);
+    const dataAdicao = normalizeIsoDateStr(row[1], todayIso);
 
-    // P1-4 Fix: Reconhecer "Tecnologia & Serviços B2B" como Macro-Setor oficial
     const rawSetor = String(row[4] || 'Indústria & Manufatura');
     const sLow = normalizeTextNoAccents(rawSetor);
     let setorMacro = rawSetor;
@@ -7183,30 +8502,56 @@ function parseSheetRows(rows) {
     });
   }
 
-  // Deduplicate by 14-digit CNPJ (or normalized company stem if CNPJ not numeric)
+  // Deduplicação robusta: por CNPJ válido de 14 dígitos OU nome-base pré-'(' / stem corporativo, prevalecendo a linha MAIS RECENTE (posterior) na planilha!
   const dedupedList = [];
-  const byCnpjKey = new Map();
+  const indexByCnpj14 = new Map();
+  const indexByBaseName = new Map();
+  const indexByStem = new Map();
+
   rawList.forEach(item => {
     const digits = String(item.cnpj || '').replace(/\D/g, '');
-    const key = digits.length >= 11 ? digits : `NAME:${normalizeCompanyStem(item.empresa) || normalizeTextNoAccents(item.empresa)}`;
-    if (!byCnpjKey.has(key)) {
-      byCnpjKey.set(key, item);
+    const cnpj14 = digits.length === 14 ? digits : '';
+    const basePreParen = normalizeTextNoAccents(String(item.empresa || '').split('(')[0].trim());
+    const stemKey = normalizeCompanyStem(item.empresa);
+
+    let existingIdx = -1;
+    if (cnpj14 && indexByCnpj14.has(cnpj14)) {
+      existingIdx = indexByCnpj14.get(cnpj14);
+    } else if (basePreParen.length >= 3 && indexByBaseName.has(basePreParen)) {
+      existingIdx = indexByBaseName.get(basePreParen);
+    } else if (stemKey.length >= 4 && indexByStem.has(stemKey)) {
+      existingIdx = indexByStem.get(stemKey);
+    }
+
+    if (existingIdx === -1) {
+      const newIdx = dedupedList.length;
       dedupedList.push(item);
+      if (cnpj14) indexByCnpj14.set(cnpj14, newIdx);
+      if (basePreParen.length >= 3) indexByBaseName.set(basePreParen, newIdx);
+      if (stemKey.length >= 4) indexByStem.set(stemKey, newIdx);
     } else {
-      const prev = byCnpjKey.get(key);
-      if (item.data_evento > prev.data_evento) prev.data_evento = item.data_evento;
-      if (item.data_adicao > prev.data_adicao) prev.data_adicao = item.data_adicao;
-      if (item.passivo_mm > prev.passivo_mm) {
-        prev.passivo_mm = item.passivo_mm;
-        prev.passivo_display = item.passivo_display;
-      }
-      if (item.credores && item.credores.length > (prev.credores || '').length) prev.credores = item.credores;
-      if (item.tese && item.tese.length > (prev.tese || '').length) prev.tese = item.tese;
-      if (item.processo && (!prev.processo || prev.processo === 'Em autuação')) prev.processo = item.processo;
+      const prev = dedupedList[existingIdx];
+      // A linha posterior prevalece (atualização de fase, passivo, processo, tese), preservando campos preenchidos da anterior caso a posterior esteja vazia
+      const mergedDup = {
+        ...prev,
+        ...item,
+        cnpj: cnpj14 ? item.cnpj : (String(prev.cnpj || '').replace(/\D/g, '').length === 14 ? prev.cnpj : (item.cnpj || prev.cnpj)),
+        passivo_mm: item.passivo_mm > 0 ? item.passivo_mm : prev.passivo_mm,
+        passivo_display: item.passivo_mm > 0 ? item.passivo_display : prev.passivo_display,
+        processo: (item.processo && item.processo !== 'Em autuação') ? item.processo : prev.processo,
+        credores: (item.credores && item.credores !== 'Mapeamento em curso') ? item.credores : prev.credores,
+        advocacia: (item.advocacia && item.advocacia !== 'Em apuração') ? item.advocacia : prev.advocacia,
+        aj: (item.aj && item.aj !== 'N/A ou A Nomear') ? item.aj : prev.aj,
+        tese: item.tese || prev.tese
+      };
+      dedupedList[existingIdx] = mergedDup;
+      if (cnpj14) indexByCnpj14.set(cnpj14, existingIdx);
+      if (basePreParen.length >= 3) indexByBaseName.set(basePreParen, existingIdx);
+      if (stemKey.length >= 4) indexByStem.set(stemKey, existingIdx);
     }
   });
 
-  // Non-destructive merge against deals.json curated base + stable IDs (1..146 preserved, 147+ for new leads)
+  // Merge não-destrutivo contra a base curada deals.json + IDs estáveis
   const mergedList = [];
   const matchedCuratedIds = new Set();
   const unmatchedNewItems = [];
@@ -7215,27 +8560,27 @@ function parseSheetRows(rows) {
     const curated = findCuratedDeal(item.cnpj, item.empresa);
     if (curated && !matchedCuratedIds.has(curated.id)) {
       matchedCuratedIds.add(curated.id);
-      mergedList.push(mergeDealWithCurated(item, curated));
+      mergedList.push(finalizeParsedDealStructure(mergeDealWithCurated(item, curated)));
     } else if (!curated) {
-      unmatchedNewItems.push(item);
+      unmatchedNewItems.push(finalizeParsedDealStructure(item));
     }
   });
 
-  // Preserve any curated deals temporarily absent from sheet rows so static intelligence is never lost
-  BASE_CURATED_BY_CNPJ.forEach(curated => {
+  // Preserva todos os casos curados de deals.json (tanto por CNPJ quanto por stem) que não vieram na aba ao vivo
+  const allCuratedCandidates = [...BASE_CURATED_BY_CNPJ.values(), ...BASE_CURATED_BY_STEM.values()];
+  allCuratedCandidates.forEach(curated => {
     if (curated && !matchedCuratedIds.has(curated.id) && !isBlockedEntityToken(curated.empresa)) {
       matchedCuratedIds.add(curated.id);
-      mergedList.push({ ...curated });
+      mergedList.push(finalizeParsedDealStructure({ ...curated }));
     }
   });
 
-  // Deterministic IDs >= MAX_CURATED_DEAL_ID + 1 for genuinely new sheet leads (sorted by data_adicao asc + CNPJ)
   unmatchedNewItems.sort((a, b) => {
     const cmpAdd = String(a.data_adicao || '').localeCompare(String(b.data_adicao || ''));
     if (cmpAdd !== 0) return cmpAdd;
     return String(a.cnpj || '').localeCompare(String(b.cnpj || ''));
   });
-  let nextNewId = (MAX_CURATED_DEAL_ID || 146) + 1;
+  let nextNewId = (MAX_CURATED_DEAL_ID || 154) + 1;
   unmatchedNewItems.forEach(item => {
     item.id = nextNewId++;
     mergedList.push(item);
@@ -7277,6 +8622,8 @@ function exportCSV() {
     'Recuperacao_Estimada_Pct',
     'Score',
     'Principais_Credores',
+    'Agentes_Fiduciarios',
+    'Securitizadoras',
     'Causa_da_Crise',
     'Gargalo_Imediato',
     'Tese_de_Mandato'
@@ -7305,6 +8652,8 @@ function exportCSV() {
       rPct,
       quoteCSVField(scoreComma),
       quoteCSVField(d.credores),
+      quoteCSVField(d.agentes_fiduciarios || ''),
+      quoteCSVField(d.securitizadoras || ''),
       quoteCSVField(d.causa_crise || parsed.causa),
       quoteCSVField(d.gargalo_imediato || parsed.gargalo),
       quoteCSVField(d.tese_mandato || parsed.mandato)
@@ -7316,20 +8665,22 @@ function exportCSV() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `valknut_radar_${new Date().toISOString().slice(0, 10)}.csv`;
+  a.download = `valknut_radar_${getBrazilTodayIso()}.csv`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  showToast(`CSV PT-BR exportado com ${deals.length} casos (incluindo Perfil da Empresa e % Recuperação)!`);
+  showToast(`CSV PT-BR exportado com ${deals.length} casos!`);
 }
 
-function exportXLSX() {
+async function exportXLSX() {
   const deals = getFilteredDeals();
   if (deals.length === 0) {
     showToast('Nenhum registro no recorte para exportar.');
     return;
   }
+
+  const ok = await ensureSheetJsLoaded();
 
   const headers = [
     'ID',
@@ -7347,8 +8698,16 @@ function exportXLSX() {
     'Passivo_MM',
     'Haircut_Estimado_Pct',
     'Recuperacao_Estimada_Pct',
+    'Extraconcursal_Pct',
+    'Fiscal_Pct',
+    'Classe_I_Pct',
+    'Classe_II_Pct',
+    'Classe_III_Pct',
+    'Classe_IV_Pct',
     'Score',
     'Principais_Credores',
+    'Agentes_Fiduciarios',
+    'Securitizadoras',
     'Causa_da_Crise',
     'Gargalo_Imediato',
     'Tese_de_Mandato'
@@ -7359,6 +8718,16 @@ function exportXLSX() {
     const parsed = parseThesisRegex(d.tese);
     const hPct = d.model_params?.haircut_estimado_pct || 55;
     const rPct = 100 - hPct;
+    const sc = d.model_params?.split_classes || {};
+    const cp = d.model_params?.classes_pct || {};
+    const split = reconcileSixBucketSplit({
+      extra: sc.extraconcursal_pct ?? cp.extraconcursal_fiduciario ?? 18,
+      fiscal: sc.fiscal_pct ?? cp.fiscal_tributario ?? 7,
+      c1: sc.classe_i_pct ?? cp.c1_trabalhista ?? 3,
+      c2: sc.classe_ii_pct ?? cp.c2_garantia_real ?? 42,
+      c3: sc.classe_iii_pct ?? cp.c3_quirografario ?? 27,
+      c4: sc.classe_iv_pct ?? cp.c4_me_epp ?? 3
+    });
     aoa.push([
       Number(d.id),
       formatDateBR(d.data_evento),
@@ -7375,15 +8744,23 @@ function exportXLSX() {
       Number(d.passivo_mm || 0),
       Number(hPct),
       Number(rPct),
+      Number(split.extra),
+      Number(split.fiscal),
+      Number(split.c1),
+      Number(split.c2),
+      Number(split.c3),
+      Number(split.c4),
       Number(Number(d.score || 8.5).toFixed(1)),
       d.credores || '',
+      d.agentes_fiduciarios || '',
+      d.securitizadoras || '',
       d.causa_crise || parsed.causa,
       d.gargalo_imediato || parsed.gargalo,
       d.tese_mandato || parsed.mandato
     ]);
   });
 
-  if (typeof XLSX !== 'undefined') {
+  if (ok && typeof XLSX !== 'undefined') {
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.aoa_to_sheet(aoa);
 
@@ -7403,8 +8780,16 @@ function exportXLSX() {
       { wch: 16 },
       { wch: 14 },
       { wch: 14 },
+      { wch: 14 },
+      { wch: 12 },
+      { wch: 12 },
+      { wch: 12 },
+      { wch: 12 },
+      { wch: 12 },
       { wch: 9 },
       { wch: 55 },
+      { wch: 35 },
+      { wch: 35 },
       { wch: 55 },
       { wch: 55 },
       { wch: 55 }
@@ -7415,18 +8800,18 @@ function exportXLSX() {
     for (let r = 1; r < aoa.length; r++) {
       const passCell = ws[XLSX.utils.encode_cell({ r, c: 12 })];
       if (passCell) passCell.z = '#,##0.00';
-      const scoreCell = ws[XLSX.utils.encode_cell({ r, c: 15 })];
+      const scoreCell = ws[XLSX.utils.encode_cell({ r, c: 21 })];
       if (scoreCell) scoreCell.z = '0.0';
     }
 
     wb.Props = {
-      Title: 'VALKNUT — SPECIAL SITUATIONS // Base Concursal v4.0',
+      Title: 'VALKNUT — SPECIAL SITUATIONS // Base Concursal v4.7',
       Author: 'Valknut Special Situations'
     };
 
     XLSX.utils.book_append_sheet(wb, ws, 'Valknut Special Situations');
-    XLSX.writeFile(wb, `valknut_radar_${new Date().toISOString().slice(0, 10)}.xlsx`);
-    showToast(`Planilha Excel (.xlsx) exportada com ${deals.length} casos e Perfil da Empresa!`);
+    XLSX.writeFile(wb, `valknut_radar_${getBrazilTodayIso()}.xlsx`);
+    showToast(`Planilha Excel (.xlsx) exportada com ${deals.length} casos e estrutura em 6 faixas!`);
   } else {
     exportCSV();
   }

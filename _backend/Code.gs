@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * VALKNUT — SPECIAL SITUATIONS // Google Apps Script Backend & Multi-Proxy Engine
- * Release v4.6 — Leitura Unificada de 4 Abas Públicas + Segurança SSRF/Sync
+ * Release v4.7 — Produção Blindada (Chunked UTF-8, Dedup, Anti-Injection & Health)
  * ============================================================================
  *
  * COMO ATUALIZAR A IMPLANTAÇÃO MANTENDO A MESMA URL (`APPS_SCRIPT_URL`):
@@ -11,11 +11,20 @@
  * 2. Substitua o conteúdo de `Código.gs` por este arquivo e salve (Ctrl+S).
  * 3. Clique em "Implantar" > "Gerenciar implantações" > ícone de lápis (Editar) >
  *    em Versão selecione **"Nova versão"** > clique em "Implantar".
- * 4. Opcional (varredura 24/7 + gravação automática na aba `Noticias`):
+ * 4. Teste rápido de saúde da implantação: abra `<APPS_SCRIPT_URL>?action=health`
+ *    e verifique `{"status":"ok","version":"4.7","router":true,...}`.
+ * 5. Opcional (varredura 24/7 + gravação automática na aba `Noticias`):
  *    execute uma vez `instalarGatilhosAutomaticos()`.
  */
 
+const APP_RELEASE_VERSION = '4.7';
+const MASTER_CACHE_KEY = 'vk_master_sheet_v47';
 const CACHE_TTL_SECONDS = 300; // 5 minutos de cache em memória no servidor Google
+const PUBLIC_REFRESH_COOLDOWN_KEY = 'vk_public_refresh_cooldown';
+const PUBLIC_REFRESH_COOLDOWN_SECONDS = 60;
+const CHUNK_CHAR_SIZE = 42000; // ~50-65 KB em UTF-8 acentuado (abaixo do teto de 100 KB do CacheService)
+const MAX_CACHE_CHUNKS = 12;   // Suporta payloads de até ~500 KB com folga de segurança
+const MAX_NOTICIAS_ROWS = 500; // Limite máximo de linhas na aba `Noticias` (1 cabeçalho + 499 itens)
 
 // Allowlist estrita de domínios HTTPS permitidos no proxy RSS/Dados Abertos (anti-SSRF)
 const ALLOWED_PROXY_HOSTS = {
@@ -73,6 +82,103 @@ function isExcludedEntity_(textValue) {
   return false;
 }
 
+/**
+ * Proteção contra Formula Injection (CSV/Sheet Injection) ao gravar entradas externas RSS.
+ */
+function sanitizeSheetCell_(val) {
+  const str = String(val == null ? '' : val);
+  if (/^\s*[=+\-@\t\r]/.test(str)) {
+    return "'" + str;
+  }
+  return str;
+}
+
+/**
+ * Validação aritmética Módulo-11 para CNPJ de 14 dígitos.
+ */
+function isValidCnpj14_(raw) {
+  const digits = String(raw || '').replace(/\D/g, '');
+  if (digits.length !== 14 || /^(\d)\1{13}$/.test(digits)) return false;
+  const w1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  const w2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  var s1 = 0;
+  for (var i = 0; i < 12; i++) s1 += parseInt(digits.charAt(i), 10) * w1[i];
+  var r1 = s1 % 11;
+  var d1 = r1 < 2 ? 0 : 11 - r1;
+  if (parseInt(digits.charAt(12), 10) !== d1) return false;
+  var s2 = 0;
+  for (var j = 0; j < 13; j++) s2 += parseInt(digits.charAt(j), 10) * w2[j];
+  var r2 = s2 % 11;
+  var d2 = r2 < 2 ? 0 : 11 - r2;
+  return parseInt(digits.charAt(13), 10) === d2;
+}
+
+/**
+ * Normaliza o nome-base da empresa (antes de parênteses) para deduplicação determinística.
+ */
+function normalizeCompanyBase_(raw) {
+  return String(raw || '')
+    .split('(')[0]
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Deduplica linhas da aba principal por nome-base normalizado ou CNPJ válido de 14 dígitos,
+ * priorizando entradas mais recentes na planilha e preservando células preenchidas anteriores
+ * caso a linha mais nova tenha algum campo em branco.
+ */
+function deduplicateLeadRows_(rows) {
+  const deduped = [];
+  const idxByBase = {};
+  const idxByCnpj = {};
+
+  for (var i = 0; i < rows.length; i++) {
+    var row = rows[i];
+    if (!row) continue;
+    var baseKey = normalizeCompanyBase_(row[2]);
+    var cnpjDigits = String(row[3] || '').replace(/\D/g, '');
+    var cnpjKey = isValidCnpj14_(cnpjDigits) ? cnpjDigits : '';
+
+    var existingIdx = -1;
+    if (cnpjKey && Object.prototype.hasOwnProperty.call(idxByCnpj, cnpjKey)) {
+      existingIdx = idxByCnpj[cnpjKey];
+    } else if (baseKey && baseKey.length >= 4 && Object.prototype.hasOwnProperty.call(idxByBase, baseKey)) {
+      existingIdx = idxByBase[baseKey];
+    }
+
+    if (existingIdx >= 0) {
+      var prevRow = deduped[existingIdx];
+      var maxLen = Math.max(prevRow.length, row.length);
+      var mergedRow = new Array(maxLen);
+      for (var c = 0; c < maxLen; c++) {
+        var newerVal = c < row.length ? row[c] : '';
+        var olderVal = c < prevRow.length ? prevRow[c] : '';
+        var newerEmpty = newerVal === null || newerVal === undefined || String(newerVal).trim() === '';
+        // Se `regiao` (col 5) na linha nova tiver apenas a UF (ex: "SP") e a anterior tiver "Cidade, UF", preserva a mais completa
+        if (c === 5 && !newerEmpty && String(newerVal).trim().length <= 2 && String(olderVal || '').trim().length > 2) {
+          mergedRow[c] = olderVal;
+        } else {
+          mergedRow[c] = newerEmpty ? olderVal : newerVal;
+        }
+      }
+      deduped[existingIdx] = mergedRow;
+      if (baseKey && baseKey.length >= 4) idxByBase[baseKey] = existingIdx;
+      if (cnpjKey) idxByCnpj[cnpjKey] = existingIdx;
+    } else {
+      var newIdx = deduped.length;
+      deduped.push(row);
+      if (baseKey && baseKey.length >= 4) idxByBase[baseKey] = newIdx;
+      if (cnpjKey) idxByCnpj[cnpjKey] = newIdx;
+    }
+  }
+
+  return deduped;
+}
+
 function isAuthorizedSyncRequest_(params) {
   const configuredToken = PropertiesService.getScriptProperties().getProperty('SYNC_API_TOKEN');
   const providedToken = String((params && params.token) || '').trim();
@@ -82,22 +188,52 @@ function isAuthorizedSyncRequest_(params) {
   return configuredToken === providedToken;
 }
 
+/**
+ * Rate-limit para `?nocache=1` / `?force=1` em chamadas públicas:
+ * Permite bypass imediato com token autorizado ou no máximo 1 vez a cada 60s publicamente.
+ */
+function resolveBypassCache_(params) {
+  const requested = String((params && (params.nocache || params.force)) || '') === '1';
+  if (!requested) return false;
+  if (isAuthorizedSyncRequest_(params)) return true;
+  try {
+    const cache = CacheService.getScriptCache();
+    if (cache.get(PUBLIC_REFRESH_COOLDOWN_KEY) !== null) {
+      return false;
+    }
+    cache.put(PUBLIC_REFRESH_COOLDOWN_KEY, '1', PUBLIC_REFRESH_COOLDOWN_SECONDS);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function doGet(e) {
   try {
     const params = (e && e.parameter) ? e.parameter : {};
     const action = String(params.action || 'sheet').toLowerCase();
-    const bypassCache = String(params.nocache || params.force || '') === '1';
+
+    if (action === 'health') {
+      return createJsonResponse({
+        status: 'ok',
+        version: APP_RELEASE_VERSION,
+        router: true,
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    const bypassCache = resolveBypassCache_(params);
 
     if (action === 'rss' && params.url) {
       return handleRssProxyRequest(params.url, bypassCache);
     }
 
     if (action === 'djen') {
-      return handleDjenProxyRequest(params);
+      return handleDjenProxyRequest(params, bypassCache);
     }
 
     if (action === 'ons_ccee' || action === 'pld') {
-      return handleOnsCceeProxyRequest(params);
+      return handleOnsCceeProxyRequest(params, bypassCache);
     }
 
     if (action === 'sync') {
@@ -109,7 +245,7 @@ function doGet(e) {
         });
       }
       const result = sincronizarRadarAutomatico();
-      return createJsonResponse({ status: 'success', syncResult: result });
+      return createJsonResponse({ status: 'success', version: APP_RELEASE_VERSION, syncResult: result });
     }
 
     return handleMasterSheetRead(bypassCache);
@@ -128,7 +264,7 @@ function doPost(e) {
       return createJsonResponse({ status: 'error', code: 403, message: 'Não autorizado.' });
     }
     const result = sincronizarRadarAutomatico();
-    return createJsonResponse({ status: 'success', syncResult: result });
+    return createJsonResponse({ status: 'success', version: APP_RELEASE_VERSION, syncResult: result });
   } catch (err) {
     return createJsonResponse({
       status: 'error',
@@ -147,9 +283,9 @@ function doPost(e) {
  */
 function putChunkedCache(cache, baseKey, str, ttl) {
   try {
-    const chunkSize = 85000;
+    const chunkSize = CHUNK_CHAR_SIZE;
     const count = Math.ceil(str.length / chunkSize);
-    if (count > 8) return;
+    if (count < 1 || count > MAX_CACHE_CHUNKS) return;
     const pairs = {};
     pairs[baseKey + '_meta'] = String(count);
     for (var i = 0; i < count; i++) {
@@ -164,7 +300,7 @@ function getChunkedCache(cache, baseKey) {
     const meta = cache.get(baseKey + '_meta');
     if (!meta) return cache.get(baseKey);
     const count = parseInt(meta, 10);
-    if (!count || count < 1 || count > 8) return null;
+    if (!count || count < 1 || count > MAX_CACHE_CHUNKS) return null;
     const keys = [];
     for (var i = 0; i < count; i++) {
       keys.push(baseKey + '_' + i);
@@ -185,14 +321,14 @@ function getChunkedCache(cache, baseKey) {
 function clearChunkedCache(cache, baseKey) {
   try {
     const keys = [baseKey, baseKey + '_meta'];
-    for (var i = 0; i < 8; i++) keys.push(baseKey + '_' + i);
+    for (var i = 0; i < MAX_CACHE_CHUNKS; i++) keys.push(baseKey + '_' + i);
     cache.removeAll(keys);
   } catch (e) {}
 }
 
 function handleMasterSheetRead(bypassCache) {
   const cache = CacheService.getScriptCache();
-  const cacheKey = 'vk_master_sheet_v46';
+  const cacheKey = MASTER_CACHE_KEY;
   if (!bypassCache) {
     const cachedPayload = getChunkedCache(cache, cacheKey);
     if (cachedPayload) {
@@ -202,14 +338,15 @@ function handleMasterSheetRead(bypassCache) {
 
   const ss = openMasterSpreadsheet_();
 
-  // 1. Radar de Originação (Leads)
+  // 1. Radar de Originação (Leads) — filtrado e deduplicado por CNPJ válido ou nome-base
   const leadsSheet = ss.getSheetByName('Radar de Originação (Leads)') || ss.getSheets()[0];
   const rows = leadsSheet ? leadsSheet.getDataRange().getValues() : [];
-  const dataRows = rows.length > 1 ? rows.slice(1).filter(function(r) {
+  const filteredLeads = rows.length > 1 ? rows.slice(1).filter(function(r) {
     if (!r) return false;
     var emp = String(r[2] || '').trim();
     return emp !== '' && !isExcludedEntity_(emp);
   }) : [];
+  const dataRows = deduplicateLeadRows_(filteredLeads);
 
   // 2. Noticias
   const noticiasSheet = ss.getSheetByName('Noticias');
@@ -251,7 +388,7 @@ function handleMasterSheetRead(bypassCache) {
 
   const payloadObj = {
     status: 'success',
-    version: '4.6',
+    version: APP_RELEASE_VERSION,
     updated_at: new Date().toISOString(),
     count: dataRows.length,
     data: dataRows,
@@ -273,14 +410,16 @@ function handleMasterSheetRead(bypassCache) {
 /**
  * 1B. Proxy com Cache para Telemetria ONS & PLD Horário Oficial da CCEE
  */
-function handleOnsCceeProxyRequest(params) {
-  const submarket = String((params && (params.submercado || params.submarket)) || 'SIN').toUpperCase();
-  const dateStr = String((params && (params.data || params.date)) || Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd'));
+function handleOnsCceeProxyRequest(params, bypassCache) {
+  const submarket = String((params && (params.submercado || params.submarket)) || 'SIN').replace(/[^A-Za-z0-9_-]/g, '').toUpperCase() || 'SIN';
+  const dateStr = String((params && (params.data || params.date)) || Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd')).replace(/[^0-9-]/g, '').slice(0, 10);
   const cache = CacheService.getScriptCache();
   const cacheKey = 'vk_ons_ccee_' + submarket + '_' + dateStr;
-  const cached = cache.get(cacheKey);
-  if (cached && String(params.nocache || params.force || '') !== '1') {
-    return ContentService.createTextOutput(cached).setMimeType(ContentService.MimeType.JSON);
+  if (!bypassCache) {
+    const cached = getChunkedCache(cache, cacheKey);
+    if (cached) {
+      return ContentService.createTextOutput(cached).setMimeType(ContentService.MimeType.JSON);
+    }
   }
 
   let onsData = null;
@@ -313,69 +452,120 @@ function handleOnsCceeProxyRequest(params) {
 
   const payloadStr = JSON.stringify({
     status: 'ok',
+    version: APP_RELEASE_VERSION,
     submarket: submarket,
     date: dateStr,
     ons: onsData,
     ccee: cceePld,
     updated_at: new Date().toISOString()
   });
-  try {
-    cache.put(cacheKey, payloadStr, CACHE_TTL_SECONDS);
-  } catch (e) {}
+  putChunkedCache(cache, cacheKey, payloadStr, CACHE_TTL_SECONDS);
   return ContentService.createTextOutput(payloadStr).setMimeType(ContentService.MimeType.JSON);
 }
 
 /**
- * 2. Proxy de RSS/XML com Allowlist Estrita de Domínios HTTPS (Anti-SSRF) e CacheService
+ * Valida URL HTTPS contra allowlist estrita de hosts (anti-SSRF).
  */
-function handleRssProxyRequest(targetUrl, bypassCache) {
-  const cleanUrl = String(targetUrl || '').trim();
-  const hostMatch = cleanUrl.match(/^https:\/\/([a-zA-Z0-9.-]+)(?:\/|$)/);
-  if (!hostMatch || cleanUrl.indexOf('@') !== -1) {
-    return createJsonResponse({ status: 'error', code: 400, message: 'Apenas URLs HTTPS válidas são permitidas.' });
+function parseAllowedHttpsUrl_(rawUrl) {
+  const cleanUrl = String(rawUrl || '').trim();
+  if (!cleanUrl || cleanUrl.indexOf('@') !== -1 || /[\s\r\n]/.test(cleanUrl)) {
+    return { ok: false, code: 400, message: 'Apenas URLs HTTPS válidas são permitidas.' };
+  }
+  const hostMatch = cleanUrl.match(/^https:\/\/([a-zA-Z0-9.-]+)(?::443)?(\/|\?|$)/);
+  if (!hostMatch) {
+    return { ok: false, code: 400, message: 'Apenas URLs HTTPS válidas são permitidas.' };
   }
   const hostname = hostMatch[1].toLowerCase();
   if (!ALLOWED_PROXY_HOSTS[hostname]) {
-    return createJsonResponse({ status: 'error', code: 403, message: 'Domínio não autorizado na allowlist do proxy.' });
+    return { ok: false, code: 403, message: 'Domínio não autorizado na allowlist do proxy.' };
+  }
+  return { ok: true, url: cleanUrl, hostname: hostname };
+}
+
+function resolveHttpsRedirectUrl_(currentUrl, locationHeader) {
+  const loc = String(locationHeader || '').trim();
+  if (!loc) return '';
+  if (/^https:\/\//i.test(loc)) {
+    return loc;
+  }
+  if (loc.charAt(0) === '/') {
+    const originMatch = String(currentUrl || '').match(/^(https:\/\/[a-zA-Z0-9.-]+(?::443)?)/);
+    return originMatch ? (originMatch[1] + loc) : '';
+  }
+  return '';
+}
+
+/**
+ * 2. Proxy de RSS/XML com Allowlist Estrita de Domínios HTTPS (Anti-SSRF),
+ *    suporte seguro a até 2 redirecionamentos verificados e CacheService particionado.
+ */
+function handleRssProxyRequest(targetUrl, bypassCache) {
+  const initialCheck = parseAllowedHttpsUrl_(targetUrl);
+  if (!initialCheck.ok) {
+    return createJsonResponse({ status: 'error', code: initialCheck.code, message: initialCheck.message });
   }
 
+  const cleanUrl = initialCheck.url;
   const cache = CacheService.getScriptCache();
-  const cacheKey = 'vk_rss_' + Utilities.base64EncodeWebSafe(cleanUrl).slice(0, 180);
-  const cachedXml = cache.get(cacheKey);
+  const cacheKey = 'vk_rss_' + sha256Hex_(cleanUrl).slice(0, 40);
 
-  if (cachedXml && !bypassCache) {
-    return createJsonResponse({
-      status: 'ok',
-      cached: true,
-      url: cleanUrl,
-      contents: cachedXml
-    });
+  if (!bypassCache) {
+    const cachedXml = getChunkedCache(cache, cacheKey);
+    if (cachedXml) {
+      return createJsonResponse({
+        status: 'ok',
+        cached: true,
+        url: cleanUrl,
+        contents: cachedXml
+      });
+    }
   }
 
-  const response = UrlFetchApp.fetch(cleanUrl, {
-    method: 'get',
-    muteHttpExceptions: true,
-    followRedirects: false,
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; ValknutSpecialSituationsBot/4.6)',
-      'Accept': 'application/rss+xml, application/xml, text/xml, application/atom+xml, */*'
-    }
-  });
+  var currentUrl = cleanUrl;
+  var response = null;
+  var code = 0;
 
-  const code = response.getResponseCode();
-  const xmlText = response.getContentText('UTF-8');
+  for (var hop = 0; hop <= 2; hop++) {
+    response = UrlFetchApp.fetch(currentUrl, {
+      method: 'get',
+      muteHttpExceptions: true,
+      followRedirects: false,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; ValknutSpecialSituationsBot/4.7)',
+        'Accept': 'application/rss+xml, application/xml, text/xml, application/atom+xml, */*'
+      }
+    });
+
+    code = response.getResponseCode();
+    if ((code === 301 || code === 302 || code === 303 || code === 307 || code === 308) && hop < 2) {
+      const respHeaders = response.getHeaders() || {};
+      const locationHdr = respHeaders['Location'] || respHeaders['location'] || '';
+      const redirectedUrl = resolveHttpsRedirectUrl_(currentUrl, locationHdr);
+      const redirectCheck = parseAllowedHttpsUrl_(redirectedUrl);
+      if (!redirectCheck.ok) {
+        return createJsonResponse({
+          status: 'error',
+          code: redirectCheck.code,
+          http_code: code,
+          url: cleanUrl,
+          message: 'Redirecionamento bloqueado fora da allowlist HTTPS.'
+        });
+      }
+      currentUrl = redirectCheck.url;
+      continue;
+    }
+    break;
+  }
+
+  const xmlText = response ? response.getContentText('UTF-8') : '';
 
   if (code >= 200 && code < 300 && xmlText && xmlText.length > 50) {
-    try {
-      if (xmlText.length < 95000) {
-        cache.put(cacheKey, xmlText, CACHE_TTL_SECONDS);
-      }
-    } catch (cacheErr) {}
+    putChunkedCache(cache, cacheKey, xmlText, CACHE_TTL_SECONDS);
     return createJsonResponse({
       status: 'ok',
       cached: false,
       http_code: code,
-      url: cleanUrl,
+      url: currentUrl,
       contents: xmlText
     });
   }
@@ -389,13 +579,23 @@ function handleRssProxyRequest(targetUrl, bypassCache) {
 }
 
 /**
- * 3. Proxy para API Pública do DJEN / Comunica PJe do CNJ
+ * 3. Proxy Blindado para API Pública do DJEN / Comunica PJe do CNJ (com Cache de 5 min e Fallback JSON)
  */
-function handleDjenProxyRequest(params) {
+function handleDjenProxyRequest(params, bypassCache) {
   const dataHoje = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd');
-  const dataInicio = String(params.dataInicio || dataHoje).replace(/[^0-9-]/g, '').slice(0, 10) || dataHoje;
-  const siglaTribunal = String(params.siglaTribunal || 'TJSP').replace(/[^A-Za-z0-9]/g, '').slice(0, 10) || 'TJSP';
-  const termo = String(params.termo || 'recuperação judicial').slice(0, 80);
+  const dataInicio = String((params && params.dataInicio) || dataHoje).replace(/[^0-9-]/g, '').slice(0, 10) || dataHoje;
+  const siglaTribunal = String((params && params.siglaTribunal) || 'TJSP').replace(/[^A-Za-z0-9]/g, '').slice(0, 10) || 'TJSP';
+  const termo = String((params && params.termo) || 'recuperação judicial').slice(0, 80);
+
+  const cache = CacheService.getScriptCache();
+  const djenCacheKey = 'vk_djen_' + sha256Hex_(siglaTribunal + '|' + dataInicio + '|' + termo).slice(0, 40);
+
+  if (!bypassCache) {
+    const cachedJson = getChunkedCache(cache, djenCacheKey);
+    if (cachedJson) {
+      return ContentService.createTextOutput(cachedJson).setMimeType(ContentService.MimeType.JSON);
+    }
+  }
 
   const endpoint = 'https://comunicaapi.pje.jus.br/api/v1/comunicacao'
     + '?siglaTribunal=' + encodeURIComponent(siglaTribunal)
@@ -404,15 +604,36 @@ function handleDjenProxyRequest(params) {
     + '&texto=' + encodeURIComponent(termo)
     + '&itensPorPagina=50&pagina=1';
 
-  const response = UrlFetchApp.fetch(endpoint, {
-    method: 'get',
-    muteHttpExceptions: true,
-    headers: { 'Accept': 'application/json' }
-  });
+  try {
+    const response = UrlFetchApp.fetch(endpoint, {
+      method: 'get',
+      muteHttpExceptions: true,
+      headers: { 'Accept': 'application/json' }
+    });
 
-  return ContentService
-    .createTextOutput(response.getContentText('UTF-8'))
-    .setMimeType(ContentService.MimeType.JSON);
+    const code = response.getResponseCode();
+    const rawBody = response.getContentText('UTF-8');
+
+    if (code >= 200 && code < 300 && rawBody) {
+      const parsed = JSON.parse(rawBody);
+      if (parsed !== null && typeof parsed === 'object') {
+        putChunkedCache(cache, djenCacheKey, rawBody, CACHE_TTL_SECONDS);
+        return ContentService.createTextOutput(rawBody).setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+
+    return createJsonResponse({
+      status: 'error',
+      http_code: code || 502,
+      items: []
+    });
+  } catch (err) {
+    return createJsonResponse({
+      status: 'error',
+      http_code: 502,
+      items: []
+    });
+  }
 }
 
 /**
@@ -470,13 +691,14 @@ function sincronizarRadarAutomatico() {
       const c6 = String(existingValues[i][6] || '').trim();
       const isAlt = /^\d+$/.test(c0) && /^https?:\/\//i.test(c6);
       const rawT = isAlt ? String(existingValues[i][2] || '') : c6;
-      const t = rawT.toLowerCase().trim().slice(0, 58);
+      const t = rawT.replace(/^'+/, '').toLowerCase().trim().slice(0, 58);
       if (t) seenKeys[t] = true;
     }
 
     let aquecidos = 0;
     let gravadas = 0;
     const novasLinhas = [];
+    const cache = CacheService.getScriptCache();
 
     feedsConfig.forEach(function(fc) {
       try {
@@ -484,9 +706,8 @@ function sincronizarRadarAutomatico() {
         if (resp.getResponseCode() >= 200 && resp.getResponseCode() < 300) {
           aquecidos++;
           const xmlText = resp.getContentText('UTF-8');
-          const cache = CacheService.getScriptCache();
-          const cacheKey = 'vk_rss_' + Utilities.base64EncodeWebSafe(fc.url).slice(0, 180);
-          if (xmlText.length < 95000) cache.put(cacheKey, xmlText, CACHE_TTL_SECONDS);
+          const rssCacheKey = 'vk_rss_' + sha256Hex_(fc.url).slice(0, 40);
+          putChunkedCache(cache, rssCacheKey, xmlText, CACHE_TTL_SECONDS);
 
           const itemMatches = xmlText.match(/<item>[\s\S]*?<\/item>/gi) || [];
           itemMatches.slice(0, 8).forEach(function(itemXml) {
@@ -512,18 +733,19 @@ function sincronizarRadarAutomatico() {
 
             const dtFmt = Utilities.formatDate(pubDate, 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm');
             const linkUrl = linkMatch ? linkMatch[1].trim() : '';
+            const resumo = 'Capturado automaticamente pelo Motor Valknut 24/7 (' + sourceName + ').';
 
             seenKeys[normKey] = true;
             novasLinhas.push([
-              dtFmt,
-              sourceName,
-              fc.tag,
-              fc.catAba,
-              fc.escopo,
-              'Mercado & Macro (RJ / Crédito)',
-              rawTitle,
-              'Capturado automaticamente pelo Motor Valknut 24/7 (' + sourceName + ').',
-              linkUrl
+              sanitizeSheetCell_(dtFmt),
+              sanitizeSheetCell_(sourceName),
+              sanitizeSheetCell_(fc.tag),
+              sanitizeSheetCell_(fc.catAba),
+              sanitizeSheetCell_(fc.escopo),
+              sanitizeSheetCell_('Mercado & Macro (RJ / Crédito)'),
+              sanitizeSheetCell_(rawTitle),
+              sanitizeSheetCell_(resumo),
+              sanitizeSheetCell_(linkUrl)
             ]);
           });
         }
@@ -533,11 +755,18 @@ function sincronizarRadarAutomatico() {
     if (novasLinhas.length > 0) {
       noticiasSheet.getRange(noticiasSheet.getLastRow() + 1, 1, novasLinhas.length, 9).setValues(novasLinhas);
       gravadas = novasLinhas.length;
-      clearChunkedCache(CacheService.getScriptCache(), 'vk_master_sheet_v46');
+      if (noticiasSheet.getLastRow() > MAX_NOTICIAS_ROWS) {
+        noticiasSheet.deleteRows(2, noticiasSheet.getLastRow() - MAX_NOTICIAS_ROWS);
+      }
+      clearChunkedCache(cache, MASTER_CACHE_KEY);
+    } else if (noticiasSheet.getLastRow() > MAX_NOTICIAS_ROWS) {
+      noticiasSheet.deleteRows(2, noticiasSheet.getLastRow() - MAX_NOTICIAS_ROWS);
+      clearChunkedCache(cache, MASTER_CACHE_KEY);
     }
 
     return {
       timestamp: new Date().toISOString(),
+      version: APP_RELEASE_VERSION,
       feedsAquecidos: aquecidos,
       novasNoticiasGravadasNaPlanilha: gravadas
     };

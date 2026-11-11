@@ -7,6 +7,12 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sync-live-news
+  cancel-in-progress: false
 
 jobs:
   sync-news:
@@ -29,8 +35,10 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add live-news.json
-            git commit -m "chore(news): auto-sync live-news.json [skip ci]"
+            git commit -m "chore(news): auto-sync live-news.json"
+            git pull --rebase origin main
             git push
+            curl -sS -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pages/builds" || true
           else
             echo "No news changes detected."
           fi
