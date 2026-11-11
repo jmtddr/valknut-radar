@@ -1980,76 +1980,9 @@ body {
   color: var(--text-secondary);
 }
 
-/* Calendar Monthly Grid */
-.calendar-month-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.cal-weekday-header {
-  background: var(--vk-header-start);
-  color: #E6E9DC;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 7px 4px;
-  border-radius: var(--radius-xs);
-}
-
-.cal-day-cell {
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  min-height: 98px;
-  padding: 6px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.cal-day-cell.has-events {
-  border-color: var(--vk-teal);
-  background: #FAFDFD;
-}
-
-.cal-day-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--text-muted);
-}
-
-.cal-event-chip {
-  background: var(--vk-tint-cool);
-  border-left: 3px solid var(--vk-header-start);
-  border-radius: 3px;
-  padding: 3px 5px;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--vk-header-start);
-  cursor: pointer;
-  line-height: 1.25;
-  transition: all 0.12s ease;
-}
-
-.cal-event-chip:hover {
-  background: var(--vk-header-start);
-  color: #E6E9DC;
-}
-
-.cal-event-chip.urgent {
-  background: #FFE4E6;
-  border-left-color: #9F1239;
-  color: #9F1239;
-}
-
 @media (max-width: 1024px) {
   .v4-grid-2, .v4-grid-3, .v4-grid-4 { grid-template-columns: 1fr; }
-  .calendar-month-grid { grid-template-columns: repeat(2, 1fr); }
+  .cal-month-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Phase 3: Clickable News Links & CCEE/ANEEL/ONS Telemetry Links */
@@ -2370,3 +2303,163 @@ select:focus-visible,
   }
 }
 
+/* ==========================================================================
+   Release v4.6: Radar Preditivo (Tier 0) Cards, Pagination & Tribunal Links
+   ========================================================================== */
+.tier0-section-wrap {
+  background: linear-gradient(180deg, #FFFDF5 0%, #FFFFFF 100%);
+  border: 1px solid #FCD34D;
+  border-left: 4px solid #D97706;
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+
+.tier0-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #FDE68A;
+}
+
+.tier0-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.tier0-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-top: 3px solid #D97706;
+  border-radius: var(--radius-md);
+  padding: 15px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 1px 4px rgba(6, 54, 48, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tier0-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(6, 54, 48, 0.09);
+  border-color: #F59E0B;
+}
+
+.tier0-vectors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 4px 0;
+}
+
+.tier0-vector-pill {
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  color: #92400E;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1.35;
+}
+
+.pagination-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.pagination-info {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  color: var(--vk-header-start);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: var(--vk-teal);
+  background: var(--vk-tint-cool);
+}
+
+.page-btn.active {
+  background: var(--vk-header-start);
+  border-color: var(--vk-header-start);
+  color: #E6E9DC;
+}
+
+.page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-tribunal-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #F0FDF4;
+  border-color: #065F46;
+  color: #065F46;
+}
+
+.btn-tribunal-link:hover {
+  background: #063630;
+  border-color: #063630;
+  color: #E6E9DC;
+}
+
+.btn-header-tribunal {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(165, 172, 130, 0.24);
+  border: 1px solid var(--vk-sage);
+  color: #E6E9DC;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.btn-header-tribunal:hover {
+  background: var(--vk-sage);
+  color: var(--vk-darkest);
+}

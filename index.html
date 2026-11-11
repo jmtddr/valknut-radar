@@ -19,7 +19,7 @@
   <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js" integrity="sha384-gx12pQMMYnabkTgbCHqqrT65RwDnXI/f/dU2H9JUmT0KUeiMF5bf+yroQBmX0Nuk" crossorigin="anonymous"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js" integrity="sha384-Cck14aA9cifjYolcnjebXRfWGkz5ltHMBiG4px/j8GS+xQcb7OhNQWZYyWjQ+UwQ" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css?v=20261109v45">
+  <link rel="stylesheet" href="styles.css?v=20261111v46">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
 
     <div class="main-nav-links" role="tablist" aria-label="Módulos da Plataforma">
       <button class="nav-link-btn active" role="tab" aria-selected="true" aria-controls="mainWorkspace" id="nav-operacao" onclick="switchMainSection('operacao')">
-        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">146</span>
+        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">--</span>
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-precificacao" onclick="switchMainSection('precificacao')">
         Precificação &amp; Modelagem <span class="nav-count-pill" style="background:rgba(165,172,130,0.3); color:#E6E9DC;">% / PPTX</span>
@@ -56,7 +56,7 @@
         Dashboards &amp; Mercado
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-upis" onclick="switchMainSection('upis')">
-        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">101</span>
+        UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">--</span>
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-bancometro" onclick="switchMainSection('bancometro')">
         Bancômetro
@@ -65,23 +65,23 @@
         Ecossistema &amp; Players
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-prazos" onclick="switchMainSection('prazos')">
-        Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">146</span>
+        Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">--</span>
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-mapa" onclick="switchMainSection('mapa')">
         Mapa Geográfico
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-noticias" onclick="switchMainSection('noticias')">
-        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">125</span>
+        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">--</span>
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-energia" onclick="switchMainSection('energia')">
-        Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">18</span>
+        Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">--</span>
       </button>
     </div>
 
     <div class="top-nav-actions">
       <button class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar em tempo real com a base mestre">
         <span class="pulse-dot"></span>
-        <span id="lastUpdateTime">Online: 146 leads</span>
+        <span id="lastUpdateTime">Carregando base...</span>
       </button>
       <button class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV padrão Excel PT-BR">
         ⬇ Exportar CSV
@@ -189,6 +189,7 @@
             </select>
             <select class="clean-select" id="selectPorte" onchange="handlePorteChange(this.value)" aria-label="Filtrar por Faixa de Passivo">
               <option value="">Todos os Portes</option>
+              <option value="small">Sub-30M (&lt; R$ 30M)</option>
               <option value="mid">Mid-Market (R$ 30M – 100M)</option>
               <option value="upper">Upper-Mid (R$ 100M – 500M)</option>
               <option value="large">Large Cap (R$ 500M – 1 Bi)</option>
@@ -248,7 +249,7 @@
             <span class="ticker-pill" id="modalTicker" style="display:none;">TICKER</span>
           </div>
           <div class="tearsheet-meta-grid" id="modalSubheaderGrid">
-            <!-- Populated dynamically with CNPJ, Setor, Cidade/UF, Tribunal/Vara e Autos + Copy button -->
+            <!-- Populated dynamically with CNPJ, Setor, Cidade/UF, Tribunal/Vara e Autos + Copy + Tribunal/CVM link -->
           </div>
         </div>
         <button class="modal-close-x" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
@@ -265,6 +266,7 @@
 
       <div class="modal-bottom">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a id="modalFooterTribunalBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-action btn-tribunal-link" style="display:none;">⚖️ Consultar Autos / CVM ↗</a>
           <button class="btn-action" onclick="printDossier()">🖨️ Imprimir Tear Sheet / PDF</button>
           <button class="btn-action" onclick="copyDossierSummary()">📋 Copiar Dossiê Completo</button>
         </div>
@@ -276,6 +278,6 @@
   <!-- Toast Notification -->
   <div class="toast-banner" id="toastBanner"></div>
 
-  <script src="app.js?v=20261105v44"></script>
+  <script src="app.js?v=20261111v46"></script>
 </body>
 </html>

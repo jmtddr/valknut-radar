@@ -1,6 +1,6 @@
 [
   {
-    "id": 916,
+    "id": 901,
     "data_hora": "07/11/2026 03:00",
     "titulo": "Justiça de SP defere recuperação judicial do Grupo IBS Energy com passivo de R$ 57,3 milhões e projeto termelétrico de R$ 650M",
     "fonte": "Empresa em Crise",
@@ -13,7 +13,7 @@
     "empresa_nome": "Grupo IBS Energy (International Business Solutions Ltda., IBS Comercializadora de Energia & Gama Comercializadora)"
   },
   {
-    "id": 915,
+    "id": 902,
     "data_hora": "06/11/2026 21:00",
     "titulo": "Justiça do Paraná defere recuperação judicial do Grupo Ômega (Tempermed) com passivo de R$ 88,2 milhões",
     "fonte": "Empresa em Crise",
@@ -26,7 +26,7 @@
     "empresa_nome": "Grupo Ômega (Tempermed Indústria e Comércio de Vidros, Ômega Alumínio, Tempertrans Transportes & Roque Colombo)"
   },
   {
-    "id": 914,
+    "id": 903,
     "data_hora": "06/11/2026 15:00",
     "titulo": "Justiça de Goiás defere recuperação judicial do Grupo Ferrari com passivo de R$ 184,4 milhões e 5.100 hectares",
     "fonte": "Empresa em Crise",
@@ -39,7 +39,7 @@
     "empresa_nome": "Grupo Ferrari (Agropecuária Ferrari Ltda., Ferrari Armazéns Gerais Ltda. & Condomínio Familiar Ferrari / Mantelli)"
   },
   {
-    "id": 913,
+    "id": 904,
     "data_hora": "06/11/2026 09:00",
     "titulo": "Justiça de Campinas/SP defere recuperação judicial da Roma Brinquedos com passivo de R$ 87,6 milhões sob consolidação substancial",
     "fonte": "Empresa em Crise",
@@ -52,7 +52,7 @@
     "empresa_nome": "Grupo Roma Brinquedos (Roma Jensen Comércio e Indústria Ltda. & OMG Kids Distribuidora de Brinquedos Ltda.)"
   },
   {
-    "id": 912,
+    "id": 905,
     "data_hora": "06/11/2026 03:00",
     "titulo": "Justiça do RN defere recuperação judicial do Grupo JMT com passivo de R$ 149,3 milhões e 15 mil empregos diretos",
     "fonte": "Empresa em Crise",
@@ -61,11 +61,11 @@
     "escopo": "pipeline",
     "resumo": "21ª Vara Cível de Natal (Proc. 0882266-06.2026.8.20.5001) deferiu processamento da RJ da JMT Service e empresas coligadas de terceirização e facilities, concedendo stay period de 180 dias, dispensando CNDs perante SICAF/CADIN e nomeando Vivante Gestão Judicial como AJ.",
     "url": "https://www.empresaemcrise.com/post/natal-rn-grupo-empresarial-jmt-tem-pedido-de-recupera%C3%A7%C3%A3o-judicial-deferido-com-d%C3%ADvida-de-r-149-3-m",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // Empresa em Crise"
+    "deal_id": 133,
+    "empresa_nome": "Grupo JMT (JMT Serviços de Locação de Mão de Obra Ltda., Clarear Comércio e Serviços, Alpha Serviços & Neutron Segurança)"
   },
   {
-    "id": 911,
+    "id": 906,
     "data_hora": "05/11/2026 21:00",
     "titulo": "Justiça do Pará defere recuperação judicial do Grupo CBAA com passivo de R$ 292,9 milhões sob consolidação substancial",
     "fonte": "Empresa em Crise",
@@ -78,7 +78,7 @@
     "empresa_nome": "Grupo CBAA (CBAA – Asfaltos Ltda. & GGFT Transportes e Armazéns Ltda.)"
   },
   {
-    "id": 910,
+    "id": 907,
     "data_hora": "05/11/2026 15:00",
     "titulo": "Justiça de Goiás defere recuperação judicial do Grupo Modesto com dívida de R$ 56,9 milhões sob consolidação substancial",
     "fonte": "Empresa em Crise",
@@ -91,20 +91,20 @@
     "empresa_nome": "Grupo Modesto (Leonardo Modesto Borges, Carla Mariana Soares Modesto, LM Agropecuária & CM Agropecuária)"
   },
   {
-    "id": 926,
+    "id": 908,
     "data_hora": "05/11/2026 11:30",
     "titulo": "Grupo Maroq tem Recuperação Judicial deferida sob consolidação substancial no TJMT para reestruturar R$ 82,9 milhões em Primavera do Leste e Paranatinga",
     "fonte": "Jota / Tribunais",
-    "setor": "Agronegócio & Insumos",
+    "setor": "Agronegócio & Silvicultura",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "4ª Vara Cível de Rondonópolis deferiu o processamento da RJ das 4 empresas do grupo agrícola (R$ 76,2M concursais, sendo R$ 57M na Classe III quirografária com BB, Caixa, Albauch Agro e FIDC Indigo Barter, além de R$ 6,66M extraconcursais) e nomeou Dr. Samir Hammoud como AJ.",
     "url": "https://paranatinganews.com.br/noticia/5438/grupo-maroq-de-paranatinga-deve-r-68-9-milhoes-a-credores",
-    "deal_id": 133,
+    "deal_id": 130,
     "empresa_nome": "Grupo Maroq (Primavera do Leste e Paranatinga/MT)"
   },
   {
-    "id": 928,
+    "id": 909,
     "data_hora": "05/11/2026 09:30",
     "titulo": "Oncoclínicas (ONCO3) amplia adesão de credores para 74,6% dos créditos (R$ 4,3 bilhões em debêntures e certificados) no plano de recuperação extrajudicial",
     "fonte": "CVM / Fatos Relevantes",
@@ -117,7 +117,7 @@
     "empresa_nome": "Oncoclínicas do Brasil (ONCO3)"
   },
   {
-    "id": 909,
+    "id": 910,
     "data_hora": "05/11/2026 09:00",
     "titulo": "Justiça de Rondonópolis/MT defere recuperação judicial do Grupo Maroq com passivo de R$ 76,2 milhões sob consolidação substancial",
     "fonte": "Empresa em Crise",
@@ -130,7 +130,7 @@
     "empresa_nome": "Grupo Maroq (Maroq Agro Ltda., Maroq Agro Paranatinga Ltda., Maroq Participações e Investimento Ltda. & Maroq Produção Agrícola Ltda.)"
   },
   {
-    "id": 929,
+    "id": 911,
     "data_hora": "05/11/2026 08:15",
     "titulo": "Temor de oneração tributária sobre debêntures cresce em meio à alta demanda por crédito corporativo e encarece negociações de waivers e AGDs",
     "fonte": "Agentes Fiduciários",
@@ -143,7 +143,7 @@
     "empresa_nome": "Mercado DCM // Debêntures Incentivadas & Crédito Privado"
   },
   {
-    "id": 930,
+    "id": 912,
     "data_hora": "05/11/2026 07:50",
     "titulo": "Grupo Kitchens entra em recuperação judicial com passivo de R$ 299,85 milhões; exposição bancária soma R$ 63,25 milhões entre Itaú, Santander e Bradesco",
     "fonte": "Jota / Tribunais",
@@ -156,7 +156,7 @@
     "empresa_nome": "Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas)"
   },
   {
-    "id": 927,
+    "id": 913,
     "data_hora": "04/11/2026 20:15",
     "titulo": "Aeris Energy (AERI3) protocola pedido de Recuperação Extrajudicial de R$ 1,52 bilhão após conversão de tutela cautelar no Ceará",
     "fonte": "CVM / Fatos Relevantes",
@@ -169,7 +169,7 @@
     "empresa_nome": "Aeris Energy (AERI3)"
   },
   {
-    "id": 901,
+    "id": 914,
     "data_hora": "04/11/2026 15:30",
     "titulo": "Grupo Manetoni tem processamento de RJ de R$ 740 milhões deferido pela Vara Regional Empresarial de SP",
     "fonte": "Jota / Tribunais",
@@ -182,7 +182,7 @@
     "empresa_nome": "Grupo Manetoni (Manetoni Distribuidora de Produtos Siderúrgicos, Ideal Soluções em Transportes, Santa Clara Incorporação & Metalúrgica Sul Fluminense)"
   },
   {
-    "id": 902,
+    "id": 915,
     "data_hora": "04/11/2026 11:15",
     "titulo": "Paranapanema (PMAM3) protocola fato relevante na CVM sobre reestruturação de comando e conversão de debêntures concursais",
     "fonte": "CVM / Fatos Relevantes",
@@ -191,11 +191,11 @@
     "escopo": "cvm",
     "resumo": "Companhia em recuperação judicial reporta renúncia na diretoria financeira e consolidação de novo bloco controlador com mais de 81% do capital votante após aumento de capital decorrente da conversão de créditos concursais da RJ.",
     "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-paranapanema-pmam3-a-renuncia-dupla-que-mexe-no-comando-financeiro",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // CVM / Fatos Relevantes"
+    "deal_id": 8,
+    "empresa_nome": "Paranapanema S.A. (PMAM3)"
   },
   {
-    "id": 903,
+    "id": 916,
     "data_hora": "04/11/2026 06:40",
     "titulo": "Casas Bahia (BHIA3) avança em negociações para tranche de R$ 200M em financiamento DIP com Itaú Unibanco",
     "fonte": "Pipeline",
@@ -204,11 +204,11 @@
     "escopo": "cvm",
     "resumo": "Varejista avança na estruturação de dinheiro novo para abastecimento de estoques para Black Friday/Natal, negociando tranche inicial de R$ 200M com Itaú com potencial de sindicação de até R$ 1,0 Bi junto ao sindicato de credores.",
     "url": "https://aciara.com.br/financiamento-dip-da-casas-bahia-com-itau-avanca/",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // Pipeline"
+    "deal_id": 86,
+    "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto)"
   },
   {
-    "id": 931,
+    "id": 917,
     "data_hora": "03/11/2026 19:10",
     "titulo": "Portobello (PTBL3) deixa de pagar R$ 59,8 milhões após vencimento de waiver da 5ª e 6ª emissões de debêntures e sofre corte de rating pela Fitch",
     "fonte": "CVM / Fatos Relevantes",
@@ -217,11 +217,11 @@
     "escopo": "cvm",
     "resumo": "Após período de perdão temporário (waiver) concedido pelos debenturistas até outubro, grupo cerâmico de Tijucas/SC retém pagamento para renegociar passivo bruto de R$ 1,65 bilhão e preservar caixa operacional.",
     "url": "https://jornalrazao.com/economia/portobello-tijucas-fitch-rebaixa-nota-inadimplencia-debentures",
-    "deal_id": 115,
+    "deal_id": null,
     "empresa_nome": "PBG S.A. / Portobello Grupo (PTBL3)"
   },
   {
-    "id": 904,
+    "id": 918,
     "data_hora": "03/11/2026 14:20",
     "titulo": "Grupo Chatuba obtém deferimento de RJ de R$ 164,1M no TJRJ após frustração de mediação prévia do art. 20-B",
     "fonte": "Jota / Tribunais",
@@ -234,7 +234,7 @@
     "empresa_nome": "Grupo Chatuba (Fornecedora Chatuba de Nilópolis S.A. & CTA Distribuidora Ltda.)"
   },
   {
-    "id": 905,
+    "id": 919,
     "data_hora": "03/11/2026 08:05",
     "titulo": "Grupo Zanatta tem RJ deferida em Sinop/MT com passivo de R$ 116,1M e concentração de 82% no Banco do Brasil",
     "fonte": "AgFeed",
@@ -247,7 +247,7 @@
     "empresa_nome": "Grupo Zanatta (F. Zanatta Armazéns Ltda., Fernando Zanatta, Priscila Zanatta & Egon Mayer)"
   },
   {
-    "id": 906,
+    "id": 920,
     "data_hora": "02/11/2026 13:50",
     "titulo": "Oncoclínicas (ONCO3) obtém suspensão liminar de OPA na Justiça enquanto delibera reestruturação de R$ 2,0 Bi em AGDs",
     "fonte": "Agentes Fiduciários",
@@ -256,11 +256,11 @@
     "escopo": "cvm",
     "resumo": "Juízo suspendeu provisoriamente obrigações perante a CVM, viabilizando continuidade das tratativas com agentes fiduciários (Vórtx, Pentágono e Oliveira Trust) para repactuação de debêntures e CRIs no âmbito do plano de Recuperação Extrajudicial.",
     "url": "https://br.advfn.com/noticias/PAPERBR/2026/artigo/99588266",
-    "deal_id": null,
-    "empresa_nome": "Planilha Mestre // Agentes Fiduciários"
+    "deal_id": 17,
+    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)"
   },
   {
-    "id": 907,
+    "id": 921,
     "data_hora": "02/11/2026 07:15",
     "titulo": "TJRJ homologa plano de RJ da Tahto e autoriza leilão judicial de UPI com preço mínimo de R$ 130 milhões",
     "fonte": "Valor Econômico",
@@ -273,7 +273,7 @@
     "empresa_nome": "Planilha Mestre // Valor Econômico"
   },
   {
-    "id": 908,
+    "id": 922,
     "data_hora": "01/11/2026 12:30",
     "titulo": "Justiça de MT convola recuperação judicial de R$ 54M do Grupo Braki em falência por quebra de transparência contábil",
     "fonte": "Jota / Tribunais",
@@ -286,7 +286,7 @@
     "empresa_nome": "Planilha Mestre // Jota / Tribunais"
   },
   {
-    "id": 932,
+    "id": 923,
     "data_hora": "30/10/2026 11:20",
     "titulo": "Elfa Medicamentos (ELFA12) obtém tutela cautelar antecedente (R$ 1,9 Bi) em SP para negociar standstill e waivers com debenturistas e bancos",
     "fonte": "Brazil Journal",
@@ -299,7 +299,7 @@
     "empresa_nome": "Grupo Elfa (Elfa Medicamentos S.A. & 13 Subsidiárias)"
   },
   {
-    "id": 933,
+    "id": 924,
     "data_hora": "29/10/2026 18:10",
     "titulo": "Grupo Euro17 (Euro Securitizadora) ajuíza recuperação judicial em SP com passivo de R$ 1,72 bilhão e mais de 5 mil credores investidores",
     "fonte": "Valor Econômico",
@@ -312,7 +312,501 @@
     "empresa_nome": "Grupo Euro17 (Euro Securitizadora S.A. / Prime Euro Securitizadora)"
   },
   {
-    "id": 917,
+    "id": 925,
+    "data_hora": "28/10/2026 16:30",
+    "titulo": "De Raízen a Casas Bahia: 15 grandes empresas brasileiras renegociam dívidas, waivers de debêntures e recuperações extrajudiciais em 2026",
+    "fonte": "Brazil Journal",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Levantamento de mercado mapeia onda de repactuações em companhias abertas (Raízen, Braskem, GPA, Oncoclínicas, Casas Bahia e Aeris) com foco em alongamento de debêntures, waivers de covenants e conversão de dívida.",
+    "url": "https://forbes.com.br/forbes-money/2026/10/de-raizen-a-casas-bahia-15-empresas-tentam-reestruturar-dividas-em-2026/",
+    "deal_id": 86,
+    "empresa_nome": "Panorama DCM // Raízen, Braskem, GPA & Companhias Abertas"
+  },
+  {
+    "id": 926,
+    "data_hora": "28/10/2026 14:15",
+    "titulo": "Justiça de SP defere recuperação judicial da varejista Marabraz, concede stay period de 180 dias e nomeia Deloitte como administradora judicial",
+    "fonte": "Jota / Tribunais",
+    "setor": "Varejo & Consumo",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Juíza da Vara Empresarial de São Paulo autorizou consolidação processual do grupo varejista, garantiu manutenção do fornecimento de energia por Enel e CPFL e fixou prazo para entrega de documentos contábeis.",
+    "url": "https://c-level.folha.uol.com.br/negocios/2026/10/justica-aceita-pedido-de-recuperacao-judicial-da-marabraz.shtml",
+    "deal_id": 103,
+    "empresa_nome": "Rede Marabraz (Varejo Moveleiro)"
+  },
+  {
+    "id": 927,
+    "data_hora": "28/10/2026 10:20",
+    "titulo": "Estudo de IOF sobre debêntures incentivadas, CRIs e CRAs entra no radar de gestoras e pressiona prêmios de repactuação e waivers no secundário",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Discussão tributária sobre títulos isentos (renúncia estimada em R$ 33 bilhões/ano) eleva exigência de spread por fundos de crédito privado em assembleias de debenturistas (AGDs) e novas emissões.",
+    "url": "https://www.infomoney.com.br/politica/governo-estuda-aplicar-iof-sobre-lci-lca-cri-cra-e-debentures-diz-jornal/",
+    "deal_id": null,
+    "empresa_nome": "Mercado de Capitais (Debêntures, CRIs e CRAs)"
+  },
+  {
+    "id": 928,
+    "data_hora": "27/10/2026 17:45",
+    "titulo": "4ª Vara Cível de Sinop/MT convola RJ do Grupo Pelissari em falência (R$ 45,3 MM) após rejeição de 72,4% em AGC e bloqueia ativos",
+    "fonte": "Jota / Tribunais",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Falência",
+    "escopo": "pipeline",
+    "resumo": "Sentença falimentar atinge grupo produtor de Sinop após reprovação do plano por BlackPartners Miruna FIDC NP (R$ 18M) e tradings de insumos; Credibilita AJ conduz arrecadação de bens.",
+    "url": "https://www.olharjuridico.com.br/",
+    "deal_id": 100,
+    "empresa_nome": "Grupo Pelissari (Sinop/MT)"
+  },
+  {
+    "id": 929,
+    "data_hora": "26/10/2026 18:10",
+    "titulo": "Braskem (BRKM5) divulga Fato Relevante com projeções financeiras e termos trocados com debenturistas e bondholders na Recuperação Extrajudicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Petroquímica detalha cronograma de alavancagem, covenants e condições de reperfilamento das emissões de debêntures e bonds internacionais no âmbito da repactuação extrajudicial.",
+    "url": "https://economia.uol.com.br/noticias/redacao/2026/10/26/braskem-divulga-informacoes-trocadas-com-credores-na-renegociacao-da-recuperacao-extrajudicial.ghtm",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)"
+  },
+  {
+    "id": 930,
+    "data_hora": "26/10/2026 11:30",
+    "titulo": "Justiça de SP autoriza processamento de Recuperação Extrajudicial da Ri Happy (R$ 827 MM) com prazo de 90 dias para quórum de credores",
+    "fonte": "Pipeline",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Rede varejista controlada pelo Carlyle obteve blindagem judicial para concluir coleta de adesões de bancos (Bradesco, Itaú, Santander) e titulares de dívida estruturada.",
+    "url": "https://c-level.folha.uol.com.br/negocios/2026/10/justica-aceita-pedido-de-recuperacao-extrajudicial-da-ri-happy.shtml",
+    "deal_id": 84,
+    "empresa_nome": "Ri Happy Brinquedos S.A. (Grupo Ri Happy)"
+  },
+  {
+    "id": 931,
+    "data_hora": "23/10/2026 15:40",
+    "titulo": "Grupo Euro17 e Euro Securitizadora ajuízam Recuperação Judicial com dívida de R$ 1,72 bilhão perante 5.034 credores e debenturistas",
+    "fonte": "Pipeline",
+    "setor": "Serviços Financeiros & Securitização",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Após atrasos na remuneração de séries de debêntures e tentativa negada de cautelar em sigilo na 2ª Vara de Falências de SP, grupo financeiro busca stay period de 180 dias e consolidação substancial.",
+    "url": "https://neofeed.com.br/negocios/exclusivo-com-divida-de-r-172-bilhao-grupo-euro17-pede-recuperacao-judicial/",
+    "deal_id": 97,
+    "empresa_nome": "Grupo Euro17 (Euro Securitizadora)"
+  },
+  {
+    "id": 932,
+    "data_hora": "22/10/2026 16:20",
+    "titulo": "Grupo VETBR protocola Recuperação Extrajudicial de R$ 160 milhões com adesão inicial de 54,26% na classe de garantia real",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Saúde & Farma",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Distribuidora de medicamentos veterinários assessorada pelo Cescon Barrieu repactua passivo garantido por estoques e recebíveis junto a Itaú, Bradesco, Santander e laboratórios globais.",
+    "url": "https://www.valor.globo.com/",
+    "deal_id": 93,
+    "empresa_nome": "Grupo VETBR (Saúde Animal)"
+  },
+  {
+    "id": 933,
+    "data_hora": "22/10/2026 14:50",
+    "titulo": "FTS Participações (Terminal Portuário PAR50 - Paranaguá) negocia waiver e reperfilamento de R$ 110 MM em debêntures e CCBs",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Operador logístico portuário no corredor de exportação do Paraná busca adequação de curvas de amortização e covenants financeiros de capex de infraestrutura.",
+    "url": "https://www.valor.globo.com/",
+    "deal_id": 96,
+    "empresa_nome": "FTS Participações Societárias S.A. (FTSPar)"
+  },
+  {
+    "id": 934,
+    "data_hora": "21/10/2026 19:05",
+    "titulo": "Fitch rebaixa rating nacional da PBG S.A. (Portobello) para RD(bra) após não pagamento de R$ 59,8 MM da 5ª e 6ª emissões de debêntures",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Companhia líder em revestimentos cerâmicos reporta dívida total de R$ 1,655 bilhão (R$ 530 milhões em debêntures e R$ 325 milhões em PPE) e conduz reperfilamento para preservar liquidez de curto prazo.",
+    "url": "https://www.fitchratings.com/research/pt/corporate-finance/fitch-downgrades-pbgs-national-scale-ratings-to-rd-bra-21-10-2026",
+    "deal_id": null,
+    "empresa_nome": "PBG S.A. / Portobello Grupo (PTBL3)"
+  },
+  {
+    "id": 935,
+    "data_hora": "21/10/2026 16:15",
+    "titulo": "Grupo Casas Bahia (BHIA3) avança na execução de reperfilamento de R$ 17,3 Bi e conversão de debêntures em participação acionária",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Acompanhamento de covenants operacionais, cronograma de conversão de tranches de debêntures detidas por Bradesco e Banco do Brasil e gestão de caixa nas operações de varejo.",
+    "url": "https://forbes.com.br/forbes-money/2026/10/de-raizen-a-casas-bahia-15-empresas-tentam-reestruturar-dividas-em-2026/",
+    "deal_id": 86,
+    "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3)"
+  },
+  {
+    "id": 936,
+    "data_hora": "21/10/2026 14:30",
+    "titulo": "Justiça homologa Recuperação Extrajudicial de R$ 4,57 Bi do GPA (PCAR3); B3 bloqueia debêntures CBRDA8/CBRDB8 e CRIs e abre prazo de 60 dias",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Sentença homologatória dá início ao prazo de 60 dias para opção de pagamento e substituição das debêntures CBRDA8/CBRDB8 e CRIs 23B0004401/23B0004402 pelas Novas Debêntures Emissão A e B.",
+    "url": "https://exame.com/invest/mercados/recuperacao-extrajudicial-do-gpa-b3-bloqueia-titulos-e-abre-prazo-de-60-dias/",
+    "deal_id": 16,
+    "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)"
+  },
+  {
+    "id": 937,
+    "data_hora": "20/10/2026 11:15",
+    "titulo": "Aeris Energy (AERI3) conduz AGDs das debêntures AERI11 e AERI12 (R$ 650 MM) junto a Vórtx e Pentágono sob Cautelar Art. 20-B",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fabricante de pás eólicas no Porto do Pecém/CE negocia standstill e waiver de covenants financeiros com debenturistas e sindicato bancário (Bradesco, Santander, Itaú) para conversão em PRE/RJ.",
+    "url": "https://neofeed.com.br/negocios/aeris-aciona-tutela-cautelar-para-renegociar-divida-com-credores/",
+    "deal_id": 1,
+    "empresa_nome": "Aeris Energy (AERI3)"
+  },
+  {
+    "id": 938,
+    "data_hora": "19/10/2026 16:45",
+    "titulo": "Chilli Beans (Mustang 25) negocia waiver e standstill de R$ 89 MM em debêntures com a Vert Securitizadora para evitar cross-default em R$ 600 MM",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Holding controladora obteve tutela cautelar antecedente após notificação de vencimento antecipado por obrigações não-financeiras na 1ª emissão de debêntures securitizada pela Vert.",
+    "url": "https://exame.com/insight/chilli-beans-ganha-prazo-para-renegociar-divida-de-r-89-milhoes/p",
+    "deal_id": 10,
+    "empresa_nome": "Chilli Beans (Mustang 25 Participações)"
+  },
+  {
+    "id": 939,
+    "data_hora": "19/10/2026 09:15",
+    "titulo": "Pedidos de recuperação judicial no Brasil atingem recorde histórico na série da Serasa Experian puxados por juros e agronegócio",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Levantamento aponta avanço nas requisições de proteção judicial por produtores rurais, varejistas e indústrias de médio porte diante do custo do crédito corporativo.",
+    "url": "https://news.google.com/search?q=pedidos+recuperacao+judicial+recorde+Serasa+Valor+Economico&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "deal_id": null,
+    "empresa_nome": "Panorama Macro / Crédito Corporativo"
+  },
+  {
+    "id": 940,
+    "data_hora": "18/10/2026 16:40",
+    "titulo": "Debenturistas endurecem negociações de waivers e exigem reforço de garantias reais em assembleias na CVM",
+    "fonte": "Brazil Journal",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Gestoras de crédito privado e agentes fiduciários (Vórtx, Pentágono e Oliveira Trust) registram alta no volume de AGDs para repactuação de covenants de alavancagem e ICSD.",
+    "url": "https://news.google.com/search?q=debenturistas+waivers+assembleias+covenants+credito+privado&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "deal_id": null,
+    "empresa_nome": "Mercado de Capitais (DCM / CVM)"
+  },
+  {
+    "id": 941,
+    "data_hora": "17/10/2026 14:20",
+    "titulo": "Fundos de Special Situations ampliam captação para compra de UPIs, precatórios e créditos bancários estressados (NPLs)",
+    "fonte": "Pipeline",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Casas especializadas em ativos ilíquidos aceleram estruturação de linhas DIP Financing e aquisições de ativos industriais e logísticos livres de sucessão (art. 60 e 141).",
+    "url": "https://news.google.com/search?q=fundos+special+situations+distressed+debt+UPI+recuperacao+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "deal_id": null,
+    "empresa_nome": "Indústria de Special Situations & NPL"
+  },
+  {
+    "id": 942,
+    "data_hora": "16/10/2026 18:05",
+    "titulo": "STJ pacifica limites da trava bancária e essencialidade de bens de capital em recuperações judiciais do agronegócio e logística",
+    "fonte": "Jota / Tribunais",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Cautelar 20-B",
+    "escopo": "mercado",
+    "resumo": "Julgamentos recentes da Segunda Seção delimitam competência do juízo concursal sobre alienação fiduciária de frotas, grãos e imóveis operacionais.",
+    "url": "https://news.google.com/search?q=STJ+trava+bancaria+essencialidade+bens+recuperacao+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "deal_id": null,
+    "empresa_nome": "Jurisprudência STJ / Lei 11.101/05"
+  },
+  {
+    "id": 943,
+    "data_hora": "16/10/2026 09:40",
+    "titulo": "Latache Capital pede conversão da Recuperação Extrajudicial da Oncoclínicas em RJ após ultimato judicial de 15 dias",
+    "fonte": "Pipeline",
+    "setor": "Saúde & Farma",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Acionista detentora de 14,6% do capital da Oncoclínicas (ONCO3) protocolou manifestação contra o plano de RE que prevê deságio de 45%, enquanto a 3ª Vara de Falências de SP exige comprovação de quórum mínimo sobre R$ 5,1 bilhões.",
+    "url": "https://www.moneytimes.com.br/oncoclinicas-onco3-amplia-apoio-ao-plano-de-recuperacao-extrajudicial-e-alcanca-adesao-de-746-dos-creditos-lmrs/",
+    "deal_id": 17,
+    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)"
+  },
+  {
+    "id": 944,
+    "data_hora": "16/10/2026 08:55",
+    "titulo": "2ª Vara Regional Empresarial de SP decreta falência da fintech AJX Capital com passivo de R$ 350 milhões em CCBs",
+    "fonte": "Valor Econômico",
+    "setor": "Serviços Financeiros & Securitização",
+    "categoria": "Falência",
+    "escopo": "pipeline",
+    "resumo": "Sentença de quebra (art. 94, I da Lei 11.101/05) determina bloqueio imediato de contas, imóveis e veículos da fintech de Barueri/SP, nomeando Brazilio Bacellar, Shirai Advogados na proteção de 10 mil investidores.",
+    "url": "https://news.google.com/search?q=AJX+Capital+Investimentos+S.A.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "deal_id": 62,
+    "empresa_nome": "AJX Capital Investimentos S.A."
+  },
+  {
+    "id": 945,
+    "data_hora": "15/10/2026 19:20",
+    "titulo": "Grupo Fictor pede adiamento de AGC para dezembro citando fundo da Titan Capital Holding (Cayman) para cobrir R$ 4,2 Bi",
+    "fonte": "Brazil Journal",
+    "setor": "Serviços Financeiros & Securitização",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Devedora solicita suspensão da assembleia na 3ª Vara de Falências de SP alegando tratativas com veículo internacional ligado a Daniel Vorcaro; prazo para objeções de credores encerra em 29/10/2026.",
+    "url": "https://braziljournal.com/pericia-pede-mais-informacoes-antes-de-opiniao-sobre-rj-da-fictor",
+    "deal_id": 55,
+    "empresa_nome": "Grupo Fictor"
+  },
+  {
+    "id": 946,
+    "data_hora": "15/10/2026 17:10",
+    "titulo": "Fitch corta rating da 1ª emissão de debêntures verdes da GDSolar (GDSS11 - R$ 410 MM) em 5 degraus para BBB(bra)",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Agência colocou as debêntures de infraestrutura da GDS Subholding (Colibri Capital) em Observação Negativa diante da deterioração do índice de cobertura do serviço da dívida (ICSD) das usinas fotovoltaicas.",
+    "url": "https://www.fitchratings.com/research/pt/infrastructure-project-finance/fitch-downgrades-to-bbb-bra-gds-subholdings-debentures-rating-watch-negative-08-10-2026",
+    "deal_id": 69,
+    "empresa_nome": "GDS Subholding S.A. (GDSolar)"
+  },
+  {
+    "id": 947,
+    "data_hora": "15/10/2026 15:30",
+    "titulo": "Raízen (RAIZ4) detalha atualização de créditos e condições para debenturistas (RAIZ14/RAIZ24) no plano de Recuperação Extrajudicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Companhia sucroenergética conduz repactuação de R$ 3,5 bilhões em emissões de debêntures e linhas sindicalizadas junto a Pentágono DTVM e Oliveira Trust, mantendo cronograma de venda de ativos de geração distribuída e E2G.",
+    "url": "https://investalk.bb.com.br/noticias/mercado/credito-privado-analise-emissores-Raizen-Out26",
+    "deal_id": 7,
+    "empresa_nome": "Raízen S.A. (RAIZ4)"
+  },
+  {
+    "id": 948,
+    "data_hora": "15/10/2026 14:05",
+    "titulo": "TJRJ determina depósito judicial de recebíveis da Petrobras na Recuperação Judicial do Grupo MPC (R$ 82 MM)",
+    "fonte": "Jota / Tribunais",
+    "setor": "Imobiliário & Construção",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "4ª Vara Empresarial do Rio de Janeiro autorizou apenas consolidação processual (art. 69-I) e determinou conta vinculada para faturas de contratos da Petrobras disputadas por Votorantim, Caixa e Banco Caterpillar.",
+    "url": "https://www3.tjrj.jus.br/gedcacheweb/default.aspx?UZIP=1&GEDID=0004A8609F2F3B6F728B157B13A74240F08AC51A2E521F1F",
+    "deal_id": 66,
+    "empresa_nome": "Grupo MPC (MJRE Construtora)"
+  },
+  {
+    "id": 949,
+    "data_hora": "15/10/2026 11:45",
+    "titulo": "Grupo Família Almeida pede desistência de RJ às vésperas da AGC em Sinop/MT; juízo mantém assembleia para 12/11",
+    "fonte": "Jota / Tribunais",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Produtores com passivo de R$ 64 milhões (BB R$ 15,2M e John Deere R$ 9,1M) tentaram desistir do processo antes da votação do plano; Credibilita AJ conduzirá AGC virtual em novembro.",
+    "url": "https://www.fatosdematogrosso.com.br/geral/familia-de-produtores-tenta-desistir-de-recuperacao-judicial-de-r-54-milhoes-em-mt/17438",
+    "deal_id": 56,
+    "empresa_nome": "Grupo Família Almeida"
+  },
+  {
+    "id": 950,
+    "data_hora": "14/10/2026 18:30",
+    "titulo": "Justiça publica edital de leilão da UPI Parque Fabril Ditália Móveis por R$ 48 milhões livre de sucessão",
+    "fonte": "Valor Econômico",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Leilão de UPI",
+    "escopo": "pipeline",
+    "resumo": "Planta moveleira na Serra Gaúcha segue em plena operação com 101 funcionários ativos sob gestão da CB2D AJ; certame ocorrerá em 10/11/2026 nos termos do art. 141 da Lei 11.101/05.",
+    "url": "https://gazeta-rs.com.br/2026/10/ditalia-moveis-leilao-48-milhoes/",
+    "deal_id": 64,
+    "empresa_nome": "Grupo Ditália Móveis"
+  },
+  {
+    "id": 951,
+    "data_hora": "14/10/2026 16:15",
+    "titulo": "Grupo Wolfstore realiza sessões decisivas no Cejusc/TJRS com 7 credores financeiros e suspende apreensão do Hope I FIDC",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Cautelar 20-B",
+    "escopo": "cvm",
+    "resumo": "Indústria têxtil e calçadista de Novo Hamburgo/RS e Poções/BA negocia passivo bancário de R$ 44,26 milhões com Santander, ABC Brasil, Caixa, Unicred e securitizadoras após incêndio fabril.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/10/apos-incendio-industria-textil-consegue-que-justica-suspenda-cobranca-de-dividas-e-retirada-de-maquinas-cmuq5gzyd01v90174q475dxmv.html",
+    "deal_id": 68,
+    "empresa_nome": "Grupo Wolfstore"
+  },
+  {
+    "id": 952,
+    "data_hora": "14/10/2026 11:20",
+    "titulo": "Grupo Ezata migra de cautelar para Recuperação Judicial em Passo Fundo/RS após pedido de falência da Gerdau",
+    "fonte": "Jota / Tribunais",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Juizado Regional Empresarial determinou constatação prévia em 5 dias (Von Saltiél AJ) sem suspender execuções de Sicredi (R$ 17,77M), Itaú (R$ 7,61M), Santander e Caixa.",
+    "url": "https://preservacred.com.br/noticias/ezata-recuperacao-judicial-2026",
+    "deal_id": 63,
+    "empresa_nome": "Grupo Ezata Industrial"
+  },
+  {
+    "id": 953,
+    "data_hora": "13/10/2026 17:50",
+    "titulo": "Juízo de Cuiabá ordena rastreamento forense (Renajud/Infojud) na falência da rede Lojas Dona do Lar por ocultação de ativos",
+    "fonte": "Jota / Tribunais",
+    "setor": "Varejo & Consumo",
+    "categoria": "Falência",
+    "escopo": "pipeline",
+    "resumo": "Devedora fechou abruptamente sede e CD de 15 lojas em MT; Santander, Sofisa, Bradesco, Whirlpool e Semp TCL buscam localização de frota e estoques.",
+    "url": "https://www.olhardireto.com.br/juridico/noticias/justica-determina-devassa-patrimonial-e-edital-de-credores-no-processo-de-falencia-das-lojas-dona-do-lar",
+    "deal_id": 65,
+    "empresa_nome": "Lojas Dona do Lar Ltda."
+  },
+  {
+    "id": 954,
+    "data_hora": "13/10/2026 14:10",
+    "titulo": "TJPI suspende ordem policial de lacre imediato na falência do Grupo Assis Fortes (Servi-San), mas mantém arrecadação de R$ 360 MM",
+    "fonte": "Valor Econômico",
+    "setor": "Tecnologia & Serviços B2B",
+    "categoria": "Falência",
+    "escopo": "pipeline",
+    "resumo": "Convolação em falência atingiu a Servi-San Manutenção por salto do passivo fiscal da PGFN para R$ 357 milhões; massa falida detém precatório milionário contra Manaus.",
+    "url": "https://recuperacaojudicial.servi-san.com.br/",
+    "deal_id": 67,
+    "empresa_nome": "Grupo Assis Fortes (Servi-San)"
+  },
+  {
+    "id": 955,
+    "data_hora": "12/10/2026 18:00",
+    "titulo": "TJPR indefere RJ do Grupo Educacional Uniandrade por formato associativo e expõe R$ 304 MM a bloqueios",
+    "fonte": "Pipeline",
+    "setor": "Tecnologia & Serviços B2B",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Sem proteção do stay period, mantenedora dos campi de Curitiba, Maringá e São Paulo sofre penhora de R$ 10,7 milhões e avalia conversão societária urgente.",
+    "url": "https://preservacred.com.br/noticias/grupo-uniandrade-recuperacao-judicial-negada-2026",
+    "deal_id": 58,
+    "empresa_nome": "Grupo Educacional Uniandrade"
+  },
+  {
+    "id": 956,
+    "data_hora": "12/10/2026 10:30",
+    "titulo": "Nex Group / Capa Engenharia obtém Cautelar Antecedente em Porto Alegre para suspender leilões de R$ 140 MM de BB e Caixa",
+    "fonte": "Brazil Journal",
+    "setor": "Imobiliário & Construção",
+    "categoria": "Cautelar 20-B",
+    "escopo": "pipeline",
+    "resumo": "Incorporadora gaúcha com 100% da dívida bancária concentrada em BB (R$ 90M) e Caixa (R$ 50M) agenda mediação no Cejusc para 06/11/2026.",
+    "url": "https://preservacred.com.br/noticias/grupo-nex-tutela-cautelar-mediacao-2026",
+    "deal_id": 57,
+    "empresa_nome": "Grupo NEX (Capa Engenharia)"
+  },
+  {
+    "id": 957,
+    "data_hora": "09/10/2026 16:40",
+    "titulo": "Moinho Corina ajuíza 2ª Recuperação Judicial em Cotia/SP apenas 7 meses após encerrar processo anterior; COFCO detém 41%",
+    "fonte": "Valor Econômico",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Passivo concursal soma R$ 151 milhões (além de R$ 100,8M fiscais), puxado por execução de R$ 62,18 milhões da fornecedora de trigo Nidera/COFCO e pedidos de falência.",
+    "url": "https://preservacred.com.br/noticias/moinho-corina-recuperacao-judicial-2026",
+    "deal_id": 59,
+    "empresa_nome": "Moinho Corina Alimentos Ltda."
+  },
+  {
+    "id": 958,
+    "data_hora": "09/10/2026 11:15",
+    "titulo": "Qualiciclo Agrícola (Rede Lavoro) protocola RJ de R$ 2,55 bilhões na 2ª Vara de Falências de SP",
+    "fonte": "Pipeline",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Rede de distribuição de insumos busca reestruturar passivo com Corteva, Mosaic, UPL, FMC, Banco Votorantim e Daycoval em meio à retração das margens de revendas.",
+    "url": "https://agfeed.com.br/negocios/a-vez-da-lavoro-empresa-sucumbe-a-dividas-de-r-25-bi-e-recorre-a-plano-de-recuperacao-extrajudicial/",
+    "deal_id": 52,
+    "empresa_nome": "Qualiciclo Agrícola S.A."
+  },
+  {
+    "id": 959,
+    "data_hora": "09/10/2026 09:00",
+    "titulo": "Cotribá convoca assembleia para Liquidação Extrajudicial com Continuidade para blindar ativos contra R$ 1,42 bilhão em dívidas",
+    "fonte": "Valor Econômico",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Leilão de UPI",
+    "escopo": "pipeline",
+    "resumo": "Cooperativa centenária de Ibirubá/RS enfrenta inadimplência de R$ 150M em CRAs e exposição a 30 bancos liderados pelo BRDE (R$ 130M), planejando venda de silos.",
+    "url": "https://news.google.com/search?q=Cooperativa+Agrícola+Mista+General+Osório+Ltda.+recupera%C3%A7%C3%A3o+judicial&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "deal_id": 53,
+    "empresa_nome": "Cooperativa Agrícola Cotribá"
+  },
+  {
+    "id": 960,
+    "data_hora": "08/10/2026 18:10",
+    "titulo": "TJMT determina afastamento compulsório dos controladores do Grupo Safras (R$ 1,78 Bi) em Sorriso/MT",
+    "fonte": "Jota / Tribunais",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Decisão judicial abre vacância para nomeação de gestor judicial / CRO independente após disputas com Cargill, Bunge, COFCO e bancos sobre estoques de grãos.",
+    "url": "https://boanoticias.com.br/2026/10/08/sorriso-tjmt-mantem-ex-prefeito-dilceu-rossato-afastado-do-comando-do-grupo-safras-em-recuperacao-judicial-de-r-178-bilhao/",
+    "deal_id": 51,
+    "empresa_nome": "Grupo Safras Armazéns"
+  },
+  {
+    "id": 961,
+    "data_hora": "07/10/2026 15:00",
+    "titulo": "ARTESP instaura processo de caducidade contra Concessionária Colinas do Tietê; debenturistas (R$ 420 MM) convocam AGD",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Titulares da 1ª e 2ª emissão de debêntures incentivadas (Lei 12.431) e BNDES avaliam declaração de vencimento antecipado ou acordo de relicitação amigável.",
+    "url": "https://www.artesp.sp.gov.br/",
+    "deal_id": 46,
+    "empresa_nome": "Concessionária Colinas do Tietê"
+  },
+  {
+    "id": 962,
+    "data_hora": "04/10/2026 14:20",
+    "titulo": "Renovare Comercializadora recebe notificação de inadimplemento no MCP da CCEE e convoca debenturistas (R$ 340 MM)",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Pressão de curtailment eólico/solar no Nordeste e descasamento de PLD horário derrubam ICSD abaixo do covenant mínimo da 2ª emissão de debêntures.",
+    "url": "https://www.pentagonotrustee.com.br/",
+    "deal_id": 41,
+    "empresa_nome": "Renovare Energia & Comercializadora"
+  },
+  {
+    "id": 963,
     "data_hora": "22/09/2026 21:00",
     "titulo": "Juizado Regional Empresarial de Passo Fundo convola recuperação judicial do produtor rural Alexandro Dotto em falência após rejeição de plano em AGC",
     "fonte": "Empresa em Crise / TJRS",
@@ -325,7 +819,7 @@
     "empresa_nome": "Alexandro Dotto (Produtor Rural — Fazendas em São Gabriel e Passo Fundo / RS)"
   },
   {
-    "id": 924,
+    "id": 964,
     "data_hora": "08/09/2026 21:00",
     "titulo": "Justiça do MS defere recuperação judicial do Grupo Vincensi com passivo de R$ 227,4 milhões",
     "fonte": "Empresa em Crise / TJMS",
@@ -338,7 +832,7 @@
     "empresa_nome": "Grupo Vincensi (Abilio Vincensi, Edemilson Vincensi, Achylles Vincensi & Família)"
   },
   {
-    "id": 918,
+    "id": 965,
     "data_hora": "02/08/2026 21:00",
     "titulo": "Gatekeeper AJ publica relatório e consolidação do passivo da Sopetra Rolamentos com dívida concursal de R$ 46,1 milhões",
     "fonte": "Gatekeeper Administração Judicial / TJSP",
@@ -351,7 +845,7 @@
     "empresa_nome": "Sopetra Rolamentos e Peças Ltda."
   },
   {
-    "id": 925,
+    "id": 966,
     "data_hora": "01/07/2026 21:00",
     "titulo": "Família Soares entra em recuperação judicial em Luiziânia/SP com dívida de R$ 109 milhões",
     "fonte": "Empresa em Crise / TJSP",
@@ -364,7 +858,7 @@
     "empresa_nome": "Grupo Soares (Família Soares Peanuts Ltda., José Soares & Cia Ltda. e Produtores Rurais)"
   },
   {
-    "id": 920,
+    "id": 967,
     "data_hora": "11/05/2026 21:00",
     "titulo": "Justiça de SP defere nova recuperação judicial do produtor rural Washington Umberto Cinel com passivo de R$ 1,18 bilhão",
     "fonte": "Empresa em Crise / TJSP",
@@ -377,7 +871,7 @@
     "empresa_nome": "Washington Umberto Cinel (Produtor Rural — Grupo Handz / Fazendas em São Manuel e Pederneiras / SP)"
   },
   {
-    "id": 919,
+    "id": 968,
     "data_hora": "23/04/2026 21:00",
     "titulo": "1ª Vara de Falências de SP decreta a falência da BS Tecnologia e Serviços com passivo de R$ 33,3 milhões",
     "fonte": "Gatekeeper Administração Judicial / TJSP",
@@ -390,7 +884,7 @@
     "empresa_nome": "BS Tecnologia e Serviços Ltda. (BS Services)"
   },
   {
-    "id": 922,
+    "id": 969,
     "data_hora": "28/02/2026 21:00",
     "titulo": "Grupo ABG entra em recuperação judicial no Paraná com passivo de R$ 648 milhões",
     "fonte": "Empresa em Crise / TJPR",
@@ -399,11 +893,11 @@
     "escopo": "pipeline",
     "resumo": "24ª Vara Cível e Empresarial de Curitiba (Proc. 0022381-10.2025.8.16.0194) deferiu a recuperação judicial do Grupo ABG em consolidação substancial de 11 empresas, gerando 1.800 empregos diretos e somando passivo de R$ 648,7M, sob fiscalização da Scalzilli Administração Judicial.",
     "url": "https://www.empresaemcrise.com/post/campo-largo-pr-grupo-abg-entra-em-recup-judicial-d%C3%ADvida-r-648-milh%C3%B5es",
-    "deal_id": null,
+    "deal_id": 143,
     "empresa_nome": "Grupo ABG (Neo Rodas, Neo Steel & Neo PWT)"
   },
   {
-    "id": 923,
+    "id": 970,
     "data_hora": "16/12/2025 21:00",
     "titulo": "Justiça do Piauí defere recuperação judicial do produtor rural Hugo Prado Filho com passivo de R$ 246 milhões",
     "fonte": "Empresa em Crise / TJPI",
@@ -416,7 +910,7 @@
     "empresa_nome": "Hugo Prado Filho (Produtor Rural — Fazenda Laranjeiras, Caxias/MA e Teresina/PI)"
   },
   {
-    "id": 921,
+    "id": 971,
     "data_hora": "21/11/2025 21:00",
     "titulo": "Justiça do RS defere recuperação judicial do Frigorífico Zimmer com dívida de R$ 182 milhões",
     "fonte": "Empresa em Crise / TJRS",

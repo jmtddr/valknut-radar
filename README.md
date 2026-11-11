@@ -1,71 +1,26 @@
-# VALKNUT ANALYTICS // Special Situations & Distressed Debt Platform
+# VALKNUT — SPECIAL SITUATIONS // Radar de Inteligência Concursal & Distressed Debt (v4.6)
 
-Plataforma de inteligência de mercado financeiro e jurídico-concursal especializada em **Distressed Debt**, **Special Situations** e reestruturação corporativa no Brasil.
+Plataforma analítica institucional de originação tática, monitoramento processual e modelagem financeira para **Special Situations**, **Reestruturação de Dívidas (RJ / PRE / Cautelares Art. 20-B)**, **Mercado de Capitais (Debêntures, CRAs, CRIs, FIDCs)** e **Ativos Distressed (UPIs)** no Brasil.
 
----
+## Arquitetura Técnica (Release v4.6)
 
-## 🏗️ Arquitetura em Duas Camadas
+- **Front-End Estático Desacoplado (`index.html`, `styles.css`, `app.js`)**:
+  - Interface institucional clara de alto contraste (**WCAG AA**), paleta corporativa Valknut (`#063630` / `#38686A` / `#A5AC82` / `#E6E9DC`), navegação acessível via teclado (`role="tablist"`, setas direcionais, *focus trap* em modais) e *Subresource Integrity (SRI)* em todas as bibliotecas CDN.
+  - Carregamento assíncrono não-bloqueante de bases estáticas (`deals.json` e `live-news.json`) combinado à sincronização incremental por CNPJ com a Planilha Mestre (preservando IDs estáveis, teses enriquecidas, metadados de energia e links diretos a tribunais/CVM).
+  - Paginação analítica configurável (`50`, `100` ou `Todos`) e persistência integral do estado de navegação e filtros via hash de URL (`#sec=...&sub=...&uf=...&setor=...`).
+- **Back-End Serverless & Automação (`_backend/`)**:
+  - `_backend/Code.gs`: Motor Google Apps Script v4.6 com cache particionado (`CacheService`), leitura unificada de 4 abas públicas (`Radar de Originação`, `Noticias`, `Tracking PREs YTD` e `Radar Preditivo Tier 0`), proxy ONS/CCEE e proxy RSS com *allowlist* estrita de domínios HTTPS (anti-SSRF) e sincronização protegida por token.
+  - `_backend/update_live_news.py` + `.github/workflows/update-live-news.yml`: Robô agendado via GitHub Actions para captura contínua de fatos relevantes, waivers, AGDs, downgrades de rating e novos ajuizamentos, reconciliando automaticamente os `deal_id`s contra `deals.json`.
 
-A plataforma opera em um modelo desacoplado de duas camadas, combinando processamento analítico em lote com visualização de baixa latência:
+## Módulos da Plataforma
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│ 1. CAMADA DE INGESTÃO & TRIAGEM (Agente Autônomo - a cada 3h)          │
-│    • Varredura: DataJud, DJEN (Classes 12134, 129, 128, 12154)         │
-│    • Sinais Forenses: CENPROT, PGFN (Art. 866 CPC), CVM Res. 175, CCEE │
-│    • Filtro de Corte: Passivo >= R$ 30 Milhões (Exclusão Safira)       │
-│    • Persistência: Planilha Mestre (Google Sheets)                     │
-└──────────────────────────────────┬─────────────────────────────────────┘
-                                   │
-                                   ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│ 2. CAMADA DE APRESENTAÇÃO & DASHBOARD (GitHub Pages - Front-End)       │
-│    • API Rest: Google Apps Script Web App (JSON)                       │
-│    • Polling Inteligente: Background fetch a cada 15 min (Visibility)  │
-│    • Resiliência Offline: Fallback automático para deals.json local    │
-│    • Interface: Terminal Clean Dark Mode (Linear / Stripe style)       │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🎯 Matriz de Estratégias Institucionais e Tiers
-
-- **Tier 0 (Score 8,5–10,0) — Distress Precursor (60 a 120 dias pré-crise):**
-  - Monitoramento de anomalias extrajudiciais: spikes de protestos no CENPROT, execuções de frotas e safra, penhora de faturamento pela PGFN, liquidação de FIDCs na CVM e processos regulatórios (CCEE, ANS, ARTESP).
-- **Tier 1 (Score 9,0–10,0) — Consensual & Cautelar Antecedente:**
-  - Tutelas de urgência sob o Art. 20-B da Lei 11.101/2005, stay period preparatório e mediações pré-processuais.
-- **Tier 2 (Score 7,0–8,9) — Minuto Zero Concursal:**
-  - Distribuição recente de Recuperação Judicial (Classe 129) ou Extrajudicial (Classe 128), perícia prévia do Art. 51-A e contestação de travas bancárias.
-- **Tier 3 (Score 4,0–6,9) — Pós-Plano & Special Situations:**
-  - Homologação de planos, alienação judicial de Unidades Produtivas Isoladas (UPIs) e estruturação de Financiamento DIP (*Debtor-in-Possession*).
-
----
-
-## 📁 Estrutura de Arquivos do Repositório
-
-```text
-valknut-radar/
-├── index.html        # Estrutura semântica limpa (< 200 linhas)
-├── styles.css        # Design System e variáveis temáticas (Clean Dark FinTech)
-├── app.js           # Controlador da aplicação, Leaflet e polling de 15 min
-├── deals.json        # Base local canônica atualizada (64 casos - Fallback offline)
-├── README.md         # Documentação técnica e de negócio
-└── .gitignore        # Arquivos de sistema e ambiente ignorados
-```
-
----
-
-## 🚀 Como Executar Localmente
-
-Basta servir o diretório estático em qualquer servidor HTTP local:
-
-```bash
-# Opção 1: Via Python 3
-python3 -m http.server 8000
-
-# Opção 2: Via Node / npx
-npx serve .
-```
-
-Acesse `http://localhost:8000` no seu navegador.
+1. **Operação & Originação**: Pipeline consolidado ordenável, recortes táticos (*Creditor-Side & Watchdog*, *DIP & M&A*, *Consensual & Art. 20-B*, *Debêntures/CRAs/FIDCs*) e **Radar Preditivo (Tier 0)** com cartões forenses antecedentes (CENPROT, PGFN, CCEE, ANS, ARTESP e CVM).
+2. **Precificação & Modelagem**: Calculadora de honorários (*Retainer + Success Fee* com cláusula de *Offset*), *Waterfall* de classes (Art. 83 vs. Plano de RJ), Simulador de Quórum de AGC / *Cram Down*, Benchmarks de Haircut por Macro-Setor e Gerador Nativo de Proposta Comercial (`.pptx`).
+3. **Dashboards & Mercado**: Concentração setorial, matriz quantitativa de *Special Situations*, *Tracking* dedicado de Recuperações Extrajudiciais (YTD) e estratificação por porte de passivo.
+4. **UPIs & Ativos Distressed**: Catálogo de Unidades Produtivas Isoladas (fazendas, silos, parques fabris, marcas, imóveis e concessões) elegíveis sob os Arts. 60 e 141 da Lei 11.101/05.
+5. **Bancômetro**: Mapa de exposição de bancos privados, bancos públicos, cooperativas, agentes fiduciários, securitizadoras e *tradings*.
+6. **Ecossistema & Players**: Ranking de bancas jurídicas, administradores judiciais (Art. 51-A), agentes fiduciários e varas empresariais especializadas.
+7. **Prazos & AGCs**: Cronograma regressivo completo, grade mensal interativa e exportação individual de compromissos concursais (`.ics`).
+8. **Mapa Geográfico**: Cartografia vetorial GeoJSON das 27 Unidades Federativas do Brasil com concentração regional de passivos.
+9. **Notícias & Fatos**: Feed unificado e auditável conectado diretamente aos *Tear Sheets* dos grupos monitorados.
+10. **Energia & Infraestrutura**: Telemetria operacional do SIN (ONS / CCEE / ANEEL), curvas horárias de geração/carga, *PLD* por submercado vs. *Curtailment* (*Constrained-off*) e pipeline setorial de debêntures de infraestrutura.

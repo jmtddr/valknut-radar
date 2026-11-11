@@ -1,0 +1,36 @@
+name: Update Live Distressed News
+
+on:
+  schedule:
+    - cron: '*/45 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch and consolidate live distressed news
+        run: python3 _backend/update_live_news.py
+
+      - name: Commit updated live-news.json if changed
+        run: |
+          if ! git diff --quiet live-news.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add live-news.json
+            git commit -m "chore(news): auto-sync live-news.json [skip ci]"
+            git push
+          else
+            echo "No news changes detected."
+          fi

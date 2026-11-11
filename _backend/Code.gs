@@ -1,23 +1,86 @@
 /**
  * ============================================================================
  * VALKNUT — SPECIAL SITUATIONS // Google Apps Script Backend & Multi-Proxy Engine
- * Planilha Mestre ID: 1RZ17lR--PvwqwNmABweT50awL30rlTAktWhlZAWQyuE
- * Release v4.4 — Leitura Unificada de 6 Abas + Ingestão RSS Autônoma na Aba Noticias
+ * Release v4.6 — Leitura Unificada de 4 Abas Públicas + Segurança SSRF/Sync
  * ============================================================================
  *
- * COMO ATUALIZAR A IMPLANTAÇÃO MANTENDO A MESMA URL:
- * 1. Abra a Planilha Mestre no Google Sheets:
- *    https://docs.google.com/spreadsheets/d/1RZ17lR--PvwqwNmABweT50awL30rlTAktWhlZAWQyuE/edit
- * 2. Clique em "Extensões" > "Apps Script".
- * 3. Substitua o conteúdo de `Código.gs` por este código e salve (Ctrl+S).
- * 4. Clique em "Implantar" > "Gerenciar implantações" > ícone de lápis (Editar) >
- *    em Versão selecione "Nova versão" > clique em "Implantar".
- * 5. Opcional (varredura 24/7 + gravação automática na aba Noticias):
+ * COMO ATUALIZAR A IMPLANTAÇÃO MANTENDO A MESMA URL (`APPS_SCRIPT_URL`):
+ * 1. Abra a Planilha Mestre no Google Sheets > clique em "Extensões" > "Apps Script".
+ *    (Se usar script avulso fora da planilha, adicione `MASTER_SHEET_ID` em
+ *    Configurações do Projeto > Propriedades do Script).
+ * 2. Substitua o conteúdo de `Código.gs` por este arquivo e salve (Ctrl+S).
+ * 3. Clique em "Implantar" > "Gerenciar implantações" > ícone de lápis (Editar) >
+ *    em Versão selecione **"Nova versão"** > clique em "Implantar".
+ * 4. Opcional (varredura 24/7 + gravação automática na aba `Noticias`):
  *    execute uma vez `instalarGatilhosAutomaticos()`.
  */
 
-const SHEET_ID = '1RZ17lR--PvwqwNmABweT50awL30rlTAktWhlZAWQyuE';
 const CACHE_TTL_SECONDS = 300; // 5 minutos de cache em memória no servidor Google
+
+// Allowlist estrita de domínios HTTPS permitidos no proxy RSS/Dados Abertos (anti-SSRF)
+const ALLOWED_PROXY_HOSTS = {
+  'news.google.com': true,
+  'dadosabertos.ccee.org.br': true,
+  'dadosabertos.aneel.gov.br': true,
+  'integra.ons.org.br': true,
+  'www.rad.cvm.gov.br': true,
+  'dados.cvm.gov.br': true,
+  'comunicaapi.pje.jus.br': true
+};
+
+// Bloqueio por hash SHA-256 de tokens normalizados (sem exposição nominal no código)
+const BLOCKED_TOKEN_SHA256 = {
+  'd252e0c8ec8a9a143e74a72447f3abaf7a4fad0f7755a819dcc9cd293980cc78': true
+};
+
+function openMasterSpreadsheet_() {
+  const propId = PropertiesService.getScriptProperties().getProperty('MASTER_SHEET_ID');
+  if (propId && propId.trim()) {
+    return SpreadsheetApp.openById(propId.trim());
+  }
+  const active = SpreadsheetApp.getActiveSpreadsheet();
+  if (active) return active;
+  throw new Error('Planilha Mestre não vinculada. Defina MASTER_SHEET_ID nas Propriedades do Script.');
+}
+
+function sha256Hex_(input) {
+  const raw = Utilities.computeDigest(
+    Utilities.DigestAlgorithm.SHA_256,
+    String(input || ''),
+    Utilities.Charset.UTF_8
+  );
+  let out = '';
+  for (var i = 0; i < raw.length; i++) {
+    var b = (raw[i] + 256) % 256;
+    out += (b < 16 ? '0' : '') + b.toString(16);
+  }
+  return out;
+}
+
+function isExcludedEntity_(textValue) {
+  const clean = String(textValue || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+  if (!clean) return false;
+  const tokens = clean.split(/[^a-z0-9]+/);
+  for (var i = 0; i < tokens.length; i++) {
+    var tk = tokens[i];
+    if (tk && tk.length >= 4 && BLOCKED_TOKEN_SHA256[sha256Hex_(tk)]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isAuthorizedSyncRequest_(params) {
+  const configuredToken = PropertiesService.getScriptProperties().getProperty('SYNC_API_TOKEN');
+  const providedToken = String((params && params.token) || '').trim();
+  if (!configuredToken || configuredToken.length < 16 || !providedToken) {
+    return false;
+  }
+  return configuredToken === providedToken;
+}
 
 function doGet(e) {
   try {
@@ -38,6 +101,13 @@ function doGet(e) {
     }
 
     if (action === 'sync') {
+      if (!isAuthorizedSyncRequest_(params)) {
+        return createJsonResponse({
+          status: 'error',
+          code: 403,
+          message: 'Ação restrita ao gatilho interno agendado ou token autorizado.'
+        });
+      }
       const result = sincronizarRadarAutomatico();
       return createJsonResponse({ status: 'success', syncResult: result });
     }
@@ -51,14 +121,29 @@ function doGet(e) {
   }
 }
 
+function doPost(e) {
+  try {
+    const params = (e && e.parameter) ? e.parameter : {};
+    if (!isAuthorizedSyncRequest_(params)) {
+      return createJsonResponse({ status: 'error', code: 403, message: 'Não autorizado.' });
+    }
+    const result = sincronizarRadarAutomatico();
+    return createJsonResponse({ status: 'success', syncResult: result });
+  } catch (err) {
+    return createJsonResponse({
+      status: 'error',
+      message: String(err && err.message ? err.message : err)
+    });
+  }
+}
+
 /**
- * 1. Leitura Unificada das 6 Abas da Planilha Mestre:
+ * 1. Leitura Unificada das 4 Abas Públicas da Planilha Mestre:
  *    - Aba "Radar de Originação (Leads)"       -> campo `data`
  *    - Aba "Noticias"                          -> campo `noticias`
  *    - Aba "Tracking PREs YTD (2026)"          -> campo `tracking_pres`
  *    - Aba "Radar Preditivo (Tier 0)"          -> campo `tier0`
- *    - Aba "Pipeline Ativo (Mandatos)"         -> campo `mandatos`
- *    - Aba "Diretrizes & Fontes Monitoradas"   -> campo `diretrizes`
+ *    (Abas internas de Mandatos/Diretrizes não são expostas no endpoint público)
  */
 function putChunkedCache(cache, baseKey, str, ttl) {
   try {
@@ -107,7 +192,7 @@ function clearChunkedCache(cache, baseKey) {
 
 function handleMasterSheetRead(bypassCache) {
   const cache = CacheService.getScriptCache();
-  const cacheKey = 'vk_master_sheet_v45';
+  const cacheKey = 'vk_master_sheet_v46';
   if (!bypassCache) {
     const cachedPayload = getChunkedCache(cache, cacheKey);
     if (cachedPayload) {
@@ -115,22 +200,28 @@ function handleMasterSheetRead(bypassCache) {
     }
   }
 
-  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const ss = openMasterSpreadsheet_();
 
   // 1. Radar de Originação (Leads)
   const leadsSheet = ss.getSheetByName('Radar de Originação (Leads)') || ss.getSheets()[0];
   const rows = leadsSheet ? leadsSheet.getDataRange().getValues() : [];
   const dataRows = rows.length > 1 ? rows.slice(1).filter(function(r) {
-    return r && String(r[2] || '').trim() !== '';
+    if (!r) return false;
+    var emp = String(r[2] || '').trim();
+    return emp !== '' && !isExcludedEntity_(emp);
   }) : [];
 
-  // 2. Noticias (suporta layout padrão r[6]=Título e layout alternativo linhas 17-25 r[2]=Título)
+  // 2. Noticias
   const noticiasSheet = ss.getSheetByName('Noticias');
   let noticiasRows = [];
   if (noticiasSheet) {
     const nRows = noticiasSheet.getDataRange().getValues();
     noticiasRows = nRows.length > 1 ? nRows.slice(1).filter(function(r) {
-      return r && (String(r[6] || '').trim() !== '' || String(r[2] || '').trim() !== '');
+      if (!r) return false;
+      var t1 = String(r[6] || '').trim();
+      var t2 = String(r[2] || '').trim();
+      if (!t1 && !t2) return false;
+      return !isExcludedEntity_(t1 + ' ' + t2 + ' ' + String(r[3] || ''));
     }) : [];
   }
 
@@ -140,7 +231,9 @@ function handleMasterSheetRead(bypassCache) {
   if (presSheet) {
     const pRows = presSheet.getDataRange().getValues();
     trackingPresRows = pRows.length > 1 ? pRows.slice(1).filter(function(r) {
-      return r && String(r[1] || '').trim() !== '';
+      if (!r) return false;
+      var emp = String(r[1] || '').trim();
+      return emp !== '' && !isExcludedEntity_(emp);
     }) : [];
   }
 
@@ -150,32 +243,15 @@ function handleMasterSheetRead(bypassCache) {
   if (tier0Sheet) {
     const tRows = tier0Sheet.getDataRange().getValues();
     tier0Rows = tRows.length > 1 ? tRows.slice(1).filter(function(r) {
-      return r && String(r[0] || '').trim() !== '';
-    }) : [];
-  }
-
-  // 5. Pipeline Ativo (Mandatos)
-  const mandatosSheet = ss.getSheetByName('Pipeline Ativo (Mandatos)');
-  let mandatosRows = [];
-  if (mandatosSheet) {
-    const mRows = mandatosSheet.getDataRange().getValues();
-    mandatosRows = mRows.length > 1 ? mRows.slice(1).filter(function(r) {
-      return r && String(r[0] || '').trim() !== '';
-    }) : [];
-  }
-
-  // 6. Diretrizes & Fontes Monitoradas
-  const diretrizesSheet = ss.getSheetByName('Diretrizes & Fontes Monitoradas');
-  let diretrizesRows = [];
-  if (diretrizesSheet) {
-    const dRows = diretrizesSheet.getDataRange().getValues();
-    diretrizesRows = dRows.length > 1 ? dRows.slice(1).filter(function(r) {
-      return r && String(r[0] || '').trim() !== '';
+      if (!r) return false;
+      var emp = String(r[0] || '').trim();
+      return emp !== '' && !isExcludedEntity_(emp);
     }) : [];
   }
 
   const payloadObj = {
     status: 'success',
+    version: '4.6',
     updated_at: new Date().toISOString(),
     count: dataRows.length,
     data: dataRows,
@@ -185,10 +261,7 @@ function handleMasterSheetRead(bypassCache) {
     tracking_pres: trackingPresRows,
     pres: trackingPresRows,
     tier0_count: tier0Rows.length,
-    tier0: tier0Rows,
-    mandatos_count: mandatosRows.length,
-    mandatos: mandatosRows,
-    diretrizes: diretrizesRows
+    tier0: tier0Rows
   };
 
   const jsonStr = JSON.stringify(payloadObj);
@@ -201,12 +274,12 @@ function handleMasterSheetRead(bypassCache) {
  * 1B. Proxy com Cache para Telemetria ONS & PLD Horário Oficial da CCEE
  */
 function handleOnsCceeProxyRequest(params) {
-  const submarket = String((params && params.submarket) || 'SIN').toUpperCase();
-  const dateStr = String((params && params.date) || Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd'));
+  const submarket = String((params && (params.submercado || params.submarket)) || 'SIN').toUpperCase();
+  const dateStr = String((params && (params.data || params.date)) || Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd'));
   const cache = CacheService.getScriptCache();
   const cacheKey = 'vk_ons_ccee_' + submarket + '_' + dateStr;
   const cached = cache.get(cacheKey);
-  if (cached && String(params.nocache || '') !== '1') {
+  if (cached && String(params.nocache || params.force || '') !== '1') {
     return ContentService.createTextOutput(cached).setMimeType(ContentService.MimeType.JSON);
   }
 
@@ -231,7 +304,10 @@ function handleOnsCceeProxyRequest(params) {
     });
     if (cceeRes.getResponseCode() >= 200 && cceeRes.getResponseCode() < 300) {
       const cceeJson = JSON.parse(cceeRes.getContentText('UTF-8'));
-      cceePld = { connected: Boolean(cceeJson && cceeJson.success), resourceCount: (cceeJson && cceeJson.result && cceeJson.result.resources) ? cceeJson.result.resources.length : 0 };
+      cceePld = {
+        connected: Boolean(cceeJson && cceeJson.success),
+        resourceCount: (cceeJson && cceeJson.result && cceeJson.result.resources) ? cceeJson.result.resources.length : 0
+      };
     }
   } catch (e) {}
 
@@ -250,12 +326,17 @@ function handleOnsCceeProxyRequest(params) {
 }
 
 /**
- * 2. Proxy Privado de RSS/XML com CacheService (Elimina bloqueio CORS e Rate-Limit)
+ * 2. Proxy de RSS/XML com Allowlist Estrita de Domínios HTTPS (Anti-SSRF) e CacheService
  */
 function handleRssProxyRequest(targetUrl, bypassCache) {
   const cleanUrl = String(targetUrl || '').trim();
-  if (!cleanUrl.startsWith('http://') && !cleanUrl.startsWith('https://')) {
-    return createJsonResponse({ status: 'error', message: 'URL inválida para proxy RSS.' });
+  const hostMatch = cleanUrl.match(/^https:\/\/([a-zA-Z0-9.-]+)(?:\/|$)/);
+  if (!hostMatch || cleanUrl.indexOf('@') !== -1) {
+    return createJsonResponse({ status: 'error', code: 400, message: 'Apenas URLs HTTPS válidas são permitidas.' });
+  }
+  const hostname = hostMatch[1].toLowerCase();
+  if (!ALLOWED_PROXY_HOSTS[hostname]) {
+    return createJsonResponse({ status: 'error', code: 403, message: 'Domínio não autorizado na allowlist do proxy.' });
   }
 
   const cache = CacheService.getScriptCache();
@@ -274,9 +355,9 @@ function handleRssProxyRequest(targetUrl, bypassCache) {
   const response = UrlFetchApp.fetch(cleanUrl, {
     method: 'get',
     muteHttpExceptions: true,
-    followRedirects: true,
+    followRedirects: false,
     headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; ValknutSpecialSituationsBot/4.4; +https://jmtddr.github.io/valknut-radar/)',
+      'User-Agent': 'Mozilla/5.0 (compatible; ValknutSpecialSituationsBot/4.6)',
       'Accept': 'application/rss+xml, application/xml, text/xml, application/atom+xml, */*'
     }
   });
@@ -312,9 +393,9 @@ function handleRssProxyRequest(targetUrl, bypassCache) {
  */
 function handleDjenProxyRequest(params) {
   const dataHoje = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd');
-  const dataInicio = params.dataInicio || dataHoje;
-  const siglaTribunal = params.siglaTribunal || 'TJSP';
-  const termo = params.termo || 'recuperação judicial';
+  const dataInicio = String(params.dataInicio || dataHoje).replace(/[^0-9-]/g, '').slice(0, 10) || dataHoje;
+  const siglaTribunal = String(params.siglaTribunal || 'TJSP').replace(/[^A-Za-z0-9]/g, '').slice(0, 10) || 'TJSP';
+  const termo = String(params.termo || 'recuperação judicial').slice(0, 80);
 
   const endpoint = 'https://comunicaapi.pje.jus.br/api/v1/comunicacao'
     + '?siglaTribunal=' + encodeURIComponent(siglaTribunal)
@@ -375,7 +456,7 @@ function sincronizarRadarAutomatico() {
       }
     ];
 
-    const ss = SpreadsheetApp.openById(SHEET_ID);
+    const ss = openMasterSpreadsheet_();
     let noticiasSheet = ss.getSheetByName('Noticias');
     if (!noticiasSheet) {
       noticiasSheet = ss.insertSheet('Noticias');
@@ -421,7 +502,7 @@ function sincronizarRadarAutomatico() {
               sourceName = parts.pop().trim() || sourceName;
               rawTitle = parts.join(' - ').trim();
             }
-            if (!rawTitle || rawTitle.length < 18) return;
+            if (!rawTitle || rawTitle.length < 18 || isExcludedEntity_(rawTitle)) return;
 
             const normKey = rawTitle.toLowerCase().slice(0, 58);
             if (seenKeys[normKey]) return;
@@ -452,7 +533,7 @@ function sincronizarRadarAutomatico() {
     if (novasLinhas.length > 0) {
       noticiasSheet.getRange(noticiasSheet.getLastRow() + 1, 1, novasLinhas.length, 9).setValues(novasLinhas);
       gravadas = novasLinhas.length;
-      clearChunkedCache(CacheService.getScriptCache(), 'vk_master_sheet_v45');
+      clearChunkedCache(CacheService.getScriptCache(), 'vk_master_sheet_v46');
     }
 
     return {
