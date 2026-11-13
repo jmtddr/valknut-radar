@@ -1,5 +1,44 @@
 [
   {
+    "data_hora": "13/11/2026 07:00",
+    "titulo": "CSN: mesmo após vender ativo, secundário opera com deságio",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "CSN: mesmo após vender ativo, secundário opera com deságio &nbsp;&nbsp; Capital Aberto",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbVlYVVowQUtKSkZGb2pMelpFWjE3QUlQOVpBTm41SnVVNWdmSVhRNXdhUEx4SlM5NDRLTjFhMXo1ampYY3JLb1FQSTl4ektNYjJEaU41bTdocnVTLTJsUDFzalNNd1RTMmdqQnFlamNLY29taXBVaWowWUhmQmpoWUlydWNiRFp3bmNISk1GRlNCSTZ0QmhDeTlLWW4yS1RxTnpicFI0LTRsUQ?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Capital Aberto",
+    "id": 372584
+  },
+  {
+    "data_hora": "13/11/2026 05:00",
+    "titulo": "Até IPCA + 12%: os papéis de crédito incentivado recomendados para novembro",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Até IPCA + 12%: os papéis de crédito incentivado recomendados para novembro &nbsp;&nbsp; InfoMoney",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPN1ZlM1VQd0FfT0pLLVFZTnp5U2RUYk1RRmNzRVd3amhQTFVZeDVFa3A4REZNTDd6Y2x4dHBiNlIzNWhUQVJMd1VWOXhMT2hhMXN5bHBTMEIzWS1pNFQwMkRNc2pybENqN1hBOFJZa3Zyeld6SzhnM1l3b2xPZEQxbzUwV29ESmdjblpBdk1XckI0Zkw4X1UtNlFxejVaeHlsSDlWemtnaktrNHF6dW1XZVFZb2MwQdIBuwFBVV95cUxNRUF6cTlxUGNLbEJvUEZ6R2dRbnNnOXo3czJGQU9iMTVRY3VZbWlFNWdTaHJpSXppcGxOZVJpb0Z2STNRejJIbGJpbTNsVENVUkVwV0hJa2E2aGVoNHJJMHFJb0dyblhnODcxNHphUVJKZDI4Rk5xLTZRTVQtSC1oU29Nc1hMNlJZcjlYSmpHWE5vcndGX3Noanc5NnV5amt2TjNmUVV0YnJ0VEphNlpuOUFOV0hsREtHVzlB?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // InfoMoney",
+    "id": 392670
+  },
+  {
+    "data_hora": "12/11/2026 20:59",
+    "titulo": "Braskem vê prejuízo disparar para R$ 1,1 bilhão e corre contra prazo para reestruturar dívida",
+    "fonte": "Valor Econômico",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Braskem vê prejuízo disparar para R$ 1,1 bilhão e corre contra prazo para reestruturar dívida &nbsp;&nbsp; Estadão",
+    "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNdVNWcGo3WEY2Nm1KelF6OTFKUzQ3NUliejFEUktBd3F4X3hkaXNKZi1WYUlpVXpNaUMtdnNjZE5mWjN4aGlpdWpwWUxsS0dPSXNNM3Vteko1TnRHTWRaNHNCejZXM0c1MUZNNFBqblNMTlNzT0c5VFd2MndHRHpIX0hCbk5TNndZUk82MFhENmY0UkRlLWFYRVVaSktNWkRscDQxc0lrQ2xHQXdMSHVnY0VKdlQzVllqcE9QemtkMHZ4aFlBcmk0cXUwRUpOOXZpeENHTWlqazg1Q0FDZXpya016OXLSAeoBQVVfeXFMT2tBd1RPLTh3bDhQVFJxVE9XUnhxMlZTSUg2TFdBVWVWYTYtRldjMlFMUWJQV2FWdGl0a0UyMXA0c3pueWNFbjFrdXRfdDhIZ2JrQ2ZHR3JKdDBYM2ppWGgxNzFwZmMzcW9Ma1hFVVIwOWg0QXhMVTdEOS1waVpyUGtTRUZCTHJnUVV5SXRqYVZSWGlRWlNJX3pXSFgySGpoSk90ZGk5emdFTTM3M2JxNEdCQXpRcFhMR1FxeE85eS1jbTM4amJ2b0Y3d21yVzBfOXRyVUkzVTlQNUZ4T1JoZEJWNktrMm9tQV9B?oc=5",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "id": 481454
+  },
+  {
     "data_hora": "12/11/2026 19:15",
     "titulo": "Propostas de credores e Braskem para plano de reestruturação ainda têm diferença de US$ 1 bi, dizem fontes",
     "fonte": "Valor Econômico",
@@ -89,6 +128,19 @@
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 717887
+  },
+  {
+    "data_hora": "12/11/2026 08:35",
+    "titulo": "DBRS deverá manter 'rating' de Portugal mas subida é possível",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "DBRS deverá manter 'rating' de Portugal mas subida é possível &nbsp;&nbsp; Dinheiro Vivo",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNanpDX1gtc0VQUmg3bE5kU3l3OTJDOVJGSjcwTDExUlQzZ2twV0Z6Y2V6Uk43NkYzYzc0dGd2UWYxbVhIZHlQb3VjOHM3MlhmVFkxUW5UX0ZaVjBBc3NXMnQtWi1JMUxybDFuRE5jRlRkdWg5VmF3STlwUUVtdWlySG1OSEhOQTFQZnZwNGV5UjhXWlNR?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Dinheiro Vivo",
+    "id": 887743
   },
   {
     "data_hora": "12/11/2026 06:40",
@@ -1116,57 +1168,5 @@
     "url": "https://forbes.com.br/forbes-money/2026/10/de-raizen-a-casas-bahia-15-empresas-tentam-reestruturar-dividas-em-2026/",
     "deal_id": 86,
     "empresa_nome": "Panorama DCM // Raízen, Braskem, GPA & Companhias Abertas"
-  },
-  {
-    "id": 926,
-    "data_hora": "28/10/2026 14:15",
-    "titulo": "Justiça de SP defere recuperação judicial da varejista Marabraz, concede stay period de 180 dias e nomeia Deloitte como administradora judicial",
-    "fonte": "Jota / Tribunais",
-    "setor": "Varejo & Consumo",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Juíza da Vara Empresarial de São Paulo autorizou consolidação processual do grupo varejista, garantiu manutenção do fornecimento de energia por Enel e CPFL e fixou prazo para entrega de documentos contábeis.",
-    "url": "https://c-level.folha.uol.com.br/negocios/2026/10/justica-aceita-pedido-de-recuperacao-judicial-da-marabraz.shtml",
-    "deal_id": 103,
-    "empresa_nome": "Rede Marabraz (Varejo Moveleiro)"
-  },
-  {
-    "id": 927,
-    "data_hora": "28/10/2026 10:20",
-    "titulo": "Estudo de IOF sobre debêntures incentivadas, CRIs e CRAs entra no radar de gestoras e pressiona prêmios de repactuação e waivers no secundário",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Discussão tributária sobre títulos isentos (renúncia estimada em R$ 33 bilhões/ano) eleva exigência de spread por fundos de crédito privado em assembleias de debenturistas (AGDs) e novas emissões.",
-    "url": "https://www.infomoney.com.br/politica/governo-estuda-aplicar-iof-sobre-lci-lca-cri-cra-e-debentures-diz-jornal/",
-    "deal_id": null,
-    "empresa_nome": "Mercado de Capitais (Debêntures, CRIs e CRAs)"
-  },
-  {
-    "data_hora": "28/10/2026 04:00",
-    "titulo": "De Raízen a Casas Bahia: 15 empresas tentam reestruturar dívidas em 2026",
-    "fonte": "Brazil Journal",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "De Raízen a Casas Bahia: 15 empresas tentam reestruturar dívidas em 2026 &nbsp;&nbsp; Forbes Brasil",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQYnZHRzdpVEc3LUpaWVA2YmJjYjVzSHZqMVlsZ3M3aFNmV0xRNTJkaVJ5YjhEdnlnN0NkamdBcWY3ZjZfWHluUHRYbnIxSTAtSGRZLUJvRzB4NVVrUTZ6dTJaaUlGSGNDRjJ0clpFVnZoY2d0OVk1R1h0TzczS0ZhOUJ1QmFtU0V2ODBzV05aaXJlbkYteVgzMU01N0NnLUt5Zld6d2N2WTRoUHVQWG5EM2U5VzlBdw?oc=5",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 467108
-  },
-  {
-    "data_hora": "28/10/2026 04:00",
-    "titulo": "Braskem segue sem acordo com credores e ganha novo prazo para evitar impasse na reestruturação",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Braskem segue sem acordo com credores e ganha novo prazo para evitar impasse na reestruturação &nbsp;&nbsp; Estadão",
-    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPdXBNSXEtX284S0VVcDY1WVp1aEZfMTNQeTNDNkJ0bzhmQmU2WXJOcTV1M3Vjc0JWeGcwQmhUOTVkQm53bXlzVzB4VzBjZms1Z2JvS2lqbDNNN2NDUE1rQndFSktteHZkRF80T3NUeWlJbGVIZG9TYm9SeDdJRzhLeUM0cGxaUURuVlk0dWJOSGNFeU1IR2NZUjJiY0k4YjFnU2VNV1lZcjROVExvUFV2LXVNT2JwSENZRjRzWEZ4M1BnNnpOTWVtTjlVWHZvMXRGdmxybXdCcDlySFZkaDVrcVpydEVqbXY30gHuAUFVX3lxTE8ybUVmeENLRS03Sm1FQ1ZEbnBoQXBBUUFzZ2dNQ0VBZkZmUC12VC12cHg1elA3OTJsTHduNklBdzNjdFBKQXFCZXRNek41WUhWNjhLem8yalRtQ3Y4RnNCMGdRTFpfRXJKSkxyZV93cGlQS3dMc09SUWpTalBIZGlfSEphcXY5Q25wLXNncFdKRVlfcXpIUkMxWU9PeFpvbE5hVTJFZW1xS3c5TjkxQmp4Q29OalQxOVRlaVhmUmlYcXN0OU5NZzBDQTRUN1hKTF96Ylg2Zm5KaEZqNWdTNFlWZVBIOE1oLU1ITDZFVUE?oc=5",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "id": 100742
   }
 ]
