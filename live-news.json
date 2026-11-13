@@ -221,14 +221,14 @@
     "id": 591474
   },
   {
-    "data_hora": "11/11/2026 10:29",
+    "data_hora": "11/11/2026 09:59",
     "titulo": "Braskem informa que negociação com credores foi prorrogada até esta quinta-feira",
-    "fonte": "CVM / Fatos Relevantes",
+    "fonte": "Jota / Tribunais",
     "setor": "Indústria & Manufatura",
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
-    "resumo": "Braskem informa que negociação com credores foi prorrogada até esta quinta-feira &nbsp;&nbsp; InfoMoney",
-    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPQjJlZGUxUkpxTmRVM25rUGVwOTNsOG1hOEtpTzRfdkZDVEVtSjFReTJJUDlRV3VxUUtCUEl3UjJwZGNSOEc4Q2VxcDNid1ZKVHlfbVR2RWJRelNPM2RwNG1GZ2l5YjFmckE3YV9ua3VuSnBUMlZrVlFkQWthMTlZZThfR2p0ZUxoRTBDM0RXMy13Uy1CNlJqbXM4M0NWX3JMMHk5QmxYb292VEpmNENuWkpEck1GNG83TWtR0gHAAUFVX3lxTE52ZGFIbUdINmZOOV9odGpRTnlpUXVYa3V6dDIxRy1oOWxGYnMyaEF4YVBPZVVMUU81ZzZqWXBkdmZtaVlDVF8yWVgwQ2hJdGt1bkY5c2lRMzFlRjBjQVdmWGd6VklXc0hUZXl0QndJd3kxQjBuMnpRckJUcnNqTVNneEFzZTJlanBqVlRLTVBuaGlQdlpVNlZsb0lsWEtaVXNxV1VaWG9mUFFlWkFLck5pOU01R1RxTWdjVVloVnktag?oc=5",
+    "resumo": "Braskem informa que negociação com credores foi prorrogada até esta quinta-feira &nbsp;&nbsp; Folha PE",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNYlNZdkpvN19TNUs2WFRaa012VG1NY25wcThOaHFFRVM3cDBtMGZ2QlhHc0F5YzBoMGtlSDR3eFVwREkwaE5ITUl5T0Znd2dkQU0tS1FrWS1kTDVXVlNHWTJydDZIRUR6N3BXcGUtU1E1OGg5ZFVLRUlMOEdqWG5zZEtjTloyZ2lSbXBwNE9CMU12NmZ4ZHo5T0xRb09KSndkLU5QQXhfeDE4eHlKVzN6cnFxc3LSAbQBQVVfeXFMTWJTWXZKbzdfUzVLNlhUWmtNdlRtTWNucHE4TmhxRUVTN3AwbTBmdkJYR3NBeWMwaDBrZUg0d3hVcERJMGhOSE1JeU9GZ3dnZEFNLUtRa1ktZEw1V1ZTR1kycnQ2SEVEejdwV3BlLVNRNThoOWRVS0VJTDhHalhuc2RLY05aMmdpUm1wcDRPQjFNdjZmeGR6OU9MUW9PSkp3ZC1OUEF4X3gxOHh5SlczenJxcXNy?oc=5",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 603231
@@ -663,19 +663,6 @@
     "empresa_nome": "Mercado DCM // Debêntures Incentivadas & Crédito Privado"
   },
   {
-    "data_hora": "05/11/2026 08:02",
-    "titulo": "Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial &nbsp;&nbsp; Fatos de Mato Grosso",
-    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQM2FxWVhwbm5vM1pKZnJWU3l6SDZKeGhsMWdFNXVvVm9qMkpDekowakVlTTlLcGE2R0lDdmZucEp2aFZJZlVhN1NoZ3cxckNSLTJocWNnR2xvY0lpSlAtbGJpR0VfelYxTmp5M2hNUWlILWZTalI3T192and4M3FjVjFsTW83R1Q4azRQMXhUbXVncURmMENFSy1KTVg4ZlBpQzBwSlZKZkUyNkZrTF9KQ2tKYjFESTlMQUhhNnBlVTNUd0M4RG5qT21LQTd5VFBCbFBhY3l3d3NGOVNmQ29lR1FFUXFScTdW?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Fatos de Mato Grosso",
-    "id": 573957
-  },
-  {
     "id": 912,
     "data_hora": "05/11/2026 07:50",
     "titulo": "Grupo Kitchens entra em recuperação judicial com passivo de R$ 299,85 milhões; exposição bancária soma R$ 63,25 milhões entre Itaú, Santander e Bradesco",
@@ -687,6 +674,19 @@
     "url": "https://www1.folha.uol.com.br/colunas/painelsa/2026/11/lista-de-credores-da-kitchens-tem-de-ex-ministro-a-empresarios-famosos.shtml",
     "deal_id": 105,
     "empresa_nome": "Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas)"
+  },
+  {
+    "data_hora": "05/11/2026 05:00",
+    "titulo": "Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial &nbsp;&nbsp; Fatos de Mato Grosso",
+    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQM2FxWVhwbm5vM1pKZnJWU3l6SDZKeGhsMWdFNXVvVm9qMkpDekowakVlTTlLcGE2R0lDdmZucEp2aFZJZlVhN1NoZ3cxckNSLTJocWNnR2xvY0lpSlAtbGJpR0VfelYxTmp5M2hNUWlILWZTalI3T192and4M3FjVjFsTW83R1Q4azRQMXhUbXVncURmMENFSy1KTVg4ZlBpQzBwSlZKZkUyNkZrTF9KQ2tKYjFESTlMQUhhNnBlVTNUd0M4RG5qT21LQTd5VFBCbFBhY3l3d3NGOVNmQ29lR1FFUXFScTdW?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Fatos de Mato Grosso",
+    "id": 573957
   },
   {
     "id": 913,
@@ -911,6 +911,19 @@
   },
   {
     "data_hora": "02/11/2026 05:00",
+    "titulo": "Moody’s rebaixa rating da Raízen dois dias após cortes de S&P e Fitch",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Moody’s rebaixa rating da Raízen dois dias após cortes de S&P e Fitch &nbsp;&nbsp; CNN Brasil",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVkFxM2JwWllUQjRyY2F5ay0xN2JMMExFWWZXemg1eVBHbjlObjFjZmJSSVZjYTNMR2diUXJLbzUxT1FmRkZGSm1UNW9QVFliNHlrd2kyZlQxbWh4NzdaQWszOFBhSmV2S3FzR3cwcEFNN1lpNmdZdEl0YzFCenl2c3RDellscG9yUnRCdktIMWZpMjJiUjd2cGZhWHhyYzduM0VpM3RDaw?oc=5",
+    "deal_id": 7,
+    "empresa_nome": "Raízen S.A. (RAIZ4)",
+    "id": 124650
+  },
+  {
+    "data_hora": "02/11/2026 05:00",
     "titulo": "Com 900 franquias, Chilli Beans busca reestruturar dívida de R$ 340 milhões",
     "fonte": "Valor Econômico",
     "setor": "Varejo & Consumo",
@@ -976,19 +989,6 @@
   },
   {
     "data_hora": "31/10/2026 04:00",
-    "titulo": "Chilli Beans entra para lista de empresas que recorreram à recuperação em 2026; veja os casos",
-    "fonte": "Valor Econômico",
-    "setor": "Varejo & Consumo",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Chilli Beans entra para lista de empresas que recorreram à recuperação em 2026; veja os casos &nbsp;&nbsp; G1",
-    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPeE1BTHJZUE5tRVNMX2gyZ0Ntekp6cE95VHVUb3lGLTBXNTZBMlFPMTAtX2ktdk8wQTVRN19fa0toajBsYV9zMVFESzFaaWtyVGxBeWxRM1RZb3hrMEY4Q05vRTNqLUxPclJCQVYzU2t0UkxrWFpOSWx5SjREZGhmUnltZVRyanpWLUluV3dkaXFMRXhWSjhveEtBTGR4UnhLdmt0ZzNFdWh6REJMMU5MOXdfWV84bFFDaHI2YXB1WmRSVUdCaDd5c0l3cjVRYkVjLVpZMFpQNWdaM25FLUg3bi1VZldLOHBHNUItZ9IB-wFBVV95cUxOWnpjRDB5TVRuZ3NCNm9BNGhueEpuNDdoTFBDWDliWUFlcnl0a1J3TEFoTlB4M21HY2o2T1lsSDg2Qkc5cXhyQzF4bnpESWtUR3cxRldMODVySmltWXFWazBPTHlpS2Q0WjVWWkJNZW5FSFZoZXptVnhqTVUyU2RNby1udEJVN2FaXzNMSDVsM0lRTGhUdG5QLVA1UlRkeWw4RDlQZEF3RGxhcGZQUFVNZnlrYU4wZTVxOXN3OVAyUi1TT3k4N2RsRmszc1VRYU9iUmw3dVNhbkVSMEhSSFJYWUdlUWZTbEpyMC1jb0xWYlZrVkx1aHFVeVRtMA?oc=5",
-    "deal_id": 10,
-    "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
-    "id": 847013
-  },
-  {
-    "data_hora": "31/10/2026 04:00",
     "titulo": "Chilli Beans pede recuperação extrajudicial para renegociar R$ 340 milhões em dívidas",
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Varejo & Consumo",
@@ -999,6 +999,19 @@
     "deal_id": 10,
     "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
     "id": 398715
+  },
+  {
+    "data_hora": "31/10/2026 04:00",
+    "titulo": "Chilli Beans entra para lista de empresas que recorreram à recuperação em 2026; veja os casos",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Chilli Beans entra para lista de empresas que recorreram à recuperação em 2026; veja os casos &nbsp;&nbsp; G1",
+    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPeE1BTHJZUE5tRVNMX2gyZ0Ntekp6cE95VHVUb3lGLTBXNTZBMlFPMTAtX2ktdk8wQTVRN19fa0toajBsYV9zMVFESzFaaWtyVGxBeWxRM1RZb3hrMEY4Q05vRTNqLUxPclJCQVYzU2t0UkxrWFpOSWx5SjREZGhmUnltZVRyanpWLUluV3dkaXFMRXhWSjhveEtBTGR4UnhLdmt0ZzNFdWh6REJMMU5MOXdfWV84bFFDaHI2YXB1WmRSVUdCaDd5c0l3cjVRYkVjLVpZMFpQNWdaM25FLUg3bi1VZldLOHBHNUItZ9IB-wFBVV95cUxOWnpjRDB5TVRuZ3NCNm9BNGhueEpuNDdoTFBDWDliWUFlcnl0a1J3TEFoTlB4M21HY2o2T1lsSDg2Qkc5cXhyQzF4bnpESWtUR3cxRldMODVySmltWXFWazBPTHlpS2Q0WjVWWkJNZW5FSFZoZXptVnhqTVUyU2RNby1udEJVN2FaXzNMSDVsM0lRTGhUdG5QLVA1UlRkeWw4RDlQZEF3RGxhcGZQUFVNZnlrYU4wZTVxOXN3OVAyUi1TT3k4N2RsRmszc1VRYU9iUmw3dVNhbkVSMEhSSFJYWUdlUWZTbEpyMC1jb0xWYlZrVkx1aHFVeVRtMA?oc=5",
+    "deal_id": 10,
+    "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
+    "id": 847013
   },
   {
     "data_hora": "30/10/2026 21:01",
@@ -1041,19 +1054,6 @@
   },
   {
     "data_hora": "30/10/2026 04:00",
-    "titulo": "Fitch muda perspectiva do rating da França para negativa",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fitch muda perspectiva do rating da França para negativa &nbsp;&nbsp; CNN Brasil",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUVZBMjY1al9aVjF4dmo1YXBQMGF3V3A3al9uMFJzNFQ0SnFyNFBjc3dLeG1LYVE2cWpnMXU1RjlWNWswTHl4ZmI3cmJKTVBXMFoxbGU1eEo2N051QUxmRmtEUzRhQTRoRzhlbVBnS3h2ejVaNm1uOFhxQTlUanpEWkptVS0xLUhnVWp4bGY5YXBIRW8wU20yVVRsYzRlbS1zaDJ0ZURQV2l1ZEpoMjhpU2piVEVxUQ?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CNN Brasil",
-    "id": 909276
-  },
-  {
-    "data_hora": "30/10/2026 04:00",
     "titulo": "Fitch vê piora das contas públicas da França e coloca rating sob risco",
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1064,6 +1064,19 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Times Brasil | CNBC",
     "id": 892169
+  },
+  {
+    "data_hora": "30/10/2026 04:00",
+    "titulo": "Fitch muda perspectiva do rating da França para negativa",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fitch muda perspectiva do rating da França para negativa &nbsp;&nbsp; CNN Brasil",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUVZBMjY1al9aVjF4dmo1YXBQMGF3V3A3al9uMFJzNFQ0SnFyNFBjc3dLeG1LYVE2cWpnMXU1RjlWNWswTHl4ZmI3cmJKTVBXMFoxbGU1eEo2N051QUxmRmtEUzRhQTRoRzhlbVBnS3h2ejVaNm1uOFhxQTlUanpEWkptVS0xLUhnVWp4bGY5YXBIRW8wU20yVVRsYzRlbS1zaDJ0ZURQV2l1ZEpoMjhpU2piVEVxUQ?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // CNN Brasil",
+    "id": 909276
   },
   {
     "data_hora": "30/10/2026 04:00",
@@ -1093,19 +1106,6 @@
   },
   {
     "data_hora": "29/10/2026 04:00",
-    "titulo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa &nbsp;&nbsp; Monitor Mercantil",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZ3NEcFc0UkhLRENhWjVKVktSSmgxRVd2M2Y3b1dldW1CZnVFZ1dublBSMndmR2tqdExrUHZqRk4yUmdLU3haVjdaRGdwS3BpLVh2NjZOYUlHal94c3plVlpNa0ltRWRfUHl3aFh4ZHQyVHo3TU5zNU96TklkQnNDTGdLa0ZHUjdITkxF?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Monitor Mercantil",
-    "id": 531192
-  },
-  {
-    "data_hora": "29/10/2026 04:00",
     "titulo": "Raízen avança na reestruturação; Klabin e Localiza ajustam dívidas",
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Energia & Infraestrutura",
@@ -1116,6 +1116,19 @@
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 921319
+  },
+  {
+    "data_hora": "29/10/2026 04:00",
+    "titulo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa &nbsp;&nbsp; Monitor Mercantil",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZ3NEcFc0UkhLRENhWjVKVktSSmgxRVd2M2Y3b1dldW1CZnVFZ1dublBSMndmR2tqdExrUHZqRk4yUmdLU3haVjdaRGdwS3BpLVh2NjZOYUlHal94c3plVlpNa0ltRWRfUHl3aFh4ZHQyVHo3TU5zNU96TklkQnNDTGdLa0ZHUjdITkxF?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Monitor Mercantil",
+    "id": 531192
   },
   {
     "data_hora": "29/10/2026 04:00",
@@ -1155,18 +1168,5 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Bloomberg Linea Brasil",
     "id": 391466
-  },
-  {
-    "id": 925,
-    "data_hora": "28/10/2026 16:30",
-    "titulo": "De Raízen a Casas Bahia: 15 grandes empresas brasileiras renegociam dívidas, waivers de debêntures e recuperações extrajudiciais em 2026",
-    "fonte": "Brazil Journal",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Levantamento de mercado mapeia onda de repactuações em companhias abertas (Raízen, Braskem, GPA, Oncoclínicas, Casas Bahia e Aeris) com foco em alongamento de debêntures, waivers de covenants e conversão de dívida.",
-    "url": "https://forbes.com.br/forbes-money/2026/10/de-raizen-a-casas-bahia-15-empresas-tentam-reestruturar-dividas-em-2026/",
-    "deal_id": 86,
-    "empresa_nome": "Panorama DCM // Raízen, Braskem, GPA & Companhias Abertas"
   }
 ]
