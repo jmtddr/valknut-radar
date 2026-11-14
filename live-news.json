@@ -1,6 +1,6 @@
 [
   {
-    "data_hora": "13/11/2026 17:52",
+    "data_hora": "13/11/2026 18:40",
     "titulo": "Braskem para pagamento de debêntures: o que a blindagem judicial muda",
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Indústria & Manufatura",
@@ -89,6 +89,19 @@
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 436138
+  },
+  {
+    "data_hora": "12/11/2026 13:35",
+    "titulo": "Braskem (BRKM5) dá calote de R$ 1,2 bilhão em debêntures e usa recuperação extrajudicial como justificativa",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Braskem (BRKM5) dá calote de R$ 1,2 bilhão em debêntures e usa recuperação extrajudicial como justificativa &nbsp;&nbsp; Guia do Investidor",
+    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOeGI5YjRrOV9rcHlYZzN0cU53bHp0R1JBZ183U0VweHhTREN0Y2dobUswWGtHM1BXQ0hWeXp2Y2pVUUZfY3NoSHdqdVZ4RkJhc2lXLWo4WnZFLXIyMEJNVDFPLWV2Qm9KWkZ6N2s4X3VzcjlxRndUS1NwWkZiamxZSXBzR3VQRUJPSURFR1BlWjV5Tnlva0oxc0Q3bWw0czlkRGhfbkNOZ0ZuSWRoV3U4dkJsNC0zNl9SN0FPZE1kcGFTWXdSV1NjVzhxQXB3U201elBpQWVNSzc1b1Jj?oc=5",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "id": 282452
   },
   {
     "data_hora": "12/11/2026 11:07",
@@ -247,6 +260,19 @@
     "id": 591474
   },
   {
+    "data_hora": "11/11/2026 12:37",
+    "titulo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT &nbsp;&nbsp; Midia Jur",
+    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNaWxVZncwMUhGOHptVTVveUFrWlFHZ1Bhdkl3eGhHQ0VyU2tTQ2REOS1yM3M2WWdmbktQQTRMUTQySmpoWE5HMGxETzI1akFodi1zSEZIMkFxdnNCU05YbG5KQWo5TU9nTGZoTFRvcDVvS2xsbUhMZmoyTHlUOGd4dlhXZlRpV2JfYmFVbkg1Sjk4ZWYwRzFJRDlZTVRTXzBKa25Sb0tmWWdGTHk2Vk9aSWVQeklISW4yZ3FZOEZTU1c1clk?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Midia Jur",
+    "id": 677873
+  },
+  {
     "data_hora": "11/11/2026 09:59",
     "titulo": "Braskem informa que negociação com credores foi prorrogada até esta quinta-feira",
     "fonte": "Jota / Tribunais",
@@ -351,6 +377,19 @@
     "id": 737507
   },
   {
+    "data_hora": "10/11/2026 10:30",
+    "titulo": "Americanas vence recuperação judicial, mas sai menor e ainda enfrenta crise",
+    "fonte": "Jota / Tribunais",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Americanas vence recuperação judicial, mas sai menor e ainda enfrenta crise &nbsp;&nbsp; UOL Economia",
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxORjE2cEo5enBJZE8xcExyRFRfeWlhbVRTaVJleF9IanlxY2JoRVV2S1Q1c3g3dk94Vm5lVm14WFNkc01tbnlCeW03ck1NanJLMV9FcEFGLTllR0RFalVlR0pTRXIxbFVUWFE5dGlwX005RlIxMjkzUEw0RVJVN1FOd2RadlE3UzhjRE5TdGVMZG1ub1FpN1NoSFZfdHc4eUQxOW1ub1VGVjlJczIxc2ttcE1MWmlMUWVnZEo4dHFPenZBLTB2VF8xMGxKRHZEWWc?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // UOL Economia",
+    "id": 625565
+  },
+  {
     "data_hora": "10/11/2026 09:40",
     "titulo": "Mercer International (MERC) pede recuperação judicial nos EUA e prevê reduzir dívida em 88%",
     "fonte": "Valor Econômico",
@@ -375,19 +414,6 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Poder360",
     "id": 674654
-  },
-  {
-    "data_hora": "10/11/2026 05:30",
-    "titulo": "Americanas vence recuperação judicial, mas sai menor e ainda enfrenta crise",
-    "fonte": "Jota / Tribunais",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Americanas vence recuperação judicial, mas sai menor e ainda enfrenta crise &nbsp;&nbsp; UOL Economia",
-    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxORjE2cEo5enBJZE8xcExyRFRfeWlhbVRTaVJleF9IanlxY2JoRVV2S1Q1c3g3dk94Vm5lVm14WFNkc01tbnlCeW03ck1NanJLMV9FcEFGLTllR0RFalVlR0pTRXIxbFVUWFE5dGlwX005RlIxMjkzUEw0RVJVN1FOd2RadlE3UzhjRE5TdGVMZG1ub1FpN1NoSFZfdHc4eUQxOW1ub1VGVjlJczIxc2ttcE1MWmlMUWVnZEo4dHFPenZBLTB2VF8xMGxKRHZEWWc?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // UOL Economia",
-    "id": 625565
   },
   {
     "data_hora": "09/11/2026 18:45",
@@ -1080,16 +1106,16 @@
   },
   {
     "data_hora": "30/10/2026 04:00",
-    "titulo": "Fitch muda perspectiva do rating da França para negativa",
-    "fonte": "CVM / Fatos Relevantes",
+    "titulo": "Fitch reduz perspectiva para rating da França de estável para negativa",
+    "fonte": "Jota / Tribunais",
     "setor": "Mercado & Macro (RJ / Crédito)",
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
-    "resumo": "Fitch muda perspectiva do rating da França para negativa &nbsp;&nbsp; CNN Brasil",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUVZBMjY1al9aVjF4dmo1YXBQMGF3V3A3al9uMFJzNFQ0SnFyNFBjc3dLeG1LYVE2cWpnMXU1RjlWNWswTHl4ZmI3cmJKTVBXMFoxbGU1eEo2N051QUxmRmtEUzRhQTRoRzhlbVBnS3h2ejVaNm1uOFhxQTlUanpEWkptVS0xLUhnVWp4bGY5YXBIRW8wU20yVVRsYzRlbS1zaDJ0ZURQV2l1ZEpoMjhpU2piVEVxUQ?oc=5",
+    "resumo": "Fitch reduz perspectiva para rating da França de estável para negativa &nbsp;&nbsp; UOL Economia",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOZXVuNFNaTEdJcnlWMnd3TU5sdFRreFAzUmkwUEU5VHd5YlFPVjNPNEVzM2hkNXRTZ2hKNndtbXpud1g1bDVfVUhrbTEzT2VMRUpxLUpBM0ZqRDVUcGNQOThyeG5YcEJuZWF6eHBYaUJYRXZ0ay14c0xpcElOSVVGS1JEVTVGd2p1Nm5rTGtVNGdIdWNyM2hkRW5DMGpma0dWS1p3UE00TFhVS3hyall0R3hQZk9zc1FMc2dCWm1kQ0owa1hmSnRVZ3Bka3U2M2RDTWpwcEh3?oc=5",
     "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CNN Brasil",
-    "id": 909276
+    "empresa_nome": "Radar Ao Vivo // UOL Economia",
+    "id": 838850
   },
   {
     "data_hora": "30/10/2026 04:00",
@@ -1106,16 +1132,16 @@
   },
   {
     "data_hora": "30/10/2026 04:00",
-    "titulo": "Fitch reduz perspectiva para rating da França de estável para negativa",
-    "fonte": "Jota / Tribunais",
+    "titulo": "Fitch muda perspectiva do rating da França para negativa",
+    "fonte": "CVM / Fatos Relevantes",
     "setor": "Mercado & Macro (RJ / Crédito)",
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
-    "resumo": "Fitch reduz perspectiva para rating da França de estável para negativa &nbsp;&nbsp; UOL Economia",
-    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOZXVuNFNaTEdJcnlWMnd3TU5sdFRreFAzUmkwUEU5VHd5YlFPVjNPNEVzM2hkNXRTZ2hKNndtbXpud1g1bDVfVUhrbTEzT2VMRUpxLUpBM0ZqRDVUcGNQOThyeG5YcEJuZWF6eHBYaUJYRXZ0ay14c0xpcElOSVVGS1JEVTVGd2p1Nm5rTGtVNGdIdWNyM2hkRW5DMGpma0dWS1p3UE00TFhVS3hyall0R3hQZk9zc1FMc2dCWm1kQ0owa1hmSnRVZ3Bka3U2M2RDTWpwcEh3?oc=5",
+    "resumo": "Fitch muda perspectiva do rating da França para negativa &nbsp;&nbsp; CNN Brasil",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUVZBMjY1al9aVjF4dmo1YXBQMGF3V3A3al9uMFJzNFQ0SnFyNFBjc3dLeG1LYVE2cWpnMXU1RjlWNWswTHl4ZmI3cmJKTVBXMFoxbGU1eEo2N051QUxmRmtEUzRhQTRoRzhlbVBnS3h2ejVaNm1uOFhxQTlUanpEWkptVS0xLUhnVWp4bGY5YXBIRW8wU20yVVRsYzRlbS1zaDJ0ZURQV2l1ZEpoMjhpU2piVEVxUQ?oc=5",
     "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // UOL Economia",
-    "id": 838850
+    "empresa_nome": "Radar Ao Vivo // CNN Brasil",
+    "id": 909276
   },
   {
     "id": 924,
@@ -1142,31 +1168,5 @@
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 921319
-  },
-  {
-    "data_hora": "29/10/2026 04:00",
-    "titulo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa &nbsp;&nbsp; Monitor Mercantil",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZ3NEcFc0UkhLRENhWjVKVktSSmgxRVd2M2Y3b1dldW1CZnVFZ1dublBSMndmR2tqdExrUHZqRk4yUmdLU3haVjdaRGdwS3BpLVh2NjZOYUlHal94c3plVlpNa0ltRWRfUHl3aFh4ZHQyVHo3TU5zNU96TklkQnNDTGdLa0ZHUjdITkxF?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Monitor Mercantil",
-    "id": 531192
-  },
-  {
-    "data_hora": "29/10/2026 04:00",
-    "titulo": "Marabraz tem recuperação judicial aceita para dívida de R$ 140 milhões",
-    "fonte": "Valor Econômico",
-    "setor": "Varejo & Consumo",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Marabraz tem recuperação judicial aceita para dívida de R$ 140 milhões &nbsp;&nbsp; Poder360",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNjljM3ZuREd6ektxZF9COFNvREFSRUJOTDlyU2R2S21KRDBFcWFRc09lTWlqUWphWEU5Nm1OZXpiMHI1TXE3Sm83bUVpX0lhdEcycXVpQWtMMEJjOWVmclc4S2dzcDNVUDJDb1BwdXdadWNhZVJNbzhDalo3YmIza1FWbktCOENtMkwxTXowQWdQbWkwYTRiR21jSERoZkN3dEZVVW5KU1VLTGhsaXExbXNTOA?oc=5",
-    "deal_id": 103,
-    "empresa_nome": "Grupo Marabraz (Comercial de Móveis Jordanésia, Marabraz Comercial & Lojas Marabraz)",
-    "id": 805962
   }
 ]
