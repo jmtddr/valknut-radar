@@ -1041,19 +1041,6 @@
   },
   {
     "data_hora": "02/11/2026 05:00",
-    "titulo": "Com 900 franquias, Chilli Beans busca reestruturar dívida de R$ 340 milhões",
-    "fonte": "Valor Econômico",
-    "setor": "Varejo & Consumo",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Com 900 franquias, Chilli Beans busca reestruturar dívida de R$ 340 milhões &nbsp;&nbsp; CidadeMarketing",
-    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQdUo3cVoycTlSUUwta3NpTW1qZW5HbnhiOXJKZ0huRkpsa25xWk9ZZ0h5NDYtWThBT0tzMlN4Z19jZ0dfa1JnYkw5T1RTM3hiTnNPYlJfdWYzNDNlaVRZVWFDT08zRkRxZDJka1BxNkZMZDdjWlc2MHA5TW5PX1pLanZlMG1zNzRaN1R5QlBkeWFOa0tPSjlpckZTbXQwLTZhWW1qZERoTXFyUWdMUTZXelVrWEplMFRHeWlZMV9sTzU5SGx3QWk0eTJ30gHPAUFVX3lxTFBNSUd6enVBQWE4V1ljbFpha0VER2p0OUdoQ3FqRzIwNjFtbGV0Qmdka2RRSlVRT1pmejd3cTNzaHlRcE1ieDd6OUdaN1ppTk1uTEtoNldpbFkyZzdLNVl0NDd3ejRyS3NJMzg2MHRBeE1jbWFoTzd0aUxlS0xuYUVVdFh5VzdFNDE5M1l0NVpyM0QtcXhnM3diTU5wLWh5OUpXcUFqbXY0cF83bGtOSEJIY01Sb2dkNUJGMDE0UFBoZHFWbGwzYzZCSkp0VHhrQQ?oc=5",
-    "deal_id": 10,
-    "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
-    "id": 570366
-  },
-  {
-    "data_hora": "02/11/2026 05:00",
     "titulo": "Moody’s rebaixa rating da Raízen dois dias após cortes de S&P e Fitch",
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Energia & Infraestrutura",
@@ -1064,6 +1051,19 @@
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 124650
+  },
+  {
+    "data_hora": "02/11/2026 05:00",
+    "titulo": "Com 900 franquias, Chilli Beans busca reestruturar dívida de R$ 340 milhões",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Com 900 franquias, Chilli Beans busca reestruturar dívida de R$ 340 milhões &nbsp;&nbsp; CidadeMarketing",
+    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQdUo3cVoycTlSUUwta3NpTW1qZW5HbnhiOXJKZ0huRkpsa25xWk9ZZ0h5NDYtWThBT0tzMlN4Z19jZ0dfa1JnYkw5T1RTM3hiTnNPYlJfdWYzNDNlaVRZVWFDT08zRkRxZDJka1BxNkZMZDdjWlc2MHA5TW5PX1pLanZlMG1zNzRaN1R5QlBkeWFOa0tPSjlpckZTbXQwLTZhWW1qZERoTXFyUWdMUTZXelVrWEplMFRHeWlZMV9sTzU5SGx3QWk0eTJ30gHPAUFVX3lxTFBNSUd6enVBQWE4V1ljbFpha0VER2p0OUdoQ3FqRzIwNjFtbGV0Qmdka2RRSlVRT1pmejd3cTNzaHlRcE1ieDd6OUdaN1ppTk1uTEtoNldpbFkyZzdLNVl0NDd3ejRyS3NJMzg2MHRBeE1jbWFoTzd0aUxlS0xuYUVVdFh5VzdFNDE5M1l0NVpyM0QtcXhnM3diTU5wLWh5OUpXcUFqbXY0cF83bGtOSEJIY01Sb2dkNUJGMDE0UFBoZHFWbGwzYzZCSkp0VHhrQQ?oc=5",
+    "deal_id": 10,
+    "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
+    "id": 570366
   },
   {
     "id": 922,
