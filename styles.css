@@ -1,6 +1,6 @@
 /* ==========================================================================
    VALKNUT — SPECIAL SITUATIONS // Distressed Debt & Restructuring Platform
-   Design System v4.7: Header #063630 / #08332C + Light Institutional Workspace
+   Design System v5.0 (20261118v50): 8-Module Executive UX, CRM & Watchlist
    ========================================================================== */
 
 :root {
@@ -92,18 +92,18 @@ body {
 }
 
 /* ==========================================================================
-   1. Top Institutional Header (#063630 / #08332C) & Horizontal Official Logo
+   1. Top Institutional Header (#063630 / #08332C) & 8-Module Anti-Overflow Nav
    ========================================================================== */
 .top-navbar {
   background: linear-gradient(90deg, var(--vk-header-start) 0%, var(--vk-header-end) 60%, #0A3D35 100%);
   color: #FFFFFF;
-  min-height: 64px;
-  padding: 6px 22px;
+  min-height: 62px;
+  padding: 6px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -114,16 +114,16 @@ body {
 .brand-cluster {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 11px;
   cursor: pointer;
   text-decoration: none;
   flex-shrink: 0;
-  padding: 4px 6px 4px 0;
+  padding: 3px 4px 3px 0;
 }
 
 .brand-mark-wrap {
-  width: 44px;
-  height: 40px;
+  width: 40px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,8 +132,8 @@ body {
 }
 
 .brand-mark-img {
-  width: 44px;
-  height: 38px;
+  width: 40px;
+  height: 34px;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
@@ -153,51 +153,44 @@ body {
 
 .brand-title-valknut {
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   color: #E6E9DC;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.13em;
   line-height: 1.05;
   text-transform: uppercase;
 }
 
 .brand-subtitle-spec {
   font-family: var(--font-sans);
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-weight: 700;
   color: #A5AC82;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-top: 3px;
+  margin-top: 2px;
   line-height: 1;
 }
 
-/* Main Navigation Links (Single-Row Non-Wrapping Horizontal Scroll) */
+/* Main Navigation Links (8 Executive Modules — Graceful Wrap, Zero Hidden Tabs) */
 .main-nav-links {
   display: flex;
   align-items: center;
-  gap: 3px;
-  flex-wrap: nowrap;
+  gap: 4px;
+  flex-wrap: wrap;
   flex: 1 1 auto;
   min-width: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.main-nav-links::-webkit-scrollbar {
-  display: none;
+  overflow: visible;
 }
 
 .nav-link-btn {
   background: transparent;
   border: 1px solid transparent;
-  color: rgba(230, 233, 220, 0.82);
+  color: rgba(230, 233, 220, 0.86);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
-  padding: 7px 10px;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.16s ease;
@@ -207,6 +200,7 @@ body {
   position: relative;
   flex-shrink: 0;
   white-space: nowrap;
+  line-height: 1.25;
 }
 
 .nav-link-btn:hover {
@@ -236,10 +230,11 @@ body {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
-  padding: 1px 6px;
+  padding: 1px 5px;
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.14);
   color: #E6E9DC;
+  line-height: 1.2;
 }
 
 .nav-link-btn.active .nav-count-pill {
@@ -251,8 +246,9 @@ body {
 .top-nav-actions {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 .header-pill-btn {
@@ -262,12 +258,12 @@ body {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
-  padding: 6px 11px;
+  padding: 5px 10px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   transition: all 0.15s ease;
   white-space: nowrap;
 }
@@ -276,6 +272,18 @@ body {
   background: rgba(165, 172, 130, 0.24);
   border-color: var(--vk-sage);
   color: #FFFFFF;
+}
+
+.header-pill-btn.btn-metodologia {
+  background: rgba(56, 104, 106, 0.35);
+  border-color: rgba(200, 206, 176, 0.5);
+  color: #E6E9DC;
+  font-weight: 700;
+}
+
+.header-pill-btn.btn-metodologia:hover {
+  background: rgba(165, 172, 130, 0.3);
+  border-color: var(--vk-sage-light);
 }
 
 .header-pill-btn.btn-xlsx {
@@ -1341,6 +1349,8 @@ body {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .ons-select, .ons-date-input {
@@ -1354,6 +1364,9 @@ body {
   border-radius: var(--radius-sm);
   outline: none;
   cursor: pointer;
+  min-width: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
 }
 
 .ons-select option {
@@ -1462,12 +1475,13 @@ body {
 .tearsheet-header {
   background: linear-gradient(90deg, var(--vk-header-start) 0%, var(--vk-header-end) 100%);
   color: #E6E9DC;
-  padding: 18px 26px;
+  padding: 16px 24px;
   border-bottom: 3px solid var(--vk-sage);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .tearsheet-brand-strip {
@@ -1559,11 +1573,15 @@ body {
 
 .modal-tab-strip {
   display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 44px;
   background: var(--bg-subtle);
   border-bottom: 1px solid var(--border-light);
-  padding: 0 24px;
+  padding: 4px 20px 0;
   gap: 4px;
   overflow-x: auto;
+  overflow-y: visible;
 }
 
 .modal-tab-item {
@@ -1574,9 +1592,11 @@ body {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 700;
-  padding: 11px 14px;
+  line-height: 1.3;
+  padding: 9px 13px;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .modal-tab-item.active {
@@ -1588,6 +1608,7 @@ body {
   padding: 22px 26px;
   overflow-y: auto;
   flex: 1;
+  min-height: 0;
 }
 
 /* Tear Sheet 4 KPI Row */
@@ -1776,6 +1797,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 /* Toast Notification */
@@ -1795,23 +1817,39 @@ body {
   display: none;
 }
 
-/* Responsive Breakpoints: 1366x768 Notebooks, Tablets & 360px Mobile */
-@media (max-width: 1480px) {
+/* Responsive Breakpoints: 1440px, 1366px, 1280px Notebooks, Tablets & 375px Mobile */
+@media (max-width: 1520px) {
   .top-navbar {
-    padding: 6px 16px;
-    gap: 10px;
+    min-height: auto;
+    padding: 7px 16px 6px;
+    flex-wrap: wrap;
+    gap: 6px 12px;
   }
   .brand-title-valknut {
     font-size: 16px;
   }
   .brand-subtitle-spec {
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: 0.18em;
   }
-  .nav-link-btn {
-    font-size: 11.5px;
-    padding: 6px 8px;
+  .top-nav-actions {
+    margin-left: auto;
+    gap: 6px;
+  }
+  .main-nav-links {
+    order: 3;
+    flex: 1 1 100%;
+    width: 100%;
+    padding: 5px 0 2px;
+    border-top: 1px solid rgba(165, 172, 130, 0.22);
+    flex-wrap: wrap;
+    overflow: visible;
     gap: 4px;
+  }
+  .nav-link-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+    gap: 5px;
   }
   .header-pill-btn {
     font-size: 10.5px;
@@ -1827,15 +1865,15 @@ body {
   .geo-layout { grid-template-columns: 1fr; }
   .top-navbar {
     padding: 6px 12px;
-    gap: 8px;
+    gap: 6px 8px;
   }
   .brand-subtitle-spec {
-    font-size: 9px;
+    font-size: 8.5px;
     letter-spacing: 0.14em;
   }
   .nav-link-btn {
-    font-size: 11px;
-    padding: 5px 7px;
+    font-size: 11.5px;
+    padding: 5px 8px;
   }
   .header-pill-btn {
     font-size: 10px;
@@ -1858,28 +1896,24 @@ body {
     margin-left: auto;
     gap: 5px;
     min-width: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .top-nav-actions::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
   }
   .main-nav-links {
     order: 3;
-    flex: 0 0 100%;
+    flex: 1 1 100%;
     width: 100%;
-    max-height: 40px;
-    padding: 4px 0 2px;
+    max-height: none;
+    padding: 5px 0 2px;
     border-top: 1px solid rgba(165, 172, 130, 0.22);
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+    flex-wrap: wrap;
+    overflow: visible;
+    gap: 4px;
   }
 }
 
 @media (max-width: 640px) {
   .top-navbar {
-    padding: 7px 10px 5px;
+    padding: 7px 10px 6px;
     gap: 5px 8px;
   }
   .brand-mark-wrap {
@@ -1900,12 +1934,23 @@ body {
   .top-nav-actions {
     flex: 1 1 auto;
     justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 4px;
   }
   .header-pill-btn {
     font-size: 9.5px;
-    padding: 4px 7px;
-    gap: 4px;
+    padding: 4px 6px;
+    gap: 3px;
     flex-shrink: 0;
+  }
+  .nav-link-btn {
+    font-size: 11px;
+    padding: 5px 7px;
+    gap: 4px;
+  }
+  .nav-count-pill {
+    font-size: 9.5px;
+    padding: 1px 4px;
   }
   .page-wrapper {
     padding: 12px 10px;
@@ -1946,7 +1991,7 @@ body {
     padding: 14px 16px;
   }
   .modal-tab-strip {
-    padding: 0 12px;
+    padding: 4px 12px 0;
   }
   .modal-content-body {
     padding: 14px 16px;
@@ -2027,6 +2072,7 @@ body {
   .btn-copy-autos,
   .company-intro-banner .btn-action,
   .btn-comp-toggle,
+  .btn-watchlist-star,
   .comps-floating-bar,
   .toast-banner {
     display: none !important;
@@ -2035,7 +2081,8 @@ body {
   /* Mode 1: Tear Sheet Modal Print (body.modal-open) — Multi-Page Unclipped A4 */
   body.modal-open .top-navbar,
   body.modal-open .page-wrapper,
-  body.modal-open #compsModal {
+  body.modal-open #compsModal,
+  body.modal-open #diretrizesModal {
     display: none !important;
   }
 
@@ -2066,7 +2113,8 @@ body {
   /* Mode 2: Side-by-Side Comps Print (body.comps-modal-open) — Multi-Page Unclipped A4 */
   body.comps-modal-open .top-navbar,
   body.comps-modal-open .page-wrapper,
-  body.comps-modal-open #detailModal {
+  body.comps-modal-open #detailModal,
+  body.comps-modal-open #diretrizesModal {
     display: none !important;
   }
 
@@ -2094,19 +2142,42 @@ body {
     position: static !important;
   }
 
-  /* Mode 3: Global Workspace Print (No Modal Open) — Never Print Ghost Modal */
-  body:not(.modal-open):not(.comps-modal-open) #detailModal,
-  body:not(.modal-open):not(.comps-modal-open) #compsModal,
-  body:not(.modal-open):not(.comps-modal-open) .top-navbar .top-nav-actions,
-  body:not(.modal-open):not(.comps-modal-open) .top-navbar .main-nav-links,
-  body:not(.modal-open):not(.comps-modal-open) .passivo-cutoff-bar,
-  body:not(.modal-open):not(.comps-modal-open) .subtab-pills-bar,
-  body:not(.modal-open):not(.comps-modal-open) .filter-console,
-  body:not(.modal-open):not(.comps-modal-open) .pagination-bar {
+  /* Mode 2b: Governance Methodology Print (body.diretrizes-modal-open) */
+  body.diretrizes-modal-open .top-navbar,
+  body.diretrizes-modal-open .page-wrapper,
+  body.diretrizes-modal-open #detailModal,
+  body.diretrizes-modal-open #compsModal {
     display: none !important;
   }
 
-  body:not(.modal-open):not(.comps-modal-open) .top-navbar {
+  body.diretrizes-modal-open #diretrizesModal,
+  body.diretrizes-modal-open #diretrizesModal .modal-box,
+  body.diretrizes-modal-open #diretrizesModal .modal-content-body {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+  }
+
+  /* Mode 3: Global Workspace Print (No Modal Open) — Never Print Ghost Modal */
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) #detailModal,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) #compsModal,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) #diretrizesModal,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) .top-navbar .top-nav-actions,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) .top-navbar .main-nav-links,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) .passivo-cutoff-bar,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) .subtab-pills-bar,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) .filter-console,
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) .pagination-bar {
+    display: none !important;
+  }
+
+  body:not(.modal-open):not(.comps-modal-open):not(.diretrizes-modal-open) .top-navbar {
     position: static !important;
     box-shadow: none !important;
     -webkit-print-color-adjust: exact !important;
@@ -2161,20 +2232,17 @@ body {
   font-weight: 500;
 }
 
-
-
-
 /* ==========================================================================
    Calculadoras, Waterfall, Simulador de Quórum (% Digitável) & Benchmarks
    ========================================================================== */
 .calc-layout-grid {
   display: grid;
-  grid-template-columns: 390px 1fr;
+  grid-template-columns: 380px minmax(0, 1fr);
   gap: 20px;
   align-items: start;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1180px) {
   .calc-layout-grid {
     grid-template-columns: 1fr;
   }
@@ -2187,6 +2255,7 @@ body {
   border-radius: var(--radius-md);
   padding: 18px;
   box-shadow: var(--shadow-xs);
+  min-width: 0;
 }
 
 .calc-field-group {
@@ -2202,6 +2271,7 @@ body {
   font-weight: 700;
   color: var(--text-body);
   margin-bottom: 6px;
+  flex-wrap: wrap;
 }
 
 .val-badge {
@@ -2218,6 +2288,8 @@ body {
 
 .calc-num-input {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -2258,14 +2330,14 @@ body {
 
 .calc-results-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin-bottom: 18px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1320px) {
   .calc-results-strip {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -2274,33 +2346,44 @@ body {
   border: 1px solid var(--border-light);
   border-top: 3px solid var(--vk-header-start);
   border-radius: var(--radius-md);
-  padding: 14px 16px;
+  padding: 14px 15px;
   box-shadow: var(--shadow-xs);
+  min-width: 0;
+  overflow: visible;
 }
 
-.calc-res-label {
+.calc-res-label,
+.result-kpi-label {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
   margin-bottom: 6px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.3;
+  word-break: break-word;
 }
 
 .calc-res-val {
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: clamp(16px, 1.45vw, 20px);
   font-weight: 800;
   color: var(--vk-header-start);
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 4px;
+  overflow-wrap: anywhere;
 }
 
 .calc-res-sub {
   font-size: 11px;
   color: var(--text-secondary);
   line-height: 1.35;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .quorum-class-box {
@@ -2816,6 +2899,51 @@ textarea:focus-visible,
   color: #FFFFFF;
 }
 
+.btn-reset {
+  background: rgba(159, 18, 57, 0.45);
+  border: 1px solid rgba(253, 164, 175, 0.65);
+  color: #FEE2E2;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-reset:hover,
+.btn-reset:focus-visible {
+  background: rgba(159, 18, 57, 0.72);
+  border-color: #FECDD3;
+  color: #FFFFFF;
+}
+
+.comps-company-trigger {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #E6E9DC;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.comps-company-trigger:hover,
+.comps-company-trigger:focus-visible {
+  color: #FFFFFF;
+}
+
+.uf-rank-item:focus-visible,
+.cal-event-chip:focus-visible,
+.brand-cluster:focus-visible,
+th[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--vk-petrol);
+  outline-offset: 2px;
+}
+
 .comps-modal-box {
   max-width: 1220px;
 }
@@ -2953,3 +3081,201 @@ body.comps-modal-open #compsModal {
   color: var(--vk-darkest);
 }
 
+/* ==========================================================================
+   Release v5.0: Cold-Start Shimmer, Watchlist (★), CRM Mandatos,
+   Governança Metodológica (ⓘ Metodologia) & Hybrid Process Badges
+   ========================================================================== */
+.skeleton-shimmer {
+  display: inline-block;
+  min-width: 72px;
+  padding: 0 8px;
+  border-radius: var(--radius-xs);
+  color: var(--text-muted);
+  background: linear-gradient(90deg, #EEF2F3 25%, #DCE7E7 50%, #EEF2F3 75%);
+  background-size: 200% 100%;
+  animation: vkShimmer 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer {
+    animation: none !important;
+    background: #EEF2F3 !important;
+  }
+}
+
+/* Watchlist Star Toggle (Table, Cards & Tear Sheet Header) */
+.btn-watchlist-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #F8FAFA;
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  line-height: 1.2;
+}
+
+.btn-watchlist-star:hover {
+  border-color: #D97706;
+  color: #B45309;
+  background: #FFFBEB;
+}
+
+.btn-watchlist-star.active {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #92400E;
+  font-weight: 800;
+}
+
+.btn-watchlist-star.in-modal {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(252, 211, 77, 0.5);
+  color: #FEF3C7;
+  padding: 3px 9px;
+}
+
+.btn-watchlist-star.in-modal:hover {
+  background: rgba(252, 211, 77, 0.22);
+  border-color: #FCD34D;
+  color: #FFFFFF;
+}
+
+.btn-watchlist-star.in-modal.active {
+  background: #F59E0B;
+  border-color: #FCD34D;
+  color: #042420;
+}
+
+/* Governança Metodológica Modal */
+.diretrizes-modal-box {
+  max-width: 940px;
+}
+
+body.diretrizes-modal-open #diretrizesModal {
+  display: flex;
+}
+
+.diretrizes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.diretrizes-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-medium);
+  border-left: 4px solid var(--vk-header-start);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.diretrizes-card-title {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--vk-header-start);
+  margin-bottom: 4px;
+}
+
+.diretrizes-card-body {
+  font-size: 12.5px;
+  color: var(--text-body);
+  line-height: 1.48;
+}
+
+/* CRM Mandatos Ativos */
+.crm-mandatos-kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 960px) {
+  .crm-mandatos-kpi-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .crm-mandatos-kpi-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.crm-mandatos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.crm-mandato-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-top: 4px solid var(--vk-header-start);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.crm-stage-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #E0F2FE;
+  color: #075985;
+  border: 1px solid #7DD3FC;
+  white-space: nowrap;
+}
+
+/* Hybrid Process & Autuação Badges */
+.badge-proc-autuacao {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #FCD34D;
+  font-size: 9.5px;
+  text-transform: none;
+}
+
+.badge-proc-dcm {
+  background: #E0F2FE;
+  color: #075985;
+  border-color: #7DD3FC;
+  font-size: 9.5px;
+  text-transform: none;
+  margin-right: 4px;
+}
+
+/* Sub-Filters inside Stakeholders & Map */
+.inline-subfilter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}

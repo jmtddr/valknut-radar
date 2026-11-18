@@ -1,4 +1,5 @@
 exclude:
   - README.md
-  - _backend/
+  - Code.gs
+  - update_live_news.py
   - .github/

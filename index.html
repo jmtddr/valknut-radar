@@ -32,17 +32,19 @@
 
   <!-- Core Stylesheets Loaded First (Zero Render-Blocking Scripts Before CSS) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css?v=20261111v47">
+  <link rel="stylesheet" href="styles.css?v=20261118v50">
 
-  <!-- Deferred Analytics/Visualization Engines with SRI (SheetJS & PptxGenJS Lazy-Loaded on Demand) -->
+  <!-- Deferred Analytics, Export & Pitch Engines with Intact SHA-384 Subresource Integrity -->
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js" integrity="sha384-gx12pQMMYnabkTgbCHqqrT65RwDnXI/f/dU2H9JUmT0KUeiMF5bf+yroQBmX0Nuk" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js" integrity="sha384-Cck14aA9cifjYolcnjebXRfWGkz5ltHMBiG4px/j8GS+xQcb7OhNQWZYyWjQ+UwQ" crossorigin="anonymous"></script>
 </head>
 <body>
 
   <!-- Top Institutional Navigation Bar (#063630 / #08332C) -->
   <nav class="top-navbar">
-    <div class="brand-cluster" onclick="switchMainSection('operacao')" title="VALKNUT — SPECIAL SITUATIONS">
+    <div class="brand-cluster" role="button" tabindex="0" onclick="switchMainSection('operacao')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();switchMainSection('operacao');}" title="VALKNUT — SPECIAL SITUATIONS">
       <div class="brand-mark-wrap">
         <img class="brand-mark-img" src="valknut-symbol.png" alt="Valknut Special Situations Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
         <div style="display:none; width:42px; height:38px;"><svg class="valknut-svg-mark" viewBox="0 0 120 106" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -62,49 +64,46 @@
       </div>
     </div>
 
-    <div class="main-nav-links" role="tablist" aria-label="Módulos da Plataforma">
+    <div class="main-nav-links" role="tablist" aria-label="Módulos Executivos da Plataforma">
       <button class="nav-link-btn active" role="tab" aria-selected="true" aria-controls="mainWorkspace" id="nav-operacao" onclick="switchMainSection('operacao')">
-        Operação &amp; Originação <span class="nav-count-pill" id="nav-count-operacao">--</span>
+        Pipeline <span class="nav-count-pill" id="nav-count-operacao">--</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-precificacao" onclick="switchMainSection('precificacao')">
-        Precificação &amp; Modelagem <span class="nav-count-pill" style="background:rgba(165,172,130,0.3); color:#E6E9DC;">% / PPTX</span>
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-noticias" onclick="switchMainSection('noticias')">
+        Notícias &amp; Waivers <span class="nav-count-pill" id="nav-count-noticias">--</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-dashboards" onclick="switchMainSection('dashboards')">
-        Dashboards &amp; Mercado
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-stakeholders" onclick="switchMainSection('stakeholders')">
+        Credores &amp; Players
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-upis" onclick="switchMainSection('upis')">
         UPIs &amp; Ativos <span class="nav-count-pill" id="nav-count-upis">--</span>
       </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-bancometro" onclick="switchMainSection('bancometro')">
-        Bancômetro
-      </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-ecossistema" onclick="switchMainSection('ecossistema')">
-        Ecossistema &amp; Players
-      </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-prazos" onclick="switchMainSection('prazos')">
         Prazos &amp; AGCs <span class="nav-count-pill" id="nav-count-prazos">--</span>
-      </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-mapa" onclick="switchMainSection('mapa')">
-        Mapa Geográfico
-      </button>
-      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-noticias" onclick="switchMainSection('noticias')">
-        Notícias &amp; Fatos <span class="nav-count-pill" id="nav-count-noticias">--</span>
       </button>
       <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-energia" onclick="switchMainSection('energia')">
         Energia &amp; Infra <span class="nav-count-pill" id="nav-count-energia">--</span>
       </button>
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-mercado" onclick="switchMainSection('mercado')">
+        Mercado &amp; Mapa
+      </button>
+      <button class="nav-link-btn" role="tab" aria-selected="false" aria-controls="mainWorkspace" id="nav-precificacao" onclick="switchMainSection('precificacao')">
+        Modelagem &amp; Pitch <span class="nav-count-pill" style="background:rgba(165,172,130,0.3); color:#E6E9DC;">% / PPTX</span>
+      </button>
     </div>
 
     <div class="top-nav-actions">
-      <button class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar em tempo real com a base mestre">
+      <button type="button" class="header-pill-btn btn-metodologia" id="btnMetodologia" onclick="openDiretrizesModal()" title="Governança Metodológica, Piso de Corte, Tribunais &amp; Fontes Monitoradas">
+        ⓘ Metodologia
+      </button>
+      <button type="button" class="header-pill-btn" id="apiStatusPill" onclick="forceSyncData()" title="Sincronizar em tempo real com a Planilha Mestre (nocache)">
         <span class="pulse-dot"></span>
-        <span id="lastUpdateTime">Carregando base...</span>
+        <span id="lastUpdateTime">Sincronizando...</span>
       </button>
-      <button class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV padrão Excel PT-BR">
-        ⬇ Exportar CSV
+      <button type="button" class="header-pill-btn" onclick="exportCSV()" title="Exportar seleção atual para CSV padrão Excel PT-BR">
+        ⬇ CSV
       </button>
-      <button class="header-pill-btn btn-xlsx" onclick="exportXLSX()" title="Exportar planilha nativa Excel (.xlsx) com colunas ajustadas">
-        📊 Exportar Excel (.xlsx)
+      <button type="button" class="header-pill-btn btn-xlsx" onclick="exportXLSX()" title="Exportar planilha nativa Excel (.xlsx) com colunas ajustadas">
+        📊 Excel (.xlsx)
       </button>
     </div>
   </nav>
@@ -115,7 +114,7 @@
     <!-- Dynamic Section Title & Dynamic Liability Cutoff Controls (Piso e Teto em R$ MM) -->
     <div class="section-hero-row">
       <div class="section-hero-title">
-        <h1 id="pageMainTitle">Operação &amp; Originação</h1>
+        <h1 id="pageMainTitle">Pipeline de Originação &amp; Mandatos</h1>
         <p id="pageMainSubtitle">Monitoramento em tempo real de empresas em estresse financeiro severo, processos concursais e mercado de capitais no Brasil.</p>
       </div>
 
@@ -139,39 +138,39 @@
         </div>
         <div class="cutoff-quick-group">
           <span class="cutoff-quick-label">Recorte:</span>
-          <button type="button" class="quick-toggle-btn active" id="qtoggle-all" onclick="setPassivoQuickToggle('all')">Todos</button>
-          <button type="button" class="quick-toggle-btn" id="qtoggle-no_outliers" onclick="setPassivoQuickToggle('no_outliers')">Sem Outliers (&le; R$ 10 Bi)</button>
-          <button type="button" class="quick-toggle-btn" id="qtoggle-middle" onclick="setPassivoQuickToggle('middle')">Middle Market (R$ 30M - R$ 500M)</button>
+          <button type="button" class="quick-toggle-btn active" aria-pressed="true" id="qtoggle-all" onclick="setPassivoQuickToggle('all')">Todos</button>
+          <button type="button" class="quick-toggle-btn" aria-pressed="false" id="qtoggle-no_outliers" onclick="setPassivoQuickToggle('no_outliers')">Sem Outliers (&le; R$ 10 Bi)</button>
+          <button type="button" class="quick-toggle-btn" aria-pressed="false" id="qtoggle-middle" onclick="setPassivoQuickToggle('middle')">Middle Market (R$ 30M - R$ 500M)</button>
         </div>
       </div>
     </div>
 
-    <!-- Executive KPI Strip (5 Cards Recalculated Instantly) -->
+    <!-- Executive KPI Strip (5 Cards Recalculated Instantly — Zero Cold-Start Flash) -->
     <section class="kpi-strip" aria-label="Indicadores Executivos">
       <div class="kpi-box">
         <div class="kpi-box-label"><span>Volume Monitorado</span> <span>R$</span></div>
-        <div class="kpi-box-value" id="kpiTotalVolume">R$ 0,0 Bi</div>
-        <div class="kpi-box-sub" id="kpiVolumeSub">Passivo acumulado no recorte</div>
+        <div class="kpi-box-value" id="kpiTotalVolume"><span class="skeleton-shimmer">--</span></div>
+        <div class="kpi-box-sub" id="kpiVolumeSub">Hidratando base concursal...</div>
       </div>
       <div class="kpi-box">
         <div class="kpi-box-label"><span>Casos no Recorte</span> <span>QTD</span></div>
-        <div class="kpi-box-value" id="kpiActiveDeals">0</div>
+        <div class="kpi-box-value" id="kpiActiveDeals"><span class="skeleton-shimmer">--</span></div>
         <div class="kpi-box-sub" id="kpiDealsSub">Grupos econômicos ativos</div>
       </div>
       <div class="kpi-box">
         <div class="kpi-box-label"><span>Ticket Médio</span> <span>MÉDIA</span></div>
-        <div class="kpi-box-value" id="kpiAvgTicket">R$ 0 MM</div>
+        <div class="kpi-box-value" id="kpiAvgTicket"><span class="skeleton-shimmer">--</span></div>
         <div class="kpi-box-sub" id="kpiAvgSub">Passivo médio por grupo</div>
       </div>
       <div class="kpi-box">
         <div class="kpi-box-label"><span>Maior Exposição</span> <span>TOP DEAL</span></div>
-        <div class="kpi-box-value" id="kpiMaxPassivo">R$ 0 MM</div>
-        <div class="kpi-box-sub" id="kpiMaxCompany">N/A</div>
+        <div class="kpi-box-value" id="kpiMaxPassivo"><span class="skeleton-shimmer">--</span></div>
+        <div class="kpi-box-sub" id="kpiMaxCompany">--</div>
       </div>
       <div class="kpi-box">
         <div class="kpi-box-label"><span>Polos / Jurisdições</span> <span>GEO</span></div>
-        <div class="kpi-box-value" id="kpiJurisdictions">0 UFs</div>
-        <div class="kpi-box-sub" id="kpiUpiCountSub">0 casos com UPIs mapeadas</div>
+        <div class="kpi-box-value" id="kpiJurisdictions"><span class="skeleton-shimmer">--</span></div>
+        <div class="kpi-box-sub" id="kpiUpiCountSub">Mapeando UPIs e comarcas...</div>
       </div>
     </section>
 
@@ -220,14 +219,18 @@
               <option value="passivo_desc">Passivo Total (Maior)</option>
               <option value="passivo_asc">Passivo Total (Menor)</option>
               <option value="score_desc">Score Forense (Maior)</option>
+              <option value="score_asc">Score Forense (Menor)</option>
               <option value="empresa_asc">Empresa (A–Z)</option>
+              <option value="empresa_desc">Empresa (Z–A)</option>
               <option value="cnpj_asc">CNPJ (Crescente)</option>
+              <option value="cnpj_desc">CNPJ (Decrescente)</option>
               <option value="setor_asc">Macro-Setor (A–Z)</option>
+              <option value="setor_desc">Macro-Setor (Z–A)</option>
             </select>
             <button type="button" class="btn-action" id="btnResetFilters" onclick="resetAllFilters()" title="Limpar todos os filtros ativos e restaurar piso de R$ 30 MM">✕ Limpar Filtros</button>
             <div class="view-mode-switch" id="viewModeSwitch">
-              <button class="view-mode-btn active" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
-              <button class="view-mode-btn" id="btnViewGrid" onclick="setViewMode('grid')">Cards</button>
+              <button type="button" class="view-mode-btn active" aria-pressed="true" id="btnViewTable" onclick="setViewMode('table')">Tabela</button>
+              <button type="button" class="view-mode-btn" aria-pressed="false" id="btnViewGrid" onclick="setViewMode('grid')">Cards</button>
             </div>
           </div>
         </div>
@@ -235,12 +238,12 @@
         <!-- Phase Filter Chips -->
         <div class="phase-pills-row">
           <span class="phase-label">Fase Processual:</span>
-          <button class="phase-chip active" id="proc-all" onclick="setProcessFilter('')">Todos (<span id="proc-count-all">0</span>)</button>
-          <button class="phase-chip" id="proc-prj" onclick="setProcessFilter('PRJ')">Recuperações Judiciais (<span id="proc-count-prj">0</span>)</button>
-          <button class="phase-chip" id="proc-cautelar" onclick="setProcessFilter('Cautelar / Pré-RJ')">Cautelares &amp; Art. 20-B (<span id="proc-count-cautelar">0</span>)</button>
-          <button class="phase-chip" id="proc-pre" onclick="setProcessFilter('PRE')">Recuperações Extrajudiciais (<span id="proc-count-pre">0</span>)</button>
-          <button class="phase-chip" id="proc-falencia" onclick="setProcessFilter('Falência / Liquidação')">Falências &amp; Liquidações (<span id="proc-count-falencia">0</span>)</button>
-          <button class="phase-chip" id="proc-tier0" onclick="setProcessFilter('Tier 0')">Sinais Forenses Tier 0 (<span id="proc-count-tier0">0</span>)</button>
+          <button type="button" class="phase-chip active" aria-pressed="true" id="proc-all" onclick="setProcessFilter('')">Todos (<span id="proc-count-all">--</span>)</button>
+          <button type="button" class="phase-chip" aria-pressed="false" id="proc-prj" onclick="setProcessFilter('PRJ')">Recuperações Judiciais (<span id="proc-count-prj">--</span>)</button>
+          <button type="button" class="phase-chip" aria-pressed="false" id="proc-cautelar" onclick="setProcessFilter('Cautelar / Pré-RJ')">Cautelares &amp; Art. 20-B (<span id="proc-count-cautelar">--</span>)</button>
+          <button type="button" class="phase-chip" aria-pressed="false" id="proc-pre" onclick="setProcessFilter('PRE')">Recuperações Extrajudiciais (<span id="proc-count-pre">--</span>)</button>
+          <button type="button" class="phase-chip" aria-pressed="false" id="proc-falencia" onclick="setProcessFilter('Falência / Liquidação')">Falências &amp; Liquidações (<span id="proc-count-falencia">--</span>)</button>
+          <button type="button" class="phase-chip" aria-pressed="false" id="proc-tier0" onclick="setProcessFilter('Tier 0')">Sinais Forenses Tier 0 (<span id="proc-count-tier0">--</span>)</button>
         </div>
 
         <!-- Active Entity Filter Bar (Ecossistema / Bancômetro / UF) -->
@@ -268,7 +271,7 @@
   <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="modalCompany">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="tearsheet-header">
-        <div style="flex:1;">
+        <div style="flex:1; min-width:0;">
           <div class="tearsheet-brand-strip">
             <img src="valknut-symbol.png" alt="Valknut" style="width:28px; height:24px; object-fit:contain;" onerror="this.style.display='none';">
             <span style="font-weight:800; letter-spacing:0.14em; color:#E6E9DC; font-size:13px;">VALKNUT</span>
@@ -277,6 +280,7 @@
           <div class="tearsheet-company-row">
             <h2 id="modalCompany">Razão Social</h2>
             <span class="ticker-pill" id="modalTicker" style="display:none;">TICKER</span>
+            <button type="button" class="btn-watchlist-star in-modal" id="modalWatchlistBtn" onclick="if(currentModalItem) toggleWatchlistDeal(currentModalItem.id, event)" aria-label="Adicionar ou remover da Minha Watchlist">☆ Favoritar</button>
           </div>
           <div class="tearsheet-meta-grid" id="modalSubheaderGrid">
             <!-- Populated dynamically with CNPJ, Setor, Cidade/UF, Tribunal/Vara e Autos + Copy + Tribunal/CVM link -->
@@ -286,13 +290,13 @@
       </div>
 
       <div class="modal-tab-strip" role="tablist" aria-label="Abas do Tear Sheet">
-        <button class="modal-tab-item active" role="tab" aria-selected="true" aria-controls="modalBody" id="modal-tab-visao" onclick="setModalTab('visao')">Tear Sheet Completo (One-Pager)</button>
-        <button class="modal-tab-item" role="tab" aria-selected="false" aria-controls="modalBody" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
-        <button class="modal-tab-item" role="tab" aria-selected="false" aria-controls="modalBody" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
-        <button class="modal-tab-item" role="tab" aria-selected="false" aria-controls="modalBody" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
+        <button class="modal-tab-item active" role="tab" aria-selected="true" tabindex="0" aria-controls="modalBody" id="modal-tab-visao" onclick="setModalTab('visao')">Tear Sheet Completo (One-Pager)</button>
+        <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
+        <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
+        <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
       </div>
 
-      <div class="modal-content-body" id="modalBody" role="tabpanel"></div>
+      <div class="modal-content-body" id="modalBody" role="tabpanel" aria-labelledby="modal-tab-visao"></div>
 
       <div class="modal-bottom">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -301,6 +305,31 @@
           <button class="btn-action" onclick="copyDossierSummary()">📋 Copiar Dossiê Completo</button>
         </div>
         <button class="btn-solid" onclick="closeModal()">Fechar Tear Sheet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal / Gaveta de Governança Metodológica & Fontes Monitoradas (ⓘ Metodologia) -->
+  <div class="modal-overlay" id="diretrizesModal" onclick="if(event.target===this) closeDiretrizesModal()" role="dialog" aria-modal="true" aria-labelledby="diretrizesModalTitle">
+    <div class="modal-box diretrizes-modal-box" onclick="event.stopPropagation()">
+      <div class="tearsheet-header">
+        <div style="flex:1;">
+          <div class="tearsheet-brand-strip">
+            <img src="valknut-symbol.png" alt="Valknut" style="width:28px; height:24px; object-fit:contain;" onerror="this.style.display='none';">
+            <span style="font-weight:800; letter-spacing:0.14em; color:#E6E9DC; font-size:13px;">VALKNUT</span>
+            <span style="color:#A5AC82; font-size:9px; font-weight:700; letter-spacing:0.22em;">GOVERNANÇA METODOLÓGICA &amp; FONTES OFICIAIS</span>
+          </div>
+          <div class="tearsheet-company-row" style="justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <h2 id="diretrizesModalTitle">Diretrizes de Originação &amp; Fontes Monitoradas</h2>
+            <span class="ticker-pill" id="diretrizesReleaseStamp">Release v5.0 &bull; Sincronizado</span>
+          </div>
+        </div>
+        <button class="modal-close-x" onclick="closeDiretrizesModal()" aria-label="Fechar governança metodológica">&times;</button>
+      </div>
+      <div class="modal-content-body" id="diretrizesModalBody"></div>
+      <div class="modal-bottom">
+        <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Sincronizado com a aba <strong>Diretrizes &amp; Fontes Monitoradas</strong> da Planilha Mestre</span>
+        <button class="btn-solid" onclick="closeDiretrizesModal()">Fechar Metodologia</button>
       </div>
     </div>
   </div>
@@ -337,6 +366,6 @@
   <!-- Toast Notification -->
   <div class="toast-banner" id="toastBanner" role="status" aria-live="polite"></div>
 
-  <script defer src="app.js?v=20261111v47"></script>
+  <script defer src="app.js?v=20261118v50"></script>
 </body>
 </html>

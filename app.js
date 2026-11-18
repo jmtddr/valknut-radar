@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal & Distressed Debt
- * Platform Release v4.7 — 6-Bucket Concursal Engine, Lazy Exports, Entity Filter & Comps
+ * Platform Release v5.0 (20261118v50) — 8 Executive Modules, SWR Boot, CRM Mandates, Watchlist & Metodologia
  * ==========================================================================
  */
 
@@ -12,7 +12,7 @@ let VALKNUT_DATA = [];
 const ENRICHED_BY_COMPANY = {};
 const BASE_CURATED_BY_CNPJ = new Map();
 const BASE_CURATED_BY_STEM = new Map();
-let MAX_CURATED_DEAL_ID = 154;
+let MAX_CURATED_DEAL_ID = 180;
 let TRACKING_PRES_YTD_DATA = [
   {
     "data": "2026-11-04",
@@ -271,6 +271,30 @@ let TRACKING_PRES_YTD_DATA = [
   }
 ];
 
+let LIVE_MANDATOS_DATA = [
+  {
+    empresa: 'Grupo Agropecuário Centro-Oeste',
+    setor: 'Agro',
+    tipo_mandato: 'DIP Lending',
+    estagio: 'Contato Inicial',
+    socio_lider: 'Eduardo Lima',
+    equipe: 'Analyst 1, Associate 1',
+    honorarios_estimados: 'R$ 50k fixo + 3% success',
+    proximos_passos: 'Agendar call de alinhamento'
+  }
+];
+
+let LIVE_DIRETRIZES_DATA = [
+  { criterio: 'Corte de Passivo Mínimo', detalhe: '>= R$ 30 Milhões (eliminação de micro e pequenas empresas; monitoramento integral de Mid-Market a Mega Cases).' },
+  { criterio: 'Tribunais & Diários Varridos', detalhe: 'TJSP, TJRJ, TJMT, TJGO, TJMS, TJPR, TJRS, TJSC, TJMG, TJBA, TJPE, TJCE, TJPA, DJEN/CNJ e Comunica PJe.' },
+  { criterio: 'Classes Processuais CNJ', detalhe: 'Recuperação Judicial (129), Recuperação Extrajudicial (128), Falência / Autofalência (110), Tutela Cautelar Antecedente Art. 20-B (12134) e Constatação Prévia Art. 51-A.' },
+  { criterio: 'Fontes Mercado de Capitais & Energia', detalhe: 'CVM (RAD / Fundos.NET / Fatos Relevantes), ANBIMA, Editais de AGDs (Vórtx, Pentágono, Oliveira Trust), Securitizadoras (Opea, Vert, Virgo), Fitch / Moody\'s / S&P, ONS, CCEE e ANEEL.' },
+  { criterio: 'Palavras-chave Prioritárias', detalhe: 'Recuperação Judicial, Recuperação Extrajudicial, Waiver, Covenant, Standstill, AGD, Debêntures, CRA, CRI, FIDC, UPI, DIP Financing, Falência e Reestruturação.' },
+  { criterio: 'Regra de Não Duplicação', detalhe: 'Consolidação determinística por grupo econômico e CNPJ raiz/matriz (>= 11 dígitos), preservando o maior passivo verificado nos autos.' },
+  { criterio: 'Janela Temporal de Captura', detalhe: 'Varredura contínua 24h–48h para novos ajuizamentos e fatos relevantes (janela estendida de 75 dias para histórico de notícias curadas).' },
+  { criterio: 'Geografia Foco', detalhe: 'Cobertura nacional das 27 UFs com alta densidade em SP, RJ, MG, Região Sul (PR, RS, SC), Centro-Oeste (MT, GO, MS, DF) e Matopiba/Nordeste.' }
+];
+
 const BRAZIL_UFS_GEOJSON = {"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"uf": "AC", "nome": "Acre", "capital": "Rio Branco", "lat": -9.974, "lng": -67.81}, "geometry": {"type": "Polygon", "coordinates": [[[-73.99, -7.35], [-70.5, -7.9], [-66.8, -9.8], [-68.5, -11.1], [-70.9, -11.0], [-72.9, -9.5], [-73.99, -7.35]]]}}, {"type": "Feature", "properties": {"uf": "AM", "nome": "Amazonas", "capital": "Manaus", "lat": -3.119, "lng": -60.021}, "geometry": {"type": "Polygon", "coordinates": [[[-73.8, -4.2], [-69.9, -1.1], [-67.1, 2.0], [-63.9, 2.2], [-60.1, 0.2], [-58.9, -1.5], [-56.2, -2.2], [-57.5, -5.8], [-58.5, -7.8], [-61.5, -8.8], [-65.5, -9.5], [-66.8, -9.8], [-70.5, -7.9], [-73.99, -7.35], [-73.8, -4.2]]]}}, {"type": "Feature", "properties": {"uf": "RR", "nome": "Roraima", "capital": "Boa Vista", "lat": 2.823, "lng": -60.675}, "geometry": {"type": "Polygon", "coordinates": [[[-63.9, 2.2], [-64.5, 4.3], [-60.2, 5.2], [-58.9, 1.5], [-60.1, 0.2], [-63.9, 2.2]]]}}, {"type": "Feature", "properties": {"uf": "PA", "nome": "Pará", "capital": "Belém", "lat": -1.455, "lng": -48.49}, "geometry": {"type": "Polygon", "coordinates": [[[-58.9, 1.5], [-55.9, 2.2], [-54.5, 1.5], [-51.8, -1.2], [-49.8, -0.5], [-46.1, -1.1], [-46.4, -3.5], [-48.5, -5.5], [-49.3, -8.2], [-51.1, -9.8], [-54.8, -9.8], [-57.6, -9.2], [-58.5, -7.8], [-57.5, -5.8], [-56.2, -2.2], [-58.9, -1.5]]]}}, {"type": "Feature", "properties": {"uf": "AP", "nome": "Amapá", "capital": "Macapá", "lat": 0.034, "lng": -51.066}, "geometry": {"type": "Polygon", "coordinates": [[[-54.5, 1.5], [-51.6, 4.2], [-49.9, 1.8], [-51.8, -1.2], [-54.5, 1.5]]]}}, {"type": "Feature", "properties": {"uf": "RO", "nome": "Rondônia", "capital": "Porto Velho", "lat": -8.761, "lng": -63.903}, "geometry": {"type": "Polygon", "coordinates": [[[-66.8, -9.8], [-65.5, -9.5], [-61.5, -8.8], [-60.0, -11.5], [-60.4, -13.5], [-63.5, -13.1], [-65.5, -11.8], [-66.8, -9.8]]]}}, {"type": "Feature", "properties": {"uf": "MT", "nome": "Mato Grosso", "capital": "Cuiabá", "lat": -15.601, "lng": -56.097}, "geometry": {"type": "Polygon", "coordinates": [[[-61.5, -8.8], [-58.5, -7.8], [-57.6, -9.2], [-54.8, -9.8], [-51.1, -9.8], [-50.5, -12.5], [-51.0, -15.5], [-53.1, -17.6], [-56.0, -17.9], [-58.0, -17.6], [-60.2, -15.0], [-60.4, -13.5], [-60.0, -11.5], [-61.5, -8.8]]]}}, {"type": "Feature", "properties": {"uf": "MS", "nome": "Mato Grosso do Sul", "capital": "Campo Grande", "lat": -20.469, "lng": -54.62}, "geometry": {"type": "Polygon", "coordinates": [[[-58.0, -17.6], [-56.0, -17.9], [-53.1, -17.6], [-51.0, -19.5], [-51.8, -21.8], [-54.1, -24.0], [-55.8, -23.8], [-58.1, -22.1], [-57.9, -19.0], [-58.0, -17.6]]]}}, {"type": "Feature", "properties": {"uf": "TO", "nome": "Tocantins", "capital": "Palmas", "lat": -10.184, "lng": -48.333}, "geometry": {"type": "Polygon", "coordinates": [[[-48.5, -5.5], [-46.1, -7.5], [-45.9, -10.5], [-46.5, -12.9], [-50.5, -12.5], [-51.1, -9.8], [-49.3, -8.2], [-48.5, -5.5]]]}}, {"type": "Feature", "properties": {"uf": "GO", "nome": "Goiás", "capital": "Goiânia", "lat": -16.686, "lng": -49.264}, "geometry": {"type": "Polygon", "coordinates": [[[-50.5, -12.5], [-46.5, -12.9], [-46.1, -14.8], [-47.3, -16.2], [-47.5, -18.5], [-51.0, -19.5], [-53.1, -17.6], [-51.0, -15.5], [-50.5, -12.5]]]}}, {"type": "Feature", "properties": {"uf": "DF", "nome": "Distrito Federal", "capital": "Brasília", "lat": -15.797, "lng": -47.891}, "geometry": {"type": "Polygon", "coordinates": [[[-48.2, -15.5], [-47.3, -15.5], [-47.3, -16.1], [-48.2, -16.1], [-48.2, -15.5]]]}}, {"type": "Feature", "properties": {"uf": "MA", "nome": "Maranhão", "capital": "São Luís", "lat": -2.53, "lng": -44.306}, "geometry": {"type": "Polygon", "coordinates": [[[-46.1, -1.1], [-44.2, -2.2], [-41.8, -2.8], [-42.8, -5.5], [-43.5, -7.0], [-45.9, -10.0], [-46.1, -7.5], [-48.5, -5.5], [-46.4, -3.5], [-46.1, -1.1]]]}}, {"type": "Feature", "properties": {"uf": "PI", "nome": "Piauí", "capital": "Teresina", "lat": -5.089, "lng": -42.801}, "geometry": {"type": "Polygon", "coordinates": [[[-41.8, -2.8], [-41.3, -3.0], [-40.5, -5.5], [-40.8, -8.5], [-43.5, -10.8], [-45.9, -10.5], [-45.9, -10.0], [-43.5, -7.0], [-42.8, -5.5], [-41.8, -2.8]]]}}, {"type": "Feature", "properties": {"uf": "CE", "nome": "Ceará", "capital": "Fortaleza", "lat": -3.717, "lng": -38.543}, "geometry": {"type": "Polygon", "coordinates": [[[-41.3, -3.0], [-38.5, -3.5], [-37.2, -4.8], [-38.5, -7.6], [-40.5, -7.5], [-40.5, -5.5], [-41.3, -3.0]]]}}, {"type": "Feature", "properties": {"uf": "RN", "nome": "Rio Grande do Norte", "capital": "Natal", "lat": -5.794, "lng": -35.211}, "geometry": {"type": "Polygon", "coordinates": [[[-37.2, -4.8], [-35.2, -5.1], [-35.0, -6.5], [-38.5, -6.8], [-37.2, -4.8]]]}}, {"type": "Feature", "properties": {"uf": "PB", "nome": "Paraíba", "capital": "João Pessoa", "lat": -7.119, "lng": -34.845}, "geometry": {"type": "Polygon", "coordinates": [[[-38.5, -6.8], [-35.0, -6.5], [-34.8, -7.5], [-37.2, -8.2], [-38.5, -7.6], [-38.5, -6.8]]]}}, {"type": "Feature", "properties": {"uf": "PE", "nome": "Pernambuco", "capital": "Recife", "lat": -8.047, "lng": -34.877}, "geometry": {"type": "Polygon", "coordinates": [[[-40.8, -8.5], [-40.5, -7.5], [-38.5, -7.6], [-37.2, -8.2], [-34.8, -7.5], [-35.1, -9.0], [-38.2, -9.4], [-40.8, -9.5], [-40.8, -8.5]]]}}, {"type": "Feature", "properties": {"uf": "AL", "nome": "Alagoas", "capital": "Maceió", "lat": -9.665, "lng": -35.735}, "geometry": {"type": "Polygon", "coordinates": [[[-38.2, -9.4], [-35.1, -9.0], [-36.2, -10.5], [-38.0, -9.8], [-38.2, -9.4]]]}}, {"type": "Feature", "properties": {"uf": "SE", "nome": "Sergipe", "capital": "Aracaju", "lat": -10.947, "lng": -37.073}, "geometry": {"type": "Polygon", "coordinates": [[[-38.0, -9.8], [-36.2, -10.5], [-37.4, -11.5], [-38.2, -10.8], [-38.0, -9.8]]]}}, {"type": "Feature", "properties": {"uf": "BA", "nome": "Bahia", "capital": "Salvador", "lat": -12.971, "lng": -38.501}, "geometry": {"type": "Polygon", "coordinates": [[[-45.9, -10.5], [-43.5, -10.8], [-40.8, -8.5], [-40.8, -9.5], [-38.2, -9.4], [-38.0, -9.8], [-38.2, -10.8], [-37.4, -11.5], [-38.5, -13.0], [-38.9, -16.0], [-39.2, -18.0], [-41.0, -17.5], [-44.0, -14.8], [-46.1, -14.8], [-46.5, -12.9], [-45.9, -10.5]]]}}, {"type": "Feature", "properties": {"uf": "MG", "nome": "Minas Gerais", "capital": "Belo Horizonte", "lat": -19.916, "lng": -43.934}, "geometry": {"type": "Polygon", "coordinates": [[[-46.1, -14.8], [-44.0, -14.8], [-41.0, -17.5], [-40.8, -18.2], [-41.8, -21.0], [-43.5, -21.9], [-46.5, -22.8], [-48.0, -20.0], [-51.0, -19.5], [-47.5, -18.5], [-47.3, -16.2], [-46.1, -14.8]]]}}, {"type": "Feature", "properties": {"uf": "ES", "nome": "Espírito Santo", "capital": "Vitória", "lat": -20.315, "lng": -40.312}, "geometry": {"type": "Polygon", "coordinates": [[[-41.0, -17.5], [-39.2, -18.0], [-39.8, -20.0], [-40.9, -21.3], [-41.8, -21.0], [-40.8, -18.2], [-41.0, -17.5]]]}}, {"type": "Feature", "properties": {"uf": "RJ", "nome": "Rio de Janeiro", "capital": "Rio de Janeiro", "lat": -22.906, "lng": -43.172}, "geometry": {"type": "Polygon", "coordinates": [[[-43.5, -21.9], [-41.8, -21.0], [-40.9, -21.3], [-41.9, -22.9], [-44.8, -23.3], [-44.6, -22.4], [-43.5, -21.9]]]}}, {"type": "Feature", "properties": {"uf": "SP", "nome": "São Paulo", "capital": "São Paulo", "lat": -23.55, "lng": -46.633}, "geometry": {"type": "Polygon", "coordinates": [[[-51.0, -19.5], [-48.0, -20.0], [-46.5, -22.8], [-44.6, -22.4], [-44.8, -23.3], [-47.9, -25.2], [-49.9, -23.0], [-52.0, -22.5], [-51.8, -21.8], [-51.0, -19.5]]]}}, {"type": "Feature", "properties": {"uf": "PR", "nome": "Paraná", "capital": "Curitiba", "lat": -25.428, "lng": -49.273}, "geometry": {"type": "Polygon", "coordinates": [[[-54.1, -24.0], [-51.8, -21.8], [-52.0, -22.5], [-49.9, -23.0], [-47.9, -25.2], [-48.5, -25.9], [-51.0, -26.5], [-53.8, -26.3], [-54.6, -25.5], [-54.1, -24.0]]]}}, {"type": "Feature", "properties": {"uf": "SC", "nome": "Santa Catarina", "capital": "Florianópolis", "lat": -27.595, "lng": -48.548}, "geometry": {"type": "Polygon", "coordinates": [[[-53.8, -26.3], [-51.0, -26.5], [-48.5, -25.9], [-48.4, -27.8], [-49.6, -29.2], [-51.5, -27.5], [-53.8, -27.2], [-53.8, -26.3]]]}}, {"type": "Feature", "properties": {"uf": "RS", "nome": "Rio Grande do Sul", "capital": "Porto Alegre", "lat": -30.034, "lng": -51.217}, "geometry": {"type": "Polygon", "coordinates": [[[-53.8, -27.2], [-51.5, -27.5], [-49.6, -29.2], [-50.5, -31.0], [-52.1, -32.1], [-53.4, -33.7], [-55.8, -30.8], [-57.6, -30.2], [-56.0, -28.2], [-53.8, -27.2]]]}}]};
 
 let baseStaticNewsItems = [];
@@ -307,17 +331,19 @@ function resolveDynamicCaseText(str) {
   if (!str || typeof str !== 'string') return str || '';
   const count = getDynamicCaseCount();
   const energyCount = getDynamicEnergyCount();
+  const countLabel = (typeof isInitialBootLoading !== 'undefined' && isInitialBootLoading && count === 0) ? '--' : String(count);
+  const engLabel = (typeof isInitialBootLoading !== 'undefined' && isInitialBootLoading && count === 0) ? '--' : String(energyCount);
   return str
-    .replace(/\{COUNT\}/g, count)
-    .replace(/\{ENERGY_COUNT\}/g, energyCount)
-    .replace(/\b72\s+Casos\b/g, count + ' Casos')
-    .replace(/\b72\s+casos\b/g, count + ' casos')
-    .replace(/\b72\s+Grupos\b/g, count + ' Grupos')
-    .replace(/\b72\s+grupos\b/g, count + ' grupos')
-    .replace(/\b72\s+Leads\b/g, count + ' Leads')
-    .replace(/\b72\s+leads\b/g, count + ' leads')
-    .replace(/\(72\s+Casos\)/g, '(' + count + ' Casos)')
-    .replace(/\(72\s+casos\)/g, '(' + count + ' casos)');
+    .replace(/\{COUNT\}/g, countLabel)
+    .replace(/\{ENERGY_COUNT\}/g, engLabel)
+    .replace(/\b72\s+Casos\b/g, countLabel + ' Casos')
+    .replace(/\b72\s+casos\b/g, countLabel + ' casos')
+    .replace(/\b72\s+Grupos\b/g, countLabel + ' Grupos')
+    .replace(/\b72\s+grupos\b/g, countLabel + ' grupos')
+    .replace(/\b72\s+Leads\b/g, countLabel + ' Leads')
+    .replace(/\b72\s+leads\b/g, countLabel + ' leads')
+    .replace(/\(72\s+Casos\)/g, '(' + countLabel + ' Casos)')
+    .replace(/\(72\s+casos\)/g, '(' + countLabel + ' casos)');
 }
 
 function updateDynamicNavCounts() {
@@ -325,22 +351,27 @@ function updateDynamicNavCounts() {
   if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
 
   const count = getDynamicCaseCount();
-  const operacaoPill = document.getElementById('nav-count-operacao');
-  if (operacaoPill) operacaoPill.textContent = count;
+  const stillBooting = typeof isInitialBootLoading !== 'undefined' && isInitialBootLoading && count === 0;
 
-  const prazosPill = document.getElementById('nav-count-prazos');
-  if (prazosPill) prazosPill.textContent = count;
+  const setPillVal = (id, val) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (stillBooting) {
+      el.textContent = '--';
+      el.classList.add('skeleton-shimmer');
+    } else {
+      el.classList.remove('skeleton-shimmer');
+      el.textContent = String(val);
+    }
+  };
 
-  const upisPill = document.getElementById('nav-count-upis');
-  if (upisPill && typeof isUpiEligible === 'function' && Array.isArray(DEALS_DATA)) {
-    const upiCount = DEALS_DATA.filter(isUpiEligible).length;
-    upisPill.textContent = upiCount;
+  setPillVal('nav-count-operacao', count);
+  setPillVal('nav-count-prazos', count);
+
+  if (typeof isUpiEligible === 'function' && Array.isArray(DEALS_DATA)) {
+    setPillVal('nav-count-upis', stillBooting ? '--' : DEALS_DATA.filter(isUpiEligible).length);
   }
-
-  const energiaPill = document.getElementById('nav-count-energia');
-  if (energiaPill) {
-    energiaPill.textContent = getDynamicEnergyCount();
-  }
+  setPillVal('nav-count-energia', stillBooting ? '--' : getDynamicEnergyCount());
 
   const livePill = document.getElementById('lastUpdateTime');
   if (livePill) {
@@ -360,8 +391,8 @@ function updateDynamicNavCounts() {
 
 const SECTION_CONFIG = {
   operacao: {
-    pageTitle: 'Operação & Originação',
-    pageSubtitle: 'Monitoramento em tempo real de empresas em estresse financeiro severo, processos concursais e mercado de capitais no Brasil.',
+    pageTitle: 'Pipeline de Originação & Mandatos',
+    pageSubtitle: 'Monitoramento em tempo real de empresas em estresse financeiro severo, processos concursais, CRM de mandatos e watchlist prioritária.',
     showFilters: true,
     subtabs: [
       { id: 'all', label: 'Pipeline Consolidado', title: 'Pipeline Consolidado em Tempo Real', desc: 'Dados consolidados de petições iniciais (DataJud/DJEN), fatos relevantes CVM e editais de Assembleias Gerais de Debenturistas (AGDs) para originação tática.' },
@@ -369,30 +400,33 @@ const SECTION_CONFIG = {
       { id: 'dip', label: 'DIP Financing & M&A', title: 'Estratégia: DIP Financing & M&A Distressed (UPIs)', desc: 'Oportunidades de injeção de Dinheiro Novo superprioritário (Art. 69-A a 69-F), leilões de UPIs livres de sucessão (Art. 141) e Sale & Leaseback.' },
       { id: 'consensual', label: 'Consensual & Art. 20-B', title: 'Estratégia: Consensual, Cautelares Art. 20-B & PRE', desc: 'Tutelas cautelares antecedentes, mediações no CEJUSC/CMAASP e Recuperações Extrajudiciais com coleta de quórum qualificado.' },
       { id: 'debentures', label: 'Debêntures, CRAs & FIDCs', title: 'Radar de Mercado de Capitais (DCM): Debêntures, CRAs, CRIs & FIDCs', desc: 'Emissões sob quebra de covenants financeiros, convocações de AGDs (Vórtx, Pentágono, Oliveira Trust) e securitizadoras (Opea, Vert, Virgo).' },
-      { id: 'precursor', label: 'Radar Preditivo (Tier 0)', title: 'Sinais Forenses Pré-Concursais (Tier 0 — 60 a 120 dias antes da RJ)', desc: 'Alertas antecedentes capturados em cartórios de protesto (CENPROT), execuções fiscais PGFN, CVM Fundos.NET, CCEE e agências reguladoras.' }
+      { id: 'precursor', label: 'Radar Preditivo (Tier 0)', title: 'Sinais Forenses Pré-Concursais (Tier 0 — 60 a 120 dias antes da RJ)', desc: 'Alertas antecedentes capturados em cartórios de protesto (CENPROT), execuções fiscais PGFN, CVM Fundos.NET, CCEE e agências reguladoras.' },
+      { id: 'mandatos_crm', label: 'Mandatos Ativos (CRM)', title: 'Pipeline Ativo de Mandatos & Prospecção Executiva (CRM)', desc: 'Acompanhamento tático dos mandatos alvo da equipe Valknut sincronizado com a aba Pipeline Ativo (Mandatos) da Planilha Mestre.' },
+      { id: 'watchlist', label: 'Minha Watchlist (★)', title: 'Minha Watchlist Prioritária (★ Acompanhamento Diário)', desc: 'Casos favoritados localmente pela mesa para acompanhamento imediato de movimentações, assembleias e fatos relevantes.' }
     ]
   },
-  precificacao: {
-    pageTitle: 'Calculadora de Honorários & Modelagem de Reestruturação',
-    pageSubtitle: 'Simulador com campos 100% digitáveis em % para Retainer Mensal e Success Fee, Waterfall de Classes, Simulador de Quórum AGC, Benchmarks de Haircut por Setor e Proposta Comercial (.pptx).',
+  noticias: {
+    pageTitle: 'Notícias, Waivers & Fatos Relevantes',
+    pageSubtitle: 'Radar em 1 clique monitorando Waivers, AGDs & Downgrades de Rating, Pedidos de RJ/Cautelares 20-B e Leilões de UPI.',
     showFilters: false,
     subtabs: [
-      { id: 'calc_haircut', label: 'Calculadora Success Fee & Retainer', title: 'Calculadora de Honorários para Assessorias de Reestruturação (Retainer + Success Fee)', desc: 'Modelagem financeira 100% digitável de mandatos de reestruturação (Debtor-Side / Turnaround e Creditor-Side / Watchdog): Retainer fixo mensal, prazo do projeto, Success Fee por base de incidência e cláusula de abatimento (Offset).' },
-      { id: 'waterfall_classes', label: 'Waterfall de Classes (RJ vs. Falência)', title: 'Cascata de Alocação de Valor de Ativos por Classe (Art. 83 vs. Plano RJ)', desc: 'Comparativo percentual digitável de recuperação por classe (Extraconcursal, Fiscal/Tributário, Classe I Trabalhista, Classe II Garantia Real, Classe III Quirografária e Classe IV ME/EPP).' },
-      { id: 'quorum_agc', label: 'Simulador Quórum AGC & Cram Down', title: 'Simulador de Votação em Assembleia Geral de Credores (Art. 45 e Art. 58, §1º)', desc: 'Cálculo interativo com % digitável de aprovação ordinária por classe (por Cabeça e por Valor), requisitos de Cram Down e posição de bloqueio (Blocking Position > 33,3% ou > 50%).' },
-      { id: 'benchmarks_setor', label: 'Benchmarks de Haircut por Setor', title: 'Tabela de Referência de Mercado: % de Haircut e % de Recuperação por Macro-Setor', desc: 'Parâmetros médios observados nos {COUNT} casos monitorados para calibragem rápida de propostas, modelagem de planos e avaliação de colateral.' },
-      { id: 'pitch_pptx', label: 'Gerador de Proposta Comercial (.pptx)', title: 'Gerador Automático de Pitch Deck & Proposta de Honorários em PowerPoint (.pptx)', desc: 'Exportação instantânea de apresentação institucional widescreen (7 slides) com Perfil da Empresa, Diagnóstico, Estrutura de Retainer + Success Fee e Cronograma.' }
+      { id: 'news_all', label: 'Todas as Notícias & Fatos', title: 'Feed Integrado de Inteligência Concursal & Mercado de Capitais', desc: 'Acompanhamento diário conectado diretamente às Fichas Analíticas (Tear Sheets) dos grupos econômicos monitorados.' },
+      { id: 'news_dcm', label: 'Waivers, AGDs & Downgrades Rating', title: 'Eventos de Mercado de Capitais: Debêntures, CRAs, CRIs e Agências de Rating', desc: 'Fatos relevantes CVM, convocações de agentes fiduciários e cortes de rating (Fitch / S&P / Moody\'s).' },
+      { id: 'news_rj', label: 'Pedidos de RJ & Cautelares 20-B', title: 'Ajuizamentos Recentes, Tutelas de Urgência e Decisões de Varas Empresariais', desc: 'Movimentações críticas em processos de Recuperação Judicial e Cautelares Antecedentes.' },
+      { id: 'news_upi_falencia', label: 'Leilões de UPI & Falências', title: 'Editais de Alienação Judicial de UPIs e Sentenças de Quebra / Asset Tracing', desc: 'Oportunidades de M&A Distressed livre de sucessão e decretos de falência com arrecadação forense de ativos.' }
     ]
   },
-  dashboards: {
-    pageTitle: 'Dashboards & Inteligência de Mercado',
-    pageSubtitle: 'Visão executiva agregada de exposição setorial, funil concursal, tracking de PREs YTD e estratificação por faixa de passivo.',
+  stakeholders: {
+    pageTitle: 'Credores & Players (Bancômetro + Ecossistema)',
+    pageSubtitle: 'Hub integrado de exposição bancária, agentes fiduciários, securitizadoras, bancas jurídicas, administradores judiciais e varas empresariais.',
     showFilters: false,
     subtabs: [
-      { id: 'visao_setorial', label: 'Visão Setorial & Funil', title: 'Concentração Setorial & Funil de Fases Concursais', desc: 'Análise comparativa do passivo acumulado (R$ MM) e volume de processos por Macro-Setor e modalidade da Lei 11.101/05.' },
-      { id: 'matriz_setor', label: 'Matriz Quantitativa por Setor', title: 'Scorecard Setorial de Special Situations', desc: 'Tabela analítica de participação percentual, ticket médio, oportunidades de UPI e score forense médio por setor.' },
-      { id: 'tracking_pres', label: 'Tracking PREs YTD & Safra MoM', title: 'Tracking de Recuperações Extrajudiciais (YTD 2026 — R$ 138+ Bi) & Safra Mensal de Originação', desc: 'Monitoramento dedicado da aba Tracking PREs YTD (2026) da Planilha Mestre combinado à evolução mensal (MoM) de novos casos e passivo.' },
-      { id: 'curva_porte', label: 'Curva de Passivo & Top Deals', title: 'Estratificação por Faixa de Passivo & Maiores Exposições', desc: 'Distribuição dos casos entre Sub-30M, Mid-Market, Upper-Mid, Large Cap e Mega Cases no recorte selecionado.' }
+      { id: 'cred_all', label: 'Bancômetro Geral', title: 'Mapa Geral de Exposição por Instituição Credora', desc: 'Clique em qualquer instituição para filtrar imediatamente todos os processos em que o banco, fundo ou agente fiduciário possui exposição.' },
+      { id: 'cred_bancos', label: 'Bancos Privados & Público/Coop', title: 'Exposição Bancária: Privados, Montadoras, Públicos & Cooperativas', desc: 'Presença consolidada e filtrável de Itaú, Bradesco, Santander, Safra, Daycoval, BTG, BB, Caixa, BNDES, Banrisul e sistema cooperativo.' },
+      { id: 'cred_dcm', label: 'DCM, Agentes Fiduciários & Securitizadoras', title: 'Hub de Mercado de Capitais: Agentes Fiduciários, Securitizadoras, FIDCs & Tradings', desc: 'Monitoramento integrado de Vórtx, Pentágono, Oliveira Trust, Opea, Vert, Virgo, Reit, Euro, FIDCs e tradings do agronegócio.' },
+      { id: 'eco_bancas', label: 'Bancas & Assessores Jurídicos', title: 'Ranking de Escritórios de Advocacia (Devedores & Credores)', desc: 'Volume de passivo assessorado, número de processos, setores de especialidade e filtro rápido de carteira por banca jurídica.' },
+      { id: 'eco_ajs', label: 'Administradores Judiciais (AJs)', title: 'Mapeamento de Administradores Judiciais e Peritos (Art. 51-A)', desc: 'Processos sob gestão de Laspro, Preserva-Ação, Cabezón, Brizola e Japur, Credibilita, Von Saltiél, Valor Judicial, Brasil Trustee e EXM.' },
+      { id: 'eco_varas', label: 'Varas Empresariais & Comarcas', title: 'Jurisdições e Varas Especializadas por Volume de Passivo', desc: 'Concentração de casos nas Varas Regionais Empresariais de SP, RJ, Curitiba, Porto Alegre, Caxias do Sul, Cuiabá, Sinop, Rondonópolis e Goiânia.' }
     ]
   },
   upis: {
@@ -400,67 +434,21 @@ const SECTION_CONFIG = {
     pageSubtitle: 'Mapeamento dedicado de Unidades Produtivas Isoladas (UPIs), parques fabris, fazendas, silos, imóveis e carteiras para aquisição livre de sucessão.',
     showFilters: true,
     subtabs: [
-      { id: 'upi_all', label: 'Todas as UPIs & Ativos', title: 'Catálogo Consolidado de Ativos & UPIs (Art. 60 e 141 da Lei 11.101/05)', desc: 'Oportunidades mapeadas de aquisição de ativos operacionais, plantas industriais, imóveis rurais e créditos ilíquidos.' },
+      { id: 'upi_all', label: 'Todas as UPIs & Ativos', title: 'Catálogo Consolidado de Ativos & UPIs (Art. 60, 141 e 142 da Lei 11.101/05)', desc: 'Oportunidades mapeadas de aquisição de ativos operacionais, plantas industriais, imóveis rurais e créditos ilíquidos.' },
       { id: 'upi_agro', label: 'Fazendas, Silos & Grãos', title: 'Ativos Reais do Agronegócio: Terras, Silos e Misturadoras', desc: 'Unidades de armazenagem, fazendas em alienação fiduciária e plantas de insumos/biológicos disponíveis para M&A ou Sale & Leaseback.' },
       { id: 'upi_ind', label: 'Parques Fabris & Marcas', title: 'Ativos Industriais, Metalmecânica, Moveleiro e Marcas', desc: 'Leilões judiciais de parques fabris em operação continuada, maquinários e marcas comerciais.' },
       { id: 'upi_imob', label: 'Imóveis, Campi & Concessões', title: 'Ativos Imobiliários, Campi Universitários, Lojas e Infraestrutura', desc: 'Glebas urbanas, condomínios, campi de ensino superior, hospitais e SPEs de concessão/energia.' }
     ]
   },
-  bancometro: {
-    pageTitle: 'Bancômetro & Exposição de Credores',
-    pageSubtitle: 'Ranking de exposição de instituições financeiras, agentes fiduciários, securitizadoras, FIDCs e tradings nos processos monitorados.',
-    showFilters: false,
-    subtabs: [
-      { id: 'cred_all', label: 'Todos os Credores Institucionais', title: 'Mapa Geral de Exposição por Instituição Credora', desc: 'Clique em qualquer instituição para filtrar imediatamente todos os processos em que o banco, fundo ou agente fiduciário possui exposição.' },
-      { id: 'cred_privados', label: 'Bancos Privados & Montadoras', title: 'Exposição de Bancos Privados Nacionais, Internacionais e Montadoras', desc: 'Presença de Itaú, Bradesco, Santander, Safra, Daycoval, BTG Pactual e bancos de montadoras (John Deere, Volvo, Scania, Caterpillar).' },
-      { id: 'cred_publicos', label: 'Bancos Públicos & Cooperativas', title: 'Exposição de Bancos Públicos, Fomento e Sistema Cooperativo', desc: 'Concentração em Banco do Brasil, Caixa Econômica Federal, BNDES, BRDE, BASA, BNB, Banrisul e Sicredi/Cresol/Unicred.' },
-      { id: 'cred_dcm', label: 'Mercado de Capitais, FIDCs & Tradings', title: 'Agentes Fiduciários, Securitizadoras de CRA/CRI, FIDCs e Tradings', desc: 'Monitoramento de Vórtx, Pentágono, Oliveira Trust, Opea, Vert, Virgo, FIDCs e tradings globais (COFCO, Cargill, Bunge).' }
-    ]
-  },
-  ecossistema: {
-    pageTitle: 'Ecossistema & Players (Bancas, AJs, Fiduciários e Varas)',
-    pageSubtitle: 'Inteligência de relacionamento mapeando bancas de advocacia, administradores judiciais, agentes fiduciários, securitizadoras e juízos concursais.',
-    showFilters: false,
-    subtabs: [
-      { id: 'eco_bancas', label: 'Bancas & Escritórios', title: 'Ranking de Escritórios de Advocacia (Devedores & Credores)', desc: 'Volume de passivo assessorado, número de processos, setores de especialidade e filtro rápido de carteira por banca jurídica.' },
-      { id: 'eco_ajs', label: 'Administradores Judiciais (AJs)', title: 'Mapeamento de Administradores Judiciais e Peritos (Art. 51-A)', desc: 'Processos sob gestão de Laspro, Preserva-Ação, Cabezón, Brizola e Japur, Credibilita, Von Saltiél, AJUDD, CB2D e Brazilio Bacellar.' },
-      { id: 'eco_fiduciarios', label: 'Agentes Fiduciários & Securitizadoras', title: 'Radar Fiduciário de Mercado de Capitais (Debêntures, CRAs e CRIs)', desc: 'Exposição fiduciária de Vórtx, Pentágono, Oliveira Trust e securitizadoras Opea, Vert, Virgo, Reit e Audax.' },
-      { id: 'eco_varas', label: 'Varas Empresariais & Comarcas', title: 'Jurisdições e Varas Especializadas por Volume de Passivo', desc: 'Concentração de casos nas Varas Regionais Empresariais de SP, RJ, Curitiba, Porto Alegre, Caxias do Sul, Cuiabá, Sinop, Rondonópolis e Goiânia.' }
-    ]
-  },
   prazos: {
-    pageTitle: 'Calendário Tático Completo ({COUNT} Casos) — Prazos, Stay & AGCs',
+    pageTitle: 'Prazos, Stay Period & AGCs ({COUNT} Casos)',
     pageSubtitle: 'Cobertura integral dos {COUNT} casos combinando datas fixadas em edital (AGCs/AGDs/Leilões) e prazos legais automáticos da Lei 11.101/05.',
     showFilters: true,
     subtabs: [
       { id: 'prazos_all', label: 'Cronograma Completo ({COUNT} Casos)', title: 'Linha do Tempo Completa dos {COUNT} Grupos Monitorados (Contagem Regressiva)', desc: 'Todos os {COUNT} casos com data de vencimento calculada ou fixada em edital, ordenada por urgência e com exportação para Google Calendar / Outlook (.ics).' },
       { id: 'prazos_calendario', label: `Grade Mensal Interativa (${getBrazilThreeMonthWindowLabel()})`, title: 'Visão de Calendário Mensal de Eventos Críticos, AGCs, AGDs e Leilões', desc: 'Grade mensal interativa destacando dias com assembleias, leilões de UPIs, mediações CEJUSC e vencimentos de blindagem cautelar.' },
-      { id: 'prazos_agc', label: 'AGCs, AGDs & Leilões com Edital', title: 'Eventos com Data Fixada em Edital (AGCs, AGDs, Mediações e Leilões)', desc: 'Compromissos concursais iminentes com data certa publicada nos autos ou na CVM.' },
+      { id: 'prazos_agc', label: 'AGCs, AGDs & Leilões com Edital', title: 'Eventos com Data Fixada ou Convocação Ativa em Edital (AGCs, AGDs e Leilões)', desc: 'Compromissos concursais iminentes com edital publicado ou data certa nos autos e na CVM.' },
       { id: 'prazos_cautelar', label: 'Janelas Cautelares Art. 20-B (60d)', title: 'Monitoramento de Tutelas Cautelares Antecedentes e Prazos de Plano (Art. 53)', desc: 'Controle estrito do prazo de 60 dias corridos de suspensão de execuções e apresentação do Plano de Recuperação Judicial.' }
-    ]
-  },
-
-  mapa: {
-    pageTitle: 'Mapa Geográfico Concursal',
-    pageSubtitle: 'Cartografia interativa das Unidades Federativas (GeoJSON Brasil) com concentração regional de passivos, varas empresariais e polos produtivos.',
-    showFilters: true,
-    subtabs: [
-      { id: 'geo_all', label: 'Brasil Consolidado (27 UFs)', title: 'Distribuição Cartográfica Nacional por Estado e Fase Processual', desc: 'Mapa vetorial das UFs do Brasil com capitais, legenda de fases concursais e raio proporcional ao passivo em R$ MM.' },
-      { id: 'geo_Sudeste', label: 'Eixo Sudeste (SP/RJ/MG/ES)', title: 'Polos Corporativos e Varas Especializadas do Sudeste', desc: 'Concentração de processos em São Paulo, Rio de Janeiro, Minas Gerais e Espírito Santo.' },
-      { id: 'geo_Sul', label: 'Região Sul (RS/PR/SC)', title: 'Polos Industriais, Cooperativas e Agronegócio do Sul', desc: 'Monitoramento das Varas Regionais Empresariais do Rio Grande do Sul, Paraná e Santa Catarina.' },
-      { id: 'geo_Centro-Oeste', label: 'Centro-Oeste (MT/GO/MS)', title: 'Fronteira Agrícola, Armazenagem e Biocombustíveis do Centro-Oeste', desc: 'Processos concursais em Cuiabá, Sinop, Sorriso, Rondonópolis, Primavera do Leste, Goiânia, Itaberaí e Dourados.' },
-      { id: 'geo_NorteNordeste', label: 'Norte & Nordeste (PA/CE/PE/BA/PI/AM/TO)', title: 'Infraestrutura, Energia Renovável, Varejo e Matopiba', desc: 'Casos estratégicos no Pará, Ceará, Pernambuco, Bahia, Piauí, Amazonas e Tocantins.' }
-    ]
-  },
-  noticias: {
-    pageTitle: 'Notícias & Fatos Relevantes',
-    pageSubtitle: 'Feed de inteligência concursal monitorando pedidos de RJ/Cautelares, convocações de AGDs, fatos relevantes CVM e decisões judiciais.',
-    showFilters: false,
-    subtabs: [
-      { id: 'news_all', label: 'Todas as Notícias & Fatos', title: 'Feed Integrado de Inteligência Concursal & Mercado de Capitais', desc: 'Acompanhamento diário conectado diretamente às Fichas Analíticas (Tear Sheets) dos grupos econômicos monitorados.' },
-      { id: 'news_rj', label: 'Pedidos de RJ & Cautelares 20-B', title: 'Ajuizamentos Recentes, Tutelas de Urgência e Decisões de Varas Empresariais', desc: 'Movimentações críticas em processos de Recuperação Judicial e Cautelares Antecedentes.' },
-      { id: 'news_dcm', label: 'Waivers, AGDs & Downgrades Rating', title: 'Eventos de Mercado de Capitais: Debêntures, CRAs, CRIs e Agências de Rating', desc: 'Fatos relevantes CVM, convocações de agentes fiduciários e cortes de rating (Fitch / S&P / Moody\'s).' },
-      { id: 'news_upi_falencia', label: 'Leilões de UPI & Falências', title: 'Editais de Alienação Judicial de UPIs e Sentenças de Quebra / Asset Tracing', desc: 'Oportunidades de M&A Distressed livre de sucessão e decretos de falência com arrecadação forense de ativos.' }
     ]
   },
   energia: {
@@ -471,6 +459,30 @@ const SECTION_CONFIG = {
       { id: 'sin_tempo_real', label: 'SIN & Hidrologia', title: 'Painel Operacional ONS — Geração por Fonte, Carga & Reservatórios (EAR)', desc: 'Curva horária empilhada de geração por fonte (Hidráulica, Térmica, Nuclear, Solar, Eólica e MMGD) comparada à Carga Prevista e Realizada e nível de reservatórios (EAR %).' },
       { id: 'pld_curtailment', label: 'PLD & Curtailment', title: 'Preço de Liquidação das Diferenças (PLD R$/MWh) & Restrição Eólica/Solar (Constrained-off)', desc: 'Monitoramento conjunto de spread horário de PLD entre submercados (CCEE) e cortes de geração renovável (Constrained-off ONS) com impacto sobre ICSD de debêntures.' },
       { id: 'pipeline_energia', label: 'Pipeline Energia & Infra', title: 'Pipeline Dedicado de Special Situations em Energia & Infraestrutura ({ENERGY_COUNT} Casos)', desc: 'Dossiês setoriais destacando Código da Debênture, Agente Fiduciário, Status CCEE, Risco de Caducidade e Corte de Rating por Curtailment/ICSD.' }
+    ]
+  },
+  mercado: {
+    pageTitle: 'Mercado, Macro Analytics & Mapa Geográfico',
+    pageSubtitle: 'Módulo executivo unificando Cartografia Interativa das 27 UFs, Exposição Setorial, Matriz Quantitativa, Tracking PREs YTD e Curva de Passivo.',
+    showFilters: true,
+    subtabs: [
+      { id: 'geo_all', label: 'Mapa Geográfico Interativo (27 UFs)', title: 'Distribuição Cartográfica Nacional por Estado, Região e Fase Processual', desc: 'Mapa vetorial interativo das 27 UFs do Brasil com filtros regionais rápidos, polos municipais exatos e raio proporcional ao passivo em R$ MM.' },
+      { id: 'visao_setorial', label: 'Visão Setorial & Funil', title: 'Concentração Setorial & Funil de Fases Concursais', desc: 'Análise comparativa do passivo acumulado (R$ MM) e volume de processos por Macro-Setor e modalidade da Lei 11.101/05.' },
+      { id: 'matriz_setor', label: 'Matriz Quantitativa por Setor', title: 'Scorecard Setorial de Special Situations', desc: 'Tabela analítica de participação percentual, ticket médio, oportunidades de UPI e score forense médio por setor.' },
+      { id: 'tracking_pres', label: 'Tracking PREs YTD & Safra MoM', title: 'Tracking de Recuperações Extrajudiciais (YTD 2026) & Safra Mensal de Originação', desc: 'Monitoramento dedicado da aba Tracking PREs YTD (2026) da Planilha Mestre combinado à evolução mensal (MoM) de novos casos e passivo.' },
+      { id: 'curva_porte', label: 'Curva de Passivo & Top Deals', title: 'Estratificação por Faixa de Passivo & Maiores Exposições', desc: 'Distribuição dos casos entre Sub-30M, Mid-Market, Upper-Mid, Large Cap e Mega Cases no recorte selecionado.' }
+    ]
+  },
+  precificacao: {
+    pageTitle: 'Modelagem Financeira & Proposta Comercial (.pptx)',
+    pageSubtitle: 'Simulador com campos 100% digitáveis em % para Retainer Mensal e Success Fee, Waterfall de Classes, Quórum AGC, Benchmarks de Haircut e Pitch Deck (.pptx).',
+    showFilters: false,
+    subtabs: [
+      { id: 'calc_haircut', label: 'Calculadora Success Fee & Retainer', title: 'Calculadora de Honorários para Assessorias de Reestruturação (Retainer + Success Fee)', desc: 'Modelagem financeira 100% digitável de mandatos de reestruturação (Debtor-Side / Turnaround e Creditor-Side / Watchdog): Retainer fixo mensal, prazo do projeto, Success Fee por base de incidência e cláusula de abatimento (Offset).' },
+      { id: 'waterfall_classes', label: 'Waterfall de Classes (RJ vs. Falência)', title: 'Cascata de Alocação de Valor de Ativos por Classe (Art. 83 vs. Plano RJ)', desc: 'Comparativo percentual digitável de recuperação por classe (Extraconcursal, Fiscal/Tributário, Classe I Trabalhista, Classe II Garantia Real, Classe III Quirografária e Classe IV ME/EPP).' },
+      { id: 'quorum_agc', label: 'Simulador Quórum AGC & Cram Down', title: 'Simulador de Votação em Assembleia Geral de Credores (Art. 45 e Art. 58, §1º)', desc: 'Cálculo interativo com % digitável de aprovação ordinária por classe (por Cabeça e por Valor), requisitos de Cram Down e posição de bloqueio (Blocking Position > 33,3% ou > 50%).' },
+      { id: 'benchmarks_setor', label: 'Benchmarks de Haircut por Setor', title: 'Tabela de Referência de Mercado: % de Haircut e % de Recuperação por Macro-Setor', desc: 'Parâmetros médios observados nos {COUNT} casos monitorados para calibragem rápida de propostas, modelagem de planos e avaliação de colateral.' },
+      { id: 'pitch_pptx', label: 'Gerador de Proposta Comercial (.pptx)', title: 'Gerador Automático de Pitch Deck & Proposta de Honorários em PowerPoint (.pptx)', desc: 'Exportação instantânea de apresentação institucional widescreen (7 slides) com Perfil da Empresa, Diagnóstico, Estrutura de Retainer + Success Fee e Cronograma.' }
     ]
   }
 };
@@ -582,7 +594,26 @@ const CITY_COORDINATES = {
   'Jaborandi,BA': [-13.6194, -44.4328],
   'Cáceres,MT': [-16.0764, -57.6789],
   'Itapira,SP': [-22.4356, -46.8222],
-  'Sacramento,MG': [-19.8653, -47.4400]
+  'Sacramento,MG': [-19.8653, -47.4400],
+  'Três Lagoas,MS': [-20.7849, -51.7007],
+  'Coribe,BA': [-13.8267, -44.4536],
+  'Alta Floresta,MT': [-9.8756, -56.0861],
+  'Campo Verde,MT': [-15.5450, -55.1625],
+  'Alto Boa Vista,MT': [-11.6739, -51.3858],
+  'Uberlândia,MG': [-18.9186, -48.2772],
+  'Nova Era,MG': [-19.7542, -43.0375],
+  'Bom Jesus,RS': [-28.6686, -50.4167],
+  'Brusque,SC': [-27.0977, -48.9107],
+  'Timbó,SC': [-26.8242, -49.2718],
+  'Schroeder,SC': [-26.4125, -49.0731],
+  'Tijucas,SC': [-27.2414, -48.6336],
+  'Gurupi,TO': [-11.7292, -49.0686],
+  'Barretos,SP': [-20.5572, -48.5678],
+  'Palmares,PE': [-8.6842, -35.5892],
+  'Corumbá,MS': [-19.0089, -57.6511],
+  'Perdões,MG': [-21.0908, -45.0914],
+  'Teixeira de Freitas,BA': [-17.5350, -39.7419],
+  'Paranaguá,PR': [-25.5205, -48.5095]
 };
 
 let _cityCoordNormalizedIndex = null;
@@ -626,7 +657,8 @@ const TICKER_MAP = {
   'GDS Subholding': 'GDSS11',
   'Casas Bahia': 'BHIA3',
   'Gol': 'GOLL4',
-  'Ambipar': 'AMBP3'
+  'Ambipar': 'AMBP3',
+  'Portobello': 'PTBL3'
 };
 
 // Helper de Data e Hora no Fuso Horário Oficial de Brasília (America/Sao_Paulo)
@@ -686,8 +718,15 @@ let activeEntityFilter = null; // { label: string, category: string, dealIds: Se
 const entityFilterRegistry = new Map();
 
 // Backend Router Capability & Initial Load State
-let gasSupportsActionRouter = null; // null = unknown, true = v4.6/v4.7 router, false = legacy single-sheet
+let gasSupportsActionRouter = null; // null = unknown, true = v5.0 router, false = legacy single-sheet
 let initialLoadFailed = false;
+let isInitialBootLoading = true;
+
+// v5.0 Watchlist, Stakeholder Sub-Filter & Regional Map Filter States
+const WATCHLIST_STORAGE_KEY = 'vk_watchlist_ids_v1';
+let watchlistDealIds = new Set();
+let stakeholderBankSubFilter = 'all'; // 'all' | 'cred_privados' | 'cred_publicos'
+let currentMapRegionFilter = 'all'; // 'all' | 'Sudeste' | 'Sul' | 'Centro-Oeste' | 'NorteNordeste'
 
 // Map & Charts State
 let leafletMapInstance = null;
@@ -719,7 +758,7 @@ let selectedSinSubmarket = 'SIN';
 let selectedSinDate = getBrazilTodayIso();
 let upiSortMode = 'valuation_desc';
 
-// v4.7 Module States — Calculadora de Honorários (Success Fee & Retainer)
+// v5.0 Module States — Calculadora de Honorários (Success Fee & Retainer)
 let selectedModelDealId = 1;
 let selectedTier0CalcTarget = null;
 let modelCustomPassivo = 1000;
@@ -754,7 +793,163 @@ let selectedCompIds = [];
 
 let lastNewsAutoSyncTs = 0;
 let sheetLiveNewsItems = [];
-const STATIC_BUNDLE_VERSION = '20261111v47';
+const STATIC_BUNDLE_VERSION = '20261118v50';
+let curatedBaseReadyPromise = null;
+let hasHydratedFromLiveSheet = false;
+
+function decodeHtmlEntities(str) {
+  if (!str) return '';
+  let out = String(str);
+  for (let pass = 0; pass < 2; pass++) {
+    out = out
+      .replace(/&amp;(nbsp|quot|apos|ndash|mdash|lt|gt|#\d+|#x[0-9a-f]+);/gi, '&$1;')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/&amp;/gi, '&')
+      .replace(/&quot;/gi, '"')
+      .replace(/&#39;|&#039;|&apos;/gi, "'")
+      .replace(/&lt;/gi, '<')
+      .replace(/&gt;/gi, '>')
+      .replace(/&#8211;|&ndash;/gi, '–')
+      .replace(/&#8212;|&mdash;/gi, '—')
+      .replace(/&#x([0-9a-f]+);/gi, (_, hex) => {
+        const cp = parseInt(hex, 16);
+        return (!isNaN(cp) && cp > 0 && cp <= 0x10ffff) ? String.fromCodePoint(cp) : '';
+      })
+      .replace(/&#(\d+);/g, (_, dec) => {
+        const cp = Number(dec);
+        return (!isNaN(cp) && cp > 0 && cp <= 0x10ffff) ? String.fromCodePoint(cp) : '';
+      });
+  }
+  return out
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function loadWatchlistFromStorage() {
+  try {
+    const raw = localStorage.getItem(WATCHLIST_STORAGE_KEY);
+    if (!raw) return;
+    const arr = JSON.parse(raw);
+    if (Array.isArray(arr)) {
+      watchlistDealIds = new Set(arr.map(Number).filter(n => !isNaN(n) && n > 0));
+    }
+  } catch (e) {}
+}
+
+function saveWatchlistToStorage() {
+  try {
+    localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify([...watchlistDealIds]));
+  } catch (e) {}
+}
+
+function isDealWatchlisted(dealId) {
+  return watchlistDealIds.has(Number(dealId));
+}
+
+function syncModalWatchlistButton(dealId) {
+  const btn = document.getElementById('modalWatchlistBtn');
+  if (!btn) return;
+  const active = isDealWatchlisted(dealId);
+  btn.classList.toggle('active', active);
+  btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  btn.textContent = active ? '★ Na Watchlist' : '☆ Favoritar';
+  btn.title = active ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist';
+}
+
+function toggleWatchlistDeal(dealId, evt) {
+  if (evt && typeof evt.stopPropagation === 'function') {
+    evt.stopPropagation();
+  }
+  const targetId = dealId !== undefined && dealId !== null ? Number(dealId) : (currentModalItem ? Number(currentModalItem.id) : 0);
+  if (!targetId || isNaN(targetId)) return;
+  const dealObj = DEALS_DATA.find(d => Number(d.id) === targetId);
+  const label = dealObj ? dealObj.empresa : `Caso #${targetId}`;
+  if (watchlistDealIds.has(targetId)) {
+    watchlistDealIds.delete(targetId);
+    showToast(`Removido da Minha Watchlist: ${label}`);
+  } else {
+    watchlistDealIds.add(targetId);
+    showToast(`★ Adicionado à Minha Watchlist: ${label}`);
+  }
+  saveWatchlistToStorage();
+  if (currentModalItem && Number(currentModalItem.id) === targetId) {
+    syncModalWatchlistButton(targetId);
+  }
+  renderSubTabs();
+  if (currentMainSection === 'operacao') {
+    renderSectionContent();
+  }
+}
+
+function normalizeLegacySectionAndSub(secRaw, subRaw) {
+  let sec = String(secRaw || 'operacao').trim();
+  let sub = subRaw ? String(subRaw).trim() : '';
+
+  stakeholderBankSubFilter = 'all';
+  currentMapRegionFilter = 'all';
+
+  if (sec === 'bancometro') {
+    sec = 'stakeholders';
+    if (sub === 'cred_privados') {
+      stakeholderBankSubFilter = 'cred_privados';
+      sub = 'cred_bancos';
+    } else if (sub === 'cred_publicos') {
+      stakeholderBankSubFilter = 'cred_publicos';
+      sub = 'cred_bancos';
+    } else if (sub === 'cred_dcm') {
+      sub = 'cred_dcm';
+    } else {
+      sub = 'cred_all';
+    }
+  } else if (sec === 'ecossistema') {
+    sec = 'stakeholders';
+    if (sub === 'eco_fiduciarios') {
+      sub = 'cred_dcm';
+    } else if (sub === 'eco_aj') {
+      sub = 'eco_ajs';
+    } else if (sub !== 'eco_bancas' && sub !== 'eco_ajs' && sub !== 'eco_varas') {
+      sub = 'eco_bancas';
+    }
+  } else if (sec === 'dashboards') {
+    if (sub === 'benchmarks_setor') {
+      sec = 'precificacao';
+      sub = 'benchmarks_setor';
+    } else {
+      sec = 'mercado';
+      if (!['visao_setorial', 'matriz_setor', 'tracking_pres', 'curva_porte'].includes(sub)) {
+        sub = 'visao_setorial';
+      }
+    }
+  } else if (sec === 'mapa') {
+    sec = 'mercado';
+    if (sub === 'geo_Sudeste') currentMapRegionFilter = 'Sudeste';
+    else if (sub === 'geo_Sul') currentMapRegionFilter = 'Sul';
+    else if (sub === 'geo_Centro-Oeste') currentMapRegionFilter = 'Centro-Oeste';
+    else if (sub === 'geo_NorteNordeste') currentMapRegionFilter = 'NorteNordeste';
+    else currentMapRegionFilter = 'all';
+    sub = 'geo_all';
+  } else if (sec === 'energia' && sub) {
+    if (sub === 'pld_horario' || sub === 'risco_curtailment') sub = 'pld_curtailment';
+    else if (sub === 'hidrologia_ena' || sub === 'outorgas_aneel') sub = 'sin_tempo_real';
+  }
+
+  if (!SECTION_CONFIG[sec]) sec = 'operacao';
+  const cfg = SECTION_CONFIG[sec] || SECTION_CONFIG.operacao;
+  const resolvedSub = (sub && cfg.subtabs.some(s => s.id === sub)) ? sub : cfg.subtabs[0].id;
+  return { sec, sub: resolvedSub };
+}
+
+function shouldShowFilterConsole(secId, subId) {
+  if (secId === 'operacao') {
+    return subId !== 'mandatos_crm';
+  }
+  if (secId === 'mercado') {
+    return subId === 'geo_all';
+  }
+  const cfg = SECTION_CONFIG[secId];
+  return Boolean(cfg && cfg.showFilters);
+}
 
 // ==========================================================================
 // On-Demand CDN Lazy Script Loader (SheetJS .xlsx & PptxGenJS .pptx)
@@ -762,12 +957,13 @@ const STATIC_BUNDLE_VERSION = '20261111v47';
 const SHEETJS_PRIMARY_URL = 'https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js';
 const SHEETJS_PRIMARY_SRI = 'sha384-gx12pQMMYnabkTgbCHqqrT65RwDnXI/f/dU2H9JUmT0KUeiMF5bf+yroQBmX0Nuk';
 const SHEETJS_FALLBACK_URL = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+const SHEETJS_FALLBACK_SRI = 'sha384-vtjasyidUo0kW94K5MXDXntzOJpQgBKXmE7e2Ga4LG0skTTLeBi97eFAXsqewJjw';
 const PPTXGEN_CDN_URL = 'https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js';
 const PPTXGEN_CDN_SRI = 'sha384-Cck14aA9cifjYolcnjebXRfWGkz5ltHMBiG4px/j8GS+xQcb7OhNQWZYyWjQ+UwQ';
 const _externalScriptPromises = new Map();
 
 function loadExternalScriptOnce(src, integrity) {
-  if (!src) return Promise.reject(new Error('Missing script src'));
+  if (!src || !integrity) return Promise.reject(new Error('Missing script src or SRI integrity hash'));
   if (_externalScriptPromises.has(src)) {
     return _externalScriptPromises.get(src);
   }
@@ -779,10 +975,8 @@ function loadExternalScriptOnce(src, integrity) {
     const script = document.createElement('script');
     script.src = src;
     script.async = true;
-    if (integrity) {
-      script.integrity = integrity;
-      script.crossOrigin = 'anonymous';
-    }
+    script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
     script.onload = () => resolve(true);
     script.onerror = () => {
       _externalScriptPromises.delete(src);
@@ -801,7 +995,7 @@ async function ensureSheetJsLoaded() {
   try {
     await loadExternalScriptOnce(SHEETJS_PRIMARY_URL, SHEETJS_PRIMARY_SRI);
   } catch (primaryErr) {
-    await loadExternalScriptOnce(SHEETJS_FALLBACK_URL, null);
+    await loadExternalScriptOnce(SHEETJS_FALLBACK_URL, SHEETJS_FALLBACK_SRI);
   }
   return typeof XLSX !== 'undefined';
 }
@@ -825,35 +1019,23 @@ function isRecentNewsDate(dataHoraStr, maxAgeDays = 75) {
 
 function sanitizeIncomingStaticNewsItem(it) {
   if (!it || !it.titulo || isBlockedEntityToken(it.titulo) || isBlockedEntityToken(it.empresa_nome)) return null;
-  const copy = { ...it };
+  const copy = {
+    ...it,
+    titulo: decodeHtmlEntities(it.titulo),
+    resumo: decodeHtmlEntities(it.resumo || ''),
+    fonte: decodeHtmlEntities(it.fonte || ''),
+    empresa_nome: decodeHtmlEntities(it.empresa_nome || '')
+  };
   if (String(copy.fonte || '').trim().toUpperCase() === 'PIPELINE') {
     copy.fonte = 'Pipeline Valor';
   }
   return copy;
 }
 
-async function fetchLiveNewsJson(cacheBust = false) {
-  const localUrl = cacheBust ? `live-news.json?_cb=${Date.now()}` : `live-news.json?v=${STATIC_BUNDLE_VERSION}`;
-  const rawGhUrl = 'https://raw.githubusercontent.com/jmtddr/valknut-radar/main/live-news.json';
-
-  const extractArr = val => {
-    if (!val) return [];
-    if (Array.isArray(val)) return val;
-    return Array.isArray(val.items) ? val.items : [];
-  };
-
-  const [localRes, rawGhRes] = await Promise.allSettled([
-    fetchWithTimeout(localUrl, {}, 8000).then(r => (r && r.ok ? r.json() : [])),
-    fetchWithTimeout(rawGhUrl, {}, 5000).then(r => (r && r.ok ? r.json() : [])).catch(() => [])
-  ]);
-
-  const ghItems = rawGhRes.status === 'fulfilled' ? extractArr(rawGhRes.value) : [];
-  const localItems = localRes.status === 'fulfilled' ? extractArr(localRes.value) : [];
-
+function dedupeSanitizedNewsArray(itemsArr) {
   const merged = [];
   const seenTitles = new Set();
-  // Prefer GitHub raw first so newly committed Actions items take precedence before Pages rebuilds
-  [...ghItems, ...localItems].forEach(raw => {
+  (itemsArr || []).forEach(raw => {
     const clean = sanitizeIncomingStaticNewsItem(raw);
     if (!clean) return;
     const key = String(clean.titulo || '')
@@ -871,26 +1053,74 @@ async function fetchLiveNewsJson(cacheBust = false) {
   return merged;
 }
 
+async function fetchLiveNewsJson(cacheBust = false) {
+  const localUrl = cacheBust ? `./live-news.json?_cb=${Date.now()}` : `./live-news.json?v=${STATIC_BUNDLE_VERSION}`;
+  const rawGhUrl = 'https://raw.githubusercontent.com/jmtddr/valknut-radar/main/live-news.json';
+
+  const extractArr = val => {
+    if (!val) return [];
+    if (Array.isArray(val)) return val;
+    return Array.isArray(val.items) ? val.items : [];
+  };
+
+  const [localRes, rawGhRes] = await Promise.allSettled([
+    fetchWithTimeout(localUrl, {}, 8000).then(r => (r && r.ok ? r.json() : [])),
+    fetchWithTimeout(rawGhUrl, {}, 5000).then(r => (r && r.ok ? r.json() : [])).catch(() => [])
+  ]);
+
+  const ghItems = rawGhRes.status === 'fulfilled' ? extractArr(rawGhRes.value) : [];
+  const localItems = localRes.status === 'fulfilled' ? extractArr(localRes.value) : [];
+
+  // Prefer local release bundle first so curated items and fresh v5.0 entities match deterministically, then merge new Actions items
+  return dedupeSanitizedNewsArray([...localItems, ...ghItems]);
+}
+
 async function loadStaticBaseData() {
+  const extractArr = val => {
+    if (!val) return [];
+    if (Array.isArray(val)) return val;
+    return Array.isArray(val.items) ? val.items : [];
+  };
+
   const [dealsRes, newsRes] = await Promise.allSettled([
-    fetchWithTimeout(`deals.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
+    fetchWithTimeout(`./deals.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     }),
-    fetchLiveNewsJson(false)
+    fetchWithTimeout(`./live-news.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
   ]);
 
   if (dealsRes.status === 'fulfilled' && Array.isArray(dealsRes.value) && dealsRes.value.length > 0) {
     const cleanDeals = dealsRes.value.filter(d => d && !isBlockedEntityToken(d.empresa));
     indexCuratedDeals(cleanDeals);
-    DEALS_DATA = cleanDeals.map(d => ({ ...d }));
-    VALKNUT_DATA = DEALS_DATA;
-    if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+    if (!hasHydratedFromLiveSheet) {
+      if (DEALS_DATA.length < cleanDeals.length) {
+        DEALS_DATA = cleanDeals.map(d => ({ ...d }));
+        VALKNUT_DATA = DEALS_DATA;
+        if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+        saveDealsSnapshotToStorage(DEALS_DATA);
+      } else {
+        const reconciled = reconcileDealsWithCuratedBase(DEALS_DATA);
+        if (reconciled && reconciled.length >= DEALS_DATA.length) {
+          DEALS_DATA = reconciled;
+          VALKNUT_DATA = DEALS_DATA;
+          if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+          saveDealsSnapshotToStorage(DEALS_DATA);
+        }
+      }
+    }
+    isInitialBootLoading = false;
     initialLoadFailed = false;
   }
 
-  if (newsRes.status === 'fulfilled' && Array.isArray(newsRes.value) && newsRes.value.length > 0) {
-    baseStaticNewsItems = newsRes.value;
+  if (newsRes.status === 'fulfilled') {
+    const cleanNews = dedupeSanitizedNewsArray(extractArr(newsRes.value));
+    if (cleanNews.length > 0 && baseStaticNewsItems.length === 0) {
+      baseStaticNewsItems = cleanNews;
+    }
   }
 }
 
@@ -899,15 +1129,16 @@ function reconcileDealsWithCuratedBase(incomingArr) {
   const seenCuratedIds = new Set();
   const seenCnpj = new Set();
   const seenStem = new Set();
-  let nextNewId = Math.max(154, MAX_CURATED_DEAL_ID) + 1;
+  let nextNewId = Math.max(180, MAX_CURATED_DEAL_ID) + 1;
   const merged = [];
 
   incomingArr.forEach(item => {
     if (!item || !item.empresa || isBlockedEntityToken(item.empresa)) return;
     const digits = String(item.cnpj || '').replace(/\D/g, '');
+    const hasValidCnpj = digits.length >= 11;
     const stem = normalizeCompanyStem(item.empresa);
-    if (digits.length === 14 && seenCnpj.has(digits)) return;
-    if (!digits && stem && seenStem.has(stem)) return;
+    if (hasValidCnpj && seenCnpj.has(digits)) return;
+    if (!hasValidCnpj && stem && seenStem.has(stem)) return;
 
     const curated = findCuratedDeal(item.cnpj, item.empresa);
     let finalDeal;
@@ -916,9 +1147,9 @@ function reconcileDealsWithCuratedBase(incomingArr) {
       seenCuratedIds.add(curated.id);
       finalDeal = mergeDealWithCurated({ ...item, id: curated.id }, curated);
     } else {
-      finalDeal = { ...item, id: nextNewId++ };
+      finalDeal = { ...item, id: item.id || nextNewId++ };
     }
-    if (digits.length === 14) seenCnpj.add(digits);
+    if (hasValidCnpj) seenCnpj.add(digits);
     if (stem) seenStem.add(stem);
     merged.push(finalDeal);
   });
@@ -940,27 +1171,35 @@ function reconcileDealsWithCuratedBase(incomingArr) {
   return merged;
 }
 
-function loadCachedLiveNewsFromStorage() {
+function loadDealsSnapshotFromStorage() {
   try {
-    localStorage.removeItem('vk_live_rss_cache_v4');
     localStorage.removeItem('vk_deals_snapshot_v2');
     localStorage.removeItem('vk_deals_snapshot_v3');
     localStorage.removeItem('vk_deals_snapshot_v4');
-    localStorage.removeItem('vk_deals_snapshot_v5');
-    const rawDealsSnap = localStorage.getItem('vk_deals_snapshot_v6');
+    localStorage.removeItem('vk_deals_snapshot_v6');
+    const rawDealsSnap = localStorage.getItem('vk_deals_snapshot_v5');
     if (rawDealsSnap) {
       const parsedDeals = JSON.parse(rawDealsSnap);
       const totalSnapPassivo = Array.isArray(parsedDeals) ? parsedDeals.reduce((s, x) => s + Number(x.passivo_mm || 0), 0) : 0;
-      if (Array.isArray(parsedDeals) && parsedDeals.length >= DEALS_DATA.length && totalSnapPassivo > 0 && totalSnapPassivo < 500000) {
-        const reconciled = reconcileDealsWithCuratedBase(parsedDeals);
-        if (reconciled && reconciled.length >= DEALS_DATA.length) {
-          DEALS_DATA = reconciled;
+      if (Array.isArray(parsedDeals) && parsedDeals.length > 0 && totalSnapPassivo > 0 && totalSnapPassivo < 500000) {
+        const cleanSnap = parsedDeals.filter(d => d && !isBlockedEntityToken(d.empresa));
+        if (cleanSnap.length > 0) {
+          DEALS_DATA = cleanSnap;
           VALKNUT_DATA = DEALS_DATA;
           if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+          isInitialBootLoading = false;
           initialLoadFailed = false;
+          return true;
         }
       }
     }
+  } catch (e) {}
+  return false;
+}
+
+function loadCachedLiveNewsFromStorage() {
+  try {
+    localStorage.removeItem('vk_live_rss_cache_v4');
     const raw = localStorage.getItem('vk_live_rss_cache_v5');
     if (raw) {
       const parsed = JSON.parse(raw);
@@ -976,7 +1215,9 @@ function loadCachedLiveNewsFromStorage() {
 function saveCachedLiveNewsToStorage(items) {
   try {
     if (Array.isArray(items) && items.length > 0) {
-      const clean = items.filter(it => it && !isBlockedEntityToken(it.titulo) && isRecentNewsDate(it.data_hora, 75));
+      const clean = items
+        .map(sanitizeIncomingStaticNewsItem)
+        .filter(it => it && !isBlockedEntityToken(it.titulo) && isRecentNewsDate(it.data_hora, 75));
       localStorage.setItem('vk_live_rss_cache_v5', JSON.stringify(clean.slice(0, 28)));
     }
   } catch (e) {}
@@ -1038,7 +1279,7 @@ function shiftWeekendToNextBusinessDay(isoStr) {
 function saveDealsSnapshotToStorage(dealsArr) {
   try {
     if (Array.isArray(dealsArr) && dealsArr.length > 0) {
-      localStorage.setItem('vk_deals_snapshot_v6', JSON.stringify(dealsArr));
+      localStorage.setItem('vk_deals_snapshot_v5', JSON.stringify(dealsArr));
     }
   } catch (e) {}
 }
@@ -1089,7 +1330,10 @@ function syncFilterDomControlsFromState() {
   const maxEl = document.getElementById('inputMaxPassivo');
   if (maxEl) maxEl.value = maxPassivoMM !== null ? String(maxPassivoMM) : '';
 
-  document.querySelectorAll('.phase-chip[id^="proc-"]').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.phase-chip[id^="proc-"]').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
   const procMap = {
     '': 'proc-all',
     'PRJ': 'proc-prj',
@@ -1098,15 +1342,27 @@ function syncFilterDomControlsFromState() {
     'Falência / Liquidação': 'proc-falencia',
     'Tier 0': 'proc-tier0'
   };
-  document.getElementById(procMap[currentProcessType] || 'proc-all')?.classList.add('active');
+  const activeProcBtn = document.getElementById(procMap[currentProcessType] || 'proc-all');
+  if (activeProcBtn) {
+    activeProcBtn.classList.add('active');
+    activeProcBtn.setAttribute('aria-pressed', 'true');
+  }
 
-  document.querySelectorAll('.quick-toggle-btn[id^="qtoggle-"]').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.quick-toggle-btn[id^="qtoggle-"]').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
+  let activeQuickEl = null;
   if ((minPassivoMM === 0 || minPassivoMM === 30) && maxPassivoMM === null) {
-    document.getElementById('qtoggle-all')?.classList.add('active');
+    activeQuickEl = document.getElementById('qtoggle-all');
   } else if (minPassivoMM === 30 && maxPassivoMM === 10000) {
-    document.getElementById('qtoggle-no_outliers')?.classList.add('active');
+    activeQuickEl = document.getElementById('qtoggle-no_outliers');
   } else if (minPassivoMM === 30 && maxPassivoMM === 500) {
-    document.getElementById('qtoggle-middle')?.classList.add('active');
+    activeQuickEl = document.getElementById('qtoggle-middle');
+  }
+  if (activeQuickEl) {
+    activeQuickEl.classList.add('active');
+    activeQuickEl.setAttribute('aria-pressed', 'true');
   }
 }
 
@@ -1117,21 +1373,20 @@ function applyUrlHash(fromPopOrHashEvent = false) {
   // If initial boot has empty hash and we haven't navigated yet, keep default rendered state cleanly
   if (!rawHash && !fromPopOrHashEvent) return;
 
+  let shouldCanonicalizeHash = false;
   isApplyingUrlHash = true;
   try {
     const params = new URLSearchParams(rawHash);
-    let sec = params.get('sec') || 'operacao';
-    let sub = params.get('sub');
+    const rawSec = params.get('sec') || 'operacao';
+    const rawSub = params.get('sub') || '';
     const dealId = params.get('deal');
 
-    // Compatibilidade retroativa com links antigos de sub-abas consolidadas
-    if (sec === 'dashboards' && sub === 'benchmarks_setor') {
-      sec = 'precificacao';
-    }
-    if (!SECTION_CONFIG[sec]) sec = 'operacao';
-    if (sec === 'energia' && sub) {
-      if (sub === 'pld_horario' || sub === 'risco_curtailment') sub = 'pld_curtailment';
-      else if (sub === 'hidrologia_ena' || sub === 'outorgas_aneel') sub = 'sin_tempo_real';
+    // Redirect transparente para rotas legadas (#sec=bancometro, #sec=ecossistema, #sec=dashboards, #sec=mapa)
+    const normalizedRoute = normalizeLegacySectionAndSub(rawSec, rawSub);
+    const sec = normalizedRoute.sec;
+    const sub = normalizedRoute.sub;
+    if (rawHash && (rawSec !== sec || (rawSub && rawSub !== sub))) {
+      shouldCanonicalizeHash = true;
     }
 
     // Reset filters to defaults whenever omitted in URL hash (supports browser Back to default state)
@@ -1162,12 +1417,13 @@ function applyUrlHash(fromPopOrHashEvent = false) {
       renderActiveEntityFilterBar();
     }
 
-    if (sec !== 'mapa' && leafletMapInstance) {
+    if (!(sec === 'mercado' && sub === 'geo_all') && leafletMapInstance) {
       try { leafletMapInstance.remove(); } catch (e) {}
       leafletMapInstance = null;
     }
 
     currentMainSection = sec;
+    currentSubTab = sub;
     currentPage = 1;
     document.querySelectorAll('.nav-link-btn').forEach(b => {
       b.classList.remove('active');
@@ -1185,9 +1441,8 @@ function applyUrlHash(fromPopOrHashEvent = false) {
     const filterEl = document.getElementById('filterConsole');
     if (titleEl) titleEl.textContent = resolveDynamicCaseText(cfg.pageTitle);
     if (subEl) subEl.textContent = resolveDynamicCaseText(cfg.pageSubtitle);
-    if (filterEl) filterEl.style.display = cfg.showFilters ? 'flex' : 'none';
+    if (filterEl) filterEl.style.display = shouldShowFilterConsole(sec, sub) ? 'flex' : 'none';
 
-    currentSubTab = (sub && cfg.subtabs.some(s => s.id === sub)) ? sub : cfg.subtabs[0].id;
     renderSubTabs();
     renderSectionContent();
 
@@ -1195,26 +1450,32 @@ function applyUrlHash(fromPopOrHashEvent = false) {
       const numId = Number(dealId);
       if (!isNaN(numId)) openDossier(numId);
     } else {
-      if (currentModalItem) closeModal(true);
+      if (currentModalItem) closeModal();
       if (typeof closeCompsModal === 'function') closeCompsModal();
     }
   } catch (e) {} finally {
     isApplyingUrlHash = false;
   }
+  if (shouldCanonicalizeHash) {
+    syncUrlHash(false);
+  }
 }
 
 async function retryInitialDataLoad() {
   initialLoadFailed = false;
+  isInitialBootLoading = true;
   updateDynamicNavCounts();
   const container = document.getElementById('sectionContentArea');
   if (container) {
     container.innerHTML = `<div style="text-align:center; padding:48px; color:var(--text-muted);">Reconectando e sincronizando base concursal...</div>`;
   }
-  await loadStaticBaseData();
+  curatedBaseReadyPromise = loadStaticBaseData();
+  await curatedBaseReadyPromise;
   loadCachedLiveNewsFromStorage();
   if (DEALS_DATA.length === 0) {
-    await fetchLiveSheetInBackground(false);
+    await fetchLiveSheetInBackground(true);
   }
+  isInitialBootLoading = false;
   if (DEALS_DATA.length === 0) {
     initialLoadFailed = true;
     updateDynamicNavCounts();
@@ -1236,23 +1497,63 @@ async function bootValknutApp() {
   if (_hasBootedValknutApp) return;
   _hasBootedValknutApp = true;
 
-  await loadStaticBaseData();
+  loadWatchlistFromStorage();
   loadCachedLiveNewsFromStorage();
 
-  if (DEALS_DATA.length === 0) {
-    initialLoadFailed = true;
-  } else {
-    initialLoadFailed = false;
+  // Camada 1 (0ms — localStorage vk_deals_snapshot_v5)
+  const hydratedFromStorage = loadDealsSnapshotFromStorage();
+  if (hydratedFromStorage && DEALS_DATA.length > 0) {
+    isInitialBootLoading = false;
     enrichAllDeals();
     if (DEALS_DATA[0]) calibrateAdvisoryDefaultsForDeal(DEALS_DATA[0]);
+    populateDropdownFilters();
+    updateDynamicNavCounts();
+    renderSubTabs();
+    renderSectionContent();
+    if (typeof renderCompsFloatingBar === 'function') renderCompsFloatingBar();
+    applyUrlHash(false);
+  } else {
+    updateDynamicNavCounts();
+    renderSubTabs();
+    renderSectionContent();
   }
 
-  populateDropdownFilters();
-  updateDynamicNavCounts();
-  renderSubTabs();
-  renderSectionContent();
-  if (typeof renderCompsFloatingBar === 'function') renderCompsFloatingBar();
-  applyUrlHash(false);
+  // Camada 2 (< 80ms — Seed JSON Estático na CDN do GitHub Pages) & Camada 3 concorrentes
+  const prevCount = DEALS_DATA.length;
+  curatedBaseReadyPromise = loadStaticBaseData();
+  const bgRevalidateTask = fetchLiveSheetInBackground(false);
+  fetchLiveDistressedNews(false);
+  fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate);
+
+  await curatedBaseReadyPromise;
+  if (DEALS_DATA.length > 0) {
+    isInitialBootLoading = false;
+    initialLoadFailed = false;
+    enrichAllDeals();
+    if (!hydratedFromStorage && DEALS_DATA[0]) {
+      calibrateAdvisoryDefaultsForDeal(DEALS_DATA[0]);
+    }
+    populateDropdownFilters();
+    updateDynamicNavCounts();
+    renderSubTabs();
+    if (!hydratedFromStorage || DEALS_DATA.length !== prevCount || baseStaticNewsItems.length > 0) {
+      renderSectionContent();
+    }
+    if (typeof renderCompsFloatingBar === 'function') renderCompsFloatingBar();
+    if (!hydratedFromStorage) {
+      applyUrlHash(false);
+    }
+  } else {
+    await bgRevalidateTask;
+    isInitialBootLoading = false;
+    if (DEALS_DATA.length === 0) {
+      initialLoadFailed = true;
+      updateDynamicNavCounts();
+      renderSectionContent();
+    } else if (!hydratedFromStorage) {
+      applyUrlHash(false);
+    }
+  }
 
   window.addEventListener('hashchange', () => applyUrlHash(true));
   window.addEventListener('popstate', () => applyUrlHash(true));
@@ -1266,15 +1567,15 @@ async function bootValknutApp() {
     const active = document.activeElement;
     const tag = active && active.tagName ? active.tagName.toUpperCase() : '';
     const isTypingField = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || Boolean(active && active.isContentEditable);
-    if (isSlash && isTypingField) return;
+    if (isTypingField) return;
 
     const detailOpen = document.getElementById('detailModal')?.style.display === 'flex';
     const compsOpen = document.getElementById('compsModal')?.style.display === 'flex';
-    if (detailOpen || compsOpen) return;
+    const dirOpen = document.getElementById('diretrizesModal')?.style.display === 'flex';
+    if (detailOpen || compsOpen || dirOpen) return;
 
     e.preventDefault();
-    const cfg = SECTION_CONFIG[currentMainSection] || SECTION_CONFIG.operacao;
-    if (!cfg.showFilters) {
+    if (!shouldShowFilterConsole(currentMainSection, currentSubTab)) {
       switchMainSection('operacao');
     }
     const searchEl = document.getElementById('searchInput');
@@ -1284,12 +1585,9 @@ async function bootValknutApp() {
     }
   });
 
-  fetchLiveSheetInBackground();
-  fetchLiveDistressedNews();
-  fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate);
-
-  // Auto-refresh loop: atualiza automaticamente a cada 5 minutos em background
+  // Auto-refresh loop: atualiza automaticamente a cada 5 minutos em background quando a aba está visível
   setInterval(() => {
+    if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
     fetchLiveDistressedNews(false);
     fetchLiveSheetInBackground(false);
   }, 5 * 60 * 1000);
@@ -1303,13 +1601,7 @@ async function bootValknutApp() {
   });
 }
 
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootValknutApp);
-  } else {
-    bootValknutApp();
-  }
-}
+// Boot invocation is placed at the bottom of app.js after all module constants initialize.
 
 // ==========================================================================
 // 1. Data Enrichment & Smart Thesis Regex Parser
@@ -1438,10 +1730,12 @@ function reconcileSixBucketSplit(rawObj) {
 
 function resolveTicker(empresaName) {
   const emp = String(empresaName || '');
-  const parenMatch = emp.match(/\(([A-Z]{4}\d{1,2})\)/);
+  const parenMatch = emp.match(/\(([A-Z]{4}\d{1,2})\)/) || emp.match(/\([^)]*\b([A-Z]{4}(?:3|4|5|6|11))\b[^)]*\)/);
   if (parenMatch) return parenMatch[1];
   for (const [k, v] of Object.entries(TICKER_MAP)) {
-    if (emp.toLowerCase().includes(k.toLowerCase())) return v;
+    const escapedKey = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const rx = new RegExp(`(?:^|[^a-zA-Z0-9À-ÿ])${escapedKey}(?:$|[^a-zA-Z0-9À-ÿ])`, 'i');
+    if (rx.test(emp)) return v;
   }
   return '';
 }
@@ -1472,9 +1766,13 @@ function parseDateBR(dateStr) {
 function calcDaysRemaining(targetDateStr) {
   const target = parseDateBR(targetDateStr);
   if (!target) return null;
-  const today = new Date();
+  const today = parseDateBR(typeof getBrazilTodayIso === 'function' ? getBrazilTodayIso() : '') || new Date();
   today.setHours(12, 0, 0, 0);
   return Math.ceil((target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+}
+
+function isNegatedBankruptcyPhase(faseStr) {
+  return /fal[eê]ncia\s+revertida|revers[aã]o\s+de\s+fal[eê]ncia|afasta\s+fal[eê]ncia|suspende\s+fal[eê]ncia|risco\s+de\s+convola[cç][aã]o|fal[eê]ncia\s+pode\s+ser/i.test(String(faseStr || ''));
 }
 
 function computeDynamicRecovery(d) {
@@ -1497,7 +1795,7 @@ function computeDynamicRecovery(d) {
   if (tier.includes('tier 0') && !setor.includes('tecnologia')) recup += 12;
   else if (tier.includes('tier 1') && !setor.includes('tecnologia')) recup += 8;
   else if (fase.includes('extrajudicial') || fase.includes('128') || fase.includes('12154')) recup += 10;
-  else if (fase.includes('falência') || fase.includes('110') || fase.includes('liquidação')) recup -= 16;
+  else if ((fase.includes('falência') || fase.includes('falencia') || fase.includes('110') || fase.includes('liquidação') || fase.includes('liquidacao')) && !isNegatedBankruptcyPhase(fase)) recup -= 16;
 
   if (colateral.includes('alienação fiduciária') || colateral.includes('garantia real') || colateral.includes('hipoteca') || colateral.includes('project finance')) {
     recup += 5;
@@ -1538,8 +1836,12 @@ function computeDynamicCalendarMeta(d) {
   const addIso = normalizeIsoDateStr(d.data_adicao || evIso);
   const evDate = parseDateBR(evIso);
   const addDate = parseDateBR(addIso);
+  const is2026CautelarWindow = d.tipo_processo === 'Cautelar / Pré-RJ' && Boolean(evDate) && evIso >= '2026-08-15';
 
-  if (!dataMarcoIso || dataMarcoIso === '2026-11-15' || dataMarcoIso < todayIso) {
+  if (is2026CautelarWindow && (!dataMarcoIso || dataMarcoIso === '2026-11-15')) {
+    const statutoryDt = new Date(evDate.getTime() + 60 * 86400000);
+    dataMarcoIso = `${statutoryDt.getFullYear()}-${String(statutoryDt.getMonth() + 1).padStart(2, '0')}-${String(statutoryDt.getDate()).padStart(2, '0')}`;
+  } else if (!dataMarcoIso || dataMarcoIso === '2026-11-15' || (!is2026CautelarWindow && dataMarcoIso < todayIso)) {
     const baseDt = (evDate && addDate && (evDate.getTime() + addDays * 86400000 < refToday.getTime()))
       ? (addDate.getTime() + addDays * 86400000 >= refToday.getTime() ? addDate : refToday)
       : (evDate || addDate || refToday);
@@ -1627,6 +1929,7 @@ function enrichAllDeals() {
 
     const dynRec = computeDynamicRecovery(d);
     const p = Number(d.passivo_mm || 100);
+    const valRecMm = Math.round(p * (dynRec.recupPct / 100.0));
     if (!d.model_params) {
       const defSplit = { extra: 18, fiscal: 7, c1: 3, c2: 42, c3: 27, c4: 3 };
       d.model_params = {
@@ -1635,7 +1938,8 @@ function enrichAllDeals() {
         haircut_estimado_pct: dynRec.haircutPct,
         recuperacao_estimada_pct: dynRec.recupPct,
         desconto_secundario_pct: 35,
-        ev_estimado_mm: Math.round(p * (dynRec.recupPct / 100.0)),
+        valor_recuperado_mm: valRecMm,
+        ev_estimado_mm: valRecMm,
         liquidez_forcada_desconto_pct: 40,
         split_classes: {
           extraconcursal_pct: defSplit.extra,
@@ -1662,6 +1966,7 @@ function enrichAllDeals() {
       d.model_params.recuperacao_estimada_pct = dynRec.recupPct;
       d.model_params.haircut_pct = dynRec.haircutPct;
       d.model_params.recuperacao_pct = dynRec.recupPct;
+      d.model_params.valor_recuperado_mm = valRecMm;
       const recSplit = reconcileSixBucketSplit(d.model_params.split_classes || d.model_params.classes_pct);
       d.model_params.split_classes = {
         extraconcursal_pct: recSplit.extra,
@@ -1686,10 +1991,66 @@ function enrichAllDeals() {
       }
     }
 
+    const faseL = (d.fase || '').toLowerCase();
+    if ((faseL.includes('falência') || faseL.includes('falencia') || faseL.includes('autofalência') || faseL.includes('liquidação') || faseL.includes('liquidacao') || faseL.includes('classe 110')) && !isNegatedBankruptcyPhase(faseL)) {
+      d.subtipo_processo = 'Falência / Liquidação';
+    } else {
+      d.subtipo_processo = d.tipo_processo || 'PRJ';
+    }
+
     d.calendar_meta = computeDynamicCalendarMeta(d);
 
     const st = extractStakeholdersFromText(d.credores, d.tese, d.perfil_passivo);
-    d.agentes_fiduciarios = (d.energy_meta && d.energy_meta.agente_fiduciario) ? d.energy_meta.agente_fiduciario : (d.agentes_fiduciarios || st.fiduciarios);
+    const realFid = (st.fiduciarios && !/^n\/a\b/i.test(String(st.fiduciarios).trim())) ? st.fiduciarios : '';
+    const empLow = normalizeTextNoAccents(d.empresa || '');
+    if (d.setor_macro === 'Energia & Infraestrutura') {
+      if (!d.energy_meta) {
+        if (empLow.includes('rio alto')) {
+          d.energy_meta = {
+            submercado: 'Nordeste (NE) — Complexo Solar Santa Luzia (PB)',
+            debenture_codigo: 'Debêntures da Holding (R$ 1,09B BTG) + 8 Planos PRE',
+            agente_fiduciario: realFid || 'BTG Pactual / Sindicato Credor',
+            inadimplemento_ccee: 'Notificação de desligamento CCEE (27/10/2026) para 5 usinas',
+            risco_caducidade: 'Outorgas UFVs Santa Luzia I–IX sob defesa regulatória',
+            corte_rating_curtailment: 'Curtailment severo ONS (> 40% perda de geração de caixa) & compra no MCP'
+          };
+        } else if (empLow.includes('invepar')) {
+          d.energy_meta = {
+            submercado: 'Sudeste / Centro-Oeste (SE/CO)',
+            debenture_codigo: '5ª Emissão IVPR15 (R$ 1,37B orig. / IPCA+12,64%) & 3ª Emissão',
+            agente_fiduciario: realFid || 'Pentágono / Vórtx / Bradesco (Mandatário)',
+            inadimplemento_ccee: 'Concessões de Infraestrutura (Lamsa, ViaRio e GRU Airport)',
+            risco_caducidade: 'Ato de Concentração CADE (12/11/2026) p/ dação de Lamsa e ViaRio',
+            corte_rating_curtailment: 'Rating D (S&P / Fitch) & vencimento antecipado declarado por Mubadala'
+          };
+        } else if (empLow.includes('via brasil')) {
+          d.energy_meta = {
+            submercado: 'Sudeste / Centro-Oeste (SE/CO — MT-320/338)',
+            debenture_codigo: '3ª Emissão Sênior VIMT13 (ISIN BRVIMTDBS001 — R$ 158,0M)',
+            agente_fiduciario: 'Vórtx DTVM Ltda.',
+            inadimplemento_ccee: 'Concessão Rodoviária Estadual (SINFRA-MT / AGER-MT)',
+            risco_caducidade: 'Suspensão judicial do 4º Termo Aditivo & postergação de Capex',
+            corte_rating_curtailment: 'PL negativo (R$ 18,2M), tráfego -3% vs. base e pressão sobre DSCR >= 1,3x'
+          };
+        } else {
+          const codeMatch = String(d.processo || '').match(/\b([A-Z]{4}\d{1,2})\b/);
+          d.energy_meta = {
+            submercado: d.regiao_macro === 'Nordeste' ? 'Nordeste (NE)' : (d.regiao_macro === 'Sul' ? 'Sul (S)' : (d.regiao_macro === 'Norte' ? 'Norte (N)' : 'Sudeste / Centro-Oeste (SE/CO)')),
+            debenture_codigo: codeMatch ? `Debêntures ${codeMatch[1]}` : (d.processo || 'Project Finance / Debêntures de Infraestrutura'),
+            agente_fiduciario: realFid || 'Vórtx / Pentágono / Oliveira Trust',
+            inadimplemento_ccee: 'Monitoramento MCP / CCEE & Concessões',
+            risco_caducidade: 'Outorga / Concessão sob acompanhamento regulatório',
+            corte_rating_curtailment: 'Pressão de ICSD / DSCR por alavancagem operacional'
+          };
+        }
+      } else if (/^n\/a\b/i.test(String(d.energy_meta.agente_fiduciario || '').trim())) {
+        if (empLow.includes('rio alto')) d.energy_meta.agente_fiduciario = realFid || 'BTG Pactual / Sindicato Credor';
+        else if (empLow.includes('invepar')) d.energy_meta.agente_fiduciario = realFid || 'Pentágono / Vórtx / Bradesco (Mandatário)';
+        else if (empLow.includes('via brasil')) d.energy_meta.agente_fiduciario = 'Vórtx DTVM Ltda.';
+        else d.energy_meta.agente_fiduciario = realFid || 'Vórtx / Pentágono / Oliveira Trust';
+      }
+    }
+    d.agentes_fiduciarios = (d.energy_meta && d.energy_meta.agente_fiduciario) ? d.energy_meta.agente_fiduciario : (d.agentes_fiduciarios && !/^n\/a\b/i.test(String(d.agentes_fiduciarios).trim()) ? d.agentes_fiduciarios : (realFid || st.fiduciarios));
     if (!d.securitizadoras || /^n\/a\b/i.test(String(d.securitizadoras).trim())) {
       d.securitizadoras = st.securitizadoras;
     } else {
@@ -1703,14 +2064,10 @@ function enrichAllDeals() {
       });
       d.securitizadoras = tokens.length > 0 ? tokens.join(' • ') : st.securitizadoras;
     }
-    d.ticker = d.ticker || resolveTicker(d.empresa);
-
-    const faseL = (d.fase || '').toLowerCase();
-    if (faseL.includes('falência') || faseL.includes('falencia') || faseL.includes('autofalência') || faseL.includes('liquidação') || faseL.includes('liquidacao') || faseL.includes('classe 110')) {
-      d.subtipo_processo = 'Falência / Liquidação';
-    } else {
-      d.subtipo_processo = d.tipo_processo || 'PRJ';
+    if (d.ticker === 'GOLL4' && !/(?:^|[^a-zA-Z0-9À-ÿ])gol(?:$|[^a-zA-Z0-9À-ÿ])/i.test(d.empresa || '')) {
+      d.ticker = '';
     }
+    d.ticker = d.ticker || resolveTicker(d.empresa);
   });
 
   updateDynamicNavCounts();
@@ -1750,13 +2107,21 @@ function applyPassivoCutoffImmediate() {
   maxPassivoMM = rawMax === '' ? null : parseFloat(rawMax);
   if (maxPassivoMM !== null && (isNaN(maxPassivoMM) || maxPassivoMM <= 0)) maxPassivoMM = null;
 
-  document.querySelectorAll('.quick-toggle-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.quick-toggle-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
+  let matchedQuickBtn = null;
   if ((minPassivoMM === 0 || minPassivoMM === 30) && maxPassivoMM === null) {
-    document.getElementById('qtoggle-all')?.classList.add('active');
+    matchedQuickBtn = document.getElementById('qtoggle-all');
   } else if (minPassivoMM === 30 && maxPassivoMM === 10000) {
-    document.getElementById('qtoggle-no_outliers')?.classList.add('active');
+    matchedQuickBtn = document.getElementById('qtoggle-no_outliers');
   } else if (minPassivoMM === 30 && maxPassivoMM === 500) {
-    document.getElementById('qtoggle-middle')?.classList.add('active');
+    matchedQuickBtn = document.getElementById('qtoggle-middle');
+  }
+  if (matchedQuickBtn) {
+    matchedQuickBtn.classList.add('active');
+    matchedQuickBtn.setAttribute('aria-pressed', 'true');
   }
 
   currentPage = 1;
@@ -1776,9 +2141,15 @@ function setPassivoQuickToggle(mode) {
   const minEl = document.getElementById('inputMinPassivo');
   const maxEl = document.getElementById('inputMaxPassivo');
 
-  document.querySelectorAll('.quick-toggle-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.quick-toggle-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
   const btn = document.getElementById(`qtoggle-${mode}`);
-  if (btn) btn.classList.add('active');
+  if (btn) {
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+  }
 
   if (mode === 'all') {
     minPassivoMM = 30;
@@ -1971,7 +2342,7 @@ function formatScoreBR(val) {
 function formatKpiScale(val) {
   if (isNaN(val) || !val) return '0 MM';
   if (val >= 1000) {
-    return `${(val / 1000.0).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} Bi`;
+    return `${(val / 1000.0).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Bi`;
   }
   return `${Math.round(val).toLocaleString('pt-BR')} MM`;
 }
@@ -1996,38 +2367,46 @@ function escapeHtml(str) {
 // ==========================================================================
 // 4. Main Section & Sub-Tab Navigation + Tier 0 Deduplication
 // ==========================================================================
-function switchMainSection(secId) {
-  if (secId !== 'mapa' && leafletMapInstance) {
+function switchMainSection(secId, explicitSubId = '') {
+  const normalized = normalizeLegacySectionAndSub(secId, explicitSubId);
+  const resolvedSec = normalized.sec;
+  const resolvedSub = normalized.sub;
+
+  if (!(resolvedSec === 'mercado' && resolvedSub === 'geo_all') && leafletMapInstance) {
     try { leafletMapInstance.remove(); } catch (e) {}
     leafletMapInstance = null;
   }
-  currentMainSection = secId;
+  currentMainSection = resolvedSec;
+  currentSubTab = resolvedSub;
   currentPage = 1;
   document.querySelectorAll('.nav-link-btn').forEach(b => {
     b.classList.remove('active');
     b.setAttribute('aria-selected', 'false');
   });
-  const activeNav = document.getElementById(`nav-${secId}`);
+  const activeNav = document.getElementById(`nav-${resolvedSec}`);
   if (activeNav) {
     activeNav.classList.add('active');
     activeNav.setAttribute('aria-selected', 'true');
   }
 
-  const cfg = SECTION_CONFIG[secId] || SECTION_CONFIG.operacao;
+  const cfg = SECTION_CONFIG[resolvedSec] || SECTION_CONFIG.operacao;
   const titleEl = document.getElementById('pageMainTitle');
   const subEl = document.getElementById('pageMainSubtitle');
   const filterEl = document.getElementById('filterConsole');
   if (titleEl) titleEl.textContent = resolveDynamicCaseText(cfg.pageTitle);
   if (subEl) subEl.textContent = resolveDynamicCaseText(cfg.pageSubtitle);
-  if (filterEl) filterEl.style.display = cfg.showFilters ? 'flex' : 'none';
+  if (filterEl) filterEl.style.display = shouldShowFilterConsole(resolvedSec, resolvedSub) ? 'flex' : 'none';
 
-  currentSubTab = cfg.subtabs[0].id;
   renderSubTabs();
   renderSectionContent();
   syncUrlHash(true);
 }
 
 function selectSubTab(subId) {
+  if (!(currentMainSection === 'mercado' && subId === 'geo_all') && leafletMapInstance) {
+    try { leafletMapInstance.remove(); } catch (e) {}
+    leafletMapInstance = null;
+  }
   currentSubTab = subId;
   currentPage = 1;
   const cfg = SECTION_CONFIG[currentMainSection] || SECTION_CONFIG.operacao;
@@ -2038,6 +2417,9 @@ function selectSubTab(subId) {
     if (titleEl) titleEl.textContent = resolveDynamicCaseText(st.title);
     if (descEl) descEl.textContent = resolveDynamicCaseText(st.desc);
   }
+  const filterEl = document.getElementById('filterConsole');
+  if (filterEl) filterEl.style.display = shouldShowFilterConsole(currentMainSection, subId) ? 'flex' : 'none';
+
   renderSubTabs();
   renderSectionContent();
   syncUrlHash(true);
@@ -2112,6 +2494,7 @@ function renderSubTabs() {
   const cfg = SECTION_CONFIG[currentMainSection] || SECTION_CONFIG.operacao;
   const bar = document.getElementById('subtabPillsBar');
   if (!bar) return;
+  const stillBooting = typeof isInitialBootLoading !== 'undefined' && isInitialBootLoading && DEALS_DATA.length === 0;
   const baseDeals = DEALS_DATA.filter(d => {
     if (activeEntityFilter && activeEntityFilter.dealIds && !activeEntityFilter.dealIds.has(String(d.id))) return false;
     return matchesPassivoCutoff(d);
@@ -2122,19 +2505,27 @@ function renderSubTabs() {
     const isActive = st.id === currentSubTab;
     let countBadge = '';
     if (currentMainSection === 'operacao') {
-      let cnt = baseDeals.filter(d => {
-        if (st.id === 'all') return true;
-        if (st.id === 'debentures') return isDebenturesEligible(d);
-        return d.strategy_id === st.id;
-      }).length;
-      if (st.id === 'precursor' && !activeEntityFilter) {
-        cnt += getMergedTier0Targets().filter(matchesPassivoCutoff).length;
+      if (st.id === 'mandatos_crm') {
+        const crmCnt = Array.isArray(LIVE_MANDATOS_DATA) ? LIVE_MANDATOS_DATA.length : 0;
+        countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${crmCnt}</span>`;
+      } else if (st.id === 'watchlist') {
+        const wlCnt = stillBooting ? '--' : baseDeals.filter(d => isDealWatchlisted(d.id)).length;
+        countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${wlCnt}</span>`;
+      } else {
+        let cnt = baseDeals.filter(d => {
+          if (st.id === 'all') return true;
+          if (st.id === 'debentures') return isDebenturesEligible(d);
+          return d.strategy_id === st.id;
+        }).length;
+        if (st.id === 'precursor' && !activeEntityFilter) {
+          cnt += getMergedTier0Targets().filter(matchesPassivoCutoff).length;
+        }
+        countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting ? '--' : cnt}</span>`;
       }
-      countBadge = `<span class="pill-count">${cnt}</span>`;
     } else if (currentMainSection === 'upis') {
       const upis = baseDeals.filter(isUpiEligible);
       const cnt = st.id === 'upi_all' ? upis.length : upis.filter(d => getUpiCategory(d) === st.id).length;
-      countBadge = `<span class="pill-count">${cnt}</span>`;
+      countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting ? '--' : cnt}</span>`;
     } else if (currentMainSection === 'prazos') {
       const cnt = baseDeals.filter(d => {
         if (st.id === 'prazos_all' || st.id === 'prazos_calendario' || st.id === 'prazos_mensal') return true;
@@ -2142,7 +2533,7 @@ function renderSubTabs() {
         if (st.id === 'prazos_cautelar') return d.tipo_processo === 'Cautelar / Pré-RJ';
         return true;
       }).length;
-      countBadge = `<span class="pill-count">${cnt}</span>`;
+      countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting ? '--' : cnt}</span>`;
     } else if (currentMainSection === 'noticias' && typeof getAllCombinedNews === 'function') {
       const allN = getAllCombinedNews();
       const cnt = allN.filter(n => {
@@ -2152,10 +2543,16 @@ function renderSubTabs() {
         if (st.id === 'news_upi_falencia') return n.categoria === 'Leilão de UPI' || n.categoria === 'Falência';
         return true;
       }).length;
-      countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${cnt}</span>`;
+      countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting && allN.length === 0 ? '--' : cnt}</span>`;
     } else if (currentMainSection === 'energia' && st.id === 'pipeline_energia') {
       const engCnt = DEALS_DATA.filter(d => d.setor_macro === 'Energia & Infraestrutura').length;
-      countBadge = `<span class="pill-count">${engCnt}</span>`;
+      countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting ? '--' : engCnt}</span>`;
+    } else if (currentMainSection === 'mercado') {
+      if (st.id === 'geo_all') {
+        countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting ? '--' : baseDeals.length}</span>`;
+      } else if (st.id === 'tracking_pres') {
+        countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${TRACKING_PRES_YTD_DATA.length}</span>`;
+      }
     }
 
     html += `
@@ -2217,7 +2614,11 @@ function getFilteredDeals() {
     if (!matchesPassivoCutoff(item)) return false;
 
     if (currentMainSection === 'operacao') {
-      if (currentSubTab !== 'all') {
+      if (currentSubTab === 'watchlist') {
+        if (!isDealWatchlisted(item.id)) return false;
+      } else if (currentSubTab === 'mandatos_crm') {
+        return true;
+      } else if (currentSubTab !== 'all') {
         if (currentSubTab === 'debentures' && !isDebenturesEligible(item)) return false;
         if (currentSubTab !== 'debentures' && item.strategy_id !== currentSubTab) return false;
       }
@@ -2227,14 +2628,14 @@ function getFilteredDeals() {
     } else if (currentMainSection === 'prazos') {
       if (currentSubTab === 'prazos_agc' && !(Boolean(item.calendar_meta?.is_fixed_edital) || hasScheduledAssemblyOrAuction(item))) return false;
       if (currentSubTab === 'prazos_cautelar' && item.tipo_processo !== 'Cautelar / Pré-RJ') return false;
-    } else if (currentMainSection === 'mapa') {
-      if (currentSubTab === 'geo_Sudeste' && item.regiao_macro !== 'Sudeste') return false;
-      if (currentSubTab === 'geo_Sul' && item.regiao_macro !== 'Sul') return false;
-      if (currentSubTab === 'geo_Centro-Oeste' && item.regiao_macro !== 'Centro-Oeste') return false;
-      if (currentSubTab === 'geo_NorteNordeste' && item.regiao_macro !== 'Norte' && item.regiao_macro !== 'Nordeste') return false;
+    } else if (currentMainSection === 'mercado' && currentSubTab === 'geo_all') {
+      if (currentMapRegionFilter === 'Sudeste' && item.regiao_macro !== 'Sudeste') return false;
+      if (currentMapRegionFilter === 'Sul' && item.regiao_macro !== 'Sul') return false;
+      if (currentMapRegionFilter === 'Centro-Oeste' && item.regiao_macro !== 'Centro-Oeste') return false;
+      if (currentMapRegionFilter === 'NorteNordeste' && item.regiao_macro !== 'Norte' && item.regiao_macro !== 'Nordeste') return false;
     }
 
-    if (currentMainSection === 'operacao' || currentMainSection === 'upis' || currentMainSection === 'prazos' || currentMainSection === 'mapa') {
+    if (shouldShowFilterConsole(currentMainSection, currentSubTab)) {
       if (currentProcessType !== '') {
         if (currentProcessType === 'Falência / Liquidação') {
           if (item.subtipo_processo !== 'Falência / Liquidação') return false;
@@ -2324,6 +2725,23 @@ function toggleTableColumnSort(colKey) {
 }
 
 function updateExecutiveKPIs(deals) {
+  if (typeof isInitialBootLoading !== 'undefined' && isInitialBootLoading && DEALS_DATA.length === 0 && !initialLoadFailed) {
+    const setShimmer = id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = '<span class="skeleton-shimmer">--</span>';
+    };
+    setShimmer('kpiTotalVolume');
+    setShimmer('kpiActiveDeals');
+    setShimmer('kpiAvgTicket');
+    setShimmer('kpiMaxPassivo');
+    setShimmer('kpiJurisdictions');
+    ['proc-count-all', 'proc-count-prj', 'proc-count-cautelar', 'proc-count-pre', 'proc-count-falencia', 'proc-count-tier0'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = '--';
+    });
+    return;
+  }
+
   const tier0Extra = (currentMainSection === 'operacao' && currentSubTab === 'precursor') ? getFilteredTier0Targets() : [];
   const combinedForKpi = tier0Extra.length > 0 ? [...deals, ...tier0Extra] : deals;
   const totalVol = combinedForKpi.reduce((s, d) => s + (d.passivo_mm || 0), 0);
@@ -2399,6 +2817,173 @@ function createManagedChart(canvasOrId, config) {
   return chart;
 }
 
+function openCalculatorForMandato(idx, targetSub = 'calc_haircut') {
+  const m = Array.isArray(LIVE_MANDATOS_DATA) ? LIVE_MANDATOS_DATA[idx] : null;
+  if (!m) return;
+  const subDest = targetSub === 'pitch_pptx' ? 'pitch_pptx' : 'calc_haircut';
+
+  const applyParsedCrmFeeOverrides = () => {
+    const honStr = String(m.honorarios_estimados || '');
+    const mRet = honStr.match(/R\$\s*(\d+(?:[.,]\d+)?)\s*(?:k|mil)\b/i);
+    if (mRet) {
+      const v = parseFloat(mRet[1].replace(',', '.'));
+      if (!isNaN(v) && v > 0) pitchRetainerMensal = v;
+    }
+    const mSucc = honStr.match(/(\d+(?:[.,]\d+)?)\s*%/);
+    if (mSucc) {
+      const s = parseFloat(mSucc[1].replace(',', '.'));
+      if (!isNaN(s) && s > 0) pitchSuccessFeePct = s;
+    }
+    if (m.tipo_mandato) pitchMandateType = m.tipo_mandato;
+  };
+
+  const matched = findCuratedDeal('', m.empresa);
+  if (matched) {
+    closeModal();
+    selectedTier0CalcTarget = null;
+    selectedModelDealId = Number(matched.id);
+    const dealObj = DEALS_DATA.find(x => Number(x.id) === selectedModelDealId) || matched;
+    calibrateAdvisoryDefaultsForDeal(dealObj);
+    applyParsedCrmFeeOverrides();
+    switchMainSection('precificacao', subDest);
+    showToast(`Mandato CRM carregado em ${subDest === 'pitch_pptx' ? 'Proposta (.pptx)' : 'Calculadora de Fee'}: ${m.empresa}`);
+    return;
+  }
+  const todayIso = getBrazilTodayIso();
+  selectedTier0CalcTarget = {
+    id: 'tier0',
+    empresa: m.empresa || 'Mandato em Prospecção',
+    cnpj: 'Mandato Ativo (CRM)',
+    setor_macro: mapSectorMacro(m.setor || 'Agronegócio'),
+    uf: 'SP',
+    cidade: 'São Paulo',
+    tribunal: `CRM Valknut • Estágio: ${m.estagio || 'Contato Inicial'}`,
+    processo: m.tipo_mandato || 'Financial Advisory',
+    fase: `Mandato em Abordagem (${m.estagio || 'CRM'})`,
+    tier: 'CRM',
+    tipo_processo: 'Cautelar / Pré-RJ',
+    subtipo_processo: m.tipo_mandato || 'Mandato Alvo',
+    passivo_mm: 180,
+    score: 9.0,
+    credores: `Sócio Líder: ${m.socio_lider || 'Mesa Valknut'} • Equipe: ${m.equipe || 'Equipe Core'}`,
+    perfil_passivo: m.honorarios_estimados || 'Retainer + Success Fee',
+    advocacia: 'Em definição no mandato',
+    aj: 'N/A',
+    proximas_acoes: m.proximos_passos || 'Alinhamento comercial e assinatura de NDA',
+    tese: `(1) Causa da crise: Abordagem executiva ativa (${m.tipo_mandato || 'Financial Advisory'}); (2) Gargalo imediato: ${m.proximos_passos || 'Alinhamento comercial'}; (3) Tese de mandato: ${m.tipo_mandato || 'Advisory'} (${m.honorarios_estimados || 'Retainer + Success Fee'}).`,
+    descricao_empresa: `${m.empresa} — Mandato ativo em estágio "${m.estagio}" liderado por ${m.socio_lider}.`,
+    data_evento: todayIso,
+    data_adicao: todayIso
+  };
+  calibrateAdvisoryDefaultsForDeal(selectedTier0CalcTarget);
+  applyParsedCrmFeeOverrides();
+  switchMainSection('precificacao', subDest);
+  showToast(`Mandato CRM carregado em ${subDest === 'pitch_pptx' ? 'Proposta (.pptx)' : 'Calculadora de Fee'}: ${m.empresa}`);
+}
+
+function renderMandatosCrmView(container) {
+  const mandatos = Array.isArray(LIVE_MANDATOS_DATA) ? LIVE_MANDATOS_DATA : [];
+  const sociosUnicos = new Set(mandatos.map(m => m.socio_lider).filter(Boolean));
+  const setoresUnicos = new Set(mandatos.map(m => m.setor).filter(Boolean));
+
+  let html = `
+    <div class="crm-mandatos-kpi-strip">
+      <div class="ts-kpi-card">
+        <div class="ts-kpi-label">Mandatos em Abordagem</div>
+        <div class="ts-kpi-value">${mandatos.length}</div>
+        <div class="ts-kpi-sub">Aba Pipeline Ativo (Mandatos)</div>
+      </div>
+      <div class="ts-kpi-card">
+        <div class="ts-kpi-label">Sócios Líderes Envolvidos</div>
+        <div class="ts-kpi-value">${sociosUnicos.size}</div>
+        <div class="ts-kpi-sub">${escapeHtml([...sociosUnicos].join(', ') || 'Mesa Valknut')}</div>
+      </div>
+      <div class="ts-kpi-card">
+        <div class="ts-kpi-label">Frentes Setoriais</div>
+        <div class="ts-kpi-value">${setoresUnicos.size}</div>
+        <div class="ts-kpi-sub">${escapeHtml([...setoresUnicos].join(', ') || 'Multi-setorial')}</div>
+      </div>
+      <div class="ts-kpi-card">
+        <div class="ts-kpi-label">Sincronização CRM</div>
+        <div class="ts-kpi-value" style="font-size:15px;">Planilha Mestre</div>
+        <div class="ts-kpi-sub">Atualização automática em tempo real</div>
+      </div>
+    </div>
+  `;
+
+  if (mandatos.length === 0) {
+    html += `<div style="text-align:center; padding:42px; color:var(--text-muted);">Nenhum mandato cadastrado no momento na aba Pipeline Ativo (Mandatos).</div>`;
+    container.innerHTML = html;
+    return;
+  }
+
+  html += `
+    <div class="table-wrap" style="margin-bottom:18px;">
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>Empresa Alvo</th>
+            <th>Setor</th>
+            <th>Tipo de Mandato Alvo</th>
+            <th>Estágio da Abordagem</th>
+            <th>Sócio Líder</th>
+            <th>Equipe Alocada</th>
+            <th>Estrutura de Honorários Estimada</th>
+            <th>Próximos Passos</th>
+            <th style="text-align:center;">Modelagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${mandatos.map((m, idx) => `
+            <tr>
+              <td><strong style="color:var(--vk-header-start);">${escapeHtml(m.empresa)}</strong></td>
+              <td><span class="td-sector-pill">${escapeHtml(m.setor)}</span></td>
+              <td><span class="status-badge badge-prj" style="margin-left:0;">${escapeHtml(m.tipo_mandato)}</span></td>
+              <td><span class="crm-stage-badge">${escapeHtml(m.estagio)}</span></td>
+              <td style="font-weight:700; color:var(--vk-header-start);">${escapeHtml(m.socio_lider)}</td>
+              <td style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(m.equipe)}</td>
+              <td style="font-family:var(--font-mono); font-size:11.5px; font-weight:700; color:#065F46;">${escapeHtml(m.honorarios_estimados)}</td>
+              <td style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(m.proximos_passos)}</td>
+              <td style="text-align:center; white-space:nowrap;">
+                <button type="button" class="btn-action" onclick="openCalculatorForMandato(${idx}, 'calc_haircut')">⚡ Simular Fee / PPTX</button>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="crm-mandatos-grid">
+      ${mandatos.map((m, idx) => `
+        <div class="crm-mandato-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:8px;">
+              <div>
+                <strong style="font-size:15px; color:var(--vk-header-start); display:block;">${escapeHtml(m.empresa)}</strong>
+                <span class="td-company-meta">${escapeHtml(m.setor)} &bull; ${escapeHtml(m.tipo_mandato)}</span>
+              </div>
+              <span class="crm-stage-badge">${escapeHtml(m.estagio)}</span>
+            </div>
+            <div style="background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:6px; padding:10px 12px; margin:10px 0; font-size:12px; line-height:1.5;">
+              <div><strong style="color:var(--vk-header-start);">Sócio Líder:</strong> ${escapeHtml(m.socio_lider)}</div>
+              <div><strong style="color:var(--vk-header-start);">Equipe:</strong> ${escapeHtml(m.equipe)}</div>
+              <div><strong style="color:var(--vk-header-start);">Honorários Estimados:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:#065F46;">${escapeHtml(m.honorarios_estimados)}</span></div>
+            </div>
+            <div style="font-size:12px; color:var(--text-secondary);">
+              <strong style="color:var(--vk-header-start);">Próximos Passos:</strong> ${escapeHtml(m.proximos_passos)}
+            </div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; border-top:1px solid var(--border-light); padding-top:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">ORIGINADO NA PLANILHA MESTRE</span>
+            <button type="button" class="btn-solid" style="padding:6px 12px; font-size:11.5px;" onclick="openCalculatorForMandato(${idx}, 'pitch_pptx')">Gerar Pitch (.pptx)</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  container.innerHTML = html;
+}
+
 function renderSectionContent() {
   pendingChartTimers.forEach(t => clearTimeout(t));
   pendingChartTimers = [];
@@ -2410,6 +2995,21 @@ function renderSectionContent() {
   updateExecutiveKPIs(deals);
   const container = document.getElementById('sectionContentArea');
   if (!container) return;
+
+  if (DEALS_DATA.length === 0 && isInitialBootLoading && !initialLoadFailed && currentMainSection !== 'noticias' && !(currentMainSection === 'operacao' && currentSubTab === 'mandatos_crm')) {
+    container.innerHTML = `
+      <div class="skeleton-table-wrap" role="status" aria-busy="true">
+        <div class="skeleton-caption">Sincronizando casos concursais e sinais forenses...</div>
+        <div class="skeleton-row"></div>
+        <div class="skeleton-row"></div>
+        <div class="skeleton-row"></div>
+        <div class="skeleton-row"></div>
+        <div class="skeleton-row"></div>
+        <div class="skeleton-row"></div>
+      </div>
+    `;
+    return;
+  }
 
   if (DEALS_DATA.length === 0 && initialLoadFailed && currentMainSection !== 'noticias') {
     container.innerHTML = `
@@ -2424,26 +3024,31 @@ function renderSectionContent() {
   }
 
   if (currentMainSection === 'operacao') {
-    if (viewMode === 'table') renderTableView(deals, container);
-    else renderCardsView(deals, container);
-  } else if (currentMainSection === 'precificacao') {
-    renderPrecificacaoSection(container);
-  } else if (currentMainSection === 'dashboards') {
-    renderDashboardsSection(deals, container);
-  } else if (currentMainSection === 'upis') {
-    renderUpisSection(deals, container);
-  } else if (currentMainSection === 'bancometro') {
-    renderBancometroSection(deals, container);
-  } else if (currentMainSection === 'ecossistema') {
-    renderEcossistemaSection(deals, container);
-  } else if (currentMainSection === 'prazos') {
-    renderPrazosSection(deals, container);
-  } else if (currentMainSection === 'mapa') {
-    renderMapaSection(deals, container);
+    if (currentSubTab === 'mandatos_crm') {
+      renderMandatosCrmView(container);
+    } else if (viewMode === 'table') {
+      renderTableView(deals, container);
+    } else {
+      renderCardsView(deals, container);
+    }
   } else if (currentMainSection === 'noticias') {
     renderNoticiasSection(container);
+  } else if (currentMainSection === 'stakeholders') {
+    renderStakeholdersSection(deals, container);
+  } else if (currentMainSection === 'upis') {
+    renderUpisSection(deals, container);
+  } else if (currentMainSection === 'prazos') {
+    renderPrazosSection(deals, container);
   } else if (currentMainSection === 'energia') {
     renderEnergiaSection(container);
+  } else if (currentMainSection === 'mercado') {
+    if (currentSubTab === 'geo_all') {
+      renderMapaSection(deals, container);
+    } else {
+      renderDashboardsSection(deals, container);
+    }
+  } else if (currentMainSection === 'precificacao') {
+    renderPrecificacaoSection(container);
   }
 }
 
@@ -2628,11 +3233,37 @@ function renderTier0ForensicPanelHtml() {
   return html;
 }
 
+function formatProcessSubLineHtml(processoRaw) {
+  const proc = String(processoRaw || '').trim();
+  if (!proc || /^em\s+autua/i.test(proc) || /^a\s+verificar/i.test(proc) || /^sob\s+segredo/i.test(proc)) {
+    return `<div style="margin-top:3px;"><span class="status-badge badge-proc-autuacao" style="margin-left:0;">${escapeHtml(proc || 'Em autuação / Segredo de justiça')}</span></div>`;
+  }
+  if (/deb[eê]ntur|cra\b|cri\b|fidc|agd|cvm|standstill|extraconcursal|s[eé]rie|[A-Z]{4}\d{1,2}/i.test(proc) && !/\d{7}-\d{2}\.\d{4}/.test(proc)) {
+    return `<div style="margin-top:3px;"><span class="status-badge badge-proc-dcm" style="margin-left:0;">DCM / Extra</span><span style="font-size:10px; color:var(--text-muted); font-family:var(--font-mono);">${escapeHtml(proc)}</span></div>`;
+  }
+  return `<div style="font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 3px;">${escapeHtml(proc)}</div>`;
+}
+
+function renderWatchlistEmptyStateHtml() {
+  return `
+    <div style="max-width:540px; margin:32px auto; background:var(--bg-subtle); border:1px dashed var(--border-medium); border-radius:10px; padding:28px 24px; text-align:center;">
+      <div style="font-size:24px; color:#D97706; margin-bottom:6px;">☆</div>
+      <h3 style="font-size:15.5px; font-weight:800; color:var(--vk-header-start); margin:0 0 6px;">Sua Watchlist Prioritária está vazia</h3>
+      <p style="font-size:12.5px; color:var(--text-secondary); line-height:1.5; margin:0 0 16px;">Clique na estrela <strong>☆</strong> na coluna de ações da tabela, nos cards ou dentro de qualquer Tear Sheet para fixar grupos econômicos estratégicos no acompanhamento diário da mesa.</p>
+      <button type="button" class="btn-solid" style="padding:7px 16px; font-size:12px;" onclick="selectSubTab('all')">Explorar Pipeline Consolidado</button>
+    </div>
+  `;
+}
+
 function renderTableView(deals, container) {
   const tier0PanelHtml = renderTier0ForensicPanelHtml();
   if (deals.length === 0) {
     if (tier0PanelHtml) {
       container.innerHTML = tier0PanelHtml;
+      return;
+    }
+    if (currentMainSection === 'operacao' && currentSubTab === 'watchlist') {
+      container.innerHTML = renderWatchlistEmptyStateHtml();
       return;
     }
     container.innerHTML = `<div style="text-align:center; padding: 48px; color: var(--text-muted);">Nenhum caso encontrado para os filtros e limites de passivo selecionados.</div>`;
@@ -2650,6 +3281,7 @@ function renderTableView(deals, container) {
   const incArrow = currentSort === 'inclusao_desc' ? '↓' : (currentSort === 'inclusao_asc' ? '↑' : '↕');
   const pasArrow = currentSort === 'passivo_desc' ? '↓' : (currentSort === 'passivo_asc' ? '↑' : '↕');
   const scoArrow = currentSort === 'score_desc' ? '↓' : (currentSort === 'score_asc' ? '↑' : '↕');
+  const getAriaSort = (ascKey, descKey) => currentSort === ascKey ? 'ascending' : (currentSort === descKey ? 'descending' : 'none');
 
   let html = tier0PanelHtml;
 
@@ -2658,31 +3290,31 @@ function renderTableView(deals, container) {
       <table class="clean-table">
         <thead>
           <tr>
-            <th class="sortable-th" style="width: 17%;" onclick="toggleTableColumnSort('empresa')" title="Ordenar por Empresa">
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('empresa_asc', 'empresa_desc')}" style="width: 17%;" onclick="toggleTableColumnSort('empresa')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('empresa');}" title="Ordenar por Empresa">
               Empresa <span class="sort-indicator">${empArrow}</span>
             </th>
-            <th class="sortable-th" style="width: 10%;" onclick="toggleTableColumnSort('cnpj')" title="Ordenar por CNPJ">
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('cnpj_asc', 'cnpj_desc')}" style="width: 10%;" onclick="toggleTableColumnSort('cnpj')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('cnpj');}" title="Ordenar por CNPJ">
               CNPJ <span class="sort-indicator">${cnpjArrow}</span>
             </th>
-            <th class="sortable-th" style="width: 11%;" onclick="toggleTableColumnSort('setor')" title="Ordenar por Macro-Setor">
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('setor_asc', 'setor_desc')}" style="width: 10%;" onclick="toggleTableColumnSort('setor')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('setor');}" title="Ordenar por Macro-Setor">
               Macro-Setor <span class="sort-indicator">${setArrow}</span>
             </th>
             <th style="width: 14%;">Fase Concursal &amp; Autos</th>
-            <th class="sortable-th" style="width: 8%;" onclick="toggleTableColumnSort('movimento')" title="Ordenar por Data do Último Movimento">
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('movimento_asc', 'movimento_desc')}" style="width: 8%;" onclick="toggleTableColumnSort('movimento')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('movimento');}" title="Ordenar por Data do Último Movimento">
               Últ. Movimento <span class="sort-indicator">${movArrow}</span>
             </th>
-            <th class="sortable-th" style="width: 8%;" onclick="toggleTableColumnSort('inclusao')" title="Ordenar por Data de Inclusão no Sistema">
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('inclusao_asc', 'inclusao_desc')}" style="width: 8%;" onclick="toggleTableColumnSort('inclusao')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('inclusao');}" title="Ordenar por Data de Inclusão no Sistema">
               Inclusão <span class="sort-indicator">${incArrow}</span>
             </th>
             <th style="width: 10%;">Jurisdição</th>
-            <th class="sortable-th" style="width: 8%; text-align: right;" onclick="toggleTableColumnSort('passivo')" title="Ordenar por Passivo">
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('passivo_asc', 'passivo_desc')}" style="width: 8%; text-align: right;" onclick="toggleTableColumnSort('passivo')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('passivo');}" title="Ordenar por Passivo">
               Passivo (R$ MM) <span class="sort-indicator">${pasArrow}</span>
             </th>
-            <th style="width: 8%;">Principais Credores</th>
-            <th class="sortable-th" style="width: 4%; text-align: center;" onclick="toggleTableColumnSort('score')" title="Ordenar por Score Forense">
+            <th style="width: 7%;">Principais Credores</th>
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('score_asc', 'score_desc')}" style="width: 4%; text-align: center;" onclick="toggleTableColumnSort('score')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('score');}" title="Ordenar por Score Forense">
               Score <span class="sort-indicator">${scoArrow}</span>
             </th>
-            <th style="width: 6%; text-align: center;">Ações</th>
+            <th style="width: 8%; text-align: center;">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -2699,6 +3331,7 @@ function renderTableView(deals, container) {
       : '';
     const credoresTrunc = (item.credores && item.credores.length > 44) ? `${item.credores.substring(0, 44)}...` : (item.credores || 'Em apuração');
     const isCompSelected = compSet.has(Number(item.id));
+    const isWatched = isDealWatchlisted(item.id);
 
     html += `
       <tr>
@@ -2710,7 +3343,7 @@ function renderTableView(deals, container) {
         <td><span class="td-sector-pill">${escapeHtml(item.setor_macro)}</span></td>
         <td>
           <div><span class="status-badge ${b.cls}">${escapeHtml(b.label)}</span>${upiTag}</div>
-          <div style="font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 3px;">${escapeHtml(item.processo || 'Em autuação')}</div>
+          ${formatProcessSubLineHtml(item.processo)}
         </td>
         <td class="td-date-cell">${formatDateBR(item.data_evento)}</td>
         <td class="td-date-inc">${formatDateBR(item.data_adicao)}</td>
@@ -2723,6 +3356,7 @@ function renderTableView(deals, container) {
         <td class="td-score">${formatScoreBR(item.score)}</td>
         <td style="text-align: center; white-space: nowrap;">
           <div style="display:inline-flex; align-items:center; gap:4px;">
+            <button type="button" class="btn-watchlist-star ${isWatched ? 'active' : ''}" onclick="toggleWatchlistDeal(${item.id}, event)" title="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-label="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-pressed="${isWatched ? 'true' : 'false'}">${isWatched ? '★' : '☆'}</button>
             <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" onclick="toggleCompDeal(${item.id}, event)" title="${isCompSelected ? 'Remover do Comparador (Comps)' : 'Adicionar ao Comparador Lado a Lado (até 4 casos)'}" aria-pressed="${isCompSelected ? 'true' : 'false'}">⚖️</button>
             <button type="button" class="btn-action" onclick="openDossier(${item.id})">Ficha</button>
           </div>
@@ -2742,6 +3376,10 @@ function renderCardsView(deals, container) {
       container.innerHTML = tier0PanelHtml;
       return;
     }
+    if (currentMainSection === 'operacao' && currentSubTab === 'watchlist') {
+      container.innerHTML = renderWatchlistEmptyStateHtml();
+      return;
+    }
     container.innerHTML = `<div style="text-align:center; padding: 48px; color: var(--text-muted);">Nenhum caso encontrado para os filtros selecionados.</div>`;
     return;
   }
@@ -2754,6 +3392,7 @@ function renderCardsView(deals, container) {
     const b = getBadgeVisual(item);
     const parsed = parseThesisRegex(item.tese);
     const isCompSelected = compSet.has(Number(item.id));
+    const isWatched = isDealWatchlisted(item.id);
 
     html += `
       <div class="clean-deal-card" onclick="openDossier(${item.id})">
@@ -2793,6 +3432,7 @@ function renderCardsView(deals, container) {
         <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; border-top:1px solid var(--border-light); padding-top:10px;">
           <span class="td-sector-pill">${escapeHtml(item.setor_macro)}</span>
           <div style="display:inline-flex; align-items:center; gap:5px;">
+            <button type="button" class="btn-watchlist-star ${isWatched ? 'active' : ''}" onclick="toggleWatchlistDeal(${item.id}, event)" title="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-label="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-pressed="${isWatched ? 'true' : 'false'}">${isWatched ? '★' : '☆'}</button>
             <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" onclick="toggleCompDeal(${item.id}, event)" title="${isCompSelected ? 'Remover do Comparador' : 'Comparar Lado a Lado'}" aria-pressed="${isCompSelected ? 'true' : 'false'}">⚖️ Comps</button>
             <button type="button" class="btn-action">Abrir Tear Sheet</button>
           </div>
@@ -3254,6 +3894,19 @@ function matchesCreditorKeyword(text, kw) {
   return rx.test(text);
 }
 
+function setStakeholderBankSubFilter(val) {
+  stakeholderBankSubFilter = val || 'all';
+  renderSectionContent();
+}
+
+function renderStakeholdersSection(deals, container) {
+  if (currentSubTab === 'eco_bancas' || currentSubTab === 'eco_ajs' || currentSubTab === 'eco_aj' || currentSubTab === 'eco_varas') {
+    renderEcossistemaSection(deals, container);
+    return;
+  }
+  renderBancometroSection(deals, container);
+}
+
 function renderBancometroSection(deals, container) {
   entityFilterRegistry.clear();
   const catalog = [
@@ -3280,7 +3933,15 @@ function renderBancometroSection(deals, container) {
   const baseDeals = DEALS_DATA.filter(matchesPassivoCutoff);
 
   const results = catalog
-    .filter(c => currentSubTab === 'cred_all' || c.group === currentSubTab)
+    .filter(c => {
+      if (currentSubTab === 'cred_all') return true;
+      if (currentSubTab === 'cred_bancos') {
+        if (stakeholderBankSubFilter === 'cred_privados') return c.group === 'cred_privados';
+        if (stakeholderBankSubFilter === 'cred_publicos') return c.group === 'cred_publicos';
+        return c.group === 'cred_privados' || c.group === 'cred_publicos';
+      }
+      return c.group === currentSubTab;
+    })
     .map((c, catIdx) => {
       let casesCount = 0;
       let participatingPassivo = 0;
@@ -3334,7 +3995,19 @@ function renderBancometroSection(deals, container) {
 
   const maxCases = results.length > 0 ? Math.max(...results.map(r => r.casesCount)) : 1;
 
-  let html = `<div class="creditor-grid">`;
+  let html = '';
+  if (currentSubTab === 'cred_bancos') {
+    html += `
+      <div class="inline-subfilter-bar">
+        <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--text-muted); text-transform:uppercase;">Segmento Bancário:</span>
+        <button type="button" class="phase-chip ${stakeholderBankSubFilter === 'all' ? 'active' : ''}" aria-pressed="${stakeholderBankSubFilter === 'all' ? 'true' : 'false'}" onclick="setStakeholderBankSubFilter('all')">Todos os Bancos</button>
+        <button type="button" class="phase-chip ${stakeholderBankSubFilter === 'cred_privados' ? 'active' : ''}" aria-pressed="${stakeholderBankSubFilter === 'cred_privados' ? 'true' : 'false'}" onclick="setStakeholderBankSubFilter('cred_privados')">Bancos Privados &amp; Montadoras</button>
+        <button type="button" class="phase-chip ${stakeholderBankSubFilter === 'cred_publicos' ? 'active' : ''}" aria-pressed="${stakeholderBankSubFilter === 'cred_publicos' ? 'true' : 'false'}" onclick="setStakeholderBankSubFilter('cred_publicos')">Bancos Públicos &amp; Cooperativas</button>
+      </div>
+    `;
+  }
+
+  html += `<div class="creditor-grid">`;
   results.forEach(r => {
     const pct = Math.min(Math.round((r.casesCount / maxCases) * 100), 100);
     const directBadge = r.directMappedCredit > 0
@@ -3361,6 +4034,77 @@ function renderBancometroSection(deals, container) {
     `;
   });
   html += `</div>`;
+
+  // In cred_dcm, also render individual Fiduciary Agents & Securitizadoras ranking below institutional macro-groups
+  if (currentSubTab === 'cred_dcm' && typeof ECO_FIDUCIARIOS_MATCHERS !== 'undefined') {
+    const fidGroups = {};
+    baseDeals.forEach(d => {
+      const rawFiduciaryCorpus = [d.agentes_fiduciarios || '', d.securitizadoras || '', d.credores || '', d.perfil_passivo || '', d.tese || ''].join(' ');
+      const normFiduciaryCorpus = normalizeTextNoAccents(rawFiduciaryCorpus);
+      const dynRec = computeDynamicRecovery(d);
+      ECO_FIDUCIARIOS_MATCHERS.forEach(m => {
+        if (m.test(rawFiduciaryCorpus, normFiduciaryCorpus)) {
+          if (!fidGroups[m.name]) fidGroups[m.name] = { name: m.name, count: 0, passivo: 0, deals: [], dealIds: new Set(), recupSum: 0 };
+          const idStr = String(d.id);
+          if (!fidGroups[m.name].dealIds.has(idStr)) {
+            fidGroups[m.name].dealIds.add(idStr);
+            fidGroups[m.name].count += 1;
+            fidGroups[m.name].passivo += (d.passivo_mm || 0);
+            fidGroups[m.name].deals.push(d);
+            fidGroups[m.name].recupSum += dynRec.recupPct;
+          }
+        }
+      });
+    });
+    const fidSorted = Object.values(fidGroups).sort((a, b) => b.count - a.count || b.passivo - a.passivo);
+    if (fidSorted.length > 0) {
+      html += `
+        <div style="margin-top:24px; margin-bottom:12px; padding-top:16px; border-top:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <strong style="font-size:13.5px; color:var(--vk-header-start);">Ranking Individual — Agentes Fiduciários &amp; Securitizadoras (DCM)</strong>
+            <div style="font-size:11.5px; color:var(--text-secondary);">Exposição individual por DTVM e companhia securitizadora em emissões de debêntures, CRAs e CRIs</div>
+          </div>
+          <span class="status-badge badge-pre">${fidSorted.length} Casas Fiduciárias / Securitizadoras</span>
+        </div>
+        <div class="eco-cards-grid">
+      `;
+      fidSorted.forEach((g, idx) => {
+        const avgRec = Math.round(g.recupSum / g.count);
+        const avgHaircut = 100 - avgRec;
+        const regKey = `eco_dcm_fid_${idx}`;
+        entityFilterRegistry.set(regKey, {
+          label: g.name,
+          category: 'Ecossistema • Agente Fiduciário / Securitizadora',
+          dealIds: new Set(g.dealIds)
+        });
+        html += `
+          <div class="eco-player-card" style="cursor:pointer;" onclick="activateEntityFilterFromCard('${regKey}')">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:8px;">
+                <div>
+                  <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-teal);">#${idx + 1} DCM PLAYER</span>
+                  <strong style="font-size:14px; color:var(--vk-header-start); display:block;">${escapeHtml(g.name)}</strong>
+                </div>
+                <span class="status-badge badge-upi">${g.count} ${g.count === 1 ? 'caso' : 'casos'}</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:11.5px; color:var(--text-secondary); background:var(--bg-subtle); padding:8px 10px; border-radius:6px; margin-bottom:10px;">
+                <span>Passivo: <strong>R$ ${formatKpiScale(g.passivo)}</strong></span>
+                <span>Recup: <strong style="color:#065F46;">${avgRec}%</strong> | Haircut: <strong>${avgHaircut}%</strong></span>
+              </div>
+              <div style="font-size:11.5px; color:var(--text-secondary); margin-bottom:12px;">
+                <strong>Casos:</strong> ${g.deals.slice(0, 4).map(x => escapeHtml(x.empresa)).join(' • ')}${g.deals.length > 4 ? ` (+${g.deals.length - 4})` : ''}
+              </div>
+            </div>
+            <button type="button" class="btn-action" style="width:100%;" onclick="event.stopPropagation(); activateEntityFilterFromCard('${regKey}')">
+              Filtrar Carteira deste Player (${g.count})
+            </button>
+          </div>
+        `;
+      });
+      html += `</div>`;
+    }
+  }
+
   container.innerHTML = html;
 }
 
@@ -3394,6 +4138,22 @@ function filterByCreditor(keyword) {
 // ==========================================================================
 // 10. Section: Redesign do Mapa Geográfico (Oceano Azul #090d16 + GeoJSON Brasil)
 // ==========================================================================
+function setMapRegionFilter(reg) {
+  currentMapRegionFilter = reg || 'all';
+  if (currentMapRegionFilter !== 'all' && currentUf) {
+    const ufReg = UF_TO_REGION[currentUf] || '';
+    const matchesReg = currentMapRegionFilter === 'NorteNordeste'
+      ? (ufReg === 'Norte' || ufReg === 'Nordeste')
+      : ufReg === currentMapRegionFilter;
+    if (!matchesReg) {
+      currentUf = '';
+      const sel = document.getElementById('selectUf');
+      if (sel) sel.value = '';
+    }
+  }
+  renderSectionContent();
+}
+
 function renderMapaSection(deals, container) {
   const ufStats = {};
   deals.forEach(d => {
@@ -3404,8 +4164,19 @@ function renderMapaSection(deals, container) {
   });
   const sortedUfs = Object.entries(ufStats).sort((a, b) => b[1].volume - a[1].volume);
 
+  const regionBarHtml = `
+    <div class="inline-subfilter-bar">
+      <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--text-muted); text-transform:uppercase;">Recorte Macro-Regional:</span>
+      <button type="button" class="phase-chip ${currentMapRegionFilter === 'all' ? 'active' : ''}" aria-pressed="${currentMapRegionFilter === 'all' ? 'true' : 'false'}" onclick="setMapRegionFilter('all')">Brasil (27 UFs)</button>
+      <button type="button" class="phase-chip ${currentMapRegionFilter === 'Sudeste' ? 'active' : ''}" aria-pressed="${currentMapRegionFilter === 'Sudeste' ? 'true' : 'false'}" onclick="setMapRegionFilter('Sudeste')">Sudeste (SP/RJ/MG/ES)</button>
+      <button type="button" class="phase-chip ${currentMapRegionFilter === 'Sul' ? 'active' : ''}" aria-pressed="${currentMapRegionFilter === 'Sul' ? 'true' : 'false'}" onclick="setMapRegionFilter('Sul')">Sul (PR/RS/SC)</button>
+      <button type="button" class="phase-chip ${currentMapRegionFilter === 'Centro-Oeste' ? 'active' : ''}" aria-pressed="${currentMapRegionFilter === 'Centro-Oeste' ? 'true' : 'false'}" onclick="setMapRegionFilter('Centro-Oeste')">Centro-Oeste (MT/GO/MS/DF)</button>
+      <button type="button" class="phase-chip ${currentMapRegionFilter === 'NorteNordeste' ? 'active' : ''}" aria-pressed="${currentMapRegionFilter === 'NorteNordeste' ? 'true' : 'false'}" onclick="setMapRegionFilter('NorteNordeste')">Norte &amp; Nordeste (Matopiba)</button>
+    </div>
+  `;
+
   let sidebarHtml = `
-    <div class="uf-rank-item ${currentUf === '' ? 'active' : ''}" onclick="filterMapByUf('')">
+    <div class="uf-rank-item ${currentUf === '' ? 'active' : ''}" role="button" tabindex="0" aria-pressed="${currentUf === '' ? 'true' : 'false'}" onclick="filterMapByUf('')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterMapByUf('');}">
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <strong style="color:var(--vk-header-start); font-size:12.5px;">BRASIL (Todas as UFs)</strong>
         <span style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--vk-teal);">${deals.length} casos</span>
@@ -3413,10 +4184,12 @@ function renderMapaSection(deals, container) {
     </div>
   `;
   sortedUfs.forEach(([uf, st]) => {
+    const safeUf = escapeHtml(uf);
+    const isUfActive = currentUf === uf;
     sidebarHtml += `
-      <div class="uf-rank-item ${currentUf === uf ? 'active' : ''}" onclick="filterMapByUf('${uf}')">
+      <div class="uf-rank-item ${isUfActive ? 'active' : ''}" data-uf="${safeUf}" role="button" tabindex="0" aria-pressed="${isUfActive ? 'true' : 'false'}" onclick="filterMapByUf(this.getAttribute('data-uf'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterMapByUf(this.getAttribute('data-uf'));}">
         <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-family:var(--font-mono); font-weight:800; color:var(--vk-header-start); font-size:13px;">${uf}</span>
+          <span style="font-family:var(--font-mono); font-weight:800; color:var(--vk-header-start); font-size:13px;">${safeUf}</span>
           <span style="font-size:11.5px; color:var(--text-secondary);">${st.count} casos</span>
           <span style="font-family:var(--font-mono); font-weight:700; font-size:12px; color:var(--vk-header-start);">R$ ${formatKpiScale(st.volume)}</span>
         </div>
@@ -3424,7 +4197,7 @@ function renderMapaSection(deals, container) {
     `;
   });
 
-  container.innerHTML = `
+  container.innerHTML = regionBarHtml + `
     <div class="geo-layout">
       <div class="uf-ranking-list">
         <div style="font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px;">
@@ -3437,10 +4210,10 @@ function renderMapaSection(deals, container) {
         <div class="map-floating-legend" aria-label="Legenda do Mapa">
           <div class="legend-section-title">1. Fase Processual (Cores dos Pins)</div>
           <div class="legend-item"><span class="legend-dot" style="background:#D97706;"></span> Recuperação Judicial (PRJ)</div>
-          <div class="legend-item"><span class="legend-dot" style="background:#0284C7;"></span> Recuperação Extrajudicial (PRE)</div>
-          <div class="legend-item"><span class="legend-dot" style="background:#E11D48;"></span> Cautelar / Art. 20-B</div>
-          <div class="legend-item"><span class="legend-dot" style="background:#475569;"></span> Falência / Liquidação (Cl. 110)</div>
-          <div class="legend-item"><span class="legend-dot" style="background:#7C3AED;"></span> Distress Precursor (Tier 0)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#38BDF8;"></span> Recuperação Extrajudicial (PRE)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#F43F5E;"></span> Cautelar / Art. 20-B</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#94A3B8;"></span> Falência / Liquidação (Cl. 110)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#A855F7;"></span> Distress Precursor (Tier 0)</div>
 
           <div class="legend-section-title" style="margin-top:8px;">2. Raio Proporcional ao Passivo</div>
           <div class="legend-radius-row">
@@ -3609,14 +4382,14 @@ function initGeoJsonBrazilMap(deals) {
     }
   });
 
-  if (currentUf !== '' && bounds.length > 0) {
+  if ((currentUf !== '' || currentMapRegionFilter !== 'all') && bounds.length > 0) {
     leafletMapInstance.fitBounds(bounds, { padding: [45, 45], maxZoom: 6.5 });
   }
 
   if (typeof window !== 'undefined' && !window._vkMapResizeBound) {
     window._vkMapResizeBound = true;
     window.addEventListener('resize', () => {
-      if (leafletMapInstance && currentMainSection === 'mapa') {
+      if (leafletMapInstance && ((currentMainSection === 'mercado' && currentSubTab === 'geo_all') || currentMainSection === 'mapa')) {
         try { leafletMapInstance.invalidateSize(); } catch (e) {}
       }
     });
@@ -3713,18 +4486,16 @@ function normalizeNewsSourceLabel(rawSource, blobNorm) {
 }
 
 function classifyRssNewsItem(rawItem, defaultCategory = 'Pedido de RJ') {
-  const rawTitle = String(rawItem.title || '').replace(/\s+-\s+[^-]+$/, '').trim();
+  const rawTitleDecoded = decodeHtmlEntities(String(rawItem.title || ''));
+  const rawTitle = rawTitleDecoded.replace(/\s+-\s+[^-]+$/, '').trim();
   if (isBlockedEntityToken(rawTitle)) return null;
-  const sourceMatch = String(rawItem.title || '').match(/-\s+([^-]+)$/);
-  const rawSource = rawItem.source || (sourceMatch ? sourceMatch[1].trim() : (rawItem.author || 'Google News BR'));
-  const cleanDesc = String(rawItem.description || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/gi, "'")
-    .replace(/\s+/g, ' ')
-    .trim();
+  const sourceMatch = rawTitleDecoded.match(/-\s+([^-]+)$/);
+  const rawSource = decodeHtmlEntities(rawItem.source || (sourceMatch ? sourceMatch[1].trim() : (rawItem.author || 'Google News BR')));
+  const cleanDesc = decodeHtmlEntities(
+    String(rawItem.description || '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+  );
   if (isBlockedEntityToken(cleanDesc)) return null;
 
   const blobNorm = normalizeTextNoAccents(`${rawTitle} ${cleanDesc} ${rawSource}`);
@@ -3798,15 +4569,7 @@ function classifyRssNewsItem(rawItem, defaultCategory = 'Pedido de RJ') {
     categoria = 'Cautelar 20-B';
   }
 
-  let matchedDeal = null;
-  for (const d of DEALS_DATA) {
-    const baseName = normalizeCompanyStem(d.empresa);
-    const tickerNorm = normalizeTextNoAccents(d.ticker || '');
-    if ((baseName.length >= 5 && blobNorm.includes(baseName)) || (tickerNorm.length >= 4 && new RegExp(`\\b${tickerNorm}\\b`).test(blobNorm))) {
-      matchedDeal = d;
-      break;
-    }
-  }
+  const matchedDeal = matchDealForNewsText(rawTitle, cleanDesc, '');
 
   const fonteMapped = normalizeNewsSourceLabel(rawSource, blobNorm);
   const escopo = (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating' || fonteMapped === 'CVM / Fatos Relevantes' || fonteMapped === 'Agentes Fiduciários')
@@ -3864,10 +4627,11 @@ async function fetchLiveNewsJsonMerged() {
     .then(r => (r && r.ok ? r.json() : []))
     .catch(() => []);
   const [localArr, ghArr] = await Promise.all([localTask, rawGhTask]);
-  const combined = [...(Array.isArray(ghArr) ? ghArr : []), ...(Array.isArray(localArr) ? localArr : [])];
+  const combined = [...(Array.isArray(localArr) ? localArr : []), ...(Array.isArray(ghArr) ? ghArr : [])];
   const deduped = [];
   const seen = new Set();
-  combined.forEach(it => {
+  combined.forEach(rawIt => {
+    const it = sanitizeIncomingStaticNewsItem(rawIt);
     if (!it || !it.titulo || isBlockedEntityToken(it.titulo)) return;
     const key = normalizeTextNoAccents(it.titulo).slice(0, 65);
     if (key && !seen.has(key)) {
@@ -4134,49 +4898,56 @@ function getAllCombinedNews() {
 function syncNewsCounters(providedNewsList) {
   const newsList = Array.isArray(providedNewsList) ? providedNewsList : getAllCombinedNews();
   const total = newsList.length;
+  const stillBootingNews = typeof isInitialBootLoading !== 'undefined' && isInitialBootLoading && total === 0 && !initialLoadFailed;
 
   const navNews = document.getElementById('nav-count-noticias');
-  if (navNews) navNews.textContent = total;
+  if (navNews) {
+    if (stillBootingNews) {
+      navNews.innerHTML = '<span class="skeleton-shimmer">--</span>';
+    } else {
+      navNews.textContent = total;
+    }
+  }
 
   const subAll = document.getElementById('subtab-count-news_all');
-  if (subAll) subAll.textContent = total;
+  if (subAll) subAll.textContent = stillBootingNews ? '--' : total;
 
   const subRj = document.getElementById('subtab-count-news_rj');
   if (subRj) {
-    subRj.textContent = newsList.filter(n => n.categoria === 'Pedido de RJ' || n.categoria === 'Cautelar 20-B').length;
+    subRj.textContent = stillBootingNews ? '--' : newsList.filter(n => n.categoria === 'Pedido de RJ' || n.categoria === 'Cautelar 20-B').length;
   }
 
   const subDcm = document.getElementById('subtab-count-news_dcm');
   if (subDcm) {
-    subDcm.textContent = newsList.filter(n => n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating').length;
+    subDcm.textContent = stillBootingNews ? '--' : newsList.filter(n => n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating').length;
   }
 
   const subUpi = document.getElementById('subtab-count-news_upi_falencia');
   if (subUpi) {
-    subUpi.textContent = newsList.filter(n => n.categoria === 'Leilão de UPI' || n.categoria === 'Falência').length;
+    subUpi.textContent = stillBootingNews ? '--' : newsList.filter(n => n.categoria === 'Leilão de UPI' || n.categoria === 'Falência').length;
   }
 
   const scopeAllBtn = document.getElementById('news-scope-btn-all');
   if (scopeAllBtn) {
-    scopeAllBtn.textContent = `Todas as Notícias (${total})`;
+    scopeAllBtn.textContent = `Todas as Notícias (${stillBootingNews ? '--' : total})`;
   }
 
   const scopeMercadoBtn = document.getElementById('news-scope-btn-mercado');
   if (scopeMercadoBtn) {
     const countMercado = newsList.filter(n => n.escopo === 'mercado').length;
-    scopeMercadoBtn.textContent = `Mercado & Macro (${countMercado})`;
+    scopeMercadoBtn.textContent = `Mercado & Macro (${stillBootingNews ? '--' : countMercado})`;
   }
 
   const scopePipelineBtn = document.getElementById('news-scope-btn-pipeline');
   if (scopePipelineBtn) {
     const countPipeline = newsList.filter(n => Boolean(n.deal_id) || n.escopo === 'pipeline' || String(n.fonte).toUpperCase() === 'PIPELINE').length;
-    scopePipelineBtn.textContent = `Empresas do Pipeline (${countPipeline})`;
+    scopePipelineBtn.textContent = `Empresas do Pipeline (${stillBootingNews ? '--' : countPipeline})`;
   }
 
   const scopeCvmBtn = document.getElementById('news-scope-btn-cvm');
   if (scopeCvmBtn) {
     const countCvm = newsList.filter(n => n.escopo === 'cvm').length;
-    scopeCvmBtn.textContent = `CVM, Waivers & Fatos Relevantes (${countCvm})`;
+    scopeCvmBtn.textContent = `CVM, Waivers & Fatos Relevantes (${stillBootingNews ? '--' : countCvm})`;
   }
 }
 
@@ -4225,10 +4996,10 @@ function renderNoticiasSection(container) {
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-light);">
         <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
           <span class="phase-label">Escopo do Feed:</span>
-          <button id="news-scope-btn-all" class="phase-chip ${newsScopeFilter === 'all' ? 'active' : ''}" onclick="handleNewsScopeFilter('all')">Todas as Notícias (${newsList.length})</button>
-          <button id="news-scope-btn-mercado" class="phase-chip ${newsScopeFilter === 'mercado' ? 'active' : ''}" onclick="handleNewsScopeFilter('mercado')">Mercado &amp; Macro (${countMercado})</button>
-          <button id="news-scope-btn-pipeline" class="phase-chip ${newsScopeFilter === 'pipeline' ? 'active' : ''}" onclick="handleNewsScopeFilter('pipeline')">Empresas do Pipeline (${countPipeline})</button>
-          <button id="news-scope-btn-cvm" class="phase-chip ${newsScopeFilter === 'cvm' ? 'active' : ''}" onclick="handleNewsScopeFilter('cvm')">CVM, Waivers &amp; Fatos Relevantes (${countCvm})</button>
+          <button type="button" id="news-scope-btn-all" class="phase-chip ${newsScopeFilter === 'all' ? 'active' : ''}" aria-pressed="${newsScopeFilter === 'all' ? 'true' : 'false'}" onclick="handleNewsScopeFilter('all')">Todas as Notícias (${newsList.length})</button>
+          <button type="button" id="news-scope-btn-mercado" class="phase-chip ${newsScopeFilter === 'mercado' ? 'active' : ''}" aria-pressed="${newsScopeFilter === 'mercado' ? 'true' : 'false'}" onclick="handleNewsScopeFilter('mercado')">Mercado &amp; Macro (${countMercado})</button>
+          <button type="button" id="news-scope-btn-pipeline" class="phase-chip ${newsScopeFilter === 'pipeline' ? 'active' : ''}" aria-pressed="${newsScopeFilter === 'pipeline' ? 'true' : 'false'}" onclick="handleNewsScopeFilter('pipeline')">Empresas do Pipeline (${countPipeline})</button>
+          <button type="button" id="news-scope-btn-cvm" class="phase-chip ${newsScopeFilter === 'cvm' ? 'active' : ''}" aria-pressed="${newsScopeFilter === 'cvm' ? 'true' : 'false'}" onclick="handleNewsScopeFilter('cvm')">CVM, Waivers &amp; Fatos Relevantes (${countCvm})</button>
         </div>
         <div style="display:flex; align-items:center; gap:8px;">
           <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--vk-teal); font-weight:700;">● ${escapeHtml(newsFeedSyncStatus)}</span>
@@ -4239,14 +5010,14 @@ function renderNoticiasSection(container) {
       <div class="filter-row-top">
         <div class="search-field-wrap">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="text" value="${escapeHtml(newsSearchQuery)}" placeholder="Buscar por palavra-chave, waiver, covenant, empresa, fundo, debênture ou tribunal..." oninput="handleNewsSearch(this.value)">
+          <input type="text" aria-label="Buscar notícias e fatos relevantes" value="${escapeHtml(newsSearchQuery)}" placeholder="Buscar por palavra-chave, waiver, covenant, empresa, fundo, debênture ou tribunal..." oninput="handleNewsSearch(this.value)">
         </div>
         <div class="filter-select-group">
-          <select class="clean-select" onchange="handleNewsSetorFilter(this.value)">
+          <select class="clean-select" aria-label="Filtrar notícias por Macro-Setor" onchange="handleNewsSetorFilter(this.value)">
             <option value="">Todos os Macro-Setores</option>
             ${setores.map(s => `<option value="${escapeHtml(s)}" ${newsSetorFilter === s ? 'selected' : ''}>${escapeHtml(s)}</option>`).join('')}
           </select>
-          <select class="clean-select" onchange="handleNewsCategoriaFilter(this.value)">
+          <select class="clean-select" aria-label="Filtrar notícias por Categoria" onchange="handleNewsCategoriaFilter(this.value)">
             <option value="">Todas as Categorias</option>
             ${categorias.map(c => `<option value="${escapeHtml(c)}" ${newsCategoriaFilter === c ? 'selected' : ''}>${escapeHtml(c)}</option>`).join('')}
           </select>
@@ -4254,10 +5025,13 @@ function renderNoticiasSection(container) {
       </div>
       <div class="news-source-pills">
         <span class="phase-label">Fonte:</span>
-        <button class="phase-chip ${newsSourceFilter === '' ? 'active' : ''}" onclick="handleNewsSourceFilter('')">Todas as Fontes</button>
-        ${sources.map(src => `
-          <button class="phase-chip ${normalizeTextNoAccents(newsSourceFilter) === normalizeTextNoAccents(src) && newsSourceFilter !== '' ? 'active' : ''}" data-news-source="${escapeHtml(src)}" onclick="handleNewsSourceFilter(this.getAttribute('data-news-source'))">${escapeHtml(src)}</button>
-        `).join('')}
+        <button type="button" class="phase-chip ${newsSourceFilter === '' ? 'active' : ''}" aria-pressed="${newsSourceFilter === '' ? 'true' : 'false'}" onclick="handleNewsSourceFilter('')">Todas as Fontes</button>
+        ${sources.map(src => {
+          const isSrcActive = normalizeTextNoAccents(newsSourceFilter) === normalizeTextNoAccents(src) && newsSourceFilter !== '';
+          return `
+            <button type="button" class="phase-chip ${isSrcActive ? 'active' : ''}" aria-pressed="${isSrcActive ? 'true' : 'false'}" data-news-source="${escapeHtml(src)}" onclick="handleNewsSourceFilter(this.getAttribute('data-news-source'))">${escapeHtml(src)}</button>
+          `;
+        }).join('')}
       </div>
     </div>
   `;
@@ -4931,13 +5705,23 @@ function initOnsStackedChart(subCfg) {
 function setProcessFilter(proc) {
   currentProcessType = proc;
   currentPage = 1;
-  document.querySelectorAll('.phase-chip').forEach(c => c.classList.remove('active'));
-  if (proc === '') document.getElementById('proc-all')?.classList.add('active');
-  else if (proc === 'PRJ') document.getElementById('proc-prj')?.classList.add('active');
-  else if (proc === 'Cautelar / Pré-RJ') document.getElementById('proc-cautelar')?.classList.add('active');
-  else if (proc === 'PRE') document.getElementById('proc-pre')?.classList.add('active');
-  else if (proc === 'Falência / Liquidação') document.getElementById('proc-falencia')?.classList.add('active');
-  else if (proc === 'Tier 0') document.getElementById('proc-tier0')?.classList.add('active');
+  document.querySelectorAll('.phase-chip').forEach(c => {
+    c.classList.remove('active');
+    c.setAttribute('aria-pressed', 'false');
+  });
+  const activeMap = {
+    '': 'proc-all',
+    'PRJ': 'proc-prj',
+    'Cautelar / Pré-RJ': 'proc-cautelar',
+    'PRE': 'proc-pre',
+    'Falência / Liquidação': 'proc-falencia',
+    'Tier 0': 'proc-tier0'
+  };
+  const targetBtn = document.getElementById(activeMap[proc] || 'proc-all');
+  if (targetBtn) {
+    targetBtn.classList.add('active');
+    targetBtn.setAttribute('aria-pressed', 'true');
+  }
   renderSectionContent();
   updateUrlHash();
 }
@@ -4975,7 +5759,10 @@ function handlePorteChange(val) {
   if (val === 'small' && minPassivoMM >= 30) {
     minPassivoMM = 0;
     if (minEl) minEl.value = '0';
-    document.querySelectorAll('.quick-toggle-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.quick-toggle-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     showToast('Piso ajustado para R$ 0 MM para exibir casos Sub-30M (< R$ 30 MM).');
   } else if (val === 'mid' && (minPassivoMM >= 100 || (maxPassivoMM !== null && maxPassivoMM < 30))) {
     minPassivoMM = 30;
@@ -5007,8 +5794,16 @@ function handleSortChange(val) {
 
 function setViewMode(mode) {
   viewMode = mode;
-  document.getElementById('btnViewTable')?.classList.toggle('active', mode === 'table');
-  document.getElementById('btnViewGrid')?.classList.toggle('active', mode === 'grid');
+  const tblBtn = document.getElementById('btnViewTable');
+  const grdBtn = document.getElementById('btnViewGrid');
+  if (tblBtn) {
+    tblBtn.classList.toggle('active', mode === 'table');
+    tblBtn.setAttribute('aria-pressed', mode === 'table' ? 'true' : 'false');
+  }
+  if (grdBtn) {
+    grdBtn.classList.toggle('active', mode === 'grid');
+    grdBtn.setAttribute('aria-pressed', mode === 'grid' ? 'true' : 'false');
+  }
   renderSectionContent();
 }
 
@@ -5070,30 +5865,34 @@ function renderPrazosSection(deals, container) {
     let diasRestantes = calcDays !== null ? calcDays : (typeof cm.dias_restantes === 'number' ? cm.dias_restantes : 30);
     const isFixed = Boolean(cm.is_fixed_edital) || hasScheduledAssemblyOrAuction(d);
     let urgencia = 'MÉDIA';
-    if (isFixed || diasRestantes <= 15) urgencia = 'CRÍTICA';
-    else if (diasRestantes <= 40) urgencia = 'ALTA';
+    if ((isFixed && diasRestantes <= 30) || diasRestantes <= 15) urgencia = 'CRÍTICA';
+    else if (isFixed || diasRestantes <= 40) urgencia = 'ALTA';
     return { deal: d, dataMarco, tipoMarco, urgencia, diasRestantes, isFixed, gargalo: parsed.gargalo };
   }).filter(ev => {
-    if (calFilterUrgency !== '' && ev.urgencia !== calFilterUrgency) return false;
     if (calFilterMarcoType === 'FIXO' && !ev.isFixed) return false;
     if (calFilterMarcoType === 'LEGAL' && ev.isFixed) return false;
     return true;
   }).sort((a, b) => String(a.dataMarco).localeCompare(String(b.dataMarco)));
 
+  const totalEventsCount = enrichedEvents.length;
   const critCount = enrichedEvents.filter(e => e.urgencia === 'CRÍTICA').length;
   const altaCount = enrichedEvents.filter(e => e.urgencia === 'ALTA').length;
+
+  const visibleEvents = calFilterUrgency !== ''
+    ? enrichedEvents.filter(ev => ev.urgencia === calFilterUrgency)
+    : enrichedEvents;
 
   let filterBarHtml = `
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:8px; padding:12px 16px; margin-bottom:16px;">
       <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
         <span style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--text-muted); text-transform:uppercase;">Urgência:</span>
-        <button class="phase-chip ${calFilterUrgency === '' ? 'active' : ''}" onclick="setCalUrgencyFilter('')">Todos (${enrichedEvents.length})</button>
-        <button class="phase-chip ${calFilterUrgency === 'CRÍTICA' ? 'active' : ''}" onclick="setCalUrgencyFilter('CRÍTICA')">🔴 Crítica / Editais (${critCount})</button>
-        <button class="phase-chip ${calFilterUrgency === 'ALTA' ? 'active' : ''}" onclick="setCalUrgencyFilter('ALTA')">🟠 Alta (${altaCount})</button>
-        <button class="phase-chip ${calFilterUrgency === 'MÉDIA' ? 'active' : ''}" onclick="setCalUrgencyFilter('MÉDIA')">🟢 Monitoramento</button>
+        <button type="button" class="phase-chip ${calFilterUrgency === '' ? 'active' : ''}" aria-pressed="${calFilterUrgency === '' ? 'true' : 'false'}" onclick="setCalUrgencyFilter('')">Todos (${totalEventsCount})</button>
+        <button type="button" class="phase-chip ${calFilterUrgency === 'CRÍTICA' ? 'active' : ''}" aria-pressed="${calFilterUrgency === 'CRÍTICA' ? 'true' : 'false'}" onclick="setCalUrgencyFilter('CRÍTICA')">🔴 Crítica / Editais (${critCount})</button>
+        <button type="button" class="phase-chip ${calFilterUrgency === 'ALTA' ? 'active' : ''}" aria-pressed="${calFilterUrgency === 'ALTA' ? 'true' : 'false'}" onclick="setCalUrgencyFilter('ALTA')">🟠 Alta (${altaCount})</button>
+        <button type="button" class="phase-chip ${calFilterUrgency === 'MÉDIA' ? 'active' : ''}" aria-pressed="${calFilterUrgency === 'MÉDIA' ? 'true' : 'false'}" onclick="setCalUrgencyFilter('MÉDIA')">🟢 Monitoramento</button>
       </div>
       <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-        <button class="btn-solid" style="padding:6px 12px; font-size:11.5px;" onclick="exportCalendarICS()">
+        <button type="button" class="btn-solid" style="padding:6px 12px; font-size:11.5px;" onclick="exportCalendarICS()">
           📅 Exportar Todos os Prazos (.ics Outlook/Google)
         </button>
       </div>
@@ -5109,7 +5908,7 @@ function renderPrazosSection(deals, container) {
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
         <div style="display:flex; gap:6px; flex-wrap:wrap;">
           ${months.map(m => `
-            <button class="quick-toggle-btn ${m.key === calSelectedMonth ? 'active' : ''}" onclick="setCalMonth('${m.key}')">${m.label}</button>
+            <button type="button" class="quick-toggle-btn ${m.key === calSelectedMonth ? 'active' : ''}" aria-pressed="${m.key === calSelectedMonth ? 'true' : 'false'}" onclick="setCalMonth('${m.key}')">${m.label}</button>
           `).join('')}
         </div>
         <span style="font-family:var(--font-mono); font-size:11px; color:var(--vk-header-start); font-weight:700;">
@@ -5128,13 +5927,13 @@ function renderPrazosSection(deals, container) {
 
     for (let day = 1; day <= mCfg.days; day++) {
       const dateIso = `${mCfg.key}-${String(day).padStart(2, '0')}`;
-      const dayEvents = enrichedEvents.filter(e => e.dataMarco === dateIso);
+      const dayEvents = visibleEvents.filter(e => e.dataMarco === dateIso);
       const hasEv = dayEvents.length > 0;
       gridHtml += `
         <div class="cal-day-cell ${hasEv ? 'has-events' : ''}">
           <div class="cal-day-num">${String(day).padStart(2, '0')}/${mCfg.key.split('-')[1]}</div>
           ${dayEvents.map(ev => `
-            <span class="cal-event-chip ${ev.urgencia === 'CRÍTICA' ? 'urgent' : ''}" onclick="openDossier(${ev.deal.id})" title="${escapeHtml(ev.deal.empresa)} — ${escapeHtml(ev.tipoMarco)}">
+            <span class="cal-event-chip ${ev.urgencia === 'CRÍTICA' ? 'urgent' : ''}" role="button" tabindex="0" onclick="openDossier(${ev.deal.id})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDossier(${ev.deal.id});}" title="${escapeHtml(ev.deal.empresa)} — ${escapeHtml(ev.tipoMarco)}">
               ${escapeHtml(ev.deal.empresa.substring(0, 18))}
             </span>
           `).join('')}
@@ -5147,7 +5946,7 @@ function renderPrazosSection(deals, container) {
   }
 
   let html = filterBarHtml + `<div>`;
-  enrichedEvents.forEach(ev => {
+  visibleEvents.forEach(ev => {
     const d = ev.deal;
     const passivoStr = formatNumberBR(d.passivo_mm);
     const b = getBadgeVisual(d);
@@ -5309,8 +6108,11 @@ function calibrateAdvisoryDefaultsForDeal(d) {
   pitchCreditorExposureMM = Math.max(5, Math.round(passivo * 0.25));
   modelHaircutPct = typeof mp.haircut_estimado_pct === 'number' ? mp.haircut_estimado_pct : 55;
   modelSecondaryDiscountPct = typeof mp.desconto_secundario_pct === 'number' ? mp.desconto_secundario_pct : 35;
-  modelEvAtivos = typeof mp.ev_estimado_mm === 'number' ? mp.ev_estimado_mm : Math.round(passivo * 0.55);
-  modelLiqDiscountPct = typeof mp.liquidez_forcada_desconto_pct === 'number' ? mp.liquidez_forcada_desconto_pct : 40;
+  const rawEv = mp.ev_estimado_mm ?? mp.ev_ativos_mm;
+  const rawLiq = mp.liquidez_forcada_desconto_pct ?? mp.desagio_liquidacao_pct;
+  modelEvAtivos = typeof rawEv === 'number' ? rawEv : Math.round(passivo * 0.55);
+  modelLiqDiscountPct = typeof rawLiq === 'number' ? rawLiq : 40;
+  modelRetainerOffsetPct = 50;
 
   const sc = mp.split_classes || mp.classes_pct || {};
   const rec = reconcileSixBucketSplit({
@@ -5447,8 +6249,9 @@ function openCalculatorForDeal(dealId) {
   closeModal();
   selectedTier0CalcTarget = null;
   selectedModelDealId = Number(dealId);
-  switchMainSection('precificacao');
-  selectDealForCalculator(dealId);
+  const d = DEALS_DATA.find(x => x.id === selectedModelDealId);
+  if (d) calibrateAdvisoryDefaultsForDeal(d);
+  switchMainSection('precificacao', 'calc_haircut');
   showToast('Caso carregado na Calculadora de Success Fee & Retainer!');
 }
 
@@ -5506,7 +6309,7 @@ function openCalculatorForTier0(idx) {
   pitchTargetRecipient = 'Acionistas Controladores & Sindicato de Credores';
   pitchRetainerMensal = Math.max(65, Math.min(220, Math.round(modelCustomPassivo * 0.35)));
   pitchSuccessFeePct = 2.0;
-  switchMainSection('precificacao');
+  switchMainSection('precificacao', 'calc_haircut');
   showToast(`Alvo Tier 0 carregado na Calculadora: ${t0.empresa} (R$ ${formatNumberBR(t0.passivo_mm)} MM)!`);
 }
 
@@ -5514,18 +6317,9 @@ function openPitchGeneratorForDeal(dealId) {
   closeModal();
   selectedTier0CalcTarget = null;
   selectedModelDealId = Number(dealId);
-  currentMainSection = 'precificacao';
-  document.querySelectorAll('.nav-link-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('nav-precificacao')?.classList.add('active');
-  const cfg = SECTION_CONFIG.precificacao;
-  document.getElementById('pageMainTitle').textContent = resolveDynamicCaseText(cfg.pageTitle);
-  document.getElementById('pageMainSubtitle').textContent = resolveDynamicCaseText(cfg.pageSubtitle);
-  document.getElementById('filterConsole').style.display = 'none';
-  currentSubTab = 'pitch_pptx';
-  selectDealForCalculator(dealId);
-  renderSubTabs();
-  renderSectionContent();
-  syncUrlHash(true);
+  const d = DEALS_DATA.find(x => x.id === selectedModelDealId);
+  if (d) calibrateAdvisoryDefaultsForDeal(d);
+  switchMainSection('precificacao', 'pitch_pptx');
   showToast('Caso carregado no Gerador de Proposta Comercial (.pptx)!');
 }
 
@@ -5536,22 +6330,22 @@ function buildFeeCalculatorRightPaneHtml(m) {
   return `
     <div class="calc-results-strip">
       <div class="calc-res-card">
-        <div class="calc-res-label">Retainer Fixo Acumulado</div>
+        <div class="calc-res-label result-kpi-label">Retainer Fixo Acumulado</div>
         <div class="calc-res-val">R$ ${m.retainerTotalMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
         <div class="calc-res-sub">R$ ${m.retainerMensalMil} mil/mês &times; ${m.mesesMandato} meses (${m.shareFixoPct}% do Total)</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Success Fee Bruto (${m.successFeePct.toFixed(2).replace('.', ',')}%)</div>
+        <div class="calc-res-label result-kpi-label">Success Fee Bruto (${m.successFeePct.toFixed(2).replace('.', ',')}%)</div>
         <div class="calc-res-val">R$ ${m.successBrutoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
         <div class="calc-res-sub">Base: R$ ${m.baseCalculoMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M (${escapeHtml(m.baseShortLabel)})</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Success Fee Líquido (Pós-Offset)</div>
+        <div class="calc-res-label result-kpi-label">Success Fee Líquido (Pós-Offset)</div>
         <div class="calc-res-val" style="color:var(--vk-teal);">R$ ${m.successLiquidoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
         <div class="calc-res-sub">Abatimento (${m.offsetPct}% Retainer): &minus;R$ ${m.offsetDeduzidoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Honorários Totais do Mandato</div>
+        <div class="calc-res-label result-kpi-label">Honorários Totais do Mandato</div>
         <div class="calc-res-val" style="color:#065F46;">R$ ${m.totalHonorariosMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
         <div class="calc-res-sub">Take Rate: <strong>${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}%</strong> ${takeRateLabel} (${m.shareVariavelPct}% Êxito)</div>
       </div>
@@ -5728,8 +6522,8 @@ function renderPrecificacaoSection(container) {
           ${escapeHtml(d.empresa)} <span style="font-family:var(--font-mono); font-size:12px; color:var(--vk-sage);">(${escapeHtml(d.cnpj)} &bull; Passivo: R$ ${formatNumberBR(d.passivo_mm)} MM &bull; ${escapeHtml(d.subtipo_processo)})</span>
         </div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-        <select class="ons-select" onchange="selectDealForCalculator(this.value)" aria-label="Selecionar caso para cálculo">
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; flex:1 1 360px; justify-content:flex-end;">
+        <select class="ons-select" style="flex:1 1 320px; max-width:520px;" onchange="selectDealForCalculator(this.value)" title="${escapeHtml(d.empresa)} (R$ ${formatNumberBR(d.passivo_mm)} MM)" aria-label="Selecionar caso para cálculo">
           ${selectedTier0CalcTarget ? `<option value="tier0" selected>[Tier 0] ${escapeHtml(selectedTier0CalcTarget.empresa)} (R$ ${formatNumberBR(selectedTier0CalcTarget.passivo_mm)} MM)</option>` : ''}
           ${DEALS_DATA.map(item => `
             <option value="${item.id}" ${!selectedTier0CalcTarget && item.id === d.id ? 'selected' : ''}>
@@ -5774,7 +6568,7 @@ function renderPrecificacaoSection(container) {
             <span>1. Passivo Total da Devedora (R$ MM)</span>
             <span class="val-badge" id="badge-fee-passivo">R$ ${formatNumberBR(m.passivoMM)} MM</span>
           </div>
-          <input type="text" inputmode="decimal" class="calc-num-input" value="${m.passivoMM}" oninput="updateSimpleCalcLive('passivo', this.value)">
+          <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Passivo Total da Devedora em R$ milhões" value="${m.passivoMM}" oninput="updateSimpleCalcLive('passivo', this.value)">
         </div>
 
         <div class="calc-field-group">
@@ -5782,7 +6576,7 @@ function renderPrecificacaoSection(container) {
             <span>2. Base de Cálculo do Success Fee</span>
             <span class="val-badge" id="badge-fee-basis">R$ ${m.baseCalculoMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} MM</span>
           </div>
-          <select class="clean-select" style="width:100%;" onchange="updateSimpleCalcLive('basis', this.value)">
+          <select class="clean-select" style="width:100%;" aria-label="Base de Cálculo do Success Fee" onchange="updateSimpleCalcLive('basis', this.value)">
             <option value="passivo_total" ${modelFeeBasis === 'passivo_total' ? 'selected' : ''}>Debtor-Side: Sobre Passivo Total Reestruturado (100% da Dívida)</option>
             <option value="haircut_economia" ${modelFeeBasis === 'haircut_economia' ? 'selected' : ''}>Debtor-Side: Sobre Economia / Redução de Dívida Obtida (Haircut)</option>
             <option value="credito_recuperado" ${modelFeeBasis === 'credito_recuperado' ? 'selected' : ''}>Creditor-Side: Sobre Crédito Efetivamente Recuperado pelo Credor</option>
@@ -5794,7 +6588,7 @@ function renderPrecificacaoSection(container) {
             <span>2B. Exposição do Credor / Pool Assessorado (R$ MM)</span>
             <span class="val-badge" id="badge-fee-cred-exp">R$ ${formatNumberBR(m.creditorExposureMM)} MM</span>
           </div>
-          <input type="text" inputmode="decimal" class="calc-num-input" value="${m.creditorExposureMM}" oninput="updateSimpleCalcLive('creditor_exposure', this.value)">
+          <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Exposição do Credor ou Pool Assessorado em R$ milhões" value="${m.creditorExposureMM}" oninput="updateSimpleCalcLive('creditor_exposure', this.value)">
         </div>
 
         <div class="calc-field-group">
@@ -5803,7 +6597,7 @@ function renderPrecificacaoSection(container) {
             <span class="val-badge" id="badge-fee-haircut">Recup. Implícita: ${m.recupPct}%</span>
           </div>
           <div class="pct-input-wrap">
-            <input type="text" inputmode="decimal" class="calc-num-input" value="${m.haircutPct}" oninput="updateSimpleCalcLive('haircut', this.value)">
+            <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Haircut ou Deságio Estimado percentual" value="${m.haircutPct}" oninput="updateSimpleCalcLive('haircut', this.value)">
             <span class="pct-suffix">%</span>
           </div>
           <div id="sub-fee-economia" style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-top:5px;">
@@ -5819,7 +6613,7 @@ function renderPrecificacaoSection(container) {
               <span>4. Retainer (R$ mil/mês)</span>
               <span class="val-badge" id="badge-fee-retainer">R$ ${m.retainerMensalMil}k/mês</span>
             </div>
-            <input type="text" inputmode="decimal" class="calc-num-input" value="${m.retainerMensalMil}" oninput="updateSimpleCalcLive('retainer', this.value)">
+            <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Retainer mensal em R$ mil" value="${m.retainerMensalMil}" oninput="updateSimpleCalcLive('retainer', this.value)">
           </div>
 
           <div class="calc-field-group">
@@ -5827,7 +6621,7 @@ function renderPrecificacaoSection(container) {
               <span>5. Prazo (Meses)</span>
               <span class="val-badge" id="badge-fee-meses">${m.mesesMandato} meses</span>
             </div>
-            <input type="text" inputmode="numeric" class="calc-num-input" value="${m.mesesMandato}" oninput="updateSimpleCalcLive('meses', this.value)">
+            <input type="text" inputmode="numeric" class="calc-num-input" aria-label="Prazo estimado em meses" value="${m.mesesMandato}" oninput="updateSimpleCalcLive('meses', this.value)">
           </div>
         </div>
 
@@ -5838,7 +6632,7 @@ function renderPrecificacaoSection(container) {
               <span class="val-badge" id="badge-fee-success">Bruto: R$ ${m.successBrutoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</span>
             </div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${m.successFeePct}" oninput="updateSimpleCalcLive('success_pct', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Success Fee percentual" value="${m.successFeePct}" oninput="updateSimpleCalcLive('success_pct', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
@@ -5849,7 +6643,7 @@ function renderPrecificacaoSection(container) {
               <span class="val-badge" id="badge-fee-offset">Deduz: R$ ${m.offsetDeduzidoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</span>
             </div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${m.offsetPct}" oninput="updateSimpleCalcLive('offset_pct', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Offset Retainer percentual" value="${m.offsetPct}" oninput="updateSimpleCalcLive('offset_pct', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
@@ -5991,24 +6785,24 @@ function buildWaterfallRightPaneHtml(wf) {
 
   return `
     ${splitAlertBanner}
-    <div class="calc-results-strip" style="grid-template-columns:repeat(4,1fr);">
+    <div class="calc-results-strip">
       <div class="calc-res-card">
-        <div class="calc-res-label">Ativos (EV) &amp; Massa Líquida</div>
+        <div class="calc-res-label result-kpi-label">Ativos (EV) &amp; Massa Líquida</div>
         <div class="calc-res-val">R$ ${formatNumberBR(wf.massaLiquida)} MM</div>
         <div class="calc-res-sub">EV R$ ${formatNumberBR(wf.evBruto)}M (&minus;${wf.liqDisc}% deságio forçado)</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Recup. Global (s/ Passivo Total)</div>
+        <div class="calc-res-label result-kpi-label">Recup. Global (s/ Passivo Total)</div>
         <div class="calc-res-val" style="color:#065F46;">${wf.globalRecupPct.toFixed(1).replace('.', ',')}%</div>
         <div class="calc-res-sub">R$ ${formatNumberBR(wf.totalRecovered)}M de R$ ${formatNumberBR(wf.passivoTotal)}M totais</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Recup. Concursal (Classes I–IV)</div>
+        <div class="calc-res-label result-kpi-label">Recup. Concursal (Classes I–IV)</div>
         <div class="calc-res-val" style="color:var(--vk-header-start);">${wf.concursalRecupPct.toFixed(1).replace('.', ',')}%</div>
         <div class="calc-res-sub">R$ ${formatNumberBR(wf.totalRecoveredConcursal)}M de R$ ${formatNumberBR(wf.totalClaimsConcursais)}M concursais</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Classe Fulcrum (Corte de Valor)</div>
+        <div class="calc-res-label result-kpi-label">Classe Fulcrum (Corte de Valor)</div>
         <div class="calc-res-val" style="font-size:14.5px; color:var(--vk-teal);">${escapeHtml(fulcrumClass)}</div>
         <div class="calc-res-sub">Onde a massa líquida se esgota</div>
       </div>
@@ -6053,6 +6847,9 @@ function buildWaterfallRightPaneHtml(wf) {
         </tbody>
       </table>
     </div>
+    <div style="margin-top:10px; font-size:11px; color:var(--text-secondary); line-height:1.45;">
+      <strong>Premissa Legal (Lei 11.101/05, Arts. 83 e 84 — redação Lei 14.112/20):</strong> Na falência, créditos trabalhistas (Art. 83, I) limitam-se a 150 salários-mínimos por credor (o saldo excedente é reclassificado para quirografário — Art. 83, VI, &lsquo;c&rsquo;), seguidos de Garantia Real até o limite do bem gravado (II), Tributários sem multas (III) e Quirografários/ME-EPP unificados (VI).
+    </div>
   `;
 }
 
@@ -6094,7 +6891,7 @@ function renderWaterfallSubmodule(d, selectorBar, container) {
             <span>1. Valor Estimado dos Ativos / EV (R$ MM)</span>
             <span class="val-badge" id="badge-wf-ev">R$ ${formatNumberBR(wf.evBruto)} MM</span>
           </div>
-          <input type="text" inputmode="decimal" class="calc-num-input" value="${wf.evBruto}" oninput="updateWaterfallLive('ev', this.value)">
+          <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Valor Estimado dos Ativos EV em R$ milhões" value="${wf.evBruto}" oninput="updateWaterfallLive('ev', this.value)">
         </div>
 
         <div class="calc-field-group">
@@ -6103,7 +6900,7 @@ function renderWaterfallSubmodule(d, selectorBar, container) {
             <span class="val-badge" id="badge-wf-disc">${wf.liqDisc}%</span>
           </div>
           <div class="pct-input-wrap">
-            <input type="text" inputmode="decimal" class="calc-num-input" value="${wf.liqDisc}" oninput="updateWaterfallLive('liq_disc', this.value)">
+            <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Deságio de Liquidação Forçada percentual" value="${wf.liqDisc}" oninput="updateWaterfallLive('liq_disc', this.value)">
             <span class="pct-suffix">%</span>
           </div>
         </div>
@@ -6124,42 +6921,42 @@ function renderWaterfallSubmodule(d, selectorBar, container) {
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Extraconcursal / Fid. (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.extra}" oninput="updateWaterfallLive('extra', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Percentual Extraconcursal e Fiduciário" value="${waterfallSplitPcts.extra}" oninput="updateWaterfallLive('extra', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Fiscal / Trib. (Art. 83 III)</span></div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.fiscal}" oninput="updateWaterfallLive('fiscal', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Percentual Fiscal e Tributário" value="${waterfallSplitPcts.fiscal}" oninput="updateWaterfallLive('fiscal', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Classe I Trab. (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c1}" oninput="updateWaterfallLive('c1', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Percentual Classe I Trabalhista" value="${waterfallSplitPcts.c1}" oninput="updateWaterfallLive('c1', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Classe II Real (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c2}" oninput="updateWaterfallLive('c2', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Percentual Classe II Garantia Real" value="${waterfallSplitPcts.c2}" oninput="updateWaterfallLive('c2', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Classe III Quirog. (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c3}" oninput="updateWaterfallLive('c3', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Percentual Classe III Quirografários" value="${waterfallSplitPcts.c3}" oninput="updateWaterfallLive('c3', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group" style="margin-bottom:6px;">
             <div class="calc-field-label"><span>Classe IV ME/EPP (%)</span></div>
             <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" value="${waterfallSplitPcts.c4}" oninput="updateWaterfallLive('c4', this.value)">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Percentual Classe IV ME e EPP" value="${waterfallSplitPcts.c4}" oninput="updateWaterfallLive('c4', this.value)">
               <span class="pct-suffix">%</span>
             </div>
           </div>
@@ -6313,24 +7110,24 @@ function buildQuorumRightPaneHtml(d, q) {
   }
 
   return `
-    <div class="calc-results-strip" style="grid-template-columns:repeat(4,1fr);">
+    <div class="calc-results-strip">
       <div class="calc-res-card">
-        <div class="calc-res-label">Quórum Ordinário (Art. 45)</div>
+        <div class="calc-res-label result-kpi-label">Quórum Ordinário (Art. 45)</div>
         <div class="calc-res-val" style="color:${q.ordinaryApproved ? '#065F46' : '#9F1239'};">${q.ordinaryApproved ? `APROVADO (${q.classesApproved}/${q.votingClassesCount})` : `REJEITADO (${q.classesApproved}/${q.votingClassesCount})`}</div>
         <div class="calc-res-sub">Unanimidade das ${q.votingClassesCount} classes votantes</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Cram Down (Art. 58, §1º, I–III)</div>
+        <div class="calc-res-label result-kpi-label">Cram Down (Art. 58, §1º, I–III)</div>
         <div class="calc-res-val" style="color:${q.cramDownEligible || q.ordinaryApproved ? '#065F46' : '#9F1239'};">${q.ordinaryApproved ? 'DESNECESSÁRIO' : (q.cramDownEligible ? `VIÁVEL (${q.classesApproved}/${q.votingClassesCount})` : 'BLOQUEADO')}</div>
         <div class="calc-res-sub">${escapeHtml(cramBlockReason)}</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Voto Geral por Valor (Inc. I)</div>
+        <div class="calc-res-label result-kpi-label">Voto Geral por Valor (Inc. I)</div>
         <div class="calc-res-val" style="color:${q.cramDownReqI ? '#065F46' : '#9F1239'};">${q.weightedValVotePct.toFixed(1).replace('.', ',')}%</div>
         <div class="calc-res-sub">Ponderado nas classes concursais (&gt; 50,0%)</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label">Minoria de Bloqueio (Veto 2/3)</div>
+        <div class="calc-res-label result-kpi-label">Minoria de Bloqueio (Veto 2/3)</div>
         <div class="calc-res-val" style="font-size:15.5px;">Cl. II: R$ ${formatNumberBR(q.blockingC2MM)}M | Cl. III: R$ ${formatNumberBR(q.blockingC3MM)}M</div>
         <div class="calc-res-sub">&ge; 66,67% da classe barra Cram Down (Inc. III)</div>
       </div>
@@ -6367,6 +7164,9 @@ function buildQuorumRightPaneHtml(d, q) {
           `).join('')}
         </tbody>
       </table>
+    </div>
+    <div style="margin-top:10px; font-size:11px; color:var(--text-secondary); line-height:1.45;">
+      <strong>Nota Legal (Lei 11.101/05, Art. 45 §§1º–2º e Art. 58 §1º, I–III):</strong> O Cram Down exige cumulativamente (I) voto favorável &gt; 50% dos créditos presentes, (II) aprovação em 3 de 4 classes (ou 2 de 3 / 1 de 2 se houver menos classes votantes), (III) mais de 1/3 (&gt; 33,33%) de aprovação na classe dissidente apurada na forma do Art. 45, e ausência de tratamento diferenciado entre credores da classe que rejeitou (§2º).
     </div>
   `;
 }
@@ -6414,14 +7214,14 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
             <div>
               <div class="calc-field-label"><span>% Cabeça (Art. 45 §2º)</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c1_head_yes}" oninput="updateQuorumLive('c1_head_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe I Trabalhista percentual por cabeça" value="${agcVotes.c1_head_yes}" oninput="updateQuorumLive('c1_head_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
             <div>
               <div class="calc-field-label"><span>% Valor (Art. 58 §1º, I)</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c1_val_yes}" oninput="updateQuorumLive('c1_val_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe I Trabalhista percentual por valor" value="${agcVotes.c1_val_yes}" oninput="updateQuorumLive('c1_val_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
@@ -6437,14 +7237,14 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
             <div>
               <div class="calc-field-label"><span>% por Valor</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c2_val_yes}" oninput="updateQuorumLive('c2_val_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe II Garantia Real percentual por valor" value="${agcVotes.c2_val_yes}" oninput="updateQuorumLive('c2_val_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
             <div>
               <div class="calc-field-label"><span>% por Cabeça</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c2_head_yes}" oninput="updateQuorumLive('c2_head_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe II Garantia Real percentual por cabeça" value="${agcVotes.c2_head_yes}" oninput="updateQuorumLive('c2_head_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
@@ -6460,14 +7260,14 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
             <div>
               <div class="calc-field-label"><span>% por Valor</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c3_val_yes}" oninput="updateQuorumLive('c3_val_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe III Quirografários percentual por valor" value="${agcVotes.c3_val_yes}" oninput="updateQuorumLive('c3_val_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
             <div>
               <div class="calc-field-label"><span>% por Cabeça</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c3_head_yes}" oninput="updateQuorumLive('c3_head_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe III Quirografários percentual por cabeça" value="${agcVotes.c3_head_yes}" oninput="updateQuorumLive('c3_head_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
@@ -6483,14 +7283,14 @@ function renderQuorumAgcSubmodule(d, selectorBar, container) {
             <div>
               <div class="calc-field-label"><span>% Cabeça (Art. 45 §2º)</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c4_head_yes}" oninput="updateQuorumLive('c4_head_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe IV ME e EPP percentual por cabeça" value="${agcVotes.c4_head_yes}" oninput="updateQuorumLive('c4_head_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
             <div>
               <div class="calc-field-label"><span>% Valor (Art. 58 §1º, I)</span></div>
               <div class="pct-input-wrap">
-                <input type="text" inputmode="decimal" class="calc-num-input" value="${agcVotes.c4_val_yes}" oninput="updateQuorumLive('c4_val_yes', this.value)">
+                <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Classe IV ME e EPP percentual por valor" value="${agcVotes.c4_val_yes}" oninput="updateQuorumLive('c4_val_yes', this.value)">
                 <span class="pct-suffix">%</span>
               </div>
             </div>
@@ -6586,16 +7386,7 @@ function renderHaircutBenchmarksTable(container) {
 
 function applyBenchmarkHaircutToCalc(setorName, haircutNum) {
   modelHaircutPct = Number(haircutNum);
-  currentMainSection = 'precificacao';
-  document.querySelectorAll('.nav-link-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('nav-precificacao')?.classList.add('active');
-  const cfg = SECTION_CONFIG.precificacao;
-  document.getElementById('pageMainTitle').textContent = resolveDynamicCaseText(cfg.pageTitle);
-  document.getElementById('pageMainSubtitle').textContent = resolveDynamicCaseText(cfg.pageSubtitle);
-  document.getElementById('filterConsole').style.display = 'none';
-  currentSubTab = 'calc_haircut';
-  renderSubTabs();
-  renderSectionContent();
+  switchMainSection('precificacao', 'calc_haircut');
   showToast(`Benchmark de ${setorName} (Haircut ${haircutNum}%) aplicado na Calculadora!`);
 }
 
@@ -6609,7 +7400,7 @@ function renderPitchPptxSubmodule(d, selectorBar, container) {
         </div>
         <div class="calc-field-group">
           <div class="calc-field-label"><span>Ângulo do Mandato Valknut</span></div>
-          <select class="clean-select" style="width:100%;" onchange="pitchMandateType=this.value">
+          <select class="clean-select" style="width:100%;" aria-label="Ângulo do Mandato Valknut" onchange="pitchMandateType=this.value">
             <option value="Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)" ${pitchMandateType.includes('Debtor') ? 'selected' : ''}>Debtor-Side / Financial Advisory &amp; Turnaround (RJ/PRE)</option>
             <option value="Creditor-Side & Watchdog Independente" ${pitchMandateType.includes('Creditor') ? 'selected' : ''}>Creditor-Side &amp; Watchdog Independente</option>
             <option value="Estruturação de DIP Financing & M&A Distressed (UPI)" ${pitchMandateType.includes('DIP') ? 'selected' : ''}>Estruturação de DIP Financing &amp; M&amp;A Distressed (UPI)</option>
@@ -6618,30 +7409,30 @@ function renderPitchPptxSubmodule(d, selectorBar, container) {
         </div>
         <div class="calc-field-group">
           <div class="calc-field-label"><span>Destinatário / Cliente-Alvo</span></div>
-          <input type="text" class="calc-num-input" value="${escapeHtml(pitchTargetRecipient)}" oninput="pitchTargetRecipient=this.value">
+          <input type="text" class="calc-num-input" aria-label="Destinatário ou Cliente-Alvo da proposta" value="${escapeHtml(pitchTargetRecipient)}" oninput="pitchTargetRecipient=this.value">
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
           <div class="calc-field-group">
             <div class="calc-field-label"><span>Retainer Mensal (R$ mil)</span><span class="val-badge">R$ ${m.retainerMensalMil}k</span></div>
-            <input type="number" class="calc-num-input" value="${m.retainerMensalMil}" step="5" onchange="pitchRetainerMensal=Number(this.value)||0; renderSectionContent();">
+            <input type="number" class="calc-num-input" aria-label="Retainer Mensal em R$ mil" value="${m.retainerMensalMil}" step="5" onchange="pitchRetainerMensal=Number(this.value)||0; renderSectionContent();">
           </div>
           <div class="calc-field-group">
             <div class="calc-field-label"><span>Prazo (Meses)</span><span class="val-badge">${m.mesesMandato}m</span></div>
-            <input type="number" class="calc-num-input" value="${m.mesesMandato}" step="1" onchange="modelMandateMonths=Number(this.value)||12; renderSectionContent();">
+            <input type="number" class="calc-num-input" aria-label="Prazo do mandato em meses" value="${m.mesesMandato}" step="1" onchange="modelMandateMonths=Number(this.value)||12; renderSectionContent();">
           </div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
           <div class="calc-field-group">
             <div class="calc-field-label"><span>Success Fee (%)</span><span class="val-badge">${m.successFeePct.toFixed(2).replace('.', ',')}%</span></div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" value="${m.successFeePct}" step="0.25" onchange="pitchSuccessFeePct=Number(this.value)||0; renderSectionContent();">
+              <input type="number" class="calc-num-input" aria-label="Success Fee percentual na proposta" value="${m.successFeePct}" step="0.25" onchange="pitchSuccessFeePct=Number(this.value)||0; renderSectionContent();">
               <span class="pct-suffix">%</span>
             </div>
           </div>
           <div class="calc-field-group">
             <div class="calc-field-label"><span>Offset Retainer (%)</span><span class="val-badge">${m.offsetPct}%</span></div>
             <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" value="${m.offsetPct}" step="5" min="0" max="100" onchange="modelRetainerOffsetPct=Number(this.value)||0; renderSectionContent();">
+              <input type="number" class="calc-num-input" aria-label="Offset de Retainer percentual na proposta" value="${m.offsetPct}" step="5" min="0" max="100" onchange="modelRetainerOffsetPct=Number(this.value)||0; renderSectionContent();">
               <span class="pct-suffix">%</span>
             </div>
           </div>
@@ -7040,6 +7831,7 @@ function openDossier(id) {
       tickerEl.style.display = 'none';
     }
   }
+  syncModalWatchlistButton(item.id);
 
   const tribUrl = resolveTribunalCvmUrl(item);
   const subGrid = document.getElementById('modalSubheaderGrid');
@@ -7087,7 +7879,9 @@ function closeModal() {
   const modalEl = document.getElementById('detailModal');
   if (modalEl) modalEl.style.display = 'none';
   document.body.classList.toggle('modal-open', false);
-  if (!document.body.classList.contains('comps-modal-open')) {
+  const compsOpen = document.getElementById('compsModal')?.style.display === 'flex';
+  const dirOpen = document.getElementById('diretrizesModal')?.style.display === 'flex';
+  if (!compsOpen && !dirOpen) {
     document.body.style.overflow = '';
   }
   currentModalItem = null;
@@ -7102,56 +7896,145 @@ function handleOverlayClick(e) {
   if (e.target.id === 'detailModal') closeModal();
 }
 
-window.addEventListener('keydown', e => {
-  if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && document.activeElement && document.activeElement.getAttribute('role') === 'tab') {
-    const tablist = document.activeElement.closest('[role="tablist"]');
-    if (tablist) {
-      const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
-      const idx = tabs.indexOf(document.activeElement);
-      if (idx !== -1 && tabs.length > 1) {
+let lastFocusedBeforeDiretrizes = null;
+
+function renderDiretrizesModalBody() {
+  const bodyEl = document.getElementById('diretrizesModalBody');
+  if (!bodyEl) return;
+  const rows = Array.isArray(LIVE_DIRETRIZES_DATA) && LIVE_DIRETRIZES_DATA.length > 0 ? LIVE_DIRETRIZES_DATA : [];
+  const totalVol = DEALS_DATA.reduce((s, d) => s + Number(d.passivo_mm || 0), 0);
+  const newsCount = typeof getAllCombinedNews === 'function' ? getAllCombinedNews().length : 0;
+
+  bodyEl.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; background:var(--bg-subtle); border:1px solid var(--border-light); border-left:4px solid var(--vk-header-start); border-radius:8px; padding:12px 16px; margin-bottom:16px;">
+      <div>
+        <div style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-teal); text-transform:uppercase;">Carimbo de Governança &amp; Sincronização</div>
+        <div style="font-size:13.5px; font-weight:800; color:var(--vk-header-start); margin-top:2px;">
+          Release v5.0 &bull; Sincronizado (${STATIC_BUNDLE_VERSION})
+        </div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <span class="status-badge badge-upi">${DEALS_DATA.length || 180} Grupos Únicos</span>
+        <span class="status-badge badge-prj">R$ ${totalVol > 0 ? formatKpiScale(totalVol) : '174,80 Bi'} Monitorados</span>
+        <span class="status-badge badge-pre">${newsCount > 0 ? newsCount : 209} Fatos Curados &amp; RSS</span>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th style="width:28%;">Parâmetro / Critério Metodológico</th>
+            <th>Regra Aplicada &amp; Escopo de Cobertura</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(r => `
+            <tr>
+              <td><strong style="color:var(--vk-header-start);">${escapeHtml(r.criterio)}</strong></td>
+              <td style="font-size:12.5px; color:var(--text-body); line-height:1.5;">${escapeHtml(r.detalhe)}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function openDiretrizesModal() {
+  const modalEl = document.getElementById('diretrizesModal');
+  if (!modalEl) return;
+  lastFocusedBeforeDiretrizes = document.activeElement;
+  renderDiretrizesModalBody();
+  modalEl.style.display = 'flex';
+  document.body.classList.toggle('diretrizes-modal-open', true);
+  document.body.style.overflow = 'hidden';
+  const closeBtn = modalEl.querySelector('button');
+  if (closeBtn) setTimeout(() => closeBtn.focus(), 20);
+}
+
+function closeDiretrizesModal() {
+  const modalEl = document.getElementById('diretrizesModal');
+  if (modalEl) modalEl.style.display = 'none';
+  document.body.classList.toggle('diretrizes-modal-open', false);
+  const detailOpen = document.getElementById('detailModal')?.style.display === 'flex';
+  const compsOpen = document.getElementById('compsModal')?.style.display === 'flex';
+  if (!detailOpen && !compsOpen) {
+    document.body.style.overflow = '';
+  }
+  if (lastFocusedBeforeDiretrizes && typeof lastFocusedBeforeDiretrizes.focus === 'function') {
+    try { lastFocusedBeforeDiretrizes.focus(); } catch (e) {}
+    lastFocusedBeforeDiretrizes = null;
+  }
+}
+
+function handleDiretrizesOverlayClick(e) {
+  if (e && e.target && e.target.id === 'diretrizesModal') {
+    closeDiretrizesModal();
+  }
+}
+
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+  window.addEventListener('keydown', e => {
+    if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && document.activeElement && document.activeElement.getAttribute('role') === 'tab') {
+      const tablist = document.activeElement.closest('[role="tablist"]');
+      if (tablist) {
+        const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+        const idx = tabs.indexOf(document.activeElement);
+        if (idx !== -1 && tabs.length > 1) {
+          e.preventDefault();
+          const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : (idx - 1 + tabs.length) % tabs.length;
+          tabs[nextIdx].focus();
+          tabs[nextIdx].click();
+        }
+      }
+      return;
+    }
+
+    const diretrizesModalEl = document.getElementById('diretrizesModal');
+    const isDiretrizesOpen = Boolean(diretrizesModalEl && diretrizesModalEl.style.display === 'flex');
+    const compsModalEl = document.getElementById('compsModal');
+    const isCompsOpen = Boolean(compsModalEl && compsModalEl.style.display === 'flex');
+    const modalEl = document.getElementById('detailModal');
+    const isModalOpen = Boolean(modalEl && modalEl.style.display === 'flex');
+
+    const activeOverlay = isDiretrizesOpen ? diretrizesModalEl : (isCompsOpen ? compsModalEl : (isModalOpen ? modalEl : null));
+    if (!activeOverlay) return;
+
+    if (e.key === 'Escape') {
+      if (isDiretrizesOpen) closeDiretrizesModal();
+      else if (isCompsOpen) closeCompsModal();
+      else closeModal();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const dialog = activeOverlay.querySelector('.modal-box, .modal-dialog') || activeOverlay;
+      const focusables = Array.from(
+        dialog.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      ).filter(el => {
+        if (el.hasAttribute('disabled') || el.getAttribute('aria-hidden') === 'true') return false;
+        const st = typeof window.getComputedStyle === 'function' ? window.getComputedStyle(el) : null;
+        if (st && (st.display === 'none' || st.visibility === 'hidden')) return false;
+        return true;
+      });
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const insideDialog = dialog.contains(document.activeElement);
+      if (!insideDialog) {
         e.preventDefault();
-        const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : (idx - 1 + tabs.length) % tabs.length;
-        tabs[nextIdx].focus();
-        tabs[nextIdx].click();
+        (e.shiftKey ? last : first).focus();
+      } else if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     }
-    return;
-  }
-
-  const compsModalEl = document.getElementById('compsModal');
-  const isCompsOpen = Boolean(compsModalEl && compsModalEl.style.display === 'flex');
-  if (isCompsOpen && e.key === 'Escape') {
-    closeCompsModal();
-    return;
-  }
-
-  const modalEl = document.getElementById('detailModal');
-  const isModalOpen = Boolean(modalEl && modalEl.style.display === 'flex');
-  const activeOverlay = isCompsOpen ? compsModalEl : (isModalOpen ? modalEl : null);
-  if (!activeOverlay) return;
-
-  if (e.key === 'Escape') {
-    closeModal();
-    return;
-  }
-
-  if (e.key === 'Tab') {
-    const dialog = activeOverlay.querySelector('.modal-dialog') || activeOverlay;
-    const focusables = Array.from(
-      dialog.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
-    ).filter(el => el.offsetParent !== null);
-    if (focusables.length === 0) return;
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
-  }
-});
+  });
+}
 
 function buildSixBucketStripHtml(d) {
   const sc = d.model_params?.split_classes || {};
@@ -7195,14 +8078,17 @@ function setModalTab(tab) {
   document.querySelectorAll('.modal-tab-item').forEach(b => {
     b.classList.remove('active');
     b.setAttribute('aria-selected', 'false');
+    b.setAttribute('tabindex', '-1');
   });
   const activeBtn = document.getElementById(`modal-tab-${tab}`);
   if (activeBtn) {
     activeBtn.classList.add('active');
     activeBtn.setAttribute('aria-selected', 'true');
+    activeBtn.setAttribute('tabindex', '0');
   }
 
   const body = document.getElementById('modalBody');
+  if (body) body.setAttribute('aria-labelledby', `modal-tab-${tab}`);
   const d = currentModalItem;
   if (!d) return;
 
@@ -7543,6 +8429,8 @@ function renderCompsFloatingBar() {
   `;
 }
 
+let lastFocusedBeforeComps = null;
+
 function openCompsModal() {
   const validDeals = selectedCompIds
     .map(id => DEALS_DATA.find(d => Number(d.id) === Number(id)))
@@ -7557,6 +8445,11 @@ function openCompsModal() {
   const titleEl = document.getElementById('compsModalTitle');
   const bodyEl = document.getElementById('compsModalBody');
   if (!modalEl || !bodyEl) return;
+
+  const wasOpen = modalEl.style.display === 'flex';
+  if (!wasOpen && typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+    lastFocusedBeforeComps = document.activeElement;
+  }
 
   if (titleEl) {
     const totalPassivo = validDeals.reduce((acc, d) => acc + (Number(d.passivo_mm) || 0), 0);
@@ -7576,8 +8469,8 @@ function openCompsModal() {
       c3: sc.classe_iii_pct ?? cp.c3_quirografario ?? 27,
       c4: sc.classe_iv_pct ?? cp.c4_me_epp ?? 3
     });
-    const evEst = Math.round(Number(d.model_params?.ev_ativos_mm || (Number(d.passivo_mm || 100) * 0.58)));
-    const liqDisc = Number(d.model_params?.desagio_liquidacao_pct || 38);
+    const evEst = Math.round(Number(d.model_params?.ev_estimado_mm ?? d.model_params?.ev_ativos_mm ?? (Number(d.passivo_mm || 100) * 0.58)));
+    const liqDisc = Number(d.model_params?.liquidez_forcada_desconto_pct ?? d.model_params?.desagio_liquidacao_pct ?? 38);
     const massaEst = Math.round(evEst * (1 - liqDisc / 100));
     const badge = getBadgeVisual(d);
     return { d, dyn, parsed, split, evEst, liqDisc, massaEst, badge };
@@ -7593,7 +8486,7 @@ function openCompsModal() {
               <th style="min-width:220px;">
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:6px;">
                   <div>
-                    <strong style="font-size:13px; color:#E6E9DC; text-decoration:underline; text-underline-offset:2px; cursor:pointer;" onclick="closeCompsModal(); openDossier(${c.d.id});">${escapeHtml(c.d.empresa)}</strong>
+                    <button type="button" class="comps-company-trigger" onclick="closeCompsModal(); openDossier(${c.d.id});">${escapeHtml(c.d.empresa)}</button>
                     <div style="font-family:var(--font-mono); font-size:10px; color:#C8CEB0; font-weight:500; margin-top:2px;">${escapeHtml(c.d.cnpj)} • ${escapeHtml(c.d.setor_macro)}</div>
                   </div>
                   <button type="button" style="background:rgba(255,255,255,0.14); border:1px solid rgba(230,233,220,0.35); color:#FFFFFF; border-radius:4px; padding:2px 6px; font-size:11px; cursor:pointer;" onclick="removeCompDeal(${c.d.id})" title="Remover coluna" aria-label="Remover ${escapeHtml(c.d.empresa)}">&times;</button>
@@ -7668,14 +8561,25 @@ function openCompsModal() {
   modalEl.style.display = 'flex';
   document.body.classList.toggle('comps-modal-open', true);
   document.body.style.overflow = 'hidden';
+  if (!wasOpen) {
+    const closeBtn = modalEl.querySelector('.btn-close-x');
+    if (closeBtn && typeof closeBtn.focus === 'function') {
+      setTimeout(() => closeBtn.focus(), 10);
+    }
+  }
 }
 
 function closeCompsModal() {
   const modalEl = document.getElementById('compsModal');
+  const wasOpen = Boolean(modalEl && modalEl.style.display === 'flex');
   if (modalEl) modalEl.style.display = 'none';
   document.body.classList.toggle('comps-modal-open', false);
-  if (!document.body.classList.contains('modal-open')) {
+  if (!document.body.classList.contains('modal-open') && !document.body.classList.contains('diretrizes-modal-open')) {
     document.body.style.overflow = '';
+  }
+  if (wasOpen && lastFocusedBeforeComps && document.contains(lastFocusedBeforeComps)) {
+    try { lastFocusedBeforeComps.focus(); } catch (e) {}
+    lastFocusedBeforeComps = null;
   }
 }
 
@@ -7724,8 +8628,113 @@ async function exportCompsXlsx() {
 // 15. Live Google Sheets Sync
 // ==========================================================================
 async function forceSyncData() {
-  showToast('Sincronizando com a planilha mestre...');
+  showToast('Sincronizando com a planilha mestre (nocache)...');
   await fetchLiveSheetInBackground(true);
+}
+
+const GENERIC_ENTITY_STOPWORDS = new Set([
+  'grupo', 'holding', 'participacoes', 'investimentos', 'empreendimentos', 'brasil', 'nacional',
+  'companhia', 'industria', 'comercio', 'servicos', 'solucoes', 'logistica', 'transporte', 'transportes',
+  'energia', 'infraestrutura', 'agronegocio', 'agricola', 'agro', 'agropecuaria', 'alimentos', 'graos',
+  'sementes', 'fazenda', 'usina', 'construtora', 'engenharia', 'incorporadora', 'imobiliaria', 'varejo',
+  'rede', 'lojas', 'banco', 'fundo', 'securitizadora', 'fidc', 'spe', 'nova', 'novo', 'sul', 'norte',
+  'leste', 'oeste', 'central', 'uniao', 'alianca', 'estrela', 'ouro', 'prata', 'real', 'geral', 'total',
+  'prime', 'plus', 'master', 'global', 'internacional', 'essencial', 'princesa', 'ouro verde'
+]);
+
+function matchDealForNewsText(titulo, resumo = '', empAlt = '') {
+  if (!Array.isArray(DEALS_DATA) || DEALS_DATA.length === 0) return null;
+  if (empAlt) {
+    const cleanEmpAlt = normalizeCompanyStem(empAlt);
+    if (cleanEmpAlt && !GENERIC_ENTITY_STOPWORDS.has(cleanEmpAlt)) {
+      const direct = findCuratedDeal('', empAlt);
+      if (direct && DEALS_DATA.some(d => d.id === direct.id)) {
+        return DEALS_DATA.find(d => d.id === direct.id) || direct;
+      }
+    }
+  }
+
+  const rawCorpus = `${empAlt || ''} ${titulo || ''} ${resumo || ''}`;
+  const normCorpus = normalizeTextNoAccents(rawCorpus);
+
+  // 1. Explicit 14-digit CNPJ in news text
+  const cnpjMatches = rawCorpus.match(/\b\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}\b/g);
+  if (cnpjMatches) {
+    for (const cm of cnpjMatches) {
+      const d14 = cm.replace(/\D/g, '');
+      const hit = DEALS_DATA.find(d => String(d.cnpj || '').replace(/\D/g, '') === d14);
+      if (hit) return hit;
+    }
+  }
+
+  // 2. Explicit corporate aliases & tickers for multi-subsidiary / acronym groups
+  const explicitAliasRules = [
+    { rx: /\bgpa\b|\bp[aã]o\s+de\s+a[cç][uú]car\b|\bpcar\d*\b/i, matchEmp: /p[aã]o de a[cç][uú]car|\bgpa\b/i },
+    { rx: /\bcorinthians\b/i, matchEmp: /corinthians/i },
+    { rx: /\binvepar\b|\bivpr\d*\b/i, matchEmp: /invepar|investimentos e participa[cç][oõ]es em infra/i },
+    { rx: /\bportobello\b|\bpbg\s+s\.?a\.?\b|\bptbl\d*\b/i, matchEmp: /portobello|\bpbg\b/i },
+    { rx: /\bvia\s+brasil\s+mt[\s-]*320\b|\bvimt\d*\b/i, matchEmp: /via brasil mt 320/i },
+    { rx: /\btahto\b|\bbrasilcenter\b/i, matchEmp: /tahto|\boi\s+s\.?a|\btelemar\b/i },
+    { rx: /\bgrupo\s+abg\b|\bneo\s+rodas\b/i, matchEmp: /grupo abg|neo rodas/i },
+    { rx: /\bgrupo\s+jmt\b|\bjmt\s+servi[cç]os\b/i, matchEmp: /grupo jmt|jmt servi/i },
+    { rx: /\bsantaconstancia\b/i, matchEmp: /santaconstancia|grupo sta\./i },
+    { rx: /\bb[oó]ca\s+mafra\b|\bambr[oó]sio\s+mafra\b/i, matchEmp: /mafra/i },
+    { rx: /\brio\s+alto\b/i, matchEmp: /rio alto/i },
+    { rx: /\bfazend[aã]o\b/i, matchEmp: /fazend[aã]o/i },
+    { rx: /\bconsentini\b/i, matchEmp: /consentini/i },
+    { rx: /\btombini\b/i, matchEmp: /tombini/i },
+    { rx: /\bgrupo\s+nova\b|\bnova\s+agr[ií]cola\b/i, matchEmp: /^grupo nova\b/i },
+    { rx: /\bgrupo\s+essencial\b/i, matchEmp: /grupo essencial/i },
+    { rx: /\bgrupo\s+princesa\b|\bsupermercados?\s+princesa\b/i, matchEmp: /grupo princesa/i },
+    { rx: /\balian[cç]a\s+agr[ií]cola\b/i, matchEmp: /alian[cç]a agr[ií]cola/i },
+    { rx: /\broot\s+brasil\b|\bgrupo\s+root\b/i, matchEmp: /root brasil|grupo root/i },
+    { rx: /\bgrupo\s+modesto\b|\bmodesto\s+agro/i, matchEmp: /modesto/i }
+  ];
+  for (const rule of explicitAliasRules) {
+    if (rule.rx.test(rawCorpus)) {
+      const found = DEALS_DATA.find(d => rule.matchEmp.test(String(d.empresa || '')) || rule.matchEmp.test(String(d.descricao_empresa || '')));
+      if (found) return found;
+    }
+  }
+
+  // 3. Ticker, parenthetical aliases, and company stems (longest non-generic alias wins)
+  let bestDeal = null;
+  let bestLen = 0;
+  for (const d of DEALS_DATA) {
+    const tickerNorm = normalizeTextNoAccents(d.ticker || '');
+    if (tickerNorm.length >= 4 && new RegExp(`(?:^|[^a-z0-9])${tickerNorm}(?:$|[^a-z0-9])`).test(normCorpus)) {
+      return d;
+    }
+
+    const empStr = String(d.empresa || '');
+    const candidates = [];
+    const parenMatches = empStr.match(/\(([^)]+)\)/g) || [];
+    for (const pm of parenMatches) {
+      const inner = pm.slice(1, -1);
+      inner.split(/[/,&•\-]/).forEach(part => {
+        const s = normalizeCompanyStem(part);
+        if (s.length >= 4 && !GENERIC_ENTITY_STOPWORDS.has(s)) candidates.push(s);
+      });
+    }
+
+    const stem = normalizeCompanyStem(empStr);
+    if (stem.length >= 4 && !GENERIC_ENTITY_STOPWORDS.has(stem)) {
+      candidates.push(stem);
+    }
+
+    for (const cand of candidates) {
+      const escaped = cand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const isSingleWord = !cand.includes(' ');
+      const hit = (isSingleWord || cand.length <= 6)
+        ? new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`).test(normCorpus)
+        : normCorpus.includes(cand);
+      if (hit && cand.length > bestLen) {
+        bestDeal = d;
+        bestLen = cand.length;
+      }
+    }
+  }
+  return bestDeal;
 }
 
 function parseSheetNoticiasRows(rows) {
@@ -7739,7 +8748,6 @@ function parseSheetNoticiasRows(rows) {
     if (!r || r.length < 3) continue;
     const c0 = String(r[0] || '').trim();
     const c6 = String(r[6] || '').trim();
-    // P0-1 Fix: Auto-Detecta se a linha foi inserida no formato alternativo (Linhas 17-25: Col A = ID numérico e Col G = URL http)
     const isAltSchema = /^\d+(\.0)?$/.test(c0) && /^https?:\/\//i.test(c6);
 
     const rawDate = isAltSchema ? String(r[1] || '').trim() : c0;
@@ -7754,60 +8762,81 @@ function parseSheetNoticiasRows(rows) {
       dtStr = `${dtStr} 10:00`;
     }
 
-    const fonte = isAltSchema
-      ? String(r[5] || 'Tribunal / Pipeline').trim()
-      : String(r[1] || 'CVM / Fatos Relevantes').trim();
-    const tagCurta = isAltSchema
-      ? String(r[8] || 'RJ / 20-B').split(',')[0].trim().toUpperCase()
-      : String(r[2] || 'FATOS').trim();
-    const catAba = isAltSchema
-      ? String(r[8] || 'rj').trim()
-      : String(r[3] || 'rj').trim();
+    const fonte = decodeHtmlEntities(
+      isAltSchema
+        ? String(r[5] || 'Tribunal / Pipeline').trim()
+        : String(r[1] || 'CVM / Fatos Relevantes').trim()
+    );
+    const tagCurta = decodeHtmlEntities(
+      isAltSchema
+        ? String(r[8] || 'RJ / 20-B').split(',')[0].trim().toUpperCase()
+        : String(r[2] || 'FATOS').trim()
+    );
+    const catAba = decodeHtmlEntities(
+      isAltSchema
+        ? String(r[8] || 'rj').trim()
+        : String(r[3] || 'rj').trim()
+    );
     const escopoRaw = isAltSchema
       ? 'pipeline'
       : normalizeTextNoAccents(String(r[4] || 'pipeline'));
-    const rawSetor = isAltSchema
-      ? String(r[4] || 'Agronegócio & Silvicultura').trim()
-      : String(r[5] || 'Mercado & Macro (RJ / Crédito)').trim();
+    const rawSetor = decodeHtmlEntities(
+      isAltSchema
+        ? String(r[4] || 'Agronegócio & Silvicultura').trim()
+        : String(r[5] || 'Mercado & Macro (RJ / Crédito)').trim()
+    );
     const sLow = normalizeTextNoAccents(rawSetor);
     let setorRaw = rawSetor;
     if (sLow.includes('agro') || sLow.includes('insumos') || sLow.includes('silvicultura')) setorRaw = 'Agronegócio & Silvicultura';
     else if (sLow.includes('tecnologia') || sLow.includes('servicos b2b')) setorRaw = 'Tecnologia & Serviços B2B';
 
-    const titulo = isAltSchema ? String(r[2] || '').trim() : c6;
-    const empAlt = isAltSchema ? String(r[3] || '').trim() : '';
-    const resumo = String(r[7] || '').trim();
+    const titulo = decodeHtmlEntities(isAltSchema ? String(r[2] || '').trim() : c6);
+    const empAlt = decodeHtmlEntities(isAltSchema ? String(r[3] || '').trim() : '');
+    const resumo = decodeHtmlEntities(String(r[7] || '').trim());
     const rawUrl = isAltSchema ? c6 : String(r[8] || '').trim();
     const urlOrig = /^https?:\/\//i.test(rawUrl) ? rawUrl : '';
 
     if (!titulo || titulo.toLowerCase().includes('título analítico') || isBlockedEntityToken(titulo) || isBlockedEntityToken(empAlt)) continue;
 
+    // NLP Category Precedence: evaluate specific Tag Curta + Título FIRST before generic catAba
     const specific = normalizeTextNoAccents(`${tagCurta} ${titulo}`);
-    const blob = normalizeTextNoAccents(`${tagCurta} ${catAba} ${titulo}`);
+    const catAbaNorm = normalizeTextNoAccents(catAba);
+    const negatedFalencia = /reversao de falencia|falencia revertida|afasta falencia|suspende falencia|evitar falencia|risco de convolacao|falencia pode ser/.test(specific);
     let categoria = 'Pedido de RJ';
     if (specific.includes('downgrade') || specific.includes('rebaixa') || specific.includes('fitch') || specific.includes('moody')) {
       categoria = 'Downgrade Rating';
-    } else if (blob.includes('waiver') || blob.includes('agd') || blob.includes('fato relevante') || blob.includes('dip') || blob.includes('debenture') || blob.includes('extrajudicial') || blob.includes('notas comerciais')) {
-      categoria = 'Waiver / AGD';
-    } else if (blob.includes('falencia') || blob.includes('convolacao')) {
+    } else if (negatedFalencia) {
+      categoria = 'Pedido de RJ';
+    } else if (specific.includes('falencia') || specific.includes('autofalencia') || specific.includes('convolacao') || specific.includes('quebra decretada')) {
       categoria = 'Falência';
-    } else if (blob.includes('leilao') || blob.includes('upi') || blob.includes('qgc') || blob.includes('relatorio')) {
-      categoria = blob.includes('leilao') || blob.includes('upi') ? 'Leilão de UPI' : 'Pedido de RJ';
-    } else if (blob.includes('cautelar') || blob.includes('20-b')) {
+    } else if (specific.includes('leilao') || /\bupis?\b/.test(specific) || specific.includes('alienacao judicial') || specific.includes('venda de ativos')) {
+      categoria = 'Leilão de UPI';
+    } else if (specific.includes('cautelar') || specific.includes('20-b') || specific.includes('tutela de urgencia')) {
+      categoria = 'Cautelar 20-B';
+    } else if (
+      specific.includes('waiver') ||
+      specific.includes('agd') ||
+      specific.includes('debenture') ||
+      specific.includes('covenant') ||
+      specific.includes('extrajudicial') ||
+      specific.includes('notas comerciais') ||
+      specific.includes('standstill') ||
+      /\b(cra|cras|cri|cris|fidc|fidcs)\b/.test(specific)
+    ) {
+      categoria = 'Waiver / AGD';
+    } else if (specific.includes('deferimento') || specific.includes('recuperacao judicial') || specific.includes('pedido de rj') || specific.includes('stay period')) {
+      categoria = 'Pedido de RJ';
+    } else if (catAbaNorm.includes('dcm') || catAbaNorm.includes('waiver') || catAbaNorm.includes('agd')) {
+      categoria = 'Waiver / AGD';
+    } else if (catAbaNorm.includes('falencia')) {
+      categoria = 'Falência';
+    } else if (/\bupis?\b/.test(catAbaNorm) || catAbaNorm.includes('leilao')) {
+      categoria = 'Leilão de UPI';
+    } else if (catAbaNorm.includes('cautelar') || catAbaNorm.includes('20-b')) {
       categoria = 'Cautelar 20-B';
     }
 
-    let matchedDeal = empAlt ? findCuratedDeal('', empAlt) : null;
-    if (!matchedDeal) {
-      const searchBlob = normalizeTextNoAccents(`${empAlt} ${titulo}`);
-      for (const d of DEALS_DATA) {
-        const stem = normalizeCompanyStem(d.empresa);
-        if (stem.length >= 4 && searchBlob.includes(stem)) {
-          matchedDeal = d;
-          break;
-        }
-      }
-    }
+    const matchedDeal = matchDealForNewsText(titulo, resumo, empAlt);
 
     const escopo = (escopoRaw.includes('cvm') || categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating')
       ? 'cvm'
@@ -7817,7 +8846,7 @@ function parseSheetNoticiasRows(rows) {
       id: 1100 + i,
       data_hora: dtStr || formatBrazilNowDateTime(),
       titulo,
-      fonte,
+      fonte: fonte.toUpperCase() === 'PIPELINE' ? 'Pipeline Valor' : fonte,
       setor: matchedDeal ? matchedDeal.setor_macro : setorRaw,
       categoria,
       escopo,
@@ -7987,6 +9016,9 @@ function indexCuratedDeals(dealsArr) {
     if (digits.length >= 11 && !BASE_CURATED_BY_CNPJ.has(digits)) {
       BASE_CURATED_BY_CNPJ.set(digits, d);
     }
+    if (digits.length === 14 && !BASE_CURATED_BY_CNPJ.has(`root:${digits.slice(0, 8)}`)) {
+      BASE_CURATED_BY_CNPJ.set(`root:${digits.slice(0, 8)}`, d);
+    }
   });
   if (maxId > 0) MAX_CURATED_DEAL_ID = maxId;
 }
@@ -7995,6 +9027,9 @@ function findCuratedDeal(cnpj, empresa) {
   const digits = String(cnpj || '').replace(/\D/g, '');
   if (digits.length >= 11 && BASE_CURATED_BY_CNPJ.has(digits)) {
     return BASE_CURATED_BY_CNPJ.get(digits);
+  }
+  if (digits.length === 14 && BASE_CURATED_BY_CNPJ.has(`root:${digits.slice(0, 8)}`)) {
+    return BASE_CURATED_BY_CNPJ.get(`root:${digits.slice(0, 8)}`);
   }
   if (empresa && ENRICHED_BY_COMPANY[empresa]) {
     return ENRICHED_BY_COMPANY[empresa];
@@ -8072,22 +9107,65 @@ function mergeDealWithCurated(liveItem, curated) {
   if (curated.tese && curated.tese.includes('(1)') && (!liveItem.tese || !liveItem.tese.includes('(1)'))) {
     merged.tese = curated.tese;
   }
-  if (curated.uf && (liveItem.cidade === 'São Paulo' && liveItem.uf === 'SP') && (curated.uf !== 'SP' || curated.cidade !== 'São Paulo')) {
+
+  const liveRegTrim = String(liveItem.regiao || '').trim().toUpperCase();
+  const isBareUfReg = Boolean(liveRegTrim && UF_TO_REGION[liveRegTrim]);
+  const liveCapCity = UF_CAPITAL_FALLBACKS[liveItem.uf] && UF_CAPITAL_FALLBACKS[liveItem.uf][0];
+  if (curated.uf && curated.cidade && isBareUfReg && liveItem.cidade === liveCapCity && curated.uf === liveItem.uf && curated.cidade !== liveCapCity) {
     merged.cidade = curated.cidade;
-    merged.uf = curated.uf;
-    merged.coordenadas = curated.coordenadas || liveItem.coordenadas;
-    merged.regiao_macro = curated.regiao_macro || liveItem.regiao_macro;
+    merged.coordenadas = lookupCityCoordinates(curated.cidade, curated.uf) || curated.coordenadas || liveItem.coordenadas;
   }
 
   return merged;
 }
 
+function parseSheetMandatosRows(rows) {
+  if (!Array.isArray(rows) || rows.length === 0) return [];
+  const firstCell = String((rows[0] && rows[0][0]) || '').toLowerCase();
+  const startIdx = firstCell.includes('empresa') ? 1 : 0;
+  const out = [];
+  for (let i = startIdx; i < rows.length; i++) {
+    const r = rows[i];
+    if (!r || !r[0]) continue;
+    const emp = decodeHtmlEntities(String(r[0] || '').trim());
+    if (!emp || emp.toLowerCase().includes('empresa alvo') || isBlockedEntityToken(emp)) continue;
+    out.push({
+      empresa: emp,
+      setor: decodeHtmlEntities(String(r[1] || 'Special Situations').trim()),
+      tipo_mandato: decodeHtmlEntities(String(r[2] || 'Financial Advisory').trim()),
+      estagio: decodeHtmlEntities(String(r[3] || 'Em Prospecção').trim()),
+      socio_lider: decodeHtmlEntities(String(r[4] || 'Mesa Valknut').trim()),
+      equipe: decodeHtmlEntities(String(r[5] || 'Equipe Core').trim()),
+      honorarios_estimados: decodeHtmlEntities(String(r[6] || 'Sob modelagem').trim()),
+      proximos_passos: decodeHtmlEntities(String(r[7] || 'Acompanhamento executivo').trim())
+    });
+  }
+  return out;
+}
+
+function parseSheetDiretrizesRows(rows) {
+  if (!Array.isArray(rows) || rows.length === 0) return [];
+  const out = [];
+  for (let i = 0; i < rows.length; i++) {
+    const r = rows[i];
+    if (!r) continue;
+    const c0 = decodeHtmlEntities(String(r[0] || '').trim());
+    const c1 = decodeHtmlEntities(String(r[1] || '').trim());
+    if (!c0 || !c1) continue;
+    if (/par[aâ]metro\s*\/\s*crit[eé]rio|crit[eé]rio\s*\/\s*fonte|diretrizes\s+de\s+monitoramento/i.test(c0)) continue;
+    out.push({ criterio: c0, detalhe: c1 });
+  }
+  return out;
+}
+
 async function fetchLiveSheetInBackground(notifyUser = false) {
   const pill = document.getElementById('lastUpdateTime');
   try {
-    const res = await fetchWithTimeout(`${APPS_SCRIPT_URL}?_cb=${Date.now()}`, 8000);
+    const reqUrl = `${APPS_SCRIPT_URL}?_cb=${Date.now()}${notifyUser ? '&nocache=1' : ''}`;
+    const res = await fetchWithTimeout(reqUrl, 8500);
     if (!res.ok) {
       if (DEALS_DATA.length === 0) {
+        isInitialBootLoading = false;
         initialLoadFailed = true;
         if (pill) pill.textContent = 'Offline • Falha ao carregar base';
         renderSectionContent();
@@ -8096,22 +9174,39 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
     }
     const json = await res.json();
 
-    // Detecta se o endpoint Apps Script possui o roteador moderno v4.6/v4.7 ou se é implantação legada de aba única
-    const hasModernRouter = Boolean(json && (json.version || Array.isArray(json.noticias) || Array.isArray(json.tier0)));
+    const hasModernRouter = Boolean(json && (json.version || Array.isArray(json.noticias) || Array.isArray(json.tier0) || Array.isArray(json.mandatos)));
     gasSupportsActionRouter = hasModernRouter;
 
     let changed = false;
 
     if (json && json.status === 'success' && Array.isArray(json.data) && json.data.length > 0) {
+      if (curatedBaseReadyPromise) {
+        try { await curatedBaseReadyPromise; } catch (e) {}
+      }
       const parsed = parseSheetRows(json.data);
       if (parsed.length > 0) {
         DEALS_DATA = parsed;
         VALKNUT_DATA = DEALS_DATA;
         if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
+        hasHydratedFromLiveSheet = true;
+        isInitialBootLoading = false;
         initialLoadFailed = false;
-        saveDealsSnapshotToStorage(DEALS_DATA);
         enrichAllDeals();
+        saveDealsSnapshotToStorage(DEALS_DATA);
         populateDropdownFilters();
+        changed = true;
+      }
+    }
+
+    if (json && json.status === 'success' && Array.isArray(json.mandatos)) {
+      LIVE_MANDATOS_DATA = parseSheetMandatosRows(json.mandatos);
+      changed = true;
+    }
+
+    if (json && json.status === 'success' && Array.isArray(json.diretrizes)) {
+      const parsedDir = parseSheetDiretrizesRows(json.diretrizes);
+      if (parsedDir.length > 0) {
+        LIVE_DIRETRIZES_DATA = parsedDir;
         changed = true;
       }
     }
@@ -8124,30 +9219,30 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       for (let i = startIdx; i < rawPresList.length; i++) {
         const r = rawPresList[i];
         if (!r || !r[1]) continue;
-        const emp = String(r[1] || '').trim();
+        const emp = decodeHtmlEntities(String(r[1] || '').trim());
         if (!emp || emp.toLowerCase().includes('empresa') || isBlockedEntityToken(emp)) continue;
         const matched = findCuratedDeal('', emp) || DEALS_DATA.find(d => normalizeTextNoAccents(d.empresa).includes(normalizeTextNoAccents(emp.split('(')[0].trim())));
-        const statusProcedimento = String(r[5] || 'Em Negociação').trim();
-        const quorumAdesao = String(r[6] || '').trim();
+        const statusProcedimento = decodeHtmlEntities(String(r[5] || 'Em Negociação').trim());
+        const quorumAdesao = decodeHtmlEntities(String(r[6] || '').trim());
         parsedPres.push({
           data: normalizeIsoDateStr(r[0], fallbackTodayIso),
           empresa: emp,
           cnpj: matched ? matched.cnpj : (emp.toLowerCase().includes('braskem') ? '42.150.391/0001-70' : 'Mercado de Capitais'),
-          setor: String(r[2] || (matched ? matched.setor_macro : 'Mercado de Capitais')).trim(),
-          regiao: String(r[3] || (matched ? `${matched.cidade}/${matched.uf}` : 'SP/Nacional')).trim(),
+          setor: decodeHtmlEntities(String(r[2] || (matched ? matched.setor_macro : 'Mercado de Capitais')).trim()),
+          regiao: decodeHtmlEntities(String(r[3] || (matched ? `${matched.cidade}/${matched.uf}` : 'SP/Nacional')).trim()),
           passivo_mm: parsePassivoMmValue(r[4]),
           status: statusProcedimento,
           quorum: quorumAdesao || 'Em apuração',
           quorum_status: quorumAdesao && !statusProcedimento.includes(quorumAdesao)
             ? `${statusProcedimento} • ${quorumAdesao}`
             : statusProcedimento,
-          credores: String(r[7] || (matched ? matched.credores : 'N/D')).trim(),
-          dip: String(r[8] || 'Não').trim(),
-          tese: String(r[9] || '').trim(),
-          obs: String(r[10] || '').trim(),
+          credores: decodeHtmlEntities(String(r[7] || (matched ? matched.credores : 'N/D')).trim()),
+          dip: decodeHtmlEntities(String(r[8] || 'Não').trim()),
+          tese: decodeHtmlEntities(String(r[9] || '').trim()),
+          obs: decodeHtmlEntities(String(r[10] || '').trim()),
           assessor_legal: matched && matched.advocacia && !isGenericPlaceholderPlayer(matched.advocacia)
             ? matched.advocacia
-            : String(r[9] || 'Creditor-Side / Advisory').trim(),
+            : decodeHtmlEntities(String(r[9] || 'Creditor-Side / Advisory').trim()),
           deal_id: matched ? matched.id : null
         });
       }
@@ -8164,16 +9259,16 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
         const r = json.tier0[i];
         if (!r || !r[0] || isBlockedEntityToken(r[0])) continue;
         parsedT0.push({
-          empresa: String(r[0] || '').trim(),
+          empresa: decodeHtmlEntities(String(r[0] || '').trim()),
           cnpj: String(r[1] || '').trim(),
-          setor_macro: String(r[2] || 'Indústria & Manufatura').trim(),
-          regiao: String(r[3] || 'SP').trim(),
+          setor_macro: decodeHtmlEntities(String(r[2] || 'Indústria & Manufatura').trim()),
+          regiao: decodeHtmlEntities(String(r[3] || 'SP').trim()),
           passivo_mm: parsePassivoMmValue(r[4]),
           score: parseFloat(String(r[5] || '9.0').replace(',', '.')) || 9.0,
-          janela: String(r[6] || '45-60 dias').trim(),
-          vetores: String(r[7] || '').trim(),
-          tese: String(r[9] || '').trim(),
-          fontes: String(r[10] || '').trim()
+          janela: decodeHtmlEntities(String(r[6] || '45-60 dias').trim()),
+          vetores: decodeHtmlEntities(String(r[7] || '').trim()),
+          tese: decodeHtmlEntities(String(r[9] || '').trim()),
+          fontes: decodeHtmlEntities(String(r[10] || '').trim())
         });
       }
       if (parsedT0.length > 0) {
@@ -8204,6 +9299,9 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       updateDynamicNavCounts();
       renderSubTabs();
       renderSectionContent();
+      if (document.getElementById('diretrizesModal')?.style.display === 'flex' && typeof renderDiretrizesModalBody === 'function') {
+        renderDiretrizesModalBody();
+      }
       const cfg = SECTION_CONFIG[currentMainSection] || SECTION_CONFIG.operacao;
       const pageTitleEl = document.getElementById('pageMainTitle');
       const pageSubEl = document.getElementById('pageMainSubtitle');
@@ -8219,6 +9317,7 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       if (pill) pill.textContent = DEALS_DATA.length > 0 ? `Online: ${DEALS_DATA.length} leads` : 'Offline • Falha ao carregar base';
       if (notifyUser) showToast(`Sincronizado: ${DEALS_DATA.length} casos ativos e ${getAllCombinedNews().length} notícias carregadas!`);
     } else if (DEALS_DATA.length === 0) {
+      isInitialBootLoading = false;
       initialLoadFailed = true;
       if (pill) pill.textContent = 'Offline • Falha ao carregar base';
       renderSectionContent();
@@ -8227,6 +9326,7 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
     if (DEALS_DATA.length > 0) {
       if (pill) pill.textContent = `Base Ativa: ${DEALS_DATA.length} leads`;
     } else {
+      isInitialBootLoading = false;
       initialLoadFailed = true;
       if (pill) pill.textContent = 'Offline • Falha ao carregar base';
       renderSectionContent();
@@ -8331,111 +9431,154 @@ function finalizeParsedDealStructure(item) {
   return item;
 }
 
-function parseSheetRows(rows) {
-  const rawList = [];
+function resolveGeoFromRegiaoAndTribunal(regRaw, tribRaw, empRaw) {
+  const reg = String(regRaw || '').trim();
+  const trib = String(tribRaw || '').trim();
+  const empresa = String(empRaw || '').trim();
   const sortedCityKeys = Object.keys(CITY_COORDINATES).sort((a, b) => b.split(',')[0].length - a.split(',')[0].length);
-  const todayIso = getBrazilTodayIso();
 
-  for (let r = 0; r < rows.length; r++) {
-    const row = rows[r];
-    if (!row || row.length < 3) continue;
-    const empresa = String(row[2] || '').trim();
-    if (!empresa || empresa.toLowerCase().includes('empresa/grupo') || isBlockedEntityToken(empresa)) continue;
+  const mSlash = reg.toUpperCase().match(/(?:^|[/,\-\s(])([A-Z]{2})(?:\b|\s|\)|$)/);
+  const mRegExact = reg.trim().toUpperCase().match(/^([A-Z]{2})$/);
+  const mTj = trib.toUpperCase().match(/\bTJ([A-Z]{2})\b/);
+  const mParenUf = trib.toUpperCase().match(/\(([A-Z]{2})\)/);
+  let explicitUf = (mRegExact && UF_TO_REGION[mRegExact[1]] ? mRegExact[1] : null)
+    || (mSlash && UF_TO_REGION[mSlash[1]] ? mSlash[1] : null)
+    || (mTj && UF_TO_REGION[mTj[1]] ? mTj[1] : null)
+    || (mParenUf && UF_TO_REGION[mParenUf[1]] ? mParenUf[1] : null);
 
-    let passivoVal = parsePassivoMmValue(row[11]);
+  let cidade = '';
+  let uf = explicitUf || '';
 
-    const trib = String(row[6] || '');
-    const reg = String(row[5] || '');
-    const fase = String(row[8] || '');
-    const tier = String(row[10] || '');
-    const tese = String(row[16] || '');
-    const credoresStr = String(row[12] || 'Mapeamento em curso');
-
-    let cidade = '';
-    let uf = '';
+  for (const key of sortedCityKeys) {
+    const [c, u] = key.split(',');
+    if (explicitUf && u !== explicitUf) continue;
+    if (reg.includes(c)) {
+      cidade = c;
+      uf = u;
+      break;
+    }
+  }
+  if (!cidade) {
     for (const key of sortedCityKeys) {
       const [c, u] = key.split(',');
-      if (reg.includes(c)) {
+      if (explicitUf && u !== explicitUf) continue;
+      if (trib.includes(c)) {
         cidade = c;
         uf = u;
         break;
       }
     }
-    if (!cidade) {
-      for (const key of sortedCityKeys) {
-        const [c, u] = key.split(',');
-        if (empresa.includes(c)) {
-          cidade = c;
-          uf = u;
-          break;
-        }
+  }
+  if (!cidade) {
+    for (const key of sortedCityKeys) {
+      const [c, u] = key.split(',');
+      if (explicitUf && u !== explicitUf) continue;
+      if (empresa.includes(c)) {
+        cidade = c;
+        uf = u;
+        break;
       }
     }
-
-    if (!uf) {
-      const mSlash = reg.toUpperCase().match(/[/,\-\s]([A-Z]{2})(?:\b|\s|\(|$)/);
-      const mRegExact = reg.trim().toUpperCase().match(/^([A-Z]{2})$/);
-      const mTj = trib.toUpperCase().match(/\bTJ([A-Z]{2})\b/);
-      uf = (mSlash && UF_TO_REGION[mSlash[1]] ? mSlash[1] : null)
-        || (mRegExact && UF_TO_REGION[mRegExact[1]] ? mRegExact[1] : null)
-        || (mTj && UF_TO_REGION[mTj[1]] ? mTj[1] : 'SP');
+  }
+  if (!uf) uf = 'SP';
+  if (!cidade) {
+    const cleanReg = reg.replace(/\(.*?\)/g, '').trim();
+    const firstPart = cleanReg.split(/[/,\-]/)[0].split(/\s+e\s+/i)[0].trim();
+    if (firstPart.length >= 3 && !UF_TO_REGION[firstPart.toUpperCase()]) {
+      cidade = firstPart;
+    } else {
+      cidade = (UF_CAPITAL_FALLBACKS[uf] && UF_CAPITAL_FALLBACKS[uf][0]) || 'São Paulo';
     }
-    if (!cidade) {
-      const cleanReg = reg.replace(/\(.*?\)/g, '').trim();
-      const firstPart = cleanReg.split(/[/,-]/)[0].trim();
-      if (firstPart.length >= 3 && !UF_TO_REGION[firstPart.toUpperCase()]) {
-        cidade = firstPart;
-      } else {
-        for (const key of sortedCityKeys) {
-          const [c, u] = key.split(',');
-          if (trib.includes(c)) {
-            cidade = c;
-            if (!uf) uf = u;
-            break;
-          }
-        }
-        if (!cidade) {
-          cidade = (UF_CAPITAL_FALLBACKS[uf] && UF_CAPITAL_FALLBACKS[uf][0]) || 'São Paulo';
-        }
-      }
-    }
+  }
 
-    const coord = CITY_COORDINATES[`${cidade},${uf}`]
-      || (UF_CAPITAL_FALLBACKS[uf] && UF_CAPITAL_FALLBACKS[uf][1])
-      || [-23.5505, -46.6333];
+  const coord = lookupCityCoordinates(cidade, uf)
+    || (UF_CAPITAL_FALLBACKS[uf] && UF_CAPITAL_FALLBACKS[uf][1])
+    || [-23.5505, -46.6333];
+  return { cidade, uf, coord, isBareStateReg: Boolean(mRegExact) };
+}
+
+function mapSectorMacro(rawSetor) {
+  const raw = String(rawSetor || 'Indústria & Manufatura').trim();
+  const sLow = normalizeTextNoAccents(raw);
+  if (sLow.includes('agro') || sLow.includes('insumos') || sLow.includes('silvicultura') || sLow.includes('sementes') || sLow.includes('sucro') || sLow.includes('graos')) return 'Agronegócio & Silvicultura';
+  if (sLow.includes('energia') || sLow.includes('infra') || sLow.includes('concess') || sLow.includes('rodovi')) return 'Energia & Infraestrutura';
+  if (sLow.includes('varejo') || sLow.includes('consumo') || sLow.includes('hotel')) return 'Varejo & Consumo';
+  if (sLow.includes('logistica') || sLow.includes('transporte')) return 'Logística & Transporte';
+  if (sLow.includes('saude') || sLow.includes('farma') || sLow.includes('medicamento') || sLow.includes('hospit')) return 'Saúde & Farma';
+  if (sLow.includes('imobili') || sLow.includes('constru') || sLow.includes('incorpor')) return 'Imobiliário & Construção';
+  if (sLow.includes('tecnologia') || sLow.includes('servicos b2b') || sLow.includes('terceiriz') || sLow.includes('educac') || sLow.includes('telecom') || sLow.includes('esporte') || sLow.includes('entretenimento')) return 'Tecnologia & Serviços B2B';
+  if (sLow.includes('financ') || sLow.includes('securitiz')) return 'Serviços Financeiros & Securitização';
+  if (sLow.includes('industria') || sLow.includes('manufatura') || sLow.includes('metalurg') || sLow.includes('textil') || sLow.includes('quimic')) return 'Indústria & Manufatura';
+  return raw;
+}
+
+function parseSheetRows(rows) {
+  const rawList = [];
+  const todayIso = getBrazilTodayIso();
+
+  for (let r = 0; r < rows.length; r++) {
+    const row = rows[r];
+    if (!row || row.length < 3) continue;
+    const empresa = decodeHtmlEntities(String(row[2] || '').trim());
+    if (!empresa || empresa.toLowerCase().includes('empresa/grupo') || isBlockedEntityToken(empresa)) continue;
+
+    const passivoVal = parsePassivoMmValue(row[11]);
+    const trib = decodeHtmlEntities(String(row[6] || ''));
+    const reg = decodeHtmlEntities(String(row[5] || ''));
+    const fase = decodeHtmlEntities(String(row[8] || ''));
+    const tier = String(row[10] || '').trim();
+    const tese = decodeHtmlEntities(String(row[16] || ''));
+    const credoresStr = decodeHtmlEntities(String(row[12] || 'Mapeamento em curso'));
+
+    const geo = resolveGeoFromRegiaoAndTribunal(reg, trib, empresa);
+    const cidade = geo.cidade;
+    const uf = geo.uf;
+    const coord = geo.coord;
     const regiaoMacro = UF_TO_REGION[uf] || 'Sudeste';
 
-    // Precedência estrita: Falência / Liquidação (incluindo "Liquidação Extrajudicial" BACEN/SUSEP/ANS!) DEVE vir ANTES de "extrajudicial" (PRE Classe 128)!
     const faseLower = fase.toLowerCase();
     const tierLower = tier.toLowerCase();
+    const tribLower = trib.toLowerCase();
+    const isNegatedBankruptcy = /fal[eê]ncia\s+revertida|revers[aã]o\s+de\s+fal[eê]ncia|afasta\s+fal[eê]ncia|suspende\s+fal[eê]ncia|risco\s+de\s+convola[cç][aã]o|fal[eê]ncia\s+pode\s+ser/i.test(fase);
     let tipoProcesso = 'PRJ';
     let subtipoProcesso = 'PRJ';
     if (
-      faseLower.includes('falência') ||
-      faseLower.includes('falencia') ||
-      faseLower.includes('autofalência') ||
-      faseLower.includes('autofalencia') ||
-      faseLower.includes('liquidação') ||
-      faseLower.includes('liquidacao') ||
-      faseLower.includes('classe 110') ||
-      faseLower.includes('convolação') ||
-      faseLower.includes('convolacao')
+      !isNegatedBankruptcy && (
+        faseLower.includes('falência') ||
+        faseLower.includes('falencia') ||
+        faseLower.includes('autofalência') ||
+        faseLower.includes('autofalencia') ||
+        faseLower.includes('liquidação') ||
+        faseLower.includes('liquidacao') ||
+        faseLower.includes('classe 110') ||
+        faseLower.includes('convolação') ||
+        faseLower.includes('convolacao')
+      )
     ) {
       tipoProcesso = 'PRJ';
       subtipoProcesso = 'Falência / Liquidação';
-    } else if (faseLower.includes('extrajudicial') || faseLower.includes('classe 128') || faseLower.includes('128') || faseLower.includes('12154') || /\bpre\b/i.test(faseLower)) {
+    } else if (faseLower.includes('extrajudicial') || faseLower.includes('classe 128') || /\b128\b/.test(faseLower) || faseLower.includes('12154') || /\bpre\b/i.test(faseLower)) {
       tipoProcesso = 'PRE';
       subtipoProcesso = 'PRE';
+    } else if (faseLower.includes('classe 129') || /\b129\b/.test(faseLower) || /convertid[ao]\s+em\s+rj|rj\s+deferida|processamento\s+deferido/i.test(faseLower)) {
+      tipoProcesso = 'PRJ';
+      subtipoProcesso = 'PRJ';
     } else if (faseLower.includes('cautelar') || faseLower.includes('20-b') || faseLower.includes('pré-rj') || faseLower.includes('pre-rj') || faseLower.includes('tutela') || faseLower.includes('constatação prévia') || faseLower.includes('constatacao previa')) {
       tipoProcesso = 'Cautelar / Pré-RJ';
       subtipoProcesso = 'Cautelar / Pré-RJ';
     } else if (
-      faseLower.includes('precursor') ||
-      faseLower.includes('execução') ||
-      faseLower.includes('execucao') ||
-      faseLower.includes('monitoramento') ||
-      (faseLower.includes('rating') && !faseLower.includes('rj') && !faseLower.includes('judicial')) ||
-      (tierLower.includes('tier 0') && !faseLower.includes('judicial') && !faseLower.includes('128') && !faseLower.includes('129') && !faseLower.includes('liquida'))
+      !faseLower.includes('judicial') && !faseLower.includes('128') && !faseLower.includes('129') && !faseLower.includes('liquida') && (
+        faseLower.includes('precursor') ||
+        faseLower.includes('execução') ||
+        faseLower.includes('execucao') ||
+        faseLower.includes('monitoramento') ||
+        faseLower.includes('rating') ||
+        faseLower.includes('rebaixamento') ||
+        faseLower.includes('fitch') ||
+        /\bccc\b|ccc\(bra\)/i.test(faseLower) ||
+        tribLower.includes('mercado de capitais') ||
+        tierLower.includes('tier 0')
+      )
     ) {
       tipoProcesso = 'Tier 0';
       subtipoProcesso = 'Tier 0';
@@ -8454,23 +9597,14 @@ function parseSheetRows(rows) {
     const dataAdicao = normalizeIsoDateStr(row[1], todayIso);
 
     const rawSetor = String(row[4] || 'Indústria & Manufatura');
-    const sLow = normalizeTextNoAccents(rawSetor);
-    let setorMacro = rawSetor;
-    if (sLow.includes('agro') || sLow.includes('insumos') || sLow.includes('silvicultura') || sLow.includes('sementes')) setorMacro = 'Agronegócio & Silvicultura';
-    else if (sLow.includes('energia') || sLow.includes('infra')) setorMacro = 'Energia & Infraestrutura';
-    else if (sLow.includes('varejo') || sLow.includes('consumo') || sLow.includes('hotel')) setorMacro = 'Varejo & Consumo';
-    else if (sLow.includes('logistica') || sLow.includes('transporte')) setorMacro = 'Logística & Transporte';
-    else if (sLow.includes('saude') || sLow.includes('farma') || sLow.includes('medicamento')) setorMacro = 'Saúde & Farma';
-    else if (sLow.includes('imobili') || sLow.includes('constru') || sLow.includes('incorpor')) setorMacro = 'Imobiliário & Construção';
-    else if (sLow.includes('tecnologia') || sLow.includes('servicos b2b') || sLow.includes('terceiriz') || sLow.includes('educac') || sLow.includes('telecom')) setorMacro = 'Tecnologia & Serviços B2B';
-    else if (sLow.includes('financ') || sLow.includes('securitiz')) setorMacro = 'Serviços Financeiros & Securitização';
+    const setorMacro = mapSectorMacro(rawSetor);
 
     rawList.push({
       id: rawList.length + 1,
       data_evento: dataEvento,
       data_adicao: dataAdicao,
       empresa,
-      cnpj: String(row[3] || ''),
+      cnpj: String(row[3] || '').trim(),
       setor_detalhe: rawSetor,
       setor_macro: setorMacro,
       regiao: reg,
@@ -8479,7 +9613,7 @@ function parseSheetRows(rows) {
       coordenadas: coord,
       regiao_macro: regiaoMacro,
       tribunal: trib,
-      processo: String(row[7] || 'Em autuação'),
+      processo: decodeHtmlEntities(String(row[7] || 'Em autuação')),
       fase,
       tipo_processo: tipoProcesso,
       subtipo_processo: subtipoProcesso,
@@ -8488,13 +9622,14 @@ function parseSheetRows(rows) {
       passivo_mm: passivoVal,
       passivo_display: formatNumberBR(passivoVal),
       credores: credoresStr,
-      perfil_passivo: String(row[13] || 'Bancário + Mercado de Capitais'),
-      advocacia: String(row[14] || 'Em apuração'),
-      aj: String(row[15] || 'N/A ou A Nomear'),
+      perfil_passivo: decodeHtmlEntities(String(row[13] || 'Bancário + Mercado de Capitais')),
+      advocacia: decodeHtmlEntities(String(row[14] || 'Em apuração')),
+      aj: decodeHtmlEntities(String(row[15] || 'N/A ou A Nomear')),
       tese: tese || '',
       status: String(row[17] || 'Novo'),
-      proximas_acoes: String(row[18] || 'Acompanhamento processual'),
+      proximas_acoes: decodeHtmlEntities(String(row[18] || 'Acompanhamento processual')),
       strategy_id: stratId,
+      _isBareStateReg: geo.isBareStateReg,
       watchdog_triggers: [
         'Monitoramento de Passivo e Garantias Fiduciárias',
         isUpiEligible({ tese, perfil_passivo: String(row[13] || '') }) ? 'Ativos / UPIs Elegíveis para M&A Distressed' : 'Acompanhamento de Prazos e Editais'
@@ -8502,42 +9637,53 @@ function parseSheetRows(rows) {
     });
   }
 
-  // Deduplicação robusta: por CNPJ válido de 14 dígitos OU nome-base pré-'(' / stem corporativo, prevalecendo a linha MAIS RECENTE (posterior) na planilha!
+  // Deduplicação determinística: CNPJ >= 11 dígitos nunca colide com outro CNPJ distinto; sem CNPJ numérico, usa nome-base/stem
   const dedupedList = [];
-  const indexByCnpj14 = new Map();
+  const indexByCnpj = new Map();
   const indexByBaseName = new Map();
   const indexByStem = new Map();
 
   rawList.forEach(item => {
     const digits = String(item.cnpj || '').replace(/\D/g, '');
-    const cnpj14 = digits.length === 14 ? digits : '';
+    const validCnpj = digits.length >= 11 ? digits : '';
     const basePreParen = normalizeTextNoAccents(String(item.empresa || '').split('(')[0].trim());
     const stemKey = normalizeCompanyStem(item.empresa);
 
     let existingIdx = -1;
-    if (cnpj14 && indexByCnpj14.has(cnpj14)) {
-      existingIdx = indexByCnpj14.get(cnpj14);
+    if (validCnpj && indexByCnpj.has(validCnpj)) {
+      existingIdx = indexByCnpj.get(validCnpj);
+    } else if (!validCnpj) {
+      if (basePreParen.length >= 3 && indexByBaseName.has(basePreParen)) {
+        existingIdx = indexByBaseName.get(basePreParen);
+      } else if (stemKey.length >= 4 && indexByStem.has(stemKey)) {
+        existingIdx = indexByStem.get(stemKey);
+      }
     } else if (basePreParen.length >= 3 && indexByBaseName.has(basePreParen)) {
-      existingIdx = indexByBaseName.get(basePreParen);
-    } else if (stemKey.length >= 4 && indexByStem.has(stemKey)) {
-      existingIdx = indexByStem.get(stemKey);
+      const candIdx = indexByBaseName.get(basePreParen);
+      const candDigits = String(dedupedList[candIdx]?.cnpj || '').replace(/\D/g, '');
+      if (candDigits.length < 11 || candDigits === validCnpj) {
+        existingIdx = candIdx;
+      }
     }
 
     if (existingIdx === -1) {
       const newIdx = dedupedList.length;
       dedupedList.push(item);
-      if (cnpj14) indexByCnpj14.set(cnpj14, newIdx);
-      if (basePreParen.length >= 3) indexByBaseName.set(basePreParen, newIdx);
-      if (stemKey.length >= 4) indexByStem.set(stemKey, newIdx);
+      if (validCnpj) indexByCnpj.set(validCnpj, newIdx);
+      if (basePreParen.length >= 3 && !indexByBaseName.has(basePreParen)) indexByBaseName.set(basePreParen, newIdx);
+      if (stemKey.length >= 4 && !indexByStem.has(stemKey)) indexByStem.set(stemKey, newIdx);
     } else {
       const prev = dedupedList[existingIdx];
-      // A linha posterior prevalece (atualização de fase, passivo, processo, tese), preservando campos preenchidos da anterior caso a posterior esteja vazia
+      const maxPassivo = Math.max(Number(prev.passivo_mm || 0), Number(item.passivo_mm || 0));
       const mergedDup = {
         ...prev,
         ...item,
-        cnpj: cnpj14 ? item.cnpj : (String(prev.cnpj || '').replace(/\D/g, '').length === 14 ? prev.cnpj : (item.cnpj || prev.cnpj)),
-        passivo_mm: item.passivo_mm > 0 ? item.passivo_mm : prev.passivo_mm,
-        passivo_display: item.passivo_mm > 0 ? item.passivo_display : prev.passivo_display,
+        cnpj: validCnpj ? item.cnpj : (String(prev.cnpj || '').replace(/\D/g, '').length >= 11 ? prev.cnpj : (item.cnpj || prev.cnpj)),
+        passivo_mm: maxPassivo,
+        passivo_display: formatNumberBR(maxPassivo),
+        cidade: (item._isBareStateReg && !prev._isBareStateReg && prev.cidade) ? prev.cidade : item.cidade,
+        uf: (item._isBareStateReg && !prev._isBareStateReg && prev.uf) ? prev.uf : item.uf,
+        coordenadas: (item._isBareStateReg && !prev._isBareStateReg && prev.coordenadas) ? prev.coordenadas : item.coordenadas,
         processo: (item.processo && item.processo !== 'Em autuação') ? item.processo : prev.processo,
         credores: (item.credores && item.credores !== 'Mapeamento em curso') ? item.credores : prev.credores,
         advocacia: (item.advocacia && item.advocacia !== 'Em apuração') ? item.advocacia : prev.advocacia,
@@ -8545,44 +9691,31 @@ function parseSheetRows(rows) {
         tese: item.tese || prev.tese
       };
       dedupedList[existingIdx] = mergedDup;
-      if (cnpj14) indexByCnpj14.set(cnpj14, existingIdx);
-      if (basePreParen.length >= 3) indexByBaseName.set(basePreParen, existingIdx);
-      if (stemKey.length >= 4) indexByStem.set(stemKey, existingIdx);
+      if (validCnpj) indexByCnpj.set(validCnpj, existingIdx);
     }
   });
 
-  // Merge não-destrutivo contra a base curada deals.json + IDs estáveis
+  // Enriquecimento contra deals.json preservando IDs estáveis sem reinjetar linhas aposentadas quando a planilha completa (>= 150) está carregada
   const mergedList = [];
-  const matchedCuratedIds = new Set();
-  const unmatchedNewItems = [];
+  const usedIds = new Set();
+  const unmatchedItems = [];
 
   dedupedList.forEach(item => {
+    delete item._isBareStateReg;
     const curated = findCuratedDeal(item.cnpj, item.empresa);
-    if (curated && !matchedCuratedIds.has(curated.id)) {
-      matchedCuratedIds.add(curated.id);
+    if (curated && !usedIds.has(curated.id)) {
+      usedIds.add(curated.id);
       mergedList.push(finalizeParsedDealStructure(mergeDealWithCurated(item, curated)));
-    } else if (!curated) {
-      unmatchedNewItems.push(finalizeParsedDealStructure(item));
+    } else {
+      unmatchedItems.push(finalizeParsedDealStructure(item));
     }
   });
 
-  // Preserva todos os casos curados de deals.json (tanto por CNPJ quanto por stem) que não vieram na aba ao vivo
-  const allCuratedCandidates = [...BASE_CURATED_BY_CNPJ.values(), ...BASE_CURATED_BY_STEM.values()];
-  allCuratedCandidates.forEach(curated => {
-    if (curated && !matchedCuratedIds.has(curated.id) && !isBlockedEntityToken(curated.empresa)) {
-      matchedCuratedIds.add(curated.id);
-      mergedList.push(finalizeParsedDealStructure({ ...curated }));
-    }
-  });
-
-  unmatchedNewItems.sort((a, b) => {
-    const cmpAdd = String(a.data_adicao || '').localeCompare(String(b.data_adicao || ''));
-    if (cmpAdd !== 0) return cmpAdd;
-    return String(a.cnpj || '').localeCompare(String(b.cnpj || ''));
-  });
-  let nextNewId = (MAX_CURATED_DEAL_ID || 154) + 1;
-  unmatchedNewItems.forEach(item => {
-    item.id = nextNewId++;
+  let nextId = 1;
+  unmatchedItems.forEach(item => {
+    while (usedIds.has(nextId)) nextId++;
+    item.id = nextId;
+    usedIds.add(nextId);
     mergedList.push(item);
   });
 
@@ -8805,7 +9938,7 @@ async function exportXLSX() {
     }
 
     wb.Props = {
-      Title: 'VALKNUT — SPECIAL SITUATIONS // Base Concursal v4.7',
+      Title: 'VALKNUT — SPECIAL SITUATIONS // Base Concursal v5.0 (20261118v50)',
       Author: 'Valknut Special Situations'
     };
 
@@ -8816,3 +9949,12 @@ async function exportXLSX() {
     exportCSV();
   }
 }
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootValknutApp);
+  } else {
+    bootValknutApp();
+  }
+}
+

@@ -27,7 +27,7 @@ jobs:
           python-version: '3.11'
 
       - name: Fetch and consolidate live distressed news
-        run: python3 _backend/update_live_news.py
+        run: python3 update_live_news.py
 
       - name: Commit updated live-news.json if changed
         run: |

@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * VALKNUT — SPECIAL SITUATIONS // Google Apps Script Backend & Multi-Proxy Engine
- * Release v4.7 — Produção Blindada (Chunked UTF-8, Dedup, Anti-Injection & Health)
+ * Release v5.0 — Produção Blindada (15x85KB Chunked UTF-8, 6 Abas, Anti-Injection & Health)
  * ============================================================================
  *
  * COMO ATUALIZAR A IMPLANTAÇÃO MANTENDO A MESMA URL (`APPS_SCRIPT_URL`):
@@ -12,19 +12,20 @@
  * 3. Clique em "Implantar" > "Gerenciar implantações" > ícone de lápis (Editar) >
  *    em Versão selecione **"Nova versão"** > clique em "Implantar".
  * 4. Teste rápido de saúde da implantação: abra `<APPS_SCRIPT_URL>?action=health`
- *    e verifique `{"status":"ok","version":"4.7","router":true,...}`.
+ *    e verifique `{"status":"ok","version":"5.0","router":true,...}`.
  * 5. Opcional (varredura 24/7 + gravação automática na aba `Noticias`):
  *    execute uma vez `instalarGatilhosAutomaticos()`.
  */
 
-const APP_RELEASE_VERSION = '4.7';
-const MASTER_CACHE_KEY = 'vk_master_sheet_v47';
+const APP_RELEASE_VERSION = '5.0';
+const MASTER_CACHE_KEY = 'vk_master_sheet_v50';
 const CACHE_TTL_SECONDS = 300; // 5 minutos de cache em memória no servidor Google
 const PUBLIC_REFRESH_COOLDOWN_KEY = 'vk_public_refresh_cooldown';
 const PUBLIC_REFRESH_COOLDOWN_SECONDS = 60;
-const CHUNK_CHAR_SIZE = 42000; // ~50-65 KB em UTF-8 acentuado (abaixo do teto de 100 KB do CacheService)
-const MAX_CACHE_CHUNKS = 12;   // Suporta payloads de até ~500 KB com folga de segurança
-const MAX_NOTICIAS_ROWS = 500; // Limite máximo de linhas na aba `Noticias` (1 cabeçalho + 499 itens)
+const CHUNK_MAX_UTF8_BYTES = 85 * 1024; // 85 KB por fatia em UTF-8 (abaixo do teto estrito de 100 KB do CacheService)
+const CHUNK_CHAR_SIZE = 72000;          // Passo base antes da verificação exata de bytes UTF-8 (<= 85 KB)
+const MAX_CACHE_CHUNKS = 15;            // 15 fatias x 85 KB = ~1,27 MB de capacidade total em CacheService
+const MAX_NOTICIAS_ROWS = 500;          // Limite máximo de linhas na aba `Noticias` (1 cabeçalho + 499 itens)
 
 // Allowlist estrita de domínios HTTPS permitidos no proxy RSS/Dados Abertos (anti-SSRF)
 const ALLOWED_PROXY_HOSTS = {
@@ -41,6 +42,55 @@ const ALLOWED_PROXY_HOSTS = {
 const BLOCKED_TOKEN_SHA256 = {
   'd252e0c8ec8a9a143e74a72447f3abaf7a4fad0f7755a819dcc9cd293980cc78': true
 };
+
+function decodeHtmlEntities_(str) {
+  if (!str) return '';
+  var s = String(str);
+  for (var pass = 0; pass < 2; pass++) {
+    if (s.indexOf('&') === -1) break;
+    s = s
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/&quot;/gi, '"')
+      .replace(/&#0*39;|&apos;/gi, "'")
+      .replace(/&lt;/gi, '<')
+      .replace(/&gt;/gi, '>')
+      .replace(/&#8211;|&ndash;/gi, '–')
+      .replace(/&#8212;|&mdash;/gi, '—')
+      .replace(/&#x([0-9a-f]+);/gi, function(m, hex) {
+        var cp = parseInt(hex, 16);
+        return (!isNaN(cp) && cp > 0 && cp <= 0x10ffff) ? String.fromCodePoint(cp) : m;
+      })
+      .replace(/&#(\d+);/g, function(m, dec) {
+        var cp = Number(dec);
+        return (!isNaN(cp) && cp > 0 && cp <= 0x10ffff) ? String.fromCodePoint(cp) : m;
+      })
+      .replace(/&amp;/gi, '&');
+  }
+  return s.replace(/\u00a0/g, ' ').replace(/\s{2,}/g, ' ').trim();
+}
+
+function utf8ByteLength_(str) {
+  var s = String(str || '');
+  var bytes = 0;
+  for (var i = 0; i < s.length; i++) {
+    var code = s.charCodeAt(i);
+    if (code <= 0x7f) bytes += 1;
+    else if (code <= 0x7ff) bytes += 2;
+    else if (code >= 0xd800 && code <= 0xdfff) { bytes += 4; i++; }
+    else bytes += 3;
+  }
+  return bytes;
+}
+
+function parsePassivoNum_(raw) {
+  if (typeof raw === 'number') return isNaN(raw) ? 0 : raw;
+  var s = String(raw == null ? '' : raw).replace(/R\$/gi, '').trim();
+  if (!s) return 0;
+  if (s.indexOf(',') !== -1 && s.indexOf('.') !== -1) s = s.replace(/\./g, '').replace(',', '.');
+  else if (s.indexOf(',') !== -1) s = s.replace(',', '.');
+  var n = parseFloat(s);
+  return isNaN(n) ? 0 : n;
+}
 
 function openMasterSpreadsheet_() {
   const propId = PropertiesService.getScriptProperties().getProperty('MASTER_SHEET_ID');
@@ -127,9 +177,8 @@ function normalizeCompanyBase_(raw) {
 }
 
 /**
- * Deduplica linhas da aba principal por nome-base normalizado ou CNPJ válido de 14 dígitos,
- * priorizando entradas mais recentes na planilha e preservando células preenchidas anteriores
- * caso a linha mais nova tenha algum campo em branco.
+ * Deduplica linhas da aba principal por CNPJ numérico (>= 11 dígitos) ou nome-base idêntico
+ * quando não há CNPJs distintos, preservando o maior passivo consolidado do grupo econômico.
  */
 function deduplicateLeadRows_(rows) {
   const deduped = [];
@@ -141,12 +190,12 @@ function deduplicateLeadRows_(rows) {
     if (!row) continue;
     var baseKey = normalizeCompanyBase_(row[2]);
     var cnpjDigits = String(row[3] || '').replace(/\D/g, '');
-    var cnpjKey = isValidCnpj14_(cnpjDigits) ? cnpjDigits : '';
+    var cnpjKey = cnpjDigits.length >= 11 ? cnpjDigits : '';
 
     var existingIdx = -1;
     if (cnpjKey && Object.prototype.hasOwnProperty.call(idxByCnpj, cnpjKey)) {
       existingIdx = idxByCnpj[cnpjKey];
-    } else if (baseKey && baseKey.length >= 4 && Object.prototype.hasOwnProperty.call(idxByBase, baseKey)) {
+    } else if (!cnpjKey && baseKey && baseKey.length >= 4 && Object.prototype.hasOwnProperty.call(idxByBase, baseKey)) {
       existingIdx = idxByBase[baseKey];
     }
 
@@ -158,8 +207,11 @@ function deduplicateLeadRows_(rows) {
         var newerVal = c < row.length ? row[c] : '';
         var olderVal = c < prevRow.length ? prevRow[c] : '';
         var newerEmpty = newerVal === null || newerVal === undefined || String(newerVal).trim() === '';
-        // Se `regiao` (col 5) na linha nova tiver apenas a UF (ex: "SP") e a anterior tiver "Cidade, UF", preserva a mais completa
-        if (c === 5 && !newerEmpty && String(newerVal).trim().length <= 2 && String(olderVal || '').trim().length > 2) {
+        if (c === 11) {
+          var pNew = parsePassivoNum_(newerVal);
+          var pOld = parsePassivoNum_(olderVal);
+          mergedRow[c] = pOld > pNew ? olderVal : (newerEmpty ? olderVal : newerVal);
+        } else if (c === 5 && !newerEmpty && String(newerVal).trim().length <= 2 && String(olderVal || '').trim().length > 2) {
           mergedRow[c] = olderVal;
         } else {
           mergedRow[c] = newerEmpty ? olderVal : newerVal;
@@ -274,22 +326,46 @@ function doPost(e) {
 }
 
 /**
- * 1. Leitura Unificada das 4 Abas Públicas da Planilha Mestre:
+ * 1. Leitura Unificada das 6 Abas da Planilha Mestre (Release v5.0):
  *    - Aba "Radar de Originação (Leads)"       -> campo `data`
  *    - Aba "Noticias"                          -> campo `noticias`
- *    - Aba "Tracking PREs YTD (2026)"          -> campo `tracking_pres`
+ *    - Aba "Tracking PREs YTD (2026)"          -> campo `tracking_pres` / `pres`
  *    - Aba "Radar Preditivo (Tier 0)"          -> campo `tier0`
- *    (Abas internas de Mandatos/Diretrizes não são expostas no endpoint público)
+ *    - Aba "Pipeline Ativo (Mandatos)"         -> campo `mandatos`
+ *    - Aba "Diretrizes & Fontes Monitoradas"   -> campo `diretrizes`
  */
 function putChunkedCache(cache, baseKey, str, ttl) {
   try {
-    const chunkSize = CHUNK_CHAR_SIZE;
-    const count = Math.ceil(str.length / chunkSize);
-    if (count < 1 || count > MAX_CACHE_CHUNKS) return;
+    if (!str) return;
+    const chunks = [];
+    var pos = 0;
+    const len = str.length;
+    while (pos < len) {
+      var step = Math.min(CHUNK_CHAR_SIZE, len - pos);
+      var end = pos + step;
+      // Avoid splitting surrogate pairs
+      if (end < len) {
+        var c = str.charCodeAt(end - 1);
+        if (c >= 0xd800 && c <= 0xdbff) end--;
+      }
+      var slice = str.substring(pos, end);
+      while (utf8ByteLength_(slice) > CHUNK_MAX_UTF8_BYTES && slice.length > 1024) {
+        end = pos + Math.floor(slice.length * 0.85);
+        if (end < len) {
+          var cs = str.charCodeAt(end - 1);
+          if (cs >= 0xd800 && cs <= 0xdbff) end--;
+        }
+        slice = str.substring(pos, end);
+      }
+      chunks.push(slice);
+      pos = end;
+      if (chunks.length > MAX_CACHE_CHUNKS) return;
+    }
+    if (chunks.length < 1 || chunks.length > MAX_CACHE_CHUNKS) return;
     const pairs = {};
-    pairs[baseKey + '_meta'] = String(count);
-    for (var i = 0; i < count; i++) {
-      pairs[baseKey + '_' + i] = str.substring(i * chunkSize, (i + 1) * chunkSize);
+    pairs[baseKey + '_meta'] = String(chunks.length);
+    for (var i = 0; i < chunks.length; i++) {
+      pairs[baseKey + '_' + i] = chunks[i];
     }
     cache.putAll(pairs, ttl);
   } catch (e) {}
@@ -386,6 +462,31 @@ function handleMasterSheetRead(bypassCache) {
     }) : [];
   }
 
+  // 5. Pipeline Ativo (Mandatos)
+  const mandatosSheet = ss.getSheetByName('Pipeline Ativo (Mandatos)');
+  let mandatosRows = [];
+  if (mandatosSheet) {
+    const mRows = mandatosSheet.getDataRange().getValues();
+    mandatosRows = mRows.length > 1 ? mRows.slice(1).filter(function(r) {
+      if (!r) return false;
+      var emp = String(r[0] || '').trim();
+      return emp !== '' && !isExcludedEntity_(emp);
+    }) : [];
+  }
+
+  // 6. Diretrizes & Fontes Monitoradas
+  const diretrizesSheet = ss.getSheetByName('Diretrizes & Fontes Monitoradas');
+  let diretrizesRows = [];
+  if (diretrizesSheet) {
+    const dRows = diretrizesSheet.getDataRange().getValues();
+    diretrizesRows = dRows.length > 1 ? dRows.slice(1).filter(function(r) {
+      if (!r) return false;
+      var k = String(r[0] || '').trim();
+      var v = String(r[1] || '').trim();
+      return (k !== '' || v !== '') && !isExcludedEntity_(k + ' ' + v);
+    }) : [];
+  }
+
   const payloadObj = {
     status: 'success',
     version: APP_RELEASE_VERSION,
@@ -398,7 +499,11 @@ function handleMasterSheetRead(bypassCache) {
     tracking_pres: trackingPresRows,
     pres: trackingPresRows,
     tier0_count: tier0Rows.length,
-    tier0: tier0Rows
+    tier0: tier0Rows,
+    mandatos_count: mandatosRows.length,
+    mandatos: mandatosRows,
+    diretrizes_count: diretrizesRows.length,
+    diretrizes: diretrizesRows
   };
 
   const jsonStr = JSON.stringify(payloadObj);
@@ -689,8 +794,8 @@ function sincronizarRadarAutomatico() {
     for (let i = 1; i < existingValues.length; i++) {
       const c0 = String(existingValues[i][0] || '').trim();
       const c6 = String(existingValues[i][6] || '').trim();
-      const isAlt = /^\d+$/.test(c0) && /^https?:\/\//i.test(c6);
-      const rawT = isAlt ? String(existingValues[i][2] || '') : c6;
+      const isAlt = /^\d+(\.0)?$/.test(c0) && /^https?:\/\//i.test(c6);
+      const rawT = decodeHtmlEntities_(isAlt ? String(existingValues[i][2] || '') : c6);
       const t = rawT.replace(/^'+/, '').toLowerCase().trim().slice(0, 58);
       if (t) seenKeys[t] = true;
     }
@@ -715,13 +820,14 @@ function sincronizarRadarAutomatico() {
             const linkMatch = itemXml.match(/<link>([\s\S]*?)<\/link>/i);
             const pubDateMatch = itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/i);
             const sourceMatch = itemXml.match(/<source[^>]*>([\s\S]*?)<\/source>/i);
+            const descMatch = itemXml.match(/<description>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i);
 
-            let rawTitle = titleMatch ? titleMatch[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim() : '';
-            let sourceName = sourceMatch ? sourceMatch[1].trim() : 'Mercado / Agências';
+            let rawTitle = titleMatch ? decodeHtmlEntities_(titleMatch[1].replace(/<[^>]+>/g, ' ')) : '';
+            let sourceName = sourceMatch ? decodeHtmlEntities_(sourceMatch[1].replace(/<[^>]+>/g, ' ')) : 'Mercado / Agências';
             if (rawTitle.indexOf(' - ') !== -1) {
               const parts = rawTitle.split(' - ');
-              sourceName = parts.pop().trim() || sourceName;
-              rawTitle = parts.join(' - ').trim();
+              sourceName = decodeHtmlEntities_(parts.pop()) || sourceName;
+              rawTitle = decodeHtmlEntities_(parts.join(' - '));
             }
             if (!rawTitle || rawTitle.length < 18 || isExcludedEntity_(rawTitle)) return;
 
@@ -733,7 +839,10 @@ function sincronizarRadarAutomatico() {
 
             const dtFmt = Utilities.formatDate(pubDate, 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm');
             const linkUrl = linkMatch ? linkMatch[1].trim() : '';
-            const resumo = 'Capturado automaticamente pelo Motor Valknut 24/7 (' + sourceName + ').';
+            const rawDesc = descMatch ? decodeHtmlEntities_(descMatch[1].replace(/<[^>]+>/g, ' ')) : '';
+            const resumo = (rawDesc && rawDesc.length > 35 && rawDesc.toLowerCase() !== rawTitle.toLowerCase())
+              ? rawDesc.slice(0, 235)
+              : ('Capturado automaticamente pelo Motor Valknut 24/7 (' + sourceName + ').');
 
             seenKeys[normKey] = true;
             novasLinhas.push([
