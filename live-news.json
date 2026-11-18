@@ -1,5 +1,18 @@
 [
   {
+    "data_hora": "18/11/2026 08:49",
+    "titulo": "Axia Energia aprova emissão de debêntures de até R$ 1,2 bilhão",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Axia Energia aprova emissão de debêntures de até R$ 1,2 bilhão ADVFN",
+    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNaHhncTkxdUlBWXFta0lIZUktbFo2OWhUR1ZRVUUwSDFrWXFHel9OdzVmX0tIYzFSRmo5Z2J1YTd6TU11c20wSGY5OHV0YURqRFlUVkNMSFNFMzVraTI4U1l5YzN3NDc0ci1mM2F3VnBpWHJDTVRnemFVclVPZVk4dFZmVHRTYkp6ZzZRbXdraWRoRTRheUo1Ym5MR1ZEUQ?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ADVFN",
+    "id": 113903
+  },
+  {
     "id": 1158,
     "data_hora": "18/11/2026 00:00",
     "titulo": "Corinthians (CNPJ 61.902.722/0001-26) protocola tutela cautelar na Justiça de SP para renegociar dívidas de R$ 2,8 bilhões",
@@ -24,6 +37,19 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Visno Invest",
     "id": 871121
+  },
+  {
+    "data_hora": "17/11/2026 17:41",
+    "titulo": "Corinthians pede tutela cautelar à Justiça para negociar dívidas",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Cautelar 20-B",
+    "escopo": "pipeline",
+    "resumo": "Corinthians pede tutela cautelar à Justiça para negociar dívidas Vanguarda do Norte",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQUEdmVUR3RExHVmUwYUZlWW9OcGFpSndpN1BNQjI3ZHdVcXhEbExOYTMzYjdpY3VUb01DaWY3MEFISUlFOWRnN1ZoQnhnTlMzeEdzdTJUdGNaS0xfNHd3S1FlUUowY0p0Y25QNnh5LTZBZDhmUGNCdFhDc2FyQXotclBxeXgtdFlWRG43WTBSRWtrMWtkVGVrTXhFWkpCVVVqSWgxZ3dJY1Y?oc=5",
+    "deal_id": 180,
+    "empresa_nome": "Sport Club Corinthians Paulista",
+    "id": 953510
   },
   {
     "data_hora": "17/11/2026 17:31",
@@ -341,13 +367,13 @@
     "data_hora": "16/11/2026 08:12",
     "titulo": "Rodovias do Tietê lucra R$ 38,8 milhões no terceiro trimestre",
     "fonte": "Jota / Tribunais",
-    "setor": "Mercado & Macro (RJ / Crédito)",
+    "setor": "Energia & Infraestrutura",
     "categoria": "Waiver / AGD",
-    "escopo": "cvm",
+    "escopo": "mercado",
     "resumo": "Rodovias do Tietê lucra R$ 38,8 milhões no terceiro trimestre UOL Economia",
     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOWEwZ3RoMERSQWd1N1NVTEtxUVlEN3hGc0haajRneHhvQmw5RDg4TnJSdmRWZWVUUjVIRGd1NXB3V21qaVpHTGY4R3dPVFVJdzE1U1V2cHk2aWRjWXJ6Y2ZkUjNNRERUeTVtbVI3UlptSGpmX1dvN3kxc3RLam5BcUJ3c1N1Y0xfNno0Q3RWWVdMRjJYeFNYVmpGbUI3NVR0QWMxX21uNTZ3YlpTY1l2WHdPUHJpeWFyYkt3?oc=5",
     "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // UOL Economia",
+    "empresa_nome": "Radar Ao Vivo // Jota / Tribunais",
     "id": 246737
   },
   {
@@ -451,7 +477,7 @@
     "resumo": "Credores da Concretubos votam em janeiro plano para dívida de R$ 5,4 milhões Fatos de Mato Grosso",
     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNWWxYbjNRQVN5eVpJbHpHREU5YjJMRkJIdzhDd19NQ0pVU0NrSF9PZExUUlpmSnVLNTh6dlBpeWt0elNpZkcydmdRaEJOdVQtYzZrbm4zd05ZS0JWUHU2N3ZzRWhNMVotZmlYVUg1QXE5NGlfS1AzNDZqWVZyNzRFOWdXQ3RabWpFSG95eDRUSS1NUHM2RXhaY0U0Q1Y5UnFxY25Pdmw0TDZLUHRrWGJDZkZha2c0c0taVUQ5QWNtYWpDd3NI?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 788139
   },
   {
@@ -529,7 +555,7 @@
     "resumo": "Renda fixa isenta pagando IPCA+ 10% ao ano atrai analistas de olho em combustíveis Investidor10",
     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPOHBTQ3NjUHpMSWFOMnpwNW5kM2JKa19FSkpwY0ZVZ2ZYMmQxcDdsQ0VPcExXNFJRbldrcTBxSklHR0VxbFZZQkxMSjNqQkpnV194T2ZHSmdTdm50alpyZjNrWS1HUEs5clIzLUtBc2tSXzVLVkVXUWhTY0VEWFlORk5RajVzNTZPaHFkeGJpU3pnbFFOZE1TWUR2aWVWWHZ6VG9DRTJLcGZVMG1FczZKZGhVa3g2el9Gckd4WHVHV0xaSDh4d1VHQtIByAFBVV95cUxPOHBTQ3NjUHpMSWFOMnpwNW5kM2JKa19FSkpwY0ZVZ2ZYMmQxcDdsQ0VPcExXNFJRbldrcTBxSklHR0VxbFZZQkxMSjNqQkpnV194T2ZHSmdTdm50alpyZjNrWS1HUEs5clIzLUtBc2tSXzVLVkVXUWhTY0VEWFlORk5RajVzNTZPaHFkeGJpU3pnbFFOZE1TWUR2aWVWWHZ6VG9DRTJLcGZVMG1FczZKZGhVa3g2el9Gckd4WHVHV0xaSDh4d1VHQg?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 579744
   },
   {
@@ -789,7 +815,7 @@
     "resumo": "DBRS deverá manter 'rating' de Portugal mas subida é possível Dinheiro Vivo",
     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNanpDX1gtc0VQUmg3bE5kU3l3OTJDOVJGSjcwTDExUlQzZ2twV0Z6Y2V6Uk43NkYzYzc0dGd2UWYxbVhIZHlQb3VjOHM3MlhmVFkxUW5UX0ZaVjBBc3NXMnQtWi1JMUxybDFuRE5jRlRkdWg5VmF3STlwUUVtdWlySG1OSEhOQTFQZnZwNGV5UjhXWlNR?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 887743
   },
   {
@@ -802,7 +828,7 @@
     "resumo": "Recuperação judicial atinge quase 8,5 mil empresas no Brasil Portal do Cooperativismo Financeiro",
     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMTlkRGp0N0RrOERSRTNEQ3RfUDV5S2FMSUc3eVRIN2p1dkRNM3NZbWdqWFVFeUdkUlp5Q0cxVDlrSUppZXhBZ280S3p0cklpRjQzeDVuYmxlby1IWUZmSGljaE1kQ2VoUzlCZG9GNUh1anJDZnI5U0czdDV0clkyU2JSOXk4aTVUakk1LTU2UV84TDgtZlZLdUFoZi1MeDlUTGVLZm1FSE93TW9z?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 227349
   },
   {
@@ -815,7 +841,7 @@
     "resumo": "Após recuperação judicial, extrajudicial é alternativa Valor Econômico",
     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWkx3MTNFU1BqNy1ZcTNnY0ZJUktYenZFeUVNTm8yb3JYZjd6M0NUOGFkak1tRnZJTDBNdHZMNTJXLU1DRFgxaGh1Y2pNSlVRZVhrcWRzcXR2VlFmQ1Q1WktlZkN6N2pkcm9lQzJiSWppS0g2ZlplbV9OeGlGQ0haQ2xHMmh1Y25TdGtxQUlqRnJRYUY0amxUaFV0ai0zLWdJWGs3TjFLNTdvR2kwaDdPd9IBvwFBVV95cUxNMGF5THpKOGVjUndFT1FFcFlNYVcyZmoyTTNjT0xhcmZVdTllVFo5VWpVdGdlOFNUd0FGSjQ3ZGNJblVycG96SHNVVDlIclhMQmFFVFBfMzdFSE56eXNIOEdaUW5OMFpGa2EzcmRLQ1N1VDZVZGZzbk9PeV9oUHJnakVPVzVCeldFRnV3UUpoUDItQWNiVm0tQlAxTXBKX2Q5VnVheG1VZVppUWplRm92VUJXeDNlM3lsMkpFYWtNNA?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 772975
   },
   {
@@ -828,7 +854,7 @@
     "resumo": "Americanas tem prejuízo de R$ 352 milhões após sair da recuperação judicial TV Sim Brasil",
     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZHJpalgyRnU0aUF0MEp4b1NzZ01qcUhMZ3FaUXptcURudzRmYmR4YjM3RGZPU2NWc0d4cE8yV3o4Yml1R29lUEN0UnZoZXJYZktEVnFwWDJWa01jX0paYjFPbXgzZnJaSXltVGtJSzBCbm1kMnZpSVU5Z2ZhaEo3MTB5V1F3d1VnX2FwWW5OYzJEam92bXpYSnFqdHJidlpEMTNQOWNtcEZzdkd3dTFkS18xdU8?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 904391
   },
   {
@@ -893,7 +919,7 @@
     "resumo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT Midia Jur",
     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNaWxVZncwMUhGOHptVTVveUFrWlFHZ1Bhdkl3eGhHQ0VyU2tTQ2REOS1yM3M2WWdmbktQQTRMUTQySmpoWE5HMGxETzI1akFodi1zSEZIMkFxdnNCU05YbG5KQWo5TU9nTGZoTFRvcDVvS2xsbUhMZmoyTHlUOGd4dlhXZlRpV2JfYmFVbkg1Sjk4ZWYwRzFJRDlZTVRTXzBKa25Sb0tmWWdGTHk2Vk9aSWVQeklISW4yZ3FZOEZTU1c1clk?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 677873
   },
   {
@@ -945,7 +971,7 @@
     "resumo": "Fato relevante Unidas: nova emissão de debêntures com garantia da controladora ativovirtual.com.br",
     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOdTVXSXV5RlVvbXRmejhOelVXTS1falk5d1pjT3NQaFZiRnVhZHlsbk9hTkxwZ2ZZWW4xNFdrblRaWUdNX0ItLXRsWXhxQWUtb2dQdHE1MHpJN0ZlRlBFd3NLaXZNUUNTNElQazktZG5TNjI3bDZ4NC1IdWtWdm0yVm1NZks2VWo3M05vUFBuelFmd005UWlJYkZYeUx6bUQzenZPQ3lhaFVYZEphOVVGV0N5emVfUU4tZnNTbVlqaUl5QQ?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 776480
   },
   {
@@ -988,19 +1014,6 @@
     "id": 103876
   },
   {
-    "data_hora": "10/11/2026 12:28",
-    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s Estadão",
-    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdVN2LUl2b3ZOYS1kOXc3bkI1aEVtRmN4UzdxbFJHV0FZSUZ4X1RRU2htN0xIWjN4Um8ybGg5bUdYQXhxQUFJV0gxRDk4UlZYQ2tudU5IS0NEbE5XQ3NJNzl0Z2JzdnhWcW1Vb0o1OVRqT3pId1JFbzNZdmZRX2gxZHNaWksybnRvRzVxTU5Bd1pZcW5TR0lyZTNZMkNKSmVIMjdETm5WR3JXYlJTYzBCSWJLc29jUEZ0d21vTGt6QdIBxAFBVV95cUxOYmFLRndNN0I1WGhhMWZSd2xmdElHQUdzb1FJcXUwNTZxMS1XdjVKamVSWHAwRHZzZWNOa1JoSENlME9mNTVWaTJMSmtPcjB4RzY4bFRPMEVnS0w3cWhINnQwZWp1bnAzNVJ2c002R29ZOEZQUUZZalVnY1pTSVB0QUM2bzRMekJ0RkNSaVpvWnVIVUVmaVphMXpJV2xucVdEUHBVam5TdGJmMDVhc0JXVzN2M1JTZlQtdUswVnRuY0hLRGtj?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Estadão",
-    "id": 737507
-  },
-  {
     "data_hora": "10/11/2026 10:06",
     "titulo": "Sócia da Kitchens transferiu R$ 4,2 milhões em imóveis antes de recuperação",
     "fonte": "Jota / Tribunais",
@@ -1036,7 +1049,7 @@
     "resumo": "Número de empresas em recuperação judicial aumenta 21,2% no 3º tri Poder360",
     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMFdOZHluVWl2eHlNdUxqSmFEWXJzTDdTV0d3TWNJaVNPWk9FNkgtRFY4YmNaV1lUQmlqR1ZGeTkyVktfZlp6cWhwX0E5czFPY0RSWno3cHlkNFRmR0hUQXJIRVpKZi1YY040RXNHaW8yTy0wQkhVbkxjQlJMMUZQZ3d2WDMycDM0VGdSWnhJdnlSWVhFaktKQ1laN3g4MHBlRDh3YjhuaXB6aUNV?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 674654
   },
   {
@@ -1062,8 +1075,21 @@
     "resumo": "Americanas vence recuperação judicial, mas sai menor e ainda enfrenta crise UOL Economia",
     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxORjE2cEo5enBJZE8xcExyRFRfeWlhbVRTaVJleF9IanlxY2JoRVV2S1Q1c3g3dk94Vm5lVm14WFNkc01tbnlCeW03ck1NanJLMV9FcEFGLTllR0RFalVlR0pTRXIxbFVUWFE5dGlwX005RlIxMjkzUEw0RVJVN1FOd2RadlE3UzhjRE5TdGVMZG1ub1FpN1NoSFZfdHc4eUQxOW1ub1VGVjlJczIxc2ttcE1MWmlMUWVnZEo4dHFPenZBLTB2VF8xMGxKRHZEWWc?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Jota / Tribunais",
     "id": 625565
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s Estadão",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdVN2LUl2b3ZOYS1kOXc3bkI1aEVtRmN4UzdxbFJHV0FZSUZ4X1RRU2htN0xIWjN4Um8ybGg5bUdYQXhxQUFJV0gxRDk4UlZYQ2tudU5IS0NEbE5XQ3NJNzl0Z2JzdnhWcW1Vb0o1OVRqT3pId1JFbzNZdmZRX2gxZHNaWksybnRvRzVxTU5Bd1pZcW5TR0lyZTNZMkNKSmVIMjdETm5WR3JXYlJTYzBCSWJLc29jUEZ0d21vTGt6QdIBxAFBVV95cUxOYmFLRndNN0I1WGhhMWZSd2xmdElHQUdzb1FJcXUwNTZxMS1XdjVKamVSWHAwRHZzZWNOa1JoSENlME9mNTVWaTJMSmtPcjB4RzY4bFRPMEVnS0w3cWhINnQwZWp1bnAzNVJ2c002R29ZOEZQUUZZalVnY1pTSVB0QUM2bzRMekJ0RkNSaVpvWnVIVUVmaVphMXpJV2xucVdEUHBVam5TdGJmMDVhc0JXVzN2M1JTZlQtdUswVnRuY0hLRGtj?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Estadão",
+    "id": 737507
   },
   {
     "data_hora": "09/11/2026 18:45",
@@ -1088,7 +1114,7 @@
     "resumo": "É hora de comprar renda fixa? Bancos recomendam títulos pagando até IPCA+ 12%; confira Seu Dinheiro",
     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZEU1SzN0RXJqaEtHMk5jaW5ocWdoSF94b0M4dUVVVWM3akZrN1ZFd3NEbGhBZ2FHRlJMM2hhSElETVVVZHN3NkhLQ3IwMG9UckpKSTB5dnZhZkppU3R5QjJIaktwMUFMdEh3clVOU2wzMUxFdDcwa21xeXl4dnh2eXAxOW1jTWI0MXMyODVSR3QxVWs2dHpLNnpYMFVSR0pCcTgyNWM5RXM0SmV4VWtaMzljdkE5b1BaaF9NY0ZfdW9YS2p3MlIwMUxGS2Y?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 973553
   },
   {
@@ -1114,7 +1140,7 @@
     "resumo": "Sabesp (SBSP3) aprova alterações em escritura da 35ª emissão de debêntures Clube FII News",
     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdDNxUGFWWTBSakJGUXZJZDJMUEFmdFQ5eldfRVYyWEZrcE1FR3JlR2g3eGpIWmVKeGU1NmRpczUxLVl0OTRubkg0bmZZTGpzRUNBVkk0NjZwVklORnFBZnVEMWtmdVcwQUY0Rm5UdjE5OTY0UVhpNXd5aV9hazVFNm54Uk5VU1R4d2tmWmdNZzZGbGJtSy00MQ?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 194540
   },
   {
@@ -1127,7 +1153,7 @@
     "resumo": "Raízen (RAIZ55) aprova aumento de capital de até R$ 39,8 bilhões; acionistas podem ser diluídos em até 94% Guia do Investidor",
     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxORnFaRWQtZW1NU2ZETFdYNE1ZZ1NoOVFibmpueEk5NFdBZlE0ZFNFWU50VWI4bUk4OG1TOXJJcXFsTzFrQWs3SnkyTWx0Y0ZBZEJOMGZ6N1NidzNDbWw2Nm9Ldy1hTEhYcFVFc1dkNGRDYzc1eEVaOHZNa2tjTXVQaHowZnNLVGZPaE9HWXBMRXlYcVU3akZfSGJKVWg2Uk5yZ2FnUnA0b1BJYktoRXZPNDBSR0NvckxpYzcyUzFld1hWZl9oYW5obUdUellDY1IwUGVXWFR2TlY?oc=5",
     "deal_id": 7,
-    "empresa_nome": "",
+    "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 246596
   },
   {
@@ -1140,7 +1166,7 @@
     "resumo": "Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta Seu Dinheiro",
     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPdEh4UWhGR3ZBblZFVW5lVUVEWlFIZVo4dkV4XzY3OElKWDlvdkxEODNYdk5JWkNKWkU5ZFdSSFR1bFlNWlhkMTVxakN3N0hUUG9HbXh2T3prX1I0TkJEUFNIOGFPVFRXLTNxaGpaQkJjR2F4c1ZaX2RFTTQ1VGIwZHJETEZmckJ2UFNjYW5pUmpnbm5NeS00ekJwdGExR2s0ZFFCUkNRQ0hhQU1rWHo1UjhSZEU2ZlhpVUhoVHRVQTFRX0pOUHBKNWln?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 750257
   },
   {
@@ -1153,7 +1179,7 @@
     "resumo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões como parte de reestruturação financeira Revista RPA NEWS",
     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMmgtLU5scFl6NlBjMUJvTjFuSGFocHBaenBSck1aZzgwMmw0SklnRVZzLTd1WG9kS2YwUzd0MVZrdWhzenZKYUxJTmxUVHJqejcydm5XMklCOUdSV1JTVW5GZWZEc3JmWXlOR3VLT05XR3Q0N1h0LThpTGNCNHRMOXYwUUFmR3QzT2NEdHp0Y1JqenlvQ1ZsR19VcVB4V0RabmNoWVV2cVBnamE0RkpUa3lWaVQ5djZ3Um5kWU11X3RaUQ?oc=5",
     "deal_id": 7,
-    "empresa_nome": "",
+    "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 804692
   },
   {
@@ -1166,7 +1192,7 @@
     "resumo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões para reestruturação NovaCana",
     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZjNRdHprQ1hoYUpWSXhLWlJPcXozTFRHMHZGUENrdFp2UnlNaWhJRmdtM2NaSi1wa2RVb051ZjVEMDVrZGpxWFFBUkx6cDNOVG9BZ0hJQ1BxZTg1cktzZGs5a1Bnby04NzBwTlptWkk0R0ZCZEQyTS1fVTQzZVhXX09aejdmZFBkUm53a2hnQmVrc2VHa3RwZzEzZ2F3R1djUG42cXdldG5lS3ZS?oc=5",
     "deal_id": 7,
-    "empresa_nome": "",
+    "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 986219
   },
   {
@@ -1218,7 +1244,7 @@
     "resumo": "Raízen aprova pacote de reestruturação com aumento de capital de até R$ 39,8 bi Valor Econômico",
     "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOSnJibl8zQjJKRmFUTVA5bmJJZUF3eHRDNGlUaG9iSkJBVzBZYzJkdnhYQ2o5VDJaRHVvQUZzSEJtMTBaM3BfSzZnWVdMbllJRVB3Njl6MUEyWGROMEtHSGYycTlWMGMxcWdQVFlVeHhIUFh4SzVGSWtsS2NGQWQ2d3c3akdXRHNnMkhva0dBOEV3MHBCVEg5a0xybElUSWxCcUc5eDV2eEhjZjljZGtuNTNOTlZHYWduVkVGMER1TDFhbTloMHdubUpfbkgxWTN40gHfAUFVX3lxTE1DWFFIa1JON0lqdElrbUVWTVFMLXFZUGxfVFlmXzlHcjV5c1lSUTlwWDJyYXg2ay1HTkhkeFdSOUhOd3NtWmRMUGxVUnVneWpra3VpanNSU0hRMzVWVENZT01UT0RNbVRCeGx1YmExdjVTd0NEZGpTQ1RQLTQ2cXZrbkR3YUlPamVnSThZMmlWbjNUTEg4NDJjYlhiUXNuczFqQkxUc2tYOUJlZWttZ3FRZnlYVzBBRFFySlhKSFk4QjhhRkpBRmo3VEVNa29QQUVyT2stR3l6eGNmR24tTnc?oc=5",
     "deal_id": 7,
-    "empresa_nome": "",
+    "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 711051
   },
   {
@@ -1257,7 +1283,7 @@
     "resumo": "Raízen acelera plano com acordo fiscal e reestruturação Capital Aberto",
     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVnZlSEVzdFR2b1llUFpHZUlzZGQyelJLSTd4NmFrTXowSWptS3lKS1kzLUladlU4QW01ZS1KWl9TdWZIbUE5a3NweWg3V1pfRzdfWGZmcWp3bl91ZTYzaW1pVW4wckV2SUNsVnFmZk1QUTV5Z1dkVDlqSW5pZm9wOXpid1ZGTHRzN1ZmSXlhNFNQOEtJWERRc2pnSktvbHdjRjJN?oc=5",
     "deal_id": 7,
-    "empresa_nome": "",
+    "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 469938
   },
   {
@@ -1270,7 +1296,7 @@
     "resumo": "Recuperação que não alcança dívida: esvaziamento da Lei 11.101 para pequena e média empresa Consultor Jurídico",
     "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOVmNIT04tSEpSUXU2M3FUZUViM1hYZ1hla3BPQVlDN1Bpd2dIdnJfTW5Qc21zdU1Gam0zWVNsQlg2QVdLc0daZE1ldW9ERGhKVUZiaDJtanU5V1ZXdG8tYUpDeG9wRF9RS0FaOGpDbnE5ZnQtdEFJa3hVbC1xOHBLSkRXMnNKWXlXelpFX1daRWhuRnBEQU9WaW9SdzZzbk1BV0JrdUkzQklaZndybk96MlY4MHFTMjBZMVpXbFFaVHFaWEdTdHg3aHprWG9OZw?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 617426
   },
   {
@@ -1283,7 +1309,7 @@
     "resumo": "Viveo (VIVEO3) aprova reestruturação de debêntures com vencimento em 2034 e novos covenants www.ativovirtual.com.br",
     "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOVHJRRGQwWGVSSmNMNk5wOFQxRUthQmg5OVd5ZmtkQkloZjMzNjRZdzJ0MkVGeUNPTExaQW5CM1c2b0lUWmY0R1RiUlJ5MXFUUUg4cjlhelMxdVNEMEE4OUdiSHFUUWNSWTJIbHhjdHljR0FEeUdrNWwzdmVOSFhsU3hGcnl0THRaTVRibzZ4bFZyczBieXVlN3JYM2poZ1pzRzgySXpjZWJoNUYxMnlFZzFRR3JpTFZBd1pMMXhuWE8ybE5hQTBfVlJuQWhwUXVDX3c?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 136465
   },
   {
@@ -1335,7 +1361,7 @@
     "resumo": "AXIA Energia (AXIA3) aprova 14ª emissão de debêntures de R$ 500 mi Suno - Investimentos Inteligentes",
     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZG9aNVNfUVJjTHRlVEw3M0JVT3dDMGFlbE9hVGVQTU1DVFhpSzVVb25XamxZSjBST1BTXzlxS0tUUGFWbmJMNlFvcFRTX01ua1hLN05TVXl0LXN3d2g0YmRacWpldnVjLTBUVVZyQU4yZ09kczZxbmQ0T3NFWXVZRdIBhgFBVV95cUxOSG13WFlBUW9mc2otY201dHl1NkNLdXVTenluQ2JyczUxbFBXSnNSOFFLSkg5TGNXRDUyNVRZWk1mMUFiRXc5Q2RCaThFZ2xvaGowWVRXdlgzYXh2Qzd2ZkdSMVpXaGRXUGFZeU9ESjNmcDRPZldvam01N29mZlpVdGhEcy1KZw?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 880466
   },
   {
@@ -1388,7 +1414,7 @@
     "resumo": "Emissores de infraestrutura e energia aceleram captações e repactuações preventivas de covenants no mercado doméstico diante do risco de mudanças regulatórias sobre títulos incentivados.",
     "url": "https://agenciainfra.com/blog/temor-de-oneracao-de-debentures-cresce-em-meio-a-alta-demanda-por-credito/",
     "deal_id": null,
-    "empresa_nome": ""
+    "empresa_nome": "Radar Ao Vivo // Agentes Fiduciários"
   },
   {
     "id": 225499,
@@ -1413,7 +1439,7 @@
     "resumo": "Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial Fatos de Mato Grosso",
     "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQM2FxWVhwbm5vM1pKZnJWU3l6SDZKeGhsMWdFNXVvVm9qMkpDekowakVlTTlLcGE2R0lDdmZucEp2aFZJZlVhN1NoZ3cxckNSLTJocWNnR2xvY0lpSlAtbGJpR0VfelYxTmp5M2hNUWlILWZTalI3T192and4M3FjVjFsTW83R1Q4azRQMXhUbXVncURmMENFSy1KTVg4ZlBpQzBwSlZKZkUyNkZrTF9KQ2tKYjFESTlMQUhhNnBlVTNUd0M4RG5qT21LQTd5VFBCbFBhY3l3d3NGOVNmQ29lR1FFUXFScTdW?oc=5",
     "deal_id": null,
-    "empresa_nome": "",
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 573957
   },
   {
@@ -1531,7 +1557,20 @@
     "resumo": "7ª Vara Empresarial da Capital homologou plano concursal da subsidiária de call center da Oi S.A., viabilizando a alienação da UPI Tahto livre de sucessão trabalhista e tributária com base no art. 141 da Lei 11.101/2005.",
     "url": "https://www.empresaemcrise.com/post/rio-de-janeiro-rj-recuperacao-judicial-tahto-upi-leilao",
     "deal_id": null,
-    "empresa_nome": ""
+    "empresa_nome": "Planilha Mestre // Valor Econômico"
+  },
+  {
+    "data_hora": "02/11/2026 05:00",
+    "titulo": "Moody’s rebaixa rating da Raízen dois dias após cortes de S&P e Fitch",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Energia & Infraestrutura",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Moody’s rebaixa rating da Raízen dois dias após cortes de S&P e Fitch CNN Brasil",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVkFxM2JwWllUQjRyY2F5ay0xN2JMMExFWWZXemg1eVBHbjlObjFjZmJSSVZjYTNMR2diUXJLbzUxT1FmRkZGSm1UNW9QVFliNHlrd2kyZlQxbWh4NzdaQWszOFBhSmV2S3FzR3cwcEFNN1lpNmdZdEl0YzFCenl2c3RDellscG9yUnRCdktIMWZpMjJiUjd2cGZhWHhyYzduM0VpM3RDaw?oc=5",
+    "deal_id": 7,
+    "empresa_nome": "Raízen S.A. (RAIZ4)",
+    "id": 124650
   },
   {
     "data_hora": "02/11/2026 05:00",
@@ -1557,7 +1596,150 @@
     "resumo": "4ª Vara Cível de Rondonópolis/MT decretou falência das empresas do Grupo Braki (Proc. 1003325-71.2023.8.11.0003) com base no art. 73, IV, da LRF, após 22 meses de inércia na prestação de contas e entrega de demonstrativos contábeis à administradora judicial Ex Lege.",
     "url": "https://www.empresaemcrise.com/post/vila-rica-mt-fal%C3%AAncia-do-grupo-braki",
     "deal_id": null,
-    "empresa_nome": ""
+    "empresa_nome": "Planilha Mestre // Jota / Tribunais"
+  },
+  {
+    "data_hora": "31/10/2026 04:00",
+    "titulo": "França: Fitch mantém nota A+ mas corta perspetiva da dívida para “negativa”",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "França: Fitch mantém nota A+ mas corta perspetiva da dívida para “negativa” Euronews.com",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa2ZjUkxzSFJxV0NWcHhicVpja0UzZHYwRHNWYkpld2F6MktQUEZTdkNGb2NoTUhUTVJNcXVZNEo4VC1adF94Smdfek1USzBDQUhvdzBkaHhNV1c2VDhlQ25xSjJpb0pqM3RWQk4xeV9iYkJ6TWJWdFRxUHBfSzBqSEJpRHNCU0NmMWhsbXlzRTlObThkeEhaY2VKdFZxazlXeHlrNHVQb3dMQQ?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Euronews.com",
+    "id": 582938
+  },
+  {
+    "data_hora": "30/10/2026 21:01",
+    "titulo": "Fitch mantém nota A+ para a França, mas baixa perspetiva",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fitch mantém nota A+ para a França, mas baixa perspetiva Notícias ao Minuto",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUnJCUUVNMk5nU3VGYjg0NmZ1bzBWRXBCaVkwNDN2VF9WYmJtQ0tmVnNPWllBdTkyRGF0U09rNG9TRDREYmd5azNBZmdLRDJpT2ZrdlpQdlM2WkZ6Q1U0cUVZX3V6LTdrcGNxYzVud3hjckZob2x1SHdGMFBlRUlOdUs0LTAwNWhnaTdJc3h2QkVXcEdTSzdleHRUc3JsQ2EwdFlyWWotcw?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Notícias ao Minuto",
+    "id": 288043
+  },
+  {
+    "data_hora": "30/10/2026 19:34",
+    "titulo": "Fitch altera perspectiva de rating da França para negativa",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fitch altera perspectiva de rating da França para negativa Tribuna do Agreste",
+    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZlBlVTI1Z25SOXctNGNQUXkxRmlscWJvTjZZOEUyd1BjSTIyQXc4NlVqdHFLXzBMbUNkTEhhUi12RHRTMjBhUWoxN1FzY1FoNi1tZ1NOT3JOVFpTUGVmSF9JaFlFQVczLW8tZHYwZGpqY1hrTktDYnlBMlRIX2NLbjlnV0E4cktSbWlrRURLM001S29FSFh0cl9YR1hKc3ZXYkx2a3Fjb3UyV3d0eDZuSDdId0ZKTk14NkN3?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Tribuna do Agreste",
+    "id": 299444
+  },
+  {
+    "data_hora": "30/10/2026 19:34",
+    "titulo": "Fitch reduz perspectiva para rating da França de estável para negativa",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fitch reduz perspectiva para rating da França de estável para negativa Tribuna do Sertão",
+    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPRy1nejcwVUlPWDBUeDdIdmRLOURHYTRfUkZKa2lkOWdZNDcxUVZBbXBuUVV2R0N5bjNLQ2hFN2pfRHhzTWs2c0xic2xGSldXR3ZPOF81M0FCbDgtVjVUeF9sYXpMQkdWYTJPbVpqbm1OWVVaNkFNUDVTNWZCTmllSEg3aW4ySURKVUNsRHlxQlp0MGZBRTNlNk5GZ2VfQks1UlJsYmZpSTFtTjFFeS1CM0pjTG1ObVJvQ0huZmR4QkZBa3Bwb2VyNG1R?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Tribuna do Sertão",
+    "id": 838850
+  },
+  {
+    "data_hora": "29/10/2026 04:00",
+    "titulo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa Monitor Mercantil",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZ3NEcFc0UkhLRENhWjVKVktSSmgxRVd2M2Y3b1dldW1CZnVFZ1dublBSMndmR2tqdExrUHZqRk4yUmdLU3haVjdaRGdwS3BpLVh2NjZOYUlHal94c3plVlpNa0ltRWRfUHl3aFh4ZHQyVHo3TU5zNU96TklkQnNDTGdLa0ZHUjdITkxF?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Monitor Mercantil",
+    "id": 531192
+  },
+  {
+    "data_hora": "24/10/2026 04:00",
+    "titulo": "França evita rebaixamento pela Moodys, em alívio para o governo Macron",
+    "fonte": "Jota / Tribunais",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "França evita rebaixamento pela Moodys, em alívio para o governo Macron Folha de S.Paulo",
+    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONks2dG53RlhvMks4ZTc1TFFITXJvV3Y1dlV5WDJYbzdJQ1JhTUp2MjlrVGZ1dGdVN2xXay05T3hxUC1mM19NWFN4X2xBSm9GMWlKazNpR0Nna2htT2ZZd0ZiaEZ1aGp5Rm9mWk5lTWdacjB1cHhDNlNjdEJMcHQ2MTZuZkVEWi1fNFBuOVRCWVBpajAxemZ5dGxsbk1JMC1JYm1XZTdKVlRKdFZZR1FwYTgyc1pOaXJQbkptSWVB?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Folha de S.Paulo",
+    "id": 396351
+  },
+  {
+    "data_hora": "24/10/2026 04:00",
+    "titulo": "Moody’s abstém-se de atribuir nota à dívida pública de França",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Moody’s abstém-se de atribuir nota à dívida pública de França Jornal Económico",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOY0xhWHVJMW1NTjg1dHhLNVhTcHJYSFRHSGxaQTdNZXNzdVhjaGZ2amstV2lqV09qN2hsUHNOazkzXzFaV3RWeTFvZFAyYUFrNmRlYy1Ld1BfOEZ6dlZrVmIyME9HZ0YyMkJGcEFyc3lkRjRpamlNcmY5U1pXNXF3bndtcTNGS1RscDJiOFVtUDVjejM1X3JqWXlqQUNlby1XVlp0ZQ?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Jornal Económico",
+    "id": 957100
+  },
+  {
+    "data_hora": "23/10/2026 04:00",
+    "titulo": "Oncoclínicas (ONCO3) avança em reestruturação e apresenta novo plano para renegociar R$ 5,7 bilhões em dívidas",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Saúde & Farma",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Oncoclínicas (ONCO3) avança em reestruturação e apresenta novo plano para renegociar R$ 5,7 bilhões em dívidas Seu Dinheiro",
+    "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSl9RRlE4M2FWOHdsWXNVb1lqT19ZR1U0SjFOX2ZuUU1EVmtpZVRqWWEwbGdqbU1kSWRvVUNjYWZFMUtfd1Q3N0QwODZRNS1SYV9BRFVYSk1IRENVLUxkaTdSVURrS3VDdmZxTW4xZUVOQkNOLUdjZjNETTJHbjJ5dVZKRnAySVdENGNMRXdDNnZ1WENRa3BJWjFac1dBUF8tazUxYV9NRi1QeFBhUUNEUk4wd0R2Sjl6V0gyblRZZzQxeUhqM1BERkxCRHFGaXRoMnNlM2NqMlN4RTlJY1RDRFln?oc=5",
+    "deal_id": 17,
+    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)",
+    "id": 999750
+  },
+  {
+    "data_hora": "23/10/2026 04:00",
+    "titulo": "Após negociações com credores, Oncoclínicas (ONCO3) protocola novo plano de reestruturação; veja detalhes",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Saúde & Farma",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Após negociações com credores, Oncoclínicas (ONCO3) protocola novo plano de reestruturação; veja detalhes Money Times",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSUt0VVRmZGhQc3BHM3d6RnFJOHAyUlVDbzhZQi1lVy1yaVRRTmJ6RXIzdjdVNEV3bVU4OE5iZ0hWU184QmhKLWhlSTFEMGh5X2dObndCZk5PUWVnRjBvbWdvWS1rdGt6RFlCVkw5WEU3SWdBRE9WTVQ2WmdWZ2JDbEtXSXRyRWd2NjRybi1LR285MVlRbl95R2dqMnVQMVBaNWlKRF9pZjBLNE1MQXBYZVFSN0UzcVZ0V2VZd2I3UVE?oc=5",
+    "deal_id": 17,
+    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)",
+    "id": 575951
+  },
+  {
+    "data_hora": "23/10/2026 04:00",
+    "titulo": "Moody’s mantém rating de França e acredita que Orçamento para 2027 será aprovado",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Moody’s mantém rating de França e acredita que Orçamento para 2027 será aprovado ECO",
+    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNanFHcWZfOHhIUlpSM2VDamstOXVKbENRdHpIN1lIZ3hvdW4zLUU1RUhhWDlVcFByZDZsaWNZc3FwSVpWaUdaNHI2bHV2WExtalhMRlQyY1B2Q0drRUtWeDJpbWZ6RUZvVUh2NFp3Y3RJRkZjeGxaUS1XX1V2WlFvMW5tekhUSnVjQ2hVZkhYWnNpSlhqYzUtRlJyQ3I0UWNMU2hRWUxUajFjOUNQNC1lWg?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ECO",
+    "id": 193045
+  },
+  {
+    "data_hora": "21/10/2026 04:00",
+    "titulo": "GPA inicia execução de plano de reestruturação após homologação judicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "GPA inicia execução de plano de reestruturação após homologação judicial CNN Brasil",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNV0hucXZMYk1aVFdDYk1KWTNoT19nd1ZUc1pJRV9PRERTOVozTlExMVN0S0NyRzI4NlhWSTJxWWYtRVB6QnQyLUcwcEFYdnVHOC02YlhBdEdMbks3ZnFmVS1Zb2s1Z2g3TG9kN0gxVERYeU1tRnhHcjNZQ05ZM1Z5X0JzYU1JV0pHWnRrX3hfdS1WNkhsUk1Fb0ozUktId0dwd1hWQXBRVVYyc1VobVYzelY1dk9RYXY0QjREaFo2TXN0SVNL?oc=5",
+    "deal_id": 16,
+    "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
+    "id": 845380
   },
   {
     "data_hora": "31/10/2026 04:00",
@@ -1800,11 +1982,11 @@
     "fonte": "Gatekeeper Administração Judicial / TJSP",
     "setor": "Indústria & Manufatura",
     "categoria": "Falência",
-    "escopo": "mercado",
+    "escopo": "pipeline",
     "resumo": "Administração Judicial apresenta relatório mensal e consolidação do quadro de credores da distribuidora industrial Sopetra Rolamentos (Proc. 0019165-87.2024.8.26.0100 na 2ª Vara de Falências do TJSP), com passivo de R$ 46,1M (98% quirografário) e desafios de liquidez operacional em face de juros elevados e compressão de margens.",
     "url": "https://gatekeeperaj.com.br/wp-content/uploads/2026/08/RMA-SOPETRA-MARC.pdf",
-    "deal_id": null,
-    "empresa_nome": ""
+    "deal_id": 139,
+    "empresa_nome": "Sopetra Rolamentos e Peças Ltda."
   },
   {
     "id": 1129,

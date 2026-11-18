@@ -33,6 +33,7 @@ const ALLOWED_PROXY_HOSTS = {
   'dadosabertos.ccee.org.br': true,
   'dadosabertos.aneel.gov.br': true,
   'integra.ons.org.br': true,
+  'ons-aws-prod-opendata.s3.amazonaws.com': true,
   'www.rad.cvm.gov.br': true,
   'dados.cvm.gov.br': true,
   'comunicaapi.pje.jus.br': true
@@ -518,8 +519,11 @@ function handleMasterSheetRead(bypassCache) {
 function handleOnsCceeProxyRequest(params, bypassCache) {
   const submarket = String((params && (params.submercado || params.submarket)) || 'SIN').replace(/[^A-Za-z0-9_-]/g, '').toUpperCase() || 'SIN';
   const dateStr = String((params && (params.data || params.date)) || Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'yyyy-MM-dd')).replace(/[^0-9-]/g, '').slice(0, 10);
+  const yearNum = Number(dateStr.slice(0, 4)) || new Date().getFullYear();
+  const mesRef = dateStr.slice(0, 4) + dateStr.slice(5, 7);
+  const diaNum = String(parseInt(dateStr.slice(8, 10), 10) || '');
   const cache = CacheService.getScriptCache();
-  const cacheKey = 'vk_ons_ccee_' + submarket + '_' + dateStr;
+  const cacheKey = 'vk_ons_ccee_v50_' + submarket + '_' + dateStr;
   if (!bypassCache) {
     const cached = getChunkedCache(cache, cacheKey);
     if (cached) {
@@ -527,33 +531,228 @@ function handleOnsCceeProxyRequest(params, bypassCache) {
     }
   }
 
+  const uaHeaders = {
+    'Accept': 'application/json, text/csv, */*',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
+  };
+
   let onsData = null;
-  let cceePld = null;
+  let onsSummary = {};
   try {
     const onsRes = UrlFetchApp.fetch('https://integra.ons.org.br/api/energiaagora/GetBalancoEnergetico/null', {
       method: 'get',
       muteHttpExceptions: true,
-      headers: { 'Accept': 'application/json' }
+      headers: uaHeaders
     });
     if (onsRes.getResponseCode() >= 200 && onsRes.getResponseCode() < 300) {
       onsData = JSON.parse(onsRes.getContentText('UTF-8'));
+      const mapKeys = { 'SE': 'sudesteECentroOeste', 'S': 'sul', 'NE': 'nordeste', 'N': 'norte' };
+      let sinLoad = 0, sinRen = 0, sinTot = 0;
+      Object.keys(mapKeys).forEach(function(k) {
+        const node = onsData && onsData[mapKeys[k]];
+        if (!node) return;
+        const g = node.geracao || {};
+        const carga = Number(node.cargaVerificada || 0);
+        const h = Number(g.hidraulica || 0) + Number(g.itaipu50HzBrasil || 0) + Number(g.itaipu60Hz || 0);
+        const e = Number(g.eolica || 0);
+        const s = Number(g.solar || 0) + Number(g.mmgd || 0);
+        const t = Number(g.termica || 0) + Number(g.nuclear || 0);
+        const ren = h + e + s;
+        const tot = ren + t;
+        sinLoad += carga;
+        sinRen += ren;
+        sinTot += tot;
+        onsSummary[k] = {
+          carga_mw_num: Math.round(carga),
+          renovavel_pct_num: tot > 0 ? Math.round((ren / tot) * 1000) / 10 : null
+        };
+      });
+      if (sinLoad > 0) {
+        onsSummary.SIN = {
+          carga_mw_num: Math.round(sinLoad),
+          renovavel_pct_num: sinTot > 0 ? Math.round((sinRen / sinTot) * 1000) / 10 : null
+        };
+      }
     }
   } catch (e) {}
 
+  let earSummary = {};
   try {
-    const cceeRes = UrlFetchApp.fetch('https://dadosabertos.ccee.org.br/api/3/action/package_show?id=pld_horario', {
-      method: 'get',
-      muteHttpExceptions: true,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (cceeRes.getResponseCode() >= 200 && cceeRes.getResponseCode() < 300) {
-      const cceeJson = JSON.parse(cceeRes.getContentText('UTF-8'));
-      cceePld = {
-        connected: Boolean(cceeJson && cceeJson.success),
-        resourceCount: (cceeJson && cceeJson.result && cceeJson.result.resources) ? cceeJson.result.resources.length : 0
-      };
+    const earUrl = 'https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/ear_subsistema_di/EAR_DIARIO_SUBSISTEMA_' + yearNum + '.csv';
+    const earRes = UrlFetchApp.fetch(earUrl, { method: 'get', muteHttpExceptions: true, headers: uaHeaders });
+    if (earRes.getResponseCode() >= 200 && earRes.getResponseCode() < 300) {
+      const earLines = earRes.getContentText('UTF-8').split(/\r?\n/);
+      let targetEarDay = '';
+      const byDay = {};
+      for (let i = 1; i < earLines.length; i++) {
+        const p = earLines[i].split(';');
+        if (p.length < 6) continue;
+        const sub = String(p[0] || '').trim().toUpperCase();
+        const d = String(p[2] || '').trim().slice(0, 10);
+        if (!d || d > dateStr) continue;
+        if (d > targetEarDay) targetEarDay = d;
+        if (!byDay[d]) byDay[d] = { verSum: 0, maxSum: 0, pct: {} };
+        const eMax = parseFloat(p[3] || '0') || 0;
+        const eVer = parseFloat(p[4] || '0') || 0;
+        const ePct = parseFloat(p[5] || '0') || 0;
+        byDay[d].pct[sub] = Math.round(ePct * 10) / 10;
+        if (eMax > 0) {
+          byDay[d].verSum += eVer;
+          byDay[d].maxSum += eMax;
+        }
+      }
+      if (targetEarDay && byDay[targetEarDay]) {
+        earSummary = byDay[targetEarDay].pct;
+        if (byDay[targetEarDay].maxSum > 0) {
+          earSummary.SIN = Math.round((byDay[targetEarDay].verSum / byDay[targetEarDay].maxSum) * 1000) / 10;
+        }
+        earSummary.reference_date = targetEarDay;
+      }
     }
   } catch (e) {}
+
+  let cceePld = { connected: false, source: 'none', records: [], pldBySubmarket: {} };
+  try {
+    const pkgRes = UrlFetchApp.fetch('https://dadosabertos.ccee.org.br/api/3/action/package_show?id=pld_horario', {
+      method: 'get',
+      muteHttpExceptions: true,
+      headers: uaHeaders
+    });
+    if (pkgRes.getResponseCode() >= 200 && pkgRes.getResponseCode() < 300) {
+      const pkgJson = JSON.parse(pkgRes.getContentText('UTF-8'));
+      const resources = (pkgJson && pkgJson.result && pkgJson.result.resources) ? pkgJson.result.resources : [];
+      let resId = '';
+      for (let i = 0; i < resources.length; i++) {
+        const nm = String((resources[i].name || '') + ' ' + (resources[i].description || '')).toLowerCase();
+        if (nm.indexOf(String(yearNum)) !== -1 && resources[i].datastore_active) {
+          resId = resources[i].id;
+          break;
+        }
+      }
+      if (resId) {
+        const filtersObj = { MES_REFERENCIA: mesRef };
+        const dsUrl = 'https://dadosabertos.ccee.org.br/api/3/action/datastore_search?resource_id=' +
+          encodeURIComponent(resId) + '&filters=' + encodeURIComponent(JSON.stringify(filtersObj)) + '&limit=5000';
+        const dsRes = UrlFetchApp.fetch(dsUrl, { method: 'get', muteHttpExceptions: true, headers: uaHeaders });
+        if (dsRes.getResponseCode() >= 200 && dsRes.getResponseCode() < 300) {
+          const dsJson = JSON.parse(dsRes.getContentText('UTF-8'));
+          const allRecs = (dsJson && dsJson.result && dsJson.result.records) ? dsJson.result.records : [];
+          let recs = allRecs;
+          let matchedCkanDay = dateStr;
+          if (diaNum && allRecs.length > 0) {
+            const exactRecs = allRecs.filter(function(r) {
+              const dRaw = String(r.DIA || '').trim();
+              if (/^\d{4}-\d{2}-\d{2}/.test(dRaw)) return dRaw.slice(0, 10) === dateStr;
+              return parseInt(dRaw, 10) === diaNum;
+            });
+            if (exactRecs.length > 0) {
+              recs = exactRecs;
+            } else {
+              let maxD = 0;
+              allRecs.forEach(function(r) {
+                const dInt = parseInt(String(r.DIA || '').trim().slice(-2), 10);
+                if (!isNaN(dInt) && dInt <= diaNum && dInt > maxD) maxD = dInt;
+              });
+              if (maxD > 0) {
+                matchedCkanDay = mesRef.slice(0, 4) + '-' + mesRef.slice(4, 6) + '-' + (maxD < 10 ? '0' + maxD : String(maxD));
+                recs = allRecs.filter(function(r) { return parseInt(String(r.DIA || '').trim().slice(-2), 10) === maxD; });
+              }
+            }
+          }
+          if (recs.length > 0) {
+            const subAcc = { SE: [], S: [], NE: [], N: [] };
+            recs.forEach(function(r) {
+              const sm = String(r.SUBMERCADO || '').toUpperCase();
+              const k = sm.indexOf('SUDESTE') !== -1 ? 'SE' : (sm === 'SUL' ? 'S' : (sm.indexOf('NORDESTE') !== -1 ? 'NE' : (sm === 'NORTE' ? 'N' : '')));
+              const v = parseFloat(String(r.PLD_HORA || '').replace(',', '.'));
+              if (k && !isNaN(v) && v > 0) subAcc[k].push(v);
+            });
+            const pldMap = {};
+            let weightedSum = 0, weightTot = 0, allSum = 0, allCnt = 0;
+            Object.keys(subAcc).forEach(function(k) {
+              if (subAcc[k].length > 0) {
+                const avg = subAcc[k].reduce(function(a, b) { return a + b; }, 0) / subAcc[k].length;
+                pldMap[k] = Math.round(avg * 100) / 100;
+                const w = (onsSummary[k] && onsSummary[k].carga_mw_num > 0) ? onsSummary[k].carga_mw_num : 0;
+                weightedSum += avg * w;
+                weightTot += w;
+                allSum += avg;
+                allCnt += 1;
+              }
+            });
+            if (allCnt > 0) {
+              pldMap.SIN = Math.round(((weightTot > 0 ? weightedSum / weightTot : allSum / allCnt)) * 100) / 100;
+            }
+            cceePld = { connected: true, source: 'ccee_ckan', reference_date: matchedCkanDay, records: recs.slice(0, 120), pldBySubmarket: pldMap };
+          }
+        }
+      }
+    }
+  } catch (e) {}
+
+  if (!cceePld.connected) {
+    try {
+      const cmoUrl = 'https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/cmo_tm/CMO_SEMIHORARIO_' + yearNum + '.csv';
+      const cmoRes = UrlFetchApp.fetch(cmoUrl, {
+        method: 'get',
+        muteHttpExceptions: true,
+        headers: { 'Range': 'bytes=-750000', 'User-Agent': uaHeaders['User-Agent'] }
+      });
+      if (cmoRes.getResponseCode() >= 200 && cmoRes.getResponseCode() < 300) {
+        const lines = cmoRes.getContentText('UTF-8').split(/\r?\n/);
+        const subHrAcc = { SE: {}, S: {}, NE: {}, N: {} };
+        let matchedDay = '';
+        for (let i = lines.length - 1; i >= 1; i--) {
+          const p = lines[i].split(';');
+          if (p.length < 4) continue;
+          const dtRaw = String(p[2] || '').trim();
+          const d = dtRaw.slice(0, 10);
+          if (!d || d.length < 10 || d > dateStr) continue;
+          if (!matchedDay) matchedDay = d;
+          if (d !== matchedDay) break;
+          const k = String(p[0] || '').trim().toUpperCase();
+          const hr = parseInt(dtRaw.slice(11, 13), 10) || 0;
+          const v = Math.max(0, parseFloat(p[3] || '0') || 0);
+          if (subHrAcc[k]) {
+            if (!subHrAcc[k][hr]) subHrAcc[k][hr] = [];
+            subHrAcc[k][hr].push(v);
+          }
+        }
+        const pldMap = {};
+        const synthRecs = [];
+        let weightedSum = 0, weightTot = 0, allSum = 0, allCnt = 0;
+        Object.keys(subHrAcc).forEach(function(k) {
+          const hrs = Object.keys(subHrAcc[k]);
+          if (hrs.length > 0) {
+            let arr = [];
+            for (let h = 0; h < 24; h++) {
+              const vals = subHrAcc[k][h];
+              const rawH = (vals && vals.length > 0) ? (vals.reduce(function(a, b) { return a + b; }, 0) / vals.length) : 57.31;
+              arr.push(Math.min(1611.04, Math.max(57.31, rawH)));
+            }
+            for (let it = 0; it < 8; it++) {
+              const avgD = arr.reduce(function(a, b) { return a + b; }, 0) / 24.0;
+              if (avgD <= 785.27 + 1e-6) break;
+              const sc = 785.27 / avgD;
+              arr = arr.map(function(x) { return Math.max(57.31, x * sc); });
+            }
+            const avg = arr.reduce(function(a, b) { return a + b; }, 0) / 24.0;
+            pldMap[k] = Math.round(avg * 100) / 100;
+            synthRecs.push({ SUBMERCADO: k, PLD_HORA: pldMap[k], DATA: matchedDay });
+            const w = (onsSummary[k] && onsSummary[k].carga_mw_num > 0) ? onsSummary[k].carga_mw_num : 0;
+            weightedSum += avg * w;
+            weightTot += w;
+            allSum += avg;
+            allCnt += 1;
+          }
+        });
+        if (allCnt > 0) {
+          pldMap.SIN = Math.round(((weightTot > 0 ? weightedSum / weightTot : allSum / allCnt)) * 100) / 100;
+          cceePld = { connected: true, source: 'ons_dessem_s3', reference_date: matchedDay, records: synthRecs, pldBySubmarket: pldMap };
+        }
+      }
+    } catch (e) {}
+  }
 
   const payloadStr = JSON.stringify({
     status: 'ok',
@@ -561,7 +760,10 @@ function handleOnsCceeProxyRequest(params, bypassCache) {
     submarket: submarket,
     date: dateStr,
     ons: onsData,
+    onsSummary: onsSummary,
+    ear: earSummary,
     ccee: cceePld,
+    records: cceePld.records || [],
     updated_at: new Date().toISOString()
   });
   putChunkedCache(cache, cacheKey, payloadStr, CACHE_TTL_SECONDS);

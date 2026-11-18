@@ -195,6 +195,11 @@ def extract_deal_aliases(d: dict) -> list:
     clean_emp = re.sub(r"^(?:e|de|do|da|dos|das|s|a)\s+|\s+(?:e|de|do|da|dos|das|s|a)$", "", clean_emp).strip()
     if _is_valid_alias_candidate(clean_emp):
         aliases.append(clean_emp)
+        words = [w for w in clean_emp.split() if w]
+        if len(words) >= 3 and words[0] not in GENERIC_SHORT_STOPWORDS:
+            two_w = f"{words[0]} {words[1]}"
+            if len(two_w) >= 8 and _is_valid_alias_candidate(two_w):
+                aliases.append(two_w)
 
     if re.search(r"\bgpa\b", norm(full_emp)) and "pao de acucar" in norm(full_emp):
         aliases.append("gpa")
@@ -202,7 +207,7 @@ def extract_deal_aliases(d: dict) -> list:
     for pm in re.findall(r"\(([^)]+)\)", full_emp):
         for part in re.split(r"[/,&•;-]", pm):
             p_norm = norm(part)
-            p_clean = re.sub(r"\b(?:grupo|ex|antiga|rede|cia|ltda|s\.a\.|sa)\b", " ", p_norm)
+            p_clean = re.sub(r"\b(?:grupo|ex|antiga|rede|cia|ltda|s\.a\.|sa|tecelagem)\b", " ", p_norm)
             p_clean = re.sub(r"[^a-z0-9]+", " ", p_clean).strip()
             if _is_valid_alias_candidate(p_clean):
                 aliases.append(p_clean)
@@ -232,6 +237,13 @@ def match_deal(raw_text: str, deals: list):
             d_digits = re.sub(r"\D", "", str(d.get("cnpj") or ""))
             if len(d_digits) >= 11 and d_digits in text_cnpjs:
                 return d
+
+    cnj_list = re.findall(r"\b\d{7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}\b", str(raw_text or ""))
+    if cnj_list:
+        for cnj in cnj_list:
+            for d in deals:
+                if cnj in str(d.get("processo") or ""):
+                    return d
 
     best_deal = None
     best_score = 0
@@ -430,8 +442,12 @@ def main():
             matched_existing = match_deal(f"{title} {resumo_txt} {it.get('empresa_nome', '')}", deals)
             if matched_existing:
                 it["deal_id"] = matched_existing["id"]
-                if str(it.get("empresa_nome") or "").startswith(("Radar", "Planilha Mestre")):
+                if not str(it.get("empresa_nome") or "").strip() or str(it.get("empresa_nome") or "").startswith(("Radar", "Planilha Mestre")):
                     it["empresa_nome"] = matched_existing["empresa"]
+                if it.get("escopo") == "mercado":
+                    it["escopo"] = "pipeline"
+        if not str(it.get("empresa_nome") or "").strip():
+            it["empresa_nome"] = f"Planilha Mestre // {it.get('fonte') or 'Mercado'}"
         k = norm(title)[:62]
         if k in seen_curated_keys:
             continue
@@ -463,8 +479,15 @@ def main():
             matched_existing = match_deal(f"{title} {resumo_txt}", deals)
             if matched_existing:
                 it["deal_id"] = matched_existing["id"]
-                if str(it.get("empresa_nome") or "").startswith("Radar"):
+                if not str(it.get("empresa_nome") or "").strip() or str(it.get("empresa_nome") or "").startswith("Radar"):
                     it["empresa_nome"] = matched_existing["empresa"]
+        elif not str(it.get("empresa_nome") or "").strip():
+            deal_lookup = next((d for d in deals if d.get("id") == it.get("deal_id")), None)
+            if deal_lookup:
+                it["empresa_nome"] = deal_lookup["empresa"]
+
+        if not str(it.get("empresa_nome") or "").strip():
+            it["empresa_nome"] = f"Radar Ao Vivo // {it.get('fonte') or 'Mercado'}"
 
         k = norm(title)[:62]
         if k in seen_rss_keys:

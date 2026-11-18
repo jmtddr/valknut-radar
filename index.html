@@ -6,7 +6,7 @@
   <meta name="description" content="Plataforma institucional de inteligência concursal, Special Situations, Distressed Debt, Recuperação Judicial (Lei 11.101/05), UPIs e mercado de capitais no Brasil.">
   <meta name="theme-color" content="#063630">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://raw.githubusercontent.com https://api.allorigins.win https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://raw.githubusercontent.com https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com;">
   <link rel="canonical" href="https://jmtddr.github.io/valknut-radar/">
 
   <!-- OpenGraph & Twitter Meta -->
@@ -280,7 +280,7 @@
           <div class="tearsheet-company-row">
             <h2 id="modalCompany">Razão Social</h2>
             <span class="ticker-pill" id="modalTicker" style="display:none;">TICKER</span>
-            <button type="button" class="btn-watchlist-star in-modal" id="modalWatchlistBtn" onclick="if(currentModalItem) toggleWatchlistDeal(currentModalItem.id, event)" aria-label="Adicionar ou remover da Minha Watchlist">☆ Favoritar</button>
+            <button type="button" class="btn-watchlist-star in-modal" id="modalWatchlistBtn" onclick="if(currentModalItem) toggleWatchlistDeal(currentModalItem.id, event)" aria-label="Adicionar ou remover da Minha Watchlist" aria-pressed="false">☆ Favoritar</button>
           </div>
           <div class="tearsheet-meta-grid" id="modalSubheaderGrid">
             <!-- Populated dynamically with CNPJ, Setor, Cidade/UF, Tribunal/Vara e Autos + Copy + Tribunal/CVM link -->

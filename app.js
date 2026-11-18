@@ -504,7 +504,7 @@ const CITY_COORDINATES = {
   'São Caetano do Sul,SP': [-23.6229, -46.5552],
   'Campinas,SP': [-22.9099, -47.0626],
   'Sorocaba,SP': [-23.5015, -47.4526],
-  'Piracicaba,SP': [-22.7253, -47.6476],
+  'Piracicaba,SP': [-22.7253, -47.6492],
   'Limeira,SP': [-22.5644, -47.4017],
   'Salto,SP': [-23.2008, -47.2869],
   'Olímpia,SP': [-20.7381, -48.9142],
@@ -590,21 +590,21 @@ const CITY_COORDINATES = {
   'Macapá,AP': [0.0349, -51.0694],
   'Boa Vista,RR': [2.8235, -60.6758],
   'Santo André,SP': [-23.6639, -46.5383],
-  'Aparecida do Taboado,MS': [-20.0867, -51.0936],
-  'Jaborandi,BA': [-13.6194, -44.4328],
-  'Cáceres,MT': [-16.0764, -57.6789],
-  'Itapira,SP': [-22.4356, -46.8222],
+  'Aparecida do Taboado,MS': [-20.0867, -51.0939],
+  'Jaborandi,BA': [-13.6197, -44.4328],
+  'Cáceres,MT': [-16.0764, -57.6817],
+  'Itapira,SP': [-22.4358, -46.8222],
   'Sacramento,MG': [-19.8653, -47.4400],
-  'Três Lagoas,MS': [-20.7849, -51.7007],
-  'Coribe,BA': [-13.8267, -44.4536],
+  'Três Lagoas,MS': [-20.7847, -51.7008],
+  'Coribe,BA': [-13.8286, -44.4536],
   'Alta Floresta,MT': [-9.8756, -56.0861],
   'Campo Verde,MT': [-15.5450, -55.1625],
   'Alto Boa Vista,MT': [-11.6739, -51.3858],
   'Uberlândia,MG': [-18.9186, -48.2772],
-  'Nova Era,MG': [-19.7542, -43.0375],
+  'Nova Era,MG': [-19.7542, -43.0378],
   'Bom Jesus,RS': [-28.6686, -50.4167],
   'Brusque,SC': [-27.0977, -48.9107],
-  'Timbó,SC': [-26.8242, -49.2718],
+  'Timbó,SC': [-26.8233, -49.2717],
   'Schroeder,SC': [-26.4125, -49.0731],
   'Tijucas,SC': [-27.2414, -48.6336],
   'Gurupi,TO': [-11.7292, -49.0686],
@@ -748,12 +748,14 @@ let newsScopeFilter = 'all'; // 'all' | 'mercado' | 'pipeline' | 'cvm'
 let liveRssNewsItems = [];
 let newsFeedSyncStatus = 'Sincronizando Planilha & RSS Distressed Debt...';
 
-// Energy Live Telemetry State
-let energyTelemetryStatus = 'Fallback Operacional (Cache ONS/CCEE)';
+// Energy Live Telemetry State (ONS AWS S3 OpenData + CCEE Oficial)
+let liveEnergyData = null;
+let userManuallySelectedSinDate = false;
+let energyTelemetryStatus = 'Sincronizando ONS AWS OpenData & CCEE...';
 let energyLastSyncTime = formatBrazilNowDateTime();
 let energyLiveOverrides = {};
 
-// Energy SIN Panel State (Inicializado na data corrente de Brasília)
+// Energy SIN Panel State (Inicializado automaticamente na última data consolidada do ONS)
 let selectedSinSubmarket = 'SIN';
 let selectedSinDate = getBrazilTodayIso();
 let upiSortMode = 'valuation_desc';
@@ -1019,16 +1021,16 @@ function isRecentNewsDate(dataHoraStr, maxAgeDays = 75) {
 
 function sanitizeIncomingStaticNewsItem(it) {
   if (!it || !it.titulo || isBlockedEntityToken(it.titulo) || isBlockedEntityToken(it.empresa_nome)) return null;
+  const cleanFonte = decodeHtmlEntities(it.fonte || '');
+  const normalizedFonte = String(cleanFonte || '').trim().toUpperCase() === 'PIPELINE' ? 'Pipeline Valor' : cleanFonte;
+  const cleanEmpresa = decodeHtmlEntities(it.empresa_nome || '').trim();
   const copy = {
     ...it,
     titulo: decodeHtmlEntities(it.titulo),
     resumo: decodeHtmlEntities(it.resumo || ''),
-    fonte: decodeHtmlEntities(it.fonte || ''),
-    empresa_nome: decodeHtmlEntities(it.empresa_nome || '')
+    fonte: normalizedFonte,
+    empresa_nome: cleanEmpresa || (normalizedFonte ? `Radar Ao Vivo // ${normalizedFonte}` : 'Radar de Mercado')
   };
-  if (String(copy.fonte || '').trim().toUpperCase() === 'PIPELINE') {
-    copy.fonte = 'Pipeline Valor';
-  }
   return copy;
 }
 
@@ -1075,6 +1077,37 @@ async function fetchLiveNewsJson(cacheBust = false) {
   return dedupeSanitizedNewsArray([...localItems, ...ghItems]);
 }
 
+const ENERGY_SNAPSHOT_STORAGE_KEY = 'vk_live_energy_v5';
+
+function applyLiveEnergyPayload(energyObj, persistStorage = true) {
+  if (!energyObj || typeof energyObj !== 'object' || !energyObj.history || !energyObj.reference_date) {
+    return false;
+  }
+  liveEnergyData = energyObj;
+  if (!userManuallySelectedSinDate || !energyObj.history[selectedSinDate]) {
+    selectedSinDate = energyObj.reference_date;
+  }
+  energyLastSyncTime = energyObj.updated_at_br || formatBrazilNowDateTime();
+  energyTelemetryStatus = 'Telemetria Oficial ONS AWS OpenData + CCEE Sincronizada';
+  if (persistStorage) {
+    try {
+      localStorage.setItem(ENERGY_SNAPSHOT_STORAGE_KEY, JSON.stringify(energyObj));
+    } catch (e) {}
+  }
+  return true;
+}
+
+function restoreEnergySnapshotFromStorage() {
+  try {
+    const raw = localStorage.getItem(ENERGY_SNAPSHOT_STORAGE_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    return applyLiveEnergyPayload(parsed, false);
+  } catch (e) {
+    return false;
+  }
+}
+
 async function loadStaticBaseData() {
   const extractArr = val => {
     if (!val) return [];
@@ -1082,12 +1115,16 @@ async function loadStaticBaseData() {
     return Array.isArray(val.items) ? val.items : [];
   };
 
-  const [dealsRes, newsRes] = await Promise.allSettled([
+  const [dealsRes, newsRes, energyRes] = await Promise.allSettled([
     fetchWithTimeout(`./deals.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     }),
     fetchWithTimeout(`./live-news.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    }),
+    fetchWithTimeout(`./live-energy.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     })
@@ -1121,6 +1158,10 @@ async function loadStaticBaseData() {
     if (cleanNews.length > 0 && baseStaticNewsItems.length === 0) {
       baseStaticNewsItems = cleanNews;
     }
+  }
+
+  if (energyRes.status === 'fulfilled' && energyRes.value) {
+    applyLiveEnergyPayload(energyRes.value);
   }
 }
 
@@ -1499,6 +1540,7 @@ async function bootValknutApp() {
 
   loadWatchlistFromStorage();
   loadCachedLiveNewsFromStorage();
+  restoreEnergySnapshotFromStorage();
 
   // Camada 1 (0ms — localStorage vk_deals_snapshot_v5)
   const hydratedFromStorage = loadDealsSnapshotFromStorage();
@@ -1536,7 +1578,7 @@ async function bootValknutApp() {
     populateDropdownFilters();
     updateDynamicNavCounts();
     renderSubTabs();
-    if (!hydratedFromStorage || DEALS_DATA.length !== prevCount || baseStaticNewsItems.length > 0) {
+    if (!hydratedFromStorage || DEALS_DATA.length !== prevCount || baseStaticNewsItems.length > 0 || currentMainSection === 'energia') {
       renderSectionContent();
     }
     if (typeof renderCompsFloatingBar === 'function') renderCompsFloatingBar();
@@ -1681,12 +1723,12 @@ function extractStakeholdersFromText(credoresStr, teseStr, extraStr = '') {
 function reconcileSixBucketSplit(rawObj) {
   const src = rawObj || {};
   const hasExplicit = (
-    src.extraconcursal_pct !== undefined || src.extraconcursal_fiduciario !== undefined ||
-    src.fiscal_pct !== undefined || src.fiscal_tributario !== undefined ||
-    src.classe_i_pct !== undefined || src.c1_trabalhista !== undefined ||
-    src.classe_ii_pct !== undefined || src.c2_garantia_real !== undefined ||
-    src.classe_iii_pct !== undefined || src.c3_quirografario !== undefined ||
-    src.classe_iv_pct !== undefined || src.c4_me_epp !== undefined
+    src.extra !== undefined || src.extraconcursal_pct !== undefined || src.extraconcursal_fiduciario !== undefined ||
+    src.fiscal !== undefined || src.fiscal_pct !== undefined || src.fiscal_tributario !== undefined ||
+    src.c1 !== undefined || src.classe_i_pct !== undefined || src.c1_trabalhista !== undefined ||
+    src.c2 !== undefined || src.classe_ii_pct !== undefined || src.c2_garantia_real !== undefined ||
+    src.c3 !== undefined || src.classe_iii_pct !== undefined || src.c3_quirografario !== undefined ||
+    src.c4 !== undefined || src.classe_iv_pct !== undefined || src.c4_me_epp !== undefined
   );
   if (!hasExplicit) {
     return { extra: 18, fiscal: 7, c1: 3, c2: 42, c3: 27, c4: 3 };
@@ -2806,6 +2848,13 @@ function createManagedChart(canvasOrId, config) {
   if (typeof Chart === 'undefined') return null;
   const canvas = typeof canvasOrId === 'string' ? document.getElementById(canvasOrId) : canvasOrId;
   if (!canvas) return null;
+  activeCharts = activeCharts.filter(c => {
+    if (!c || !c.canvas || !c.canvas.isConnected || c.canvas === canvas) {
+      try { c.destroy(); } catch (e) {}
+      return false;
+    }
+    return true;
+  });
   try {
     if (typeof Chart.getChart === 'function') {
       const existing = Chart.getChart(canvas);
@@ -3262,7 +3311,7 @@ function renderTableView(deals, container) {
       container.innerHTML = tier0PanelHtml;
       return;
     }
-    if (currentMainSection === 'operacao' && currentSubTab === 'watchlist') {
+    if (currentMainSection === 'operacao' && currentSubTab === 'watchlist' && watchlistDealIds.size === 0) {
       container.innerHTML = renderWatchlistEmptyStateHtml();
       return;
     }
@@ -3357,7 +3406,7 @@ function renderTableView(deals, container) {
         <td style="text-align: center; white-space: nowrap;">
           <div style="display:inline-flex; align-items:center; gap:4px;">
             <button type="button" class="btn-watchlist-star ${isWatched ? 'active' : ''}" onclick="toggleWatchlistDeal(${item.id}, event)" title="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-label="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-pressed="${isWatched ? 'true' : 'false'}">${isWatched ? '★' : '☆'}</button>
-            <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" onclick="toggleCompDeal(${item.id}, event)" title="${isCompSelected ? 'Remover do Comparador (Comps)' : 'Adicionar ao Comparador Lado a Lado (até 4 casos)'}" aria-pressed="${isCompSelected ? 'true' : 'false'}">⚖️</button>
+            <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" onclick="toggleCompDeal(${item.id}, event)" title="${isCompSelected ? 'Remover do Comparador (Comps)' : 'Adicionar ao Comparador Lado a Lado (até 4 casos)'}" aria-label="${isCompSelected ? 'Remover do Comparador (Comps)' : 'Adicionar ao Comparador Lado a Lado (até 4 casos)'}" aria-pressed="${isCompSelected ? 'true' : 'false'}">⚖️</button>
             <button type="button" class="btn-action" onclick="openDossier(${item.id})">Ficha</button>
           </div>
         </td>
@@ -3376,7 +3425,7 @@ function renderCardsView(deals, container) {
       container.innerHTML = tier0PanelHtml;
       return;
     }
-    if (currentMainSection === 'operacao' && currentSubTab === 'watchlist') {
+    if (currentMainSection === 'operacao' && currentSubTab === 'watchlist' && watchlistDealIds.size === 0) {
       container.innerHTML = renderWatchlistEmptyStateHtml();
       return;
     }
@@ -4401,13 +4450,28 @@ function initGeoJsonBrazilMap(deals) {
 // ==========================================================================
 const MIN_NEWS_RECENCY_TIMESTAMP = new Date(2026, 0, 1, 0, 0, 0).getTime(); // Bloqueia matérias antigas (< 2026, ex: 2024/2025)
 
+function safeExternalUrl(raw, fallback = '') {
+  if (!raw || typeof raw !== 'string') return fallback;
+  const trimmed = raw.trim();
+  if (!trimmed) return fallback;
+  try {
+    const parsed = new URL(trimmed);
+    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+      return parsed.href;
+    }
+  } catch (e) {}
+  return fallback;
+}
+
 function buildNewsItemUrl(item) {
-  if (item.url && String(item.url).startsWith('http')) return item.url;
-  const deal = item.deal_id ? DEALS_DATA.find(d => d.id === item.deal_id) : null;
-  if (deal && deal.url_noticia && String(deal.url_noticia).startsWith('http')) return deal.url_noticia;
-  const queryTerms = item.empresa_nome
+  const directUrl = safeExternalUrl(item && item.url);
+  if (directUrl) return directUrl;
+  const deal = item && item.deal_id ? DEALS_DATA.find(d => d.id === item.deal_id) : null;
+  const dealUrl = safeExternalUrl(deal && deal.url_noticia);
+  if (dealUrl) return dealUrl;
+  const queryTerms = item && item.empresa_nome
     ? `${item.empresa_nome.split('(')[0].trim()} ${item.categoria || 'recuperação judicial'}`
-    : `${item.titulo}`;
+    : `${item ? item.titulo : 'recuperação judicial'}`;
   return `https://news.google.com/search?q=${encodeURIComponent(queryTerms)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`;
 }
 
@@ -4589,7 +4653,7 @@ function classifyRssNewsItem(rawItem, defaultCategory = 'Pedido de RJ') {
     categoria,
     escopo,
     resumo: resumoText,
-    url: rawItem.link || buildNewsItemUrl({ titulo: rawTitle }),
+    url: safeExternalUrl(rawItem.link) || buildNewsItemUrl({ titulo: rawTitle }),
     deal_id: matchedDeal ? matchedDeal.id : null,
     empresa_nome: matchedDeal ? matchedDeal.empresa : (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating' ? `Radar Live DCM // ${rawSource}` : `Radar Live RSS // ${rawSource}`)
   };
@@ -4651,7 +4715,7 @@ async function fetchSingleRssStream(rssUrl, defaultCategory, forceFresh = false)
     ? `${rssUrl}${rssUrl.includes('?') ? '&' : '?'}_cb=${Date.now()}`
     : rssUrl;
 
-  // 1. Google Apps Script Backend RSS Proxy (skipped if legacy GAS deployment detected)
+  // Google Apps Script Backend RSS Proxy (allowlisted server-side; live-news.json GitHub Actions serves as primary static/CDN feed)
   if (gasSupportsActionRouter !== false && typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL.startsWith('http')) {
     try {
       const gasUrl = `${APPS_SCRIPT_URL}?action=rss&url=${encodeURIComponent(targetUrl)}${forceFresh ? '&nocache=1' : ''}`;
@@ -4668,19 +4732,6 @@ async function fetchSingleRssStream(rssUrl, defaultCategory, forceFresh = false)
       }
     } catch (e) {}
   }
-
-  // 2. AllOrigins JSON wrapper
-  try {
-    const aoUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-    const res = await fetchWithTimeout(aoUrl, 5000);
-    if (res && res.ok) {
-      const data = await res.json();
-      if (data && data.contents) {
-        const valid = filterValidRecentRssItems(parseRssXmlString(data.contents), defaultCategory);
-        if (valid.length > 0) return valid;
-      }
-    }
-  } catch (e) {}
 
   return [];
 }
@@ -5148,136 +5199,202 @@ function openDossierByCompanyOrId(dealId, empresaNome) {
 const ONS_SUBMARKET_SERIES = {
   'SIN': {
     label: 'Sistema Interligado Nacional (SIN)',
-    carga_mw: '78.420 MW',
-    renovavel_pct: '89,4%',
-    ear_pct: '64,8%',
-    pld_medio: 'R$ 148,50 / MWh',
-    curtailment_mw: '2.840 MWmed (NE/SE)',
-    hidro:   [46200, 44800, 43500, 42900, 43200, 45100, 47800, 46200, 42100, 38500, 35800, 34900, 35200, 36100, 38400, 42600, 48900, 54800, 58200, 57600, 55400, 52800, 49600, 47400],
-    termica: [6200,  6100,  6000,  6000,  6100,  6300,  6500,  6800,  7100,  7200,  7200,  7300,  7300,  7400,  7500,  7800,  8400,  9200,  9600,  9500,  9100,  8400,  7400,  6600],
-    nuclear: [1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990],
-    eolica:  [14200, 14600, 14900, 15100, 14800, 14200, 13100, 11800, 10900, 10400, 10200, 10500, 11200, 12100, 13400, 14800, 16100, 16900, 17400, 17200, 16800, 16100, 15400, 14800],
-    solar:   [0,     0,     0,     0,     0,     200,   2400,  6800,  11400, 14800, 16900, 17800, 18100, 17200, 14900, 10800, 5200,  800,   0,     0,     0,     0,     0,     0],
-    mmgd:    [0,     0,     0,     0,     0,     100,   1800,  5400,  9800,  13600, 16200, 17400, 17600, 16400, 13800, 9200,  3800,  400,   0,     0,     0,     0,     0,     0]
+    carga_mw: '88.470 MWmed',
+    renovavel_pct: '86,7%',
+    ear_pct: '57,5%',
+    pld_medio: 'R$ 252,06 / MWh',
+    curtailment_mw: '96 MWmed (70% REL)',
+    hidro: [61069, 58627, 57044, 56247, 56448, 56331, 52583, 47319, 42787, 37873, 35922, 34862, 33366, 37227, 43797, 50604, 59042, 65314, 68755, 71876, 71962, 71844, 71983, 68314],
+    termica: [10441, 10523, 10395, 10216, 10073, 9959, 9987, 9031, 8828, 8818, 8766, 8761, 8846, 9273, 9664, 9878, 9915, 10490, 12573, 13025, 13242, 13311, 11637, 10847],
+    nuclear: [1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354],
+    eolica: [6319, 5843, 5550, 5361, 5123, 5058, 4980, 6158, 7109, 7155, 7986, 8791, 9842, 10451, 11121, 12543, 13703, 12264, 10784, 10150, 9658, 8678, 7711, 7015],
+    solar: [0, 0, 0, 0, 6, 685, 3486, 6867, 9547, 11818, 13128, 13930, 13097, 12273, 10337, 7078, 3682, 1033, 71, 4, 0, 0, 0, 0],
+    mmgd: [0, 0, 0, 0, 9, 1036, 6047, 12679, 18261, 23206, 26367, 28591, 28168, 25951, 22036, 16018, 9234, 3304, 259, 8, 0, 0, 0, 0],
+    carga: [79183, 76347, 74344, 73178, 73013, 74422, 78438, 83408, 87886, 90224, 93523, 96289, 94673, 96530, 98309, 97475, 96930, 93743, 94202, 97517, 97317, 96124, 92684, 87530],
+    pld_hora: [62.34, 61.79, 60.46, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 61.39, 703.74, 1265.81, 1259.39, 781.36, 481.19, 509.63],
+    curt_eolica: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 478, 584, 447, 197, 0, 0, 0, 0, 0, 0, 0, 0],
+    curt_solar: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 566, 29, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   'SE': {
     label: 'Submercado Sudeste / Centro-Oeste',
-    carga_mw: '44.890 MW',
-    renovavel_pct: '86,2%',
-    ear_pct: '61,2%',
-    pld_medio: 'R$ 156,20 / MWh',
-    curtailment_mw: '620 MWmed (MG/SP)',
-    hidro:   [29500, 28400, 27600, 27100, 27400, 28900, 30800, 29800, 27100, 24800, 23200, 22600, 22900, 23600, 25100, 27800, 31900, 35800, 38100, 37600, 36100, 34200, 32100, 30400],
-    termica: [3800,  3700,  3700,  3700,  3800,  3900,  4100,  4300,  4500,  4600,  4600,  4700,  4700,  4800,  4900,  5100,  5500,  6100,  6400,  6300,  6000,  5500,  4800,  4200],
-    nuclear: [1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990,  1990],
-    eolica:  [400,   420,   430,   440,   420,   400,   380,   350,   320,   300,   300,   310,   340,   370,   410,   450,   490,   520,   540,   530,   510,   480,   450,   420],
-    solar:   [0,     0,     0,     0,     0,     90,    1100,  3100,  5200,  6800,  7800,  8200,  8400,  7900,  6800,  4900,  2300,  350,   0,     0,     0,     0,     0,     0],
-    mmgd:    [0,     0,     0,     0,     0,     60,    1100,  3300,  5900,  8200,  9800,  10500, 10600, 9900,  8300,  5500,  2200,  220,   0,     0,     0,     0,     0,     0]
+    carga_mw: '47.679 MWmed',
+    renovavel_pct: '84,6%',
+    ear_pct: '55,1%',
+    pld_medio: 'R$ 290,60 / MWh',
+    curtailment_mw: '0 MWmed (Sem corte)',
+    hidro: [37294, 36525, 35258, 34164, 34448, 34225, 31940, 27185, 23709, 20244, 19626, 19459, 19141, 21814, 26020, 29273, 33005, 36399, 37492, 39727, 40582, 40573, 40824, 39140],
+    termica: [5862, 5914, 5920, 5861, 5835, 5807, 5842, 5006, 4839, 4790, 4757, 4740, 4746, 4789, 4893, 4923, 4932, 5290, 6612, 6864, 6906, 6909, 5802, 5466],
+    nuclear: [1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354, 1354],
+    eolica: [9, 4, 9, 19, 16, 59, 24, 33, 34, 46, 75, 80, 100, 74, 38, 46, 62, 52, 62, 42, 26, 42, 49, 33],
+    solar: [0, 0, 0, 0, 3, 200, 1295, 2725, 3840, 5002, 5599, 6092, 6090, 5602, 4941, 3662, 2157, 801, 61, 2, 0, 0, 0, 0],
+    mmgd: [0, 0, 0, 0, 6, 422, 2732, 5748, 8100, 10552, 11811, 12851, 12847, 11818, 10423, 7725, 4550, 1689, 128, 5, 0, 0, 0, 0],
+    carga: [42859, 41170, 39980, 39280, 39507, 40817, 43217, 45536, 47298, 48517, 50416, 51938, 51265, 52029, 52939, 52401, 52220, 50384, 51225, 52804, 52480, 51314, 48883, 45827],
+    pld_hora: [57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 703.11, 1265.13, 1256.47, 956.0, 850.36, 911.72],
+    curt_eolica: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    curt_solar: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   'S': {
     label: 'Submercado Sul',
-    carga_mw: '13.450 MW',
-    renovavel_pct: '92,8%',
-    ear_pct: '78,4%',
-    pld_medio: 'R$ 118,40 / MWh',
-    curtailment_mw: '190 MWmed (RS/SC)',
-    hidro:   [8800,  8500,  8200,  8100,  8200,  8600,  9200,  9100,  8600,  8100,  7700,  7500,  7600,  7800,  8300,  9100,  10100, 11200, 11800, 11600, 11100, 10500, 9800,  9200],
-    termica: [950,   920,   900,   900,   920,   950,   980,   1020,  1050,  1080,  1080,  1100,  1100,  1120,  1150,  1200,  1300,  1400,  1450,  1420,  1350,  1250,  1100,  1000],
-    nuclear: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    eolica:  [1600,  1650,  1700,  1720,  1680,  1600,  1480,  1350,  1250,  1200,  1180,  1220,  1300,  1400,  1520,  1680,  1820,  1900,  1950,  1920,  1880,  1800,  1720,  1650],
-    solar:   [0,0,0,0,0,15,180,520,890,1150,1320,1400,1420,1350,1150,820,380,60,0,0,0,0,0,0],
-    mmgd:    [0,0,0,0,0,25,420,1250,2200,3100,3700,3950,4000,3750,3150,2100,850,90,0,0,0,0,0,0]
+    carga_mw: '15.973 MWmed',
+    renovavel_pct: '93,5%',
+    ear_pct: '81,5%',
+    pld_medio: 'R$ 205,80 / MWh',
+    curtailment_mw: '0 MWmed (Sem corte)',
+    hidro: [14681, 14034, 13894, 13872, 13879, 14097, 13660, 13872, 12942, 11287, 10090, 9223, 8062, 9192, 11423, 13778, 15635, 15783, 15966, 16011, 16001, 15968, 15969, 15929],
+    termica: [1423, 1421, 1335, 1229, 1105, 1103, 1107, 1107, 1104, 1109, 1104, 1108, 1104, 1104, 1104, 1106, 1096, 1102, 1125, 1129, 1128, 1130, 1115, 1101],
+    nuclear: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    eolica: [707, 648, 570, 513, 521, 565, 546, 512, 514, 488, 489, 496, 474, 494, 518, 549, 589, 642, 742, 784, 861, 931, 975, 1004],
+    solar: [0, 0, 0, 0, 0, 8, 60, 135, 208, 265, 313, 355, 373, 343, 288, 225, 149, 68, 7, 0, 0, 0, 0, 0],
+    mmgd: [0, 0, 0, 0, 0, 160, 1131, 2572, 3944, 5029, 5950, 6745, 7082, 6517, 5473, 4279, 2835, 1287, 124, 0, 0, 0, 0, 0],
+    carga: [12635, 12043, 11738, 11624, 11670, 12233, 13738, 14987, 15822, 16114, 16960, 17845, 17273, 18099, 18394, 18508, 18797, 18068, 17483, 18914, 18853, 18392, 17293, 15878],
+    pld_hora: [57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 703.1, 1265.13, 1256.47, 568.22, 57.31, 57.31],
+    curt_eolica: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    curt_solar: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   'NE': {
     label: 'Submercado Nordeste',
-    carga_mw: '12.980 MW',
-    renovavel_pct: '94,1%',
-    ear_pct: '58,9%',
-    pld_medio: 'R$ 164,80 / MWh',
-    curtailment_mw: '1.890 MWmed (RN/CE/BA)',
-    hidro:   [3800,  3700,  3600,  3600,  3600,  3700,  3800,  3600,  3100,  2600,  2200,  2100,  2100,  2200,  2500,  3100,  3900,  4600,  5100,  5000,  4800,  4500,  4200,  4000],
-    termica: [850,   840,   820,   820,   840,   860,   880,   920,   950,   960,   960,   960,   960,   980,   1000,  1050,  1150,  1250,  1300,  1280,  1220,  1120,  980,   900],
-    nuclear: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    eolica:  [11800, 12100, 12350, 12500, 12300, 11800, 10900, 9800,  9050,  8650,  8500,  8750,  9300,  10050, 11150, 12300, 13400, 14050, 14450, 14300, 13950, 13400, 12850, 12350],
-    solar:   [0,0,0,0,0,85,1050,2980,5010,6480,7400,7800,7900,7550,6550,4750,2350,360,0,0,0,0,0,0],
-    mmgd:    [0,0,0,0,0,12,210,650,1280,1780,2120,2280,2320,2150,1820,1220,550,70,0,0,0,0,0,0]
+    carga_mw: '15.315 MWmed',
+    renovavel_pct: '96,7%',
+    ear_pct: '59,0%',
+    pld_medio: 'R$ 205,92 / MWh',
+    curtailment_mw: '96 MWmed (70% REL)',
+    hidro: [4168, 3549, 3413, 3456, 3375, 3444, 3226, 3037, 3027, 3095, 3061, 3036, 3065, 3070, 3170, 4288, 6847, 8222, 8505, 8446, 8398, 8393, 8001, 6522],
+    termica: [496, 495, 514, 506, 512, 502, 504, 405, 384, 401, 395, 385, 376, 381, 361, 372, 378, 538, 1031, 1115, 1129, 1140, 932, 528],
+    nuclear: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    eolica: [5287, 4880, 4637, 4506, 4299, 4158, 4180, 5438, 6409, 6507, 7290, 8105, 9180, 9813, 10467, 11814, 12916, 11449, 9859, 9242, 8694, 7576, 6536, 5783],
+    solar: [0, 0, 0, 0, 3, 475, 2111, 3956, 5415, 6439, 7082, 7340, 6493, 6207, 5010, 3120, 1339, 154, 3, 2, 0, 0, 0, 0],
+    mmgd: [0, 0, 0, 0, 3, 406, 1805, 3384, 4631, 5507, 6057, 6278, 5554, 5309, 4285, 2668, 1145, 131, 2, 2, 0, 0, 0, 0],
+    carga: [14511, 14056, 13765, 13551, 13340, 12960, 13172, 14145, 15289, 15586, 15846, 16076, 15909, 16047, 16605, 16428, 16092, 15934, 16218, 16230, 16324, 16619, 16646, 16205],
+    pld_hora: [57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 703.1, 1265.13, 1256.47, 571.17, 57.31, 57.31],
+    curt_eolica: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 478, 584, 447, 197, 0, 0, 0, 0, 0, 0, 0, 0],
+    curt_solar: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 566, 29, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   },
   'N': {
     label: 'Submercado Norte',
-    carga_mw: '7.100 MW',
-    renovavel_pct: '91,5%',
-    ear_pct: '72,6%',
-    pld_medio: 'R$ 132,10 / MWh',
-    curtailment_mw: '140 MWmed (MA/TO)',
-    hidro:   [4100,  4200,  4100,  4100,  4000,  3900,  4000,  3700,  3300,  3000,  2700,  2700,  2600,  2500,  2500,  2600,  3000,  3200,  3200,  3400,  3400,  3600,  3500,  3800],
-    termica: [600,   640,   580,   580,   540,   590,   540,   560,   600,   560,   560,   540,   540,   500,   450,   450,   450,   450,   450,   500,   530,   530,   520,   500],
-    nuclear: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    eolica:  [400,   430,   420,   440,   400,   400,   340,   300,   280,   250,   220,   220,   260,   280,   320,   370,   390,   430,   460,   450,   460,   420,   380,   380],
-    solar:   [0,0,0,0,0,10,70,200,300,370,380,400,380,400,400,330,170,30,0,0,0,0,0,0],
-    mmgd:    [0,0,0,0,0,3,70,200,420,520,580,670,680,600,530,380,200,20,0,0,0,0,0,0]
+    carga_mw: '9.503 MWmed',
+    renovavel_pct: '64,8%',
+    ear_pct: '54,2%',
+    pld_medio: 'R$ 220,14 / MWh',
+    curtailment_mw: '0 MWmed (Sem corte)',
+    hidro: [4927, 4518, 4480, 4755, 4746, 4564, 3758, 3225, 3109, 3247, 3145, 3144, 3098, 3151, 3184, 3266, 3556, 4911, 6793, 7693, 6981, 6911, 7188, 6723],
+    termica: [2661, 2693, 2626, 2622, 2621, 2547, 2535, 2513, 2500, 2518, 2510, 2529, 2621, 2999, 3306, 3477, 3509, 3561, 3806, 3917, 4079, 4133, 3789, 3752],
+    nuclear: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    eolica: [317, 311, 334, 323, 287, 277, 231, 175, 152, 113, 131, 110, 87, 70, 98, 134, 135, 120, 122, 82, 77, 129, 151, 196],
+    solar: [0, 0, 0, 0, 0, 2, 20, 51, 84, 112, 134, 143, 141, 121, 98, 71, 37, 10, 0, 0, 0, 0, 0, 0],
+    mmgd: [0, 0, 0, 0, 0, 47, 379, 975, 1587, 2119, 2547, 2718, 2685, 2308, 1855, 1346, 704, 197, 5, 0, 0, 0, 0, 0],
+    carga: [9178, 9078, 8861, 8724, 8496, 8412, 8311, 8739, 9477, 10007, 10300, 10430, 10226, 10355, 10372, 10138, 9820, 9358, 9276, 9569, 9660, 9800, 9863, 9619],
+    pld_hora: [100.69, 95.02, 83.72, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 57.31, 98.15, 709.54, 1272.01, 1285.84, 623.38, 110.12, 102.65],
+    curt_eolica: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    curt_solar: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   }
 };
 
 async function fetchEnergyMarketData(submercado = 'SIN', dataOperativa = selectedSinDate, notifyUser = false) {
-  const sep = APPS_SCRIPT_URL.includes('?') ? '&' : '?';
-  const gasProxyUrl = `${APPS_SCRIPT_URL}${sep}action=ons_ccee&submercado=${encodeURIComponent(submercado)}&data=${encodeURIComponent(dataOperativa)}${notifyUser ? '&force=1' : ''}&_t=${Date.now()}`;
-  const cceeUrl = 'https://dadosabertos.ccee.org.br/api/3/action/package_search?q=pld_horario&rows=3';
+  if (!notifyUser && curatedBaseReadyPromise) {
+    try { await curatedBaseReadyPromise; } catch (e) {}
+  }
+  let synced = Boolean(liveEnergyData && liveEnergyData.history);
 
-  try {
-    let synced = false;
-    // 1. Primary: Google Apps Script server-side proxy (?action=ons_ccee), skipped if legacy deployment
-    if (gasSupportsActionRouter !== false && typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL.startsWith('http')) {
+  // 1. Camada Primária Estática Dinâmica: ./live-energy.json + fallback raw.githubusercontent.com
+  if (notifyUser || !synced) {
+    try {
+      const energyRes = await fetchWithTimeout(`./live-energy.json?_cb=${Date.now()}`, { cache: 'no-store' }, 6500);
+      if (energyRes && energyRes.ok) {
+        const energyJson = await energyRes.json();
+        if (applyLiveEnergyPayload(energyJson)) {
+          synced = true;
+        }
+      }
+    } catch (e) {}
+
+    if (notifyUser || !synced) {
       try {
-        const proxyRes = await fetchWithTimeout(gasProxyUrl, { cache: 'no-store' }, 6500);
-        if (proxyRes && proxyRes.ok) {
-          const proxyJson = await proxyRes.json();
-          if (proxyJson && Array.isArray(proxyJson.data) && !proxyJson.contents && !proxyJson.ons && !proxyJson.ccee) {
-            gasSupportsActionRouter = false;
-          } else {
-            const isOnsPayload = proxyJson && (proxyJson.ccee !== undefined || proxyJson.ons !== undefined || Array.isArray(proxyJson.records));
-            if (isOnsPayload && (proxyJson.status === 'success' || proxyJson.status === 'ok')) {
-              gasSupportsActionRouter = true;
+        const rawGhRes = await fetchWithTimeout(`https://raw.githubusercontent.com/jmtddr/valknut-radar/main/live-energy.json?_cb=${Date.now()}`, { cache: 'no-store' }, 5500);
+        if (rawGhRes && rawGhRes.ok) {
+          const ghJson = await rawGhRes.json();
+          if (!liveEnergyData || String(ghJson?.reference_date || '') >= String(liveEnergyData?.reference_date || '')) {
+            if (applyLiveEnergyPayload(ghJson)) {
               synced = true;
-              const recs = proxyJson.ccee?.records || proxyJson.records || [];
-              if (recs.length > 0) {
-                const pldVals = recs
-                  .map(r => parseFloat(String(r.VALOR_PLD || r.valor_pld || r.PLD || r.pld_hora || '').replace(',', '.')))
-                  .filter(v => !isNaN(v) && v > 0);
-                if (pldVals.length > 0) {
-                  const avgPld = pldVals.reduce((a, b) => a + b, 0) / pldVals.length;
-                  energyLiveOverrides[submercado] = {
-                    pld_medio: `R$ ${avgPld.toFixed(2).replace('.', ',')} / MWh`
-                  };
-                }
-              }
             }
           }
         }
-      } catch (gasErr) {}
+      } catch (e) {}
     }
+  }
 
-    // 2. Secondary fallback via allorigins if Apps Script proxy hasn't been redeployed yet
-    if (!synced) {
-      const cceeRes = await fetchWithTimeout(`https://api.allorigins.win/get?url=${encodeURIComponent(cceeUrl)}`, {}, 6500);
-      if (cceeRes && cceeRes.ok) {
-        synced = true;
+  // 2. Revalidação Ao Vivo via Google Apps Script (?action=ons_ccee&nocache=1) sob demanda ou caso live-energy.json falhe
+  if ((notifyUser || !synced) && gasSupportsActionRouter !== false && typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL.startsWith('http')) {
+    const sep = APPS_SCRIPT_URL.includes('?') ? '&' : '?';
+    const targetDate = liveEnergyData?.reference_date || dataOperativa;
+    const gasProxyUrl = `${APPS_SCRIPT_URL}${sep}action=ons_ccee&submercado=${encodeURIComponent(submercado)}&data=${encodeURIComponent(targetDate)}&nocache=1&_t=${Date.now()}`;
+    try {
+      const proxyRes = await fetchWithTimeout(gasProxyUrl, { cache: 'no-store' }, 6500);
+      if (proxyRes && proxyRes.ok) {
+        const proxyJson = await proxyRes.json();
+        if (proxyJson && Array.isArray(proxyJson.data) && !proxyJson.contents && !proxyJson.ons && !proxyJson.ccee) {
+          gasSupportsActionRouter = false;
+        } else if (proxyJson && (proxyJson.status === 'ok' || proxyJson.status === 'success')) {
+          gasSupportsActionRouter = true;
+          synced = true;
+          const pldBySub = proxyJson.ccee?.pldBySubmarket || {};
+          const proxyRefDate = String(proxyJson.ccee?.reference_date || proxyJson.date || '');
+          const earBySub = proxyJson.ear || {};
+          const onsBySub = proxyJson.onsSummary || {};
+
+          if (proxyJson.ons && Object.keys(onsBySub).length === 0) {
+            const rawOns = proxyJson.ons;
+            const regMap = { SE: 'sudesteECentroOeste', S: 'sul', NE: 'nordeste', N: 'norte' };
+            let sinL = 0, sinR = 0, sinT = 0;
+            Object.keys(regMap).forEach(k => {
+              const nd = rawOns[regMap[k]];
+              if (!nd) return;
+              const g = nd.geracao || {};
+              const ld = Number(nd.cargaVerificada || 0);
+              const ren = Number(g.hidraulica || 0) + Number(g.itaipu50HzBrasil || 0) + Number(g.itaipu60Hz || 0) + Number(g.eolica || 0) + Number(g.solar || 0) + Number(g.mmgd || 0);
+              const tot = ren + Number(g.termica || 0) + Number(g.nuclear || 0);
+              sinL += ld; sinR += ren; sinT += tot;
+              onsBySub[k] = { carga_mw_num: Math.round(ld), renovavel_pct_num: tot > 0 ? Math.round((ren / tot) * 1000) / 10 : null };
+            });
+            if (sinL > 0) {
+              onsBySub.SIN = { carga_mw_num: Math.round(sinL), renovavel_pct_num: sinT > 0 ? Math.round((sinR / sinT) * 1000) / 10 : null };
+            }
+          }
+
+          const proxyHasNewerDay = !liveEnergyData || (proxyRefDate && proxyRefDate > String(liveEnergyData.reference_date || ''));
+          ['SIN', 'SE', 'S', 'NE', 'N'].forEach(k => {
+            const ov = { ...(energyLiveOverrides[k] || {}) };
+            if (proxyHasNewerDay && typeof pldBySub[k] === 'number' && pldBySub[k] > 0) {
+              ov.pld_medio = `R$ ${pldBySub[k].toFixed(2).replace('.', ',')} / MWh`;
+            }
+            if (proxyHasNewerDay && typeof earBySub[k] === 'number' && earBySub[k] > 0) {
+              ov.ear_pct = `${earBySub[k].toFixed(1).replace('.', ',')}%`;
+            }
+            if (!liveEnergyData && onsBySub[k]?.carga_mw_num > 0) {
+              ov.carga_mw = `${onsBySub[k].carga_mw_num.toLocaleString('pt-BR')} MW`;
+              if (onsBySub[k].renovavel_pct_num !== null) {
+                ov.renovavel_pct = `${onsBySub[k].renovavel_pct_num.toFixed(1).replace('.', ',')}%`;
+              }
+            }
+            if (Object.keys(ov).length > 0) {
+              energyLiveOverrides[k] = ov;
+            }
+          });
+        }
       }
-    }
+    } catch (gasErr) {}
+  }
 
-    energyLastSyncTime = formatBrazilNowDateTime();
-
-    if (synced) {
-      const hasLivePld = Boolean(energyLiveOverrides[submercado]?.pld_medio);
-      energyTelemetryStatus = hasLivePld
-        ? 'Telemetria CCEE / ANEEL / ONS Sincronizada (PLD Real)'
-        : 'Referência Operacional ONS / CCEE (Sem Modulação Sintética)';
-      if (notifyUser) showToast(`${energyTelemetryStatus} (${energyLastSyncTime})!`);
-    } else {
-      energyTelemetryStatus = 'Referência Operacional Estática (Cache ONS/CCEE)';
-      if (notifyUser) showToast('Operando com curva referencial ONS/CCEE verificada.');
+  if (synced) {
+    energyTelemetryStatus = liveEnergyData
+      ? 'Telemetria Oficial ONS AWS OpenData + CCEE Sincronizada'
+      : 'Telemetria ONS / CCEE Sincronizada';
+    if (!liveEnergyData) {
+      energyLastSyncTime = formatBrazilNowDateTime();
     }
-  } catch (e) {
-    energyTelemetryStatus = 'Referência Operacional Estática (Cache ONS/CCEE)';
+    if (notifyUser) showToast(`${energyTelemetryStatus} (${energyLastSyncTime})!`);
+  } else {
+    energyTelemetryStatus = 'Referência Operacional Verificada (ONS / CCEE Nov/2026)';
+    if (notifyUser) showToast('Operando com série operacional verificada do ONS/CCEE.');
   }
 
   if (currentMainSection === 'energia') {
@@ -5285,34 +5402,74 @@ async function fetchEnergyMarketData(submercado = 'SIN', dataOperativa = selecte
   }
 }
 
-function getDynamicSubmarketConfig(subKey) {
-  const base = ONS_SUBMARKET_SERIES[subKey] || ONS_SUBMARKET_SERIES.SIN;
-  const hidro = [...base.hidro];
-  const termica = [...base.termica];
-  const nuclear = [...base.nuclear];
-  const eolica = [...base.eolica];
-  const solar = [...base.solar];
-  const mmgd = [...base.mmgd];
+function resolveEffectiveSinDate(requestedDate) {
+  if (!liveEnergyData || !liveEnergyData.history) {
+    return '2026-11-16';
+  }
+  if (requestedDate && liveEnergyData.history[requestedDate]) {
+    return requestedDate;
+  }
+  const availableDates = Object.keys(liveEnergyData.history).sort();
+  if (availableDates.length === 0) return liveEnergyData.reference_date || requestedDate;
+  if (!requestedDate || requestedDate >= availableDates[availableDates.length - 1]) {
+    return availableDates[availableDates.length - 1];
+  }
+  if (requestedDate <= availableDates[0]) {
+    return availableDates[0];
+  }
+  const prior = availableDates.filter(d => d <= requestedDate);
+  return prior.length > 0 ? prior[prior.length - 1] : availableDates[availableDates.length - 1];
+}
 
-  const liveOverridePld = energyLiveOverrides[subKey]?.pld_medio;
+function getDynamicSubmarketConfig(subKey, dateKey = selectedSinDate) {
+  const cleanSub = ONS_SUBMARKET_SERIES[subKey] ? subKey : 'SIN';
+  const effectiveDate = resolveEffectiveSinDate(dateKey);
+  const histDay = liveEnergyData?.history?.[effectiveDate] || null;
+  const base = (histDay && histDay[cleanSub])
+    || liveEnergyData?.submarkets?.[cleanSub]
+    || ONS_SUBMARKET_SERIES[cleanSub]
+    || ONS_SUBMARKET_SERIES.SIN;
+
+  const isLatestRef = !liveEnergyData || effectiveDate === liveEnergyData.reference_date;
+  const ov = isLatestRef ? (energyLiveOverrides[cleanSub] || {}) : {};
+
+  const refDayMap = histDay || liveEnergyData?.submarkets || ONS_SUBMARKET_SERIES;
+  const pldSeries = Array.isArray(base.pld_hora) ? [...base.pld_hora] : (Array.isArray(base.pld) ? [...base.pld] : []);
 
   return {
     ...base,
-    pld_medio: liveOverridePld || base.pld_medio,
-    hidro,
-    termica,
-    nuclear,
-    eolica,
-    solar,
-    mmgd
+    effective_date: effectiveDate,
+    carga_mw: ov.carga_mw || base.carga_mw,
+    renovavel_pct: ov.renovavel_pct || base.renovavel_pct,
+    ear_pct: ov.ear_pct || base.ear_pct,
+    pld_medio: ov.pld_medio || base.pld_medio,
+    curtailment_mw: ov.curtailment_mw || base.curtailment_mw,
+    hidro: [...(base.hidro || [])],
+    termica: [...(base.termica || [])],
+    nuclear: [...(base.nuclear || [])],
+    eolica: [...(base.eolica || [])],
+    solar: [...(base.solar || [])],
+    mmgd: [...(base.mmgd || [])],
+    carga: Array.isArray(base.carga) ? [...base.carga] : [],
+    pld: pldSeries,
+    pld_hora: pldSeries,
+    curt_eolica: Array.isArray(base.curt_eolica) ? [...base.curt_eolica] : [],
+    curt_solar: Array.isArray(base.curt_solar) ? [...base.curt_solar] : [],
+    pld_se: Array.isArray(refDayMap.SE?.pld_hora) ? [...refDayMap.SE.pld_hora] : [...ONS_SUBMARKET_SERIES.SE.pld_hora],
+    pld_ne: Array.isArray(refDayMap.NE?.pld_hora) ? [...refDayMap.NE.pld_hora] : [...ONS_SUBMARKET_SERIES.NE.pld_hora],
+    pld_s: Array.isArray(refDayMap.S?.pld_hora) ? [...refDayMap.S.pld_hora] : [...ONS_SUBMARKET_SERIES.S.pld_hora],
+    pld_n: Array.isArray(refDayMap.N?.pld_hora) ? [...refDayMap.N.pld_hora] : [...ONS_SUBMARKET_SERIES.N.pld_hora]
   };
 }
 
 function renderEnergiaSection(container) {
-  const subCfg = getDynamicSubmarketConfig(selectedSinSubmarket);
+  const subCfg = getDynamicSubmarketConfig(selectedSinSubmarket, selectedSinDate);
+  const displayDate = subCfg.effective_date || selectedSinDate;
+  const minDateAttr = liveEnergyData?.min_date || '2026-11-16';
+  const maxDateAttr = liveEnergyData?.max_date || '2026-11-16';
   const energyDeals = getFilteredDeals().filter(d => d.setor_macro === 'Energia & Infraestrutura' && matchesEnergySubmarketFilter(d));
 
-  const isSynced = energyTelemetryStatus.includes('PLD Real');
+  const isSynced = Boolean(liveEnergyData) || energyTelemetryStatus.includes('Sincronizada');
 
   let html = `
     <div class="ons-control-bar">
@@ -5325,17 +5482,17 @@ function renderEnergiaSection(container) {
             ● ${escapeHtml(energyTelemetryStatus)} (${escapeHtml(energyLastSyncTime)})
           </span>
           <button type="button" class="header-pill-btn" style="padding:2px 8px; font-size:10px;" onclick="fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate, true)">
-            ↻ Sincronizar CCEE/ANEEL
+            ↻ Sincronizar ONS/CCEE
           </button>
         </div>
         <div style="font-size:15px; font-weight:800; color:#FFFFFF; margin-top:4px;">
-          ${escapeHtml(subCfg.label)} &bull; Data de Consulta CCEE: ${formatDateBR(selectedSinDate)}
+          ${escapeHtml(subCfg.label)} &bull; Data Operacional Consolidada ONS/CCEE: ${formatDateBR(displayDate)}
         </div>
       </div>
       <div class="ons-control-group">
         <div>
-          <label for="sinDateInput" style="font-family:var(--font-mono); font-size:9.5px; color:var(--vk-sage); display:block; text-transform:uppercase;">Data Consulta CCEE</label>
-          <input type="date" id="sinDateInput" class="ons-date-input" value="${escapeHtml(selectedSinDate)}" onchange="handleSinDateChange(this.value)">
+          <label for="sinDateInput" style="font-family:var(--font-mono); font-size:9.5px; color:var(--vk-sage); display:block; text-transform:uppercase;">Data Operacional ONS/CCEE</label>
+          <input type="date" id="sinDateInput" class="ons-date-input" value="${escapeHtml(displayDate)}" min="${escapeHtml(minDateAttr)}" max="${escapeHtml(maxDateAttr)}" onchange="handleSinDateChange(this.value)">
         </div>
         <div>
           <label for="sinSubmarketSelect" style="font-family:var(--font-mono); font-size:9.5px; color:var(--vk-sage); display:block; text-transform:uppercase;">Submercado / Região</label>
@@ -5383,7 +5540,7 @@ function renderEnergiaSection(container) {
         <div class="ons-mini-kpi-label">Curtailment (Constrained-off)</div>
         <div class="ons-mini-kpi-val" style="color:#B45309;">${escapeHtml(subCfg.curtailment_mw)}</div>
         <div style="font-size:10.5px; margin-top:3px;">
-          <a href="https://dadosabertos.ccee.org.br/" target="_blank" rel="noopener noreferrer" style="color:#B45309; font-weight:700; text-decoration:none;">CCEE Dados Abertos ↗</a>
+          <a href="https://dados.ons.org.br/dataset/restricao_coff_eolica_tm" target="_blank" rel="noopener noreferrer" style="color:#B45309; font-weight:700; text-decoration:none;">ONS Dados Abertos ↗</a>
         </div>
       </div>
     </div>
@@ -5395,18 +5552,18 @@ function renderEnergiaSection(container) {
         <div class="chart-panel">
           <div class="chart-panel-header">
             <div>
-              <h3>PLD Horário por Submercado (R$/MWh)</h3>
-              <p>Spread horário entre Sudeste/CO, Nordeste e Sul e gatilhos de chamada de margem MCP</p>
+              <h3>PLD Horário por Submercado (R$/MWh) — ${formatDateBR(displayDate)}</h3>
+              <p>Spread horário entre Sudeste/CO, Nordeste, Sul e Norte e gatilhos de chamada de margem MCP</p>
             </div>
-            <span class="chart-tag">CCEE PLD HORÁRIO</span>
+            <span class="chart-tag">CCEE / DESSEM PLD HORÁRIO</span>
           </div>
           <div class="chart-canvas-box" style="height:310px;"><canvas id="chartOnsPld"></canvas></div>
         </div>
         <div class="chart-panel">
           <div class="chart-panel-header">
             <div>
-              <h3>Restrição Eólica &amp; Solar — Curtailment (MW Cortados)</h3>
-              <p>Constrained-off determinado pelo ONS e pressão sobre ICSD de debêntures de infraestrutura</p>
+              <h3>Restrição Eólica &amp; Solar — Curtailment (${escapeHtml(selectedSinSubmarket)})</h3>
+              <p>Constrained-off apurado pelo ONS (MW médios cortados por hora) e pressão sobre ICSD de debêntures</p>
             </div>
             <span class="chart-tag">ONS CONSTRAINED-OFF</span>
           </div>
@@ -5420,7 +5577,7 @@ function renderEnergiaSection(container) {
         <div class="chart-panel-header">
           <div>
             <h3 id="onsChartTitle">Geração por Fonte (MW) vs. Carga &amp; Hidrologia — ${escapeHtml(subCfg.label)}</h3>
-            <p>Curva horária empilhada (Geração Hidráulica, Térmica, Nuclear, Solar, Eólica e MMGD) confrontada com Carga Prevista e Realizada</p>
+            <p>Curva horária empilhada (Geração Hidráulica, Térmica, Nuclear, Eólica, Solar Centralizada e MMGD) confrontada com Carga Verificada ONS</p>
           </div>
           <span class="chart-tag">ONS / CCEE PERFIL HORÁRIO</span>
         </div>
@@ -5499,7 +5656,7 @@ function renderEnergiaSection(container) {
             <a href="${escapeHtml(outorgaSearchUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:5px 9px; font-size:10.5px;">
               Consultar Outorga ANEEL / CCEE ↗
             </a>
-            <button class="btn-solid" style="padding:5px 11px; font-size:11px;" onclick="openDossier(${item.id})">Abrir Tear Sheet</button>
+            <button class="btn-solid" style="padding:5px 11px; font-size:11px;" onclick="openDossier(${Number(item.id)})">Abrir Tear Sheet</button>
           </div>
         </div>
       </div>
@@ -5516,45 +5673,81 @@ function renderEnergiaSection(container) {
 
 function handleSinSubmarketChange(val) {
   selectedSinSubmarket = val;
-  fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate);
   renderSectionContent();
+  if (!liveEnergyData) {
+    fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate, false);
+  }
 }
 
 function handleSinDateChange(val) {
-  selectedSinDate = val;
-  fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate);
+  if (!val) return;
+  userManuallySelectedSinDate = true;
+  const resolved = resolveEffectiveSinDate(val);
+  selectedSinDate = resolved;
+  if (resolved !== val) {
+    showToast(`Data ajustada para o dia operacional ONS disponível (${formatDateBR(resolved)}).`);
+  }
   renderSectionContent();
+  if (!liveEnergyData) {
+    fetchEnergyMarketData(selectedSinSubmarket, selectedSinDate, false);
+  }
 }
 
 function initOnsStackedChart(subCfg) {
   if (typeof Chart === 'undefined') return;
   const hours = Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, '0')}:00`);
 
+  const destroyExistingCanvasChart = canvasEl => {
+    if (!canvasEl) return;
+    try {
+      const existing = typeof Chart.getChart === 'function' ? Chart.getChart(canvasEl) : null;
+      if (existing) existing.destroy();
+    } catch (e) {}
+  };
+
   if (currentSubTab === 'pld_curtailment') {
     const ctxPld = document.getElementById('chartOnsPld');
     if (ctxPld) {
-      const pldSE = [138, 134, 130, 128, 131, 142, 155, 162, 158, 149, 142, 139, 141, 146, 154, 168, 185, 210, 224, 218, 195, 174, 158, 145];
-      const pldNE = [145, 140, 136, 135, 138, 148, 160, 165, 152, 138, 125, 118, 120, 128, 142, 165, 192, 225, 242, 235, 210, 185, 165, 152];
-      const pldS  = [110, 108, 105, 104, 106, 112, 118, 122, 120, 116, 112, 110, 112, 115, 119, 126, 135, 148, 155, 150, 138, 128, 120, 114];
-      createManagedChart(ctxPld, {
+      const pldSE = Array.isArray(subCfg.pld_se) && subCfg.pld_se.length === 24 ? subCfg.pld_se : ONS_SUBMARKET_SERIES.SE.pld_hora;
+      const pldNE = Array.isArray(subCfg.pld_ne) && subCfg.pld_ne.length === 24 ? subCfg.pld_ne : ONS_SUBMARKET_SERIES.NE.pld_hora;
+      const pldS  = Array.isArray(subCfg.pld_s)  && subCfg.pld_s.length === 24  ? subCfg.pld_s  : ONS_SUBMARKET_SERIES.S.pld_hora;
+      const pldN  = Array.isArray(subCfg.pld_n)  && subCfg.pld_n.length === 24  ? subCfg.pld_n  : ONS_SUBMARKET_SERIES.N.pld_hora;
+      destroyExistingCanvasChart(ctxPld);
+      const pldChart = new Chart(ctxPld, {
         type: 'line',
         data: {
           labels: hours,
           datasets: [
-            { label: 'PLD Sudeste/CO (R$/MWh)', data: pldSE, borderColor: '#063630', backgroundColor: 'rgba(6,54,48,0.1)', borderWidth: 2.5, tension: 0.3 },
-            { label: 'PLD Nordeste (R$/MWh)', data: pldNE, borderColor: '#D97706', backgroundColor: 'rgba(217,119,6,0.1)', borderWidth: 2.5, tension: 0.3 },
-            { label: 'PLD Sul (R$/MWh)', data: pldS, borderColor: '#0284C7', backgroundColor: 'rgba(2,132,199,0.1)', borderWidth: 2, borderDash: [5, 4], tension: 0.3 }
+            { label: 'PLD Sudeste/CO (R$/MWh)', data: pldSE, borderColor: '#063630', backgroundColor: 'rgba(6,54,48,0.1)', borderWidth: 2.5, pointRadius: 1.5, tension: 0.3 },
+            { label: 'PLD Nordeste (R$/MWh)', data: pldNE, borderColor: '#D97706', backgroundColor: 'rgba(217,119,6,0.1)', borderWidth: 2.5, pointRadius: 1.5, tension: 0.3 },
+            { label: 'PLD Sul (R$/MWh)', data: pldS, borderColor: '#0284C7', backgroundColor: 'rgba(2,132,199,0.1)', borderWidth: 2, borderDash: [5, 4], pointRadius: 1, tension: 0.3 },
+            { label: 'PLD Norte (R$/MWh)', data: pldN, borderColor: '#7C3AED', backgroundColor: 'rgba(124,58,237,0.08)', borderWidth: 1.8, borderDash: [3, 3], pointRadius: 1, tension: 0.3 }
           ]
         },
-        options: { responsive: true, maintainAspectRatio: false }
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            y: {
+              ticks: { font: { family: 'JetBrains Mono', size: 10 }, callback: v => `R$ ${Number(v).toLocaleString('pt-BR')}` }
+            }
+          }
+        }
       });
+      activeCharts.push(pldChart);
     }
 
     const ctxCurt = document.getElementById('chartOnsCurtailment');
     if (ctxCurt) {
-      const curtEolica = [420, 480, 510, 550, 490, 380, 620, 1150, 1850, 2420, 2890, 3120, 3250, 2980, 2450, 1680, 890, 520, 410, 390, 410, 430, 450, 440];
-      const curtSolar  = [0, 0, 0, 0, 0, 0, 180, 640, 1420, 2180, 2760, 3050, 3180, 2890, 2150, 1120, 290, 0, 0, 0, 0, 0, 0, 0];
-      createManagedChart(ctxCurt, {
+      const curtEolica = Array.isArray(subCfg.curt_eolica) && subCfg.curt_eolica.length === 24
+        ? subCfg.curt_eolica
+        : ONS_SUBMARKET_SERIES.SIN.curt_eolica;
+      const curtSolar = Array.isArray(subCfg.curt_solar) && subCfg.curt_solar.length === 24
+        ? subCfg.curt_solar
+        : ONS_SUBMARKET_SERIES.SIN.curt_solar;
+      destroyExistingCanvasChart(ctxCurt);
+      const curtChart = new Chart(ctxCurt, {
         type: 'bar',
         data: {
           labels: hours,
@@ -5563,8 +5756,21 @@ function initOnsStackedChart(subCfg) {
             { label: 'Curtailment Solar UFVs (MW Cortados)', data: curtSolar, backgroundColor: '#D97706', stack: 'curt' }
           ]
         },
-        options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            x: { stacked: true },
+            y: {
+              stacked: true,
+              beginAtZero: true,
+              ticks: { font: { family: 'JetBrains Mono', size: 10 }, callback: v => `${Number(v).toLocaleString('pt-BR')} MW` }
+            }
+          }
+        }
       });
+      activeCharts.push(curtChart);
     }
     return;
   }
@@ -5572,17 +5778,20 @@ function initOnsStackedChart(subCfg) {
   const ctx = document.getElementById('chartOnsOperation');
   if (!ctx) return;
 
-  const cargaRealizada = hours.map((_, i) => subCfg.hidro[i] + subCfg.termica[i] + subCfg.nuclear[i] + subCfg.eolica[i] + subCfg.solar[i] + subCfg.mmgd[i]);
-  const cargaPrevista = cargaRealizada.map((v, i) => Math.round(v * (i % 2 === 0 ? 1.018 : 0.988)));
+  const geracaoTotal = hours.map((_, i) => subCfg.hidro[i] + subCfg.termica[i] + subCfg.nuclear[i] + subCfg.eolica[i] + subCfg.solar[i] + subCfg.mmgd[i]);
+  const cargaVerificada = Array.isArray(subCfg.carga) && subCfg.carga.length === 24
+    ? subCfg.carga
+    : geracaoTotal;
 
-  createManagedChart(ctx, {
+  destroyExistingCanvasChart(ctx);
+  const opChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: hours,
       datasets: [
         {
-          label: 'Carga Realizada (MW)',
-          data: cargaRealizada,
+          label: 'Carga Verificada ONS (MW)',
+          data: cargaVerificada,
           borderColor: '#042420',
           backgroundColor: 'transparent',
           borderWidth: 2.8,
@@ -5592,15 +5801,15 @@ function initOnsStackedChart(subCfg) {
           order: 1
         },
         {
-          label: 'Carga Prevista (MW)',
-          data: cargaPrevista,
+          label: 'Geração Total Subsistema (MW)',
+          data: geracaoTotal,
           borderColor: '#E11D48',
           backgroundColor: 'transparent',
-          borderWidth: 2.2,
+          borderWidth: 2.0,
           borderDash: [6, 4],
           pointRadius: 0,
           fill: false,
-          stack: 'carga_prev',
+          stack: 'geracao_tot',
           order: 2
         },
         {
@@ -5697,6 +5906,7 @@ function initOnsStackedChart(subCfg) {
       }
     }
   });
+  activeCharts.push(opChart);
 }
 
 // ==========================================================================
@@ -6513,17 +6723,17 @@ function renderPrecificacaoSection(container) {
   }
 
   const selectorBar = `
-    <div style="background:linear-gradient(90deg, #063630 0%, #0D4B43 100%); color:#E6E9DC; border-radius:10px; padding:14px 18px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
-      <div>
+    <div class="ons-control-bar" style="background:linear-gradient(90deg, #063630 0%, #0D4B43 100%); color:#E6E9DC; border-radius:10px; padding:14px 18px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+      <div style="min-width:0; max-width:100%;">
         <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-sage); text-transform:uppercase; letter-spacing:0.6px;">
           CASO SELECIONADO PARA MODELAGEM DIRETA &amp; PROPOSTA COMERCIAL
         </div>
-        <div style="font-size:15px; font-weight:800; color:#FFFFFF; margin-top:2px;">
+        <div style="font-size:15px; font-weight:800; color:#FFFFFF; margin-top:2px; word-break:break-word;">
           ${escapeHtml(d.empresa)} <span style="font-family:var(--font-mono); font-size:12px; color:var(--vk-sage);">(${escapeHtml(d.cnpj)} &bull; Passivo: R$ ${formatNumberBR(d.passivo_mm)} MM &bull; ${escapeHtml(d.subtipo_processo)})</span>
         </div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; flex:1 1 360px; justify-content:flex-end;">
-        <select class="ons-select" style="flex:1 1 320px; max-width:520px;" onchange="selectDealForCalculator(this.value)" title="${escapeHtml(d.empresa)} (R$ ${formatNumberBR(d.passivo_mm)} MM)" aria-label="Selecionar caso para cálculo">
+      <div class="ons-control-group" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; flex:1 1 320px; min-width:0; max-width:100%; justify-content:flex-end;">
+        <select class="ons-select" style="flex:1 1 280px; width:100%; max-width:min(520px, 100%); overflow:hidden;" onchange="selectDealForCalculator(this.value)" title="${escapeHtml(d.empresa)} (R$ ${formatNumberBR(d.passivo_mm)} MM)" aria-label="Selecionar caso para cálculo">
           ${selectedTier0CalcTarget ? `<option value="tier0" selected>[Tier 0] ${escapeHtml(selectedTier0CalcTarget.empresa)} (R$ ${formatNumberBR(selectedTier0CalcTarget.passivo_mm)} MM)</option>` : ''}
           ${DEALS_DATA.map(item => `
             <option value="${item.id}" ${!selectedTier0CalcTarget && item.id === d.id ? 'selected' : ''}>
@@ -6531,7 +6741,7 @@ function renderPrecificacaoSection(container) {
             </option>
           `).join('')}
         </select>
-        ${!selectedTier0CalcTarget && d.id ? `<button class="header-pill-btn btn-xlsx" onclick="openDossier(${d.id})">📄 Ver Tear Sheet</button>` : ''}
+        ${!selectedTier0CalcTarget && d.id ? `<button class="header-pill-btn btn-xlsx" onclick="openDossier(${Number(d.id)})">📄 Ver Tear Sheet</button>` : ''}
       </div>
     </div>
   `;
@@ -6652,7 +6862,7 @@ function renderPrecificacaoSection(container) {
         <div style="background:#FFFFFF; border:1px solid var(--border-light); border-left:3px solid var(--vk-teal); border-radius:6px; padding:11px 12px; margin-top:8px; font-size:11.5px; color:var(--text-secondary);">
           <strong style="color:var(--vk-header-start); display:block; margin-bottom:4px;">Fórmula Direta de Honorários:</strong>
           &bull; <strong>Retainer Fixo Total</strong> = R$ mil/mês &times; Prazo em meses<br>
-          &bull; <strong>Success Fee Líquido</strong> = (% Success Fee &times; Base) &minus; (% Offset &times; Retainer Total)
+          &bull; <strong>Success Fee Líquido</strong> = máx(0; (% Success Fee &times; Base) &minus; (% Offset &times; Retainer Total))
         </div>
       </div>
 
@@ -7032,7 +7242,7 @@ function computeQuorumMetrics(d) {
 
   const cramDownReqI = weightedValVotePct > 50;
   const requiredClassesForCramDown = votingClassesCount >= 4 ? 3 : (votingClassesCount === 3 ? 2 : 1);
-  const cramDownReqII = classesApproved >= requiredClassesForCramDown;
+  const cramDownReqII = votingClassesCount >= 2 && classesApproved >= requiredClassesForCramDown;
 
   const ONE_THIRD = 100 / 3;
   const c1PassThird = !activeC1 || c1Ok || c1HeadYes > ONE_THIRD;
@@ -7104,7 +7314,11 @@ function buildQuorumRightPaneHtml(d, q) {
   if (!q.ordinaryApproved && !q.cramDownEligible) {
     const reasons = [];
     if (!q.cramDownReqI) reasons.push(`Inc. I: valor ${q.weightedValVotePct.toFixed(1).replace('.', ',')}% <= 50%`);
-    if (!q.cramDownReqII) reasons.push(`Inc. II: ${q.classesApproved}/${q.votingClassesCount} classes (mín. ${q.requiredClassesForCramDown})`);
+    if (!q.cramDownReqII) {
+      reasons.push(q.votingClassesCount < 2
+        ? 'Inc. II: Cram Down exige >= 2 classes votantes'
+        : `Inc. II: ${q.classesApproved}/${q.votingClassesCount} classes (mín. ${q.requiredClassesForCramDown})`);
+    }
     if (!q.rejectedClassesPassOneThird) reasons.push('Inc. III: dissidente <= 1/3');
     cramBlockReason = reasons.join(' • ');
   }
@@ -7791,9 +8005,8 @@ let lastFocusedElementBeforeModal = null;
 
 function resolveTribunalCvmUrl(d) {
   if (!d) return 'https://comunica.pje.jus.br/';
-  if (typeof d.url_tribunal_cvm === 'string' && /^https?:\/\//i.test(d.url_tribunal_cvm.trim())) {
-    return d.url_tribunal_cvm.trim();
-  }
+  const explicitUrl = safeExternalUrl(d.url_tribunal_cvm);
+  if (explicitUrl) return explicitUrl;
   const trib = String(d.tribunal || '').toUpperCase();
   const proc = String(d.processo || '').toUpperCase();
   if (trib.includes('CVM') || proc.includes('CVM') || proc.includes('AGD') || (!trib.includes('TJ') && d.tipo_processo === 'Tier 0')) {
@@ -7819,7 +8032,10 @@ function openDossier(id) {
   const item = DEALS_DATA.find(d => Number(d.id) === Number(id));
   if (!item) return;
   currentModalItem = item;
-  lastFocusedElementBeforeModal = document.activeElement;
+  const modalEl = document.getElementById('detailModal');
+  if (!modalEl || modalEl.style.display !== 'flex') {
+    lastFocusedElementBeforeModal = document.activeElement;
+  }
 
   document.getElementById('modalCompany').textContent = item.empresa;
   const tickerEl = document.getElementById('modalTicker');
@@ -7856,7 +8072,6 @@ function openDossier(id) {
   }
 
   setModalTab('visao');
-  const modalEl = document.getElementById('detailModal');
   if (modalEl) {
     modalEl.style.display = 'flex';
     const firstTab = document.getElementById('modal-tab-visao');
@@ -7944,7 +8159,9 @@ function renderDiretrizesModalBody() {
 function openDiretrizesModal() {
   const modalEl = document.getElementById('diretrizesModal');
   if (!modalEl) return;
-  lastFocusedBeforeDiretrizes = document.activeElement;
+  if (modalEl.style.display !== 'flex') {
+    lastFocusedBeforeDiretrizes = document.activeElement;
+  }
   renderDiretrizesModalBody();
   modalEl.style.display = 'flex';
   document.body.classList.toggle('diretrizes-modal-open', true);
@@ -8562,7 +8779,7 @@ function openCompsModal() {
   document.body.classList.toggle('comps-modal-open', true);
   document.body.style.overflow = 'hidden';
   if (!wasOpen) {
-    const closeBtn = modalEl.querySelector('.btn-close-x');
+    const closeBtn = modalEl.querySelector('.modal-close-x');
     if (closeBtn && typeof closeBtn.focus === 'function') {
       setTimeout(() => closeBtn.focus(), 10);
     }
@@ -8657,13 +8874,20 @@ function matchDealForNewsText(titulo, resumo = '', empAlt = '') {
   const rawCorpus = `${empAlt || ''} ${titulo || ''} ${resumo || ''}`;
   const normCorpus = normalizeTextNoAccents(rawCorpus);
 
-  // 1. Explicit 14-digit CNPJ in news text
+  // 1. Explicit 14-digit CNPJ or 20-digit CNJ process number in news text
   const cnpjMatches = rawCorpus.match(/\b\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}\b/g);
   if (cnpjMatches) {
     for (const cm of cnpjMatches) {
       const d14 = cm.replace(/\D/g, '');
       const hit = DEALS_DATA.find(d => String(d.cnpj || '').replace(/\D/g, '') === d14);
       if (hit) return hit;
+    }
+  }
+  const cnjMatches = rawCorpus.match(/\b\d{7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}\b/g);
+  if (cnjMatches) {
+    for (const cnj of cnjMatches) {
+      const hitCnj = DEALS_DATA.find(d => String(d.processo || '').includes(cnj));
+      if (hitCnj) return hitCnj;
     }
   }
 
@@ -8674,6 +8898,8 @@ function matchDealForNewsText(titulo, resumo = '', empAlt = '') {
     { rx: /\binvepar\b|\bivpr\d*\b/i, matchEmp: /invepar|investimentos e participa[cç][oõ]es em infra/i },
     { rx: /\bportobello\b|\bpbg\s+s\.?a\.?\b|\bptbl\d*\b/i, matchEmp: /portobello|\bpbg\b/i },
     { rx: /\bvia\s+brasil\s+mt[\s-]*320\b|\bvimt\d*\b/i, matchEmp: /via brasil mt 320/i },
+    { rx: /\btec\s+forja\b/i, matchEmp: /tec forja/i },
+    { rx: /\bsopetra\b/i, matchEmp: /sopetra/i },
     { rx: /\btahto\b|\bbrasilcenter\b/i, matchEmp: /tahto|\boi\s+s\.?a|\btelemar\b/i },
     { rx: /\bgrupo\s+abg\b|\bneo\s+rodas\b/i, matchEmp: /grupo abg|neo rodas/i },
     { rx: /\bgrupo\s+jmt\b|\bjmt\s+servi[cç]os\b/i, matchEmp: /grupo jmt|jmt servi/i },
@@ -8720,6 +8946,13 @@ function matchDealForNewsText(titulo, resumo = '', empAlt = '') {
     const stem = normalizeCompanyStem(empStr);
     if (stem.length >= 4 && !GENERIC_ENTITY_STOPWORDS.has(stem)) {
       candidates.push(stem);
+      const stemWords = stem.split(/\s+/).filter(Boolean);
+      if (stemWords.length >= 3) {
+        const twoWordPrefix = `${stemWords[0]} ${stemWords[1]}`;
+        if (twoWordPrefix.length >= 8 && !GENERIC_ENTITY_STOPWORDS.has(stemWords[0])) {
+          candidates.push(twoWordPrefix);
+        }
+      }
     }
 
     for (const cand of candidates) {
