@@ -6,7 +6,7 @@
   <meta name="description" content="Plataforma institucional de inteligência concursal, Special Situations, Distressed Debt, Recuperação Judicial (Lei 11.101/05), UPIs e mercado de capitais no Brasil.">
   <meta name="theme-color" content="#063630">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://raw.githubusercontent.com https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://raw.githubusercontent.com https://brasilapi.com.br https://cdn.jsdelivr.net https://unpkg.com https://cdn.sheetjs.com;">
   <link rel="canonical" href="https://jmtddr.github.io/valknut-radar/">
 
   <!-- OpenGraph & Twitter Meta -->
@@ -32,7 +32,7 @@
 
   <!-- Core Stylesheets Loaded First (Zero Render-Blocking Scripts Before CSS) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css?v=20261118v50">
+  <link rel="stylesheet" href="styles.css?v=20261119v60">
 
   <!-- Deferred Analytics, Export & Pitch Engines with Intact SHA-384 Subresource Integrity -->
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
@@ -139,8 +139,10 @@
         <div class="cutoff-quick-group">
           <span class="cutoff-quick-label">Recorte:</span>
           <button type="button" class="quick-toggle-btn active" aria-pressed="true" id="qtoggle-all" onclick="setPassivoQuickToggle('all')">Todos</button>
+          <button type="button" class="quick-toggle-btn quick-toggle-sweet" aria-pressed="false" id="qtoggle-sweet_spot" onclick="setPassivoQuickToggle('sweet_spot')" title="Alvos prioritários de alta aderência (R$ 100 MM a R$ 2,5 Bi)">🎯 Sweet Spot (R$ 100M–2,5B)</button>
+          <button type="button" class="quick-toggle-btn" aria-pressed="false" id="qtoggle-no_mega" onclick="setPassivoQuickToggle('no_mega')" title="Exclui mega-deals acima de R$ 3 Bi">Sem Mega-Deals (&le; R$ 3 Bi)</button>
           <button type="button" class="quick-toggle-btn" aria-pressed="false" id="qtoggle-no_outliers" onclick="setPassivoQuickToggle('no_outliers')">Sem Outliers (&le; R$ 10 Bi)</button>
-          <button type="button" class="quick-toggle-btn" aria-pressed="false" id="qtoggle-middle" onclick="setPassivoQuickToggle('middle')">Middle Market (R$ 30M - R$ 500M)</button>
+          <button type="button" class="quick-toggle-btn" aria-pressed="false" id="qtoggle-middle" onclick="setPassivoQuickToggle('middle')">Middle Market (R$ 30M–500M)</button>
         </div>
       </div>
     </div>
@@ -214,6 +216,8 @@
             <select class="clean-select" id="selectSort" onchange="handleSortChange(this.value)" aria-label="Ordenar resultados">
               <option value="movimento_desc">Último Movimento (Mais Recente)</option>
               <option value="movimento_asc">Último Movimento (Mais Antigo)</option>
+              <option value="fit_desc">Fit de Originação (Maior — 0 a 100)</option>
+              <option value="fit_asc">Fit de Originação (Menor)</option>
               <option value="inclusao_desc">Data de Inclusão (Recém-Descobertos)</option>
               <option value="inclusao_asc">Data de Inclusão (Mais Antigos)</option>
               <option value="passivo_desc">Passivo Total (Maior)</option>
@@ -294,6 +298,7 @@
         <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
         <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
         <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
+        <button class="modal-tab-item modal-tab-abordagem" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-abordagem" onclick="setModalTab('abordagem')">🎯 Abordagem &amp; Decisores (QSA)</button>
       </div>
 
       <div class="modal-content-body" id="modalBody" role="tabpanel" aria-labelledby="modal-tab-visao"></div>
@@ -321,14 +326,14 @@
           </div>
           <div class="tearsheet-company-row" style="justify-content:space-between; flex-wrap:wrap; gap:8px;">
             <h2 id="diretrizesModalTitle">Diretrizes de Originação &amp; Fontes Monitoradas</h2>
-            <span class="ticker-pill" id="diretrizesReleaseStamp">Release v5.0 &bull; Sincronizado</span>
+            <span class="ticker-pill" id="diretrizesReleaseStamp">Release v6.0 &bull; Sincronizado</span>
           </div>
         </div>
         <button class="modal-close-x" onclick="closeDiretrizesModal()" aria-label="Fechar governança metodológica">&times;</button>
       </div>
       <div class="modal-content-body" id="diretrizesModalBody"></div>
       <div class="modal-bottom">
-        <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Sincronizado com a aba <strong>Diretrizes &amp; Fontes Monitoradas</strong> da Planilha Mestre</span>
+        <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Sincronizado com Planilha Mestre, CVM IPE 2026, ONS AWS OpenData &amp; Receita/QSA</span>
         <button class="btn-solid" onclick="closeDiretrizesModal()">Fechar Metodologia</button>
       </div>
     </div>
@@ -366,6 +371,6 @@
   <!-- Toast Notification -->
   <div class="toast-banner" id="toastBanner" role="status" aria-live="polite"></div>
 
-  <script defer src="app.js?v=20261118v50"></script>
+  <script defer src="app.js?v=20261119v60"></script>
 </body>
 </html>

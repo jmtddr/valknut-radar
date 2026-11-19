@@ -453,11 +453,12 @@ const SECTION_CONFIG = {
   },
   energia: {
     pageTitle: 'Energia & Infraestrutura (ONS / CCEE / ANEEL)',
-    pageSubtitle: 'Vertical setorial de monitoramento técnico-operacional do Sistema Interligado Nacional (SIN), PLD, Curtailment e Special Situations de Energia.',
+    pageSubtitle: 'Vertical setorial de monitoramento técnico-operacional do Sistema Interligado Nacional (SIN), PLD, Curtailment por Usina e Special Situations de Energia.',
     showFilters: false,
     subtabs: [
       { id: 'sin_tempo_real', label: 'SIN & Hidrologia', title: 'Painel Operacional ONS — Geração por Fonte, Carga & Reservatórios (EAR)', desc: 'Curva horária empilhada de geração por fonte (Hidráulica, Térmica, Nuclear, Solar, Eólica e MMGD) comparada à Carga Prevista e Realizada e nível de reservatórios (EAR %).' },
       { id: 'pld_curtailment', label: 'PLD & Curtailment', title: 'Preço de Liquidação das Diferenças (PLD R$/MWh) & Restrição Eólica/Solar (Constrained-off)', desc: 'Monitoramento conjunto de spread horário de PLD entre submercados (CCEE) e cortes de geração renovável (Constrained-off ONS) com impacto sobre ICSD de debêntures.' },
+      { id: 'curtailment_usinas', label: '⚡ Usinas em Curtailment (ONS Top 35)', title: 'Top 35 Complexos Eólicos & Solares em Curtailment Severo (ONS AWS S3 — 30 dias)', desc: 'Ranking real por usina/conjunto comercial extraído diretamente dos CSVs oficiais do ONS (ENE / CNF / REL), com perda estimada de receita em 30 dias (benchmark R$ 180/MWh) para prospecção de SPEs e debêntures.' },
       { id: 'pipeline_energia', label: 'Pipeline Energia & Infra', title: 'Pipeline Dedicado de Special Situations em Energia & Infraestrutura ({ENERGY_COUNT} Casos)', desc: 'Dossiês setoriais destacando Código da Debênture, Agente Fiduciário, Status CCEE, Risco de Caducidade e Corte de Rating por Curtailment/ICSD.' }
     ]
   },
@@ -482,7 +483,7 @@ const SECTION_CONFIG = {
       { id: 'waterfall_classes', label: 'Waterfall de Classes (RJ vs. Falência)', title: 'Cascata de Alocação de Valor de Ativos por Classe (Art. 83 vs. Plano RJ)', desc: 'Comparativo percentual digitável de recuperação por classe (Extraconcursal, Fiscal/Tributário, Classe I Trabalhista, Classe II Garantia Real, Classe III Quirografária e Classe IV ME/EPP).' },
       { id: 'quorum_agc', label: 'Simulador Quórum AGC & Cram Down', title: 'Simulador de Votação em Assembleia Geral de Credores (Art. 45 e Art. 58, §1º)', desc: 'Cálculo interativo com % digitável de aprovação ordinária por classe (por Cabeça e por Valor), requisitos de Cram Down e posição de bloqueio (Blocking Position > 33,3% ou > 50%).' },
       { id: 'benchmarks_setor', label: 'Benchmarks de Haircut por Setor', title: 'Tabela de Referência de Mercado: % de Haircut e % de Recuperação por Macro-Setor', desc: 'Parâmetros médios observados nos {COUNT} casos monitorados para calibragem rápida de propostas, modelagem de planos e avaliação de colateral.' },
-      { id: 'pitch_pptx', label: 'Gerador de Proposta Comercial (.pptx)', title: 'Gerador Automático de Pitch Deck & Proposta de Honorários em PowerPoint (.pptx)', desc: 'Exportação instantânea de apresentação institucional widescreen (7 slides) com Perfil da Empresa, Diagnóstico, Estrutura de Retainer + Success Fee e Cronograma.' }
+      { id: 'pitch_pptx', label: 'Gerador de Proposta Comercial (.pptx)', title: 'Gerador Automático de Pitch Deck & Proposta de Honorários em PowerPoint (.pptx)', desc: 'Exportação instantânea de apresentação institucional widescreen (8 slides) com Perfil da Empresa, Diagnóstico, Governança/QSA, Estratégia de Entrada, Retainer + Success Fee e Cronograma.' }
     ]
   }
 };
@@ -795,9 +796,15 @@ let selectedCompIds = [];
 
 let lastNewsAutoSyncTs = 0;
 let sheetLiveNewsItems = [];
-const STATIC_BUNDLE_VERSION = '20261118v50';
+const STATIC_BUNDLE_VERSION = '20261119v60';
 let curatedBaseReadyPromise = null;
 let hasHydratedFromLiveSheet = false;
+let liveLeadsData = null;
+const runtimeQsaCache = {};
+let curtailmentPlantFonteFilter = 'all';
+let cvmTier0SignalFilter = 'all';
+let cvmTier0OnlyNew = false;
+let currentOutreachPersona = 'credor';
 
 function decodeHtmlEntities(str) {
   if (!str) return '';
@@ -1108,6 +1115,117 @@ function restoreEnergySnapshotFromStorage() {
   }
 }
 
+const LEADS_SNAPSHOT_STORAGE_KEY = 'vk_live_leads_v6';
+
+const MOCK_TIER0_CNPJS = new Set([
+  '08412981000134',
+  '14289442000189',
+  '21733109000155',
+  '05118774000192',
+  '58910223000144',
+  '18330145000118',
+  '03771890000167',
+  '10450881000122'
+]);
+
+const MOCK_TIER0_NAME_PATTERNS = [
+  'grupo agroindustrial do cerrado',
+  'rede hospitalar & operadora regional sul-sudeste',
+  'renovare energia & comercializadora',
+  'rede varejista moda & calcados brasil',
+  'metalurgica autopecas & componentes pesados',
+  'translog cargas pesadas & logistica rodoviaria',
+  'engenharia & construtora infrabrasil',
+  'concessionaria rodoviaria das colinas do tiete'
+];
+
+function isMockTier0Archetype(item) {
+  if (!item) return false;
+  const cnpjDigits = String(item.cnpj || '').replace(/\D/g, '');
+  if (cnpjDigits && MOCK_TIER0_CNPJS.has(cnpjDigits)) return true;
+  const nameNorm = normalizeTextNoAccents(item.empresa || item.nome || '');
+  if (!nameNorm) return false;
+  return MOCK_TIER0_NAME_PATTERNS.some(pat => nameNorm.includes(pat));
+}
+
+function applyLiveLeadsPayload(leadsObj, persistStorage = true) {
+  if (!leadsObj || typeof leadsObj !== 'object' || !Array.isArray(leadsObj.tier0_leads)) {
+    return false;
+  }
+  liveLeadsData = leadsObj;
+  if (persistStorage) {
+    try {
+      localStorage.setItem(LEADS_SNAPSHOT_STORAGE_KEY, JSON.stringify(leadsObj));
+    } catch (e) {}
+  }
+  return true;
+}
+
+function restoreLeadsSnapshotFromStorage() {
+  try {
+    const raw = localStorage.getItem(LEADS_SNAPSHOT_STORAGE_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    return applyLiveLeadsPayload(parsed, false);
+  } catch (e) {
+    return false;
+  }
+}
+
+function getQsaForCnpj(cnpjRaw) {
+  const c14 = String(cnpjRaw || '').replace(/\D/g, '');
+  if (c14.length !== 14) return null;
+  if (runtimeQsaCache[c14]) return runtimeQsaCache[c14];
+  if (liveLeadsData && liveLeadsData.qsa_by_cnpj && liveLeadsData.qsa_by_cnpj[c14]) {
+    return liveLeadsData.qsa_by_cnpj[c14];
+  }
+  return null;
+}
+
+async function fetchLiveQsaForDeal(cnpjRaw) {
+  const c14 = String(cnpjRaw || '').replace(/\D/g, '');
+  if (c14.length !== 14) {
+    showToast('CNPJ inválido para consulta na Receita Federal.');
+    return null;
+  }
+  showToast('Consultando QSA oficial na Receita Federal (BrasilAPI)...');
+  try {
+    const res = await fetchWithTimeout(`https://brasilapi.com.br/api/cnpj/v1/${c14}`, {}, 10000);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const d = await res.json();
+    const record = {
+      razao_social: String(d.razao_social || '').trim(),
+      nome_fantasia: String(d.nome_fantasia || '').trim(),
+      situacao: String(d.descricao_situacao_cadastral || '').trim(),
+      data_inicio: String(d.data_inicio_atividade || '').slice(0, 10),
+      capital_social: Number(d.capital_social || 0),
+      porte: String(d.porte || '').trim(),
+      cnae: String(d.cnae_fiscal_descricao || '').trim(),
+      municipio: String(d.municipio || '').trim(),
+      uf: String(d.uf || '').trim(),
+      telefone: String(d.ddd_telefone_1 || '').trim(),
+      qsa: (Array.isArray(d.qsa) ? d.qsa : []).slice(0, 12).map(s => ({
+        nome: String(s.nome_socio || '').trim(),
+        qualificacao: String(s.qualificacao_socio || '').trim()
+      })).filter(s => s.nome),
+      source: 'BrasilAPI (Ao Vivo)',
+      fetched_at: getBrazilTodayIso()
+    };
+    runtimeQsaCache[c14] = record;
+    if (liveLeadsData && liveLeadsData.qsa_by_cnpj) {
+      liveLeadsData.qsa_by_cnpj[c14] = record;
+    }
+    showToast(`QSA carregado com sucesso (${record.qsa.length} sócios/administradores).`);
+    if (currentModalItem && currentModalTab === 'abordagem') {
+      setModalTab('abordagem');
+    }
+    return record;
+  } catch (err) {
+    showToast('Não foi possível consultar o QSA ao vivo neste momento. Tente novamente em instantes.');
+    return null;
+  }
+}
+
 async function loadStaticBaseData() {
   const extractArr = val => {
     if (!val) return [];
@@ -1115,7 +1233,7 @@ async function loadStaticBaseData() {
     return Array.isArray(val.items) ? val.items : [];
   };
 
-  const [dealsRes, newsRes, energyRes] = await Promise.allSettled([
+  const [dealsRes, newsRes, energyRes, leadsRes] = await Promise.allSettled([
     fetchWithTimeout(`./deals.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
@@ -1127,21 +1245,29 @@ async function loadStaticBaseData() {
     fetchWithTimeout(`./live-energy.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
+    }),
+    fetchWithTimeout(`./live-leads.json?v=${STATIC_BUNDLE_VERSION}`, {}, 8000).then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
     })
   ]);
 
+  if (leadsRes.status === 'fulfilled' && leadsRes.value) {
+    applyLiveLeadsPayload(leadsRes.value);
+  }
+
   if (dealsRes.status === 'fulfilled' && Array.isArray(dealsRes.value) && dealsRes.value.length > 0) {
-    const cleanDeals = dealsRes.value.filter(d => d && !isBlockedEntityToken(d.empresa));
+    const cleanDeals = dealsRes.value.filter(d => d && !isBlockedEntityToken(d.empresa) && !isMockTier0Archetype(d));
     indexCuratedDeals(cleanDeals);
     if (!hasHydratedFromLiveSheet) {
-      if (DEALS_DATA.length < cleanDeals.length) {
+      if (DEALS_DATA.length < cleanDeals.length || DEALS_DATA.some(isMockTier0Archetype)) {
         DEALS_DATA = cleanDeals.map(d => ({ ...d }));
         VALKNUT_DATA = DEALS_DATA;
         if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
         saveDealsSnapshotToStorage(DEALS_DATA);
       } else {
         const reconciled = reconcileDealsWithCuratedBase(DEALS_DATA);
-        if (reconciled && reconciled.length >= DEALS_DATA.length) {
+        if (reconciled && reconciled.length > 0) {
           DEALS_DATA = reconciled;
           VALKNUT_DATA = DEALS_DATA;
           if (typeof window !== 'undefined') window.VALKNUT_DATA = DEALS_DATA;
@@ -1174,7 +1300,7 @@ function reconcileDealsWithCuratedBase(incomingArr) {
   const merged = [];
 
   incomingArr.forEach(item => {
-    if (!item || !item.empresa || isBlockedEntityToken(item.empresa)) return;
+    if (!item || !item.empresa || isBlockedEntityToken(item.empresa) || isMockTier0Archetype(item)) return;
     const digits = String(item.cnpj || '').replace(/\D/g, '');
     const hasValidCnpj = digits.length >= 11;
     const stem = normalizeCompanyStem(item.empresa);
@@ -1197,13 +1323,13 @@ function reconcileDealsWithCuratedBase(incomingArr) {
 
   // Garante que todos os casos curados de deals.json permaneçam presentes
   BASE_CURATED_BY_CNPJ.forEach(curated => {
-    if (curated && !seenCuratedIds.has(curated.id) && !isBlockedEntityToken(curated.empresa)) {
+    if (curated && !seenCuratedIds.has(curated.id) && !isBlockedEntityToken(curated.empresa) && !isMockTier0Archetype(curated)) {
       seenCuratedIds.add(curated.id);
       merged.push({ ...curated });
     }
   });
   BASE_CURATED_BY_STEM.forEach(curated => {
-    if (curated && !seenCuratedIds.has(curated.id) && !isBlockedEntityToken(curated.empresa)) {
+    if (curated && !seenCuratedIds.has(curated.id) && !isBlockedEntityToken(curated.empresa) && !isMockTier0Archetype(curated)) {
       seenCuratedIds.add(curated.id);
       merged.push({ ...curated });
     }
@@ -1223,7 +1349,7 @@ function loadDealsSnapshotFromStorage() {
       const parsedDeals = JSON.parse(rawDealsSnap);
       const totalSnapPassivo = Array.isArray(parsedDeals) ? parsedDeals.reduce((s, x) => s + Number(x.passivo_mm || 0), 0) : 0;
       if (Array.isArray(parsedDeals) && parsedDeals.length > 0 && totalSnapPassivo > 0 && totalSnapPassivo < 500000) {
-        const cleanSnap = parsedDeals.filter(d => d && !isBlockedEntityToken(d.empresa));
+        const cleanSnap = parsedDeals.filter(d => d && !isBlockedEntityToken(d.empresa) && !isMockTier0Archetype(d));
         if (cleanSnap.length > 0) {
           DEALS_DATA = cleanSnap;
           VALKNUT_DATA = DEALS_DATA;
@@ -1541,6 +1667,7 @@ async function bootValknutApp() {
   loadWatchlistFromStorage();
   loadCachedLiveNewsFromStorage();
   restoreEnergySnapshotFromStorage();
+  restoreLeadsSnapshotFromStorage();
 
   // Camada 1 (0ms — localStorage vk_deals_snapshot_v5)
   const hydratedFromStorage = loadDealsSnapshotFromStorage();
@@ -2110,9 +2237,99 @@ function enrichAllDeals() {
       d.ticker = '';
     }
     d.ticker = d.ticker || resolveTicker(d.empresa);
+
+    const fit = computeOriginationFitScore(d);
+    d.fit_score = fit.score;
+    d.fit_tier = fit.tier;
+    d.fit_reasons = fit.reasons;
+    d.is_sweet_spot = fit.isSweetSpot;
+    d.is_mega_deal = fit.isMegaDeal;
   });
 
   updateDynamicNavCounts();
+}
+
+function computeOriginationFitScore(d) {
+  const passivo = Number(d.passivo_mm || 0);
+  const isSweetSpot = passivo >= 100 && passivo <= 2500;
+  const isMegaDeal = passivo > 3000;
+  let score = 30;
+  const reasons = [];
+
+  if (isSweetSpot) {
+    score += 28;
+    reasons.push('Sweet Spot (R$ 100M–2,5B)');
+  } else if ((passivo >= 50 && passivo < 100) || (passivo > 2500 && passivo <= 3000)) {
+    score += 16;
+    reasons.push(passivo < 100 ? 'Mid-Market Adjacente' : 'Upper Large Cap');
+  } else if (passivo >= 30 && passivo < 50) {
+    score += 8;
+  } else if (isMegaDeal) {
+    score -= 8;
+    reasons.push('Mega-Deal (> R$ 3B)');
+  }
+
+  const tipo = String(d.tipo_processo || '').toLowerCase();
+  const subtipo = String(d.subtipo_processo || '').toLowerCase();
+  if (tipo.includes('tier 0') || tipo.includes('cautelar') || tipo === 'pre') {
+    score += 20;
+    reasons.push('Janela Aberta (Pré-RJ / 20-B / PRE)');
+  } else if (subtipo.includes('falência') || subtipo.includes('falencia') || subtipo.includes('liquidação')) {
+    const hasUpi = typeof isUpiEligible === 'function' && isUpiEligible(d);
+    score += hasUpi ? 11 : 4;
+    if (hasUpi) reasons.push('Ativos / UPI em Liquidação');
+  } else {
+    score += 12;
+    reasons.push('RJ em Estruturação / AGC');
+  }
+
+  const hasUpi = typeof isUpiEligible === 'function' && isUpiEligible(d);
+  const keySectors = ['Energia & Infraestrutura', 'Agronegócio & Silvicultura', 'Indústria & Manufatura', 'Saúde & Farma'];
+  if (hasUpi) {
+    score += 12;
+    reasons.push('Ativos / UPI Monetizáveis');
+  } else if (keySectors.includes(d.setor_macro)) {
+    score += 8;
+    reasons.push(`Setor-Alvo (${d.setor_macro.split('&')[0].trim()})`);
+  }
+
+  const hasDcm = typeof isDebenturesEligible === 'function' && isDebenturesEligible(d);
+  const credStr = String(d.credores || '').toLowerCase();
+  const hasTier1Cred = /(itaú|itau|bradesco|santander|btg|safra|banco do brasil|bb\b|bndes|vórtx|vortx|pentágono|pentagono|oliveira trust|opea|virgo|daycoval)/i.test(credStr);
+  if (hasDcm) {
+    score += 10;
+    reasons.push('DCM / Agente Fiduciário');
+  } else if (hasTier1Cred) {
+    score += 7;
+    reasons.push('Credores Institucionais');
+  }
+
+  const qsaRec = typeof getQsaForCnpj === 'function' ? getQsaForCnpj(d.cnpj) : null;
+  if (qsaRec && Array.isArray(qsaRec.qsa) && qsaRec.qsa.length > 0) {
+    score += 5;
+    reasons.push('QSA Mapeado');
+  }
+
+  const todayIso = typeof getBrazilTodayIso === 'function' ? getBrazilTodayIso() : '2026-11-19';
+  const evtIso = normalizeIsoDateStr(d.data_evento, '2026-01-01');
+  try {
+    const diffDays = (new Date(todayIso) - new Date(evtIso)) / 86400000;
+    if (!isNaN(diffDays) && diffDays >= 0 && diffDays <= 45) {
+      score += 5;
+      reasons.push('Movimento Recente');
+    }
+  } catch (e) {}
+
+  score = Math.max(25, Math.min(99, Math.round(score)));
+  const tier = score >= 78 ? 'Alta Aderência' : (score >= 60 ? 'Aderente' : 'Seletivo');
+  return { score, tier, reasons: reasons.slice(0, 5), isSweetSpot, isMegaDeal };
+}
+
+function getFitPillClass(fitScore) {
+  const n = Number(fitScore || 0);
+  if (n >= 78) return 'fit-high';
+  if (n >= 60) return 'fit-mid';
+  return 'fit-low';
 }
 
 function showToast(msg) {
@@ -2156,6 +2373,10 @@ function applyPassivoCutoffImmediate() {
   let matchedQuickBtn = null;
   if ((minPassivoMM === 0 || minPassivoMM === 30) && maxPassivoMM === null) {
     matchedQuickBtn = document.getElementById('qtoggle-all');
+  } else if (minPassivoMM === 100 && maxPassivoMM === 2500) {
+    matchedQuickBtn = document.getElementById('qtoggle-sweet_spot');
+  } else if (minPassivoMM === 30 && maxPassivoMM === 3000) {
+    matchedQuickBtn = document.getElementById('qtoggle-no_mega');
   } else if (minPassivoMM === 30 && maxPassivoMM === 10000) {
     matchedQuickBtn = document.getElementById('qtoggle-no_outliers');
   } else if (minPassivoMM === 30 && maxPassivoMM === 500) {
@@ -2199,6 +2420,18 @@ function setPassivoQuickToggle(mode) {
     if (minEl) minEl.value = '30';
     if (maxEl) maxEl.value = '';
     showToast('Recorte atualizado: Piso padrão de R$ 30 MM (sem teto de passivo).');
+  } else if (mode === 'sweet_spot') {
+    minPassivoMM = 100;
+    maxPassivoMM = 2500;
+    if (minEl) minEl.value = '100';
+    if (maxEl) maxEl.value = '2500';
+    showToast('🎯 Recorte Sweet Spot ativo: R$ 100 MM a R$ 2,5 Bi (alta aderência de mandato).');
+  } else if (mode === 'no_mega') {
+    minPassivoMM = 30;
+    maxPassivoMM = 3000;
+    if (minEl) minEl.value = '30';
+    if (maxEl) maxEl.value = '3000';
+    showToast('Recorte atualizado: Sem Mega-Deals (R$ 30 MM a R$ 3.000 MM).');
   } else if (mode === 'no_outliers') {
     minPassivoMM = 30;
     maxPassivoMM = 10000;
@@ -2485,7 +2718,7 @@ function getMergedTier0Targets() {
 
   const uniqueTargets = [];
   LIVE_TIER0_DATA.forEach((t0, origIdx) => {
-    if (!t0 || !t0.empresa || isBlockedEntityToken(t0.empresa)) return;
+    if (!t0 || !t0.empresa || isBlockedEntityToken(t0.empresa) || isMockTier0Archetype(t0)) return;
     const digits = String(t0.cnpj || '').replace(/\D/g, '');
     const baseName = normalizeTextNoAccents(String(t0.empresa || '').split('(')[0].trim());
     const stem = normalizeCompanyStem(t0.empresa);
@@ -2499,6 +2732,38 @@ function getMergedTier0Targets() {
     uniqueTargets.push({ ...t0, _origIdx: origIdx });
   });
   return uniqueTargets;
+}
+
+function getFilteredCvmTier0Leads() {
+  if (activeEntityFilter && activeEntityFilter.dealIds) return [];
+  const raw = Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads : [];
+  if (raw.length === 0) return [];
+  return raw.filter(lead => {
+    if (!lead || !lead.empresa || isBlockedEntityToken(lead.empresa)) return false;
+    if (cvmTier0OnlyNew && lead.in_pipeline) return false;
+    if (cvmTier0SignalFilter && cvmTier0SignalFilter !== 'all') {
+      const sigLow = normalizeTextNoAccents(lead.signal_type || '');
+      if (cvmTier0SignalFilter === 'agd' && !sigLow.includes('agd') && !sigLow.includes('waiver')) return false;
+      if (cvmTier0SignalFilter === 'cautelar' && !sigLow.includes('cautelar') && !sigLow.includes('pre')) return false;
+      if (cvmTier0SignalFilter === 'default' && !sigLow.includes('vencimento') && !sigLow.includes('default')) return false;
+      if (cvmTier0SignalFilter === 'carveout' && !sigLow.includes('carve') && !sigLow.includes('desinvestimento')) return false;
+    }
+    if (currentUf !== '' && lead.uf && String(lead.uf).toUpperCase() !== currentUf) return false;
+    if (searchTerm !== '') {
+      const blob = [
+        lead.empresa, lead.cnpj, lead.signal_type, lead.assunto,
+        lead.categoria_cvm, lead.uf, lead.municipio, ...(lead.qsa_preview || [])
+      ].join(' ').toLowerCase();
+      if (!blob.includes(searchTerm)) return false;
+    }
+    return true;
+  });
+}
+
+function setCvmTier0Filter(sigType, onlyNewVal) {
+  if (sigType !== undefined && sigType !== null) cvmTier0SignalFilter = sigType;
+  if (onlyNewVal !== undefined && onlyNewVal !== null) cvmTier0OnlyNew = Boolean(onlyNewVal);
+  renderSectionContent();
 }
 
 function getFilteredTier0Targets() {
@@ -2561,6 +2826,7 @@ function renderSubTabs() {
         }).length;
         if (st.id === 'precursor' && !activeEntityFilter) {
           cnt += getMergedTier0Targets().filter(matchesPassivoCutoff).length;
+          cnt += Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads.length : 0;
         }
         countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting ? '--' : cnt}</span>`;
       }
@@ -2586,6 +2852,9 @@ function renderSubTabs() {
         return true;
       }).length;
       countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting && allN.length === 0 ? '--' : cnt}</span>`;
+    } else if (currentMainSection === 'energia' && st.id === 'curtailment_usinas') {
+      const plantCnt = Array.isArray(liveEnergyData?.top_curtailment_plants) ? liveEnergyData.top_curtailment_plants.length : 0;
+      countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${plantCnt || '--'}</span>`;
     } else if (currentMainSection === 'energia' && st.id === 'pipeline_energia') {
       const engCnt = DEALS_DATA.filter(d => d.setor_macro === 'Energia & Infraestrutura').length;
       countBadge = `<span class="pill-count" id="subtab-count-${st.id}">${stillBooting ? '--' : engCnt}</span>`;
@@ -2712,6 +2981,8 @@ function getFilteredDeals() {
   });
 
   return base.sort((a, b) => {
+    if (currentSort === 'fit_desc') return (b.fit_score || 0) - (a.fit_score || 0) || (b.score || 0) - (a.score || 0);
+    if (currentSort === 'fit_asc') return (a.fit_score || 0) - (b.fit_score || 0);
     if (currentSort === 'passivo_desc') return (b.passivo_mm || 0) - (a.passivo_mm || 0);
     if (currentSort === 'passivo_asc') return (a.passivo_mm || 0) - (b.passivo_mm || 0);
     if (currentSort === 'score_desc') return (b.score || 0) - (a.score || 0);
@@ -2744,6 +3015,8 @@ function getFilteredDeals() {
 function toggleTableColumnSort(colKey) {
   if (colKey === 'movimento') {
     currentSort = currentSort === 'movimento_desc' ? 'movimento_asc' : 'movimento_desc';
+  } else if (colKey === 'fit') {
+    currentSort = currentSort === 'fit_desc' ? 'fit_asc' : 'fit_desc';
   } else if (colKey === 'inclusao') {
     currentSort = currentSort === 'inclusao_desc' ? 'inclusao_asc' : 'inclusao_desc';
   } else if (colKey === 'passivo') {
@@ -3222,63 +3495,170 @@ function renderPaginationBarHtml(totalItems) {
 }
 
 function renderTier0ForensicPanelHtml() {
-  if (currentSubTab !== 'precursor') return '';
-  const targets = getFilteredTier0Targets();
-  if (targets.length === 0) return '';
+  if (currentSubTab !== 'precursor' && currentProcessType !== 'Tier 0') return '';
 
-  const totalT0Passivo = targets.reduce((s, t) => s + Number(t.passivo_mm || 0), 0);
-  let html = `
-    <div class="tier0-section-wrap">
-      <div style="background:#FFFBEB; border:1px solid #FCD34D; border-radius:8px; padding:12px 16px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-        <div>
-          <strong style="font-size:13px; color:#92400E;">Radar Preditivo Forense (Tier 0 Antecedente) — ${targets.length} Alvos Extras da Planilha Ao Vivo (R$ ${formatNumberBR(totalT0Passivo)} MM)</strong>
-          <div style="font-size:11.5px; color:#78350F; margin-top:2px;">Companhias inéditas sem RJ ajuizada capturadas na aba Tier 0 (protestos CENPROT, PGFN, CVM Fundos.NET, CCEE e agências reguladoras).</div>
-        </div>
-        <span class="status-badge badge-tier0">JANELA ANTECEDENTE: 30 A 90 DIAS</span>
-      </div>
-      <div class="tier0-cards-grid">
-  `;
+  const cvmLeads = getFilteredCvmTier0Leads();
+  const sheetTargets = getFilteredTier0Targets();
+  const totalCvmAll = Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads.length : 0;
+  const totalCvmNew = Number(liveLeadsData?.stats?.tier0_new_unmapped || 0);
+  const cvmUpdatedBr = liveLeadsData?.updated_at_br || '';
 
-  targets.forEach(t0 => {
-    const vectors = String(t0.vetores || '').split(/\r?\n/).map(v => v.trim()).filter(Boolean);
+  let html = '';
+
+  if (totalCvmAll > 0 || cvmLeads.length > 0) {
     html += `
-      <div class="tier0-card">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+      <div class="cvm-tier0-panel">
+        <div class="cvm-tier0-banner">
           <div>
-            <strong style="font-size:13.5px; color:var(--vk-header-start); display:block;">${escapeHtml(t0.empresa)}</strong>
-            <span class="td-company-meta">${escapeHtml(t0.regiao)} &bull; ${escapeHtml(t0.cnpj)}</span>
+            <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-sage); text-transform:uppercase; letter-spacing:0.8px;">
+              RADAR PRÉ-MÍDIA OFICIAL // CVM DADOS ABERTOS (IPE 2026) &amp; QSA RECEITA
+            </div>
+            <strong style="font-size:15px; color:#FFFFFF; display:block; margin-top:3px;">
+              ${cvmLeads.length} Sinais Oficiais Pré-Mídia no Recorte (${totalCvmNew} Novos Fora do Pipeline)
+            </strong>
+            <div style="font-size:11.5px; color:#C8CEB0; margin-top:2px;">
+              Varredura automática em atas de AGD, pedidos de waiver/PIK, suspensão de amortização, liberação de conta vinculada, Cautelares Art. 20-B, PREs e carve-outs. ${cvmUpdatedBr ? `Última coleta: ${escapeHtml(cvmUpdatedBr)}.` : ''}
+            </div>
           </div>
-          <span class="status-badge badge-tier0" style="white-space:nowrap;">⏱ ${escapeHtml(t0.janela)}</span>
-        </div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; background:#FFFBEB; border:1px solid #FDE68A; border-radius:6px; padding:6px 10px;">
-          <div>
-            <span style="font-size:10px; color:#92400E; font-weight:700; text-transform:uppercase; display:block;">Passivo Estimado</span>
-            <strong style="font-family:var(--font-mono); font-size:13px; color:#78350F;">R$ ${formatNumberBR(t0.passivo_mm)} MM</strong>
-          </div>
-          <div style="text-align:right;">
-            <span style="font-size:10px; color:#92400E; font-weight:700; text-transform:uppercase; display:block;">Score Forense</span>
-            <strong style="font-family:var(--font-mono); font-size:13px; color:#B45309;">${formatScoreBR(t0.score)} / 10</strong>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:10px; font-weight:800; color:#92400E; text-transform:uppercase; margin-bottom:4px;">Vetores Forenses Capturados</div>
-          <div>
-            ${vectors.map(v => `<div class="tier0-vector-pill">${escapeHtml(v)}</div>`).join('')}
+          <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+            <span class="ticker-pill">100% DADOS OFICIAIS CVM</span>
           </div>
         </div>
-        <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">
-          <strong style="color:var(--vk-header-start);">Credores Expostos:</strong> ${escapeHtml(t0.tese)}<br>
-          <strong style="color:var(--vk-header-start);">Natureza da Dívida:</strong> ${escapeHtml(t0.fontes)}
+
+        <div class="inline-subfilter-bar" role="region" aria-label="Filtros do Radar Pré-Mídia CVM">
+          <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-forest); text-transform:uppercase;">Sinal CVM:</span>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'all' ? 'active' : ''}" onclick="setCvmTier0Filter('all', null)">Todos (${totalCvmAll})</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'agd' ? 'active' : ''}" onclick="setCvmTier0Filter('agd', null)">AGD / Waiver / PIK</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'cautelar' ? 'active' : ''}" onclick="setCvmTier0Filter('cautelar', null)">Cautelar 20-B / PRE / RJ</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'default' ? 'active' : ''}" onclick="setCvmTier0Filter('default', null)">Venc. Antecipado / Default</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'carveout' ? 'active' : ''}" onclick="setCvmTier0Filter('carveout', null)">Carve-out / Desinvestimento</button>
+          <button type="button" class="quick-toggle-btn quick-toggle-sweet ${cvmTier0OnlyNew ? 'active' : ''}" style="margin-left:auto;" onclick="setCvmTier0Filter(null, !cvmTier0OnlyNew)">
+            ${cvmTier0OnlyNew ? '✓ ' : ''}Somente Novos Leads (${totalCvmNew})
+          </button>
         </div>
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; border-top:1px solid #FDE68A; padding-top:8px; margin-top:auto;">
-          <span class="td-sector-pill">${escapeHtml(t0.setor_macro)}</span>
-          <button type="button" class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="openCalculatorForTier0(${t0._origIdx})">⚡ Simular Mandato</button>
-        </div>
+
+        ${cvmLeads.length === 0
+          ? `<div style="text-align:center; padding:28px; background:var(--bg-subtle); border:1px dashed var(--border-medium); border-radius:8px; color:var(--text-muted); font-size:12.5px;">Nenhum sinal oficial CVM corresponde aos filtros selecionados.</div>`
+          : `<div class="cvm-tier0-grid">
+              ${cvmLeads.map(lead => {
+                const sigLow = normalizeTextNoAccents(lead.signal_type || '');
+                const sigCls = (sigLow.includes('cautelar') || sigLow.includes('vencimento') || sigLow.includes('default'))
+                  ? 'sig-urgent'
+                  : (sigLow.includes('carve') ? 'sig-carveout' : 'sig-agd');
+                const fitCls = getFitPillClass(lead.fit_score);
+                const qsaNames = Array.isArray(lead.qsa_preview) && lead.qsa_preview.length > 0
+                  ? lead.qsa_preview.join(' • ')
+                  : 'Consultar QSA no Tear Sheet / BrasilAPI';
+                const capStr = Number(lead.capital_social || 0) > 0
+                  ? `Capital Social: R$ ${formatNumberBR(Number(lead.capital_social) / 1e6)} MM`
+                  : '';
+                const cvmUrl = safeExternalUrl(lead.link_download, 'https://www.rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx');
+                const lnkSearch = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(String(lead.empresa || '').split(' ')[0] + ' CFO OR Diretor Financeiro OR RI')}`;
+                return `
+                  <div class="cvm-lead-card ${!lead.in_pipeline ? 'is-new-lead' : ''}">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+                      <div style="min-width:0;">
+                        <strong style="font-size:13px; color:var(--vk-forest); display:block; line-height:1.3;">${escapeHtml(lead.empresa)}</strong>
+                        <span class="td-company-meta">${escapeHtml(lead.cnpj || 'CVM')}${lead.uf ? ` &bull; ${escapeHtml(lead.municipio ? `${lead.municipio}/${lead.uf}` : lead.uf)}` : ''}</span>
+                      </div>
+                      <span class="fit-pill ${fitCls}" title="Origination Fit Pré-Mídia CVM">Fit ${Number(lead.fit_score || 0)}</span>
+                    </div>
+
+                    <div style="display:flex; flex-wrap:wrap; gap:5px; align-items:center;">
+                      <span class="cvm-signal-badge ${sigCls}">${escapeHtml(lead.signal_type)}</span>
+                      ${!lead.in_pipeline
+                        ? `<span class="badge-sweetspot" style="margin-left:0;">NOVO LEAD CVM</span>`
+                        : `<span class="status-badge badge-pre" style="margin-left:0; font-size:9px;">NO PIPELINE${lead.deal_passivo_mm ? ` • R$ ${formatNumberBR(lead.deal_passivo_mm)}M` : ''}</span>`}
+                      <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-left:auto;">${formatDateBR(lead.data_entrega)} &bull; ${Number(lead.filing_count || 1)}x em 120d</span>
+                    </div>
+
+                    <div style="font-size:11.5px; color:var(--text-body); background:var(--bg-subtle); border-left:3px solid var(--vk-olive); padding:7px 9px; border-radius:4px; line-height:1.42;">
+                      <strong style="color:var(--vk-forest); font-size:10.5px; text-transform:uppercase; display:block; margin-bottom:2px;">${escapeHtml(lead.categoria_cvm || 'Documento Eventual CVM')}</strong>
+                      ${escapeHtml(lead.assunto)}
+                    </div>
+
+                    <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">
+                      <strong style="color:var(--vk-forest);">QSA / Diretoria:</strong> ${escapeHtml(qsaNames)}
+                      ${capStr ? `<div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-top:2px;">${escapeHtml(capStr)}</div>` : ''}
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; border-top:1px solid var(--border-light); padding-top:8px; margin-top:auto;">
+                      <div style="display:flex; gap:5px; flex-wrap:wrap;">
+                        <a href="${escapeHtml(cvmUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 8px; font-size:10.5px;">📄 Doc CVM ↗</a>
+                        <a href="${escapeHtml(lnkSearch)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 8px; font-size:10.5px;">LinkedIn C-Level ↗</a>
+                      </div>
+                      <div style="display:flex; gap:5px;">
+                        ${lead.in_pipeline && lead.deal_id
+                          ? `<button type="button" class="btn-action" style="padding:4px 9px; font-size:10.5px;" onclick="openDossier(${Number(lead.deal_id)})">Ficha</button>`
+                          : ''}
+                        <button type="button" class="btn-solid" style="padding:4px 9px; font-size:10.5px;" onclick="openCalculatorForCvmLead('${escapeHtml(String(lead.id))}')">⚡ Modelar / Pitch</button>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>`
+        }
       </div>
     `;
-  });
+  }
 
-  html += `</div></div>`;
+  if (sheetTargets.length > 0) {
+    const totalT0Passivo = sheetTargets.reduce((s, t) => s + Number(t.passivo_mm || 0), 0);
+    html += `
+      <div class="tier0-section-wrap">
+        <div style="background:#FFFBEB; border:1px solid #FCD34D; border-radius:8px; padding:12px 16px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div>
+            <strong style="font-size:13px; color:#92400E;">Radar Preditivo Forense (Aba Planilha Ao Vivo) — ${sheetTargets.length} Alvos Extras (R$ ${formatNumberBR(totalT0Passivo)} MM)</strong>
+            <div style="font-size:11.5px; color:#78350F; margin-top:2px;">Companhias reais da aba Tier 0 sem RJ ajuizada (CENPROT, PGFN, CVM, CCEE e agências reguladoras).</div>
+          </div>
+          <span class="status-badge badge-tier0">JANELA ANTECEDENTE: 30 A 90 DIAS</span>
+        </div>
+        <div class="tier0-cards-grid">
+    `;
+
+    sheetTargets.forEach(t0 => {
+      const vectors = String(t0.vetores || '').split(/\r?\n/).map(v => v.trim()).filter(Boolean);
+      html += `
+        <div class="tier0-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+            <div>
+              <strong style="font-size:13.5px; color:var(--vk-header-start); display:block;">${escapeHtml(t0.empresa)}</strong>
+              <span class="td-company-meta">${escapeHtml(t0.regiao)} &bull; ${escapeHtml(t0.cnpj)}</span>
+            </div>
+            <span class="status-badge badge-tier0" style="white-space:nowrap;">⏱ ${escapeHtml(t0.janela)}</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; background:#FFFBEB; border:1px solid #FDE68A; border-radius:6px; padding:6px 10px;">
+            <div>
+              <span style="font-size:10px; color:#92400E; font-weight:700; text-transform:uppercase; display:block;">Passivo Estimado</span>
+              <strong style="font-family:var(--font-mono); font-size:13px; color:#78350F;">R$ ${formatNumberBR(t0.passivo_mm)} MM</strong>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-size:10px; color:#92400E; font-weight:700; text-transform:uppercase; display:block;">Score Forense</span>
+              <strong style="font-family:var(--font-mono); font-size:13px; color:#B45309;">${formatScoreBR(t0.score)} / 10</strong>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px; font-weight:800; color:#92400E; text-transform:uppercase; margin-bottom:4px;">Vetores Forenses Capturados</div>
+            <div>
+              ${vectors.map(v => `<div class="tier0-vector-pill">${escapeHtml(v)}</div>`).join('')}
+            </div>
+          </div>
+          <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">
+            <strong style="color:var(--vk-header-start);">Credores Expostos:</strong> ${escapeHtml(t0.tese)}<br>
+            <strong style="color:var(--vk-header-start);">Natureza da Dívida:</strong> ${escapeHtml(t0.fontes)}
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; border-top:1px solid #FDE68A; padding-top:8px; margin-top:auto;">
+            <span class="td-sector-pill">${escapeHtml(t0.setor_macro)}</span>
+            <button type="button" class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="openCalculatorForTier0(${t0._origIdx})">⚡ Simular Mandato</button>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div></div>`;
+  }
+
   return html;
 }
 
@@ -3329,7 +3709,7 @@ function renderTableView(deals, container) {
   const movArrow = currentSort === 'movimento_desc' ? '↓' : (currentSort === 'movimento_asc' ? '↑' : '↕');
   const incArrow = currentSort === 'inclusao_desc' ? '↓' : (currentSort === 'inclusao_asc' ? '↑' : '↕');
   const pasArrow = currentSort === 'passivo_desc' ? '↓' : (currentSort === 'passivo_asc' ? '↑' : '↕');
-  const scoArrow = currentSort === 'score_desc' ? '↓' : (currentSort === 'score_asc' ? '↑' : '↕');
+  const fitArrow = currentSort === 'fit_desc' ? '↓' : (currentSort === 'fit_asc' ? '↑' : '↕');
   const getAriaSort = (ascKey, descKey) => currentSort === ascKey ? 'ascending' : (currentSort === descKey ? 'descending' : 'none');
 
   let html = tier0PanelHtml;
@@ -3352,16 +3732,16 @@ function renderTableView(deals, container) {
             <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('movimento_asc', 'movimento_desc')}" style="width: 8%;" onclick="toggleTableColumnSort('movimento')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('movimento');}" title="Ordenar por Data do Último Movimento">
               Últ. Movimento <span class="sort-indicator">${movArrow}</span>
             </th>
-            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('inclusao_asc', 'inclusao_desc')}" style="width: 8%;" onclick="toggleTableColumnSort('inclusao')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('inclusao');}" title="Ordenar por Data de Inclusão no Sistema">
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('inclusao_asc', 'inclusao_desc')}" style="width: 7%;" onclick="toggleTableColumnSort('inclusao')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('inclusao');}" title="Ordenar por Data de Inclusão no Sistema">
               Inclusão <span class="sort-indicator">${incArrow}</span>
             </th>
-            <th style="width: 10%;">Jurisdição</th>
+            <th style="width: 9%;">Jurisdição</th>
             <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('passivo_asc', 'passivo_desc')}" style="width: 8%; text-align: right;" onclick="toggleTableColumnSort('passivo')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('passivo');}" title="Ordenar por Passivo">
               Passivo (R$ MM) <span class="sort-indicator">${pasArrow}</span>
             </th>
             <th style="width: 7%;">Principais Credores</th>
-            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('score_asc', 'score_desc')}" style="width: 4%; text-align: center;" onclick="toggleTableColumnSort('score')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('score');}" title="Ordenar por Score Forense">
-              Score <span class="sort-indicator">${scoArrow}</span>
+            <th class="sortable-th" tabindex="0" aria-sort="${getAriaSort('fit_asc', 'fit_desc')}" style="width: 6%; text-align: center;" onclick="toggleTableColumnSort('fit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTableColumnSort('fit');}" title="Ordenar por Fit de Originação (0 a 100)">
+              Fit / Score <span class="sort-indicator">${fitArrow}</span>
             </th>
             <th style="width: 8%; text-align: center;">Ações</th>
           </tr>
@@ -3373,6 +3753,9 @@ function renderTableView(deals, container) {
     const passivoStr = formatNumberBR(item.passivo_mm);
     const b = getBadgeVisual(item);
     const upiTag = isUpiEligible(item) ? `<span class="status-badge badge-upi" title="Contém ativos/UPIs elegíveis">UPI</span>` : '';
+    const sizeTag = item.is_mega_deal
+      ? `<span class="badge-megadeal" title="Passivo acima de R$ 3 Bi">Mega-Deal</span>`
+      : (item.is_sweet_spot ? `<span class="badge-sweetspot" title="Sweet Spot de Originação (R$ 100M–2,5B)">Sweet Spot</span>` : '');
     const tickerBadge = item.ticker ? `<span style="font-family:var(--font-mono); font-size:9.5px; background:#E6E9DC; color:#063630; padding:1px 5px; border-radius:3px; font-weight:800; margin-left:5px;">${escapeHtml(item.ticker)}</span>` : '';
     const newerAlert = newsAlertMap.get(Number(item.id)) || null;
     const alertBadgeHtml = newerAlert
@@ -3381,11 +3764,15 @@ function renderTableView(deals, container) {
     const credoresTrunc = (item.credores && item.credores.length > 44) ? `${item.credores.substring(0, 44)}...` : (item.credores || 'Em apuração');
     const isCompSelected = compSet.has(Number(item.id));
     const isWatched = isDealWatchlisted(item.id);
+    const fitVal = Number(item.fit_score || 65);
+    const fitCls = getFitPillClass(fitVal);
+    const fitTip = (item.fit_reasons || []).join(' • ');
 
     html += `
       <tr>
         <td>
           <span class="td-company-name" onclick="openDossier(${item.id})" title="${escapeHtml(item.descricao_empresa)}">${escapeHtml(item.empresa)}${tickerBadge}</span>
+          ${sizeTag}
           ${alertBadgeHtml}
         </td>
         <td class="td-cnpj-mono">${escapeHtml(item.cnpj)}</td>
@@ -3402,7 +3789,10 @@ function renderTableView(deals, container) {
         </td>
         <td class="td-passivo">R$ ${escapeHtml(passivoStr)}</td>
         <td style="font-size: 11px; color: var(--text-secondary);" title="${escapeHtml(item.credores)}">${escapeHtml(credoresTrunc)}</td>
-        <td class="td-score">${formatScoreBR(item.score)}</td>
+        <td class="td-score">
+          <span class="fit-pill ${fitCls}" title="Fit de Originação (${escapeHtml(item.fit_tier || '')}): ${escapeHtml(fitTip)}">Fit ${fitVal}</span>
+          <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">${formatScoreBR(item.score)}/10</div>
+        </td>
         <td style="text-align: center; white-space: nowrap;">
           <div style="display:inline-flex; align-items:center; gap:4px;">
             <button type="button" class="btn-watchlist-star ${isWatched ? 'active' : ''}" onclick="toggleWatchlistDeal(${item.id}, event)" title="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-label="${isWatched ? 'Remover da Minha Watchlist' : 'Adicionar à Minha Watchlist'}" aria-pressed="${isWatched ? 'true' : 'false'}">${isWatched ? '★' : '☆'}</button>
@@ -3442,6 +3832,8 @@ function renderCardsView(deals, container) {
     const parsed = parseThesisRegex(item.tese);
     const isCompSelected = compSet.has(Number(item.id));
     const isWatched = isDealWatchlisted(item.id);
+    const fitVal = Number(item.fit_score || 65);
+    const fitCls = getFitPillClass(fitVal);
 
     html += `
       <div class="clean-deal-card" onclick="openDossier(${item.id})">
@@ -3451,7 +3843,10 @@ function renderCardsView(deals, container) {
               <strong style="font-size:14px; color:var(--vk-header-start); display:block;">${escapeHtml(item.empresa)}</strong>
               <span class="td-company-meta">${escapeHtml(item.cidade)}, ${escapeHtml(item.uf)} &bull; ${escapeHtml(item.cnpj)}</span>
             </div>
-            <span class="status-badge ${b.cls}">${escapeHtml(item.subtipo_processo)}</span>
+            <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+              <span class="status-badge ${b.cls}">${escapeHtml(item.subtipo_processo)}</span>
+              <span class="fit-pill ${fitCls}">Fit ${fitVal}</span>
+            </div>
           </div>
           <div style="font-size:11.5px; color:var(--text-secondary); background:var(--bg-subtle); border-left:3px solid var(--vk-sage); padding:6px 9px; border-radius:4px; margin:8px 0; line-height:1.4;">
             ${escapeHtml(item.descricao_empresa)}
@@ -5546,8 +5941,121 @@ function renderEnergiaSection(container) {
     </div>
   `;
 
-  if (currentSubTab === 'pld_curtailment') {
+  if (currentSubTab === 'curtailment_usinas') {
+    const allPlants = Array.isArray(liveEnergyData?.top_curtailment_plants) ? liveEnergyData.top_curtailment_plants : [];
+    const filteredPlants = allPlants.filter(p => {
+      if (selectedSinSubmarket && selectedSinSubmarket !== 'SIN' && String(p.submercado || '').toUpperCase() !== selectedSinSubmarket) {
+        return false;
+      }
+      if (curtailmentPlantFonteFilter !== 'all' && String(p.fonte || '').toLowerCase() !== curtailmentPlantFonteFilter.toLowerCase()) {
+        return false;
+      }
+      return true;
+    });
+    const totalLossMm = filteredPlants.reduce((s, p) => s + Number(p.est_rev_loss_mm || 0), 0);
+    const totalMwmed = filteredPlants.reduce((s, p) => s + Number(p.curt_mwmed || 0), 0);
+    const avgCurtPct = filteredPlants.length > 0
+      ? filteredPlants.reduce((s, p) => s + Number(p.curt_pct || 0), 0) / filteredPlants.length
+      : 0;
+    const relCount = filteredPlants.filter(p => String(p.dominant_reason || '').toUpperCase() === 'REL').length;
+
     html += `
+      <div class="curtailment-plants-toolbar">
+        <div>
+          <strong style="font-size:14px; color:var(--vk-forest); display:block;">
+            Radar de Usinas em Curtailment Severo — ${filteredPlants.length} Complexos (${escapeHtml(selectedSinSubmarket)})
+          </strong>
+          <div style="font-size:11.5px; color:var(--text-secondary); margin-top:2px;">
+            Agregação real de 30 dias direto do S3 ONS (Eólica + Solar). Perda estimada a R$ 180/MWh:
+            <strong style="color:#991B1B;">R$ ${formatNumberBR(totalLossMm)} MM</strong> &bull;
+            Corte médio: <strong>${totalMwmed.toFixed(1).replace('.', ',')} MWmed</strong> (${avgCurtPct.toFixed(1).replace('.', ',')}% da ref.) &bull;
+            ${relCount} com razão predominante <strong>REL</strong> (Restrição Elétrica).
+          </div>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+          <span style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-forest); text-transform:uppercase;">Fonte:</span>
+          <button type="button" class="phase-chip ${curtailmentPlantFonteFilter === 'all' ? 'active' : ''}" onclick="curtailmentPlantFonteFilter='all'; renderSectionContent();">Todas (${allPlants.length})</button>
+          <button type="button" class="phase-chip ${curtailmentPlantFonteFilter === 'Eólica' ? 'active' : ''}" onclick="curtailmentPlantFonteFilter='Eólica'; renderSectionContent();">💨 Eólica</button>
+          <button type="button" class="phase-chip ${curtailmentPlantFonteFilter === 'Solar' ? 'active' : ''}" onclick="curtailmentPlantFonteFilter='Solar'; renderSectionContent();">☀️ Solar</button>
+        </div>
+      </div>
+
+      ${filteredPlants.length === 0
+        ? `<div style="text-align:center; padding:36px; background:var(--bg-subtle); border:1px dashed var(--border-medium); border-radius:8px; color:var(--text-muted); margin-bottom:20px;">Nenhum complexo de geração encontrado para o submercado <strong>${escapeHtml(selectedSinSubmarket)}</strong> e fonte selecionados. Selecione <strong>SIN</strong> acima para visualizar o ranking nacional completo.</div>`
+        : `<div class="table-wrap" style="margin-bottom:24px;">
+            <table class="clean-table">
+              <thead>
+                <tr>
+                  <th style="width:4%; text-align:center;">#</th>
+                  <th style="width:24%;">Complexo / Conjunto Gerador (ONS)</th>
+                  <th style="width:8%;">UF / Subm.</th>
+                  <th style="width:8%;">Fonte</th>
+                  <th style="width:15%;">% Curtailment (30d)</th>
+                  <th style="width:11%; text-align:right;">Corte (MWmed)</th>
+                  <th style="width:12%; text-align:right;">Perda Est. 30d</th>
+                  <th style="width:10%; text-align:center;">Razão / Dias</th>
+                  <th style="width:12%; text-align:center;">Prospecção SPE</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${filteredPlants.map((p, idx) => {
+                  const pct = Math.min(100, Math.max(0, Number(p.curt_pct || 0)));
+                  const reason = String(p.dominant_reason || 'ENE').toUpperCase();
+                  const reasonCls = reason === 'REL' ? 'reason-rel' : (reason === 'CNF' ? 'reason-cnf' : 'reason-ene');
+                  const cleanName = String(p.usina || '').replace(/^Conj\.\s*/i, '').trim();
+                  const aneelUrl = `https://www.google.com/search?q=${encodeURIComponent(`"${cleanName}" ${p.uf || ''} energia controlador debêntures SPE ANEEL`)}`;
+                  const lnkUrl = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${cleanName} energia CFO OR Diretor Financeiro`)}`;
+                  return `
+                    <tr>
+                      <td style="text-align:center; font-family:var(--font-mono); font-weight:800; color:var(--text-muted);">${idx + 1}</td>
+                      <td>
+                        <strong style="color:var(--vk-forest); font-size:12.5px;">${escapeHtml(p.usina)}</strong>
+                        ${p.ceg && p.ceg !== '-' ? `<div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">CEG: ${escapeHtml(p.ceg)}</div>` : `<div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">${formatNumberBR(Math.round(p.curt_mwh || 0))} MWh não gerados (30d)</div>`}
+                      </td>
+                      <td>
+                        <strong style="font-size:12px;">${escapeHtml(p.uf || '-')}</strong>
+                        <span class="td-sector-pill" style="margin-left:4px; font-size:9.5px;">${escapeHtml(p.submercado || '-')}</span>
+                      </td>
+                      <td>
+                        <span class="status-badge ${p.fonte === 'Solar' ? 'badge-prj' : 'badge-pre'}" style="margin-left:0;">${p.fonte === 'Solar' ? '☀️ Solar' : '💨 Eólica'}</span>
+                      </td>
+                      <td>
+                        <div style="display:flex; align-items:center;">
+                          <span class="curtailment-severity-track"><span class="curtailment-severity-fill" style="width:${pct}%;"></span></span>
+                          <strong style="font-family:var(--font-mono); font-size:11.5px; color:${pct >= 30 ? '#991B1B' : 'var(--vk-forest)'};">${pct.toFixed(1).replace('.', ',')}%</strong>
+                        </div>
+                      </td>
+                      <td style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-body);">${Number(p.curt_mwmed || 0).toFixed(1).replace('.', ',')} MWm</td>
+                      <td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#991B1B;">R$ ${Number(p.est_rev_loss_mm || 0).toFixed(2).replace('.', ',')} MM</td>
+                      <td style="text-align:center;">
+                        <span class="reason-pill ${reasonCls}" title="Razão dominante ONS (${Number(p.dominant_reason_pct || 0)}%)">${escapeHtml(reason)} ${Number(p.dominant_reason_pct || 0)}%</span>
+                        <div style="font-family:var(--font-mono); font-size:9.5px; color:var(--text-muted); margin-top:2px;">${Number(p.days_affected || 0)}d / 30d</div>
+                      </td>
+                      <td style="text-align:center; white-space:nowrap;">
+                        <div style="display:inline-flex; gap:4px;">
+                          <a href="${escapeHtml(aneelUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:3px 7px; font-size:10px;" title="Pesquisar controlador, SPE e debêntures">SPE / Dívida ↗</a>
+                          <a href="${escapeHtml(lnkUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:3px 7px; font-size:10px;" title="Buscar CFO / Diretoria no LinkedIn">LinkedIn ↗</a>
+                        </div>
+                      </td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>`
+      }
+    `;
+  } else if (currentSubTab === 'pld_curtailment') {
+    const topPlantsCount = Array.isArray(liveEnergyData?.top_curtailment_plants) ? liveEnergyData.top_curtailment_plants.length : 0;
+    html += `
+      ${topPlantsCount > 0 ? `
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; background:#ECEFE4; border:1px solid #C8CEB0; border-left:4px solid var(--vk-forest); border-radius:8px; padding:10px 14px; margin-bottom:14px;">
+          <div style="font-size:12px; color:var(--vk-forest);">
+            <strong>⚡ Radar por Complexo Gerador (ONS S3):</strong> ${topPlantsCount} usinas eólicas e solares com maior corte nos últimos 30 dias mapeadas com perda estimada de receita (R$ MM).
+          </div>
+          <button type="button" class="btn-solid" style="padding:5px 12px; font-size:11.5px;" onclick="selectSubTab('curtailment_usinas')">Ver Top ${topPlantsCount} Usinas em Curtailment →</button>
+        </div>
+      ` : ''}
       <div class="dashboard-grid" style="margin-bottom:22px;">
         <div class="chart-panel">
           <div class="chart-panel-header">
@@ -5666,7 +6174,7 @@ function renderEnergiaSection(container) {
   html += `</div></div>`;
   container.innerHTML = html;
 
-  if (currentSubTab !== 'pipeline_energia') {
+  if (currentSubTab !== 'pipeline_energia' && currentSubTab !== 'curtailment_usinas') {
     scheduleChartInit(() => initOnsStackedChart(subCfg), 30);
   }
 }
@@ -6521,6 +7029,68 @@ function openCalculatorForTier0(idx) {
   pitchSuccessFeePct = 2.0;
   switchMainSection('precificacao', 'calc_haircut');
   showToast(`Alvo Tier 0 carregado na Calculadora: ${t0.empresa} (R$ ${formatNumberBR(t0.passivo_mm)} MM)!`);
+}
+
+function openCalculatorForCvmLead(leadId) {
+  const leads = Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads : [];
+  const lead = leads.find(x => String(x.id) === String(leadId));
+  if (!lead) return;
+  closeModal();
+  const qsa = getQsaForCnpj(lead.cnpj);
+  const estPassivo = Number(lead.deal_passivo_mm || 0) > 0
+    ? Number(lead.deal_passivo_mm)
+    : Math.max(120, Math.min(1800, Math.round((Number(lead.capital_social || 0) / 1e6) * 1.1) || 250));
+  const todayIso = getBrazilTodayIso();
+
+  selectedTier0CalcTarget = {
+    id: 'tier0',
+    empresa: lead.empresa,
+    cnpj: lead.cnpj || 'CVM / Em apuração',
+    setor_macro: (qsa && qsa.cnae) ? qsa.cnae.slice(0, 48) : 'Mercado de Capitais / Special Situations',
+    uf: lead.uf || (qsa && qsa.uf) || 'SP',
+    cidade: lead.municipio || (qsa && qsa.municipio) || 'São Paulo',
+    tribunal: 'CVM Dados Abertos — Documentos Eventuais (IPE 2026)',
+    processo: `${lead.categoria_cvm || 'IPE CVM'} (${lead.data_entrega || todayIso})`,
+    fase: `Sinal Pré-Mídia CVM — ${lead.signal_type}`,
+    tier: 'Tier 0 (CVM)',
+    score: Math.min(9.9, Number((Number(lead.fit_score || 85) / 10).toFixed(1))),
+    fit_score: Number(lead.fit_score || 85),
+    fit_tier: Number(lead.fit_score || 85) >= 78 ? 'Alta Aderência' : 'Aderente',
+    fit_reasons: ['CVM IPE 2026', lead.signal_type, `${lead.filing_count || 1}x em 120d`, !lead.in_pipeline ? 'Lead Novo Pré-Mídia' : 'Em Monitoramento'],
+    tipo_processo: 'Tier 0',
+    subtipo_processo: lead.signal_type,
+    passivo_mm: estPassivo,
+    data_evento: lead.data_entrega || todayIso,
+    data_adicao: todayIso,
+    credores: 'Debenturistas, Agentes Fiduciários, Bancos Relacionais e Investidores Institucionais',
+    perfil_passivo: `${lead.categoria_cvm || 'Emissão CVM'} — ${lead.assunto}`,
+    agentes_fiduciarios: 'Monitoramento via Escrituras & Atas AGD CVM',
+    securitizadoras: 'Mercado de Capitais (Debêntures / CRI / CRA)',
+    advocacia: 'Mandato Preventivo em Prospecção',
+    aj: 'Não aplicável (Fase Pré-Processual / CVM)',
+    proximas_acoes: `Abordagem estruturada na janela de ${lead.signal_type}: análise da escritura, contato via credores/fiduciários ou diretoria (QSA) para reperfilamento, standstill ou carve-out.`,
+    tese: `(1) Contexto e Causa da Crise: Sinal oficial CVM (${lead.data_entrega}) classificado em ${lead.signal_type}: ${lead.assunto}. (2) Gargalo Imediato: Recorrência de ${lead.filing_count || 1} documento(s) eventual(is) nos últimos 120 dias pressionando cronograma de amortização/covenants. (3) Tese de Mandato: Assessoria financeira independente em renegociação de debêntures, waiver/PIK, funding estruturado ou carve-out de ativos non-core.`,
+    descricao_empresa: `${lead.empresa} — companhia monitorada via CVM IPE 2026 (${lead.signal_type}). ${qsa && qsa.cnae ? `Atividade principal: ${qsa.cnae}.` : ''}`,
+    model_params: {
+      haircut_estimado_pct: 35,
+      desconto_secundario_pct: 28,
+      ev_estimado_mm: Math.round(estPassivo * 0.72),
+      liquidez_forcada_desconto_pct: 35,
+      split_classes: { extraconcursal_pct: 22, fiscal_pct: 8, classe_i_pct: 4, classe_ii_pct: 38, classe_iii_pct: 25, classe_iv_pct: 3 }
+    }
+  };
+  calibrateAdvisoryDefaultsForDeal(selectedTier0CalcTarget);
+  modelCustomPassivo = estPassivo;
+  modelHaircutPct = 35;
+  modelFeeBasis = 'passivo_total';
+  modelMandateMonths = 9;
+  modelRetainerOffsetPct = 50;
+  pitchMandateType = 'Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)';
+  pitchTargetRecipient = 'Diretoria Financeira (CFO), Conselho de Administração & Debenturistas';
+  pitchRetainerMensal = Math.max(70, Math.min(220, Math.round(modelCustomPassivo * 0.35)));
+  pitchSuccessFeePct = 2.0;
+  switchMainSection('precificacao', 'pitch_pptx');
+  showToast(`Lead CVM carregado no Estúdio de Pitch (.pptx): ${lead.empresa}!`);
 }
 
 function openPitchGeneratorForDeal(dealId) {
@@ -7606,6 +8176,9 @@ function applyBenchmarkHaircutToCalc(setorName, haircutNum) {
 
 function renderPitchPptxSubmodule(d, selectorBar, container) {
   const m = computeAdvisoryFeeMetrics();
+  const qsaRec = getQsaForCnpj(d.cnpj);
+  const qsaCount = qsaRec && Array.isArray(qsaRec.qsa) ? qsaRec.qsa.length : 0;
+  const fitVal = Number(d.fit_score || (typeof computeOriginationFitScore === 'function' ? computeOriginationFitScore(d).score : 75));
   container.innerHTML = selectorBar + `
     <div class="calc-layout-grid">
       <div class="calc-controls-panel">
@@ -7616,9 +8189,11 @@ function renderPitchPptxSubmodule(d, selectorBar, container) {
           <div class="calc-field-label"><span>Ângulo do Mandato Valknut</span></div>
           <select class="clean-select" style="width:100%;" aria-label="Ângulo do Mandato Valknut" onchange="pitchMandateType=this.value">
             <option value="Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)" ${pitchMandateType.includes('Debtor') ? 'selected' : ''}>Debtor-Side / Financial Advisory &amp; Turnaround (RJ/PRE)</option>
-            <option value="Creditor-Side & Watchdog Independente" ${pitchMandateType.includes('Creditor') ? 'selected' : ''}>Creditor-Side &amp; Watchdog Independente</option>
+            <option value="Creditor-Side & Watchdog Independente" ${pitchMandateType.includes('Creditor') && !pitchMandateType.includes('Carve-out') ? 'selected' : ''}>Creditor-Side &amp; Watchdog Independente</option>
             <option value="Estruturação de DIP Financing & M&A Distressed (UPI)" ${pitchMandateType.includes('DIP') ? 'selected' : ''}>Estruturação de DIP Financing &amp; M&amp;A Distressed (UPI)</option>
-            <option value="Gestão Interina (CRO) & Renegociação Bancária" ${pitchMandateType.includes('CRO') ? 'selected' : ''}>Gestão Interina (CRO) &amp; Renegociação Bancária</option>
+            <option value="Gestão Interina (CRO) & Renegociação Bancária" ${pitchMandateType.includes('CRO') && !pitchMandateType.includes('Carve-out') ? 'selected' : ''}>Gestão Interina (CRO) &amp; Renegociação Bancária</option>
+            <option value="Carve-out de Ativos & Estabilização Pós-Execução (Credor / CRO)" ${pitchMandateType.includes('Carve-out') ? 'selected' : ''}>Carve-out de Ativos &amp; Estabilização Pós-Execução (Credor / CRO)</option>
+            <option value="Monetização de Ativos Non-Core (UPIs, Legal Claims, Carbono & Funding Estruturado)" ${pitchMandateType.includes('Non-Core') ? 'selected' : ''}>Monetização de Ativos Non-Core (UPIs, Legal Claims, Carbono &amp; Funding)</option>
           </select>
         </div>
         <div class="calc-field-group">
@@ -7652,26 +8227,27 @@ function renderPitchPptxSubmodule(d, selectorBar, container) {
           </div>
         </div>
         <button class="btn-solid" style="width:100%; justify-content:center; padding:11px; font-size:13px; margin-top:8px;" onclick="generatePitchDeckPptx('${escapeHtml(String(d.id))}')">
-          📊 Baixar Apresentação Executiva (.PPTX — 7 Slides)
+          📊 Baixar Apresentação Executiva (.PPTX — 8 Slides)
         </button>
       </div>
 
       <div class="chart-panel">
         <div class="chart-panel-header">
           <div>
-            <h3>Estrutura dos 7 Slides Institucionais Gerados (16:9 Widescreen)</h3>
-            <p>Design corporativo Valknut (#063630 / #A5AC82 / #E6E9DC) sincronizado com a Calculadora de Honorários</p>
+            <h3>Estrutura dos 8 Slides Institucionais Gerados (16:9 Widescreen)</h3>
+            <p>Design corporativo Valknut (#063630 / #9EA581 / #F4F5F2) sincronizado com QSA, Fit Score e Calculadora de Honorários</p>
           </div>
-          <span class="chart-tag">PPTXGENJS</span>
+          <span class="chart-tag">PPTXGENJS &bull; 8 SLIDES</span>
         </div>
         <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; font-size:12px;">
           <div class="dossier-cell"><strong>Slide 1 — Capa Institucional:</strong> VALKNUT SPECIAL SITUATIONS, Caso ${escapeHtml(d.empresa)} e Destinatário.</div>
           <div class="dossier-cell"><strong>Slide 2 — Executive Summary &amp; Perfil:</strong> Introdução da empresa, CNPJ, Juízo e Passivo (R$ ${formatNumberBR(d.passivo_mm)} MM).</div>
           <div class="dossier-cell"><strong>Slide 3 — Diagnóstico Forense (3 Pilares):</strong> Causa Raiz, Gargalo Imediato e Tese de Mandato.</div>
           <div class="dossier-cell"><strong>Slide 4 — Mapa de Credores &amp; Stakeholders:</strong> Bancos, Agentes Fiduciários e Securitizadoras.</div>
-          <div class="dossier-cell"><strong>Slide 5 — Modelagem do Plano &amp; Economia Gerada:</strong> Passivo Alvo (R$ ${formatNumberBR(m.passivoMM)}M), Haircut Projetado (${m.haircutPct}%) e Economia de R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM.</div>
-          <div class="dossier-cell"><strong>Slide 6 — Cronograma Processual &amp; Prazos:</strong> Marcos da Lei 11.101/05 e plano de trabalho de ${m.mesesMandato} meses.</div>
-          <div class="dossier-cell" style="grid-column:1/-1;"><strong>Slide 7 — Proposta de Honorários (Retainer &amp; Success Fee):</strong> Retainer R$ ${m.retainerMensalMil} mil/mês (${m.mesesMandato}m = R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')}M) + Success Fee de ${m.successFeePct.toFixed(2).replace('.', ',')}% s/ ${escapeHtml(m.baseShortLabel)} (Offset ${m.offsetPct}%) = <strong>Total Estimado R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM</strong>.</div>
+          <div class="dossier-cell" style="border-left:3px solid var(--vk-olive);"><strong>Slide 5 — Governança, QSA &amp; Estratégia de Entrada:</strong> Fit de Originação (${fitVal}/100), ${qsaCount > 0 ? `${qsaCount} sócios/diretores QSA mapeados` : 'governança societária'} e mapa de 3 portas de acesso.</div>
+          <div class="dossier-cell"><strong>Slide 6 — Modelagem do Plano &amp; Economia Gerada:</strong> Passivo Alvo (R$ ${formatNumberBR(m.passivoMM)}M), Haircut Projetado (${m.haircutPct}%) e Economia de R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM.</div>
+          <div class="dossier-cell"><strong>Slide 7 — Cronograma Processual &amp; Prazos:</strong> Marcos da Lei 11.101/05, fatos relevantes e plano de trabalho de ${m.mesesMandato} meses.</div>
+          <div class="dossier-cell"><strong>Slide 8 — Proposta de Honorários:</strong> Retainer R$ ${m.retainerMensalMil}k/mês (${m.mesesMandato}m) + Success Fee ${m.successFeePct.toFixed(2).replace('.', ',')}% (Offset ${m.offsetPct}%) = <strong>R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM</strong>.</div>
         </div>
       </div>
     </div>
@@ -7721,6 +8297,16 @@ async function generatePitchDeckPptx(dealId) {
   const proxAcoesTxt = safeStr(d.proximas_acoes, 'Diagnóstico econômico-financeiro de caixa 13 semanas, standstill com credores-chave e estruturação de mandato.');
   const passivoNum = Number(d.passivo_mm || modelCustomPassivo || 100);
   const scoreNum = Number(d.score || 8.5);
+  const fitObj = typeof computeOriginationFitScore === 'function' ? computeOriginationFitScore(d) : { score: 75, tier: 'Aderente', reasons: [] };
+  const fitScoreNum = Number(d.fit_score || fitObj.score || 75);
+  const fitReasonsTxt = (Array.isArray(d.fit_reasons) && d.fit_reasons.length > 0 ? d.fit_reasons : fitObj.reasons).join(' | ') || 'Análise institucional Valknut';
+  const qsaRec = getQsaForCnpj(d.cnpj);
+  const qsaListTxt = (qsaRec && Array.isArray(qsaRec.qsa) && qsaRec.qsa.length > 0)
+    ? qsaRec.qsa.slice(0, 6).map(s => `  - ${s.nome} (${s.qualificacao || 'Sócio / Administrador'})`).join('\n')
+    : '  - Quadro societário sob validação cadastral (Receita Federal / Juntas Comerciais).';
+  const capSocialTxt = (qsaRec && Number(qsaRec.capital_social || 0) > 0)
+    ? `R$ ${formatNumberBR(Number(qsaRec.capital_social) / 1e6)} MM (${safeStr(qsaRec.situacao, 'ATIVA')})`
+    : 'Em validação cadastral';
 
   const parsed = parseThesisRegex(safeStr(d.tese, descEmpresa));
   const m = computeAdvisoryFeeMetrics();
@@ -7736,21 +8322,24 @@ async function generatePitchDeckPptx(dealId) {
   pptx.title = `Proposta Executiva - ${empresaNome}`;
 
   function addSlideHeader(slide, titleText, subtitleText) {
+    slide.background = { color: 'F4F5F2' };
     slide.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: '100%', h: 0.9, fill: { color: '063630' } });
+    slide.addShape(pptx.ShapeType.rect, { x: 0, y: 0.9, w: '100%', h: 0.05, fill: { color: '9EA581' } });
     slide.addText('VALKNUT — SPECIAL SITUATIONS', { x: 0.5, y: 0.14, w: 6, h: 0.25, fontSize: 10, bold: true, color: 'A5AC82', fontFace: 'Arial' });
-    slide.addText(titleText, { x: 0.5, y: 0.36, w: 11, h: 0.4, fontSize: 18, bold: true, color: 'E6E9DC', fontFace: 'Arial' });
+    slide.addText(titleText, { x: 0.5, y: 0.36, w: 12, h: 0.4, fontSize: 18, bold: true, color: 'E6E9DC', fontFace: 'Arial' });
     if (subtitleText) {
-      slide.addText(subtitleText, { x: 0.5, y: 0.98, w: 12, h: 0.3, fontSize: 11, italic: true, color: '475569', fontFace: 'Arial' });
+      slide.addText(subtitleText, { x: 0.5, y: 1.02, w: 12.2, h: 0.3, fontSize: 11, italic: true, color: '475569', fontFace: 'Arial' });
     }
   }
 
   // Slide 1: Cover
   const s1 = pptx.addSlide();
   s1.background = { color: '063630' };
-  s1.addText('VALKNUT', { x: 0.8, y: 1.5, w: 10, h: 0.7, fontSize: 38, bold: true, color: 'E6E9DC', charSpacing: 6 });
-  s1.addText('SPECIAL SITUATIONS // ASSESSORIA FINANCEIRA & REESTRUTURAÇÃO', { x: 0.8, y: 2.2, w: 11, h: 0.4, fontSize: 13, bold: true, color: 'A5AC82' });
-  s1.addText(`PROPOSTA DE ASSESSORIA & DOSSIÊ EXECUTIVO:\n${empresaNome}`, { x: 0.8, y: 3.1, w: 11.5, h: 1.3, fontSize: 24, bold: true, color: 'FFFFFF' });
-  s1.addText(`Ângulo: ${safeStr(pitchMandateType, 'Financial Advisory & Turnaround')}\nDestinatário: ${safeStr(pitchTargetRecipient, 'Conselho de Administração / Comitê')}\nPassivo Monitorado: R$ ${formatNumberBR(passivoNum)} Milhões | Data: ${mesAnoAtual}`, { x: 0.8, y: 4.8, w: 11, h: 1.2, fontSize: 13, color: 'E6E9DC' });
+  s1.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.22, h: '100%', fill: { color: '9EA581' } });
+  s1.addText('VALKNUT', { x: 0.8, y: 1.4, w: 10, h: 0.7, fontSize: 38, bold: true, color: 'E6E9DC', charSpacing: 6 });
+  s1.addText('SPECIAL SITUATIONS // ASSESSORIA FINANCEIRA & REESTRUTURAÇÃO', { x: 0.8, y: 2.1, w: 11, h: 0.4, fontSize: 13, bold: true, color: 'A5AC82' });
+  s1.addText(`PROPOSTA DE ASSESSORIA & DOSSIÊ EXECUTIVO:\n${empresaNome}`, { x: 0.8, y: 3.0, w: 11.5, h: 1.3, fontSize: 24, bold: true, color: 'FFFFFF' });
+  s1.addText(`Ângulo: ${safeStr(pitchMandateType, 'Financial Advisory & Turnaround')}\nDestinatário: ${safeStr(pitchTargetRecipient, 'Conselho de Administração / Comitê')}\nPassivo Monitorado: R$ ${formatNumberBR(passivoNum)} Milhões | Fit de Originação: ${fitScoreNum}/100 | Data: ${mesAnoAtual}`, { x: 0.8, y: 4.8, w: 11.4, h: 1.3, fontSize: 13, color: 'E6E9DC' });
 
   // Slide 2: Perfil & Introdução da Empresa
   const s2 = pptx.addSlide();
@@ -7759,30 +8348,36 @@ async function generatePitchDeckPptx(dealId) {
     { text: 'PERFIL OPERACIONAL & INTRODUÇÃO DA DEVEDORA:\n', options: { bold: true, color: '063630', fontSize: 13 } },
     { text: `${descEmpresa}\n\n`, options: { color: '1E293B', fontSize: 12 } },
     { text: 'DADOS PROCESSUAIS & MÉTRICAS CHAVE:\n', options: { bold: true, color: '063630', fontSize: 13 } },
-    { text: `• Passivo Total Estimado: R$ ${formatNumberBR(passivoNum)} MM\n• Fase Concursal: ${faseTxt}\n• Juízo / Monitoramento: ${tribunalTxt} (Ref.: ${processoTxt})\n• Score Forense Valknut: ${formatScoreBR(scoreNum)} / 10,0 (${tierTxt})\n• Banca Jurídica: ${advTxt} | Administrador Judicial: ${ajTxt}`, options: { color: '1E293B', fontSize: 12 } }
-  ], { x: 0.6, y: 1.4, w: 12.1, h: 5.2, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, margin: 14 });
+    { text: `• Passivo Total Estimado: R$ ${formatNumberBR(passivoNum)} MM\n• Fase Concursal: ${faseTxt}\n• Juízo / Monitoramento: ${tribunalTxt} (Ref.: ${processoTxt})\n• Score Forense Valknut: ${formatScoreBR(scoreNum)} / 10,0 (${tierTxt}) | Origination Fit: ${fitScoreNum}/100\n• Banca Jurídica: ${advTxt} | Administrador Judicial: ${ajTxt}`, options: { color: '1E293B', fontSize: 12 } }
+  ], { x: 0.6, y: 1.45, w: 12.1, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: 'C8CEB0', pt: 1.2 }, margin: 14 });
 
   // Slide 3: Diagnóstico Forense (3 Pilares)
   const s3 = pptx.addSlide();
   addSlideHeader(s3, '2. Diagnóstico Forense em 3 Pilares', 'Análise estruturada da causa da crise, gargalo imediato e oportunidade de mandato');
-  s3.addText(`1. CAUSA DA CRISE:\n${safeStr(parsed.causa, descEmpresa)}`, { x: 0.5, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
-  s3.addText(`2. GARGALO IMEDIATO:\n${safeStr(parsed.gargalo, faseTxt)}`, { x: 4.7, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'FFFBEB' }, line: { color: 'B45309', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
-  s3.addText(`3. TESE DE MANDATO:\n${safeStr(parsed.mandato, proxAcoesTxt)}`, { x: 8.9, y: 1.4, w: 3.9, h: 5.2, fill: { color: 'F0FDF4' }, line: { color: '065F46', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
+  s3.addText(`1. CAUSA DA CRISE:\n${safeStr(parsed.causa, descEmpresa)}`, { x: 0.5, y: 1.45, w: 3.9, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
+  s3.addText(`2. GARGALO IMEDIATO:\n${safeStr(parsed.gargalo, faseTxt)}`, { x: 4.7, y: 1.45, w: 3.9, h: 5.2, fill: { color: 'FFFBEB' }, line: { color: 'B45309', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
+  s3.addText(`3. TESE DE MANDATO:\n${safeStr(parsed.mandato, proxAcoesTxt)}`, { x: 8.9, y: 1.45, w: 3.9, h: 5.2, fill: { color: 'ECEFE4' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '063630', valign: 'top', margin: 12 });
 
   // Slide 4: Credores e Stakeholders
   const s4 = pptx.addSlide();
   addSlideHeader(s4, '3. Quadro de Credores & Stakeholders Fiduciários', 'Mapeamento de exposições bancárias, agentes fiduciários, securitizadoras e garantias');
-  s4.addText(`• Principais Credores Mapeados:\n${credoresTxt}\n\n• Perfil do Passivo & Colateral:\n${perfilPassivoTxt}\n\n• Agentes Fiduciários: ${afTxt}\n• Securitizadoras: ${secTxt}`, { x: 0.6, y: 1.4, w: 12.1, h: 5.2, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, fontSize: 12.5, color: '1E293B', valign: 'top', margin: 14 });
+  s4.addText(`• Principais Credores Mapeados:\n${credoresTxt}\n\n• Perfil do Passivo & Colateral:\n${perfilPassivoTxt}\n\n• Agentes Fiduciários: ${afTxt}\n• Securitizadoras: ${secTxt}`, { x: 0.6, y: 1.45, w: 12.1, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: 'C8CEB0', pt: 1.2 }, fontSize: 12.5, color: '1E293B', valign: 'top', margin: 14 });
 
-  // Slide 5: Modelagem de Desalavancagem & Estrutura de Capital (6 Faixas)
+  // Slide 5: Governança, QSA & Estratégia de Entrada (3 Portas)
   const s5 = pptx.addSlide();
-  const splitTxt = `Extraconcursal ${waterfallSplitPcts.extra}% | Fiscal ${waterfallSplitPcts.fiscal}% | Cl. I ${waterfallSplitPcts.c1}% | Cl. II ${waterfallSplitPcts.c2}% | Cl. III ${waterfallSplitPcts.c3}% | Cl. IV ${waterfallSplitPcts.c4}%`;
-  addSlideHeader(s5, '4. Dimensionamento da Reestruturação & Geração de Valor', 'Impacto estimado do plano de reestruturação e abertura reconciliada do passivo');
-  s5.addText(`• Passivo / Dívida Alvo do Mandato: R$ ${formatNumberBR(m.passivoMM)} MM (100%)\n• Estrutura de Capital (6 Faixas): ${splitTxt}\n• Haircut / Deságio Projetado no Plano: ${m.haircutPct}% (Recuperação Implícita: ${m.recupPct}%)\n• Economia / Redução Nominal de Dívida Gerada: R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM\n• Passivo Reperfilado Pós-Plano: R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')} MM\n• Base Selecionada para Success Fee: ${m.baseLabel} (R$ ${m.baseCalculoMM.toFixed(1).replace('.', ',')} MM)`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 13.5, bold: true, color: '063630', valign: 'middle', margin: 18 });
+  addSlideHeader(s5, '4. Governança, QSA & Estratégia de Entrada (3 Portas)', `Fit de Originação: ${fitScoreNum}/100 (${fitReasonsTxt})`);
+  s5.addText(`QUADRO SOCIETÁRIO & GOVERNANÇA (RECEITA FEDERAL):\n• Capital Social / Situação: ${capSocialTxt}\n• Sócios & Administradores Mapeados:\n${qsaListTxt}`, { x: 0.5, y: 1.45, w: 5.9, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 14 });
+  s5.addText(`MAPA DE 3 PORTAS DE ENTRADA (VALKNUT):\n\n1. Porta Credores & Fiduciários:\nAlinhamento com mesas de Special Situations, bancos âncora e agentes fiduciários (${afTxt}) para mandato Creditor-Side, Watchdog ou Carve-out.\n\n2. Porta Ecossistema Concursal:\nAtuação financeira independente e complementar junto à banca jurídica (${advTxt}) e interlocução técnica com o AJ (${ajTxt}).\n\n3. Porta Decisores Diretos (QSA / C-Level):\nAbordagem executiva confidencial focada em caixa de 13 semanas, standstill e monetização de ativos non-core.`, { x: 6.7, y: 1.45, w: 6.1, h: 5.2, fill: { color: 'ECEFE4' }, line: { color: '9EA581', pt: 1.5 }, fontSize: 11.5, color: '063630', valign: 'top', margin: 14 });
 
-  // Slide 6: Cronograma, Fatos Relevantes Recentes e Próximas Ações
+  // Slide 6: Modelagem de Desalavancagem & Estrutura de Capital (6 Faixas)
   const s6 = pptx.addSlide();
-  addSlideHeader(s6, '5. Cronograma Tático, Fatos Relevantes & Plano de Ação', 'Marcos legais da Lei 11.101/05, últimas notícias vinculadas e diligências');
+  const splitTxt = `Extraconcursal ${waterfallSplitPcts.extra}% | Fiscal ${waterfallSplitPcts.fiscal}% | Cl. I ${waterfallSplitPcts.c1}% | Cl. II ${waterfallSplitPcts.c2}% | Cl. III ${waterfallSplitPcts.c3}% | Cl. IV ${waterfallSplitPcts.c4}%`;
+  addSlideHeader(s6, '5. Dimensionamento da Reestruturação & Geração de Valor', 'Impacto estimado do plano de reestruturação e abertura reconciliada do passivo');
+  s6.addText(`• Passivo / Dívida Alvo do Mandato: R$ ${formatNumberBR(m.passivoMM)} MM (100%)\n• Estrutura de Capital (6 Faixas): ${splitTxt}\n• Haircut / Deságio Projetado no Plano: ${m.haircutPct}% (Recuperação Implícita: ${m.recupPct}%)\n• Economia / Redução Nominal de Dívida Gerada: R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM\n• Passivo Reperfilado Pós-Plano: R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')} MM\n• Base Selecionada para Success Fee: ${m.baseLabel} (R$ ${m.baseCalculoMM.toFixed(1).replace('.', ',')} MM)`, { x: 0.6, y: 1.45, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 13.5, bold: true, color: '063630', valign: 'middle', margin: 18 });
+
+  // Slide 7: Cronograma, Fatos Relevantes Recentes e Próximas Ações
+  const s7 = pptx.addSlide();
+  addSlideHeader(s7, '6. Cronograma Tático, Fatos Relevantes & Plano de Ação', 'Marcos legais da Lei 11.101/05, últimas notícias vinculadas e diligências');
   const cm = computeDynamicCalendarMeta(d);
   const marcoDt = safeStr(cm.data_marco_br || formatDateBR(cm.data_marco_iso), formatDateBR(isoToday));
   const marcoDesc = safeStr(cm.marco_label || cm.marco_principal || cm.tipo_marco, 'Monitoramento Tático Concursal');
@@ -7792,17 +8387,17 @@ async function generatePitchDeckPptx(dealId) {
     ? '\n\n• Últimos Fatos Relevantes & Notícias Capturadas no Radar:\n' + dealNews.map(n => `  - [${safeStr(n.data_hora, isoToday)}] ${safeStr(n.titulo, '')} (${safeStr(n.fonte, 'Radar')})`).join('\n')
     : '';
   const ultMovTxt = formatDateBR(d.data_evento || isoToday);
-  s6.addText(`• Último Movimento / Gatilho Mapeado: ${ultMovTxt}\n• Próximo Marco Fatal / Assembleia (Dia Útil): ${marcoDt}${diasRem} — ${marcoDesc}\n• Horizonte Estimado do Mandato: ${m.mesesMandato} meses\n\n• Plano de Ação Recomendado pela Mesa Valknut:\n${proxAcoesTxt}${newsBullets}`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'F8FAFA' }, line: { color: 'CBD5E1', pt: 1 }, fontSize: 12, color: '1E293B', valign: 'top', margin: 14 });
+  s7.addText(`• Último Movimento / Gatilho Mapeado: ${ultMovTxt}\n• Próximo Marco Fatal / Assembleia (Dia Útil): ${marcoDt}${diasRem} — ${marcoDesc}\n• Horizonte Estimado do Mandato: ${m.mesesMandato} meses\n\n• Plano de Ação Recomendado pela Mesa Valknut:\n${proxAcoesTxt}${newsBullets}`, { x: 0.6, y: 1.45, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: 'C8CEB0', pt: 1.2 }, fontSize: 12, color: '1E293B', valign: 'top', margin: 14 });
 
-  // Slide 7: Proposta Comercial (Retainer & Success Fee)
-  const s7 = pptx.addSlide();
+  // Slide 8: Proposta Comercial (Retainer & Success Fee)
+  const s8 = pptx.addSlide();
   const safeMandate = safeStr(pitchMandateType, 'Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)');
   const safeRecipient = safeStr(pitchTargetRecipient, 'Conselho de Administração / Diretoria Financeira');
-  addSlideHeader(s7, '6. Proposta de Honorários (Retainer & Success Fee)', `Mandato proposto: ${safeMandate}`);
-  s7.addText(`• Modalidade de Atuação: ${safeMandate}\n• Destinatário: ${safeRecipient}\n\nESTRUTURA DE REMUNERAÇÃO PROPOSTA:\n1. Retainer Fixo Mensal: R$ ${m.retainerMensalMil} mil/mês por ${m.mesesMandato} meses (Total Fixo: R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM)\n2. Taxa de Êxito (Success Fee Bruto): ${m.successFeePct.toFixed(2).replace('.', ',')}% sobre ${m.baseLabel} = R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM\n3. Cláusula de Abatimento (Offset de ${m.offsetPct}% do Retainer): -R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM\n4. Success Fee Líquido no Fechamento: R$ ${m.successLiquidoMM.toFixed(2).replace('.', ',')} MM\n5. Remuneração Total Estimada do Mandato: R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM (${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do Passivo Total)`, { x: 0.6, y: 1.4, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: 'A5AC82', pt: 2 }, fontSize: 13, bold: true, color: '063630', valign: 'top', margin: 18 });
+  addSlideHeader(s8, '7. Proposta de Honorários (Retainer & Success Fee)', `Mandato proposto: ${safeMandate}`);
+  s8.addText(`• Modalidade de Atuação: ${safeMandate}\n• Destinatário: ${safeRecipient}\n\nESTRUTURA DE REMUNERAÇÃO PROPOSTA:\n1. Retainer Fixo Mensal: R$ ${m.retainerMensalMil} mil/mês por ${m.mesesMandato} meses (Total Fixo: R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM)\n2. Taxa de Êxito (Success Fee Bruto): ${m.successFeePct.toFixed(2).replace('.', ',')}% sobre ${m.baseLabel} = R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM\n3. Cláusula de Abatimento (Offset de ${m.offsetPct}% do Retainer): -R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM\n4. Success Fee Líquido no Fechamento: R$ ${m.successLiquidoMM.toFixed(2).replace('.', ',')} MM\n5. Remuneração Total Estimada do Mandato: R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM (${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do Passivo Total)`, { x: 0.6, y: 1.45, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: '9EA581', pt: 2 }, fontSize: 13, bold: true, color: '063630', valign: 'top', margin: 18 });
 
   await pptx.writeFile({ fileName: `Valknut_Proposta_Honorarios_${empresaNome.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 25)}.pptx` });
-  showToast(`Proposta Comercial (.pptx) gerada com sucesso para ${empresaNome}!`);
+  showToast(`Proposta Comercial (.pptx — 8 slides) gerada com sucesso para ${empresaNome}!`);
 }
 
 // ==========================================================================
@@ -8119,19 +8714,25 @@ function renderDiretrizesModalBody() {
   const rows = Array.isArray(LIVE_DIRETRIZES_DATA) && LIVE_DIRETRIZES_DATA.length > 0 ? LIVE_DIRETRIZES_DATA : [];
   const totalVol = DEALS_DATA.reduce((s, d) => s + Number(d.passivo_mm || 0), 0);
   const newsCount = typeof getAllCombinedNews === 'function' ? getAllCombinedNews().length : 0;
+  const cvmCount = Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads.length : 0;
+  const qsaCount = liveLeadsData?.stats?.qsa_enriched_cnpjs || Object.keys(liveLeadsData?.qsa_by_cnpj || {}).length || 0;
+  const plantCount = Array.isArray(liveEnergyData?.top_curtailment_plants) ? liveEnergyData.top_curtailment_plants.length : 0;
 
   bodyEl.innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; background:var(--bg-subtle); border:1px solid var(--border-light); border-left:4px solid var(--vk-header-start); border-radius:8px; padding:12px 16px; margin-bottom:16px;">
       <div>
         <div style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-teal); text-transform:uppercase;">Carimbo de Governança &amp; Sincronização</div>
         <div style="font-size:13.5px; font-weight:800; color:var(--vk-header-start); margin-top:2px;">
-          Release v5.0 &bull; Sincronizado (${STATIC_BUNDLE_VERSION})
+          Release v6.0 &bull; Sincronizado (${STATIC_BUNDLE_VERSION})
         </div>
       </div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-        <span class="status-badge badge-upi">${DEALS_DATA.length || 180} Grupos Únicos</span>
-        <span class="status-badge badge-prj">R$ ${totalVol > 0 ? formatKpiScale(totalVol) : '174,80 Bi'} Monitorados</span>
-        <span class="status-badge badge-pre">${newsCount > 0 ? newsCount : 209} Fatos Curados &amp; RSS</span>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <span class="status-badge badge-upi">${DEALS_DATA.length || 172} Grupos Reais</span>
+        <span class="status-badge badge-prj">R$ ${totalVol > 0 ? formatKpiScale(totalVol) : '173,02 Bi'} Monitorados</span>
+        <span class="status-badge badge-pre">${newsCount > 0 ? newsCount : 154} Fatos &amp; RSS</span>
+        ${cvmCount > 0 ? `<span class="status-badge badge-tier0">${cvmCount} Sinais CVM IPE</span>` : ''}
+        ${qsaCount > 0 ? `<span class="fit-pill fit-mid">${qsaCount} QSAs Receita</span>` : ''}
+        ${plantCount > 0 ? `<span class="fit-pill fit-high">${plantCount} Usinas ONS S3</span>` : ''}
       </div>
     </div>
 
@@ -8339,6 +8940,7 @@ function setModalTab(tab) {
           <span>🏢 PERFIL &amp; INTRODUÇÃO DA EMPRESA</span>
           <span style="margin-left:auto; display:inline-flex; gap:6px; flex-wrap:wrap;">
             <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" style="padding:3px 9px; font-size:10.5px;" onclick="toggleCompDeal(${d.id}, event); setModalTab('visao');">⚖️ ${isCompSelected ? 'No Comps ✓' : 'Comparar'}</button>
+            <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="setModalTab('abordagem')">🎯 Decisores (QSA) &bull; Fit ${Number(d.fit_score || computeOriginationFitScore(d).score)}</button>
             <a href="${escapeHtml(tribUrl)}" target="_blank" rel="noopener noreferrer" class="btn-tribunal-link">⚖️ Consultar Autos / CVM ↗</a>
             <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="openCalculatorForDeal(${d.id})">⚡ Simular Fee &amp; Retainer (${rPct}% Recup.)</button>
             <button type="button" class="btn-solid" style="padding:3px 9px; font-size:10.5px;" onclick="openPitchGeneratorForDeal(${d.id})">📊 Gerar Proposta (.pptx)</button>
@@ -8511,6 +9113,227 @@ function setModalTab(tab) {
         </div>
       </div>
     `;
+  } else if (tab === 'abordagem') {
+    const qsaRec = getQsaForCnpj(d.cnpj);
+    const cnpjDigits = String(d.cnpj || '').replace(/\D/g, '');
+    const fitObj = {
+      score: Number(d.fit_score || computeOriginationFitScore(d).score),
+      tier: d.fit_tier || computeOriginationFitScore(d).tier,
+      reasons: Array.isArray(d.fit_reasons) && d.fit_reasons.length > 0 ? d.fit_reasons : computeOriginationFitScore(d).reasons
+    };
+    const fitCls = getFitPillClass(fitObj.score);
+    const shortCompany = String(d.empresa || '').split('(')[0].trim();
+    const topCreds = credChips.slice(0, 3);
+    const credFocusLabel = topCreds.length > 0 ? topCreds.join(', ') : (d.agentes_fiduciarios || 'Sindicato de Credores / Fiduciários');
+    const firstCredQuery = topCreds[0] || (d.agentes_fiduciarios || 'Reestruturação');
+    const bancaLabel = (!isGenericPlaceholderPlayer(d.advocacia) && d.advocacia) ? d.advocacia : 'Em mapeamento processual';
+    const ajLabel = (!isGenericPlaceholderPlayer(d.aj) && d.aj) ? d.aj : 'Em definição pelo juízo';
+
+    const lnkCredorUrl = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${firstCredQuery} Reestruturação OR Special Situations OR Crédito`)}`;
+    const lnkBancaUrl = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${bancaLabel.split('/')[0].split(',')[0]} Reestruturação OR Insolvência`)}`;
+    const lnkExecUrl = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${shortCompany} CEO OR CFO OR Diretor Financeiro`)}`;
+
+    const qsaList = qsaRec && Array.isArray(qsaRec.qsa) ? qsaRec.qsa : [];
+    const capMm = qsaRec && Number(qsaRec.capital_social || 0) > 0
+      ? `R$ ${formatNumberBR(Number(qsaRec.capital_social) / 1e6)} MM`
+      : 'N/D';
+    const draftMsg = buildOutreachDraftMessage(d, currentOutreachPersona, qsaRec);
+
+    body.innerHTML = `
+      <div class="fit-breakdown-banner">
+        <div>
+          <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-teal); text-transform:uppercase;">
+            Origination Fit Score Valknut // Diagnóstico de Aderência de Mandato
+          </div>
+          <div style="font-size:14px; font-weight:800; color:var(--vk-forest); margin-top:2px;">
+            ${escapeHtml(fitObj.tier)} &mdash; ${fitObj.score} / 100 pontos
+          </div>
+          <div class="fit-reason-chips">
+            ${fitObj.reasons.map(r => `<span class="fit-reason-chip">✓ ${escapeHtml(r)}</span>`).join('')}
+          </div>
+        </div>
+        <span class="fit-pill ${fitCls}" style="font-size:13px; padding:5px 12px;">Fit ${fitObj.score}</span>
+      </div>
+
+      <div class="approach-doors-grid">
+        <div class="door-card door-1">
+          <div class="door-card-kicker">Porta 1 &bull; Credores &amp; Fiduciários</div>
+          <div class="door-card-title">Mesas de Crédito, Bancos Âncora &amp; Agentes Fiduciários</div>
+          <div class="door-card-body">
+            <strong>Alvos prioritários:</strong> ${escapeHtml(credFocusLabel)}<br>
+            <strong>Fiduciário / DCM:</strong> ${escapeHtml(d.agentes_fiduciarios || 'N/A')}<br>
+            <strong>Ângulo:</strong> Assessoria Creditor-Side, Watchdog Independente, Carve-out ou estabilização pós-execução de garantias.
+          </div>
+          <div class="door-card-actions">
+            <a href="${escapeHtml(lnkCredorUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 9px; font-size:10.5px;">Buscar Mesa no LinkedIn ↗</a>
+            <button type="button" class="btn-action" style="padding:4px 9px; font-size:10.5px;" onclick="setOutreachPersona('credor')">Usar Roteiro</button>
+          </div>
+        </div>
+
+        <div class="door-card door-2">
+          <div class="door-card-kicker">Porta 2 &bull; Ecossistema Concursal</div>
+          <div class="door-card-title">Banca Jurídica &amp; Administrador Judicial (Parceria Complementar)</div>
+          <div class="door-card-body">
+            <strong>Banca da Devedora:</strong> ${escapeHtml(bancaLabel)}<br>
+            <strong>AJ / Perito:</strong> ${escapeHtml(ajLabel)}<br>
+            <strong>Ângulo:</strong> Atuação estritamente financeira e independente (sem sobreposição jurídica) para modelagem de plano, DIP, UPIs e negociação com credores.
+          </div>
+          <div class="door-card-actions">
+            <a href="${escapeHtml(lnkBancaUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 9px; font-size:10.5px;">Buscar Sócios da Banca ↗</a>
+            <button type="button" class="btn-action" style="padding:4px 9px; font-size:10.5px;" onclick="setOutreachPersona('banca')">Usar Roteiro</button>
+          </div>
+        </div>
+
+        <div class="door-card door-3">
+          <div class="door-card-kicker">Porta 3 &bull; Decisores Diretos</div>
+          <div class="door-card-title">Acionistas (QSA), Conselho &amp; Diretoria (CEO / CFO)</div>
+          <div class="door-card-body">
+            <strong>QSA mapeado:</strong> ${qsaList.length > 0 ? escapeHtml(qsaList.slice(0, 2).map(s => s.nome).join(', ')) : 'Acione a consulta Receita/QSA abaixo'}<br>
+            <strong>Ângulo:</strong> Preservação de valor ao acionista, diagnóstico rápido de caixa (13 semanas), standstill e monetização de ativos non-core.
+          </div>
+          <div class="door-card-actions">
+            <a href="${escapeHtml(lnkExecUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 9px; font-size:10.5px;">LinkedIn CEO / CFO ↗</a>
+            <button type="button" class="btn-action" style="padding:4px 9px; font-size:10.5px;" onclick="setOutreachPersona('executivo')">Usar Roteiro</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="qsa-board">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-forest); text-transform:uppercase;">
+              Quadro de Sócios e Administradores (QSA Oficial — Receita Federal)
+            </div>
+            <div style="font-size:11.5px; color:var(--text-secondary); margin-top:2px;">
+              ${qsaRec
+                ? `<strong>${escapeHtml(qsaRec.razao_social || d.empresa)}</strong> &bull; Situação: <strong>${escapeHtml(qsaRec.situacao || 'N/D')}</strong> &bull; Capital Social: <strong>${escapeHtml(capMm)}</strong>${qsaRec.data_inicio ? ` &bull; Abertura: ${formatDateBR(qsaRec.data_inicio)}` : ''}${qsaRec.cnae ? ` &bull; CNAE: ${escapeHtml(qsaRec.cnae)}` : ''}`
+                : 'CNPJ ainda sem snapshot em cache local. Clique no botão ao lado para consultar o QSA em tempo real.'}
+            </div>
+          </div>
+          ${cnpjDigits.length === 14
+            ? `<button type="button" class="btn-action" style="padding:5px 10px; font-size:11px;" onclick="fetchLiveQsaForDeal('${escapeHtml(cnpjDigits)}')">↻ ${qsaRec ? 'Atualizar QSA Ao Vivo' : 'Consultar QSA Ao Vivo (Receita)'}</button>`
+            : ''}
+        </div>
+
+        ${qsaList.length > 0
+          ? `<div class="qsa-partners-grid">
+              ${qsaList.map(s => {
+                const pLnk = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${s.nome} ${shortCompany.split(' ')[0]}`)}`;
+                return `
+                  <div class="qsa-partner-card">
+                    <div style="min-width:0;">
+                      <strong style="font-size:12px; color:var(--vk-forest); display:block; line-height:1.25;">${escapeHtml(s.nome)}</strong>
+                      <span style="font-size:10.5px; color:var(--text-muted);">${escapeHtml(s.qualificacao || 'Sócio / Administrador')}</span>
+                    </div>
+                    <a href="${escapeHtml(pLnk)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:3px 7px; font-size:10px; flex-shrink:0;">LinkedIn ↗</a>
+                  </div>
+                `;
+              }).join('')}
+            </div>`
+          : `<div style="font-size:12px; color:var(--text-muted); margin-top:10px; padding:10px; background:#FFFFFF; border:1px dashed var(--border-medium); border-radius:6px;">
+              ${qsaRec ? 'Companhia aberta / estrutura societária sem lista nominal individualizada no QSA público da Receita Federal (consulte Formulário de Referência CVM / LinkedIn C-Level).' : 'Clique em "Consultar QSA Ao Vivo (Receita)" para buscar os sócios e administradores via BrasilAPI.'}
+            </div>`
+        }
+      </div>
+
+      <div class="outreach-studio-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-forest); text-transform:uppercase;">
+              Estúdio de Abordagem Executiva (1 Clique para Copiar)
+            </div>
+            <div style="font-size:11.5px; color:var(--text-secondary);">Selecione a porta de entrada para gerar um texto sob medida, técnico e confidencial para e-mail ou LinkedIn.</div>
+          </div>
+          <button type="button" class="btn-solid" style="padding:6px 12px; font-size:11.5px;" onclick="copyOutreachDraft()">📋 Copiar Mensagem</button>
+        </div>
+
+        <div class="outreach-persona-tabs" role="tablist" aria-label="Perfil do destinatário da abordagem">
+          <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'credor' ? 'active' : ''}" onclick="setOutreachPersona('credor')">🏦 Credor / Fiduciário</button>
+          <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'banca' ? 'active' : ''}" onclick="setOutreachPersona('banca')">⚖️ Banca Jurídica</button>
+          <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'executivo' ? 'active' : ''}" onclick="setOutreachPersona('executivo')">🏢 CEO / CFO / Acionista (QSA)</button>
+        </div>
+
+        <textarea id="outreachDraftTextarea" class="outreach-textarea" aria-label="Rascunho de mensagem de abordagem">${escapeHtml(draftMsg)}</textarea>
+      </div>
+    `;
+  }
+}
+
+function buildOutreachDraftMessage(d, persona, qsaRec) {
+  const emp = String(d.empresa || 'a companhia').trim();
+  const passivo = `R$ ${formatNumberBR(d.passivo_mm)} MM`;
+  const fase = String(d.fase || d.subtipo_processo || 'reestruturação').trim();
+  const parsed = parseThesisRegex(d.tese || '');
+  const gargaloCurto = String(parsed.gargalo || fase).slice(0, 175).trim();
+  const firstPartner = (qsaRec && Array.isArray(qsaRec.qsa) && qsaRec.qsa[0]?.nome) ? qsaRec.qsa[0].nome : '';
+
+  if (persona === 'banca') {
+    const bancaNome = (!isGenericPlaceholderPlayer(d.advocacia) && d.advocacia) ? d.advocacia : 'sua equipe';
+    return [
+      `Olá, time de ${bancaNome},`,
+      ``,
+      `Acompanhamos de perto o desdobramento do caso ${emp} (${fase}, passivo monitorado de ${passivo}) e o gargalo atual envolvendo ${gargaloCurto}.`,
+      ``,
+      `Atuamos na Valknut Special Situations de forma estritamente financeira e independente — sem sobreposição jurídica — apoiando bancas na modelagem econômico-financeira de planos, diagnóstico de caixa de 13 semanas, estruturação de DIP/UPIs e interlocução técnica com bancos e debenturistas.`,
+      ``,
+      `Caso faça sentido somar fôlego financeiro e negocial nessa frente, podemos agendar uma conversa confidencial de 15 minutos nesta semana.`,
+      ``,
+      `Abs,`,
+      `Mesa de Special Situations — Valknut`
+    ].join('\n');
+  }
+
+  if (persona === 'executivo') {
+    const saudacao = firstPartner ? `Prezado(a) ${firstPartner},` : `Prezado(a) Diretor(a),`;
+    return [
+      saudacao,
+      ``,
+      `Acompanhamos o momento de ${emp} no segmento de ${d.setor_macro || 'mercado corporativo'} (${fase}, passivo mapeado de ${passivo}).`,
+      ``,
+      `Na Valknut Special Situations, apoiamos acionistas e diretorias financeiras em janelas críticas de liquidez — combinando reperfilamento de dívida bancária e de mercado de capitais, construção de alternativas de liquidez/DIP e monetização estruturada de ativos non-core com foco em preservação de valor.`,
+      ``,
+      `Gostaria de propor uma troca breve e estritamente confidencial para compartilhar uma leitura objetiva de cenários e alternativas de execução.`,
+      ``,
+      `Atenciosamente,`,
+      `Mesa de Special Situations — Valknut`
+    ].join('\n');
+  }
+
+  // Default: credor / fiduciário
+  const credRef = d.agentes_fiduciarios && !/^n\/a\b/i.test(d.agentes_fiduciarios) ? d.agentes_fiduciarios : 'a mesa de crédito';
+  return [
+    `Olá,`,
+    ``,
+    `Acompanhamos a exposição em ${emp} (${fase}, passivo estimado em ${passivo}) e os eventos recentes envolvendo ${gargaloCurto}.`,
+    ``,
+    `Na Valknut Special Situations, apoiamos credores institucionais, bancos e agentes fiduciários (${credRef}) em mandatos Creditor-Side, monitoramento independente (Watchdog), avaliação de garantias/recuperação, carve-out de ativos e estruturação de saída organizada.`,
+    ``,
+    `Se estiverem revisando estratégias de maximização de recuperação para essa posição, podemos compartilhar nossa leitura preliminar em uma conversa rápida de 15 minutos.`,
+    ``,
+    `Abs,`,
+    `Mesa de Special Situations — Valknut`
+  ].join('\n');
+}
+
+function setOutreachPersona(persona) {
+  currentOutreachPersona = persona || 'credor';
+  if (currentModalItem && currentModalTab === 'abordagem') {
+    setModalTab('abordagem');
+  }
+}
+
+function copyOutreachDraft() {
+  const ta = document.getElementById('outreachDraftTextarea');
+  const text = ta ? ta.value : '';
+  if (!text) return;
+  try {
+    navigator.clipboard.writeText(text).then(() => showToast('Mensagem de abordagem copiada para a área de transferência!'));
+  } catch (e) {
+    if (ta) {
+      ta.select();
+      try { document.execCommand('copy'); } catch (err) {}
+    }
+    showToast('Mensagem de abordagem copiada!');
   }
 }
 
@@ -9092,104 +9915,8 @@ function parseSheetNoticiasRows(rows) {
   return out;
 }
 
-let LIVE_TIER0_DATA = [
-  {
-    "empresa": "Grupo Agroindustrial do Cerrado (Grãos, Soja/Milho)",
-    "cnpj": "08.412.981/0001-34",
-    "setor_macro": "Agronegócio & Silvicultura",
-    "regiao": "Centro-Oeste (MT/GO)",
-    "passivo_mm": 185,
-    "score": 9.4,
-    "janela": "45-60 dias",
-    "vetores": "🔴 CENPROT (28 protestos em 30d / R$ 14,2M)\n🔴 Arresto de Safra (Art. 12135 TJMT)\n🔴 Rompimento Transação PGFN",
-    "tese": "Tradings Globais (Cargill, Bunge, ADM), Revendas e Bancos do Agro (BB, Sicredi)",
-    "fontes": "Barter / CPR Física e Financeira + Crédito Rural de Custeio"
-  },
-  {
-    "empresa": "Rede Hospitalar & Operadora Regional Sul-Sudeste",
-    "cnpj": "14.289.442/0001-89",
-    "setor_macro": "Saúde & Farma",
-    "regiao": "Sul / Sudeste (PR/SC/SP)",
-    "passivo_mm": 260,
-    "score": 9.2,
-    "janela": "60-90 dias",
-    "vetores": "🔴 Direção Fiscal ANS (DOU Seção 1)\n🔴 PEPT Trabalhista TRT-4\n🔴 CENPROT (22 protestos OPME/medicamentos)",
-    "tese": "Bancos comerciais (Itaú, Bradesco, Santander), Fornecedores de OPME e Distribuidores Farma",
-    "fontes": "Bancário Capital de Giro + Fornecedores Médicos + Passivo Trabalhista"
-  },
-  {
-    "empresa": "Renovare Energia & Comercializadora S/A",
-    "cnpj": "21.733.109/0001-55",
-    "setor_macro": "Energia & Infraestrutura",
-    "regiao": "Sudeste (SP) / Nordeste",
-    "passivo_mm": 340,
-    "score": 9.1,
-    "janela": "30-45 dias",
-    "vetores": "🔴 Inadimplemento Garantias CCEE MCP\n🔴 Downgrade CVM Debêntures (CCC) & AGD\n🔴 Protestos de Geradoras",
-    "tese": "Debenturistas da 2ª Emissão, Bancos repassadores BNDES e Agentes da CCEE",
-    "fontes": "Debêntures de Infraestrutura + Garantias Financeiras MCP CCEE"
-  },
-  {
-    "empresa": "Rede Varejista Moda & Calçados Brasil (120 Lojas)",
-    "cnpj": "05.118.774/0001-92",
-    "setor_macro": "Varejo & Consumo",
-    "regiao": "Sudeste / Sul",
-    "passivo_mm": 145,
-    "score": 8.8,
-    "janela": "45-60 dias",
-    "vetores": "🔴 Spike CENPROT (34 protestos em 45d / R$ 9,8M)\n🔴 Penhora Faturamento PGFN CPC 866\n🔴 8 Ações Despejo Shoppings",
-    "tese": "Bancos privados (Itaú, Santander, Bradesco, Safra, Daycoval), Shopping Centers e Confeccionistas",
-    "fontes": "Capital de Giro + Aluguéis Comerciais Mínimos + Fornecedores"
-  },
-  {
-    "empresa": "Metalúrgica Autopeças & Componentes Pesados",
-    "cnpj": "58.910.223/0001-44",
-    "setor_macro": "Indústria & Manufatura",
-    "regiao": "SP (Interior / Campinas)",
-    "passivo_mm": 95,
-    "score": 8.6,
-    "janela": "60-90 dias",
-    "vetores": "🔴 FIDC CVM em Amortização Antecipada\n🔴 Intimação SEIC Imóvel Fabril Art. 26\n🔴 19 Protestos Fornecedores Aço",
-    "tese": "FIDC de Duplicatas Mercantis, Bancos Industriais (Bradesco, Santander) e Fornecedores de Aço",
-    "fontes": "Antecipação de Recebíveis Bloqueados + Garantia Real de Galpão Fabril"
-  },
-  {
-    "empresa": "TransLog Cargas Pesadas & Logística Rodoviária",
-    "cnpj": "18.330.145/0001-18",
-    "setor_macro": "Tecnologia & Serviços B2B",
-    "regiao": "Sudeste / Centro-Oeste",
-    "passivo_mm": 120,
-    "score": 8.5,
-    "janela": "45-60 dias",
-    "vetores": "🔴 Busca e Apreensão Frota (65 caminhões)\n🔴 PEPT Trabalhista TRT-2\n🔴 Dívida Ativa PGFN (R$ 38M)",
-    "tese": "Bancos de Montadoras (Mercedes, Scania, Volvo Financial), Distribuidoras de Diesel e Bancos",
-    "fontes": "Alienação Fiduciária de Frota (Finame/Leasing) + Combustível"
-  },
-  {
-    "empresa": "Engenharia & Construtora InfraBrasil",
-    "cnpj": "03.771.890/0001-67",
-    "setor_macro": "Construção Civil & Real Estate",
-    "regiao": "Nacional (MG/SP/RJ)",
-    "passivo_mm": 210,
-    "score": 8.9,
-    "janela": "60-75 dias",
-    "vetores": "🔴 Sanção CEIS/CNEP/PNCP (Suspensão de Licitar)\n🔴 Cobrança Sinistro Seguro Garantia R$ 45M\n🔴 31 Protestos CENPROT",
-    "tese": "Seguradoras Garantidoras (Pomerania, Pottencial, Junto), Bancos de Fiança (Daycoval, ABC Brasil) e Subempreiteiros",
-    "fontes": "Seguro Garantia / Fianças Bancárias em Execução + Fornecedores de Maquinário"
-  },
-  {
-    "empresa": "Concessionária Rodoviária das Colinas do Tietê",
-    "cnpj": "10.450.881/0001-22",
-    "setor_macro": "Energia & Infraestrutura",
-    "regiao": "São Paulo (SP)",
-    "passivo_mm": 420,
-    "score": 9.6,
-    "janela": "30-60 dias",
-    "vetores": "🔴 Processo de Caducidade ARTESP\n🔴 AGD Debêntures Vencimento Antecipado\n🔴 Notificação Garantias Fiduciárias Pedágios",
-    "tese": "Debenturistas da 1ª e 2ª Emissão, BNDES, Agência Reguladora (Multas Contratuais) e Construtoras",
-    "fontes": "Project Finance Não-Recurso + Debêntures Incentivadas (Lei 12.431)"
-  }
-];
+// Radar Preditivo Tier 0 alimentado em produção por sinais oficiais CVM IPE 2026 (live-leads.json) e alvos reais da Planilha Mestre
+let LIVE_TIER0_DATA = [];
 
 const BLOCKED_ENTITY_TOKEN_FNV1A = new Set(['cc2636e1']);
 
@@ -9491,7 +10218,7 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
       for (let i = t0Start; i < json.tier0.length; i++) {
         const r = json.tier0[i];
         if (!r || !r[0] || isBlockedEntityToken(r[0])) continue;
-        parsedT0.push({
+        const candT0 = {
           empresa: decodeHtmlEntities(String(r[0] || '').trim()),
           cnpj: String(r[1] || '').trim(),
           setor_macro: decodeHtmlEntities(String(r[2] || 'Indústria & Manufatura').trim()),
@@ -9502,7 +10229,9 @@ async function fetchLiveSheetInBackground(notifyUser = false) {
           vetores: decodeHtmlEntities(String(r[7] || '').trim()),
           tese: decodeHtmlEntities(String(r[9] || '').trim()),
           fontes: decodeHtmlEntities(String(r[10] || '').trim())
-        });
+        };
+        if (isMockTier0Archetype(candT0)) continue;
+        parsedT0.push(candT0);
       }
       if (parsedT0.length > 0) {
         LIVE_TIER0_DATA = parsedT0;
@@ -9754,6 +10483,7 @@ function parseSheetRows(rows) {
     if (!row || row.length < 3) continue;
     const empresa = decodeHtmlEntities(String(row[2] || '').trim());
     if (!empresa || empresa.toLowerCase().includes('empresa/grupo') || isBlockedEntityToken(empresa)) continue;
+    if (isMockTier0Archetype({ empresa, cnpj: String(row[3] || '').trim() })) continue;
 
     const passivoVal = parsePassivoMmValue(row[11]);
     const trib = decodeHtmlEntities(String(row[6] || ''));

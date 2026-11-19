@@ -247,22 +247,24 @@ def fetch_ons_balanco_hourly(year: int) -> dict[tuple[str, str], dict[int, tuple
     return balanco
 
 
-def stream_ons_curtailment(months: list[tuple[int, int]], min_day: str):
+def stream_ons_curtailment(months: list[tuple[int, int]], min_day: str, max_day: str = "9999-12-31"):
     """
     Faz streaming linha a linha dos CSVs mensais de Constrained-Off Eólico e Fotovoltaico
     do ONS AWS S3 (ordenados por usina, razão pela qual o arquivo mensal completo deve ser varrido).
-    Semi-horários (48 patamares/dia) são convertidos em MW médios horários (/2.0) e MWmed diários (/48.0).
+    Semi-horários (48 patamares/dia) são convertidos em MW médios horários (/2.0) e MWmed diários (/48.0),
+    além de consolidar o Ranking de Usinas/SPEs mais penalizadas por Curtailment na janela de 30 dias.
     """
     hourly_curt: dict[tuple[str, str, str], list[float]] = defaultdict(lambda: [0.0] * 24)
     reason_mwmed: dict[tuple[str, str, str], float] = defaultdict(float)
+    plant_acc: dict[tuple[str, str, str, str, str], dict] = {}
 
     datasets = [
-        ("eol", "restricao_coff_eolica_tm", "RESTRICAO_COFF_EOLICA"),
-        ("sol", "restricao_coff_fotovoltaica_tm", "RESTRICAO_COFF_FOTOVOLTAICA"),
+        ("eol", "Eólica", "restricao_coff_eolica_tm", "RESTRICAO_COFF_EOLICA"),
+        ("sol", "Solar", "restricao_coff_fotovoltaica_tm", "RESTRICAO_COFF_FOTOVOLTAICA"),
     ]
     for yr, mo in months:
         ym_tag = f"{yr}_{mo:02d}"
-        for kind, folder, prefix in datasets:
+        for kind, fonte_lbl, folder, prefix in datasets:
             url = f"{ONS_S3_BASE}/{folder}/{prefix}_{ym_tag}.csv"
             req = urllib.request.Request(url, headers=BROWSER_HEADERS)
             try:
@@ -270,6 +272,9 @@ def stream_ons_curtailment(months: list[tuple[int, int]], min_day: str):
                     header_raw = resp.readline().decode("utf-8", errors="ignore")
                     hdr = [c.strip().lower() for c in header_raw.split(";")]
                     i_sub = hdr.index("id_subsistema") if "id_subsistema" in hdr else 0
+                    i_uf = hdr.index("id_estado") if "id_estado" in hdr else 2
+                    i_usina = hdr.index("nom_usina") if "nom_usina" in hdr else 4
+                    i_ceg = hdr.index("ceg") if "ceg" in hdr else 6
                     i_dt = hdr.index("din_instante") if "din_instante" in hdr else 7
                     i_ger = hdr.index("val_geracao") if "val_geracao" in hdr else 8
                     i_ref = hdr.index("val_geracaoreferencia") if "val_geracaoreferencia" in hdr else 11
@@ -284,38 +289,66 @@ def stream_ons_curtailment(months: list[tuple[int, int]], min_day: str):
                         if "val_geracaonaorealizadaapurada" in hdr
                         else 19
                     )
-                    req_len = max(i_sub, i_dt, i_ger, i_ref, i_reff, i_raz, i_apur) + 1
+                    req_len = max(i_sub, i_uf, i_usina, i_ceg, i_dt, i_ger, i_ref, i_reff, i_raz, i_apur) + 1
 
                     for raw_line in resp:
                         ln = raw_line.decode("utf-8", errors="ignore")
                         parts = ln.split(";")
                         if len(parts) < req_len:
                             continue
-                        raz = parts[i_raz].strip().upper()
-                        apur_str = parts[i_apur].strip()
-                        if not raz and not apur_str:
-                            continue
                         dt_str = parts[i_dt].strip()
                         day = dt_str[:10]
-                        if day < min_day:
-                            continue
-                        try:
-                            hr = int(dt_str[11:13])
-                        except ValueError:
-                            continue
-                        if not (0 <= hr <= 23):
+                        if day < min_day or day > max_day:
                             continue
                         sub = parts[i_sub].strip().upper()
                         if sub not in REGIONAL_KEYS:
                             continue
 
-                        curt_mw = safe_float(apur_str, 0.0) if apur_str else 0.0
-                        if curt_mw <= 0.0 and raz in ("ENE", "CNF", "REL"):
-                            ref_v = safe_float(parts[i_reff].strip() or parts[i_ref].strip(), 0.0)
-                            ger_v = safe_float(parts[i_ger], 0.0)
-                            curt_mw = max(0.0, ref_v - ger_v)
+                        raz = parts[i_raz].strip().upper()
+                        apur_str = parts[i_apur].strip()
+                        ger_v = max(0.0, safe_float(parts[i_ger], 0.0))
+                        ref_raw = parts[i_reff].strip() or parts[i_ref].strip()
+                        ref_v = max(0.0, safe_float(ref_raw, 0.0)) if ref_raw else ger_v
+
+                        curt_mw = 0.0
+                        if raz or apur_str:
+                            curt_mw = safe_float(apur_str, 0.0) if apur_str else 0.0
+                            if curt_mw <= 0.0 and raz in ("ENE", "CNF", "REL"):
+                                curt_mw = max(0.0, ref_v - ger_v)
+
+                        usina_nm = parts[i_usina].strip()
+                        if usina_nm:
+                            ceg_code = parts[i_ceg].strip()
+                            uf_code = parts[i_uf].strip().upper()[:2]
+                            pkey = (usina_nm, ceg_code, uf_code, sub, fonte_lbl)
+                            st = plant_acc.get(pkey)
+                            if st is None:
+                                st = {
+                                    "lost_mwh": 0.0,
+                                    "gen_mwh": 0.0,
+                                    "ref_mwh": 0.0,
+                                    "ENE": 0.0,
+                                    "CNF": 0.0,
+                                    "REL": 0.0,
+                                    "days": set(),
+                                }
+                                plant_acc[pkey] = st
+                            st["gen_mwh"] += ger_v * 0.5
+                            st["ref_mwh"] += max(ref_v, ger_v + curt_mw) * 0.5
+                            if curt_mw > 0.0:
+                                lost_h = curt_mw * 0.5
+                                st["lost_mwh"] += lost_h
+                                tag_r = raz if raz in ("ENE", "CNF", "REL") else "CNF"
+                                st[tag_r] += lost_h
+                                st["days"].add(day)
 
                         if curt_mw > 0.0:
+                            try:
+                                hr = int(dt_str[11:13])
+                            except ValueError:
+                                continue
+                            if not (0 <= hr <= 23):
+                                continue
                             half_mw = curt_mw / 2.0
                             hourly_curt[(day, sub, kind)][hr] += half_mw
                             hourly_curt[(day, "SIN", kind)][hr] += half_mw
@@ -325,7 +358,34 @@ def stream_ons_curtailment(months: list[tuple[int, int]], min_day: str):
             except Exception as exc:
                 print(f"[ONS Curtailment] Aviso ao processar {prefix}_{ym_tag}: {exc}")
 
-    return hourly_curt, reason_mwmed
+    top_plants = []
+    for (usina_nm, ceg_code, uf_code, sub, fonte_lbl), st in plant_acc.items():
+        lost_mwh = st["lost_mwh"]
+        if lost_mwh < 500.0:
+            continue
+        denom_mwh = max(st["ref_mwh"], st["gen_mwh"] + lost_mwh, 1.0)
+        curt_pct = min(99.9, round(100.0 * lost_mwh / denom_mwh, 1))
+        raz_map = {"ENE": st["ENE"], "CNF": st["CNF"], "REL": st["REL"]}
+        dom_raz = max(raz_map, key=raz_map.get)
+        dom_pct = int(round(100.0 * raz_map[dom_raz] / max(lost_mwh, 1e-6)))
+        est_loss_mm = round((lost_mwh * 180.0) / 1_000_000.0, 2)
+        top_plants.append({
+            "usina": usina_nm,
+            "ceg": ceg_code or "N/D",
+            "uf": uf_code or sub,
+            "submercado": sub,
+            "fonte": fonte_lbl,
+            "curt_mwh": int(round(lost_mwh)),
+            "curt_mwmed": round(lost_mwh / (30.0 * 24.0), 1),
+            "curt_pct": curt_pct,
+            "est_rev_loss_mm": est_loss_mm,
+            "dominant_reason": dom_raz,
+            "dominant_reason_pct": dom_pct,
+            "days_affected": len(st["days"]),
+        })
+
+    top_plants.sort(key=lambda x: x["curt_mwh"], reverse=True)
+    return hourly_curt, reason_mwmed, top_plants[:35]
 
 
 def fetch_ccee_pld_hourly(year: int, months: list[tuple[int, int]], min_day: str) -> dict[tuple[str, str], list[float]]:
@@ -465,7 +525,7 @@ def main():
     ref_day = target_days[-1]
 
     months_needed = sorted({(int(d[:4]), int(d[5:7])) for d in target_days})
-    hourly_curt, reason_mwmed = stream_ons_curtailment(months_needed, min_day)
+    hourly_curt, reason_mwmed, top_curtailment_plants = stream_ons_curtailment(months_needed, min_day, ref_day)
     pld_hourly: dict[tuple[str, str], list[float]] = {}
     for yr in sorted({y for y, _ in months_needed}):
         yr_months = [(y, m) for y, m in months_needed if y == yr]
@@ -664,6 +724,7 @@ def main():
         "max_date": ref_day,
         "source_status": "ONS AWS OpenData + CCEE Oficial",
         "submarkets": history[ref_day],
+        "top_curtailment_plants": top_curtailment_plants,
         "history": history,
     }
 
@@ -675,7 +736,8 @@ def main():
     print(
         f"live-energy.json atualizado ({len(history)} dias: {min_day} -> {ref_day}) | "
         f"SIN {ref_day}: Carga={sin_ref['carga_mw']} | EAR={sin_ref['ear_pct']} | "
-        f"PLD={sin_ref['pld_medio']} | Curtailment={sin_ref['curtailment_mw']}"
+        f"PLD={sin_ref['pld_medio']} | Curtailment={sin_ref['curtailment_mw']} | "
+        f"Top Usinas={len(top_curtailment_plants)}"
     )
 
 

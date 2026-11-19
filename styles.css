@@ -1,27 +1,28 @@
 /* ==========================================================================
    VALKNUT — SPECIAL SITUATIONS // Distressed Debt & Restructuring Platform
-   Design System v5.0 (20261118v50): 8-Module Executive UX, CRM & Watchlist
+   Design System v6.0 (20261119v60): Pre-Media CVM/ONS, Fit Score & QSA Hub
    ========================================================================== */
 
 :root {
   /* Official Valknut Institutional Palette */
   --vk-forest: #063630;
   --vk-header-start: #063630;
-  --vk-header-end: #08332C;
+  --vk-header-end: #0A4039;
   --vk-darkest: #042420;
   --vk-teal: #235C5B;
   --vk-petrol: #38686A;
   --vk-sage: #A5AC82;
+  --vk-olive: #9EA581;
   --vk-sage-light: #C8CEB0;
   --vk-cream: #E6E9DC;
   --vk-tint-warm: #E5E7DC;
   --vk-tint-cool: #DCE7E7;
 
   /* Workspace Surfaces */
-  --bg-page: #F2F5F6;
+  --bg-page: #F4F5F2;
   --bg-card: #FFFFFF;
-  --bg-subtle: #F8FAFA;
-  --bg-hover: #EEF4F4;
+  --bg-subtle: #F8F9F6;
+  --bg-hover: #EEF2EC;
 
   /* Typography Colors */
   --text-main: #063630;
@@ -3296,3 +3297,398 @@ body.diretrizes-modal-open #diretrizesModal {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
 }
+
+/* ==========================================================================
+   17. Release v6.0 — Sweet Spot, Fit Score, CVM Tier 0, Curtailment & QSA
+   ========================================================================== */
+.quick-toggle-sweet {
+  border-color: var(--vk-olive);
+  color: var(--vk-forest);
+  background: rgba(158, 165, 129, 0.16);
+}
+
+.quick-toggle-sweet:hover {
+  background: rgba(158, 165, 129, 0.28);
+}
+
+.quick-toggle-sweet.active {
+  background: var(--vk-forest);
+  color: #E6E9DC;
+  border-color: var(--vk-forest);
+}
+
+/* Origination Fit Score Pill (0-100) */
+.fit-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.fit-pill.fit-high {
+  background: #063630;
+  color: #E6E9DC;
+  border-color: #0A4039;
+}
+
+.fit-pill.fit-mid {
+  background: #ECEFE4;
+  color: #063630;
+  border-color: #A5AC82;
+}
+
+.fit-pill.fit-low {
+  background: #F1F5F9;
+  color: #475569;
+  border-color: #CBD5E1;
+}
+
+.badge-megadeal {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+  margin-left: 4px;
+}
+
+.badge-sweetspot {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #ECEFE4;
+  color: #063630;
+  border: 1px solid #A5AC82;
+  margin-left: 4px;
+}
+
+/* CVM IPE Pre-Media Tier 0 Radar */
+.cvm-tier0-panel {
+  margin-bottom: 20px;
+}
+
+.cvm-tier0-banner {
+  background: linear-gradient(90deg, #063630 0%, #0A4039 100%);
+  color: #E6E9DC;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--vk-sage);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cvm-tier0-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 14px;
+}
+
+.cvm-lead-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-top: 3px solid var(--vk-forest);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.cvm-lead-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.cvm-lead-card.is-new-lead {
+  border-top-color: var(--vk-olive);
+  background: linear-gradient(180deg, #FBFCF9 0%, #FFFFFF 36%);
+}
+
+.cvm-signal-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #ECEFE4;
+  color: #063630;
+  border: 1px solid #A5AC82;
+}
+
+.cvm-signal-badge.sig-urgent {
+  background: #FFE4E6;
+  color: #9F1239;
+  border-color: #FDA4AF;
+}
+
+.cvm-signal-badge.sig-agd {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #FCD34D;
+}
+
+.cvm-signal-badge.sig-carveout {
+  background: #D1FAE5;
+  color: #065F46;
+  border-color: #6EE7B7;
+}
+
+/* ONS Curtailment Plants Radar */
+.curtailment-plants-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--vk-forest);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.curtailment-severity-track {
+  width: 78px;
+  height: 7px;
+  background: #E2E8F0;
+  border-radius: 999px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.curtailment-severity-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #D97706 0%, #B91C1C 100%);
+}
+
+.reason-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--border-medium);
+  background: #F8FAFC;
+  color: var(--vk-forest);
+}
+
+.reason-pill.reason-rel {
+  background: #FEF2F2;
+  color: #991B1B;
+  border-color: #FECACA;
+}
+
+.reason-pill.reason-ene {
+  background: #FFFBEB;
+  color: #92400E;
+  border-color: #FDE68A;
+}
+
+.reason-pill.reason-cnf {
+  background: #E0F2FE;
+  color: #075985;
+  border-color: #7DD3FC;
+}
+
+/* Tear Sheet 5th Tab: Abordagem & Decisores (QSA) */
+.modal-tab-abordagem {
+  color: var(--vk-forest);
+}
+
+.fit-breakdown-banner {
+  background: linear-gradient(90deg, #F4F5F2 0%, #ECEFE4 100%);
+  border: 1px solid #C8CEB0;
+  border-left: 4px solid var(--vk-forest);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fit-reason-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.fit-reason-chip {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: #FFFFFF;
+  color: var(--vk-forest);
+  border: 1px solid #C8CEB0;
+}
+
+.approach-doors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 860px) {
+  .approach-doors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.door-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-top: 3px solid var(--vk-forest);
+  border-radius: var(--radius-sm);
+  padding: 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.door-card.door-2 { border-top-color: var(--vk-petrol); }
+.door-card.door-3 { border-top-color: var(--vk-olive); }
+
+.door-card-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vk-teal);
+}
+
+.door-card-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--vk-forest);
+  line-height: 1.25;
+}
+
+.door-card-body {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.48;
+  flex: 1;
+}
+
+.door-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+}
+
+.qsa-board {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.qsa-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.qsa-partner-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--vk-olive);
+  border-radius: var(--radius-xs);
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.outreach-studio-box {
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-left: 4px solid var(--vk-forest);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.outreach-persona-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.outreach-persona-btn {
+  padding: 5px 11px;
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.outreach-persona-btn.active {
+  background: var(--vk-forest);
+  color: #E6E9DC;
+  border-color: var(--vk-forest);
+}
+
+.outreach-textarea {
+  width: 100%;
+  min-height: 138px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-body);
+  background: var(--bg-subtle);
+  resize: vertical;
+}
+

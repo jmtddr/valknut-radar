@@ -46,6 +46,18 @@ FEEDS = [
         "https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22+d%C3%ADvida+milh%C3%B5es+when%3A14d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Pedido de RJ",
     ),
+    (
+        "https://news.google.com/rss/search?q=%22unidade+produtiva+isolada%22+OR+%22stalking+horse%22+OR+%22leil%C3%A3o+de+UPI%22+OR+%22carve-out%22+%28d%C3%ADvida+OR+reestrutura%C3%A7%C3%A3o+OR+ativos%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "Leilão de UPI",
+    ),
+    (
+        "https://news.google.com/rss/search?q=%28caducidade+ANEEL+OR+curtailment+d%C3%ADvida+OR+%22fian%C3%A7a+banc%C3%A1ria%22+energia+OR+%22desligamento+CCEE%22%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "Waiver / AGD",
+    ),
+    (
+        "https://news.google.com/rss/search?q=%28%22legal+claims%22+OR+%22venda+de+ativos+n%C3%A3o+estrat%C3%A9gicos%22+OR+%22desinvestimento%22+d%C3%ADvida+OR+%22financiamento+DIP%22%29+milh%C3%B5es+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "Leilão de UPI",
+    ),
 ]
 
 CORP_SUFFIX_RE = re.compile(

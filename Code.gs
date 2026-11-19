@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * VALKNUT — SPECIAL SITUATIONS // Google Apps Script Backend & Multi-Proxy Engine
- * Release v5.0 — Produção Blindada (15x85KB Chunked UTF-8, 6 Abas, Anti-Injection & Health)
+ * Release v6.0 — Produção Blindada (15x85KB Chunked UTF-8, 6 Abas, Anti-Injection, QSA/DJEN & Health)
  * ============================================================================
  *
  * COMO ATUALIZAR A IMPLANTAÇÃO MANTENDO A MESMA URL (`APPS_SCRIPT_URL`):
@@ -12,13 +12,13 @@
  * 3. Clique em "Implantar" > "Gerenciar implantações" > ícone de lápis (Editar) >
  *    em Versão selecione **"Nova versão"** > clique em "Implantar".
  * 4. Teste rápido de saúde da implantação: abra `<APPS_SCRIPT_URL>?action=health`
- *    e verifique `{"status":"ok","version":"5.0","router":true,...}`.
+ *    e verifique `{"status":"ok","version":"6.0","router":true,...}`.
  * 5. Opcional (varredura 24/7 + gravação automática na aba `Noticias`):
  *    execute uma vez `instalarGatilhosAutomaticos()`.
  */
 
-const APP_RELEASE_VERSION = '5.0';
-const MASTER_CACHE_KEY = 'vk_master_sheet_v50';
+const APP_RELEASE_VERSION = '6.0';
+const MASTER_CACHE_KEY = 'vk_master_sheet_v60';
 const CACHE_TTL_SECONDS = 300; // 5 minutos de cache em memória no servidor Google
 const PUBLIC_REFRESH_COOLDOWN_KEY = 'vk_public_refresh_cooldown';
 const PUBLIC_REFRESH_COOLDOWN_SECONDS = 60;
@@ -36,7 +36,8 @@ const ALLOWED_PROXY_HOSTS = {
   'ons-aws-prod-opendata.s3.amazonaws.com': true,
   'www.rad.cvm.gov.br': true,
   'dados.cvm.gov.br': true,
-  'comunicaapi.pje.jus.br': true
+  'comunicaapi.pje.jus.br': true,
+  'brasilapi.com.br': true
 };
 
 // Bloqueio por hash SHA-256 de tokens normalizados (sem exposição nominal no código)
@@ -981,6 +982,24 @@ function sincronizarRadarAutomatico() {
         tag: 'PEDIDO DE RJ',
         catAba: 'Pedidos de RJ & Cautelares 20-B',
         escopo: 'Mercado & Macro'
+      },
+      {
+        url: 'https://news.google.com/rss/search?q=%22unidade+produtiva+isolada%22+OR+%22stalking+horse%22+OR+%22leil%C3%A3o+de+UPI%22+OR+%22carve-out%22+%28d%C3%ADvida+OR+reestrutura%C3%A7%C3%A3o+OR+ativos%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        tag: 'LEILÃO DE UPI',
+        catAba: 'Leilões de UPI, Ativos & Falências',
+        escopo: 'Mercado & Macro'
+      },
+      {
+        url: 'https://news.google.com/rss/search?q=%28caducidade+ANEEL+OR+curtailment+d%C3%ADvida+OR+%22fian%C3%A7a+banc%C3%A1ria%22+energia+OR+%22desligamento+CCEE%22%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        tag: 'ENERGIA / CCEE',
+        catAba: 'Waivers, AGDs & Downgrades Rating',
+        escopo: 'CVM & Fatos Relevantes'
+      },
+      {
+        url: 'https://news.google.com/rss/search?q=%28%22legal+claims%22+OR+%22venda+de+ativos+n%C3%A3o+estrat%C3%A9gicos%22+OR+%22desinvestimento%22+d%C3%ADvida+OR+%22financiamento+DIP%22%29+milh%C3%B5es+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        tag: 'ATIVOS / DIP',
+        catAba: 'Leilões de UPI, Ativos & Falências',
+        escopo: 'Mercado & Macro'
       }
     ];
 
@@ -1004,6 +1023,7 @@ function sincronizarRadarAutomatico() {
 
     let aquecidos = 0;
     let gravadas = 0;
+    let djenCapturados = 0;
     const novasLinhas = [];
     const cache = CacheService.getScriptCache();
 
@@ -1063,6 +1083,47 @@ function sincronizarRadarAutomatico() {
       } catch (e) {}
     });
 
+    // Sonda oportunista DJEN / CNJ (Tutelas Cautelares Art. 20-B & PRE em TJSP/TJRJ/TJMG — não bloqueante)
+    try {
+      const nowDjen = new Date();
+      const iniDjen = new Date(nowDjen.getTime() - 3 * 24 * 60 * 60 * 1000);
+      const dtIniStr = Utilities.formatDate(iniDjen, 'America/Sao_Paulo', 'yyyy-MM-dd');
+      const dtFimStr = Utilities.formatDate(nowDjen, 'America/Sao_Paulo', 'yyyy-MM-dd');
+      const djenUrl = 'https://comunicaapi.pje.jus.br/api/v1/comunicacao?siglaTribunal=TJSP&texto='
+        + encodeURIComponent('tutela cautelar antecedente recuperacao')
+        + '&dataDisponibilizacaoInicio=' + dtIniStr
+        + '&dataDisponibilizacaoFim=' + dtFimStr
+        + '&itensPorPagina=5';
+      const djenResp = UrlFetchApp.fetch(djenUrl, { muteHttpExceptions: true, followRedirects: true });
+      if (djenResp.getResponseCode() >= 200 && djenResp.getResponseCode() < 300) {
+        const djenJson = JSON.parse(djenResp.getContentText('UTF-8') || '{}');
+        const djenItems = djenJson.items || [];
+        djenItems.slice(0, 5).forEach(function(di) {
+          const proc = String(di.numero_processo || '').trim();
+          const orgao = String(di.nomeOrgao || 'TJSP').trim();
+          const titulo = decodeHtmlEntities_('DJEN ' + orgao + ' — Cautelar Art. 20-B / Pré-RJ (' + proc + ')');
+          if (!proc || isExcludedEntity_(titulo)) return;
+          const normKey = titulo.toLowerCase().slice(0, 58);
+          if (seenKeys[normKey]) return;
+          seenKeys[normKey] = true;
+          djenCapturados++;
+          const dtFmt = Utilities.formatDate(nowDjen, 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm');
+          const resumo = decodeHtmlEntities_(String(di.texto || '')).slice(0, 230) || ('Publicação oficial DJEN/CNJ (' + proc + ').');
+          novasLinhas.push([
+            sanitizeSheetCell_(dtFmt),
+            sanitizeSheetCell_('DJEN / CNJ'),
+            sanitizeSheetCell_('CAUTELAR 20-B'),
+            sanitizeSheetCell_('Pedidos de RJ & Cautelares 20-B'),
+            sanitizeSheetCell_('Tribunais & DJEN'),
+            sanitizeSheetCell_('Mercado & Macro (RJ / Crédito)'),
+            sanitizeSheetCell_(titulo),
+            sanitizeSheetCell_(resumo),
+            sanitizeSheetCell_('https://comunica.pje.jus.br/')
+          ]);
+        });
+      }
+    } catch (e) {}
+
     if (novasLinhas.length > 0) {
       noticiasSheet.getRange(noticiasSheet.getLastRow() + 1, 1, novasLinhas.length, 9).setValues(novasLinhas);
       gravadas = novasLinhas.length;
@@ -1079,6 +1140,7 @@ function sincronizarRadarAutomatico() {
       timestamp: new Date().toISOString(),
       version: APP_RELEASE_VERSION,
       feedsAquecidos: aquecidos,
+      djenCapturados: djenCapturados,
       novasNoticiasGravadasNaPlanilha: gravadas
     };
   } finally {

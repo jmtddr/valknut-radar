@@ -299,6 +299,32 @@
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)"
   },
   {
+    "data_hora": "17/11/2026 07:23",
+    "titulo": "Aneel vota nesta terça processo que pode tirar Enel de São Paulo",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel vota nesta terça processo que pode tirar Enel de São Paulo ncnews.com.br",
+    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZENxUjZtUXh6WjYwakVZcmFobVo0ZXBLRlhZRFZndTVoS1JCbzdrZXVQdjV6cThJWGViSVZsSlVQYjEteDUtTWhRMkxNWS1xMlh3SHFFNVFNR2VSTzlPMGgtRE90b3BrQmRfekFDa01laEVIeWdzUmR0UjVmRndSc0c2SjQwV2l6OWpDWGRmNDFXd0pMVmxmdG5yWHJaVEE?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ncnews.com.br",
+    "id": 922954
+  },
+  {
+    "data_hora": "17/11/2026 07:08",
+    "titulo": "Aneel volta a deliberar processo sobre fim de contrato com Enel SP",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel volta a deliberar processo sobre fim de contrato com Enel SP Broadcast | Financeiro",
+    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNd052VWtQdGl2aHBOSlNnXy1hRWlNSk55R2NpczhpekRvQ19GMno4MzBBUkdWdGFiSUFXUmNnS1ZhTnRGMEg1VVVFTTVJZXRxTkhyYldYUDBVamxoZVgtUTQ5WFBKRGxGa1YzU0xHWWVkTmROaFpnTldzRWxmeUkxdjQtZkFZMXRnbHpvY2tvemFITjNVNDlNZjY1UlAyZE1yQnJv?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Broadcast | Financeiro",
+    "id": 831603
+  },
+  {
     "id": 1155,
     "data_hora": "17/11/2026 06:00",
     "titulo": "Grupo Tecparts (Piracicaba/SP) obtém tutela cautelar parcial para mediação de R$ 92 milhões em dívidas",
@@ -414,6 +440,32 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CompreRural",
     "id": 480032
+  },
+  {
+    "data_hora": "16/11/2026 11:10",
+    "titulo": "Novo ciclo dá continuidade à redução da dívida e venda de ativos, diz Cosan",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Novo ciclo dá continuidade à redução da dívida e venda de ativos, diz Cosan Valor Econômico",
+    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNVWJWUG9SMXlxc0Y4N2s5cC04ZGY1d0Q3eF9obE9XVFd5aTJ3SWt5bmpKMktaNGdsRDdIY0xYaGJvUmhqS01teVV1NmJJVFlSVVdDZFE3NE9rQ2RSMTZ4cnpvRGdEMWVBNE1sTTdUQkFQTk5sZjR2NFRZbGtNc2hoZWkzZkFFUHo3R1Q1amw0YlVCc0tzaEo5WTFpTkZmNk9BS3VuWEV1M3BwcHNINlV4UUhVNWQxVHMxeFptR2VsTjV6MUZWdlhORFIyWE5QS3JfM1Izd3k1UUhUZlnSAdsBQVVfeXFMTVViVlBvUjF5cXNGODdrOXAtOGRmNXdEN3hfaGxPV1RXeWkyd0lreW5qSjJLWjRnbEQ3SGNMWGhib1JoaktNbXlVdTZiSVRZUlVXQ2RRNzRPa0NkUjE2eHJ6b0RnRDFlQTRNbE03VEJBUE5ObGY0djRUWWxrTXNoaGVpM2ZBRVB6N0dUNWpsNGJVQnNLc2hKOVkxaU5GZjZPQUt1blhFdTNwcHBzSDZVeFFIVTVkMVRzMXhabUdlbE41ejFGVnZYTkRSMlhOUEtyXzNSM3d5NVFIVGZZ?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "id": 649861
+  },
+  {
+    "data_hora": "16/11/2026 10:30",
+    "titulo": "Cosan abre todo o portfólio a desinvestimentos para quase zerar dívida",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Cosan abre todo o portfólio a desinvestimentos para quase zerar dívida BNamericas",
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaDJjSUdpN3h3SzRIVmVvSkFPMUxVcjY4MVV1c0lsWTNoR3JyRHc0Z0xNYnFtT2Q5cWN5cE9uSXdKS3FGM0lUWWFDQkY4ZUFRV2stR1ZCVUZjSUpUcWktOHY2MVlHTTJNcHE5MDJrRnEwYVFGRjFDS2tKa1BkZDhqRXFETzRTN3g3WHF6bEpia01hMlcwX0NBekhNLXFoSGdRX1hKcC1tRnpHMXkyMGc?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // BNamericas",
+    "id": 129330
   },
   {
     "data_hora": "16/11/2026 09:38",
@@ -1313,6 +1365,32 @@
     "id": 986219
   },
   {
+    "data_hora": "08/11/2026 05:00",
+    "titulo": "Confirmado leilão de fábrica da Serra que segue operando após falência; lance inicial de R$ 48 milhões",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Falência",
+    "escopo": "mercado",
+    "resumo": "Confirmado leilão de fábrica da Serra que segue operando após falência; lance inicial de R$ 48 milhões GZH",
+    "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxNSFE1WHFlbHBmT21FUjdnTU9zQlJzc3hiaVRiendRRXdzaTVIUzk3MjhhenhBWUZ6V2dmMlpiV0ZsQ3lmWUp0QTNuRGpqZjVTQS1TWXY5UDAyYWdhZkpCMEJHYy1kT0xWT051VHc0YkJqRmNiRV83RW80cGVrQW1CYUdEbFFFWDgxQnZwazRlVjJpaExPQnNrTlYxQWJZSXBNQnJ1Vnc2LWRNQ2lJaHhpd3Y2VlQ5SUgyT19SY1hpalVBTmtjLVZHU0JyYmwwS09HUnFNXzJfaUxjV2tsR3NuNmVuY3VnMVR4UW42N2Y3cXJTQ0wtbjdTWk04Mm93SXhMUUszZ0gxdG1YaEZtbTlXRE1XWGRoazVWOVpnUWlNRW5leG9yRFEzdHdldw?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "id": 563503
+  },
+  {
+    "data_hora": "08/11/2026 05:00",
+    "titulo": "Leilão: Fábrica da Ditália será leiloada nesta terça-feira,10",
+    "fonte": "Valor Econômico",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Leilão de UPI",
+    "escopo": "pipeline",
+    "resumo": "Leilão: Fábrica da Ditália será leiloada nesta terça-feira,10 NB Notícias",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPM0NOcm9tdXlab0s4TTFpa091eEtYb0FCckVqa2hEbVd1QlhHM0NSZ2U3SUx4eGtCQ2tYZWpXMHhFMkV0OFlVMk9Fb3lTay0tRFdBeV9EOE1IN1dGQ3d0dmFweDlUTmVEd0R4Zk5Gc0hDNThxRGpaY2lJN0NSWXpDdlV1ejltV0RORWdrbFZ4M2pyanFUdmFrNVFsb096WlVmdTFUY3FpaTY?oc=5",
+    "deal_id": 64,
+    "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
+    "id": 574396
+  },
+  {
     "data_hora": "07/11/2026 08:37",
     "titulo": "Raízen aprova pacote de até R$ 39,8 bi e opções a credores",
     "fonte": "CVM / Fatos Relevantes",
@@ -1324,6 +1402,19 @@
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 479120
+  },
+  {
+    "data_hora": "07/11/2026 05:00",
+    "titulo": "GARE11 fecha venda de R$ 791,7 milhões e muda perfil da carteira",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "GARE11 fecha venda de R$ 791,7 milhões e muda perfil da carteira O Petróleo",
+    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNFJvZWlVQW9vVFhaRHRkZUE4aVMzUmxJdy10djF1N01KUkhwdGk5NnRpeHJ6d002Mkc5OXByMXltRlgwOE1GMXFuWG5LUGJ5Vmw3QkxUYVpqV2NBMjQ1SE9FZzd6d1BZVzhPZjlEdW5MbDNmaHlUS2pUcjZIOXM3YmpJU3IwNzBkUWNhaFdlLTNlUQ?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // O Petróleo",
+    "id": 540365
   },
   {
     "id": 1115,
@@ -1469,6 +1560,19 @@
     "empresa_nome": "Grupo Modesto (Leonardo Modesto Borges, Carla Mariana Soares Modesto, LM Agropecuária & CM Agropecuária)"
   },
   {
+    "data_hora": "05/11/2026 13:57",
+    "titulo": "MEZ contesta ANEEL e diz ter capacidade para concluir projeto em SP",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "MEZ contesta ANEEL e diz ter capacidade para concluir projeto em SP Agência iNFRA",
+    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQV3pORnM4V1BnU3gwZU1VY3lkNkFBRGNXMnJISkxIdEFzZVo4RUhEci1yUlA0NG84ajZjeXNDTlpRbDBkeUQzVTZmVmc5NnNQWGxfaVhLTG13bGkzdDJqX0JxcnJ1TGdyWXpMTFc0dWtHVlBRVzRYaFJhdEhKci04aWdMb0I0dzBLMm9iNUowMEFJY3RXclFleE5FeGp0SGs?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Agência iNFRA",
+    "id": 897113
+  },
+  {
     "data_hora": "05/11/2026 12:20",
     "titulo": "AXIA Energia (AXIA3) aprova 14ª emissão de debêntures de R$ 500 mi - Suno",
     "fonte": "CVM / Fatos Relevantes",
@@ -1482,32 +1586,6 @@
     "id": 880466
   },
   {
-    "id": 412017,
-    "data_hora": "05/11/2026 11:30",
-    "titulo": "Grupo Maroq tem Recuperação Judicial deferida sob consolidação substancial no TJMT para reestruturar R$ 82,9 milhões em Primavera do Leste e Paranatinga",
-    "fonte": "Jota / Tribunais",
-    "setor": "Agronegócio & Silvicultura",
-    "categoria": "Waiver / AGD",
-    "escopo": "pipeline",
-    "resumo": "4ª Vara Cível de Rondonópolis deferiu o processamento da RJ das 4 empresas do grupo agrícola (R$ 76,2M concursais, sendo R$ 57M na Classe III quirografária com BB, Caixa, Albauch Agro e FIDC Indigo Barter, além de R$ 6,66M extraconcursais) e nomeou Dr. Samir Hammoud como AJ.",
-    "url": "https://paranatinganews.com.br/noticia/5438/grupo-maroq-de-paranatinga-deve-r-68-9-milhoes-a-credores",
-    "deal_id": 130,
-    "empresa_nome": "Grupo Maroq (Maroq Agro Ltda., Maroq Agro Paranatinga Ltda., Maroq Participações e Investimento Ltda. & Maroq Produção Agrícola Ltda.)"
-  },
-  {
-    "id": 466703,
-    "data_hora": "05/11/2026 09:30",
-    "titulo": "Oncoclínicas (ONCO3) amplia adesão de credores para 74,6% dos créditos (R$ 4,3 bilhões em debêntures e certificados) no plano de recuperação extrajudicial",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Saúde & Farma",
-    "categoria": "Waiver / AGD",
-    "escopo": "pipeline",
-    "resumo": "Companhia comunicou ao mercado que atingiu quórum amplamente superior ao mínimo legal junto a debenturistas e credores financeiros (representados em AGDs por Vórtx, Pentágono e Oliveira Trust) para homologação do plano extrajudicial.",
-    "url": "https://www.moneytimes.com.br/oncoclinicas-onco3-amplia-apoio-ao-plano-de-recuperacao-extrajudicial-e-alcanca-adesao-de-746-dos-creditos-lmrs/",
-    "deal_id": 17,
-    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)"
-  },
-  {
     "id": 1108,
     "data_hora": "05/11/2026 09:00",
     "titulo": "Justiça de Rondonópolis/MT defere recuperação judicial do Grupo Maroq com passivo de R$ 76,2 milhões sob consolidação substancial",
@@ -1519,58 +1597,6 @@
     "url": "https://www.empresaemcrise.com/post/primavera-do-leste-mt-grupo-maroq-entra-em-rec-judicial-d%C3%ADvida-76-milh%C3%B5es",
     "deal_id": 130,
     "empresa_nome": "Grupo Maroq (Maroq Agro Ltda., Maroq Agro Paranatinga Ltda., Maroq Participações e Investimento Ltda. & Maroq Produção Agrícola Ltda.)"
-  },
-  {
-    "id": 312957,
-    "data_hora": "05/11/2026 08:15",
-    "titulo": "Temor de oneração tributária sobre debêntures cresce em meio à alta demanda por crédito corporativo e encarece negociações de waivers e AGDs",
-    "fonte": "Agentes Fiduciários",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "mercado",
-    "resumo": "Emissores de infraestrutura e energia aceleram captações e repactuações preventivas de covenants no mercado doméstico diante do risco de mudanças regulatórias sobre títulos incentivados.",
-    "url": "https://agenciainfra.com/blog/temor-de-oneracao-de-debentures-cresce-em-meio-a-alta-demanda-por-credito/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Agentes Fiduciários"
-  },
-  {
-    "id": 225499,
-    "data_hora": "05/11/2026 07:50",
-    "titulo": "Grupo Kitchens entra em recuperação judicial com passivo de R$ 299,85 milhões; exposição bancária soma R$ 63,25 milhões entre Itaú, Santander e Bradesco",
-    "fonte": "Jota / Tribunais",
-    "setor": "Varejo & Consumo",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Tradicional fabricante de mobiliário sob medida de alto padrão lista mais de 1.200 clientes e credores financeiros na RJ distribuída no TJSP; passivo bancário concentra-se em capital de giro e travas de recebíveis.",
-    "url": "https://www1.folha.uol.com.br/colunas/painelsa/2026/11/lista-de-credores-da-kitchens-tem-de-ex-ministro-a-empresarios-famosos.shtml",
-    "deal_id": 105,
-    "empresa_nome": "Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas)"
-  },
-  {
-    "data_hora": "05/11/2026 05:00",
-    "titulo": "Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito) Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial Fatos de Mato Grosso",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Produtora rural e empresa agrícola de MT devem R$ 10,6 milhões a 30 credores e buscam recuperação judicial Fatos de Mato Grosso",
-    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQM2FxWVhwbm5vM1pKZnJWU3l6SDZKeGhsMWdFNXVvVm9qMkpDekowakVlTTlLcGE2R0lDdmZucEp2aFZJZlVhN1NoZ3cxckNSLTJocWNnR2xvY0lpSlAtbGJpR0VfelYxTmp5M2hNUWlILWZTalI3T192and4M3FjVjFsTW83R1Q4azRQMXhUbXVncURmMENFSy1KTVg4ZlBpQzBwSlZKZkUyNkZrTF9KQ2tKYjFESTlMQUhhNnBlVTNUd0M4RG5qT21LQTd5VFBCbFBhY3l3d3NGOVNmQ29lR1FFUXFScTdW?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "id": 573957
-  },
-  {
-    "id": 934287,
-    "data_hora": "04/11/2026 20:15",
-    "titulo": "Aeris Energy (AERI3) protocola pedido de Recuperação Extrajudicial de R$ 1,52 bilhão após conversão de tutela cautelar no Ceará",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Cautelar 20-B",
-    "escopo": "pipeline",
-    "resumo": "Fabricante de pás eólicas converteu tutela cautelar antecedente em plano de Recuperação Extrajudicial abrangendo R$ 1,52 bilhão em debêntures (AERI11/AERI12) e linhas bancárias junto a BTG Pactual, Santander, Bradesco e Vórtx.",
-    "url": "https://neofeed.com.br/negocios/aeris-aciona-tutela-cautelar-para-renegociar-divida-com-credores/",
-    "deal_id": 1,
-    "empresa_nome": "Aeris Energy"
   },
   {
     "id": 1100,
