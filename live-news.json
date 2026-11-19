@@ -417,6 +417,19 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
+    "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação ativovirtual.com.br",
+    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQRlpvSHd0Yk1YMElMVWk3c3R5cWxZWTI1NFZ6WGE4TnYtb09OdzFCcTlydktPX2ZKY25QcDBpcTNyX3ZlejdoTkxEV1ZpX0pHbWhzODV3SGg0WjZkdGhjRVpiRzJNS3RuN283dTI5dGdIeFE4ZXZzTnlyRnRmV3V2YkE3UlV0WFI1QXFYMk9LaXRzQkwwQ3U1VUN4RTViTVVYRFJBUlhSTFpRbWk4VFVSWXI5RmJ4cnE3SnliZDNYX3d3Q2pwX1E?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
+    "id": 480638
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
     "titulo": "Marabraz pede recuperação judicial com dívida de R$ 140 milhões",
     "fonte": "Valor Econômico",
     "setor": "Varejo & Consumo",
@@ -1027,19 +1040,6 @@
     "id": 776480
   },
   {
-    "data_hora": "10/11/2026 22:29",
-    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial GZH",
-    "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxQN0sxRzE4NWxGM1lVUVJ1eDB1UFZyTlhTcTFsOWo1bzZRQ19lbkV6eFBuNGZVOFJXTHlXOVlJMHc4bXdmZ295Ykc5aF9nZ0t0ck1VeUhxOXlHMEVwNHROcnVyVmwwSXF0eDNFVVEtZUxDaG8wZVZPLUJZWWNKN0ZxY3lUajFCbDNqakJ2S0xpcTZmOVpRaWhsTkxqN3lPVDRIazdydEZ0dkJybWlORk1IMFRoZ1BwaldBdzJKYmNjMzZxUE10b0JBT2pPeDRJZXZhVG1Pc3RyZTVSdS1aZVh5ZWx5bUxaQl96X3hDZGNsYXR6MG5VMllSQXV2YmczdnA0NFFEV3llSlQxcWlfYlUwakxoMU5udXg4Vnc?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "id": 735067
-  },
-  {
     "data_hora": "10/11/2026 16:34",
     "titulo": "Fitch atribui rating AAA(bra) à 2ª emissão de debêntures da Buriti Transmissão de Energia",
     "fonte": "CVM / Fatos Relevantes",
@@ -1144,17 +1144,17 @@
     "id": 737507
   },
   {
-    "data_hora": "09/11/2026 18:45",
-    "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
-    "fonte": "CVM / Fatos Relevantes",
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
+    "fonte": "Valor Econômico",
     "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação ativovirtual.com.br",
-    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQRlpvSHd0Yk1YMElMVWk3c3R5cWxZWTI1NFZ6WGE4TnYtb09OdzFCcTlydktPX2ZKY25QcDBpcTNyX3ZlejdoTkxEV1ZpX0pHbWhzODV3SGg0WjZkdGhjRVpiRzJNS3RuN283dTI5dGdIeFE4ZXZzTnlyRnRmV3V2YkE3UlV0WFI1QXFYMk9LaXRzQkwwQ3U1VUN4RTViTVVYRFJBUlhSTFpRbWk4VFVSWXI5RmJ4cnE3SnliZDNYX3d3Q2pwX1E?oc=5",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial GZH",
+    "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxQN0sxRzE4NWxGM1lVUVJ1eDB1UFZyTlhTcTFsOWo1bzZRQ19lbkV6eFBuNGZVOFJXTHlXOVlJMHc4bXdmZ295Ykc5aF9nZ0t0ck1VeUhxOXlHMEVwNHROcnVyVmwwSXF0eDNFVVEtZUxDaG8wZVZPLUJZWWNKN0ZxY3lUajFCbDNqakJ2S0xpcTZmOVpRaWhsTkxqN3lPVDRIazdydEZ0dkJybWlORk1IMFRoZ1BwaldBdzJKYmNjMzZxUE10b0JBT2pPeDRJZXZhVG1Pc3RyZTVSdS1aZVh5ZWx5bUxaQl96X3hDZGNsYXR6MG5VMllSQXV2YmczdnA0NFFEV3llSlQxcWlfYlUwakxoMU5udXg4Vnc?oc=5",
     "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
-    "id": 480638
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "id": 735067
   },
   {
     "data_hora": "09/11/2026 17:58",
