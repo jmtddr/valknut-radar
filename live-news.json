@@ -65,6 +65,19 @@
     "id": 871121
   },
   {
+    "data_hora": "17/11/2026 17:47",
+    "titulo": "A Fazendão pagou por inteiro o credor que podia cobrar primeiro — e pediu 60 dias aos bancos",
+    "fonte": "Valor Econômico",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "A Fazendão pagou por inteiro o credor que podia cobrar primeiro — e pediu 60 dias aos bancos AgFeed",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOTWRSMDdXdXR3WFlTcTZGOWxHWERjWnNyaDlTZkJfeGJSaGtWQVlVWUNYWFl4R3hLWGdtMGZZYUlRWGdnS283VmFpdzlaMWJmS3ZfcWpLVkx5dGRNZWcwYWNKRHFXUG1HYmR6dTlqMXJIMmtlVUlxLVV4RGFGNXF0OUNfOHJpbHJqSGtkbzNxU0dCQ01XWFlXVG9FY0ZxVFdZaDRDRlV3VWhsSE4ta18xZWJaOXJZTHdHNDBSakNsdw?oc=5",
+    "deal_id": 178,
+    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
+    "id": 558846
+  },
+  {
     "data_hora": "17/11/2026 17:41",
     "titulo": "Corinthians pede tutela cautelar à Justiça para negociar dívidas",
     "fonte": "Valor Econômico",
@@ -195,14 +208,14 @@
     "id": 674587
   },
   {
-    "data_hora": "17/11/2026 13:49",
+    "data_hora": "17/11/2026 13:01",
     "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
-    "fonte": "CVM / Fatos Relevantes",
+    "fonte": "Valor Econômico",
     "setor": "Varejo & Consumo",
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
-    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial InfoMoney",
-    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPNDZWVDJrWDh6VWFXZ2xWR3ZLNFc5Y19wNnVlN2ttWjAxUFduaWdUV1Z0QlBYZGV6RXFpVkdhaWNPb09KRnQ5YmNpOHpIQ2pmQUpqaDFSMi0wNnUwdUl1UTlLTWkwbjhjejc4bk5iRUU1ZmgzWjRRN1dzbGQxQmZ0Q09ud1V1c01JQVFKMUtYLU5kM3JHU3ZpaFpGaEVzYVQ2MVlRSnpGRjRTM1BVUTNNWGNWOC1iczJEdW1Bcjlyd9IBxAFBVV95cUxNYkFSbHlUYU9pLUZZV1hJTW50X09ZUGxXLWliaGU5YThSX3Y5Q3lQWFl5c3VxbkRaRm9CR1Qwb1drZW1yVXA4R3cyWjI0bDY1T2E4VC1ibzZhY0ZNUkVZSThkZ213OVl6bnN2RTJZa1FNOWktdE9MNWg3MkZMQkd3MkxyWWh4eXVZMEhncC1YRzZud3dMekxHOGd3VENzcGNZbWNVTWYwX2JIcUlZaVRNT25QeGU0Q05VNUR0MmpXWl9ueXlO?oc=5",
+    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial Estadão",
+    "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQZlgtZ0RYS01KQjFHWXIzWTUxQ1dVa0JtajNKZGNqZVByS2FKa3AwMUpETkVpN0xPU3NZRnJHdmd6MkZWTGpYS2xJaE0zTnVQWG9Yekp4VnBRZzg2ME9FcU9KbHlEQVR3NDBhMnd3dEZDV0twV2tuRmcwX09IUzM3YXZLdGVvd2RTZjRwNk9jUmVuMm5OSjhncVRIdnhvVmZTYk1qaHdFQnQwQ2xPX1Y5SU1hLUEyYXZYVEh0dmxGRXlKRUl1VmY00gHMAUFVX3lxTE1aYmJaclBYdDhOZC1Sbk9DaktGbl9ZUjZiRHVsRXY1U1ZGQWVBRFhFaEpoMzFCZ0pUdjZJbUZVTTZRYU5ZMDJ2U0tGVEhBbXkyLU9zQW5pTy1JRU92MFdxZ29pZGhoamYzZWZlT0lLOEVnMzZkQjhIY2NjZWc3TnJqMERQc3JIZ0o0NWhGRUxYQUQzbnNyU1FqNFBTSGhaMkplQWpKUnJxVGJPWlNtUnpuUU1tdFhFT0p5TE16M1pGal9GWDZ2S1dVQnNLaA?oc=5",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
     "id": 313746
@@ -401,6 +414,19 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Jota / Tribunais",
     "id": 246737
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Marabraz pede recuperação judicial com dívida de R$ 140 milhões",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Marabraz pede recuperação judicial com dívida de R$ 140 milhões Terra",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNMlRRbDd2WVhuaWxkT2JlOVFCZFVkbDl2bFNHNVJWbmpkTWVmRUtzNVd4bkJYWXlDQXBWOFFVOUFYSU9ZUXBhNUpBLVlQRjZraFhxSlQ5N3NnV3JHQ2gyakhuVXA3VFc5N3lLODBmVk1MdHlFeVZBT2FSaHB2a2FfTFQ3Z0k2cDVQNHZaVmljaG9HTnVkT3Jsc1pEWWFZYWlodzRRd2VQQ1Q0cDJkb3FqVVRUZzZ5dWdOUGdtMWlxRHVXclptNWpoLU42TDFjRFRMa0xWclpoNWZyQQ?oc=5",
+    "deal_id": 103,
+    "empresa_nome": "Grupo Marabraz (Comercial de Móveis Jordanésia, Marabraz Comercial & Lojas Marabraz)",
+    "id": 651709
   },
   {
     "id": 1151,
@@ -1701,32 +1727,6 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Times Brasil | CNBC",
     "id": 892169
-  },
-  {
-    "data_hora": "29/10/2026 04:00",
-    "titulo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fitch: Rating Nacional de Longo Prazo AAA da Itaúsa Monitor Mercantil",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZ3NEcFc0UkhLRENhWjVKVktSSmgxRVd2M2Y3b1dldW1CZnVFZ1dublBSMndmR2tqdExrUHZqRk4yUmdLU3haVjdaRGdwS3BpLVh2NjZOYUlHal94c3plVlpNa0ltRWRfUHl3aFh4ZHQyVHo3TU5zNU96TklkQnNDTGdLa0ZHUjdITkxF?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Monitor Mercantil",
-    "id": 531192
-  },
-  {
-    "data_hora": "24/10/2026 04:00",
-    "titulo": "França evita rebaixamento pela Moodys, em alívio para o governo Macron",
-    "fonte": "Jota / Tribunais",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "França evita rebaixamento pela Moodys, em alívio para o governo Macron Folha de S.Paulo",
-    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONks2dG53RlhvMks4ZTc1TFFITXJvV3Y1dlV5WDJYbzdJQ1JhTUp2MjlrVGZ1dGdVN2xXay05T3hxUC1mM19NWFN4X2xBSm9GMWlKazNpR0Nna2htT2ZZd0ZiaEZ1aGp5Rm9mWk5lTWdacjB1cHhDNlNjdEJMcHQ2MTZuZkVEWi1fNFBuOVRCWVBpajAxemZ5dGxsbk1JMC1JYm1XZTdKVlRKdFZZR1FwYTgyc1pOaXJQbkptSWVB?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Folha de S.Paulo",
-    "id": 396351
   },
   {
     "id": 1133,
