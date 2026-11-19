@@ -6,13 +6,16 @@ e Recuperação Judicial no Brasil, decodifica entidades HTML (&nbsp;, &amp;, et
 reconcilia `deal_id` contra `deals.json` (CNPJs, apelidos em parênteses, tickers e stems)
 e atualiza `live-news.json` na raiz preservando integralmente os itens curados (`id >= 900`).
 """
+import base64
 import hashlib
 import html
 import json
 import re
 import unicodedata
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -368,6 +371,107 @@ def is_curated_item(it: dict) -> bool:
     return isinstance(cur_id, int) and 900 <= cur_id < 100000
 
 
+BROWSER_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+
+
+def is_google_news_url(url: str) -> bool:
+    u = str(url or "").strip().lower()
+    return u.startswith(("http://news.google.com", "https://news.google.com"))
+
+
+def resolve_google_news_url(gurl: str) -> str:
+    """Decodifica URLs news.google.com/rss/articles/... para a URL direta do site original."""
+    u = str(gurl or "").strip()
+    if not u or not is_google_news_url(u):
+        return u
+
+    m = re.search(r"/articles/([^?/#]+)", u)
+    if not m:
+        return u
+    token = m.group(1)
+
+    # 1. Tenta decodificação base64 direta (tokens legados sem AU_yqL)
+    try:
+        pad = token + "=" * (-len(token) % 4)
+        raw = base64.urlsafe_b64decode(pad)
+        txt = raw.decode("latin-1", errors="ignore")
+        um = re.search(r"https?://[^\s\x00-\x1f\"'<>]+", txt)
+        if um and not is_google_news_url(um.group(0)) and "consent.google.com" not in um.group(0):
+            return um.group(0)
+    except Exception:
+        pass
+
+    # 2. Obtém assinatura (data-n-a-sg / data-n-a-ts) e decodifica via endpoint público batchexecute
+    try:
+        req = urllib.request.Request(
+            f"https://news.google.com/rss/articles/{token}",
+            headers={"User-Agent": BROWSER_UA},
+        )
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            final_u = resp.geturl()
+            body = resp.read().decode("utf-8", errors="ignore")
+        if final_u and final_u.startswith("http") and not is_google_news_url(final_u) and "consent.google.com" not in final_u:
+            return final_u
+
+        sg_m = re.search(r'data-n-a-sg="([^"]+)"', body)
+        ts_m = re.search(r'data-n-a-ts="([^"]+)"', body)
+        if not (sg_m and ts_m):
+            return u
+
+        inner_arr = [
+            "garturlreq",
+            [
+                ["X", "X", ["X", "X"], None, None, 1, 1, "US:en", None, 1, None, None, None, None, None, 0, 1],
+                "X",
+                "X",
+                1,
+                [1, 1, 1],
+                1,
+                1,
+                None,
+                0,
+                0,
+                None,
+                0,
+            ],
+            token,
+            int(ts_m.group(1)),
+            sg_m.group(1),
+        ]
+        f_req = json.dumps(
+            [[["Fbv4je", json.dumps(inner_arr, separators=(",", ":")), None, "generic"]]],
+            separators=(",", ":"),
+        )
+        post_data = urllib.parse.urlencode({"f.req": f_req}).encode("utf-8")
+        req2 = urllib.request.Request(
+            "https://news.google.com/_/DotsSplashUi/data/batchexecute",
+            data=post_data,
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+                "User-Agent": BROWSER_UA,
+            },
+        )
+        with urllib.request.urlopen(req2, timeout=12) as resp2:
+            txt2 = resp2.read().decode("utf-8", errors="ignore")
+
+        for line in txt2.splitlines():
+            if "garturlres" not in line:
+                continue
+            try:
+                outer = json.loads(line)
+                inner = json.loads(outer[0][2])
+                if isinstance(inner, list) and len(inner) > 1:
+                    cand = str(inner[1]).strip()
+                    if cand.startswith(("http://", "https://")) and not is_google_news_url(cand) and "consent.google.com" not in cand:
+                        return cand
+            except Exception:
+                continue
+    except Exception:
+        pass
+
+    return u
+
+
 def main():
     deals = []
     if DEALS_PATH.exists():
@@ -381,9 +485,18 @@ def main():
         except Exception:
             existing_items = []
 
+    # Cache de URLs já resolvidas anteriormente para evitar re-consultas desnecessárias
+    cached_direct_url_by_key = {}
+    for ex in existing_items:
+        if isinstance(ex, dict):
+            ex_url = str(ex.get("url") or "").strip()
+            ex_key = norm(ex.get("titulo") or "")[:62]
+            if ex_key and ex_url.startswith(("http://", "https://")) and not is_google_news_url(ex_url):
+                cached_direct_url_by_key[ex_key] = ex_url
+
     fresh_rss = []
     seen = set()
-    headers = {"User-Agent": "Mozilla/5.0 (compatible; ValknutRadarBot/5.0)"}
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; ValknutRadarBot/6.0)"}
 
     for url, default_cat in FEEDS:
         try:
@@ -395,7 +508,9 @@ def main():
                 raw_title = decode_html_entities(item.findtext("title") or "")
                 link = (item.findtext("link") or "").strip()
                 pub = (item.findtext("pubDate") or "").strip()
-                src = decode_html_entities(item.findtext("source") or "Google News BR")
+                src_el = item.find("source")
+                src = decode_html_entities((src_el.text if src_el is not None and src_el.text else "") or "Google News BR")
+                src_url = (src_el.attrib.get("url") or "").strip() if src_el is not None else ""
                 raw_desc_no_tags = re.sub(r"<[^>]+>", " ", item.findtext("description") or "")
                 desc = decode_html_entities(raw_desc_no_tags)
 
@@ -419,20 +534,22 @@ def main():
                     else f"Monitoramento automático ({src}): atualização sobre {cat}."
                 )
 
-                fresh_rss.append(
-                    {
-                        "data_hora": dt_fmt,
-                        "titulo": clean_title,
-                        "fonte": fonte,
-                        "setor": matched["setor_macro"] if matched else "Mercado & Macro (RJ / Crédito)",
-                        "categoria": cat,
-                        "escopo": escopo,
-                        "resumo": resumo,
-                        "url": link,
-                        "deal_id": matched["id"] if matched else None,
-                        "empresa_nome": matched["empresa"] if matched else f"Radar Ao Vivo // {src}",
-                    }
-                )
+                resolved_or_link = cached_direct_url_by_key.get(key, link)
+                entry = {
+                    "data_hora": dt_fmt,
+                    "titulo": clean_title,
+                    "fonte": fonte,
+                    "setor": matched["setor_macro"] if matched else "Mercado & Macro (RJ / Crédito)",
+                    "categoria": cat,
+                    "escopo": escopo,
+                    "resumo": resumo,
+                    "url": resolved_or_link,
+                    "deal_id": matched["id"] if matched else None,
+                    "empresa_nome": matched["empresa"] if matched else f"Radar Ao Vivo // {src}",
+                }
+                if src_url and src_url.startswith(("http://", "https://")) and not is_google_news_url(src_url):
+                    entry["source_url"] = src_url
+                fresh_rss.append(entry)
         except Exception as e:
             print(f"Aviso ao consultar feed {url}: {e}")
 
@@ -505,10 +622,29 @@ def main():
         if k in seen_rss_keys:
             continue
         seen_rss_keys.add(k)
+        if is_google_news_url(it.get("url", "")) and k in cached_direct_url_by_key:
+            it["url"] = cached_direct_url_by_key[k]
         rss_consolidated.append(it)
 
     rss_consolidated.sort(key=lambda x: parse_br_sort_key(x.get("data_hora", "")), reverse=True)
     capped_rss = rss_consolidated[:95]
+
+    # 3. Resolve all remaining Google News redirect links to direct publisher URLs in parallel
+    to_resolve = [item for item in capped_rss if is_google_news_url(item.get("url", ""))]
+    resolved_count = 0
+    if to_resolve:
+        print(f"Resolvendo {len(to_resolve)} links do Google News para URLs diretas dos portais...")
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            fut_map = {pool.submit(resolve_google_news_url, item["url"]): item for item in to_resolve}
+            for fut in as_completed(fut_map):
+                item = fut_map[fut]
+                try:
+                    direct_url = fut.result()
+                    if direct_url and not is_google_news_url(direct_url):
+                        item["url"] = direct_url
+                        resolved_count += 1
+                except Exception:
+                    pass
 
     used_ids = set()
     for item in curated_preserved:
@@ -529,13 +665,15 @@ def main():
     final_items = curated_preserved + capped_rss
     final_items.sort(key=lambda x: parse_br_sort_key(x.get("data_hora", "")), reverse=True)
 
+    direct_total = sum(1 for x in final_items if x.get("url") and not is_google_news_url(x.get("url", "")))
     if final_items:
         LIVE_NEWS_PATH.write_text(
             json.dumps(final_items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         print(
             f"live-news.json atualizado com {len(final_items)} notícias "
-            f"({len(curated_preserved)} curadas id>=900 + {len(capped_rss)} RSS)."
+            f"({len(curated_preserved)} curadas id>=900 + {len(capped_rss)} RSS | "
+            f"{resolved_count} recém-resolvidas | {direct_total}/{len(final_items)} com link direto do portal)."
         )
 
 

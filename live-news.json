@@ -1,5 +1,33 @@
 [
   {
+    "data_hora": "19/11/2026 13:49",
+    "titulo": "Fitch atribui rating ‘BBB(bra)’ à Coruripe e destaca capacidade operacional da companhia",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fitch atribui rating ‘BBB(bra)’ à Coruripe e destaca capacidade operacional da companhia Revista RPA NEWS",
+    "url": "https://revistarpanews.com.br/fitch-atribui-rating-bbbbra-a-coruripe-e-projeta-fluxo-de-caixa-livre-negativo-ate-2030/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Revista RPA NEWS",
+    "source_url": "https://revistarpanews.com.br",
+    "id": 895926
+  },
+  {
+    "data_hora": "19/11/2026 13:48",
+    "titulo": "Moody’s eleva rating do Laos a Caa1 com melhora de liquidez e dívida - Investing.com Brasil",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Moody’s eleva rating do Laos a Caa1 com melhora de liquidez e dívida Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "url": "https://br.investing.com/news/world-news/moodys-eleva-rating-do-laos-a-caa1-com-melhora-de-liquidez-e-divida-2133074",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "source_url": "https://br.investing.com",
+    "id": 200257
+  },
+  {
     "data_hora": "19/11/2026 09:54",
     "titulo": "Fitch afirma rating AAA(bra) da Dexco (DXCO3) com perspectiva estável",
     "fonte": "CVM / Fatos Relevantes",
@@ -7,9 +35,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Fitch afirma rating AAA(bra) da Dexco (DXCO3) com perspectiva estável Visno Invest",
-    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQTHdDaWlzLVBtWS03N2lIMDctc29zZ2dMNVZpZzVjZGdoYnhsLUlRbDNaRXpGUFBMb3M5UWx2Zzdwb1FqNlRtMjdVSDJTdy1tamdNcmJHb3NKclJpekt3TGNJel9QSkx3Y2VDdDFFM0hpMGhvamMwQVA3UUFHUFdzVk9BZEc3dmZTT2g5cGRNeFdvOUF0cFcwd0RBYjZHR1hyTWIwbEdHSQ?oc=5",
+    "url": "https://visnoinvest.com.br/news/16643/fitch-afirma-rating-aaa-bra-da-dexco-dxco3-com-perspectiva-estavel",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Visno Invest",
+    "source_url": "https://visnoinvest.com.br",
     "id": 646189
   },
   {
@@ -20,7 +49,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Axia Energia lança oferta de R$ 1,2 bi em debêntures para hidrelétrica UOL Economia",
-    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPQ3JSNGZYY3Qya2I5V0tPRlVuU09vU1NvYTRjQi0zZEE3U1ZBWmp4Vi1McF9UNGJPLVFLUFY4RnpyUmxnNGlRSEswUkdCWUhrNGFjQ1YyVjY3NXhsWVlCTGJPWHNSc2c1UGhSRVhkckNoQzg2VHdZeWRVOVdESzFKZ0hjSnZWV3N3ZlowSnd6X0tRbWlYOEY0VlR1S3hMY2JQbnVDOTdHbHhHa3BsMTd5R25hUDhGbWhSampUVkxobw?oc=5",
+    "url": "https://economia.uol.com.br/noticias/redacao/2026/11/19/axia-energia-lanca-oferta-de-r-12-bi-em-debentures-para-usina.ghtm",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // UOL Economia",
     "id": 158216
@@ -33,7 +62,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Moody’s deve manter ‘rating’ de Portugal e melhorar perspetiva Jornal Económico",
-    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdVRSOHc3YkhNYi00dVRUbTd0SUVSekpXdTdKRVJVRlRoTWhpd3FEWG12M1dJTEdFcWJzdThlWG1TaWdsR21QUjN3VGtMVjQwcmFKalBTc2M0RVZXNVRGNU52U2J5Z0JwQzhTZWhaTXlvV3lVV3Q2RGk3a0RmeGpJaEJmME1PdzZWdW8xbFhJS1ZiR2RrSVp1SUw2NHhHa0RDVXMw?oc=5",
+    "url": "https://jornaleconomico.sapo.pt/noticias/moodys-deve-manter-rating-de-portugal-e-melhorar-perspetiva/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Jornal Económico",
     "id": 429876
@@ -46,9 +75,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Sigma Lithium enfrenta dívidas e problemas de caixa Estadão Blue Studio",
-    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWWFMRk15S3ZvbG1rb203MDJPOFluaDMxVlRMNmlUdnhtakJnN2EzMm94a0JDRDN6UEY1TGlfNDFYNEF0ZUZOZEdHSV9lZVlLdEF2UVdxdHVRTWg4Unk4VmhzdGZJNFowTGlXMTZYeE5SWlBzOHNFc2lpaHBadlZzY0lRd3JkZnNZRVZHRlpqRzNJRU4wemZMeElIU2JxU3JRTGdBV2dWTkdCUzNGbUp3?oc=5",
+    "url": "https://bluestudio.estadao.com.br/agencia-de-comunicacao/duble/sigma-lithium-dividas-problemas-fluxo-de-caixa/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Estadão Blue Studio",
+    "source_url": "https://bluestudio.estadao.com.br",
     "id": 854764
   },
   {
@@ -59,9 +89,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "AXIA Energia (AXIA3) aprova 15ª emissão de debêntures de até R$ 1,2 bi Suno - Investimentos Inteligentes",
-    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOcGtzNmJtNDRDaHNjOFhpRnU2WW9RaENhbkpiMTgwWkFfblZMYUhDcTdGRkJ0aXBUOTRvUWRWX29rR2pRbVJ5dEVmSHNuSmtSWTIwRXdWWVFRa1NhMHktejNXWFhYVmVxM0FQWW44U2VreEtjN2RFSjVRRlJpd1M2OHhLN1DSAYoBQVVfeXFMUF9GMXVBNm5hU05pdThmazI2bVNYc3NNZzhMZXpIRUVZdTMtcElxajlCSGUtaXdLREl6dWo1RXM4Z0dPTk4yNEpfMVBOMmpXYl9sd0dkQ3R2OUZDeUR6VjJodFlMOC1SNldYUFQ3akFPdEJIX3NHN2NLM0ctNHJ4MTIzRFUwVWUyd2Z3?oc=5",
+    "url": "https://www.suno.com.br/noticias/axia3-axia-energia-aprova-emissao-debentures/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Suno - Investimentos Inteligentes",
+    "source_url": "https://www.suno.com.br",
     "id": 430229
   },
   {
@@ -72,9 +103,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "LCI, LCA e debêntures incentivadas vão pagar Imposto de Renda? Nord Investimentos",
-    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPcy0yZkFtMU9ITGNwU0RmSmdVeG9tTE93dVFyR1VsNXRlbURnblNoa3hmZlVTcmVzMzFKdUNjc1lQOV9Pc1hwVUpQcDlTT2J2RmZ0OS1zcVc3TmFDQzNLcnZoZlE0Sm02aHZ1UEx1aFZscU1hNmgtTk1tQnVCeXNSSnR5UdIBiAFBVV95cUxOV1p1Y25Ca2YzdFFrZkpldC0zUXZrN1JIajdmMzVIaEhTdWtGX19oVTFzYklScUpBbXl4ZUZQcDNkNG9FVjVQZ3gwU2xPSExlNkctWGM2TXR6QTE5RkJnZS1FcG9jdEtCc2h1alZqaXFLeVREel9iRC1FdXRPN0pGcHpNZ002RmVr?oc=5",
+    "url": "https://www.nordinvestimentos.com.br/blog/lci-lca-vao-pagar-imposto-de-renda/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Nord Investimentos",
+    "source_url": "https://www.nordinvestimentos.com.br",
     "id": 663679
   },
   {
@@ -85,9 +117,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Axia Energia aprova emissão de debêntures de até R$ 1,2 bilhão ADVFN",
-    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNaHhncTkxdUlBWXFta0lIZUktbFo2OWhUR1ZRVUUwSDFrWXFHel9OdzVmX0tIYzFSRmo5Z2J1YTd6TU11c20wSGY5OHV0YURqRFlUVkNMSFNFMzVraTI4U1l5YzN3NDc0ci1mM2F3VnBpWHJDTVRnemFVclVPZVk4dFZmVHRTYkp6ZzZRbXdraWRoRTRheUo1Ym5MR1ZEUQ?oc=5",
+    "url": "https://br.advfn.com/jornal/2026/11/axia-energia-aprova-emissao-de-debentures-de-ate-r-1-2-bilhao",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // ADVFN",
+    "source_url": "https://br.advfn.com",
     "id": 113903
   },
   {
@@ -111,10 +144,38 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Axia Energia (AXIA3) aprova emissão de debêntures de até R$ 1,2 bi Visno Invest",
-    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVjc1LTJQWnNQMXhiLXBRMUhzekpiRkZsd1UxOFhUMGpqZHFhMWVOZW9XR2hFR0J0b0FGNmU4Z2haOUNuaEQyQnRfTkk2ZGZuQVNNYnRQOTZJb2RrekxKQjItZ0tSVHZ0N2tINmJDdWJ4S2F2ejA4cWN2S2ROenpmM2M3SExMWUh3Wlp5eU50cGYyV3JhSmNIQmlOSGVLanItTVE?oc=5",
+    "url": "https://visnoinvest.com.br/news/16619/axia-energia-axia3-aprova-emissao-de-debentures-de-ate-r-12-bi",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Visno Invest",
     "id": 871121
+  },
+  {
+    "data_hora": "17/11/2026 21:24",
+    "titulo": "Aneel recomenda romper contrato da Enel em SP, mas diretor-geral trava decisão final",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel recomenda romper contrato da Enel em SP, mas diretor-geral trava decisão final Notícias ao Minuto Brasil",
+    "url": "https://www.noticiasaominuto.com.br/economia/2430107/maioria-da-aneel-recomenda-romper-contrato-da-enel-em-sp-mas-diretor-geral-trava-decisao-final",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Notícias ao Minuto Brasil",
+    "source_url": "https://www.noticiasaominuto.com.br",
+    "id": 124157
+  },
+  {
+    "data_hora": "17/11/2026 18:46",
+    "titulo": "Aneel tem maioria contra Enel SP, mas adia decisão",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel tem maioria contra Enel SP, mas adia decisão SBT News",
+    "url": "https://www.sbtnews.com.br/noticia/economia/aneel-tem-maioria-contra-enel-sp-mas-adia-decisao",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // SBT News",
+    "source_url": "https://www.sbtnews.com.br",
+    "id": 343496
   },
   {
     "data_hora": "17/11/2026 17:47",
@@ -124,7 +185,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "A Fazendão pagou por inteiro o credor que podia cobrar primeiro — e pediu 60 dias aos bancos AgFeed",
-    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOTWRSMDdXdXR3WFlTcTZGOWxHWERjWnNyaDlTZkJfeGJSaGtWQVlVWUNYWFl4R3hLWGdtMGZZYUlRWGdnS283VmFpdzlaMWJmS3ZfcWpLVkx5dGRNZWcwYWNKRHFXUG1HYmR6dTlqMXJIMmtlVUlxLVV4RGFGNXF0OUNfOHJpbHJqSGtkbzNxU0dCQ01XWFlXVG9FY0ZxVFdZaDRDRlV3VWhsSE4ta18xZWJaOXJZTHdHNDBSakNsdw?oc=5",
+    "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
     "id": 558846
@@ -137,7 +198,7 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Corinthians pede tutela cautelar à Justiça para negociar dívidas Vanguarda do Norte",
-    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQUEdmVUR3RExHVmUwYUZlWW9OcGFpSndpN1BNQjI3ZHdVcXhEbExOYTMzYjdpY3VUb01DaWY3MEFISUlFOWRnN1ZoQnhnTlMzeEdzdTJUdGNaS0xfNHd3S1FlUUowY0p0Y25QNnh5LTZBZDhmUGNCdFhDc2FyQXotclBxeXgtdFlWRG43WTBSRWtrMWtkVGVrTXhFWkpCVVVqSWgxZ3dJY1Y?oc=5",
+    "url": "https://vanguardadonorte.com.br/esporte/corinthians-pede-tutela-cautelar-a-justica-para-negociar-dividas/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
     "id": 953510
@@ -150,7 +211,7 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Corinthians pede socorro à Justiça: entenda a tutela cautelar Paranaíba Mais",
-    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQTQ2dnNTTm1MbEZPZEpkanQtV1dzaHdSdS1uYzRoRjN1WVRrTGNldEFydUdIOTRWbVJabVZKZ1VoaWhid2lQY3hwVEg3aEdROGVRTzRXZ282Y2dQMlZKZjVxS0lNRDFKNS1CNEdEaF9pSmgwYWk2Qlhxd0RMSGotRjVWd0QxLU9rMVZaME4tVGp2NUtGVV85ekxvZXRoNHdJ?oc=5",
+    "url": "https://paranaibamais.com.br/esportes/corinthians-pede-socorro-a-justica-entenda-a-tutela-cautelar/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
     "id": 984424
@@ -163,9 +224,10 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Corinthians entra com pedido de tutela cautelar para renegociar dívidas de R$ 2,8 bi Santa Portal",
-    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNTnpEZlZNa1pXRWVnTmZLSnhycXFzamo3Q1pWR3J2VG9weWpEME90cWg0ejNqQ2p0RVo0dG14NXk5STh4OHVPZlBScmF6QUcyQVZUSDZKdDNOZ2Joam8wXzZsUHV5Qjg1RWxYNUViUDVnTkRvSzZFZEFwVVdkbzN2TC1DT1ZKSEpqN2Vmd2d4dTVlOGJsVUhUbVpOZ1pFaTdoUFhfQXowX2d6SmM?oc=5",
+    "url": "https://santaportal.com.br/esporte/corinthians-entra-com-pedido-de-tutela-cautelar-para-renegociar-dividas/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://santaportal.com.br",
     "id": 238733
   },
   {
@@ -176,7 +238,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "Corinthians pede proteção à Justiça para renegociar dívidas estimadas em R$ 2,8 bilhões Agora RN",
-    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNNXZoUUNCYTR6bU5KMWd6djRXMGkxT2RjZE5kQVFYUm9YRksxY3ZIWkp6TlBwU21PS253S1hZc3FhcFU3aE1IXzR4cGtUMzlhUUc5Q2tBX1NTdWZCS0V4RktrU2gxWEFDRVd5S0xmTkxmUEc5SzQyNEZNVURkaDJvMENSOUQwS2RYZ3ppTk5oX3Y0dGVLQ280?oc=5",
+    "url": "https://agorarn.com.br/esporte/corinthians-pede-protecao-justica-renegociar-dividas-bilhoes/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
     "id": 332360
@@ -189,9 +251,10 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Recuperação judicial do Corinthians: clube pede cautelar comunhao.com.br",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1ZWFJMNkZKckMweFEtZkRsUUx3cFNWR3hQRGRiLWFPUmdrRS1uNk9yS1BmcUhtR2ZOVkI5QmxRbFdfaVFXbkQtRjEzMVpLZm9XTTM5VmxGYlBuenpBdHVTS0NVWlhOcC1jWFB0Y2ZuWVpQcEl1dXdnQVUtTFhwZw?oc=5",
+    "url": "https://comunhao.com.br/recuperacao-judicial-corinthians-tutela-cautelar/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://comunhao.com.br",
     "id": 939635
   },
   {
@@ -202,9 +265,10 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Corinthians pede tutela cautelar para renegociar dívida de R$ 2,8 bilhões VEJA",
-    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOeGpYQmhKR1E2SzNoYmRQU0NjQkE5Z1hEb3BKRkdFSHFoQVhFYTBvOWpVQ3p1dEsxYWtxVElRay10TFgwRnRNM2IxdWlsc2RMQkJSc2psb1NzMVNpa2xsVlhlS2oxS0VmYjNpRmhOWGt3dzBPVVlUR2swNTVobkwzekh2Rk5HbmRxRkpjX3dlTnBxZUwxajExdDdsSUN0RnFHTmRJMFk0N3N1dVBLQXhuZDFoUzA1cEo0VkVIcjRR?oc=5",
+    "url": "https://veja.abril.com.br/coluna/faria-lima-news/corinthians-pede-tutela-cautelar-para-renegociar-divida-de-r-28-bilhoes/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://veja.abril.com.br",
     "id": 341205
   },
   {
@@ -215,7 +279,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "Corinthians pede proteção judicial para negociar dívida de R$ 2,8 bilhões Times Brasil | CNBC",
-    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPRW50Z2h2MVZSUWRxbW5MS0JZcVBBOWMwMGl0TWhnSjZneWJEU1RwLUVteW82bzBSQmFuZV83ZXpiVEhtMGNNcnd1Z2pNRkVNbUMtZG4zdkRRTU9paUg4M0ZQdXAyckZ5RTcxTkNyZ1ZQeFdCdkJyMXYydEMzRXQ5Q29PdmhtYmNDVi1ESUhHZkJLVGJleUJn?oc=5",
+    "url": "https://timesbrasil.com.br/brasil/corinthians-pede-protecao-para-negociar-divida-de-r-28-bi/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
     "id": 106791
@@ -241,7 +305,7 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Corinthians faz pedido de tutela cautelar para negociar dívidas e preparar transição política Máquina do Esporte",
-    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMTJ3eHB0OEtSNWN6VFl3aTRGNFNISVVQb3BGLTdTeTJ2WEo0MzZVRTJ4VWdvR2ZUNjlmV1FXYlR6a3c4b1pwX0lsejg1bkFJSklpVm12QUh5NzRRQWh0SG1Vb1hjSUtHY19pX2xWVnFjTEo0UWlGRFAySE5mZzBIRE5nenctS0VUZEdXS0E1bVFXTWNpaDg2OUFMRTdLUHUzSmJBMUhROU5WaWdiY1JYM1cyNExicUZPdkRncTRZb0lEMEJXVWhBMmhGRl9NWDA?oc=5",
+    "url": "https://maquinadoesporte.com.br/futebol/corinthians-faz-pedido-de-tutela-cautelar-para-negociar-dividas-e-preparar-transicao-politica/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
     "id": 626594
@@ -254,10 +318,25 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Corinthians pede tutela cautelar na Justiça de SP e se aproxima de Recuperação Judicial BPMoney",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVWFYU1hQa0RFRHNET0EwcnJ2TWZCSHZUcFZxUy0tTFdLeUswUldlUHRKVUk3RkFiSnpsNWM0NGFOTk4yYnY4RDFxOTc1dFlXb1BzRlRZYnZFam0yNldhU3VPRDRfMEQyVFZRLWtHQ1pnaW9aSHZJMGZRLUNQMWZIT2NibUpWQW9HTkRjZktjNA?oc=5",
+    "url": "https://bpmoney.com.br/noticias/corinthians-pede-tutela-cautelar-recuperacao-judicial/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://bpmoney.com.br",
     "id": 674587
+  },
+  {
+    "data_hora": "17/11/2026 13:21",
+    "titulo": "Troca de concessionária da Enel SP exige análise de custos e benefícios ao consumidor",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Troca de concessionária da Enel SP exige análise de custos e benefícios ao consumidor Economic News Brasil",
+    "url": "https://economicnewsbrasil.com.br/2026/11/17/concessao-enel-sp-custos-beneficios-troca/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Economic News Brasil",
+    "source_url": "https://economicnewsbrasil.com.br",
+    "id": 392748
   },
   {
     "data_hora": "17/11/2026 13:01",
@@ -267,9 +346,10 @@
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
     "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial Estadão",
-    "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQZlgtZ0RYS01KQjFHWXIzWTUxQ1dVa0JtajNKZGNqZVByS2FKa3AwMUpETkVpN0xPU3NZRnJHdmd6MkZWTGpYS2xJaE0zTnVQWG9Yekp4VnBRZzg2ME9FcU9KbHlEQVR3NDBhMnd3dEZDV0twV2tuRmcwX09IUzM3YXZLdGVvd2RTZjRwNk9jUmVuMm5OSjhncVRIdnhvVmZTYk1qaHdFQnQwQ2xPX1Y5SU1hLUEyYXZYVEh0dmxGRXlKRUl1VmY00gHMAUFVX3lxTE1aYmJaclBYdDhOZC1Sbk9DaktGbl9ZUjZiRHVsRXY1U1ZGQWVBRFhFaEpoMzFCZ0pUdjZJbUZVTTZRYU5ZMDJ2U0tGVEhBbXkyLU9zQW5pTy1JRU92MFdxZ29pZGhoamYzZWZlT0lLOEVnMzZkQjhIY2NjZWc3TnJqMERQc3JIZ0o0NWhGRUxYQUQzbnNyU1FqNFBTSGhaMkplQWpKUnJxVGJPWlNtUnpuUU1tdFhFT0p5TE16M1pGal9GWDZ2S1dVQnNLaA?oc=5",
+    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://www.estadao.com.br",
     "id": 313746
   },
   {
@@ -280,9 +360,10 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "Corinthians pede renegociação com credores em ação que antecede recuperação judicial ge",
-    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQTXI4cGlfOEkzb05WQ24wYmZHZk01dktLa0dxaDVDcVhISVdWOV90VUFIR2dHUktjbzJUQWJ0N3ExSTRwVmEtd29UZ015WXFOU2VrTkVIc0prNlpCMEtJUlhCTnpHT3Nsa0xPUGVHZ1pLVGt2NlR5bi1abXRrVlQwYzcybktyNTMtQkJuM2R6Mjg4dkh1bUk3QzlXMnoyQ2tidkwwOVYycWt0djNxSXYydHhDWm1GdE9pNFluMDdkTjJMMTRIVWFxR1hQcGNDWDExWF9uWkpVOXI3a3pyMTJPdVJyYWFvdWRyWGpXb9IB-wFBVV95cUxOanFHNTZtT0pmX2tWT0dGdHN3bkk0Ym1TQTNhc0pBRVlUWVBpUUxDWEl0ZTkyeS12RjBPMXU4TUZwSmlVeC05c0pQSThDZS1OWW9hRHJ0OW9kbFlCUXlHV05WeXJVa3liYjRwVFJnNkdLU0NyMWppWGxjRzNiMDV0eW9XbVQtTnV3U09iNTJGeThSbUhDM09aVXNDeFdVYkdaMTByTWs2R3g5UkZqLVlwOGtpbmNmaDB5RFJjWjVQbW42anlUcTJxOG9XcXVrRUpCcWxKMVczNXY2Ui1qUG5udnBzWmVETVZHYXdIMUxuTmY1YVJWdEluZ2dCWQ?oc=5",
+    "url": "https://ge.globo.com/futebol/times/corinthians/noticia/2026/11/17/corinthians-pede-renegociacao-com-credores-em-acao-que-antecede-recuperacao-judicial.ghtml",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://ge.globo.com",
     "id": 448869
   },
   {
@@ -306,9 +387,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Aneel vota nesta terça processo que pode tirar Enel de São Paulo ncnews.com.br",
-    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZENxUjZtUXh6WjYwakVZcmFobVo0ZXBLRlhZRFZndTVoS1JCbzdrZXVQdjV6cThJWGViSVZsSlVQYjEteDUtTWhRMkxNWS1xMlh3SHFFNVFNR2VSTzlPMGgtRE90b3BrQmRfekFDa01laEVIeWdzUmR0UjVmRndSc0c2SjQwV2l6OWpDWGRmNDFXd0pMVmxmdG5yWHJaVEE?oc=5",
+    "url": "https://ncnews.com.br/2026/11/17/aneel-vota-nesta-terca-processo-que-pode-tirar-enel-de-sao-paulo/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // ncnews.com.br",
+    "source_url": "https://ncnews.com.br",
     "id": 922954
   },
   {
@@ -319,9 +401,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Aneel volta a deliberar processo sobre fim de contrato com Enel SP Broadcast | Financeiro",
-    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNd052VWtQdGl2aHBOSlNnXy1hRWlNSk55R2NpczhpekRvQ19GMno4MzBBUkdWdGFiSUFXUmNnS1ZhTnRGMEg1VVVFTTVJZXRxTkhyYldYUDBVamxoZVgtUTQ5WFBKRGxGa1YzU0xHWWVkTmROaFpnTldzRWxmeUkxdjQtZkFZMXRnbHpvY2tvemFITjNVNDlNZjY1UlAyZE1yQnJv?oc=5",
+    "url": "https://www.broadcast.com.br/news/aneel-volta-a-deliberar-processo-sobre-fim-de-contrato-com-enel-sp/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Broadcast | Financeiro",
+    "source_url": "https://www.broadcast.com.br",
     "id": 831603
   },
   {
@@ -345,9 +428,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Debêntures: levantamento revela os dez estados brasileiros que mais buscam pelo tema jornaltribuna.com.br",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdHhzdGVacWVqUzdJX0hwdk1Qci1QSjVmZUZZbWZTRk5Xd01zcFJvbVk0UDlkQnNvcmczSm1NV1RxalZnT0dlaTJqMFFSQVlzX1VQWkY5RWk1Rm1lVXdrTWtBLWRZRW1oU2FOWEhPNUlLenlrZ3VLaWJqTTdCekVleDBnb2NZQVR2Undkb2kydGJaQzNRS01NU1l0ZHRrNHM4UDA5bXdPUlZFbXVHV3pqcGxyMEVudHFGZXpuLTc4S0lCdw?oc=5",
+    "url": "https://www.jornaltribuna.com.br/2026/11/debentures-levantamento-revela-os-dez-estados-brasileiros-que-mais-buscam-pelo-tema",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // jornaltribuna.com.br",
+    "source_url": "https://www.jornaltribuna.com.br",
     "id": 136324
   },
   {
@@ -358,9 +442,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Debêntures impulsionam o mercado secundário brasileiro com volume de R$ 689 bilhões em 2026 Brasil Inovador",
-    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSWQxSTJUU0pZUlkwOGcxVU45ZTVEdlJ2LUJiOHBGV05IN2NLT0ZXYnNTUVNkbC1xa2NiMzIzYURGNElNeG1GRHczajRoajlTczhGa3dleHFYY1ZwLWN3dHptUTNTNFdteXZLdVAtVVV5TEFqTXNsSmFEVE5hTzZEWTBVZ1FYdXZNTExna3JZQlYzLVlGc3RKOTczX2xTa0N0U3RXLXRJcjhIUDZBMlJUZEJKLXNCMVRLUEQtd1Fn?oc=5",
+    "url": "https://brasilinovador.com.br/debentures-impulsionam-o-mercado-secundario-brasileiro-com-volume-de-r-689-bilhoes-em-2026/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Brasil Inovador",
+    "source_url": "https://brasilinovador.com.br",
     "id": 175502
   },
   {
@@ -384,9 +469,10 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Dívidas rurais: empresas do MS pedem recuperação judicial Campo Grande News",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPLTdMVTAxZEJlNEFmTDlWM21FVDZ6QzhNdTB5SEt6UGw0VlAzZWRMdDlGb21ZdzhIWEdTZW5YYnV3N1FZMWZlNmlLYjUzZExmUXdfT2NBaWpnZGFvZmF6dTI1b0ZfMlZKVHkyZ0xVOTlrR1Y0QjF1VDFqS2FTUjI3bGhDZzBCQWUwS29aMEZYX3ViX2dkRlAzdktBenFtLUkwdnc3aU04M042blh3VmxaUVdiTlVlUdIBtgFBVV95cUxOQzZtbldvdlVxcTA2cFI2MHlhZ0U4elJ6TFRRR0MyakhQZnJqdjA4cC1jRTgtVmEwVWdLZUwyWE9DMDhDY3hySm9hUFRrbGlkdEl4TkM5VFkybVhiQ0JGcUpXclVDaUlRdDA2d1dWbGNYVVhodTVCamxkSERJeE5jbjM2bjFaSHZWNWhTX1FlOEVON1g3U3Z3cVpKaGsxeVVGQWN5QjR4YXBUSjktUFlGR3gxQ2dvUQ?oc=5",
+    "url": "https://www.campograndenews.com.br/economia/mesmo-com-socorro-empresas-do-agro-optam-por-recuperacao-judicial-em-ms",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Campo Grande News",
+    "source_url": "https://www.campograndenews.com.br",
     "id": 782000
   },
   {
@@ -410,7 +496,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "GPA (PCAR3) busca captar R$ 92,2 milhões com debêntures em meio à recuperação extrajudicial Guia do Investidor",
-    "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxORjhLaWthMFVnY3htemlLNW9pb1B1bDB1N0plZ0xtXzg1ZTRuMFIwNTEwS2NFMFhUOFE1TjBadEl3VnFHZ2Foa01zWTlLbTFmUHJZdUpjeHJHYzBYejBnMEp4MnVUTXlUUThRdFpXTVd3UWRSa2d4YWN6bUE2MDRXYW5rT3JuV24wRDFVSGVmcjVicUFHd2ZSYkc3RnVjaEk1SlBjY2NwNnFYUUdIQzRtLXdBa1BpaVpxelMta1BHUXpXQ1RsSkhN?oc=5",
+    "url": "https://guiadoinvestidor.com.br/mercado/gpa-pcar3-busca-captar-r-922-milhoes-com-debentures-em-meio-a-recuperacao-extrajudicial/",
     "deal_id": 16,
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
     "id": 756697
@@ -423,9 +509,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "GPA protocola oferta de R$ 92,2 milhões em debêntures após aprovação de plano de recuperação Times Brasil | CNBC",
-    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNOXBudlM5OXFkczQ5YWs0RTl3Vkt5Z191YXJjX0hhTF9TRldxb2gwYUl1dDVORVY3R2dFZkpHaFdTM2VGYzkwNC1OMGlkd3VsU1ctMEZhZlIxQ3BKRjk5ZlhBTlNaZkFuWlowX2wxYk5uazdXV0RUZVVWa182YzBXNWR6VnR5QzhlSV9PTm9Wd0JZV3ZmT3B3UWhpNnU2ZHBnYWotQ1NBNWxWTHYwVTBJc3J0UzBkcmtQOHpRLV9iYnJ5bWc?oc=5",
+    "url": "https://timesbrasil.com.br/brasil/gpa-protocola-oferta-de-r-922-milhoes-em-debentures-apos-aprovacao-de-plano-de-recuperacao/",
     "deal_id": 16,
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
+    "source_url": "https://timesbrasil.com.br",
     "id": 700735
   },
   {
@@ -436,9 +523,10 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Frigorífico com dívida superior a R$ 100 milhões aprova plano de recuperação judicial CompreRural",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNb184dDByQ2UxYlpqWEFUYUVvUjRWaGs3c2hucm1KODg5d1RjUEJNWWc4blBDS0pmWmcyWWU2Y0p5UGdTemVDZGE5S2hsVHFESUdNTHZTczFEeWpzWkliYS05cjlwMkxkMFI2SU9JM2NxMkJQeU1sSVdTcjljSXpyYWNZem1LcG9oRmZWdlY2Nk5UcHRBaXp0SVVCRldEN2JkWXh0VFl2dC1aWVoySHFreW8zOA?oc=5",
+    "url": "https://www.comprerural.com/frigorifico-com-divida-superior-a-r-100-milhoes-aprova-plano-de-recuperacao-judicial/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CompreRural",
+    "source_url": "https://www.comprerural.com",
     "id": 480032
   },
   {
@@ -449,9 +537,10 @@
     "categoria": "Leilão de UPI",
     "escopo": "mercado",
     "resumo": "Novo ciclo dá continuidade à redução da dívida e venda de ativos, diz Cosan Valor Econômico",
-    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNVWJWUG9SMXlxc0Y4N2s5cC04ZGY1d0Q3eF9obE9XVFd5aTJ3SWt5bmpKMktaNGdsRDdIY0xYaGJvUmhqS01teVV1NmJJVFlSVVdDZFE3NE9rQ2RSMTZ4cnpvRGdEMWVBNE1sTTdUQkFQTk5sZjR2NFRZbGtNc2hoZWkzZkFFUHo3R1Q1amw0YlVCc0tzaEo5WTFpTkZmNk9BS3VuWEV1M3BwcHNINlV4UUhVNWQxVHMxeFptR2VsTjV6MUZWdlhORFIyWE5QS3JfM1Izd3k1UUhUZlnSAdsBQVVfeXFMTVViVlBvUjF5cXNGODdrOXAtOGRmNXdEN3hfaGxPV1RXeWkyd0lreW5qSjJLWjRnbEQ3SGNMWGhib1JoaktNbXlVdTZiSVRZUlVXQ2RRNzRPa0NkUjE2eHJ6b0RnRDFlQTRNbE03VEJBUE5ObGY0djRUWWxrTXNoaGVpM2ZBRVB6N0dUNWpsNGJVQnNLc2hKOVkxaU5GZjZPQUt1blhFdTNwcHBzSDZVeFFIVTVkMVRzMXhabUdlbE41ejFGVnZYTkRSMlhOUEtyXzNSM3d5NVFIVGZZ?oc=5",
+    "url": "https://valor.globo.com/google/amp/empresas/noticia/2026/11/16/novo-ciclo-da-continuidade-a-reducao-da-divida-e-venda-de-ativos-diz-cosan.ghtml",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
     "id": 649861
   },
   {
@@ -462,9 +551,10 @@
     "categoria": "Leilão de UPI",
     "escopo": "mercado",
     "resumo": "Cosan abre todo o portfólio a desinvestimentos para quase zerar dívida BNamericas",
-    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaDJjSUdpN3h3SzRIVmVvSkFPMUxVcjY4MVV1c0lsWTNoR3JyRHc0Z0xNYnFtT2Q5cWN5cE9uSXdKS3FGM0lUWWFDQkY4ZUFRV2stR1ZCVUZjSUpUcWktOHY2MVlHTTJNcHE5MDJrRnEwYVFGRjFDS2tKa1BkZDhqRXFETzRTN3g3WHF6bEpia01hMlcwX0NBekhNLXFoSGdRX1hKcC1tRnpHMXkyMGc?oc=5",
+    "url": "https://www.bnamericas.com/pt/noticias/cosan-abre-todo-o-portfolio-a-desinvestimentos-para-quase-zerar-divida",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // BNamericas",
+    "source_url": "https://www.bnamericas.com",
     "id": 129330
   },
   {
@@ -475,9 +565,10 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Grupo rural de Alta Floresta tenta recuperação judicial com dívida de quase R$ 55 milhões Fatos de Mato Grosso",
-    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQUVoyR3JORlllMzJQdllFcHJ1NElacHZsQnVGakhpQmx6M2dqRFNyeEpmNnJ0NlBWZXVuZTNiSjdfWGJDREJDcnBmX2NwdzlVQkM1M3o0U05aS1N1RDhHMlRrcWk1N2Qzb0JpM0Q0Z2pPTENfbHBQZG5EbENadEtEamRPTnJjRUlKMmpZZWkxRlQwNEtqVHdiTDVNUjROajRoWUlFaVZIMm5GQmItT2pGaHFNZjBEeWVERUY0NVU1TDZ4VDJkTU9OLWVwd1V3b0JtUzROellB?oc=5",
+    "url": "https://www.fatosdematogrosso.com.br/cidades/grupo-rural-de-alta-floresta-tenta-recuperacao-judicial-com-divida-de-quase-r-55-milhoes/18922",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Fatos de Mato Grosso",
+    "source_url": "https://www.fatosdematogrosso.com.br",
     "id": 791163
   },
   {
@@ -501,7 +592,7 @@
     "categoria": "Downgrade Rating",
     "escopo": "cvm",
     "resumo": "Fitch volta a descer rating da SJM TDM",
-    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcVZWRGdDOFpSM0I1bExDMGRBM29aYkpMb0JfQXV1elNDR1RqOThhTUI4dGxfa1NsSnQyMWdVWjBWMEVuNjgxUThQbDdtejRZdU5tM2JYYTJKSGdaYmVMYVNXYmotZmxBZHYweC1tZjVHc1F2aXgwWTlpa2xZMGhCX2tISTBGTEhv?oc=5",
+    "url": "https://www2.tdm.com.mo/pt/news-detail/1261563?lang=pt&isvideo=false&shortvideo=0",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // TDM",
     "id": 703893
@@ -510,13 +601,14 @@
     "data_hora": "16/11/2026 08:12",
     "titulo": "Rodovias do Tietê lucra R$ 38,8 milhões no terceiro trimestre",
     "fonte": "Jota / Tribunais",
-    "setor": "Energia & Infraestrutura",
+    "setor": "Mercado & Macro (RJ / Crédito)",
     "categoria": "Waiver / AGD",
-    "escopo": "mercado",
+    "escopo": "cvm",
     "resumo": "Rodovias do Tietê lucra R$ 38,8 milhões no terceiro trimestre UOL Economia",
-    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOWEwZ3RoMERSQWd1N1NVTEtxUVlEN3hGc0haajRneHhvQmw5RDg4TnJSdmRWZWVUUjVIRGd1NXB3V21qaVpHTGY4R3dPVFVJdzE1U1V2cHk2aWRjWXJ6Y2ZkUjNNRERUeTVtbVI3UlptSGpmX1dvN3kxc3RLam5BcUJ3c1N1Y0xfNno0Q3RWWVdMRjJYeFNYVmpGbUI3NVR0QWMxX21uNTZ3YlpTY1l2WHdPUHJpeWFyYkt3?oc=5",
+    "url": "https://economia.uol.com.br/noticias/redacao/2026/11/16/rodovias-do-tiete-lucra-r-388-milhoes-no-terceiro-trimestre.htm",
     "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Jota / Tribunais",
+    "empresa_nome": "Radar Ao Vivo // UOL Economia",
+    "source_url": "https://economia.uol.com.br",
     "id": 246737
   },
   {
@@ -527,23 +619,11 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Inbrands vai atrás de nova receita e busca a venda de ativos Valor Econômico",
-    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbmVYazVtVV94X2tJcXotV2c0NllzODQ5U1ZTRlA3U0VyYzlrRHA2U0U0Ny1XMjFDSncwQ1hFWktuNk5QQ1JjaFZkb2tCcmlQbURsTldlVEQ3UWhJR0dMXzJUaFNjYVVwc2pvQUVnLTNUWmpkaDM0V2tNeTJKanVpZU5zdDlYcUI3RndISkhXVzQtYmVwX1JObV9JTjhodlFjSUs2VF96WW9KWkVtY3p1WWlYRnRLV25WQ3fSAcgBQVVfeXFMTzAwTE9iZ2Rldm9BMmpqQURRb0xxZDRYOUVRVnpHaFJtdjNIR0pWT2VjS1hJMG0tTXFGQkZUOG45eWVIcGJmR1FodW5vbS15ZDNCaGw1Q1V6dVBrenNJUEpfTmZwU3BDbGxWUHlScnpaMWdmVG96V0tEQ05WVUdNb01oSDBUNmJDcTRTSjBWR3hLSmtkS2pGa3BlRlB5TUVfdmVKNFpDVmNLMWxnZU9SXzloYXJ4SmZ3ODNjVjR1bnYtRU1pMHo4QXg?oc=5",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
     "id": 889092
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
-    "titulo": "Marabraz pede recuperação judicial com dívida de R$ 140 milhões",
-    "fonte": "Valor Econômico",
-    "setor": "Varejo & Consumo",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Marabraz pede recuperação judicial com dívida de R$ 140 milhões Terra",
-    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNMlRRbDd2WVhuaWxkT2JlOVFCZFVkbDl2bFNHNVJWbmpkTWVmRUtzNVd4bkJYWXlDQXBWOFFVOUFYSU9ZUXBhNUpBLVlQRjZraFhxSlQ5N3NnV3JHQ2gyakhuVXA3VFc5N3lLODBmVk1MdHlFeVZBT2FSaHB2a2FfTFQ3Z0k2cDVQNHZaVmljaG9HTnVkT3Jsc1pEWWFZYWlodzRRd2VQQ1Q0cDJkb3FqVVRUZzZ5dWdOUGdtMWlxRHVXclptNWpoLU42TDFjRFRMa0xWclpoNWZyQQ?oc=5",
-    "deal_id": 103,
-    "empresa_nome": "Grupo Marabraz (Comercial de Móveis Jordanésia, Marabraz Comercial & Lojas Marabraz)",
-    "id": 651709
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -553,10 +633,25 @@
     "categoria": "Downgrade Rating",
     "escopo": "cvm",
     "resumo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação ativovirtual.com.br",
-    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQRlpvSHd0Yk1YMElMVWk3c3R5cWxZWTI1NFZ6WGE4TnYtb09OdzFCcTlydktPX2ZKY25QcDBpcTNyX3ZlejdoTkxEV1ZpX0pHbWhzODV3SGg0WjZkdGhjRVpiRzJNS3RuN283dTI5dGdIeFE4ZXZzTnlyRnRmV3V2YkE3UlV0WFI1QXFYMk9LaXRzQkwwQ3U1VUN4RTViTVVYRFJBUlhSTFpRbWk4VFVSWXI5RmJ4cnE3SnliZDNYX3d3Q2pwX1E?oc=5",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-ute-gna-ii-fitch-rebaixa-debentures-e-coloca-rating-em-observacao",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
     "id": 480638
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Marabraz pede recuperação judicial com dívida de R$ 140 milhões",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Marabraz pede recuperação judicial com dívida de R$ 140 milhões Terra",
+    "url": "https://www.terra.com.br/economia/marabraz-pede-recuperacao-judicial-com-divida-de-r-140-milhoes,0e285661252749cf6485640d73676faacmfhprcn.html",
+    "deal_id": 103,
+    "empresa_nome": "Grupo Marabraz (Comercial de Móveis Jordanésia, Marabraz Comercial & Lojas Marabraz)",
+    "source_url": "https://www.terra.com.br",
+    "id": 651709
   },
   {
     "id": 1151,
@@ -657,7 +752,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Credores da Concretubos votam em janeiro plano para dívida de R$ 5,4 milhões Fatos de Mato Grosso",
-    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNWWxYbjNRQVN5eVpJbHpHREU5YjJMRkJIdzhDd19NQ0pVU0NrSF9PZExUUlpmSnVLNTh6dlBpeWt0elNpZkcydmdRaEJOdVQtYzZrbm4zd05ZS0JWUHU2N3ZzRWhNMVotZmlYVUg1QXE5NGlfS1AzNDZqWVZyNzRFOWdXQ3RabWpFSG95eDRUSS1NUHM2RXhaY0U0Q1Y5UnFxY25Pdmw0TDZLUHRrWGJDZkZha2c0c0taVUQ5QWNtYWpDd3NI?oc=5",
+    "url": "https://www.fatosdematogrosso.com.br/juridico/credores-da-concretubos-votam-em-janeiro-plano-para-divida-de-r-54-milhoes/18793",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 788139
@@ -709,7 +804,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "Braskem para pagamento de debêntures: o que a blindagem judicial muda ativovirtual.com.br",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQWEdDUG1vR2R4OG1CdUJadEpZTENTN2d3ZFZRNS0yR3lvdWxCY1VEYXJ1ZWlBRGd3eUlSS0tBR0hqZXo0OHFmTUtVaDhmaFIxM2FlbGpNNVBYbWJFaEdIUkVVV2d4eXUyc0NZZWFOV2dVV09BN1phcXpSbmEzLVE4anlJVndxVnZjdmFSckVUZE9XMFBkSnRzakFnRlg4U3V1cmFvckdUdnJDdzlNOTZ1S29EQk5IQQ?oc=5",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/braskem-para-pagamento-de-debentures-o-que-a-blindagem-judicial-muda",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 988472
@@ -722,7 +817,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem (BRKM5) deixa de pagar debêntures de R$ 1,2 bi; entenda Suno - Investimentos Inteligentes",
-    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOVlgydGRRRFprdHllaWV1QzNET0NZNF92ZXFfclBSTm1faE5aT2dhMHpCLUVzRm5ON2xIWFFiWkNEQTQxY1pHTlpzM3k4NlAzd3RjbWRJSHNzUlRZZjdHcElGbzVPTmhzN1JFbDhMOExQY2ZfZjRmTFBhT1hON1gwTTRnNDh1d9IBiwFBVV95cUxPTGVrWHg3bzF5S0JlOVdLZllyZ2hlMUthTkZtS08tRnhNSC1Ra2J3WnV3VVk1bEtEVmZHdlJLTEpYYXd0akNpcVI5bkNVYzJZNDhTdkh4aHI2UTRmRmREeDNIdWk3ZjFvSW9ERmY2bXk2dVJSQUk0RjN1Wi1CLXgzV2lqc3V3enRLbjlB?oc=5",
+    "url": "https://www.suno.com.br/noticias/braskem-brkm5-nao-paga-debentures-recuperacao/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 178445
@@ -735,7 +830,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Renda fixa isenta pagando IPCA+ 10% ao ano atrai analistas de olho em combustíveis Investidor10",
-    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPOHBTQ3NjUHpMSWFOMnpwNW5kM2JKa19FSkpwY0ZVZ2ZYMmQxcDdsQ0VPcExXNFJRbldrcTBxSklHR0VxbFZZQkxMSjNqQkpnV194T2ZHSmdTdm50alpyZjNrWS1HUEs5clIzLUtBc2tSXzVLVkVXUWhTY0VEWFlORk5RajVzNTZPaHFkeGJpU3pnbFFOZE1TWUR2aWVWWHZ6VG9DRTJLcGZVMG1FczZKZGhVa3g2el9Gckd4WHVHV0xaSDh4d1VHQtIByAFBVV95cUxPOHBTQ3NjUHpMSWFOMnpwNW5kM2JKa19FSkpwY0ZVZ2ZYMmQxcDdsQ0VPcExXNFJRbldrcTBxSklHR0VxbFZZQkxMSjNqQkpnV194T2ZHSmdTdm50alpyZjNrWS1HUEs5clIzLUtBc2tSXzVLVkVXUWhTY0VEWFlORk5RajVzNTZPaHFkeGJpU3pnbFFOZE1TWUR2aWVWWHZ6VG9DRTJLcGZVMG1FczZKZGhVa3g2el9Gckd4WHVHV0xaSDh4d1VHQg?oc=5",
+    "url": "https://investidor10.com.br/amp/noticias/renda-fixa-isenta-pagando-ipca-10-ao-ano-atrai-analistas-de-olho-em-combustiveis-123886/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 579744
@@ -774,9 +869,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "CSN: mesmo após vender ativo, secundário opera com deságio Capital Aberto",
-    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNVDladlU0cWR0emJObVVfa0x6NDFVRFh6Q285dk4wUmdhdk5ZbUhWYjZGbTBGTzdqNU9YcWRqdGdVRkVqRWFmenZNeXpRbWdpdEtJampaZXE4dW9Bb29IR0JrclItZGttc21Ccy1ZblVOTTVUX2J2aldseTJ1cnkyQUltS2lvcTEwUHZUOEg2UTNfTmFSUnptakI2bGVzcjVURjRxZQ?oc=5",
+    "url": "https://capitalaberto.com.br/empresas/2026/11/csn-mesmo-apos-vender-ativo-secundario-opera-com-desagio",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Capital Aberto",
+    "source_url": "https://capitalaberto.com.br",
     "id": 372584
   },
   {
@@ -787,9 +883,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "CM Hospitalar (Viveo) aprova reestruturação de dívida; debêntures vencem em 2034 www.ativovirtual.com.br",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNTUdjYnhXSTZSVDRTalJMN1M3enc4UmpuZXBCbEd4STBtNFlhNVVqWUpoOTBUVFozbTFDOEJKTzlpZk1BVW80dno5OF9haWFOdGgzdkFfdGFJSzhpVEZqTWlIZnBnWkNUejhITkpUaHRKOGtjRzZVYjhFNFl1YTF5b1YxNzhnLWdrSW5GcjBQY2owYzFYdmVIaEE0enFQeVRDUmVwbmdyUzFvdUJaU2tycktMa3JqM1lkTFdnRkdIcVQyUQ?oc=5",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/cm-hospitalar-viveo-aprova-reestruturacao-de-divida-debentures-vencem-em-2034",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
     "id": 903273
   },
   {
@@ -800,9 +897,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Até IPCA + 12%: os papéis de crédito incentivado recomendados para novembro InfoMoney",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPN1ZlM1VQd0FfT0pLLVFZTnp5U2RUYk1RRmNzRVd3amhQTFVZeDVFa3A4REZNTDd6Y2x4dHBiNlIzNWhUQVJMd1VWOXhMT2hhMXN5bHBTMEIzWS1pNFQwMkRNc2pybENqN1hBOFJZa3Zyeld6SzhnM1l3b2xPZEQxbzUwV29ESmdjblpBdk1XckI0Zkw4X1UtNlFxejVaeHlsSDlWemtnaktrNHF6dW1XZVFZb2MwQdIBuwFBVV95cUxNRUF6cTlxUGNLbEJvUEZ6R2dRbnNnOXo3czJGQU9iMTVRY3VZbWlFNWdTaHJpSXppcGxOZVJpb0Z2STNRejJIbGJpbTNsVENVUkVwV0hJa2E2aGVoNHJJMHFJb0dyblhnODcxNHphUVJKZDI4Rk5xLTZRTVQtSC1oU29Nc1hMNlJZcjlYSmpHWE5vcndGX3Noanc5NnV5amt2TjNmUVV0YnJ0VEphNlpuOUFOV0hsREtHVzlB?oc=5",
+    "url": "https://www.infomoney.com.br/onde-investir/ate-ipca-12-os-papeis-de-credito-incentivado-recomendados-para-novembro/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // InfoMoney",
+    "source_url": "https://www.infomoney.com.br",
     "id": 392670
   },
   {
@@ -839,7 +937,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "Braskem vê prejuízo disparar para R$ 1,1 bilhão e corre contra prazo para reestruturar dívida Estadão",
-    "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNdVNWcGo3WEY2Nm1KelF6OTFKUzQ3NUliejFEUktBd3F4X3hkaXNKZi1WYUlpVXpNaUMtdnNjZE5mWjN4aGlpdWpwWUxsS0dPSXNNM3Vteko1TnRHTWRaNHNCejZXM0c1MUZNNFBqblNMTlNzT0c5VFd2MndHRHpIX0hCbk5TNndZUk82MFhENmY0UkRlLWFYRVVaSktNWkRscDQxc0lrQ2xHQXdMSHVnY0VKdlQzVllqcE9QemtkMHZ4aFlBcmk0cXUwRUpOOXZpeENHTWlqazg1Q0FDZXpya016OXLSAeoBQVVfeXFMT2tBd1RPLTh3bDhQVFJxVE9XUnhxMlZTSUg2TFdBVWVWYTYtRldjMlFMUWJQV2FWdGl0a0UyMXA0c3pueWNFbjFrdXRfdDhIZ2JrQ2ZHR3JKdDBYM2ppWGgxNzFwZmMzcW9Ma1hFVVIwOWg0QXhMVTdEOS1waVpyUGtTRUZCTHJnUVV5SXRqYVZSWGlRWlNJX3pXSFgySGpoSk90ZGk5emdFTTM3M2JxNEdCQXpRcFhMR1FxeE85eS1jbTM4amJ2b0Y3d21yVzBfOXRyVUkzVTlQNUZ4T1JoZEJWNktrMm9tQV9B?oc=5",
+    "url": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/braskem-ve-prejuizo-disparar-para-r-11-bilhao-e-corre-contra-prazo-para-reestruturar-divida/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 481454
@@ -852,7 +950,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Propostas de credores e Braskem para plano de reestruturação ainda têm diferença de US$ 1 bi, dizem fontes Valor Econômico",
-    "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQYzlGVjlzODZySFRLODdoTVZRcEJpLTRacVhPdG9DYWhMYmpLU0tDaWtzS2JONjQ5ejk2c1Vxb1ROZVg3eEUxal9WTlhVaktSMmtuLTlwUG5QMFQ5TGJXNDZMWTlxb09ZenV6bjdxbm9GWDk1ZDdybHBaSXV2YkRuXzZEYkZRR3hZd1ZTQmx3eGNzOUFDLVRFRnJRMDlOQTFSenkyRVQ4X3hDUEdtWWttRkMzUGdDc2pkdmk2YXhYZVkxeFVTVk1YZzI0d1pZUTAxTC10aElYUFJHd1JqVU42U3dUUkc0TE9adHhvZ3dGd2hnUW5p0gGDAkFVX3lxTE00eFJNZWFBNjhZQzIyQnhINWR4TExVYkhxZWptWEhfSjdKRHdBSC16VHZUSWQxdUROampJNEhOcUhmM3JPSFcwMGxoUUJ6V0lDb0hUQy12SDdHVXY2OW9kNFhyeFFjZEFUT0pLYnJVV3p1T3JBXzl5UEtFa2NhSlRUZFpXN1VuVHpUNUkxQVB4V2xiLTd3aXFGTHpWZk9iR0JKSGRPd0tIQ2REUkdocV9pOEhGdzEycG1CVjE2dG9mZ3ZxbFI4VkY3OE1vdFNxcEhUaUlCdHFTV0xLcHRqSE5uZlVZNGJLaWdHUlJ1OUdlNkhBal9ESjhRTFNpMHlvTk8xOFU?oc=5",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/12/propostas-de-credores-e-braskem-para-plano-de-reestruturacao-ainda-tem-diferenca-de-us-1-bi-dizem-fontes.ghtml",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 225534
@@ -878,9 +976,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem deixa de pagar R$ 1,2 bilhão em debêntures e cita recuperação extrajudicial ADVFN",
-    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNc0RraVk4VTVwS1hkaUFoY1M2X3NwdWhnZWVfd0xwUHZ3MXRPSTRROVRZYlJqalFlOXhXV2JHeWctMUtZcjhGWGVVZUJLd21GMEx6cXZ4NUtneDAxalBPUThnMEpuN2tQTWxETmN4aXF6RzctZXkxQmNwM1pGUHhHYmpmQUhPaTAxTmI1VXZwNlVCWk9RSWpEUWVPclNKbU5vcEs5b0h6UmU0dkpwNkd3eHBtZmd0N3dHaGc?oc=5",
+    "url": "https://br.advfn.com/jornal/2026/11/braskem-deixa-de-pagar-r-1-2-bilhao-em-debentures-e-cita-recuperacao-extrajudicial",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://br.advfn.com",
     "id": 436138
   },
   {
@@ -891,7 +990,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "Braskem (BRKM5) dá calote de R$ 1,2 bilhão em debêntures e usa recuperação extrajudicial como justificativa Guia do Investidor",
-    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOeGI5YjRrOV9rcHlYZzN0cU53bHp0R1JBZ183U0VweHhTREN0Y2dobUswWGtHM1BXQ0hWeXp2Y2pVUUZfY3NoSHdqdVZ4RkJhc2lXLWo4WnZFLXIyMEJNVDFPLWV2Qm9KWkZ6N2s4X3VzcjlxRndUS1NwWkZiamxZSXBzR3VQRUJPSURFR1BlWjV5Tnlva0oxc0Q3bWw0czlkRGhfbkNOZ0ZuSWRoV3U4dkJsNC0zNl9SN0FPZE1kcGFTWXdSV1NjVzhxQXB3U201elBpQWVNSzc1b1Jj?oc=5",
+    "url": "https://guiadoinvestidor.com.br/mercado/braskem-brkm5-da-calote-de-r-12-bilhao-em-debentures-e-usa-recuperacao-extrajudicial-como-justificativa/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 282452
@@ -904,7 +1003,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "Calote da Braskem: debêntures da companhia pagam CDI+ 47% no mercado secundário InvestNews",
-    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOa3AxelVVYm1RUzZDS0Z5U09xMkQ5eWV4QmloeFpxZGpULW1kR29hT2lwdzhMR2UzNDRCNTVUS1dDaGU1dERzLWdqaVZVNzdrUWkxVGVkcWVKTUVsWDFHUGpkbGR4UDYyRU9pZmFKNkNxaTZMOE40MmxlTEFRVlJpZW1qMHlvX3VOUDZqZWRUSzY3TXBOYW9WNnl5RS1NRnpxS3NzTXFsQnFjT0lPRzhscjc1NW8xYjdj0gG-AUFVX3lxTFBCeE03Mk5COXhxRnpUX0k5WHY2ZEVhaTc3R25tWlNDVFpLMTByZUhkR21GU3doMlJDOGhVZmxjbTdkbENLcEFPNFF4YlJfaTE5OW16c0ZnRnZ4dVpSdHY3M2JKWWxETTYzcUVhcmdmeXlRVFU4NU1VaVpYeVhtM3hkaWo0VUVKLUpyTDNJWDhVc0lkdnVTSDNfNGtuZjlEVVhVN1FKWWN0VzZCSzZ3UE4yMk45S2JrcUMtSUtBT3c?oc=5",
+    "url": "https://investnews.com.br/investimentos/calote-da-braskem-debentures-da-companhia-pagam-cdi-47-no-mercado-secundario/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 621847
@@ -917,9 +1016,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem não paga debêntures de R$ 1,2 bi e cita recuperação Painel Político",
-    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOXBzeS01d0RPUW1ZeDZFZmtVdUplSVNXeTFQSDhyeWx6U1k5Q2pxdEExbXF0aWdXNy1uMWtrb2xBMVN2R2c5MGs1aVFMMUstenNneFV0ZU9vYzFTS1pKeXF1WGV0RjlpSXFyQTFCVVE0d2tIXzJPRk1hOGczOUdpbl9zUFFwa1I3dm44M05n?oc=5",
+    "url": "https://painelpolitico.com/braskem-nao-paga-debentures-de-r-1-2-bi-e-cita-recuperacao",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://painelpolitico.com",
     "id": 419066
   },
   {
@@ -930,9 +1030,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem deixa de pagar debêntures de R$ 1,2 bilhão e cita recuperação extrajudicial InvestNews",
-    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOU3B3R29pdERpdTdYdHRWOHZVWk9RVXUtOTVZdEZwd0lRSm9iclg0cTlla0xjWVlPNWlJTFJQN2tGcHA3LTFOa0U0VHBrWW1TYmxmckdUR2ZlbTdQVVRtN1IzZ0Q2LWhwb2VMQ2MxekkzLVVqczdSOEJPMjVuQjZRY2loSzRhX09mVzJlaVFNOGlIaXJsZFVTeWw3LWFpTXdYWms5YklRaHB5ZlpRV1RBRmtEX3V5YzVI0gG-AUFVX3lxTE1HblNTUXprSjBYMmtWMl8xckNsOFBYZ1R3enlxbXdpM2U0UGVfdkx5dmRJQ0pEY21VajI0RHB3U0xPVlQ2ZXpCOUNoYngwRUV1S0FZNXNaU2tYUVdjbUNWdF9NeDNLMW16YWR1aFBWZkVtU0pzQVh2UGsxNW84SU5Ya3hrWVRXWXEzLUhUN3Bhb29uRWstT1pIZDM0TEtVOEk2Tzl2N3V2ZURaRGhuSWZidDBFVWZ4T3J6QzY4ZFE?oc=5",
+    "url": "https://investnews.com.br/negocios/braskem-deixa-de-pagar-debentures-de-r-12-bilhao-e-cita-recuperacao-extrajudicial/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://investnews.com.br",
     "id": 696474
   },
   {
@@ -943,7 +1044,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem (BRKM5) não paga debêntures de R$ 1,2 bi e cita recuperação extrajudicial Investidor10",
-    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNYUQxeWMweUtXaVdicVVIQ0RFeUhaZ0RRVWVma3BFaHlKY0tLUExZc3JYRWhUclZCQ0VqbEpCVlkxdVhyaVptVzhPSElnYzdXWWFTeUl6OW5HOElGWlpLei14SXJOU2lLTUs3VDJYVF9sakltOVZYdVowLXBYYlR2UGhrVVFieXNHaDg4ZDBnUVgzTlYteHlhN1p3VWRFZnlZclpZUlpBeXJ1SHdqeTNZV25LS1lkR0JYdFdwT2w3ckxTVXQ2WFHSAcYBQVVfeXFMTWFEMXljMHlLV2lXYnFVSENERXlIWmdEUVVlZmtwRWh5SmNLS1BMWXNyWEVoVHJWQkNFamxKQlZZMXVYcmlabVc4T0hJZ2M3V1lhU3lJejluRzhJRlpaS3oteElyTlNpS01LN1QyWFRfbGpJbTlWWHVaMC1wWGJUdlBoa1VRYnlzR2g4OGQwZ1FYM05WLXh5YTdad1VkRWZ5WXJaWVJaQXlydUh3ankzWVduS0tZZEdCWHRXcE9sN3JMU1V0NlhR?oc=5",
+    "url": "https://investidor10.com.br/amp/noticias/braskem-brkm5-nao-paga-debentures-de-r-1-2-bi-e-cita-recuperacao-extrajudicial-123851/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 704588
@@ -956,7 +1057,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem interrompe pagamentos de debêntures de R$ 1,2 bi e não informa prazo para regularização Times Brasil | CNBC",
-    "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNnFyQ1FZS1daT1AtbEx2MjV4N3ZNYzlocmEtY1VhbEtJd19yUEFYbi1FUFVJS05LeTNfZ04xUnFBQ2VZQm1XbGNaYnBpdTBoOEx0bmN0N3hvcXFVQlFqX0R6NDB6R0tEaW5kb1R0dnYzVTZXdVlSbUxGVWwwY0dKVDY2ODRkSEJqRmVHM3YwVDhJdnNReXdnSzhXV3ZHZDl4dkhRMUFJUHRHdFpQckc1M0YxNlhCVTlEYlVqc0x5N0dBMEVQcjlr?oc=5",
+    "url": "https://timesbrasil.com.br/brasil/braskem-interrompe-pagamentos-de-debentures-de-r-12-bi-e-nao-informa-prazo-para-regularizacao/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 139862
@@ -969,9 +1070,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem não paga debêntures de R$ 1,2 bilhão e aponta recuperação extrajudicial BPMoney",
-    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVTFhNFlQRHJUeHMxcnFBUG1JN1gyVGVIQVp6N1JpdF9JaDRlZjVYalBRRXRWbWV0VEFFa2dxR3lwdjB5R21pcEtzZVFaR0I2U2VVY2F3Z3JsM180MVVtNFJSLXU0aDZLVDBNWnNCVlRydWFqY0lkWWo5VjMyekZZWTRrbkFTTVdqVk9IcjlxbTVKazlBd1VWRVU2N2JPOHdpZ2F3bWltN2F2S0xyMmVjVHlJRFZWUmpM?oc=5",
+    "url": "https://bpmoney.com.br/negocios/empresas-na-bolsa/braskem-nao-paga-debentures-r-1-2-bilhao-recuperacao-extrajudicial/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://bpmoney.com.br",
     "id": 717887
   },
   {
@@ -982,7 +1084,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Braskem não paga debêntures de 1,2 bi, aponta recuperação extrajudicial Itamaraju Notícias",
-    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPb3hJQk0xTElOQjY3UGVwZzUwTTFqbnpyY09wRXdJVjdibTJKN0R5T3JaSHdMTTNNeDZ4Y24wU3FKWnFqbWFaNGphTTFaaXVsNTRfMmpaMHNHcWJ5UnVvR1RicHVILUFUdV9qSHItcGNyalRmVTZJOUJOczhBYllSdVQyTG1WNDViQnV2RG1aREJKX01qc2l2dzNLMVp1WTRKLVQ4T1dsUVdyOEc1Yk5VaWlOMG00ZmQ1M0NFdWtlQ2cweHM?oc=5",
+    "url": "https://itamarajunoticias.com.br/editorial/braskem-deixa-de-pagar-debentures-de-r-12-bilhao-e-cita-recuperacao-extrajudicial/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 326240
@@ -995,7 +1097,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "DBRS deverá manter 'rating' de Portugal mas subida é possível Dinheiro Vivo",
-    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNanpDX1gtc0VQUmg3bE5kU3l3OTJDOVJGSjcwTDExUlQzZ2twV0Z6Y2V6Uk43NkYzYzc0dGd2UWYxbVhIZHlQb3VjOHM3MlhmVFkxUW5UX0ZaVjBBc3NXMnQtWi1JMUxybDFuRE5jRlRkdWg5VmF3STlwUUVtdWlySG1OSEhOQTFQZnZwNGV5UjhXWlNR?oc=5",
+    "url": "http://dinheirovivo.dn.pt/economia/dbrs-dever-manter-rating-de-portugal-mas-subida-possvel",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 887743
@@ -1008,7 +1110,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Recuperação judicial atinge quase 8,5 mil empresas no Brasil Portal do Cooperativismo Financeiro",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMTlkRGp0N0RrOERSRTNEQ3RfUDV5S2FMSUc3eVRIN2p1dkRNM3NZbWdqWFVFeUdkUlp5Q0cxVDlrSUppZXhBZ280S3p0cklpRjQzeDVuYmxlby1IWUZmSGljaE1kQ2VoUzlCZG9GNUh1anJDZnI5U0czdDV0clkyU2JSOXk4aTVUakk1LTU2UV84TDgtZlZLdUFoZi1MeDlUTGVLZm1FSE93TW9z?oc=5",
+    "url": "https://cooperativismodecredito.coop.br/2026/11/recuperacao-judicial-atinge-quase-85-mil-empresas-no-brasil/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 227349
@@ -1021,7 +1123,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "mercado",
     "resumo": "Após recuperação judicial, extrajudicial é alternativa Valor Econômico",
-    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWkx3MTNFU1BqNy1ZcTNnY0ZJUktYenZFeUVNTm8yb3JYZjd6M0NUOGFkak1tRnZJTDBNdHZMNTJXLU1DRFgxaGh1Y2pNSlVRZVhrcWRzcXR2VlFmQ1Q1WktlZkN6N2pkcm9lQzJiSWppS0g2ZlplbV9OeGlGQ0haQ2xHMmh1Y25TdGtxQUlqRnJRYUY0amxUaFV0ai0zLWdJWGs3TjFLNTdvR2kwaDdPd9IBvwFBVV95cUxNMGF5THpKOGVjUndFT1FFcFlNYVcyZmoyTTNjT0xhcmZVdTllVFo5VWpVdGdlOFNUd0FGSjQ3ZGNJblVycG96SHNVVDlIclhMQmFFVFBfMzdFSE56eXNIOEdaUW5OMFpGa2EzcmRLQ1N1VDZVZGZzbk9PeV9oUHJnakVPVzVCeldFRnV3UUpoUDItQWNiVm0tQlAxTXBKX2Q5VnVheG1VZVppUWplRm92VUJXeDNlM3lsMkpFYWtNNA?oc=5",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/12/apos-recuperacao-judicial-extrajudicial-e-alternativa.ghtml",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 772975
@@ -1034,7 +1136,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Americanas tem prejuízo de R$ 352 milhões após sair da recuperação judicial TV Sim Brasil",
-    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZHJpalgyRnU0aUF0MEp4b1NzZ01qcUhMZ3FaUXptcURudzRmYmR4YjM3RGZPU2NWc0d4cE8yV3o4Yml1R29lUEN0UnZoZXJYZktEVnFwWDJWa01jX0paYjFPbXgzZnJaSXltVGtJSzBCbm1kMnZpSVU5Z2ZhaEo3MTB5V1F3d1VnX2FwWW5OYzJEam92bXpYSnFqdHJidlpEMTNQOWNtcEZzdkd3dTFkS18xdU8?oc=5",
+    "url": "https://tvsimbrasil.com.br/brasil/negocios/noticia/2026/11/12/americanas-prejuizo-352-milhoes-recuperacao-judicial",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 904391
@@ -1047,7 +1149,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "Braskem diz que não pagou amortização e juros de debêntures da 18ª emissão por causa da recuperação extrajudicial atlaspublico.com.br",
-    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQU2NLcEdZbjNQbXhISzdLOGN6cjJ5Vk1ybHVqeDlDbnRpa1A3bkJYU20zTmszdzRIdkFoVV9JOWI3ZzVtbFdWdzlvdGFMS1p2azMxMWh4TGZVQ3VNdjRoQkN1QnRGMkxPVDJKc19Zc1hMQnNNaE5md0ZKRmhXb1pCQW8yaklFZWs1enh4Qk1ZRXpRcU5Hd0xJam9tc0VRSTlsVVBqTndDQUlZRVE?oc=5",
+    "url": "https://atlaspublico.com.br/cvm/noticias/braskem-diz-que-nao-pagou-amortizacao-e-juros-de-debentures-101146",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 393596
@@ -1060,7 +1162,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "Casas Bahia adia divulgação do balanço do 3T26 e apresenta dados gerenciais da Recuperação Judicial Business Moment",
-    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTE9rSXdpSkgwWmp0WFlqd0EtVFhYTUZwUXpVeHpzOWxFYk1mSThNd0hMVmZGZk1ZVExXZmRYTDlTZTdnRHN3YjZ0a2tYSV95WEJWS3Z3S1BDTmE4aUJzVjJUaVdOYVc1bUdOSUpGYV9TU25kem1rTjBqUmRvcEFrSV9Fc21uRTVKR3V4RmZzRF9KaW9BczFwZnlINHJKamxhRFVhMmZrUDAwNTZvcWdKUnJVQ0Rpa0lReVNFX1drNVVqSklDQ244MWFB0gHSAUFVX3lxTE9Ud3Jza29HQlJGdEV1UGxIZmhiOUI5Tlk3U0hNYzV5SWFmTFFpV1JKQm4zeVVnalY1bTBYMjVqVng5WkdOQ3p4TUdTcnV6WTNqclhsaU9DajBEYmpneDR1dmVyeWcwUS05LU9keTlOaG5KTVBFRXBBalZ6bWxMYWNlNEhRRjdRNVp3eXByMUhJQUlmZ1QtVW9xaWhwLWN1X3oyQmt1S0d2NUZHSWl3c2IycEpicnNQalJoM0I4ekxFenBJVWRTWU9rRXZRVFdNVk9mQQ?oc=5",
+    "url": "https://businessmoment.com.br/casas-bahia-adia-divulgacao-do-balanco-do-3t26-e-apresenta-dados-gerenciais-da-recuperacao-judicial/",
     "deal_id": 86,
     "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto)",
     "id": 171081
@@ -1073,7 +1175,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Fitch afirma rating AAA(bra) de debêntures da Parintins Amazonas CanalEnergia",
-    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPd2VXeDZraDFxcEtjX1llN3lFQnRpUVZJVVhoNGJMTDdNWmZHU1ljZjVzcUttX2dpMDhkZGtiaVFISnc3U1VZZ3ZtSl9tSzhDMkJYcGh1dGpXZWR5bThFZ2tWLUhYR0M4YXhBZVNfNkdIYWo3VUpTdGxvaUs1VUtUcldwZHV2ZHFsS045SnNXNmlsaUFVU2hjWFp6UHNDSmZzRHFHY0tIQnMtcnV6ZnJ0Y0ZR?oc=5",
+    "url": "https://www.canalenergia.com.br/noticias/53360108/fitch-afirma-rating-aaabra-de-debentures-da-parintins-amazonas",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CanalEnergia",
     "id": 591474
@@ -1086,7 +1188,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT Midia Jur",
-    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNaWxVZncwMUhGOHptVTVveUFrWlFHZ1Bhdkl3eGhHQ0VyU2tTQ2REOS1yM3M2WWdmbktQQTRMUTQySmpoWE5HMGxETzI1akFodi1zSEZIMkFxdnNCU05YbG5KQWo5TU9nTGZoTFRvcDVvS2xsbUhMZmoyTHlUOGd4dlhXZlRpV2JfYmFVbkg1Sjk4ZWYwRzFJRDlZTVRTXzBKa25Sb0tmWWdGTHk2Vk9aSWVQeklISW4yZ3FZOEZTU1c1clk?oc=5",
+    "url": "https://www.midiajur.com.br/justica/justica-determina-pericia-em-7-fazendas-de-produtores-em-recuperacao-judicial-em-mt/89113",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 677873
@@ -1099,7 +1201,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "Braskem informa que negociação com credores foi prorrogada até esta quinta-feira Folha PE",
-    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNYlNZdkpvN19TNUs2WFRaa012VG1NY25wcThOaHFFRVM3cDBtMGZ2QlhHc0F5YzBoMGtlSDR3eFVwREkwaE5ITUl5T0Znd2dkQU0tS1FrWS1kTDVXVlNHWTJydDZIRUR6N3BXcGUtU1E1OGg5ZFVLRUlMOEdqWG5zZEtjTloyZ2lSbXBwNE9CMU12NmZ4ZHo5T0xRb09KSndkLU5QQXhfeDE4eHlKVzN6cnFxc3LSAbQBQVVfeXFMTWJTWXZKbzdfUzVLNlhUWmtNdlRtTWNucHE4TmhxRUVTN3AwbTBmdkJYR3NBeWMwaDBrZUg0d3hVcERJMGhOSE1JeU9GZ3dnZEFNLUtRa1ktZEw1V1ZTR1kycnQ2SEVEejdwV3BlLVNRNThoOWRVS0VJTDhHalhuc2RLY05aMmdpUm1wcDRPQjFNdjZmeGR6OU9MUW9PSkp3ZC1OUEF4X3gxOHh5SlczenJxcXNy?oc=5",
+    "url": "https://www.folhape.com.br/noticia/amp/523593/braskem-informa-que-negociacao-com-credores-foi-prorrogada-ate-esta/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 603231
@@ -1112,7 +1214,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "GPA vai emitir R$ 112 mi em debêntures destinadas exclusivamente a credores InvesTalk",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNb1dpTGJjODg3S2RnWUFmeU5YdWZhTUhKOFBMd0RwOTJpaEJlODE4eVlrT0I2QzdqZ3ZEcnExSVZMb2JoSEhHaXAxNlQ2Vi1yMDU0a0ZLUkhlM2UyVGxsN2V2Z0FBSWNBRGpmbTBIUmltWjU0RXlQbWNiWnZDcmQzUzVfYXo5YTRMSjVPdnItcVdLZTBDTU5UU0tuWWx3RW5lMENyR290eWVkamhK?oc=5",
+    "url": "https://investalk.bb.com.br/radar/gpa-vai-emitir-r-112-mi-em-debentures-destinadas-exclusivamente-a-credores",
     "deal_id": 16,
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
     "id": 385068
@@ -1125,7 +1227,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "pipeline",
     "resumo": "Companhia Brasileira de Distribuição aprova emissão de debêntures de até R$ 112,8 milhões associada ao PCAR3 Clube FII News",
-    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOYVZianNyWEF3clVQOWxCbHo0cWQ2ajdnZkNSeHhvNlBraGlUOXZtMGcxZlBHM1MzNFB1b1hBbmhoOHJVWjNhbUV6NGJkckhEUTVEMl93cE1XckllVHBXVUNJSXNNd3RqVWhYcmpyOENIanYwckQ1UDJkZXotbk8wMzhWZUFfbWNHMFlSNTBmdmRvUQ?oc=5",
+    "url": "https://www.clubefiinews.com.br/acoes/pcar3-emissao-debentures-recuperacao-extrajudicial",
     "deal_id": 16,
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
     "id": 982942
@@ -1138,9 +1240,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "GPA aprova emissão de até R$ 112,8 milhões em debêntures para reforçar recuperação extrajudicial ADVFN",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNRVRXVjFuT1pDVlZ2TzBYcEctZTdaRFQtNmhyQmNhUmVWY2QtbXFaR1JXYXBxQ0JqRWRpUUMxUC1TRXBiekZmSVNJX0pvVkJnOTI0aHBoX29OS2FraDVVdDdkLV81MzFOME5JaHN6N0JTR3pxdGVYbWlEZ01nUWM3OXo2ZDIxd1JGM0lUMDFzZkQzVU02bWFCNW93Z2JlT1hTSEtqV1RHUHBpdElrblE3NHh5eW9XX2R4ZlRiMFNTUWdWNFFjbFhENkxBQQ?oc=5",
+    "url": "https://br.advfn.com/jornal/2026/11/gpa-aprova-emissao-de-ate-r-112-8-milhoes-em-debentures-para-reforcar-recuperacao-extrajudicial",
     "deal_id": 16,
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
+    "source_url": "https://br.advfn.com",
     "id": 495770
   },
   {
@@ -1151,7 +1254,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Fato relevante Unidas: nova emissão de debêntures com garantia da controladora ativovirtual.com.br",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOdTVXSXV5RlVvbXRmejhOelVXTS1falk5d1pjT3NQaFZiRnVhZHlsbk9hTkxwZ2ZZWW4xNFdrblRaWUdNX0ItLXRsWXhxQWUtb2dQdHE1MHpJN0ZlRlBFd3NLaXZNUUNTNElQazktZG5TNjI3bDZ4NC1IdWtWdm0yVm1NZks2VWo3M05vUFBuelFmd005UWlJYkZYeUx6bUQzenZPQ3lhaFVYZEphOVVGV0N5emVfUU4tZnNTbVlqaUl5QQ?oc=5",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-unidas-nova-emissao-de-debentures-com-garantia-da-controladora",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 776480
@@ -1164,9 +1267,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Fitch atribui rating AAA(bra) à 2ª emissão de debêntures da Buriti Transmissão de Energia CanalEnergia",
-    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPWXFjZE4tU0txN3FOUjMtZUVhdXE5X3ZmbVpIdUx6ZUxNMnpIMVZxYW8yUWVjaHV1YW1obEcyVU9FTEh3MGNXU2tfQWxoRGwzaEljeUUyUFRCeEJ4T3MwY0Y1NGhQNTFQWTdsaHJ6dlNRdDJuOUVMMmFfd1RWTWJ3NjJvMk9rYmhyOVc5Rm9NQlZvM3A2NFpVRkVaeHRIUmljUm5RQnVwY2VhOVYtVEpPMk9xYjZFbzN0YkdyRTlZWjd4aEx4eWpEOWNIazFkVWU5SFhr?oc=5",
+    "url": "https://www.canalenergia.com.br/noticias/53360026/fitch-atribui-rating-aaabra-a-2a-emissao-de-debentures-da-buriti-transmissao-de-energia",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CanalEnergia",
+    "source_url": "https://www.canalenergia.com.br",
     "id": 103876
   },
   {
@@ -1177,7 +1281,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "Sócia da Kitchens transferiu R$ 4,2 milhões em imóveis antes de recuperação Migalhas",
-    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQc2FsY3JyZ0RCX0VKWkRWVzJVd3hLYnBtVUIxeEhDaVkzc3VfbFRSMGI1dWdoU1k1bGlJWUIwTkNpejBPR3pMblNsVWxMb3U2UFFxUG5EeHhTaUdNWXZLR1FUSGx2aXAxSUFPZlljZk82ajhKWjRrWjhtQ3NZV3puTzZrSkhxRENkMjI5N0oxVnNINFY0eEY5eGRiampGc25GMlZwZlpnYWlDcGlHNWJWTkpn?oc=5",
+    "url": "https://www.migalhas.com.br/quentes/468220/socia-da-kitchens-transferiu-r-4-2-mi-em-imoveis-antes-de-recuperacao",
     "deal_id": 105,
     "empresa_nome": "Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas)",
     "id": 527916
@@ -1190,9 +1294,10 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Mercer International (MERC) pede recuperação judicial nos EUA e prevê reduzir dívida em 88% ADVFN",
-    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOZUpGNnJkOFJtTnJYdHZmVnpnbkwzYWlUdVBCbTlJTGxsZEVvMDc1Z19XV1ZRZzAzNnE0dGNMZVBtMFFtWmVjemtnOV9RWkNuWENFb2l4cmMxUlRSdFkyNFhsQS1kNmF5Zl9DdERTbE9mQjAtQTd2U2VFdFhWTUZzVkQ2dnFyckxtaEc2VE9ON2ViNEVhbEdlTkhjMDNIa25CMndBRFUtRQ?oc=5",
+    "url": "https://br.advfn.com/jornal/2026/11/mercer-international-merc-recuperacao-judicial-eua-reducao-divida-88",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // ADVFN",
+    "source_url": "https://br.advfn.com",
     "id": 298236
   },
   {
@@ -1203,7 +1308,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Número de empresas em recuperação judicial aumenta 21,2% no 3º tri Poder360",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMFdOZHluVWl2eHlNdUxqSmFEWXJzTDdTV0d3TWNJaVNPWk9FNkgtRFY4YmNaV1lUQmlqR1ZGeTkyVktfZlp6cWhwX0E5czFPY0RSWno3cHlkNFRmR0hUQXJIRVpKZi1YY040RXNHaW8yTy0wQkhVbkxjQlJMMUZQZ3d2WDMycDM0VGdSWnhJdnlSWVhFaktKQ1laN3g4MHBlRDh3YjhuaXB6aUNV?oc=5",
+    "url": "https://www.poder360.com.br/poder-economia/numero-de-empresas-em-recuperacao-judicial-aumenta-212-no-3o-tri/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 674654
@@ -1216,7 +1321,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "mercado",
     "resumo": "Americanas vence recuperação judicial, mas sai menor e ainda enfrenta crise UOL Economia",
-    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxORjE2cEo5enBJZE8xcExyRFRfeWlhbVRTaVJleF9IanlxY2JoRVV2S1Q1c3g3dk94Vm5lVm14WFNkc01tbnlCeW03ck1NanJLMV9FcEFGLTllR0RFalVlR0pTRXIxbFVUWFE5dGlwX005RlIxMjkzUEw0RVJVN1FOd2RadlE3UzhjRE5TdGVMZG1ub1FpN1NoSFZfdHc4eUQxOW1ub1VGVjlJczIxc2ttcE1MWmlMUWVnZEo4dHFPenZBLTB2VF8xMGxKRHZEWWc?oc=5",
+    "url": "https://economia.uol.com.br/noticias/redacao/2026/11/10/americanas-vence-recuperacao-judicial-mas-sai-menor-e-ainda-enfrenta-crise.htm",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Jota / Tribunais",
     "id": 625565
@@ -1229,9 +1334,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "GPA (PCAR3) emite R$ 112,9 milhões em debêntures para dar gás à reestruturação Money Times",
-    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNLXBzUURjQ2JrcEFQem5XaFRQUDRSendQSTVzRW02MHZPU3RxNklrbUk5UmxCcG00WTV6X1BFM0l6OTd0UkdSbTNoY1piQ3ZDN05LWEtOcjI4akZsdVR1aEJwV1ljVUhLYU1aQWJNNHZsOEtXczNzVnhRVjlhRUNPTUtzbXRmcDBsRDlwaUVsaVNfVTlOZ3RvY2ZTcGJtMjN4bXVrd1Nzakk5QzljenRB?oc=5",
+    "url": "https://www.moneytimes.com.br/gpa-pcar3-emite-r-1129-milhoes-em-debentures-para-dar-gas-a-reestruturacao-rnda/",
     "deal_id": 16,
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
+    "source_url": "https://www.moneytimes.com.br",
     "id": 541892
   },
   {
@@ -1242,23 +1348,11 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Ainda sem acordo com os bondholders sobre os termos do plano de recuperação extrajudicial, a Braskem deu prazo até 11 de novembro para os credores, do mercado doméstico e externo, apresentarem propostas para reestruturar a dívida",
-    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1mUkpJZDcyWjBTUzgxaTV4ZVZqbENxbGhJY0U0V2tGMVYxbE1SRjJxYTVlbFViQXBqOHlwd0lxM3hURENKbWdoRVRobmNYM1FuaEE?oc=5",
+    "url": "https://www.instagram.com/p/DfjyNlWCDpN/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://www.instagram.com",
     "id": 211044
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial GZH",
-    "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxQN0sxRzE4NWxGM1lVUVJ1eDB1UFZyTlhTcTFsOWo1bzZRQ19lbkV6eFBuNGZVOFJXTHlXOVlJMHc4bXdmZ295Ykc5aF9nZ0t0ck1VeUhxOXlHMEVwNHROcnVyVmwwSXF0eDNFVVEtZUxDaG8wZVZPLUJZWWNKN0ZxY3lUajFCbDNqakJ2S0xpcTZmOVpRaWhsTkxqN3lPVDRIazdydEZ0dkJybWlORk1IMFRoZ1BwaldBdzJKYmNjMzZxUE10b0JBT2pPeDRJZXZhVG1Pc3RyZTVSdS1aZVh5ZWx5bUxaQl96X3hDZGNsYXR6MG5VMllSQXV2YmczdnA0NFFEV3llSlQxcWlfYlUwakxoMU5udXg4Vnc?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "id": 735067
   },
   {
     "data_hora": "10/11/2026 05:00",
@@ -1268,10 +1362,39 @@
     "categoria": "Downgrade Rating",
     "escopo": "cvm",
     "resumo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s Estadão",
-    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdVN2LUl2b3ZOYS1kOXc3bkI1aEVtRmN4UzdxbFJHV0FZSUZ4X1RRU2htN0xIWjN4Um8ybGg5bUdYQXhxQUFJV0gxRDk4UlZYQ2tudU5IS0NEbE5XQ3NJNzl0Z2JzdnhWcW1Vb0o1OVRqT3pId1JFbzNZdmZRX2gxZHNaWksybnRvRzVxTU5Bd1pZcW5TR0lyZTNZMkNKSmVIMjdETm5WR3JXYlJTYzBCSWJLc29jUEZ0d21vTGt6QdIBxAFBVV95cUxOYmFLRndNN0I1WGhhMWZSd2xmdElHQUdzb1FJcXUwNTZxMS1XdjVKamVSWHAwRHZzZWNOa1JoSENlME9mNTVWaTJMSmtPcjB4RzY4bFRPMEVnS0w3cWhINnQwZWp1bnAzNVJ2c002R29ZOEZQUUZZalVnY1pTSVB0QUM2bzRMekJ0RkNSaVpvWnVIVUVmaVphMXpJV2xucVdEUHBVam5TdGJmMDVhc0JXVzN2M1JTZlQtdUswVnRuY0hLRGtj?oc=5",
+    "url": "https://www.estadao.com.br/economia/pressoes-fiscais-no-brasil-aumentaram-e-podem-rebaixar-rating-diz-executivo-da-moodys/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Estadão",
+    "source_url": "https://www.estadao.com.br",
     "id": 737507
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial GZH",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/com-divida-de-r-513-milhoes-grupo-do-rs-consegue-ok-de-credores-na-recuperacao-judicial-cmwash7k500ib014s2qzby51x.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 735067
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Um complexo industrial do setor moveleiro localizado em Monte Belo do Sul, na Serra gaúcha, será levado a leilão judicial, nesta terça-feira (10), com lance inicial de R$ 48 milhões. A estrutura pertence ao Grupo Ditália, que teve a falência decretada pela Ju",
+    "fonte": "Valor Econômico",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Falência",
+    "escopo": "pipeline",
+    "resumo": "Um complexo industrial do setor moveleiro localizado em Monte Belo do Sul, na Serra gaúcha, será levado a leilão judicial, nesta terça-feira (10), com lance inicial de R$ 48 milhões. A estrutura pertence ao Grupo Ditália, que teve",
+    "url": "https://www.instagram.com/p/DfkElrlHClJ/",
+    "deal_id": 64,
+    "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
+    "source_url": "https://www.instagram.com",
+    "id": 324250
   },
   {
     "data_hora": "09/11/2026 17:58",
@@ -1281,7 +1404,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "É hora de comprar renda fixa? Bancos recomendam títulos pagando até IPCA+ 12%; confira Seu Dinheiro",
-    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZEU1SzN0RXJqaEtHMk5jaW5ocWdoSF94b0M4dUVVVWM3akZrN1ZFd3NEbGhBZ2FHRlJMM2hhSElETVVVZHN3NkhLQ3IwMG9UckpKSTB5dnZhZkppU3R5QjJIaktwMUFMdEh3clVOU2wzMUxFdDcwa21xeXl4dnh2eXAxOW1jTWI0MXMyODVSR3QxVWs2dHpLNnpYMFVSR0pCcTgyNWM5RXM0SmV4VWtaMzljdkE5b1BaaF9NY0ZfdW9YS2p3MlIwMUxGS2Y?oc=5",
+    "url": "https://www.seudinheiro.com/2026/renda-fixa/e-hora-de-comprar-renda-fixa-bancos-recomendam-titulos-pagando-ate-ipca-12-confira-mlim/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 973553
@@ -1294,7 +1417,7 @@
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
     "resumo": "Recuperação judicial da Braskem: reunião fracassa Acia Araçatuba",
-    "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5LMFRxWHZPX1dKNmR3YU1NRklNaldMelRjSUdHUEo4bG5TU1pSUHllMXFPZWYxS2JRbHJGMWZZXzU4M2ZNYXpjX3h0U1NCcmVoX3p3RE9rRVZFS3FjTjVWSjU4ckRNX0dVdjByUDY4aDlCUk1yVk5sbDhIUQ?oc=5",
+    "url": "https://aciara.com.br/recuperacao-judicial-da-braskem-reuniao-fracassa/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "id": 784326
@@ -1307,7 +1430,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Sabesp (SBSP3) aprova alterações em escritura da 35ª emissão de debêntures Clube FII News",
-    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdDNxUGFWWTBSakJGUXZJZDJMUEFmdFQ5eldfRVYyWEZrcE1FR3JlR2g3eGpIWmVKeGU1NmRpczUxLVl0OTRubkg0bmZZTGpzRUNBVkk0NjZwVklORnFBZnVEMWtmdVcwQUY0Rm5UdjE5OTY0UVhpNXd5aV9hazVFNm54Uk5VU1R4d2tmWmdNZzZGbGJtSy00MQ?oc=5",
+    "url": "https://www.clubefiinews.com.br/acoes/sabesp-sbsp3-alteracoes-escritura-35-emissao-debentures",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 194540
@@ -1320,7 +1443,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Raízen (RAIZ55) aprova aumento de capital de até R$ 39,8 bilhões; acionistas podem ser diluídos em até 94% Guia do Investidor",
-    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxORnFaRWQtZW1NU2ZETFdYNE1ZZ1NoOVFibmpueEk5NFdBZlE0ZFNFWU50VWI4bUk4OG1TOXJJcXFsTzFrQWs3SnkyTWx0Y0ZBZEJOMGZ6N1NidzNDbWw2Nm9Ldy1hTEhYcFVFc1dkNGRDYzc1eEVaOHZNa2tjTXVQaHowZnNLVGZPaE9HWXBMRXlYcVU3akZfSGJKVWg2Uk5yZ2FnUnA0b1BJYktoRXZPNDBSR0NvckxpYzcyUzFld1hWZl9oYW5obUdUellDY1IwUGVXWFR2TlY?oc=5",
+    "url": "https://guiadoinvestidor.com.br/mercado/raiz55-raizen-aprova-aumento-de-capital-de-ate-r-398-bilhoes-acionistas-podem-ser-diluidos-em-ate-94/",
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 246596
@@ -1333,7 +1456,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta Seu Dinheiro",
-    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPdEh4UWhGR3ZBblZFVW5lVUVEWlFIZVo4dkV4XzY3OElKWDlvdkxEODNYdk5JWkNKWkU5ZFdSSFR1bFlNWlhkMTVxakN3N0hUUG9HbXh2T3prX1I0TkJEUFNIOGFPVFRXLTNxaGpaQkJjR2F4c1ZaX2RFTTQ1VGIwZHJETEZmckJ2UFNjYW5pUmpnbm5NeS00ekJwdGExR2s0ZFFCUkNRQ0hhQU1rWHo1UjhSZEU2ZlhpVUhoVHRVQTFRX0pOUHBKNWln?oc=5",
+    "url": "https://www.seudinheiro.com/2026/renda-fixa/juros-altos-ajudam-a-renda-fixa-mas-pioram-um-problema-nas-debentures-diz-sparta-mlim/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 750257
@@ -1346,7 +1469,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões como parte de reestruturação financeira Revista RPA NEWS",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMmgtLU5scFl6NlBjMUJvTjFuSGFocHBaenBSck1aZzgwMmw0SklnRVZzLTd1WG9kS2YwUzd0MVZrdWhzenZKYUxJTmxUVHJqejcydm5XMklCOUdSV1JTVW5GZWZEc3JmWXlOR3VLT05XR3Q0N1h0LThpTGNCNHRMOXYwUUFmR3QzT2NEdHp0Y1JqenlvQ1ZsR19VcVB4V0RabmNoWVV2cVBnamE0RkpUa3lWaVQ5djZ3Um5kWU11X3RaUQ?oc=5",
+    "url": "https://revistarpanews.com.br/raizen-aprova-aumento-de-capital-de-ate-r-398-bilhoes-como-parte-de-reestruturacao-financeira/",
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 804692
@@ -1359,7 +1482,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões para reestruturação NovaCana",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZjNRdHprQ1hoYUpWSXhLWlJPcXozTFRHMHZGUENrdFp2UnlNaWhJRmdtM2NaSi1wa2RVb051ZjVEMDVrZGpxWFFBUkx6cDNOVG9BZ0hJQ1BxZTg1cktzZGs5a1Bnby04NzBwTlptWkk0R0ZCZEQyTS1fVTQzZVhXX09aejdmZFBkUm53a2hnQmVrc2VHa3RwZzEzZ2F3R1djUG42cXdldG5lS3ZS?oc=5",
+    "url": "https://www.novacana.com/noticias/raizen-aprova-aumento-de-capital-de-ate-r-39-8-bilhoes-para-reestruturacao",
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 986219
@@ -1372,9 +1495,10 @@
     "categoria": "Falência",
     "escopo": "mercado",
     "resumo": "Confirmado leilão de fábrica da Serra que segue operando após falência; lance inicial de R$ 48 milhões GZH",
-    "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxNSFE1WHFlbHBmT21FUjdnTU9zQlJzc3hiaVRiendRRXdzaTVIUzk3MjhhenhBWUZ6V2dmMlpiV0ZsQ3lmWUp0QTNuRGpqZjVTQS1TWXY5UDAyYWdhZkpCMEJHYy1kT0xWT051VHc0YkJqRmNiRV83RW80cGVrQW1CYUdEbFFFWDgxQnZwazRlVjJpaExPQnNrTlYxQWJZSXBNQnJ1Vnc2LWRNQ2lJaHhpd3Y2VlQ5SUgyT19SY1hpalVBTmtjLVZHU0JyYmwwS09HUnFNXzJfaUxjV2tsR3NuNmVuY3VnMVR4UW42N2Y3cXJTQ0wtbjdTWk04Mm93SXhMUUszZ0gxdG1YaEZtbTlXRE1XWGRoazVWOVpnUWlNRW5leG9yRFEzdHdldw?oc=5",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/confirmado-leilao-de-fabrica-da-serra-que-segue-operando-apos-falencia-lance-inicial-de-r-48-milhoes-cmw7pyhkj02ij0160wkx2vw1u.html",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
     "id": 563503
   },
   {
@@ -1385,9 +1509,10 @@
     "categoria": "Leilão de UPI",
     "escopo": "pipeline",
     "resumo": "Leilão: Fábrica da Ditália será leiloada nesta terça-feira,10 NB Notícias",
-    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPM0NOcm9tdXlab0s4TTFpa091eEtYb0FCckVqa2hEbVd1QlhHM0NSZ2U3SUx4eGtCQ2tYZWpXMHhFMkV0OFlVMk9Fb3lTay0tRFdBeV9EOE1IN1dGQ3d0dmFweDlUTmVEd0R4Zk5Gc0hDNThxRGpaY2lJN0NSWXpDdlV1ejltV0RORWdrbFZ4M2pyanFUdmFrNVFsb096WlVmdTFUY3FpaTY?oc=5",
+    "url": "https://www.nbnoticias.com.br/noticia/128447/leilao-fabrica-da-ditalia-sera-leiloada-nesta-terca-feira-10",
     "deal_id": 64,
     "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
+    "source_url": "https://www.nbnoticias.com.br",
     "id": 574396
   },
   {
@@ -1398,9 +1523,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Raízen aprova pacote de até R$ 39,8 bi e opções a credores SpaceMoney",
-    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQck9iTEgwbTkycjhpWGdfaElYQnZaLVFURjRIcmZWQzdHYlN2anhVdTZ4Rnd0Z2hnSFFNWnNFS0VQZGwybHhicHVxNXJLRDVRcUkzUEgzLUhlb0VDcUVyVzhKa2dhTnc1TFF1cGhOVnhxNWhVemZzUXgwRS02T252amlNSHUwU2JpbzF5Y1MxOVJ5ZE84aW9lT3VhRnY4bm8?oc=5",
+    "url": "https://www.spacemoney.com.br/investimentos/acoes/raizen-aumento-capital-credores-debentures-cras/",
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
+    "source_url": "https://www.spacemoney.com.br",
     "id": 479120
   },
   {
@@ -1411,9 +1537,10 @@
     "categoria": "Leilão de UPI",
     "escopo": "mercado",
     "resumo": "GARE11 fecha venda de R$ 791,7 milhões e muda perfil da carteira O Petróleo",
-    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNFJvZWlVQW9vVFhaRHRkZUE4aVMzUmxJdy10djF1N01KUkhwdGk5NnRpeHJ6d002Mkc5OXByMXltRlgwOE1GMXFuWG5LUGJ5Vmw3QkxUYVpqV2NBMjQ1SE9FZzd6d1BZVzhPZjlEdW5MbDNmaHlUS2pUcjZIOXM3YmpJU3IwNzBkUWNhaFdlLTNlUQ?oc=5",
+    "url": "https://opetroleo.com.br/gare11-fecha-venda-de-r-7917-milhoes-e-muda-perfil-da-carteira/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // O Petróleo",
+    "source_url": "https://opetroleo.com.br",
     "id": 540365
   },
   {
@@ -1450,7 +1577,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "mercado",
     "resumo": "Raízen aprova pacote de reestruturação com aumento de capital de até R$ 39,8 bi Valor Econômico",
-    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOSnJibl8zQjJKRmFUTVA5bmJJZUF3eHRDNGlUaG9iSkJBVzBZYzJkdnhYQ2o5VDJaRHVvQUZzSEJtMTBaM3BfSzZnWVdMbllJRVB3Njl6MUEyWGROMEtHSGYycTlWMGMxcWdQVFlVeHhIUFh4SzVGSWtsS2NGQWQ2d3c3akdXRHNnMkhva0dBOEV3MHBCVEg5a0xybElUSWxCcUc5eDV2eEhjZjljZGtuNTNOTlZHYWduVkVGMER1TDFhbTloMHdubUpfbkgxWTN40gHfAUFVX3lxTE1DWFFIa1JON0lqdElrbUVWTVFMLXFZUGxfVFlmXzlHcjV5c1lSUTlwWDJyYXg2ay1HTkhkeFdSOUhOd3NtWmRMUGxVUnVneWpra3VpanNSU0hRMzVWVENZT01UT0RNbVRCeGx1YmExdjVTd0NEZGpTQ1RQLTQ2cXZrbkR3YUlPamVnSThZMmlWbjNUTEg4NDJjYlhiUXNuczFqQkxUc2tYOUJlZWttZ3FRZnlYVzBBRFFySlhKSFk4QjhhRkpBRmo3VEVNa29QQUVyT2stR3l6eGNmR24tTnc?oc=5",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/06/raizen-aprova-pacote-de-reestruturacao-com-aumento-de-capital-de-ate-r-398-bi.ghtml",
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 711051
@@ -1489,36 +1616,10 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Raízen acelera plano com acordo fiscal e reestruturação Capital Aberto",
-    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVnZlSEVzdFR2b1llUFpHZUlzZGQyelJLSTd4NmFrTXowSWptS3lKS1kzLUladlU4QW01ZS1KWl9TdWZIbUE5a3NweWg3V1pfRzdfWGZmcWp3bl91ZTYzaW1pVW4wckV2SUNsVnFmZk1QUTV5Z1dkVDlqSW5pZm9wOXpid1ZGTHRzN1ZmSXlhNFNQOEtJWERRc2pnSktvbHdjRjJN?oc=5",
+    "url": "https://capitalaberto.com.br/empresas/2026/11/raizen-acelera-plano-com-acordo-fiscal-e-reestruturacao",
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 469938
-  },
-  {
-    "data_hora": "06/11/2026 05:00",
-    "titulo": "Recuperação que não alcança dívida: esvaziamento da Lei 11.101 para pequena e média empresa",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito) Recuperação que não alcança dívida: esvaziamento da Lei 11.101 para pequena e média empresa Recuperação que não alcança dívida: esvaziamento da Lei 11.101 para pequena e média empresa Consultor Jurídico",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Recuperação que não alcança dívida: esvaziamento da Lei 11.101 para pequena e média empresa Consultor Jurídico",
-    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOVmNIT04tSEpSUXU2M3FUZUViM1hYZ1hla3BPQVlDN1Bpd2dIdnJfTW5Qc21zdU1Gam0zWVNsQlg2QVdLc0daZE1ldW9ERGhKVUZiaDJtanU5V1ZXdG8tYUpDeG9wRF9RS0FaOGpDbnE5ZnQtdEFJa3hVbC1xOHBLSkRXMnNKWXlXelpFX1daRWhuRnBEQU9WaW9SdzZzbk1BV0JrdUkzQklaZndybk96MlY4MHFTMjBZMVpXbFFaVHFaWEdTdHg3aHprWG9OZw?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "id": 617426
-  },
-  {
-    "data_hora": "06/11/2026 05:00",
-    "titulo": "Viveo (VIVEO3) aprova reestruturação de debêntures com vencimento em 2034 e novos covenants",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito) Viveo (VIVEO3) aprova reestruturação de debêntures com vencimento em 2034 e novos covenants Viveo (VIVEO3) aprova reestruturação de debêntures com vencimento em 2034 e novos covenants www.ativovirtual.com.br",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Viveo (VIVEO3) aprova reestruturação de debêntures com vencimento em 2034 e novos covenants www.ativovirtual.com.br",
-    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOVHJRRGQwWGVSSmNMNk5wOFQxRUthQmg5OVd5ZmtkQkloZjMzNjRZdzJ0MkVGeUNPTExaQW5CM1c2b0lUWmY0R1RiUlJ5MXFUUUg4cjlhelMxdVNEMEE4OUdiSHFUUWNSWTJIbHhjdHljR0FEeUdrNWwzdmVOSFhsU3hGcnl0THRaTVRibzZ4bFZyczBieXVlN3JYM2poZ1pzRzgySXpjZWJoNUYxMnlFZzFRR3JpTFZBd1pMMXhuWE8ybE5hQTBfVlJuQWhwUXVDX3c?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
-    "id": 136465
   },
   {
     "id": 1111,
@@ -1558,32 +1659,6 @@
     "url": "https://www.empresaemcrise.com/post/porangatu-go-grupo-modesto-entra-em-recup-judicial-d%C3%ADvida-de-r-56-milh%C3%B5es",
     "deal_id": 131,
     "empresa_nome": "Grupo Modesto (Leonardo Modesto Borges, Carla Mariana Soares Modesto, LM Agropecuária & CM Agropecuária)"
-  },
-  {
-    "data_hora": "05/11/2026 13:57",
-    "titulo": "MEZ contesta ANEEL e diz ter capacidade para concluir projeto em SP",
-    "fonte": "Agentes Fiduciários",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "MEZ contesta ANEEL e diz ter capacidade para concluir projeto em SP Agência iNFRA",
-    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQV3pORnM4V1BnU3gwZU1VY3lkNkFBRGNXMnJISkxIdEFzZVo4RUhEci1yUlA0NG84ajZjeXNDTlpRbDBkeUQzVTZmVmc5NnNQWGxfaVhLTG13bGkzdDJqX0JxcnJ1TGdyWXpMTFc0dWtHVlBRVzRYaFJhdEhKci04aWdMb0I0dzBLMm9iNUowMEFJY3RXclFleE5FeGp0SGs?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Agência iNFRA",
-    "id": 897113
-  },
-  {
-    "data_hora": "05/11/2026 12:20",
-    "titulo": "AXIA Energia (AXIA3) aprova 14ª emissão de debêntures de R$ 500 mi - Suno",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "AXIA Energia (AXIA3) aprova 14ª emissão de debêntures de R$ 500 mi Suno - Investimentos Inteligentes",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZG9aNVNfUVJjTHRlVEw3M0JVT3dDMGFlbE9hVGVQTU1DVFhpSzVVb25XamxZSjBST1BTXzlxS0tUUGFWbmJMNlFvcFRTX01ua1hLN05TVXl0LXN3d2g0YmRacWpldnVjLTBUVVZyQU4yZ09kczZxbmQ0T3NFWXVZRdIBhgFBVV95cUxOSG13WFlBUW9mc2otY201dHl1NkNLdXVTenluQ2JyczUxbFBXSnNSOFFLSkg5TGNXRDUyNVRZWk1mMUFiRXc5Q2RCaThFZ2xvaGowWVRXdlgzYXh2Qzd2ZkdSMVpXaGRXUGFZeU9ESjNmcDRPZldvam01N29mZlpVdGhEcy1KZw?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
-    "id": 880466
   },
   {
     "id": 1108,
@@ -1664,32 +1739,6 @@
     "empresa_nome": "Grupo Zanatta (F. Zanatta Armazéns Ltda., Fernando Zanatta, Priscila Zanatta & Egon Mayer)"
   },
   {
-    "data_hora": "03/11/2026 05:00",
-    "titulo": "B3 vai bloquear títulos da Raízen por quatro meses; entenda o que muda para investidores",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "B3 vai bloquear títulos da Raízen por quatro meses; entenda o que muda para investidores Estadão",
-    "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQR1ctMnl3ZjlRSERkbUs1VjYtaGhPa29PS0U2bHhkX2lDMDYzU2JNZi0zd1JFQ1dUZWtkaV9vaE9qNEZNb0JUejU3Mk1hYkpSUlREQ0REaVlzTW5TbTR0WFR6bm8wNjVzbGNLNlNwYUc2V3B4ZjM2Z2luZzJudm94eEY4Z2VDZmVvYnFneFdSanExT093VUxSSTczTW1Za2s5dDFXRXlkaExOdlVzREVKYnhfdmFZcjE5Rm1BS08tWHFOLUVweGdaZzY3dnhDczFRaGJ3cmFVTjlvNmRQVUZZ0gHkAUFVX3lxTE5nTldWT2FwNzZucjJKYXRCYlRhakpfWGtHQ1lKeVVZZUNSemFYX3d4anhEZU80QzdOam1tVEY4eVVkVmtTMWJ5Tkd0NTlWeVIzTVZEZjdMRmk5SEt4MmlHVGNDUXdnbU9jVTBPMWJjYWpod3ZIbGRLUHZPbHJLVlZWOGt3bzB6MTNMWHJZcDFaSGk1bXN3WWk1WkZiUDdnbjNYSVNMWFRuNlJLYUk5elFOUGs2R3lGaEE3bndHdnV5LTQwX0RJT19fVG55MEJyRE9KcFZIM1hqVVBpaXVKYnBUWW5QOA?oc=5",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 150947
-  },
-  {
-    "data_hora": "03/11/2026 05:00",
-    "titulo": "Debenturistas da Elfa aprovam declaração de vencimento antecipado dos títulos da 2ª emissão",
-    "fonte": "Valor Econômico",
-    "setor": "Saúde & Farma",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Debenturistas da Elfa aprovam declaração de vencimento antecipado dos títulos da 2ª emissão Valor Econômico",
-    "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNWGpjcGdqRUJDS1FQblV5a3hkd0dfTWxMZEMzMVpkSFYzLVpqRkc0eW9CQ095XzVoQ2h5cDA0Ulp2VHhUdmpzX1pLMDZNNndsa19Wd1E0aWk1SXN6UVMzZ2llbUdrZ2Rxelo3UHlyZHVmbmRNNS1RUGRpam1teUtkT3Y3bkRFcDNobDU0OFlHUlZ3bFU5XzY2bUZnNWZtYUlEalllZ0NRVkZpVUVlME1DVm1kTlhMYzExWnhPenRUcFRUcUpYR2Y2ejBQRkYyWG1aTjhJZUJUOHR2VURBTG9SLTdvc9IB8gFBVV95cUxNeEkycS1tVU5ZaHBNQm5qLVl3V05JSFNDdWlBMFk3aDcyREtHZTBqbXlxdlhiTmFMTXZPYXIwdE9YVXhKVE52Q2NVdkkwNjI0cTNNeFB4b2hiMzJpUVF3TUdHbWhxZHNoRGs4X2hwcnkzVnVJV25mdUwzNE1QODVLaDIxR0ZBRGJRYU1tSU1hWW01TzFiekhtSnAtbVFob0p3eUlTLWthUEs2TzZPY3AxQXNpMmI4VUhzVEJVY05LXzJoS2N2TGp0VS0xV0FsbFc2VFFhenFHbFJQbmNMQWotRERWMXJpLTVOaGFYUl9uWFBZUQ?oc=5",
-    "deal_id": 106,
-    "empresa_nome": "Grupo Elfa (Elfa Medicamentos S.A. & 13 Subsidiárias)",
-    "id": 666599
-  },
-  {
     "id": 1105,
     "data_hora": "02/11/2026 13:50",
     "titulo": "Oncoclínicas (ONCO3) obtém suspensão liminar de OPA na Justiça enquanto delibera reestruturação de R$ 2,0 Bi em AGDs",
@@ -1716,19 +1765,6 @@
     "empresa_nome": "Planilha Mestre // Valor Econômico"
   },
   {
-    "data_hora": "02/11/2026 05:00",
-    "titulo": "Moody’s rebaixa rating da Raízen dois dias após cortes de S&P e Fitch",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Moody’s rebaixa rating da Raízen dois dias após cortes de S&P e Fitch CNN Brasil",
-    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVkFxM2JwWllUQjRyY2F5ay0xN2JMMExFWWZXemg1eVBHbjlObjFjZmJSSVZjYTNMR2diUXJLbzUxT1FmRkZGSm1UNW9QVFliNHlrd2kyZlQxbWh4NzdaQWszOFBhSmV2S3FzR3cwcEFNN1lpNmdZdEl0YzFCenl2c3RDellscG9yUnRCdktIMWZpMjJiUjd2cGZhWHhyYzduM0VpM3RDaw?oc=5",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 124650
-  },
-  {
     "id": 1107,
     "data_hora": "01/11/2026 12:30",
     "titulo": "Justiça de MT convola recuperação judicial de R$ 54M do Grupo Braki em falência por quebra de transparência contábil",
@@ -1740,19 +1776,6 @@
     "url": "https://www.empresaemcrise.com/post/vila-rica-mt-fal%C3%AAncia-do-grupo-braki",
     "deal_id": null,
     "empresa_nome": "Planilha Mestre // Jota / Tribunais"
-  },
-  {
-    "data_hora": "31/10/2026 04:00",
-    "titulo": "França: Fitch mantém nota A+ mas corta perspetiva da dívida para “negativa”",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "França: Fitch mantém nota A+ mas corta perspetiva da dívida para “negativa” Euronews.com",
-    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa2ZjUkxzSFJxV0NWcHhicVpja0UzZHYwRHNWYkpld2F6MktQUEZTdkNGb2NoTUhUTVJNcXVZNEo4VC1adF94Smdfek1USzBDQUhvdzBkaHhNV1c2VDhlQ25xSjJpb0pqM3RWQk4xeV9iYkJ6TWJWdFRxUHBfSzBqSEJpRHNCU0NmMWhsbXlzRTlObThkeEhaY2VKdFZxazlXeHlrNHVQb3dMQQ?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Euronews.com",
-    "id": 582938
   },
   {
     "id": 1133,

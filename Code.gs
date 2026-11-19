@@ -945,6 +945,66 @@ function handleDjenProxyRequest(params, bypassCache) {
 }
 
 /**
+ * Decodifica links news.google.com/rss/articles/... para a URL direta do portal original
+ */
+function resolveGoogleNewsUrl_(gurl) {
+  var u = String(gurl || '').trim();
+  if (!u || !/^https?:\/\/news\.google\.com\//i.test(u)) return u;
+  var m = u.match(/\/articles\/([^?/#]+)/);
+  if (!m) return u;
+  var token = m[1];
+  try {
+    var ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+    var resp1 = UrlFetchApp.fetch('https://news.google.com/rss/articles/' + token, {
+      muteHttpExceptions: true,
+      followRedirects: true,
+      headers: { 'User-Agent': ua }
+    });
+    if (resp1.getResponseCode() < 200 || resp1.getResponseCode() >= 300) return u;
+    var body = resp1.getContentText('UTF-8') || '';
+    var sgM = body.match(/data-n-a-sg="([^"]+)"/);
+    var tsM = body.match(/data-n-a-ts="([^"]+)"/);
+    if (!sgM || !tsM) return u;
+
+    var innerArr = [
+      'garturlreq',
+      [
+        ['X', 'X', ['X', 'X'], null, null, 1, 1, 'US:en', null, 1, null, null, null, null, null, 0, 1],
+        'X', 'X', 1, [1, 1, 1], 1, 1, null, 0, 0, null, 0
+      ],
+      token,
+      parseInt(tsM[1], 10),
+      sgM[1]
+    ];
+    var fReq = JSON.stringify([[['Fbv4je', JSON.stringify(innerArr), null, 'generic']]]);
+    var resp2 = UrlFetchApp.fetch('https://news.google.com/_/DotsSplashUi/data/batchexecute', {
+      method: 'post',
+      muteHttpExceptions: true,
+      contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+      payload: 'f.req=' + encodeURIComponent(fReq),
+      headers: { 'User-Agent': ua }
+    });
+    if (resp2.getResponseCode() >= 200 && resp2.getResponseCode() < 300) {
+      var lines = (resp2.getContentText('UTF-8') || '').split(/\r?\n/);
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf('garturlres') === -1) continue;
+        try {
+          var outer = JSON.parse(lines[i]);
+          var inner = JSON.parse(outer[0][2]);
+          if (Array.isArray(inner) && inner.length > 1) {
+            var cand = String(inner[1] || '').trim();
+            if (/^https?:\/\//i.test(cand) && !/^https?:\/\/news\.google\.com\//i.test(cand) && cand.indexOf('consent.google.com') === -1) {
+              return cand;
+            }
+          }
+        } catch (e2) {}
+      }
+    }
+  } catch (e) {}
+  return u;
+}
+
+/**
  * 4. Rotina Autônoma 24/7 de Varredura RSS e Gravação Direta na Aba `Noticias`
  */
 function sincronizarRadarAutomatico() {
@@ -1060,7 +1120,8 @@ function sincronizarRadarAutomatico() {
             if (isNaN(pubDate.getTime()) || pubDate.getFullYear() < 2026) return;
 
             const dtFmt = Utilities.formatDate(pubDate, 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm');
-            const linkUrl = linkMatch ? linkMatch[1].trim() : '';
+            const rawLinkUrl = linkMatch ? linkMatch[1].trim() : '';
+            const linkUrl = resolveGoogleNewsUrl_(rawLinkUrl);
             const rawDesc = descMatch ? decodeHtmlEntities_(descMatch[1].replace(/<[^>]+>/g, ' ')) : '';
             const resumo = (rawDesc && rawDesc.length > 35 && rawDesc.toLowerCase() !== rawTitle.toLowerCase())
               ? rawDesc.slice(0, 235)

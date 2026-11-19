@@ -796,7 +796,7 @@ let selectedCompIds = [];
 
 let lastNewsAutoSyncTs = 0;
 let sheetLiveNewsItems = [];
-const STATIC_BUNDLE_VERSION = '20261119v60';
+const STATIC_BUNDLE_VERSION = '20261119v61';
 let curatedBaseReadyPromise = null;
 let hasHydratedFromLiveSheet = false;
 let liveLeadsData = null;
@@ -1041,9 +1041,23 @@ function sanitizeIncomingStaticNewsItem(it) {
   return copy;
 }
 
+function isGoogleNewsUrl(url) {
+  const s = String(url || '').trim().toLowerCase();
+  return /^https?:\/\/news\.google\.com(?:\/|$|\?)/i.test(s);
+}
+
+function extractCleanDomain(url) {
+  try {
+    const host = new URL(String(url || '').trim()).hostname.toLowerCase();
+    return host.replace(/^www\./, '');
+  } catch (e) {
+    return '';
+  }
+}
+
 function dedupeSanitizedNewsArray(itemsArr) {
   const merged = [];
-  const seenTitles = new Set();
+  const seenByKey = new Map();
   (itemsArr || []).forEach(raw => {
     const clean = sanitizeIncomingStaticNewsItem(raw);
     if (!clean) return;
@@ -1054,9 +1068,23 @@ function dedupeSanitizedNewsArray(itemsArr) {
       .replace(/\s+/g, ' ')
       .trim()
       .slice(0, 80);
-    if (key && !seenTitles.has(key)) {
-      seenTitles.add(key);
+    if (!key) return;
+    if (!seenByKey.has(key)) {
+      seenByKey.set(key, clean);
       merged.push(clean);
+    } else {
+      const existing = seenByKey.get(key);
+      const existingIsGnews = !existing.url || isGoogleNewsUrl(existing.url);
+      const candidateIsDirect = Boolean(clean.url) && !isGoogleNewsUrl(clean.url);
+      if (existingIsGnews && candidateIsDirect) {
+        existing.url = clean.url;
+      }
+      if (!existing.source_url && clean.source_url && !isGoogleNewsUrl(clean.source_url)) {
+        existing.source_url = clean.source_url;
+      }
+      if (!existing.deal_id && clean.deal_id) {
+        existing.deal_id = clean.deal_id;
+      }
     }
   });
   return merged;
@@ -1367,7 +1395,8 @@ function loadDealsSnapshotFromStorage() {
 function loadCachedLiveNewsFromStorage() {
   try {
     localStorage.removeItem('vk_live_rss_cache_v4');
-    const raw = localStorage.getItem('vk_live_rss_cache_v5');
+    localStorage.removeItem('vk_live_rss_cache_v5');
+    const raw = localStorage.getItem('vk_live_rss_cache_v6');
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
@@ -1385,7 +1414,7 @@ function saveCachedLiveNewsToStorage(items) {
       const clean = items
         .map(sanitizeIncomingStaticNewsItem)
         .filter(it => it && !isBlockedEntityToken(it.titulo) && isRecentNewsDate(it.data_hora, 75));
-      localStorage.setItem('vk_live_rss_cache_v5', JSON.stringify(clean.slice(0, 28)));
+      localStorage.setItem('vk_live_rss_cache_v6', JSON.stringify(clean.slice(0, 28)));
     }
   } catch (e) {}
 }
@@ -4860,14 +4889,50 @@ function safeExternalUrl(raw, fallback = '') {
 
 function buildNewsItemUrl(item) {
   const directUrl = safeExternalUrl(item && item.url);
-  if (directUrl) return directUrl;
-  const deal = item && item.deal_id ? DEALS_DATA.find(d => d.id === item.deal_id) : null;
+  if (directUrl && !isGoogleNewsUrl(directUrl)) return directUrl;
+
+  // Se o item veio do Sheet/RSS ao vivo com link do Google News, tenta recuperar a URL direta já decodificada em live-news.json
+  const titleKey = item && item.titulo ? normalizeTextNoAccents(item.titulo).slice(0, 62) : '';
+  if (titleKey && Array.isArray(baseStaticNewsItems) && baseStaticNewsItems.length > 0) {
+    const resolvedMatch = baseStaticNewsItems.find(
+      b => b && b.titulo && b.url && !isGoogleNewsUrl(b.url) && normalizeTextNoAccents(b.titulo).slice(0, 62) === titleKey
+    );
+    if (resolvedMatch) {
+      const mUrl = safeExternalUrl(resolvedMatch.url);
+      if (mUrl) return mUrl;
+    }
+  }
+
+  const deal = item && item.deal_id ? DEALS_DATA.find(d => Number(d.id) === Number(item.deal_id)) : null;
   const dealUrl = safeExternalUrl(deal && deal.url_noticia);
-  if (dealUrl) return dealUrl;
+  if (dealUrl && !isGoogleNewsUrl(dealUrl)) return dealUrl;
+
+  // Caso exista notícia curada em live-news.json para o mesmo deal_id com URL direta
+  if (deal && Array.isArray(baseStaticNewsItems) && baseStaticNewsItems.length > 0) {
+    const byDealNews = baseStaticNewsItems.find(
+      b => b && Number(b.deal_id) === Number(deal.id) && b.url && !isGoogleNewsUrl(b.url)
+    );
+    if (byDealNews) {
+      const dNewsUrl = safeExternalUrl(byDealNews.url);
+      if (dNewsUrl) return dNewsUrl;
+    }
+  }
+
+  // Fallback para o portal da fonte original (atributo <source url="..."> do RSS) antes de cair no Google News
+  const srcPortalUrl = safeExternalUrl(item && item.source_url);
+  if (srcPortalUrl && !isGoogleNewsUrl(srcPortalUrl)) return srcPortalUrl;
+
+  // Para fatos sintéticos do pipeline sem matéria indexada na imprensa, direciona ao portal oficial do Tribunal/CVM
+  if (deal && typeof resolveTribunalCvmUrl === 'function') {
+    const tribFallback = safeExternalUrl(resolveTribunalCvmUrl(deal));
+    if (tribFallback && !isGoogleNewsUrl(tribFallback)) return tribFallback;
+  }
+
+  if (directUrl) return directUrl;
   const queryTerms = item && item.empresa_nome
     ? `${item.empresa_nome.split('(')[0].trim()} ${item.categoria || 'recuperação judicial'}`
     : `${item ? item.titulo : 'recuperação judicial'}`;
-  return `https://news.google.com/search?q=${encodeURIComponent(queryTerms)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`;
+  return `https://www.google.com/search?q=${encodeURIComponent(queryTerms)}`;
 }
 
 function normalizeTextNoAccents(str) {
@@ -5048,7 +5113,8 @@ function classifyRssNewsItem(rawItem, defaultCategory = 'Pedido de RJ') {
     categoria,
     escopo,
     resumo: resumoText,
-    url: safeExternalUrl(rawItem.link) || buildNewsItemUrl({ titulo: rawTitle }),
+    url: safeExternalUrl(rawItem.link) || buildNewsItemUrl({ titulo: rawTitle, source_url: rawItem.sourceUrl }),
+    source_url: safeExternalUrl(rawItem.sourceUrl) || '',
     deal_id: matchedDeal ? matchedDeal.id : null,
     empresa_nome: matchedDeal ? matchedDeal.empresa : (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating' ? `Radar Live DCM // ${rawSource}` : `Radar Live RSS // ${rawSource}`)
   };
@@ -5060,13 +5126,17 @@ function parseRssXmlString(xmlString) {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
     const items = Array.from(xmlDoc.querySelectorAll('item'));
-    return items.slice(0, 14).map(node => ({
-      title: node.querySelector('title')?.textContent || '',
-      link: node.querySelector('link')?.textContent || '',
-      pubDate: node.querySelector('pubDate')?.textContent || '',
-      source: node.querySelector('source')?.textContent || '',
-      description: node.querySelector('description')?.textContent || ''
-    })).filter(it => it.title && it.title.trim().length > 10);
+    return items.slice(0, 14).map(node => {
+      const srcEl = node.querySelector('source');
+      return {
+        title: node.querySelector('title')?.textContent || '',
+        link: node.querySelector('link')?.textContent || '',
+        pubDate: node.querySelector('pubDate')?.textContent || '',
+        source: srcEl?.textContent || '',
+        sourceUrl: srcEl?.getAttribute('url') || '',
+        description: node.querySelector('description')?.textContent || ''
+      };
+    }).filter(it => it.title && it.title.trim().length > 10);
   } catch (e) {
     return [];
   }
@@ -5087,17 +5157,7 @@ async function fetchLiveNewsJsonMerged() {
     .catch(() => []);
   const [localArr, ghArr] = await Promise.all([localTask, rawGhTask]);
   const combined = [...(Array.isArray(localArr) ? localArr : []), ...(Array.isArray(ghArr) ? ghArr : [])];
-  const deduped = [];
-  const seen = new Set();
-  combined.forEach(rawIt => {
-    const it = sanitizeIncomingStaticNewsItem(rawIt);
-    if (!it || !it.titulo || isBlockedEntityToken(it.titulo)) return;
-    const key = normalizeTextNoAccents(it.titulo).slice(0, 65);
-    if (key && !seen.has(key)) {
-      seen.add(key);
-      deduped.push(it);
-    }
-  });
+  const deduped = dedupeSanitizedNewsArray(combined);
   if (deduped.length > 0) {
     deduped.sort((a, b) => parseNewsTimestamp(b.data_hora) - parseNewsTimestamp(a.data_hora));
     baseStaticNewsItems = deduped;
@@ -5303,7 +5363,7 @@ function buildDynamicPipelineNews() {
       categoria,
       escopo: (categoria === 'Waiver / AGD' || categoria === 'Downgrade Rating') ? 'cvm' : 'pipeline',
       resumo: `${parsed.causa ? parsed.causa + '. ' : ''}Credores mapeados: ${d.credores || 'Em apuração'}.`,
-      url: d.url_noticia || buildNewsItemUrl({ empresa_nome: d.empresa, categoria }),
+      url: d.url_noticia || buildNewsItemUrl({ deal_id: d.id, empresa_nome: d.empresa, categoria }),
       deal_id: d.id,
       empresa_nome: d.empresa
     });
@@ -5321,21 +5381,38 @@ function getAllCombinedNews() {
   const dynamicFromDeals = buildDynamicPipelineNews();
   const validLiveRss = (liveRssNewsItems || []).filter(it => it && isRecentNewsDate(it.data_hora, 75));
 
+  // Ordem de precedência favorece links diretos já decodificados (live-news.json + planilha) antes do RSS bruto de navegador
   const rawAll = [
+    ...staticMapped,
     ...(sheetLiveNewsItems || []),
     ...validLiveRss,
-    ...staticMapped,
     ...dynamicFromDeals
   ];
   const deduped = [];
-  const seen = new Set();
+  const seenByKey = new Map();
 
   rawAll.forEach(item => {
     if (!item || !item.titulo || isBlockedEntityToken(item.titulo) || isBlockedEntityToken(item.empresa_nome)) return;
     const key = normalizeTextNoAccents(item.titulo).slice(0, 62);
-    if (!seen.has(key)) {
-      seen.add(key);
-      deduped.push(item);
+    if (!key) return;
+    const resolvedUrl = buildNewsItemUrl(item);
+    if (!seenByKey.has(key)) {
+      const normalizedItem = { ...item, url: resolvedUrl };
+      seenByKey.set(key, normalizedItem);
+      deduped.push(normalizedItem);
+    } else {
+      const existing = seenByKey.get(key);
+      const existingIsGnews = !existing.url || isGoogleNewsUrl(existing.url);
+      const candidateIsDirect = Boolean(resolvedUrl) && !isGoogleNewsUrl(resolvedUrl);
+      if (existingIsGnews && candidateIsDirect) {
+        existing.url = resolvedUrl;
+      }
+      if (!existing.deal_id && item.deal_id) {
+        existing.deal_id = item.deal_id;
+        if (item.empresa_nome && !String(item.empresa_nome).startsWith('Radar')) {
+          existing.empresa_nome = item.empresa_nome;
+        }
+      }
     }
   });
 
@@ -5498,6 +5575,10 @@ function renderNoticiasSection(container) {
     else if (item.categoria === 'Falência') catClass = 'badge-falencia';
 
     const targetUrl = buildNewsItemUrl(item);
+    const targetDomain = extractCleanDomain(targetUrl);
+    const readLabel = targetDomain && !isGoogleNewsUrl(targetUrl) && !targetDomain.includes('google.com')
+      ? `Ler em ${targetDomain} ↗`
+      : 'Ler Notícia ↗';
 
     html += `
       <article class="news-card">
@@ -5510,7 +5591,7 @@ function renderNoticiasSection(container) {
             <span class="news-timestamp">🕒 ${escapeHtml(item.data_hora)}</span>
           </div>
           <h3 class="news-title">
-            <a href="${escapeHtml(targetUrl)}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;">
+            <a href="${escapeHtml(targetUrl)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(targetUrl)}" style="color:inherit; text-decoration:none;">
               ${escapeHtml(item.titulo)} <span style="font-size:12px; color:var(--vk-teal);">↗</span>
             </a>
           </h3>
@@ -5522,8 +5603,8 @@ function renderNoticiasSection(container) {
             <strong style="font-size:12px; color:var(--vk-header-start);">${escapeHtml(item.empresa_nome)}</strong>
           </div>
           <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <a href="${escapeHtml(targetUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; display:inline-flex; align-items:center; gap:4px; padding:6px 10px; font-size:11px;">
-              Ler Notícia ↗
+            <a href="${escapeHtml(targetUrl)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(targetUrl)}" class="btn-action" style="text-decoration:none; display:inline-flex; align-items:center; gap:4px; padding:6px 10px; font-size:11px;">
+              ${escapeHtml(readLabel)}
             </a>
             ${item.deal_id ? `
               <button class="btn-solid" style="padding:6px 11px; font-size:11px;" data-deal-id="${item.deal_id}" data-empresa-nome="${escapeHtml(item.empresa_nome)}" onclick="openDossierByCompanyOrId(Number(this.getAttribute('data-deal-id')), this.getAttribute('data-empresa-nome'))">
