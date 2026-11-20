@@ -65,6 +65,7 @@
     "url": "https://jornaleconomico.sapo.pt/noticias/moodys-deve-manter-rating-de-portugal-e-melhorar-perspetiva/",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Jornal Económico",
+    "source_url": "https://jornaleconomico.sapo.pt",
     "id": 429876
   },
   {
@@ -147,6 +148,7 @@
     "url": "https://visnoinvest.com.br/news/16619/axia-energia-axia3-aprova-emissao-de-debentures-de-ate-r-12-bi",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Visno Invest",
+    "source_url": "https://visnoinvest.com.br",
     "id": 871121
   },
   {
@@ -176,6 +178,20 @@
     "empresa_nome": "Radar Ao Vivo // SBT News",
     "source_url": "https://www.sbtnews.com.br",
     "id": 343496
+  },
+  {
+    "data_hora": "17/11/2026 18:35",
+    "titulo": "Aneel forma maioria para recomendar fim antecipado da concessão da Enel em SP, mas diretor pede vista",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel forma maioria para recomendar fim antecipado da concessão da Enel em SP, mas diretor pede vista G1",
+    "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/11/17/aneel-forma-maioria-para-recomendar-o-encerramento-antecipado-da-concessao-da-enel-em-sp.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // G1",
+    "source_url": "https://g1.globo.com",
+    "id": 762975
   },
   {
     "data_hora": "17/11/2026 17:47",
@@ -419,6 +435,20 @@
     "url": "https://preservacred.com.br/noticias/grupo-tecparts-tutela-cautelar-2026",
     "deal_id": 177,
     "empresa_nome": "Grupo Tecparts (Tecparts do Brasil Indústria e Comércio Ltda.)"
+  },
+  {
+    "data_hora": "17/11/2026 00:00",
+    "titulo": "Aneel pode decidir nesta terça sobre caducidade da concessão da Enel-SP",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel pode decidir nesta terça sobre caducidade da concessão da Enel-SP G1",
+    "url": "https://g1.globo.com/economia/blog/ana-flor/post/2026/11/17/aneel-pode-decidir-nesta-terca-sobre-caducidade-da-concessao-da-enel-sp.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // G1",
+    "source_url": "https://g1.globo.com",
+    "id": 433973
   },
   {
     "data_hora": "16/11/2026 22:02",
@@ -1178,6 +1208,7 @@
     "url": "https://www.canalenergia.com.br/noticias/53360108/fitch-afirma-rating-aaabra-de-debentures-da-parintins-amazonas",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CanalEnergia",
+    "source_url": "https://www.canalenergia.com.br",
     "id": 591474
   },
   {
@@ -1356,20 +1387,6 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
-    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s Estadão",
-    "url": "https://www.estadao.com.br/economia/pressoes-fiscais-no-brasil-aumentaram-e-podem-rebaixar-rating-diz-executivo-da-moodys/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Estadão",
-    "source_url": "https://www.estadao.com.br",
-    "id": 737507
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
     "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
     "fonte": "Valor Econômico",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1395,6 +1412,34 @@
     "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
     "source_url": "https://www.instagram.com",
     "id": 324250
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Leilão de fábrica em operação na Serra mesmo após falência atrai 16 propostas",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Falência",
+    "escopo": "mercado",
+    "resumo": "Leilão de fábrica em operação na Serra mesmo após falência atrai 16 propostas GZH",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/leilao-de-fabrica-em-operacao-na-serra-mesmo-apos-falencia-atrai-16-propostas-cmw9s469100bj014sf3dee6yy.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 729236
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s Estadão",
+    "url": "https://www.estadao.com.br/economia/pressoes-fiscais-no-brasil-aumentaram-e-podem-rebaixar-rating-diz-executivo-da-moodys/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Estadão",
+    "source_url": "https://www.estadao.com.br",
+    "id": 737507
   },
   {
     "data_hora": "09/11/2026 17:58",
@@ -1530,20 +1575,6 @@
     "id": 479120
   },
   {
-    "data_hora": "07/11/2026 05:00",
-    "titulo": "GARE11 fecha venda de R$ 791,7 milhões e muda perfil da carteira",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "GARE11 fecha venda de R$ 791,7 milhões e muda perfil da carteira O Petróleo",
-    "url": "https://opetroleo.com.br/gare11-fecha-venda-de-r-7917-milhoes-e-muda-perfil-da-carteira/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // O Petróleo",
-    "source_url": "https://opetroleo.com.br",
-    "id": 540365
-  },
-  {
     "id": 1115,
     "data_hora": "07/11/2026 03:00",
     "titulo": "Justiça de SP defere recuperação judicial do Grupo IBS Energy com passivo de R$ 57,3 milhões e projeto termelétrico de R$ 650M",
@@ -1570,19 +1601,6 @@
     "empresa_nome": "Grupo Ômega (Tempermed Indústria e Comércio de Vidros, Ômega Alumínio, Tempertrans Transportes & Roque Colombo)"
   },
   {
-    "data_hora": "06/11/2026 19:32",
-    "titulo": "Raízen aprova pacote de reestruturação com aumento de capital de até R$ 39,8 bi",
-    "fonte": "Valor Econômico",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "mercado",
-    "resumo": "Raízen aprova pacote de reestruturação com aumento de capital de até R$ 39,8 bi Valor Econômico",
-    "url": "https://valor.globo.com/empresas/noticia/2026/11/06/raizen-aprova-pacote-de-reestruturacao-com-aumento-de-capital-de-ate-r-398-bi.ghtml",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 711051
-  },
-  {
     "id": 1113,
     "data_hora": "06/11/2026 15:00",
     "titulo": "Justiça de Goiás defere recuperação judicial do Grupo Ferrari com passivo de R$ 184,4 milhões e 5.100 hectares",
@@ -1607,19 +1625,6 @@
     "url": "https://www.empresaemcrise.com/post/recupera%C3%A7%C3%A3o-judicial-da-roma-brinquedos-grupo-de-laranjal-paulista-sp-tem-processamento-deferido-co",
     "deal_id": 134,
     "empresa_nome": "Grupo Roma Brinquedos (Roma Jensen Comércio e Indústria Ltda. & OMG Kids Distribuidora de Brinquedos Ltda.)"
-  },
-  {
-    "data_hora": "06/11/2026 07:00",
-    "titulo": "Raízen acelera plano com acordo fiscal e reestruturação",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Raízen acelera plano com acordo fiscal e reestruturação Capital Aberto",
-    "url": "https://capitalaberto.com.br/empresas/2026/11/raizen-acelera-plano-com-acordo-fiscal-e-reestruturacao",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 469938
   },
   {
     "id": 1111,
