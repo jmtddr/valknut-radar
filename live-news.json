@@ -1,5 +1,19 @@
 [
   {
+    "data_hora": "19/11/2026 15:16",
+    "titulo": "BP avalia desinvestimento em projeto de GNL na África Ocidental - Investing.com Brasil",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "BP avalia desinvestimento em projeto de GNL na África Ocidental Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "url": "https://br.investing.com/news/stock-market-news/bp-avalia-desinvestimento-em-projeto-de-gnl-na-africa-ocidental-2133165",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "source_url": "https://br.investing.com",
+    "id": 590558
+  },
+  {
     "data_hora": "19/11/2026 13:49",
     "titulo": "Fitch atribui rating ‘BBB(bra)’ à Coruripe e destaca capacidade operacional da companhia",
     "fonte": "CVM / Fatos Relevantes",
@@ -81,6 +95,20 @@
     "empresa_nome": "Radar Ao Vivo // Estadão Blue Studio",
     "source_url": "https://bluestudio.estadao.com.br",
     "id": 854764
+  },
+  {
+    "data_hora": "18/11/2026 14:54",
+    "titulo": "Axia Energia (AXIA3): Aprova emissão de debêntures de até R$ 1,2 bilhão",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Axia Energia (AXIA3): Aprova emissão de debêntures de até R$ 1,2 bilhão Acionista.com.br",
+    "url": "https://acionista.com.br/axia-energia-axia3-aprova-emissao-de-debentures-de-ate-r-12-bilhao/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Acionista.com.br",
+    "source_url": "https://acionista.com.br",
+    "id": 189124
   },
   {
     "data_hora": "18/11/2026 12:24",
@@ -166,6 +194,20 @@
     "id": 124157
   },
   {
+    "data_hora": "17/11/2026 19:10",
+    "titulo": "Aneel forma maioria de votos para encerrar contrato da Enel SP, mas pedido de vista adia decisão",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel forma maioria de votos para encerrar contrato da Enel SP, mas pedido de vista adia decisão Valor Econômico",
+    "url": "https://valor.globo.com/brasil/noticia/2026/11/17/aneel-forma-maioria-de-votos-para-encerrar-contrato-da-enel-sp-mas-pedido-de-vista-adia-decisao.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 591277
+  },
+  {
     "data_hora": "17/11/2026 18:46",
     "titulo": "Aneel tem maioria contra Enel SP, mas adia decisão",
     "fonte": "CVM / Fatos Relevantes",
@@ -204,6 +246,7 @@
     "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
+    "source_url": "https://agfeed.com.br",
     "id": 558846
   },
   {
@@ -324,6 +367,7 @@
     "url": "https://maquinadoesporte.com.br/futebol/corinthians-faz-pedido-de-tutela-cautelar-para-negociar-dividas-e-preparar-transicao-politica/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://maquinadoesporte.com.br",
     "id": 626594
   },
   {
@@ -341,6 +385,20 @@
     "id": 674587
   },
   {
+    "data_hora": "17/11/2026 13:49",
+    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Cautelar 20-B",
+    "escopo": "pipeline",
+    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial InfoMoney",
+    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
+    "deal_id": 180,
+    "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://www.infomoney.com.br",
+    "id": 313746
+  },
+  {
     "data_hora": "17/11/2026 13:21",
     "titulo": "Troca de concessionária da Enel SP exige análise de custos e benefícios ao consumidor",
     "fonte": "CVM / Fatos Relevantes",
@@ -353,20 +411,6 @@
     "empresa_nome": "Radar Ao Vivo // Economic News Brasil",
     "source_url": "https://economicnewsbrasil.com.br",
     "id": 392748
-  },
-  {
-    "data_hora": "17/11/2026 13:01",
-    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
-    "fonte": "Valor Econômico",
-    "setor": "Varejo & Consumo",
-    "categoria": "Cautelar 20-B",
-    "escopo": "pipeline",
-    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial Estadão",
-    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
-    "deal_id": 180,
-    "empresa_nome": "Sport Club Corinthians Paulista",
-    "source_url": "https://www.estadao.com.br",
-    "id": 313746
   },
   {
     "data_hora": "17/11/2026 12:42",
@@ -394,6 +438,20 @@
     "url": "https://www.comprerural.com/gigante-do-agro-grupo-fazendao-consegue-protecao-judicial-e-garante-suspensao-de-divida-de-r-2-bilhoes/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)"
+  },
+  {
+    "data_hora": "17/11/2026 10:28",
+    "titulo": "Aneel analisa nesta terça se recomenda o fim da concessão da Enel em São Paulo",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel analisa nesta terça se recomenda o fim da concessão da Enel em São Paulo Diário de São Paulo",
+    "url": "https://spdiario.com.br/noticias/economia/aneel-analisa-nesta-terca-se-recomenda-o-fim-da-concessao-da-enel-em-sao-paulo.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Diário de São Paulo",
+    "source_url": "https://spdiario.com.br",
+    "id": 808879
   },
   {
     "data_hora": "17/11/2026 07:23",
@@ -524,11 +582,12 @@
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Varejo & Consumo",
     "categoria": "Waiver / AGD",
-    "escopo": "pipeline",
+    "escopo": "cvm",
     "resumo": "GPA (PCAR3) busca captar R$ 92,2 milhões com debêntures em meio à recuperação extrajudicial Guia do Investidor",
     "url": "https://guiadoinvestidor.com.br/mercado/gpa-pcar3-busca-captar-r-922-milhoes-com-debentures-em-meio-a-recuperacao-extrajudicial/",
     "deal_id": 16,
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
+    "source_url": "https://guiadoinvestidor.com.br",
     "id": 756697
   },
   {
@@ -657,6 +716,20 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
+    "titulo": "Fato relevante Unidas: nova emissão de debêntures com garantia da controladora",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato relevante Unidas: nova emissão de debêntures com garantia da controladora ativovirtual.com.br",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-unidas-nova-emissao-de-debentures-com-garantia-da-controladora",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 776480
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
     "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -773,6 +846,20 @@
     "url": "https://agropujante.com.br/julgado/juiz-aplica-provimento-do-cnj-e-determina-fiscalizacao-da-safra-em-mais-de-83-mil-hectares-sob-recuperacao-judicial",
     "deal_id": 167,
     "empresa_nome": "Grupo Princesa (Agroindustrial Princesa Ltda., AgroPrincesa, Princesa Agro e Piscicultura & Fazendas Reunidas)"
+  },
+  {
+    "data_hora": "14/11/2026 14:04",
+    "titulo": "Acordo entre GPA e Casas Bahia encerra disputa de 17 anos, mas mantém dívida milionária",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Acordo entre GPA e Casas Bahia encerra disputa de 17 anos, mas mantém dívida milionária Economic News Brasil",
+    "url": "https://economicnewsbrasil.com.br/2026/11/14/acordo-entre-gpa-e-casas-bahia-divida/",
+    "deal_id": 86,
+    "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto)",
+    "source_url": "https://economicnewsbrasil.com.br",
+    "id": 554045
   },
   {
     "data_hora": "14/11/2026 12:26",
@@ -1018,11 +1105,12 @@
     "fonte": "CVM / Fatos Relevantes",
     "setor": "Indústria & Manufatura",
     "categoria": "Waiver / AGD",
-    "escopo": "pipeline",
+    "escopo": "cvm",
     "resumo": "Braskem (BRKM5) dá calote de R$ 1,2 bilhão em debêntures e usa recuperação extrajudicial como justificativa Guia do Investidor",
     "url": "https://guiadoinvestidor.com.br/mercado/braskem-brkm5-da-calote-de-r-12-bilhao-em-debentures-e-usa-recuperacao-extrajudicial-como-justificativa/",
     "deal_id": 22,
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://guiadoinvestidor.com.br",
     "id": 282452
   },
   {
@@ -1278,19 +1366,6 @@
     "id": 495770
   },
   {
-    "data_hora": "11/11/2026 05:00",
-    "titulo": "Fato relevante Unidas: nova emissão de debêntures com garantia da controladora",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato relevante Unidas: nova emissão de debêntures com garantia da controladora ativovirtual.com.br",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-unidas-nova-emissao-de-debentures-com-garantia-da-controladora",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
-    "id": 776480
-  },
-  {
     "data_hora": "10/11/2026 16:34",
     "titulo": "Fitch atribui rating AAA(bra) à 2ª emissão de debêntures da Buriti Transmissão de Energia",
     "fonte": "CVM / Fatos Relevantes",
@@ -1505,74 +1580,6 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
     "id": 750257
-  },
-  {
-    "data_hora": "09/11/2026 09:55",
-    "titulo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões como parte de reestruturação financeira",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões como parte de reestruturação financeira Revista RPA NEWS",
-    "url": "https://revistarpanews.com.br/raizen-aprova-aumento-de-capital-de-ate-r-398-bilhoes-como-parte-de-reestruturacao-financeira/",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 804692
-  },
-  {
-    "data_hora": "09/11/2026 09:31",
-    "titulo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões para reestruturação",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Raízen aprova aumento de capital de até R$ 39,8 bilhões para reestruturação NovaCana",
-    "url": "https://www.novacana.com/noticias/raizen-aprova-aumento-de-capital-de-ate-r-39-8-bilhoes-para-reestruturacao",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 986219
-  },
-  {
-    "data_hora": "08/11/2026 05:00",
-    "titulo": "Confirmado leilão de fábrica da Serra que segue operando após falência; lance inicial de R$ 48 milhões",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Falência",
-    "escopo": "mercado",
-    "resumo": "Confirmado leilão de fábrica da Serra que segue operando após falência; lance inicial de R$ 48 milhões GZH",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/confirmado-leilao-de-fabrica-da-serra-que-segue-operando-apos-falencia-lance-inicial-de-r-48-milhoes-cmw7pyhkj02ij0160wkx2vw1u.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 563503
-  },
-  {
-    "data_hora": "08/11/2026 05:00",
-    "titulo": "Leilão: Fábrica da Ditália será leiloada nesta terça-feira,10",
-    "fonte": "Valor Econômico",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Leilão de UPI",
-    "escopo": "pipeline",
-    "resumo": "Leilão: Fábrica da Ditália será leiloada nesta terça-feira,10 NB Notícias",
-    "url": "https://www.nbnoticias.com.br/noticia/128447/leilao-fabrica-da-ditalia-sera-leiloada-nesta-terca-feira-10",
-    "deal_id": 64,
-    "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
-    "source_url": "https://www.nbnoticias.com.br",
-    "id": 574396
-  },
-  {
-    "data_hora": "07/11/2026 08:37",
-    "titulo": "Raízen aprova pacote de até R$ 39,8 bi e opções a credores",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Raízen aprova pacote de até R$ 39,8 bi e opções a credores SpaceMoney",
-    "url": "https://www.spacemoney.com.br/investimentos/acoes/raizen-aumento-capital-credores-debentures-cras/",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "source_url": "https://www.spacemoney.com.br",
-    "id": 479120
   },
   {
     "id": 1115,
