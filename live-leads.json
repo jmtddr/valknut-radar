@@ -1,14 +1,14 @@
 {
   "schema_version": "6.0",
-  "updated_at": "2026-11-19T23:20:15Z",
-  "updated_at_br": "19/11/2026 20:20",
+  "updated_at": "2026-11-20T19:05:35Z",
+  "updated_at_br": "20/11/2026 16:05",
   "sources": {
     "cvm_ipe": {
       "status": "ok",
       "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip",
       "filings_scanned": 41030,
-      "signals_matched": 521,
-      "unique_leads": 173,
+      "signals_matched": 515,
+      "unique_leads": 172,
       "leads_exported": 45
     },
     "djen": {
@@ -19,8 +19,8 @@
     "qsa_receita": {
       "total_valid_cnpjs": 177,
       "cached_total": 177,
-      "fetched_this_run": 90,
-      "attempted_this_run": 90
+      "fetched_this_run": 0,
+      "attempted_this_run": 0
     }
   },
   "stats": {
@@ -574,35 +574,6 @@
       ]
     },
     {
-      "id": "cvm-17162082000173-29",
-      "empresa": "MENDES JUNIOR ENGENHARIA SA",
-      "cnpj": "17.162.082/0001-73",
-      "cnpj_digits": "17162082000173",
-      "codigo_cvm": "4782",
-      "data_entrega": "2026-11-09",
-      "data_referencia": "2026-10-27",
-      "signal_type": "AGD / Waiver / PIK / Covenant",
-      "categoria_cvm": "Aviso aos Debenturistas",
-      "tipo_cvm": "",
-      "assunto": "Repactuação",
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1586102&numSequencia=1110808&numVersao=1",
-      "filing_count": 3,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 94,
-      "source": "CVM IPE 2026",
-      "uf": "MG",
-      "municipio": "BELO HORIZONTE",
-      "capital_social": 0,
-      "qsa_preview": [
-        "ANDREA GUIMARAES MENDES",
-        "EDUARDO MENDES MOREIRA",
-        "EUGENIO JOSE BOCCHESE MENDES"
-      ]
-    },
-    {
       "id": "cvm-76484013000145-45",
       "empresa": "CIA. DE SANEAMENTO DO PARANÁ - SANEPAR",
       "cnpj": "76.484.013/0001-45",
@@ -658,6 +629,35 @@
         "LINO LOPES CANCADO",
         "MARCELO CAMPOS HABIBE",
         "MARCELO CRUZ LOPES"
+      ]
+    },
+    {
+      "id": "cvm-17162082000173-29",
+      "empresa": "MENDES JUNIOR ENGENHARIA SA",
+      "cnpj": "17.162.082/0001-73",
+      "cnpj_digits": "17162082000173",
+      "codigo_cvm": "4782",
+      "data_entrega": "2026-11-09",
+      "data_referencia": "2026-10-27",
+      "signal_type": "AGD / Waiver / PIK / Covenant",
+      "categoria_cvm": "Aviso aos Debenturistas",
+      "tipo_cvm": "",
+      "assunto": "Repactuação",
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1586102&numSequencia=1110808&numVersao=1",
+      "filing_count": 3,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 91,
+      "source": "CVM IPE 2026",
+      "uf": "MG",
+      "municipio": "BELO HORIZONTE",
+      "capital_social": 0,
+      "qsa_preview": [
+        "ANDREA GUIMARAES MENDES",
+        "EDUARDO MENDES MOREIRA",
+        "EUGENIO JOSE BOCCHESE MENDES"
       ]
     },
     {
