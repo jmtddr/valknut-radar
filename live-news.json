@@ -66,6 +66,7 @@
     "url": "https://economia.uol.com.br/noticias/redacao/2026/11/19/axia-energia-lanca-oferta-de-r-12-bi-em-debentures-para-usina.ghtm",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // UOL Economia",
+    "source_url": "https://economia.uol.com.br",
     "id": 158216
   },
   {
@@ -260,6 +261,7 @@
     "url": "https://vanguardadonorte.com.br/esporte/corinthians-pede-tutela-cautelar-a-justica-para-negociar-dividas/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://vanguardadonorte.com.br",
     "id": 953510
   },
   {
@@ -300,6 +302,7 @@
     "url": "https://agorarn.com.br/esporte/corinthians-pede-protecao-justica-renegociar-dividas-bilhoes/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://agorarn.com.br",
     "id": 332360
   },
   {
@@ -385,20 +388,6 @@
     "id": 674587
   },
   {
-    "data_hora": "17/11/2026 13:49",
-    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Varejo & Consumo",
-    "categoria": "Cautelar 20-B",
-    "escopo": "pipeline",
-    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial InfoMoney",
-    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
-    "deal_id": 180,
-    "empresa_nome": "Sport Club Corinthians Paulista",
-    "source_url": "https://www.infomoney.com.br",
-    "id": 313746
-  },
-  {
     "data_hora": "17/11/2026 13:21",
     "titulo": "Troca de concessionária da Enel SP exige análise de custos e benefícios ao consumidor",
     "fonte": "CVM / Fatos Relevantes",
@@ -411,6 +400,20 @@
     "empresa_nome": "Radar Ao Vivo // Economic News Brasil",
     "source_url": "https://economicnewsbrasil.com.br",
     "id": 392748
+  },
+  {
+    "data_hora": "17/11/2026 13:01",
+    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Cautelar 20-B",
+    "escopo": "pipeline",
+    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial Estadão",
+    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
+    "deal_id": 180,
+    "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://www.estadao.com.br",
+    "id": 313746
   },
   {
     "data_hora": "17/11/2026 12:42",
@@ -1490,6 +1493,20 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
+    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões GZH",
+    "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxNTVlFVVN6Q3Zjb3dnSm93cmktRld4VlVxUkl6UHdQNFFUcFgwcG5lYTRMdlZlRWs2eVcwajVxX0ZMNlFoMHBhU0tDZnhnS3ZBeFp4ZzRDVzFVT3ExblRwOXNmbFp0NGxLZ2FzRi1lTUc2OUk0dE9vQS1oWmVfeFo4bHF4WDBTTjlrOUluSkpLUjlXWFQ2T0VsaHV2aVVvdFVfQ2NpTWFMeWh6UUhmWDNoMlRuZjJKY0N6dXBKVzZ3MS1Kejl1dVNVRXY2RHBjN2V1eDJJU0pNdDU2VW1VT1pqLW9BLUxuSGozNVFmOF9zM1Rqa3pJQkpabFZfcjdLa0FsbHU1bnFkSUlYZw?oc=5",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 581463
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
     "titulo": "Leilão de fábrica em operação na Serra mesmo após falência atrai 16 propostas",
     "fonte": "Valor Econômico",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1567,19 +1584,6 @@
     "deal_id": 7,
     "empresa_nome": "Raízen S.A. (RAIZ4)",
     "id": 246596
-  },
-  {
-    "data_hora": "09/11/2026 11:42",
-    "titulo": "Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito) Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta Seu Dinheiro",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta Seu Dinheiro",
-    "url": "https://www.seudinheiro.com/2026/renda-fixa/juros-altos-ajudam-a-renda-fixa-mas-pioram-um-problema-nas-debentures-diz-sparta-mlim/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
-    "id": 750257
   },
   {
     "id": 1115,
