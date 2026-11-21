@@ -500,20 +500,6 @@
     "id": 674587
   },
   {
-    "data_hora": "17/11/2026 13:49",
-    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Varejo & Consumo",
-    "categoria": "Cautelar 20-B",
-    "escopo": "pipeline",
-    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial InfoMoney",
-    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
-    "deal_id": 180,
-    "empresa_nome": "Sport Club Corinthians Paulista",
-    "source_url": "https://www.infomoney.com.br",
-    "id": 313746
-  },
-  {
     "data_hora": "17/11/2026 13:21",
     "titulo": "Troca de concessionária da Enel SP exige análise de custos e benefícios ao consumidor",
     "fonte": "CVM / Fatos Relevantes",
@@ -526,6 +512,20 @@
     "empresa_nome": "Radar Ao Vivo // Economic News Brasil",
     "source_url": "https://economicnewsbrasil.com.br",
     "id": 392748
+  },
+  {
+    "data_hora": "17/11/2026 13:01",
+    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Cautelar 20-B",
+    "escopo": "pipeline",
+    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial Estadão",
+    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
+    "deal_id": 180,
+    "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://www.estadao.com.br",
+    "id": 313746
   },
   {
     "data_hora": "17/11/2026 12:42",
@@ -1108,6 +1108,20 @@
     "empresa_nome": "Grupo Essencial (Essencial Sistema de Segurança Ltda. & Essencial Sistema e Serviços de Facilities Ltda.)"
   },
   {
+    "data_hora": "13/11/2026 08:54",
+    "titulo": "Aneel pauta caducidade da Enel SP e recursos do LRCAP para terça-feira (17) – Edição do dia",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel pauta caducidade da Enel SP e recursos do LRCAP para terça-feira (17) – Edição do dia MegaWhat",
+    "url": "https://megawhat.uol.com.br/megaexpresso/aneel-pauta-caducidade-da-enel-sp-e-recursos-do-lrcap-para-terca-feira-17-edicao-do-dia/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // MegaWhat",
+    "source_url": "https://megawhat.uol.com.br",
+    "id": 711299
+  },
+  {
     "data_hora": "13/11/2026 07:00",
     "titulo": "CSN: mesmo após vender ativo, secundário opera com deságio",
     "fonte": "CVM / Fatos Relevantes",
@@ -1574,20 +1588,6 @@
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
     "source_url": "https://www.moneytimes.com.br",
     "id": 541892
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Ainda sem acordo com os bondholders sobre os termos do plano de recuperação extrajudicial, a Braskem deu prazo até 11 de novembro para os credores, do mercado doméstico e externo, apresentarem propostas para reestruturar a dívida da companhia, a",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Ainda sem acordo com os bondholders sobre os termos do plano de recuperação extrajudicial, a Braskem deu prazo até 11 de novembro para os credores, do mercado doméstico e externo, apresentarem propostas para reestruturar a dívida",
-    "url": "https://www.instagram.com/p/DfjyNlWCDpN/",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "source_url": "https://www.instagram.com",
-    "id": 211044
   },
   {
     "id": 1115,
