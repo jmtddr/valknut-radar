@@ -1,7 +1,7 @@
 {
   "schema_version": "6.0",
-  "updated_at": "2026-11-21T17:57:03Z",
-  "updated_at_br": "21/11/2026 14:57",
+  "updated_at": "2026-11-21T23:11:32Z",
+  "updated_at_br": "21/11/2026 20:11",
   "sources": {
     "cvm_ipe": {
       "status": "ok",
@@ -19,8 +19,8 @@
     "qsa_receita": {
       "total_valid_cnpjs": 177,
       "cached_total": 177,
-      "fetched_this_run": 3,
-      "attempted_this_run": 3
+      "fetched_this_run": 0,
+      "attempted_this_run": 0
     }
   },
   "stats": {
