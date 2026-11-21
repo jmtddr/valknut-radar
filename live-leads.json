@@ -1,13 +1,13 @@
 {
   "schema_version": "6.0",
-  "updated_at": "2026-11-20T19:05:35Z",
-  "updated_at_br": "20/11/2026 16:05",
+  "updated_at": "2026-11-21T17:57:03Z",
+  "updated_at_br": "21/11/2026 14:57",
   "sources": {
     "cvm_ipe": {
       "status": "ok",
       "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip",
       "filings_scanned": 41030,
-      "signals_matched": 515,
+      "signals_matched": 512,
       "unique_leads": 172,
       "leads_exported": 45
     },
@@ -19,8 +19,8 @@
     "qsa_receita": {
       "total_valid_cnpjs": 177,
       "cached_total": 177,
-      "fetched_this_run": 0,
-      "attempted_this_run": 0
+      "fetched_this_run": 3,
+      "attempted_this_run": 3
     }
   },
   "stats": {
@@ -661,35 +661,6 @@
       ]
     },
     {
-      "id": "cvm-39881421000104-21",
-      "empresa": "COMPANHIA ESTADUAL DE GERAÇÃO DE ENERGIA ELÉTRICA - CEEE-G",
-      "cnpj": "39.881.421/0001-04",
-      "cnpj_digits": "39881421000104",
-      "codigo_cvm": "27154",
-      "data_entrega": "2026-11-10",
-      "data_referencia": "2026-12-01",
-      "signal_type": "AGD / Waiver / PIK / Covenant",
-      "categoria_cvm": "Assembleia",
-      "tipo_cvm": "AGDEB",
-      "assunto": "ADG - Solicitada por debenturistas||Instrução de Voto||Procuração para participação",
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1587540&numSequencia=1112246&numVersao=1",
-      "filing_count": 1,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 90,
-      "source": "CVM IPE 2026",
-      "uf": "RS",
-      "municipio": "PORTO ALEGRE",
-      "capital_social": 1365961600.0,
-      "qsa_preview": [
-        "ALBERTO DE SENNA SANTOS",
-        "BENJAMIN STEINBRUCH",
-        "DAVID MOISE SALAMA"
-      ]
-    },
-    {
       "id": "cvm-27093558000115-76",
       "empresa": "MILLS LOCAÇÃO, SERVIÇOS E LOGÍSTICA S.A.",
       "cnpj": "27.093.558/0001-15",
@@ -922,35 +893,6 @@
       ]
     },
     {
-      "id": "cvm-09041168000110-23",
-      "empresa": "LOG COMMERCIAL PROPERTIES E PARTICIPAÇÕES",
-      "cnpj": "09.041.168/0001-10",
-      "cnpj_digits": "09041168000110",
-      "codigo_cvm": "23272",
-      "data_entrega": "2026-11-10",
-      "data_referencia": "2026-11-10",
-      "signal_type": "Carve-out / Desinvestimento / UPI",
-      "categoria_cvm": "Comunicado ao Mercado",
-      "tipo_cvm": "Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
-      "assunto": "Comunicado ao Mercado — Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1587268&numSequencia=1111974&numVersao=1",
-      "filing_count": 5,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 89,
-      "source": "CVM IPE 2026",
-      "uf": "MG",
-      "municipio": "BELO HORIZONTE",
-      "capital_social": 2753976300.0,
-      "qsa_preview": [
-        "MARCIO VIEIRA DE SIQUEIRA",
-        "RAFAEL VICTAL SALIBA",
-        "RICARDO TERUO MATSUMOTO"
-      ]
-    },
-    {
       "id": "cvm-33041260065290-100",
       "empresa": "GRUPO CASAS BAHIA S.A. - EM RECUPERAÇÃO JUDICIAL",
       "cnpj": "33.041.260/0652-90",
@@ -977,6 +919,35 @@
         "ELCIO MITSUHIRO ITO",
         "FREDERIC PAUL BERNARD GAUTHIER",
         "RENATO HORTA FRANKLIN"
+      ]
+    },
+    {
+      "id": "cvm-39881421000104-21",
+      "empresa": "COMPANHIA ESTADUAL DE GERAÇÃO DE ENERGIA ELÉTRICA - CEEE-G",
+      "cnpj": "39.881.421/0001-04",
+      "cnpj_digits": "39881421000104",
+      "codigo_cvm": "27154",
+      "data_entrega": "2026-11-10",
+      "data_referencia": "2026-12-01",
+      "signal_type": "AGD / Waiver / PIK / Covenant",
+      "categoria_cvm": "Assembleia",
+      "tipo_cvm": "AGDEB",
+      "assunto": "ADG - Solicitada por debenturistas||Instrução de Voto||Procuração para participação",
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1587540&numSequencia=1112246&numVersao=1",
+      "filing_count": 1,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 87,
+      "source": "CVM IPE 2026",
+      "uf": "RS",
+      "municipio": "PORTO ALEGRE",
+      "capital_social": 1365961600.0,
+      "qsa_preview": [
+        "ALBERTO DE SENNA SANTOS",
+        "BENJAMIN STEINBRUCH",
+        "DAVID MOISE SALAMA"
       ]
     },
     {
@@ -1154,89 +1125,32 @@
       ]
     },
     {
-      "id": "cvm-07628528000159-22",
-      "empresa": "BRASILAGRO CIA BRAS DE PROP AGRICOLAS",
-      "cnpj": "07.628.528/0001-59",
-      "cnpj_digits": "07628528000159",
-      "codigo_cvm": "20036",
+      "id": "cvm-09041168000110-23",
+      "empresa": "LOG COMMERCIAL PROPERTIES E PARTICIPAÇÕES",
+      "cnpj": "09.041.168/0001-10",
+      "cnpj_digits": "09041168000110",
+      "codigo_cvm": "23272",
       "data_entrega": "2026-11-10",
       "data_referencia": "2026-11-10",
       "signal_type": "Carve-out / Desinvestimento / UPI",
       "categoria_cvm": "Comunicado ao Mercado",
       "tipo_cvm": "Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
       "assunto": "Comunicado ao Mercado — Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1586777&numSequencia=1111483&numVersao=1",
-      "filing_count": 2,
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1587268&numSequencia=1111974&numVersao=1",
+      "filing_count": 5,
       "in_pipeline": false,
       "deal_id": null,
       "deal_empresa": null,
       "deal_passivo_mm": null,
       "fit_score": 86,
       "source": "CVM IPE 2026",
-      "uf": "SP",
-      "municipio": "SAO PAULO",
-      "capital_social": 1587987700.0,
+      "uf": "MG",
+      "municipio": "BELO HORIZONTE",
+      "capital_social": 2753976300.0,
       "qsa_preview": [
-        "ANDRE GUILLAUMON",
-        "GUSTAVO JAVIER LOPEZ"
-      ]
-    },
-    {
-      "id": "cvm-09229201000130-24",
-      "empresa": "GPS PARTICIPAÇÕES E EMPREENDIMENTOS S/A",
-      "cnpj": "09.229.201/0001-30",
-      "cnpj_digits": "09229201000130",
-      "codigo_cvm": "25712",
-      "data_entrega": "2026-11-10",
-      "data_referencia": "2026-11-10",
-      "signal_type": "Carve-out / Desinvestimento / UPI",
-      "categoria_cvm": "Comunicado ao Mercado",
-      "tipo_cvm": "Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
-      "assunto": "Comunicado ao Mercado — Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1587448&numSequencia=1112154&numVersao=1",
-      "filing_count": 2,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 86,
-      "source": "CVM IPE 2026",
-      "uf": "SP",
-      "municipio": "SAO PAULO",
-      "capital_social": 3430648800.0,
-      "qsa_preview": [
-        "ANDERSON NUNES DA SILVA",
-        "CLAUDIO PETRUZ",
-        "GUSTAVO VIANNA OTTO"
-      ]
-    },
-    {
-      "id": "cvm-49263189000102-27",
-      "empresa": "HELBOR EMPREENDIMENTOS S/A",
-      "cnpj": "49.263.189/0001-02",
-      "cnpj_digits": "49263189000102",
-      "codigo_cvm": "20877",
-      "data_entrega": "2026-11-10",
-      "data_referencia": "2026-11-10",
-      "signal_type": "Carve-out / Desinvestimento / UPI",
-      "categoria_cvm": "Comunicado ao Mercado",
-      "tipo_cvm": "Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
-      "assunto": "Comunicado ao Mercado — Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1586788&numSequencia=1111494&numVersao=1",
-      "filing_count": 2,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 86,
-      "source": "CVM IPE 2026",
-      "uf": "SP",
-      "municipio": "MOGI DAS CRUZES",
-      "capital_social": 1310225400.0,
-      "qsa_preview": [
-        "ACYR DE OLIVEIRA PEREIRA",
-        "ANDREA ALTIERI BITTENCOURT",
-        "DENERVALDO APARECIDO SETIN"
+        "MARCIO VIEIRA DE SIQUEIRA",
+        "RAFAEL VICTAL SALIBA",
+        "RICARDO TERUO MATSUMOTO"
       ]
     },
     {
@@ -1324,6 +1238,93 @@
         "ALEXANDRE RANDON",
         "ANA CAROLINA RIBEIRO STROBEL",
         "DANIEL RAUL RANDON"
+      ]
+    },
+    {
+      "id": "cvm-08343492000120-55",
+      "empresa": "MRV ENGENHARIA E PARTICIPAÇÕES S/A",
+      "cnpj": "08.343.492/0001-20",
+      "cnpj_digits": "08343492000120",
+      "codigo_cvm": "20915",
+      "data_entrega": "2026-10-29",
+      "data_referencia": "2026-10-29",
+      "signal_type": "Carve-out / Desinvestimento / UPI",
+      "categoria_cvm": "Comunicado ao Mercado",
+      "tipo_cvm": "Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
+      "assunto": "Comunicado ao Mercado — Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1581810&numSequencia=1106516&numVersao=1",
+      "filing_count": 5,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 86,
+      "source": "CVM IPE 2026",
+      "uf": "MG",
+      "municipio": "BELO HORIZONTE",
+      "capital_social": 5980353500.0,
+      "qsa_preview": [
+        "EDUARDO FISCHER TEIXEIRA DE SOUZA",
+        "JUNIA MARIA DE SOUSA LIMA GALVAO",
+        "RAFAEL NAZARETH MENIN TEIXEIRA DE SOUZA"
+      ]
+    },
+    {
+      "id": "cvm-05878397000132-53",
+      "empresa": "ALLOS S.A.",
+      "cnpj": "05.878.397/0001-32",
+      "cnpj_digits": "05878397000132",
+      "codigo_cvm": "22357",
+      "data_entrega": "2026-10-29",
+      "data_referencia": "2026-10-29",
+      "signal_type": "Carve-out / Desinvestimento / UPI",
+      "categoria_cvm": "Comunicado ao Mercado",
+      "tipo_cvm": "Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
+      "assunto": "Comunicado ao Mercado — Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1581822&numSequencia=1106528&numVersao=1",
+      "filing_count": 4,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 86,
+      "source": "CVM IPE 2026",
+      "uf": "RJ",
+      "municipio": "RIO DE JANEIRO",
+      "capital_social": 15092136000.0,
+      "qsa_preview": [
+        "DANIELLA DE SOUZA GUANABARA SANTOS",
+        "JOSE VICENTE COELHO DUPRAT AVELLAR",
+        "MARIO JOAO ALVES DE OLIVEIRA"
+      ]
+    },
+    {
+      "id": "cvm-73178600000118-60",
+      "empresa": "CYRELA BRAZIL REALTY S.A.EMPREEND E PART",
+      "cnpj": "73.178.600/0001-18",
+      "cnpj_digits": "73178600000118",
+      "codigo_cvm": "14460",
+      "data_entrega": "2026-10-28",
+      "data_referencia": "2026-10-28",
+      "signal_type": "Carve-out / Desinvestimento / UPI",
+      "categoria_cvm": "Comunicado ao Mercado",
+      "tipo_cvm": "Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
+      "assunto": "Comunicado ao Mercado — Aquisição/Alienação de Participação Acionária (art. 12 da Instr. CVM nº 358)",
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1581244&numSequencia=1105950&numVersao=1",
+      "filing_count": 9,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 86,
+      "source": "CVM IPE 2026",
+      "uf": "SP",
+      "municipio": "SAO PAULO",
+      "capital_social": 6184224000.0,
+      "qsa_preview": [
+        "AFONSO SANT ANNA BEVILAQUA",
+        "CELSO ANTONIO ALVES",
+        "EFRAIM SCHMUEL HORN"
       ]
     }
   ],
@@ -4246,70 +4247,6 @@
       "source": "BrasilAPI",
       "fetched_at": "2026-11-19"
     },
-    "09229201000130": {
-      "razao_social": "GPS PARTICIPACOES E EMPREENDIMENTOS S.A.",
-      "nome_fantasia": "",
-      "situacao": "ATIVA",
-      "data_inicio": "2007-11-27",
-      "capital_social": 3430648800.0,
-      "porte": "DEMAIS",
-      "cnae": "Holdings de instituições não-financeiras",
-      "municipio": "SAO PAULO",
-      "uf": "SP",
-      "telefone": "1121978888",
-      "qsa": [
-        {
-          "nome": "ANDERSON NUNES DA SILVA",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "CLAUDIO PETRUZ",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "GUSTAVO VIANNA OTTO",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "JOSE CAETANO PAULA DE LACERDA",
-          "qualificacao": "Conselheiro de Administração"
-        },
-        {
-          "nome": "LUIS CARLOS MARTINEZ ROMERO",
-          "qualificacao": "Presidente"
-        },
-        {
-          "nome": "LUIZ CHRYSOSTOMO DE OLIVEIRA FILHO",
-          "qualificacao": "Conselheiro de Administração"
-        },
-        {
-          "nome": "MARCELO NIEMEYER HAMPSHIRE",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "MARCOS LUIZ ABREU DE LIMA",
-          "qualificacao": "Conselheiro de Administração"
-        },
-        {
-          "nome": "MARIA ELSA ALBA BERNHOEFT",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "OTAVIO YAZBEK",
-          "qualificacao": "Conselheiro de Administração"
-        },
-        {
-          "nome": "PEDRO FRANCO SALES",
-          "qualificacao": "Conselheiro de Administração"
-        },
-        {
-          "nome": "PIERO PAOLO PICCHIONI MINARDI",
-          "qualificacao": "Conselheiro de Administração"
-        }
-      ],
-      "source": "BrasilAPI",
-      "fetched_at": "2026-11-19"
-    },
     "04691623000109": {
       "razao_social": "SIDLAR PLANEJADOS - MOVEIS E DECORACOES LTDA.",
       "nome_fantasia": "",
@@ -6115,54 +6052,6 @@
       "source": "BrasilAPI",
       "fetched_at": "2026-11-19"
     },
-    "49263189000102": {
-      "razao_social": "HELBOR EMPREENDIMENTOS S.A.",
-      "nome_fantasia": "",
-      "situacao": "ATIVA",
-      "data_inicio": "1977-10-20",
-      "capital_social": 1310225400.0,
-      "porte": "DEMAIS",
-      "cnae": "Incorporação de empreendimentos imobiliários",
-      "municipio": "MOGI DAS CRUZES",
-      "uf": "SP",
-      "telefone": "1147958555",
-      "qsa": [
-        {
-          "nome": "ACYR DE OLIVEIRA PEREIRA",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "ANDREA ALTIERI BITTENCOURT",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "DENERVALDO APARECIDO SETIN",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "FABIANA PARSLOE LEX",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "HENRIQUE BORENSTEIN",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "HENRY BORENSTEIN",
-          "qualificacao": "Presidente"
-        },
-        {
-          "nome": "MARCELO LIMA BONANATA",
-          "qualificacao": "Diretor"
-        },
-        {
-          "nome": "ROBERVAL LANERA TOFFOLI",
-          "qualificacao": "Diretor"
-        }
-      ],
-      "source": "BrasilAPI",
-      "fetched_at": "2026-11-19"
-    },
     "08637270000110": {
       "razao_social": "FICTOR HOLDING S A",
       "nome_fantasia": "",
@@ -6319,30 +6208,6 @@
       "source": "BrasilAPI",
       "fetched_at": "2026-11-19"
     },
-    "07628528000159": {
-      "razao_social": "BRASILAGRO - COMPANHIA BRASILEIRA DE PROPRIEDADES AGRICOLAS",
-      "nome_fantasia": "",
-      "situacao": "ATIVA",
-      "data_inicio": "2005-09-30",
-      "capital_social": 1587987700.0,
-      "porte": "DEMAIS",
-      "cnae": "Cultivo de cana-de-açúcar",
-      "municipio": "SAO PAULO",
-      "uf": "SP",
-      "telefone": "1130355389",
-      "qsa": [
-        {
-          "nome": "ANDRE GUILLAUMON",
-          "qualificacao": "Presidente"
-        },
-        {
-          "nome": "GUSTAVO JAVIER LOPEZ",
-          "qualificacao": "Diretor"
-        }
-      ],
-      "source": "BrasilAPI",
-      "fetched_at": "2026-11-19"
-    },
     "17774940000130": {
       "razao_social": "AGRO CAMPO INDUSTRIA E COMERCIO LTDA",
       "nome_fantasia": "",
@@ -6438,6 +6303,170 @@
       ],
       "source": "BrasilAPI",
       "fetched_at": "2026-11-19"
+    },
+    "05878397000132": {
+      "razao_social": "ALLOS S.A.",
+      "nome_fantasia": "",
+      "situacao": "ATIVA",
+      "data_inicio": "2003-07-08",
+      "capital_social": 15092136000.0,
+      "porte": "DEMAIS",
+      "cnae": "Incorporação de empreendimentos imobiliários",
+      "municipio": "RIO DE JANEIRO",
+      "uf": "RJ",
+      "telefone": "2121767272",
+      "qsa": [
+        {
+          "nome": "DANIELLA DE SOUZA GUANABARA SANTOS",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "JOSE VICENTE COELHO DUPRAT AVELLAR",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "MARIO JOAO ALVES DE OLIVEIRA",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "MAURO SERGIO JUNQUEIRA DE ARAUJO",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "PAULA GUIMARAES FONSECA",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RAFAEL SALES GUIMARAES",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RENATA CORREA LABRUNA",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RENATO FLOH",
+          "qualificacao": "Administrador"
+        }
+      ],
+      "source": "BrasilAPI",
+      "fetched_at": "2026-11-21"
+    },
+    "08343492000120": {
+      "razao_social": "MRV ENGENHARIA E PARTICIPACOES SA",
+      "nome_fantasia": "",
+      "situacao": "ATIVA",
+      "data_inicio": "2006-09-29",
+      "capital_social": 5980353500.0,
+      "porte": "DEMAIS",
+      "cnae": "Incorporação de empreendimentos imobiliários",
+      "municipio": "BELO HORIZONTE",
+      "uf": "MG",
+      "telefone": "3126146968",
+      "qsa": [
+        {
+          "nome": "EDUARDO FISCHER TEIXEIRA DE SOUZA",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "JUNIA MARIA DE SOUSA LIMA GALVAO",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RAFAEL NAZARETH MENIN TEIXEIRA DE SOUZA",
+          "qualificacao": "Presidente"
+        },
+        {
+          "nome": "RAFAEL PIRES E ALBUQUERQUE",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RAPHAEL ROCHA LAFETA",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RICARDO PAIXAO PINTO RODRIGUES",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RODRIGO MARTINS DE RESENDE",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RONALDO PEDREIRA AYRES DA MOTTA FILHO",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "THIAGO CORREA ELY",
+          "qualificacao": "Diretor"
+        }
+      ],
+      "source": "BrasilAPI",
+      "fetched_at": "2026-11-21"
+    },
+    "73178600000118": {
+      "razao_social": "CYRELA BRAZIL REALTY S.A. EMPREENDIMENTOS E PARTICIPACOES",
+      "nome_fantasia": "",
+      "situacao": "ATIVA",
+      "data_inicio": "1993-12-13",
+      "capital_social": 6184224000.0,
+      "porte": "DEMAIS",
+      "cnae": "Incorporação de empreendimentos imobiliários",
+      "municipio": "SAO PAULO",
+      "uf": "SP",
+      "telefone": "1138397009",
+      "qsa": [
+        {
+          "nome": "AFONSO SANT ANNA BEVILAQUA",
+          "qualificacao": "Conselheiro de Administração"
+        },
+        {
+          "nome": "CELSO ANTONIO ALVES",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "EFRAIM SCHMUEL HORN",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "ELIE HORN",
+          "qualificacao": "Conselheiro de Administração"
+        },
+        {
+          "nome": "FELIPE RUSSO DE ALMEIDA CUNHA",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "FERNANDO GOLDSZTEIN",
+          "qualificacao": "Conselheiro de Administração"
+        },
+        {
+          "nome": "GEORGE ZAUSNER",
+          "qualificacao": "Conselheiro de Administração"
+        },
+        {
+          "nome": "JOAO CESAR DE QUEIROZ TOURINHO",
+          "qualificacao": "Conselheiro de Administração"
+        },
+        {
+          "nome": "MARCELA DUTRA DRIGO",
+          "qualificacao": "Conselheiro de Administração"
+        },
+        {
+          "nome": "MIGUEL MAIA MICKELBERG",
+          "qualificacao": "Diretor"
+        },
+        {
+          "nome": "RAFAEL NOVELLINO",
+          "qualificacao": "Conselheiro de Administração"
+        },
+        {
+          "nome": "RAFAELLA NOGUEIRA DE CARVALHO CORTI",
+          "qualificacao": "Diretor"
+        }
+      ],
+      "source": "BrasilAPI",
+      "fetched_at": "2026-11-21"
     }
   }
 }
