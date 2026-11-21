@@ -1,5 +1,75 @@
 [
   {
+    "data_hora": "20/11/2026 19:41",
+    "titulo": "Moody’s eleva rating de Portugal para A2 com redução da dívida e disciplina fiscal - Investing.com Brasil",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Moody’s eleva rating de Portugal para A2 com redução da dívida e disciplina fiscal Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "url": "https://br.investing.com/news/world-news/moodys-eleva-rating-de-portugal-para-a2-com-reducao-da-divida-e-disciplina-fiscal-2134604",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "source_url": "https://br.investing.com",
+    "id": 499705
+  },
+  {
+    "data_hora": "20/11/2026 19:26",
+    "titulo": "Governo diz que subida de ‘rating’ pela Moody’s reconhece trajetória das finanças",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Governo diz que subida de ‘rating’ pela Moody’s reconhece trajetória das finanças Correio da Manhã Canadá",
+    "url": "https://www.correiodamanhacanada.com/governo-diz-que-subida-de-rating-pela-moodys-reconhece-trajetoria-das-financas/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Correio da Manhã Canadá",
+    "source_url": "https://www.correiodamanhacanada.com",
+    "id": 301195
+  },
+  {
+    "data_hora": "20/11/2026 18:21",
+    "titulo": "\"Lacrar fábrica será exceção\": o juiz do caso da indústria que faliu e foi leiloada operando por R$ 174 milhões",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "\"Lacrar fábrica será exceção\": o juiz do caso da indústria que faliu e foi leiloada operando por R$ 174 milhões GZH",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/lacrar-fabrica-sera-excecao-o-juiz-do-caso-da-industria-que-faliu-e-foi-leiloada-operando-por-r-174-milhoes-cmwl2nlxz00mt017asf6388c0.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 480376
+  },
+  {
+    "data_hora": "20/11/2026 17:41",
+    "titulo": "Moody's melhora \"rating\" de Portugal por ter \"confiança\" na redução da dívida. Mas avisa que falta de habitação é risco",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Moody's melhora \"rating\" de Portugal por ter \"confiança\" na redução da dívida. Mas avisa que falta de habitação é risco Observador",
+    "url": "https://observador.pt/2026/11/20/moodys-melhora-rating-da-divida-portuguesa-com-confianca-na-reducao-da-divida/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Observador",
+    "source_url": "https://observador.pt",
+    "id": 570115
+  },
+  {
+    "data_hora": "20/11/2026 16:32",
+    "titulo": "Justiça aprova parcelamento de R$ 139 milhões em execuções trabalhistas do Grupo Pão de Açúcar",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Justiça aprova parcelamento de R$ 139 milhões em execuções trabalhistas do Grupo Pão de Açúcar O Otimista",
+    "url": "https://ootimista.com.br/noticias/justica-aprova-parcelamento-de-r-139-milhoes-em-execucoes-trabalhistas-do-grupo-pao-de-acucar?category=economy&page=1",
+    "deal_id": 16,
+    "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
+    "source_url": "https://ootimista.com.br",
+    "id": 403524
+  },
+  {
     "data_hora": "19/11/2026 15:16",
     "titulo": "BP avalia desinvestimento em projeto de GNL na África Ocidental - Investing.com Brasil",
     "fonte": "Valor Econômico",
@@ -152,6 +222,20 @@
     "empresa_nome": "Radar Ao Vivo // ADVFN",
     "source_url": "https://br.advfn.com",
     "id": 113903
+  },
+  {
+    "data_hora": "18/11/2026 05:00",
+    "titulo": "Institucional aproveita desconto e compra Hapvida",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Institucional aproveita desconto e compra Hapvida Valor Econômico",
+    "url": "https://valor.globo.com/financas/noticia/2026/11/18/institucional-aproveita-desconto-e-compra-hapvida.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 813246
   },
   {
     "id": 1158,
@@ -388,6 +472,20 @@
     "id": 674587
   },
   {
+    "data_hora": "17/11/2026 13:49",
+    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Varejo & Consumo",
+    "categoria": "Cautelar 20-B",
+    "escopo": "pipeline",
+    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial InfoMoney",
+    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
+    "deal_id": 180,
+    "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://www.infomoney.com.br",
+    "id": 313746
+  },
+  {
     "data_hora": "17/11/2026 13:21",
     "titulo": "Troca de concessionária da Enel SP exige análise de custos e benefícios ao consumidor",
     "fonte": "CVM / Fatos Relevantes",
@@ -400,20 +498,6 @@
     "empresa_nome": "Radar Ao Vivo // Economic News Brasil",
     "source_url": "https://economicnewsbrasil.com.br",
     "id": 392748
-  },
-  {
-    "data_hora": "17/11/2026 13:01",
-    "titulo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial",
-    "fonte": "Valor Econômico",
-    "setor": "Varejo & Consumo",
-    "categoria": "Cautelar 20-B",
-    "escopo": "pipeline",
-    "resumo": "Corinthians entra com pedido de tutela cautelar e caminha para Recuperação Judicial Estadão",
-    "url": "https://www.estadao.com.br/esportes/futebol/corinthians-entra-com-pedido-de-tutela-cautelar-e-caminha-para-recuperacao-judicial/",
-    "deal_id": 180,
-    "empresa_nome": "Sport Club Corinthians Paulista",
-    "source_url": "https://www.estadao.com.br",
-    "id": 313746
   },
   {
     "data_hora": "17/11/2026 12:42",
@@ -580,6 +664,20 @@
     "empresa_nome": "Grupo Agroniz (Agroniz Agropecuária Ltda., Agrícola Renascer Ltda., Carlos Gonçalves Muniz & Solange Marques Araújo Muniz)"
   },
   {
+    "data_hora": "16/11/2026 14:14",
+    "titulo": "Ao se decidir sobre SP, Aneel pode transferir pressão do caso Enel para o MME",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Ao se decidir sobre SP, Aneel pode transferir pressão do caso Enel para o MME Valor Econômico",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/ao-se-decidir-sobre-sp-aneel-pode-transferir-pressao-do-caso-enel-para-o-mme.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 196029
+  },
+  {
     "data_hora": "16/11/2026 13:42",
     "titulo": "GPA (PCAR3) busca captar R$ 92,2 milhões com debêntures em meio à recuperação extrajudicial",
     "fonte": "CVM / Fatos Relevantes",
@@ -705,6 +803,20 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
+    "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação ativovirtual.com.br",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-ute-gna-ii-fitch-rebaixa-debentures-e-coloca-rating-em-observacao",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 480638
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
     "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
     "fonte": "Valor Econômico",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -730,20 +842,6 @@
     "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
     "source_url": "https://www.ativovirtual.com.br",
     "id": 776480
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
-    "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação ativovirtual.com.br",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-ute-gna-ii-fitch-rebaixa-debentures-e-coloca-rating-em-observacao",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
-    "source_url": "https://www.ativovirtual.com.br",
-    "id": 480638
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1089,20 +1187,6 @@
     "empresa_nome": "Root Brasil Agronegócios S.A. (Root Brasil)"
   },
   {
-    "data_hora": "12/11/2026 14:48",
-    "titulo": "Braskem deixa de pagar R$ 1,2 bilhão em debêntures e cita recuperação extrajudicial",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Braskem deixa de pagar R$ 1,2 bilhão em debêntures e cita recuperação extrajudicial ADVFN",
-    "url": "https://br.advfn.com/jornal/2026/11/braskem-deixa-de-pagar-r-1-2-bilhao-em-debentures-e-cita-recuperacao-extrajudicial",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "source_url": "https://br.advfn.com",
-    "id": 436138
-  },
-  {
     "data_hora": "12/11/2026 13:35",
     "titulo": "Braskem (BRKM5) dá calote de R$ 1,2 bilhão em debêntures e usa recuperação extrajudicial como justificativa",
     "fonte": "CVM / Fatos Relevantes",
@@ -1184,20 +1268,6 @@
     "id": 139862
   },
   {
-    "data_hora": "12/11/2026 10:10",
-    "titulo": "Braskem não paga debêntures de R$ 1,2 bilhão e aponta recuperação extrajudicial",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Braskem não paga debêntures de R$ 1,2 bilhão e aponta recuperação extrajudicial BPMoney",
-    "url": "https://bpmoney.com.br/negocios/empresas-na-bolsa/braskem-nao-paga-debentures-r-1-2-bilhao-recuperacao-extrajudicial/",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "source_url": "https://bpmoney.com.br",
-    "id": 717887
-  },
-  {
     "data_hora": "12/11/2026 09:49",
     "titulo": "Braskem não paga debêntures de 1,2 bi, aponta recuperação extrajudicial",
     "fonte": "CVM / Fatos Relevantes",
@@ -1235,6 +1305,34 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 227349
+  },
+  {
+    "data_hora": "12/11/2026 05:00",
+    "titulo": "Braskem deixa de pagar R$ 1,2 bilhão em debêntures e cita recuperação extrajudicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Braskem deixa de pagar R$ 1,2 bilhão em debêntures e cita recuperação extrajudicial ADVFN",
+    "url": "https://br.advfn.com/jornal/2026/11/braskem-deixa-de-pagar-r-1-2-bilhao-em-debentures-e-cita-recuperacao-extrajudicial",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://br.advfn.com",
+    "id": 436138
+  },
+  {
+    "data_hora": "12/11/2026 05:00",
+    "titulo": "Braskem não paga debêntures de R$ 1,2 bilhão e aponta recuperação extrajudicial",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Braskem não paga debêntures de R$ 1,2 bilhão e aponta recuperação extrajudicial BPMoney",
+    "url": "https://bpmoney.com.br/negocios/empresas-na-bolsa/braskem-nao-paga-debentures-r-1-2-bilhao-recuperacao-extrajudicial/",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://bpmoney.com.br",
+    "id": 717887
   },
   {
     "data_hora": "12/11/2026 05:00",
@@ -1490,100 +1588,6 @@
     "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
     "source_url": "https://www.instagram.com",
     "id": 324250
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões GZH",
-    "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxNTVlFVVN6Q3Zjb3dnSm93cmktRld4VlVxUkl6UHdQNFFUcFgwcG5lYTRMdlZlRWs2eVcwajVxX0ZMNlFoMHBhU0tDZnhnS3ZBeFp4ZzRDVzFVT3ExblRwOXNmbFp0NGxLZ2FzRi1lTUc2OUk0dE9vQS1oWmVfeFo4bHF4WDBTTjlrOUluSkpLUjlXWFQ2T0VsaHV2aVVvdFVfQ2NpTWFMeWh6UUhmWDNoMlRuZjJKY0N6dXBKVzZ3MS1Kejl1dVNVRXY2RHBjN2V1eDJJU0pNdDU2VW1VT1pqLW9BLUxuSGozNVFmOF9zM1Rqa3pJQkpabFZfcjdLa0FsbHU1bnFkSUlYZw?oc=5",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 581463
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Leilão de fábrica em operação na Serra mesmo após falência atrai 16 propostas",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Falência",
-    "escopo": "mercado",
-    "resumo": "Leilão de fábrica em operação na Serra mesmo após falência atrai 16 propostas GZH",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/leilao-de-fabrica-em-operacao-na-serra-mesmo-apos-falencia-atrai-16-propostas-cmw9s469100bj014sf3dee6yy.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 729236
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s Estadão",
-    "url": "https://www.estadao.com.br/economia/pressoes-fiscais-no-brasil-aumentaram-e-podem-rebaixar-rating-diz-executivo-da-moodys/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Estadão",
-    "source_url": "https://www.estadao.com.br",
-    "id": 737507
-  },
-  {
-    "data_hora": "09/11/2026 17:58",
-    "titulo": "É hora de comprar renda fixa? Bancos recomendam títulos pagando até IPCA+ 12%; confira",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito) É hora de comprar renda fixa? Bancos recomendam títulos pagando até IPCA+ 12%; confira É hora de comprar renda fixa? Bancos recomendam títulos pagando até IPCA+ 12%; confira Seu Dinheiro",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "É hora de comprar renda fixa? Bancos recomendam títulos pagando até IPCA+ 12%; confira Seu Dinheiro",
-    "url": "https://www.seudinheiro.com/2026/renda-fixa/e-hora-de-comprar-renda-fixa-bancos-recomendam-titulos-pagando-ate-ipca-12-confira-mlim/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
-    "id": 973553
-  },
-  {
-    "data_hora": "09/11/2026 17:05",
-    "titulo": "Recuperação judicial da Braskem: reunião fracassa",
-    "fonte": "Valor Econômico",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Recuperação judicial da Braskem: reunião fracassa Acia Araçatuba",
-    "url": "https://aciara.com.br/recuperacao-judicial-da-braskem-reuniao-fracassa/",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "id": 784326
-  },
-  {
-    "data_hora": "09/11/2026 16:20",
-    "titulo": "Sabesp (SBSP3) aprova alterações em escritura da 35ª emissão de debêntures",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito) Sabesp (SBSP3) aprova alterações em escritura da 35ª emissão de debêntures Sabesp (SBSP3) aprova alterações em escritura da 35ª emissão de debêntures Clube FII News",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Sabesp (SBSP3) aprova alterações em escritura da 35ª emissão de debêntures Clube FII News",
-    "url": "https://www.clubefiinews.com.br/acoes/sabesp-sbsp3-alteracoes-escritura-35-emissao-debentures",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CVM / Fatos Relevantes",
-    "id": 194540
-  },
-  {
-    "data_hora": "09/11/2026 15:46",
-    "titulo": "Raízen (RAIZ55) aprova aumento de capital de até R$ 39,8 bilhões; acionistas podem ser diluídos em até 94%",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Raízen (RAIZ55) aprova aumento de capital de até R$ 39,8 bilhões; acionistas podem ser diluídos em até 94% Guia do Investidor",
-    "url": "https://guiadoinvestidor.com.br/mercado/raiz55-raizen-aprova-aumento-de-capital-de-ate-r-398-bilhoes-acionistas-podem-ser-diluidos-em-ate-94/",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "id": 246596
   },
   {
     "id": 1115,
