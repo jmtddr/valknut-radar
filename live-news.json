@@ -1,5 +1,19 @@
 [
   {
+    "data_hora": "21/11/2026 06:10",
+    "titulo": "\"Lacrar fábrica será exceção\": o juiz do caso da indústria que faliu e foi leiloada operando por R$ 174 milhões",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "\"Lacrar fábrica será exceção\": o juiz do caso da indústria que faliu e foi leiloada operando por R$ 174 milhões GZH",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/lacrar-fabrica-sera-excecao-o-juiz-do-caso-da-industria-que-faliu-e-foi-leiloada-operando-por-r-174-milhoes-cmwl2nlxz00mt017asf6388c0.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 480376
+  },
+  {
     "data_hora": "20/11/2026 19:41",
     "titulo": "Moody’s eleva rating de Portugal para A2 com redução da dívida e disciplina fiscal - Investing.com Brasil",
     "fonte": "CVM / Fatos Relevantes",
@@ -28,20 +42,6 @@
     "id": 301195
   },
   {
-    "data_hora": "20/11/2026 18:21",
-    "titulo": "\"Lacrar fábrica será exceção\": o juiz do caso da indústria que faliu e foi leiloada operando por R$ 174 milhões",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "\"Lacrar fábrica será exceção\": o juiz do caso da indústria que faliu e foi leiloada operando por R$ 174 milhões GZH",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/lacrar-fabrica-sera-excecao-o-juiz-do-caso-da-industria-que-faliu-e-foi-leiloada-operando-por-r-174-milhoes-cmwl2nlxz00mt017asf6388c0.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 480376
-  },
-  {
     "data_hora": "20/11/2026 17:41",
     "titulo": "Moody's melhora \"rating\" de Portugal por ter \"confiança\" na redução da dívida. Mas avisa que falta de habitação é risco",
     "fonte": "CVM / Fatos Relevantes",
@@ -68,6 +68,20 @@
     "empresa_nome": "Grupo Pão de Açúcar (GPA - PCAR3)",
     "source_url": "https://ootimista.com.br",
     "id": 403524
+  },
+  {
+    "data_hora": "20/11/2026 07:31",
+    "titulo": "Fato relevante Coelce (COCE5): Fitch rebaixa rating da companhia e das debêntures",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Fato relevante Coelce (COCE5): Fitch rebaixa rating da companhia e das debêntures ativovirtual.com.br",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-coelce-coce5-fitch-rebaixa-rating-da-companhia-e-das-debentures",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 894542
   },
   {
     "data_hora": "19/11/2026 15:16",
@@ -208,6 +222,20 @@
     "empresa_nome": "Radar Ao Vivo // Nord Investimentos",
     "source_url": "https://www.nordinvestimentos.com.br",
     "id": 663679
+  },
+  {
+    "data_hora": "18/11/2026 11:25",
+    "titulo": "Aneel suspende votação sobre caducidade da Enel após pedido de vista",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Aneel suspende votação sobre caducidade da Enel após pedido de vista band.com.br",
+    "url": "https://www.band.com.br/nacional/brasil/aneel-suspende-votacao-sobre-caducidade-da-enel-apos-pedido-de-vista-202611181125",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // band.com.br",
+    "source_url": "https://www.band.com.br",
+    "id": 584541
   },
   {
     "data_hora": "18/11/2026 08:49",
@@ -624,6 +652,20 @@
     "id": 175502
   },
   {
+    "data_hora": "16/11/2026 21:30",
+    "titulo": "AXIA3: R$ 1,2 bi em debêntures com piso de 15,07%",
+    "fonte": "CVM / Fatos Relevantes",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "AXIA3: R$ 1,2 bi em debêntures com piso de 15,07% ativovirtual.com.br",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/axia3-r-12-bi-em-debentures-com-piso-de-1507",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 490824
+  },
+  {
     "id": 1154,
     "data_hora": "16/11/2026 21:00",
     "titulo": "Invepar submete ao CADE transferência de Lamsa (39,7%) e ViaRio (33,34%) a fundos de pensão em meio a dívida de R$ 1,12B de curto prazo",
@@ -800,20 +842,6 @@
     "empresa_nome": "Radar Ao Vivo // UOL Economia",
     "source_url": "https://economia.uol.com.br",
     "id": 246737
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
-    "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação ativovirtual.com.br",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-ute-gna-ii-fitch-rebaixa-debentures-e-coloca-rating-em-observacao",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
-    "source_url": "https://www.ativovirtual.com.br",
-    "id": 480638
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1560,34 +1588,6 @@
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "source_url": "https://www.instagram.com",
     "id": 211044
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial GZH",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/com-divida-de-r-513-milhoes-grupo-do-rs-consegue-ok-de-credores-na-recuperacao-judicial-cmwash7k500ib014s2qzby51x.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 735067
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Um complexo industrial do setor moveleiro localizado em Monte Belo do Sul, na Serra gaúcha, será levado a leilão judicial, nesta terça-feira (10), com lance inicial de R$ 48 milhões. A estrutura pertence ao Grupo Ditália, que teve a falência decretada pela Ju",
-    "fonte": "Valor Econômico",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Falência",
-    "escopo": "pipeline",
-    "resumo": "Um complexo industrial do setor moveleiro localizado em Monte Belo do Sul, na Serra gaúcha, será levado a leilão judicial, nesta terça-feira (10), com lance inicial de R$ 48 milhões. A estrutura pertence ao Grupo Ditália, que teve",
-    "url": "https://www.instagram.com/p/DfkElrlHClJ/",
-    "deal_id": 64,
-    "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
-    "source_url": "https://www.instagram.com",
-    "id": 324250
   },
   {
     "id": 1115,
