@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * VALKNUT — SPECIAL SITUATIONS // Google Apps Script Backend & Multi-Proxy Engine
- * Release v6.0 — Produção Blindada (15x85KB Chunked UTF-8, 6 Abas, Anti-Injection, QSA/DJEN & Health)
+ * Release v7.0 — Produção Blindada (15x85KB Chunked UTF-8, 6 Abas, Anti-Injection, QSA/DJEN & Health)
  * ============================================================================
  *
  * COMO ATUALIZAR A IMPLANTAÇÃO MANTENDO A MESMA URL (`APPS_SCRIPT_URL`):
@@ -12,13 +12,13 @@
  * 3. Clique em "Implantar" > "Gerenciar implantações" > ícone de lápis (Editar) >
  *    em Versão selecione **"Nova versão"** > clique em "Implantar".
  * 4. Teste rápido de saúde da implantação: abra `<APPS_SCRIPT_URL>?action=health`
- *    e verifique `{"status":"ok","version":"6.0","router":true,...}`.
+ *    e verifique `{"status":"ok","version":"7.0","router":true,...}`.
  * 5. Opcional (varredura 24/7 + gravação automática na aba `Noticias`):
  *    execute uma vez `instalarGatilhosAutomaticos()`.
  */
 
-const APP_RELEASE_VERSION = '6.0';
-const MASTER_CACHE_KEY = 'vk_master_sheet_v60';
+const APP_RELEASE_VERSION = '7.0';
+const MASTER_CACHE_KEY = 'vk_master_sheet_v70';
 const CACHE_TTL_SECONDS = 300; // 5 minutos de cache em memória no servidor Google
 const PUBLIC_REFRESH_COOLDOWN_KEY = 'vk_public_refresh_cooldown';
 const PUBLIC_REFRESH_COOLDOWN_SECONDS = 60;
@@ -1020,43 +1020,43 @@ function sincronizarRadarAutomatico() {
   try {
     const feedsConfig = [
       {
-        url: 'https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+%22deb%C3%AAntures%22%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+vencimento%29+when%3A7d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        url: 'https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+%22assembleia+de+debenturistas%22+OR+debenturistas+OR+standstill%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+%22vencimento+antecipado%22+OR+d%C3%ADvida%29+-portugal+-lisboa+when%3A7d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
         tag: 'WAIVER / AGD',
         catAba: 'Waivers, AGDs & Downgrades Rating',
         escopo: 'CVM & Fatos Relevantes'
       },
       {
-        url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22vencimento+antecipado%22+OR+V%C3%B3rtx+OR+Pent%C3%A1gono+OR+%22Oliveira+Trust%22+deb%C3%AAntures+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        url: 'https://news.google.com/rss/search?q=%28%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22vencimento+antecipado%22+OR+%28%28V%C3%B3rtx+OR+Pent%C3%A1gono+OR+%22Oliveira+Trust%22%29+deb%C3%AAntures%29%29+%28d%C3%ADvida+OR+credores+OR+inadimpl%C3%AAncia%29+-portugal+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
         tag: 'RE / DEBÊNTURES',
         catAba: 'Waivers, AGDs & Downgrades Rating',
         escopo: 'CVM & Fatos Relevantes'
       },
       {
-        url: 'https://news.google.com/rss/search?q=rebaixamento+OR+rating+Fitch+OR+Moody%27s+deb%C3%AAntures+OR+CRA+OR+d%C3%ADvida+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        url: 'https://news.google.com/rss/search?q=%28%22rebaixa+rating%22+OR+%22rebaixamento+de+rating%22+OR+%22rebaixa+nota%22%29+%28Fitch+OR+Moody%27s+OR+%22S%26P%22%29+%28deb%C3%AAntures+OR+CRA+OR+CRI+OR+emissora%29+-portugal+-soberano+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
         tag: 'DOWNGRADE RATING',
         catAba: 'Waivers, AGDs & Downgrades Rating',
         escopo: 'CVM & Fatos Relevantes'
       },
       {
-        url: 'https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22+d%C3%ADvida+milh%C3%B5es+when%3A14d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        url: 'https://news.google.com/rss/search?q=%28%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22%29+%28d%C3%ADvida+OR+credores%29+milh%C3%B5es+-portugal+when%3A14d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
         tag: 'PEDIDO DE RJ',
         catAba: 'Pedidos de RJ & Cautelares 20-B',
         escopo: 'Mercado & Macro'
       },
       {
-        url: 'https://news.google.com/rss/search?q=%22unidade+produtiva+isolada%22+OR+%22stalking+horse%22+OR+%22leil%C3%A3o+de+UPI%22+OR+%22carve-out%22+%28d%C3%ADvida+OR+reestrutura%C3%A7%C3%A3o+OR+ativos%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        url: 'https://news.google.com/rss/search?q=%28%22unidade+produtiva+isolada%22+OR+%22stalking+horse%22+OR+%22leil%C3%A3o+de+UPI%22+OR+%22carve-out%22%29+%28d%C3%ADvida+OR+reestrutura%C3%A7%C3%A3o+OR+ativos%29+-portugal+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
         tag: 'LEILÃO DE UPI',
         catAba: 'Leilões de UPI, Ativos & Falências',
         escopo: 'Mercado & Macro'
       },
       {
-        url: 'https://news.google.com/rss/search?q=%28caducidade+ANEEL+OR+curtailment+d%C3%ADvida+OR+%22fian%C3%A7a+banc%C3%A1ria%22+energia+OR+%22desligamento+CCEE%22%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        url: 'https://news.google.com/rss/search?q=%28%22caducidade+ANEEL%22+OR+%28curtailment+d%C3%ADvida%29+OR+%28%22fian%C3%A7a+banc%C3%A1ria%22+energia%29+OR+%22desligamento+CCEE%22%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
         tag: 'ENERGIA / CCEE',
         catAba: 'Waivers, AGDs & Downgrades Rating',
         escopo: 'CVM & Fatos Relevantes'
       },
       {
-        url: 'https://news.google.com/rss/search?q=%28%22legal+claims%22+OR+%22venda+de+ativos+n%C3%A3o+estrat%C3%A9gicos%22+OR+%22desinvestimento%22+d%C3%ADvida+OR+%22financiamento+DIP%22%29+milh%C3%B5es+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
+        url: 'https://news.google.com/rss/search?q=%28%22legal+claims%22+OR+%22venda+de+ativos%22+OR+%22desinvestimento%22+OR+%22financiamento+DIP%22%29+%28d%C3%ADvida+OR+reestrutura%C3%A7%C3%A3o%29+milh%C3%B5es+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419',
         tag: 'ATIVOS / DIP',
         catAba: 'Leilões de UPI, Ativos & Falências',
         escopo: 'Mercado & Macro'
@@ -1105,15 +1105,20 @@ function sincronizarRadarAutomatico() {
             const descMatch = itemXml.match(/<description>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i);
 
             let rawTitle = titleMatch ? decodeHtmlEntities_(titleMatch[1].replace(/<[^>]+>/g, ' ')) : '';
-            let sourceName = sourceMatch ? decodeHtmlEntities_(sourceMatch[1].replace(/<[^>]+>/g, ' ')) : 'Mercado / Agências';
+            const xmlSource = sourceMatch ? decodeHtmlEntities_(sourceMatch[1].replace(/<[^>]+>/g, ' ')) : '';
+            let sourceName = xmlSource || 'Mercado / Agências';
             if (rawTitle.indexOf(' - ') !== -1) {
               const parts = rawTitle.split(' - ');
-              sourceName = decodeHtmlEntities_(parts.pop()) || sourceName;
+              const tail = decodeHtmlEntities_(parts.pop());
+              if (!xmlSource && tail) sourceName = tail;
               rawTitle = decodeHtmlEntities_(parts.join(' - '));
             }
             if (!rawTitle || rawTitle.length < 18 || isExcludedEntity_(rawTitle)) return;
+            const lowTitle = rawTitle.toLowerCase();
+            if (/\b(portugal|lisboa|laos|macau|angola|soberano|imposto de renda|onde investir)\b/i.test(lowTitle)) return;
+            if (/\b(afirma rating|reafirma rating|atribui rating inicial|aaa\(bra\))\b/i.test(lowTitle) && !/\b(rebaixa|negativ|default|inadimpl)\b/i.test(lowTitle)) return;
 
-            const normKey = rawTitle.toLowerCase().slice(0, 58);
+            const normKey = lowTitle.slice(0, 58);
             if (seenKeys[normKey]) return;
 
             const pubDate = pubDateMatch ? new Date(pubDateMatch[1].trim()) : new Date();
@@ -1122,10 +1127,11 @@ function sincronizarRadarAutomatico() {
             const dtFmt = Utilities.formatDate(pubDate, 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm');
             const rawLinkUrl = linkMatch ? linkMatch[1].trim() : '';
             const linkUrl = resolveGoogleNewsUrl_(rawLinkUrl);
+            if (/^https?:\/\/[^/]+\.pt(\/|$)/i.test(linkUrl)) return;
             const rawDesc = descMatch ? decodeHtmlEntities_(descMatch[1].replace(/<[^>]+>/g, ' ')) : '';
-            const resumo = (rawDesc && rawDesc.length > 35 && rawDesc.toLowerCase() !== rawTitle.toLowerCase())
+            const resumo = (rawDesc && rawDesc.length > 35 && rawDesc.toLowerCase().indexOf(lowTitle.slice(0, 32)) === -1)
               ? rawDesc.slice(0, 235)
-              : ('Capturado automaticamente pelo Motor Valknut 24/7 (' + sourceName + ').');
+              : ('Monitoramento ' + fc.tag + ' • Fonte original: ' + sourceName + '.');
 
             seenKeys[normKey] = true;
             novasLinhas.push([

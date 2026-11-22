@@ -2070,11 +2070,21 @@ body {
 
   /* Hide interactive buttons & floating overlays in all print modes */
   .modal-close-x,
+  .tearsheet-nav-cluster,
   .modal-tab-strip,
   .modal-bottom,
   .btn-header-tribunal,
   .btn-copy-autos,
   .company-intro-banner .btn-action,
+  .company-intro-banner .btn-solid,
+  .company-intro-banner .btn-tribunal-link,
+  .dossier-cell .btn-action,
+  .dossier-cell .btn-tribunal-link,
+  .comps-col-remove-btn,
+  .comps-actions-row,
+  .tactical-crm-strip,
+  .morning-briefing-mount,
+  .no-print,
   .btn-comp-toggle,
   .btn-watchlist-star,
   .comps-floating-bar,
@@ -2166,6 +2176,34 @@ body {
     overflow: visible !important;
     box-shadow: none !important;
     background: #FFFFFF !important;
+  }
+
+  /* Mode 2c: Formal Mandate Letter / Term Sheet A4 Print (body.mandate-print-mode) */
+  body.mandate-print-mode .top-navbar,
+  body.mandate-print-mode .section-hero-row,
+  body.mandate-print-mode .kpi-strip,
+  body.mandate-print-mode .subtab-pills-bar,
+  body.mandate-print-mode .subsection-header,
+  body.mandate-print-mode .ons-control-bar,
+  body.mandate-print-mode .mandate-controls-col,
+  body.mandate-print-mode #detailModal,
+  body.mandate-print-mode #compsModal,
+  body.mandate-print-mode #diretrizesModal {
+    display: none !important;
+  }
+
+  body.mandate-print-mode .mandate-letter-layout {
+    display: block !important;
+  }
+
+  body.mandate-print-mode .mandate-a4-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   /* Mode 3: Global Workspace Print (No Modal Open) — Never Print Ghost Modal */
@@ -3692,3 +3730,376 @@ body.diretrizes-modal-open #diretrizesModal {
   resize: vertical;
 }
 
+
+/* ==========================================================================
+   Release v7.0 — Morning Briefing Cockpit, Client-Safe Mode, Mini-CRM,
+   Cross-QSA Contagion Graph, Live 16:9 Pitch Stage & Mandate Letter A4
+   ========================================================================== */
+
+.btn-briefing-pill {
+  background: rgba(165, 172, 130, 0.22);
+  border-color: rgba(200, 206, 176, 0.45);
+  color: #E6E9DC;
+  font-weight: 700;
+}
+
+.btn-briefing-pill.active {
+  background: #A5AC82;
+  color: #042420;
+  border-color: #E6E9DC;
+}
+
+.briefing-count-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #D97706;
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  margin-left: 4px;
+}
+
+.btn-client-safe.active {
+  background: #065F46 !important;
+  border-color: #34D399 !important;
+  color: #ECFDF5 !important;
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.25);
+}
+
+/* Client-Safe Screen-Share Mode (Alt+P) */
+body.client-safe-mode .fit-pill,
+body.client-safe-mode .btn-watchlist-star,
+body.client-safe-mode .badge-sweetspot,
+body.client-safe-mode .tactical-crm-strip,
+body.client-safe-mode .morning-briefing-mount,
+body.client-safe-mode .client-sensitive-el,
+body.client-safe-mode .fit-breakdown-banner,
+body.client-safe-mode .outreach-studio-box,
+body.client-safe-mode .approach-doors-grid,
+body.client-safe-mode #subtab-mandatos_crm,
+body.client-safe-mode #subtab-watchlist {
+  display: none !important;
+}
+
+/* Morning Briefing Cockpit */
+.morning-briefing-mount {
+  margin-bottom: 14px;
+}
+
+.morning-briefing-mount:empty {
+  display: none;
+}
+
+.briefing-cockpit-card {
+  background: linear-gradient(135deg, #063630 0%, #0A463E 62%, #124E4A 100%);
+  border: 1px solid rgba(165, 172, 130, 0.45);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  color: #E6E9DC;
+  box-shadow: var(--shadow-sm);
+}
+
+.briefing-cockpit-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(200, 206, 176, 0.22);
+}
+
+.briefing-3col-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 1120px) {
+  .briefing-3col-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.briefing-col-box {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--text-body);
+  border-radius: var(--radius-sm);
+  padding: 11px 13px;
+  border-top: 3px solid var(--vk-olive);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.briefing-col-title {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--vk-forest);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.briefing-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 7px;
+  border-radius: 5px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: border-color 0.14s ease, background 0.14s ease;
+}
+
+.briefing-item-row:hover {
+  border-color: var(--vk-teal);
+  background: #EEF4F4;
+}
+
+/* Tear Sheet Prev / Next Navigation */
+.tearsheet-nav-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.modal-nav-arrow {
+  background: rgba(230, 233, 220, 0.12);
+  border: 1px solid rgba(200, 206, 176, 0.35);
+  color: #E6E9DC;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.14s ease;
+}
+
+.modal-nav-arrow:hover:not(:disabled) {
+  background: rgba(230, 233, 220, 0.24);
+}
+
+.modal-nav-arrow:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.modal-nav-pos {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: #C8CEB0;
+  min-width: 44px;
+  text-align: center;
+}
+
+/* Tactical Local Mini-CRM Strip + JSON Sync Bar */
+.tactical-crm-strip {
+  background: #F4F6F0;
+  border: 1px solid #C8CEB0;
+  border-left: 4px solid var(--vk-forest);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+.tactical-crm-grid {
+  display: grid;
+  grid-template-columns: 165px 145px 145px minmax(180px, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+  margin-top: 6px;
+}
+
+@media (max-width: 960px) {
+  .tactical-crm-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tactical-crm-field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--vk-forest);
+  margin-bottom: 3px;
+}
+
+.tactical-crm-field input,
+.tactical-crm-field select {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 11.5px;
+  border: 1px solid var(--border-medium);
+  border-radius: 5px;
+  background: #FFFFFF;
+  color: var(--text-body);
+}
+
+.crm-sync-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #ECEFE4;
+  border: 1px solid #C8CEB0;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+/* Cross-QSA Network Badge & Panel */
+.cross-qsa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FCD34D;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.cross-qsa-panel {
+  background: #FFFBEB;
+  border: 1px solid #FCD34D;
+  border-left: 4px solid #D97706;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+/* Live 16:9 Pitch Deck Stage & Presenter */
+.pitch-live-stage-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pitch-slide-canvas-16x9 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #F4F5F2;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(6, 54, 48, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.pitch-slide-canvas-16x9:fullscreen {
+  border-radius: 0;
+  border: none;
+  justify-content: space-between;
+  padding: 16px;
+  background: #042420;
+}
+
+.pitch-thumb-strip {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .pitch-thumb-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.pitch-thumb-btn {
+  padding: 6px 5px;
+  border-radius: 5px;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pitch-thumb-btn.active {
+  background: var(--vk-forest);
+  color: #E6E9DC;
+  border-color: var(--vk-forest);
+}
+
+/* Formal Mandate Letter / Term Sheet A4 */
+.mandate-letter-layout {
+  display: grid;
+  grid-template-columns: 350px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 1140px) {
+  .mandate-letter-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.mandate-a4-sheet {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-top: 6px solid #063630;
+  border-radius: 4px;
+  padding: 34px 40px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  color: #1E293B;
+  font-size: 12.5px;
+  line-height: 1.58;
+  max-width: 860px;
+}
+
+.mandate-a4-sheet h4 {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #063630;
+  margin: 16px 0 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.mandate-sig-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+.mandate-sig-line {
+  border-top: 1px solid #334155;
+  padding-top: 6px;
+  font-size: 11.5px;
+}

@@ -6,17 +6,24 @@ a partir dos repositórios oficiais de Dados Abertos do ONS (AWS S3) e da CCEE (
 gerando `live-energy.json` na raiz do repositório sem multiplicadores sintéticos.
 """
 
+import csv
+import io
 import json
+import re
+import unicodedata
 import urllib.parse
 import urllib.request
+import zipfile
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 LIVE_ENERGY_PATH = ROOT / "live-energy.json"
+DEALS_PATH = ROOT / "deals.json"
 
 ONS_S3_BASE = "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset"
+CVM_OFERTAS_URL = "https://dados.cvm.gov.br/dados/OFERTA/DISTRIB/DADOS/oferta_distribuicao.zip"
 ONS_INTEGRA_URL = "https://integra.ons.org.br/api/energiaagora/GetBalancoEnergetico/null"
 CCEE_PKG_SHOW_URL = "https://dadosabertos.ccee.org.br/api/3/action/package_show?id=pld_horario"
 CCEE_DATASTORE_URL = "https://dadosabertos.ccee.org.br/api/3/action/datastore_search"
@@ -70,7 +77,9 @@ def safe_float(val, default: float = 0.0) -> float:
     s = str(val).strip()
     if not s:
         return default
-    if "," in s and "." not in s:
+    if "," in s and "." in s:
+        s = s.replace(".", "").replace(",", ".")
+    elif "," in s:
         s = s.replace(",", ".")
     try:
         return float(s)
@@ -493,6 +502,247 @@ def fetch_ccee_pld_hourly(year: int, months: list[tuple[int, int]], min_day: str
     return pld_hourly
 
 
+def _norm_key(text: str) -> str:
+    s = unicodedata.normalize("NFD", str(text or "").lower())
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    s = re.sub(r"[^a-z0-9 ]+", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def _clean_conjunto_stem(usina_name: str) -> str:
+    s = _norm_key(usina_name)
+    s = re.sub(r"^(?:conj|conjunto)\s+", "", s)
+    s = re.sub(r"\b\d+\s*kv\b", " ", s)
+    s = re.sub(r"\bpiloto\b", " ", s)
+    s = re.sub(r"\s+[ivx0-9]+\s*$", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def _fmt_cnpj(raw: str) -> str:
+    d = re.sub(r"\D+", "", str(raw or ""))
+    if len(d) != 14:
+        return str(raw or "").strip()
+    return f"{d[:2]}.{d[2:5]}.{d[5:8]}/{d[8:12]}-{d[12:]}"
+
+
+UTILITY_SPONSORS = (
+    "engie", "auren", "edp", "copel", "eneva", "vale", "cpfl",
+    "eletrobras", "chesf", "furnas", "cemig", "neoenergia", "enel", "axia",
+)
+
+
+def enrich_curtailment_plants_with_spes_and_debt(plants: list[dict]) -> list[dict]:
+    """Cruza Conjuntos ONS -> SPEs/CEGs/Potência/Operador (ONS S3) -> Debêntures Lei 12.431 (CVM)."""
+    if not plants:
+        return plants
+
+    conj_to_spes: dict[str, list[tuple[str, str]]] = defaultdict(list)
+    try:
+        req = urllib.request.Request(
+            f"{ONS_S3_BASE}/usina_conjunto/RELACIONAMENTO_USINA_CONJUNTO.csv",
+            headers=BROWSER_HEADERS,
+        )
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            raw_rel = resp.read().decode("utf-8", errors="replace")
+        for row in csv.DictReader(io.StringIO(raw_rel), delimiter=";"):
+            if (row.get("dat_fimrelacionamento") or "").strip():
+                continue
+            nom_conj = (row.get("nom_conjunto") or "").strip()
+            nom_u = (row.get("nom_usina") or "").strip()
+            ceg = (row.get("ceg") or "").strip()
+            if nom_conj and ceg:
+                k_exact = _norm_key(nom_conj)
+                k_stem = _clean_conjunto_stem(nom_conj)
+                conj_to_spes[k_exact].append((nom_u, ceg))
+                if k_stem and k_stem != k_exact:
+                    conj_to_spes[k_stem].append((nom_u, ceg))
+    except Exception as exc:
+        print(f"[ONS Conjunto->SPE] Aviso: {exc}")
+
+    ceg_meta: dict[str, dict] = {}
+    try:
+        req_cap = urllib.request.Request(
+            f"{ONS_S3_BASE}/capacidade-geracao/CAPACIDADE_GERACAO.csv",
+            headers=BROWSER_HEADERS,
+        )
+        with urllib.request.urlopen(req_cap, timeout=25) as resp:
+            raw_cap = resp.read().decode("utf-8", errors="replace")
+        for row in csv.DictReader(io.StringIO(raw_cap), delimiter=";"):
+            if (row.get("dat_desativacao") or "").strip():
+                continue
+            ceg = (row.get("ceg") or "").strip()
+            if len(ceg) < 12:
+                continue
+            key18 = ceg[:18]
+            pot = safe_float(row.get("val_potenciaefetiva", "0"))
+            prop = (row.get("nom_agenteproprietario") or "").strip()
+            oper = (row.get("nom_agenteoperador") or "").strip()
+            rec = ceg_meta.setdefault(key18, {"mw": 0.0, "prop": prop, "oper": oper})
+            rec["mw"] += max(0.0, pot)
+            if not rec["prop"] and prop:
+                rec["prop"] = prop
+            if not rec["oper"] and oper:
+                rec["oper"] = oper
+    except Exception as exc:
+        print(f"[ONS Capacidade] Aviso: {exc}")
+
+    incentivized_issuers: list[dict] = []
+    try:
+        req_cvm = urllib.request.Request(CVM_OFERTAS_URL, headers=BROWSER_HEADERS)
+        with urllib.request.urlopen(req_cvm, timeout=25) as resp:
+            zbytes = resp.read()
+        by_issuer: dict[str, dict] = {}
+        with zipfile.ZipFile(io.BytesIO(zbytes)) as zf:
+            if "oferta_resolucao_160.csv" in zf.namelist():
+                with zf.open("oferta_resolucao_160.csv") as f160:
+                    rdr = csv.DictReader(io.TextIOWrapper(f160, encoding="latin-1", errors="replace"), delimiter=";")
+                    for r in rdr:
+                        if (r.get("Titulo_incentivado") or "").strip().upper() != "S":
+                            continue
+                        vm = _norm_key(r.get("Valor_Mobiliario", ""))
+                        if "debenture" not in vm and "nota" not in vm:
+                            continue
+                        nome = (r.get("Nome_Emissor") or "").strip()
+                        nome_n = _norm_key(nome)
+                        if any(ex in nome_n for ex in ("transmissora", "transmissao", "rodovia", "saneamento", "aguas", "portuaria", "bioenergetica", "agroindustrial", "agropecuaria", "acucar", "alcool", "celulose", "ferrovia", "telecom")):
+                            continue
+                        cnpj14 = re.sub(r"\D+", "", r.get("CNPJ_Emissor") or "")
+                        if len(cnpj14) != 14:
+                            continue
+                        vol = safe_float(r.get("Valor_Total_Registrado", "0")) / 1e6
+                        af = (r.get("Agente_fiduciario") or "").strip()
+                        rec = by_issuer.setdefault(cnpj14, {"nome": nome, "nome_n": nome_n, "cnpj": _fmt_cnpj(cnpj14), "vol_mm": 0.0, "af": af})
+                        rec["vol_mm"] += max(0.0, vol)
+                        if af and not rec["af"]:
+                            rec["af"] = af
+            if "oferta_distribuicao.csv" in zf.namelist():
+                with zf.open("oferta_distribuicao.csv") as f400:
+                    rdr = csv.DictReader(io.TextIOWrapper(f400, encoding="latin-1", errors="replace"), delimiter=";")
+                    for r in rdr:
+                        if (r.get("Oferta_Incentivo_Fiscal") or "").strip().upper() != "S":
+                            continue
+                        dt_em = (r.get("Data_Emissao") or r.get("Data_Inicio_Oferta") or "").strip()[:4]
+                        if dt_em and dt_em.isdigit() and int(dt_em) < 2017:
+                            continue
+                        nome = (r.get("Nome_Emissor") or "").strip()
+                        nome_n = _norm_key(nome)
+                        if any(ex in nome_n for ex in ("transmissora", "transmissao", "rodovia", "saneamento", "aguas", "portuaria", "bioenergetica", "agroindustrial", "agropecuaria", "acucar", "alcool", "celulose", "ferrovia", "telecom")):
+                            continue
+                        cnpj14 = re.sub(r"\D+", "", r.get("CNPJ_Emissor") or "")
+                        if len(cnpj14) != 14:
+                            continue
+                        vol = safe_float(r.get("Valor_Total", "0")) / 1e6
+                        rec = by_issuer.setdefault(cnpj14, {"nome": nome, "nome_n": nome_n, "cnpj": _fmt_cnpj(cnpj14), "vol_mm": 0.0, "af": ""})
+                        if vol > rec["vol_mm"]:
+                            rec["vol_mm"] = max(rec["vol_mm"], vol)
+        incentivized_issuers = list(by_issuer.values())
+    except Exception as exc:
+        print(f"[CVM Lei 12.431] Aviso: {exc}")
+
+    deals_list = []
+    if DEALS_PATH.exists():
+        try:
+            deals_list = json.loads(DEALS_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            deals_list = []
+
+    generic_energy_words = {
+        "conj", "conjunto", "eolica", "eolico", "eolicos", "eolicas", "solar", "fotovoltaica",
+        "energia", "energias", "renovaveis", "renovavel", "geracao", "participacoes", "holding",
+        "centrais", "central", "parque", "complexo", "usina", "piloto", "norte", "sul", "leste", "oeste",
+        "serra", "campo", "santa", "santo", "sao", "bom", "boa", "nova", "novo", "alto", "vale", "ufv", "eol",
+    }
+
+    for p in plants:
+        raw_u = p.get("usina", "")
+        k_exact = _norm_key(raw_u)
+        k_stem = _clean_conjunto_stem(raw_u)
+        spe_rows = conj_to_spes.get(k_exact) or conj_to_spes.get(k_stem) or []
+        if not spe_rows and len(k_stem) >= 5:
+            for ck, vals in conj_to_spes.items():
+                if k_stem in ck or ck in k_stem:
+                    spe_rows = vals
+                    break
+
+        unique_cegs = []
+        seen_c = set()
+        for nom_spe, ceg_code in spe_rows:
+            if ceg_code[:18] not in seen_c:
+                seen_c.add(ceg_code[:18])
+                unique_cegs.append((nom_spe, ceg_code))
+
+        total_mw = 0.0
+        operators = defaultdict(float)
+        owners = defaultdict(float)
+        for _, ceg_code in unique_cegs:
+            cm = ceg_meta.get(ceg_code[:18])
+            if cm:
+                mw = cm["mw"] or 25.0
+                total_mw += mw
+                if cm["oper"]:
+                    operators[cm["oper"]] += mw
+                if cm["prop"]:
+                    owners[cm["prop"]] += mw
+
+        top_oper = max(operators, key=operators.get) if operators else ""
+        top_owner = max(owners, key=owners.get) if owners else (unique_cegs[0][0] if unique_cegs else "")
+        if unique_cegs:
+            p["ceg"] = unique_cegs[0][1]
+            p["spes_count"] = len(unique_cegs)
+        else:
+            p["spes_count"] = 1
+        p["potencia_mw"] = round(total_mw, 1) if total_mw > 0 else None
+        p["operador_ons"] = top_oper or top_owner or "Em mapeamento ONS"
+        p["proprietario_ons"] = top_owner or top_oper or ""
+
+        oper_norm = _norm_key(f"{top_oper} {top_owner}")
+        is_utility = any(u in oper_norm for u in UTILITY_SPONSORS)
+        p["perfil_risco"] = "Utility / Corporativo" if is_utility else "Project Finance / SPE"
+
+        best_deb = None
+        candidate_phrases = [k_stem]
+        for nom_spe, _ in unique_cegs[:6]:
+            sp_stem = _clean_conjunto_stem(re.sub(r"^(?:eol|ufv|cgh|pch|ute)\s+", "", _norm_key(nom_spe)))
+            if len(sp_stem) >= 5 and sp_stem not in candidate_phrases:
+                candidate_phrases.append(sp_stem)
+        core_tokens = [w for w in k_stem.split() if len(w) >= 4 and w not in generic_energy_words]
+        phrase = k_stem
+        for iss in incentivized_issuers:
+            inorm = iss["nome_n"]
+            matched = False
+            if any(len(ph) >= 6 and ph in inorm for ph in candidate_phrases):
+                matched = True
+            elif len(core_tokens) >= 2 and all(t in inorm for t in core_tokens[:2]):
+                matched = True
+            elif len(core_tokens) == 1 and len(core_tokens[0]) >= 5 and re.search(rf"\b{re.escape(core_tokens[0])}\b", inorm):
+                if any(ew in inorm for ew in ("eolica", "eolico", "solar", "energia", "renovave", "geracao", "holding", "ventos", "fotovoltaica")):
+                    matched = True
+            if matched:
+                if not best_deb or iss["vol_mm"] > best_deb["vol_mm"]:
+                    best_deb = iss
+
+        if best_deb:
+            p["debenture_emissor"] = best_deb["nome"]
+            p["debenture_cnpj"] = best_deb["cnpj"]
+            p["debenture_vol_mm"] = round(best_deb["vol_mm"], 1)
+            if best_deb["af"]:
+                p["agente_fiduciario"] = best_deb["af"]
+
+        for d in deals_list:
+            if d.get("setor_macro") != "Energia & Infraestrutura":
+                continue
+            d_emp = _norm_key(d.get("empresa", ""))
+            d_tese = _norm_key(f"{d.get('tese', '')} {d.get('descricao_empresa', '')}")
+            if (len(phrase) >= 6 and (phrase in d_emp or phrase in d_tese)) or (
+                top_oper and len(_norm_key(top_oper)) >= 5 and _norm_key(top_oper) in d_emp
+            ):
+                p["deal_id"] = d.get("id")
+                p["deal_empresa"] = d.get("empresa")
+                break
+
+    return plants
+
+
 def main():
     br_tz = timezone(timedelta(hours=-3))
     now_utc = datetime.now(timezone.utc)
@@ -526,6 +776,7 @@ def main():
 
     months_needed = sorted({(int(d[:4]), int(d[5:7])) for d in target_days})
     hourly_curt, reason_mwmed, top_curtailment_plants = stream_ons_curtailment(months_needed, min_day, ref_day)
+    top_curtailment_plants = enrich_curtailment_plants_with_spes_and_debt(top_curtailment_plants)
     pld_hourly: dict[tuple[str, str], list[float]] = {}
     for yr in sorted({y for y, _ in months_needed}):
         yr_months = [(y, m) for y, m in months_needed if y == yr]

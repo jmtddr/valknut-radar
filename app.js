@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * VALKNUT — SPECIAL SITUATIONS // Inteligência Concursal & Distressed Debt
- * Platform Release v5.0 (20261118v50) — 8 Executive Modules, SWR Boot, CRM Mandates, Watchlist & Metodologia
+ * Platform Release v7.0 (20261121v70) — Pre-Media CRA/CRI & ITR, Cross-QSA, Morning Cockpit, 13w Cash/ICSD, Mandate Letter A4 & Native PPTX
  * ==========================================================================
  */
 
@@ -285,14 +285,12 @@ let LIVE_MANDATOS_DATA = [
 ];
 
 let LIVE_DIRETRIZES_DATA = [
-  { criterio: 'Corte de Passivo Mínimo', detalhe: '>= R$ 30 Milhões (eliminação de micro e pequenas empresas; monitoramento integral de Mid-Market a Mega Cases).' },
-  { criterio: 'Tribunais & Diários Varridos', detalhe: 'TJSP, TJRJ, TJMT, TJGO, TJMS, TJPR, TJRS, TJSC, TJMG, TJBA, TJPE, TJCE, TJPA, DJEN/CNJ e Comunica PJe.' },
-  { criterio: 'Classes Processuais CNJ', detalhe: 'Recuperação Judicial (129), Recuperação Extrajudicial (128), Falência / Autofalência (110), Tutela Cautelar Antecedente Art. 20-B (12134) e Constatação Prévia Art. 51-A.' },
-  { criterio: 'Fontes Mercado de Capitais & Energia', detalhe: 'CVM (RAD / Fundos.NET / Fatos Relevantes), ANBIMA, Editais de AGDs (Vórtx, Pentágono, Oliveira Trust), Securitizadoras (Opea, Vert, Virgo), Fitch / Moody\'s / S&P, ONS, CCEE e ANEEL.' },
-  { criterio: 'Palavras-chave Prioritárias', detalhe: 'Recuperação Judicial, Recuperação Extrajudicial, Waiver, Covenant, Standstill, AGD, Debêntures, CRA, CRI, FIDC, UPI, DIP Financing, Falência e Reestruturação.' },
-  { criterio: 'Regra de Não Duplicação', detalhe: 'Consolidação determinística por grupo econômico e CNPJ raiz/matriz (>= 11 dígitos), preservando o maior passivo verificado nos autos.' },
-  { criterio: 'Janela Temporal de Captura', detalhe: 'Varredura contínua 24h–48h para novos ajuizamentos e fatos relevantes (janela estendida de 75 dias para histórico de notícias curadas).' },
-  { criterio: 'Geografia Foco', detalhe: 'Cobertura nacional das 27 UFs com alta densidade em SP, RJ, MG, Região Sul (PR, RS, SC), Centro-Oeste (MT, GO, MS, DF) e Matopiba/Nordeste.' }
+  { criterio: 'Corte de Passivo Mínimo', detalhe: '>= R$ 30 Milhões (eliminação de micro e pequenas empresas; monitoramento integral de Mid-Market a Mega Cases, com foco tático no Sweet Spot R$ 100M–2,5B).' },
+  { criterio: 'Motores Oficiais Pré-Mídia (CVM 24/7)', detalhe: '1) CVM IPE 2026 (AGDs, Waivers, Standstill, PIK, Cautelares Art. 20-B — limpo de ruído Art. 12/Res. 44); 2) CVM Securitizadoras (INF_MENSAL_CRA & CRI capturando empresas fechadas Ltda./S.A. com concentração >= 20% em atraso/PDD); 3) CVM ITR Contábil (Dívida CP >= 1,35x Caixa e Desp. Fin. >= 1,45x EBIT).' },
+  { criterio: 'Ponte Setor Elétrico & Lei 12.431', detalhe: 'ONS AWS S3 OpenData (Balanço Horário, EAR, Constrained-off Eólico/Solar de 35 conjuntos + RELACIONAMENTO_USINA_CONJUNTO + CAPACIDADE_GERACAO) cruzado automaticamente com Debêntures Incentivadas Lei 12.431 na CVM.' },
+  { criterio: 'Grafo Societário Cross-QSA', detalhe: 'Enriquecimento incremental via Receita Federal (BrasilAPI / CNPJ.ws) identificando sócios, administradores e holdings PJ compartilhados entre grupos em estresse (contágio societário).' },
+  { criterio: 'Tribunais & Classes CNJ', detalhe: 'TJSP, TJRJ, TJMT, TJGO, TJMS, TJPR, TJRS, TJSC, TJMG, TJBA, TJPE, TJCE, TJPA e DJEN/CNJ — Classes 129 (RJ), 128 (RE), 110 (Falência), 12134 (Cautelar Art. 20-B) e Art. 51-A.' },
+  { criterio: 'Governança Comercial & Sigilo', detalhe: 'Modo Reunião Client-Safe (Alt+P), separação estrita entre Proposta Externa ao Cliente e IC Memo Interno no .PPTX nativo, e sincronização local portátil (.json) sem exposição de dados sensíveis.' }
 ];
 
 const BRAZIL_UFS_GEOJSON = {"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"uf": "AC", "nome": "Acre", "capital": "Rio Branco", "lat": -9.974, "lng": -67.81}, "geometry": {"type": "Polygon", "coordinates": [[[-73.99, -7.35], [-70.5, -7.9], [-66.8, -9.8], [-68.5, -11.1], [-70.9, -11.0], [-72.9, -9.5], [-73.99, -7.35]]]}}, {"type": "Feature", "properties": {"uf": "AM", "nome": "Amazonas", "capital": "Manaus", "lat": -3.119, "lng": -60.021}, "geometry": {"type": "Polygon", "coordinates": [[[-73.8, -4.2], [-69.9, -1.1], [-67.1, 2.0], [-63.9, 2.2], [-60.1, 0.2], [-58.9, -1.5], [-56.2, -2.2], [-57.5, -5.8], [-58.5, -7.8], [-61.5, -8.8], [-65.5, -9.5], [-66.8, -9.8], [-70.5, -7.9], [-73.99, -7.35], [-73.8, -4.2]]]}}, {"type": "Feature", "properties": {"uf": "RR", "nome": "Roraima", "capital": "Boa Vista", "lat": 2.823, "lng": -60.675}, "geometry": {"type": "Polygon", "coordinates": [[[-63.9, 2.2], [-64.5, 4.3], [-60.2, 5.2], [-58.9, 1.5], [-60.1, 0.2], [-63.9, 2.2]]]}}, {"type": "Feature", "properties": {"uf": "PA", "nome": "Pará", "capital": "Belém", "lat": -1.455, "lng": -48.49}, "geometry": {"type": "Polygon", "coordinates": [[[-58.9, 1.5], [-55.9, 2.2], [-54.5, 1.5], [-51.8, -1.2], [-49.8, -0.5], [-46.1, -1.1], [-46.4, -3.5], [-48.5, -5.5], [-49.3, -8.2], [-51.1, -9.8], [-54.8, -9.8], [-57.6, -9.2], [-58.5, -7.8], [-57.5, -5.8], [-56.2, -2.2], [-58.9, -1.5]]]}}, {"type": "Feature", "properties": {"uf": "AP", "nome": "Amapá", "capital": "Macapá", "lat": 0.034, "lng": -51.066}, "geometry": {"type": "Polygon", "coordinates": [[[-54.5, 1.5], [-51.6, 4.2], [-49.9, 1.8], [-51.8, -1.2], [-54.5, 1.5]]]}}, {"type": "Feature", "properties": {"uf": "RO", "nome": "Rondônia", "capital": "Porto Velho", "lat": -8.761, "lng": -63.903}, "geometry": {"type": "Polygon", "coordinates": [[[-66.8, -9.8], [-65.5, -9.5], [-61.5, -8.8], [-60.0, -11.5], [-60.4, -13.5], [-63.5, -13.1], [-65.5, -11.8], [-66.8, -9.8]]]}}, {"type": "Feature", "properties": {"uf": "MT", "nome": "Mato Grosso", "capital": "Cuiabá", "lat": -15.601, "lng": -56.097}, "geometry": {"type": "Polygon", "coordinates": [[[-61.5, -8.8], [-58.5, -7.8], [-57.6, -9.2], [-54.8, -9.8], [-51.1, -9.8], [-50.5, -12.5], [-51.0, -15.5], [-53.1, -17.6], [-56.0, -17.9], [-58.0, -17.6], [-60.2, -15.0], [-60.4, -13.5], [-60.0, -11.5], [-61.5, -8.8]]]}}, {"type": "Feature", "properties": {"uf": "MS", "nome": "Mato Grosso do Sul", "capital": "Campo Grande", "lat": -20.469, "lng": -54.62}, "geometry": {"type": "Polygon", "coordinates": [[[-58.0, -17.6], [-56.0, -17.9], [-53.1, -17.6], [-51.0, -19.5], [-51.8, -21.8], [-54.1, -24.0], [-55.8, -23.8], [-58.1, -22.1], [-57.9, -19.0], [-58.0, -17.6]]]}}, {"type": "Feature", "properties": {"uf": "TO", "nome": "Tocantins", "capital": "Palmas", "lat": -10.184, "lng": -48.333}, "geometry": {"type": "Polygon", "coordinates": [[[-48.5, -5.5], [-46.1, -7.5], [-45.9, -10.5], [-46.5, -12.9], [-50.5, -12.5], [-51.1, -9.8], [-49.3, -8.2], [-48.5, -5.5]]]}}, {"type": "Feature", "properties": {"uf": "GO", "nome": "Goiás", "capital": "Goiânia", "lat": -16.686, "lng": -49.264}, "geometry": {"type": "Polygon", "coordinates": [[[-50.5, -12.5], [-46.5, -12.9], [-46.1, -14.8], [-47.3, -16.2], [-47.5, -18.5], [-51.0, -19.5], [-53.1, -17.6], [-51.0, -15.5], [-50.5, -12.5]]]}}, {"type": "Feature", "properties": {"uf": "DF", "nome": "Distrito Federal", "capital": "Brasília", "lat": -15.797, "lng": -47.891}, "geometry": {"type": "Polygon", "coordinates": [[[-48.2, -15.5], [-47.3, -15.5], [-47.3, -16.1], [-48.2, -16.1], [-48.2, -15.5]]]}}, {"type": "Feature", "properties": {"uf": "MA", "nome": "Maranhão", "capital": "São Luís", "lat": -2.53, "lng": -44.306}, "geometry": {"type": "Polygon", "coordinates": [[[-46.1, -1.1], [-44.2, -2.2], [-41.8, -2.8], [-42.8, -5.5], [-43.5, -7.0], [-45.9, -10.0], [-46.1, -7.5], [-48.5, -5.5], [-46.4, -3.5], [-46.1, -1.1]]]}}, {"type": "Feature", "properties": {"uf": "PI", "nome": "Piauí", "capital": "Teresina", "lat": -5.089, "lng": -42.801}, "geometry": {"type": "Polygon", "coordinates": [[[-41.8, -2.8], [-41.3, -3.0], [-40.5, -5.5], [-40.8, -8.5], [-43.5, -10.8], [-45.9, -10.5], [-45.9, -10.0], [-43.5, -7.0], [-42.8, -5.5], [-41.8, -2.8]]]}}, {"type": "Feature", "properties": {"uf": "CE", "nome": "Ceará", "capital": "Fortaleza", "lat": -3.717, "lng": -38.543}, "geometry": {"type": "Polygon", "coordinates": [[[-41.3, -3.0], [-38.5, -3.5], [-37.2, -4.8], [-38.5, -7.6], [-40.5, -7.5], [-40.5, -5.5], [-41.3, -3.0]]]}}, {"type": "Feature", "properties": {"uf": "RN", "nome": "Rio Grande do Norte", "capital": "Natal", "lat": -5.794, "lng": -35.211}, "geometry": {"type": "Polygon", "coordinates": [[[-37.2, -4.8], [-35.2, -5.1], [-35.0, -6.5], [-38.5, -6.8], [-37.2, -4.8]]]}}, {"type": "Feature", "properties": {"uf": "PB", "nome": "Paraíba", "capital": "João Pessoa", "lat": -7.119, "lng": -34.845}, "geometry": {"type": "Polygon", "coordinates": [[[-38.5, -6.8], [-35.0, -6.5], [-34.8, -7.5], [-37.2, -8.2], [-38.5, -7.6], [-38.5, -6.8]]]}}, {"type": "Feature", "properties": {"uf": "PE", "nome": "Pernambuco", "capital": "Recife", "lat": -8.047, "lng": -34.877}, "geometry": {"type": "Polygon", "coordinates": [[[-40.8, -8.5], [-40.5, -7.5], [-38.5, -7.6], [-37.2, -8.2], [-34.8, -7.5], [-35.1, -9.0], [-38.2, -9.4], [-40.8, -9.5], [-40.8, -8.5]]]}}, {"type": "Feature", "properties": {"uf": "AL", "nome": "Alagoas", "capital": "Maceió", "lat": -9.665, "lng": -35.735}, "geometry": {"type": "Polygon", "coordinates": [[[-38.2, -9.4], [-35.1, -9.0], [-36.2, -10.5], [-38.0, -9.8], [-38.2, -9.4]]]}}, {"type": "Feature", "properties": {"uf": "SE", "nome": "Sergipe", "capital": "Aracaju", "lat": -10.947, "lng": -37.073}, "geometry": {"type": "Polygon", "coordinates": [[[-38.0, -9.8], [-36.2, -10.5], [-37.4, -11.5], [-38.2, -10.8], [-38.0, -9.8]]]}}, {"type": "Feature", "properties": {"uf": "BA", "nome": "Bahia", "capital": "Salvador", "lat": -12.971, "lng": -38.501}, "geometry": {"type": "Polygon", "coordinates": [[[-45.9, -10.5], [-43.5, -10.8], [-40.8, -8.5], [-40.8, -9.5], [-38.2, -9.4], [-38.0, -9.8], [-38.2, -10.8], [-37.4, -11.5], [-38.5, -13.0], [-38.9, -16.0], [-39.2, -18.0], [-41.0, -17.5], [-44.0, -14.8], [-46.1, -14.8], [-46.5, -12.9], [-45.9, -10.5]]]}}, {"type": "Feature", "properties": {"uf": "MG", "nome": "Minas Gerais", "capital": "Belo Horizonte", "lat": -19.916, "lng": -43.934}, "geometry": {"type": "Polygon", "coordinates": [[[-46.1, -14.8], [-44.0, -14.8], [-41.0, -17.5], [-40.8, -18.2], [-41.8, -21.0], [-43.5, -21.9], [-46.5, -22.8], [-48.0, -20.0], [-51.0, -19.5], [-47.5, -18.5], [-47.3, -16.2], [-46.1, -14.8]]]}}, {"type": "Feature", "properties": {"uf": "ES", "nome": "Espírito Santo", "capital": "Vitória", "lat": -20.315, "lng": -40.312}, "geometry": {"type": "Polygon", "coordinates": [[[-41.0, -17.5], [-39.2, -18.0], [-39.8, -20.0], [-40.9, -21.3], [-41.8, -21.0], [-40.8, -18.2], [-41.0, -17.5]]]}}, {"type": "Feature", "properties": {"uf": "RJ", "nome": "Rio de Janeiro", "capital": "Rio de Janeiro", "lat": -22.906, "lng": -43.172}, "geometry": {"type": "Polygon", "coordinates": [[[-43.5, -21.9], [-41.8, -21.0], [-40.9, -21.3], [-41.9, -22.9], [-44.8, -23.3], [-44.6, -22.4], [-43.5, -21.9]]]}}, {"type": "Feature", "properties": {"uf": "SP", "nome": "São Paulo", "capital": "São Paulo", "lat": -23.55, "lng": -46.633}, "geometry": {"type": "Polygon", "coordinates": [[[-51.0, -19.5], [-48.0, -20.0], [-46.5, -22.8], [-44.6, -22.4], [-44.8, -23.3], [-47.9, -25.2], [-49.9, -23.0], [-52.0, -22.5], [-51.8, -21.8], [-51.0, -19.5]]]}}, {"type": "Feature", "properties": {"uf": "PR", "nome": "Paraná", "capital": "Curitiba", "lat": -25.428, "lng": -49.273}, "geometry": {"type": "Polygon", "coordinates": [[[-54.1, -24.0], [-51.8, -21.8], [-52.0, -22.5], [-49.9, -23.0], [-47.9, -25.2], [-48.5, -25.9], [-51.0, -26.5], [-53.8, -26.3], [-54.6, -25.5], [-54.1, -24.0]]]}}, {"type": "Feature", "properties": {"uf": "SC", "nome": "Santa Catarina", "capital": "Florianópolis", "lat": -27.595, "lng": -48.548}, "geometry": {"type": "Polygon", "coordinates": [[[-53.8, -26.3], [-51.0, -26.5], [-48.5, -25.9], [-48.4, -27.8], [-49.6, -29.2], [-51.5, -27.5], [-53.8, -27.2], [-53.8, -26.3]]]}}, {"type": "Feature", "properties": {"uf": "RS", "nome": "Rio Grande do Sul", "capital": "Porto Alegre", "lat": -30.034, "lng": -51.217}, "geometry": {"type": "Polygon", "coordinates": [[[-53.8, -27.2], [-51.5, -27.5], [-49.6, -29.2], [-50.5, -31.0], [-52.1, -32.1], [-53.4, -33.7], [-55.8, -30.8], [-57.6, -30.2], [-56.0, -28.2], [-53.8, -27.2]]]}}]};
@@ -387,12 +385,15 @@ function updateDynamicNavCounts() {
   if (typeof syncNewsCounters === 'function') {
     syncNewsCounters();
   }
+  if (typeof updateBriefingNavBadge === 'function') {
+    updateBriefingNavBadge();
+  }
 }
 
 const SECTION_CONFIG = {
   operacao: {
     pageTitle: 'Pipeline de Originação & Mandatos',
-    pageSubtitle: 'Monitoramento em tempo real de empresas em estresse financeiro severo, processos concursais, CRM de mandatos e watchlist prioritária.',
+    pageSubtitle: 'Monitoramento em tempo real de empresas em estresse financeiro severo, processos concursais, CRM tático portátil e watchlist prioritária.',
     showFilters: true,
     subtabs: [
       { id: 'all', label: 'Pipeline Consolidado', title: 'Pipeline Consolidado em Tempo Real', desc: 'Dados consolidados de petições iniciais (DataJud/DJEN), fatos relevantes CVM e editais de Assembleias Gerais de Debenturistas (AGDs) para originação tática.' },
@@ -400,31 +401,31 @@ const SECTION_CONFIG = {
       { id: 'dip', label: 'DIP Financing & M&A', title: 'Estratégia: DIP Financing & M&A Distressed (UPIs)', desc: 'Oportunidades de injeção de Dinheiro Novo superprioritário (Art. 69-A a 69-F), leilões de UPIs livres de sucessão (Art. 141) e Sale & Leaseback.' },
       { id: 'consensual', label: 'Consensual & Art. 20-B', title: 'Estratégia: Consensual, Cautelares Art. 20-B & PRE', desc: 'Tutelas cautelares antecedentes, mediações no CEJUSC/CMAASP e Recuperações Extrajudiciais com coleta de quórum qualificado.' },
       { id: 'debentures', label: 'Debêntures, CRAs & FIDCs', title: 'Radar de Mercado de Capitais (DCM): Debêntures, CRAs, CRIs & FIDCs', desc: 'Emissões sob quebra de covenants financeiros, convocações de AGDs (Vórtx, Pentágono, Oliveira Trust) e securitizadoras (Opea, Vert, Virgo).' },
-      { id: 'precursor', label: 'Radar Preditivo (Tier 0)', title: 'Sinais Forenses Pré-Concursais (Tier 0 — 60 a 120 dias antes da RJ)', desc: 'Alertas antecedentes capturados em cartórios de protesto (CENPROT), execuções fiscais PGFN, CVM Fundos.NET, CCEE e agências reguladoras.' },
-      { id: 'mandatos_crm', label: 'Mandatos Ativos (CRM)', title: 'Pipeline Ativo de Mandatos & Prospecção Executiva (CRM)', desc: 'Acompanhamento tático dos mandatos alvo da equipe Valknut sincronizado com a aba Pipeline Ativo (Mandatos) da Planilha Mestre.' },
+      { id: 'precursor', label: 'Radar Preditivo (Tier 0)', title: 'Motores Pré-Mídia 24/7: CVM IPE + CRA/CRI (Ltda. Fechadas) + ITR Contábil & Grafo QSA', desc: 'Três radares oficiais antecipando reestruturações semanas antes da imprensa: Documentos Eventuais IPE, Devedores Corporativos em Atraso em CRAs/CRIs e Pré-Colapso Contábil ITR.' },
+      { id: 'mandatos_crm', label: 'Mandatos Ativos (CRM)', title: 'Mesa Tática de Mandatos & Sincronização P2P entre Sócios (.JSON)', desc: 'Acompanhamento de estágio, sócio líder, follow-up e notas confidenciais combinando Planilha Mestre + Mini-CRM Local exportável.' },
       { id: 'watchlist', label: 'Minha Watchlist (★)', title: 'Minha Watchlist Prioritária (★ Acompanhamento Diário)', desc: 'Casos favoritados localmente pela mesa para acompanhamento imediato de movimentações, assembleias e fatos relevantes.' }
     ]
   },
   noticias: {
     pageTitle: 'Notícias, Waivers & Fatos Relevantes',
-    pageSubtitle: 'Radar em 1 clique monitorando Waivers, AGDs & Downgrades de Rating, Pedidos de RJ/Cautelares 20-B e Leilões de UPI.',
+    pageSubtitle: 'Radar em 1 clique com links diretos dos veículos, clustering anti-ruído, Waivers, AGDs, Downgrades de Rating e Leilões de UPI.',
     showFilters: false,
     subtabs: [
       { id: 'news_all', label: 'Todas as Notícias & Fatos', title: 'Feed Integrado de Inteligência Concursal & Mercado de Capitais', desc: 'Acompanhamento diário conectado diretamente às Fichas Analíticas (Tear Sheets) dos grupos econômicos monitorados.' },
-      { id: 'news_dcm', label: 'Waivers, AGDs & Downgrades Rating', title: 'Eventos de Mercado de Capitais: Debêntures, CRAs, CRIs e Agências de Rating', desc: 'Fatos relevantes CVM, convocações de agentes fiduciários e cortes de rating (Fitch / S&P / Moody\'s).' },
+      { id: 'news_dcm', label: 'Waivers, AGDs & Downgrades Rating', title: 'Eventos de Mercado de Capitais: Debêntures, CRAs, CRIs e Agências de Rating', desc: 'Fatos relevantes CVM, convocações de agentes fiduciários e cortes efetivos de rating (Fitch / S&P / Moody\'s).' },
       { id: 'news_rj', label: 'Pedidos de RJ & Cautelares 20-B', title: 'Ajuizamentos Recentes, Tutelas de Urgência e Decisões de Varas Empresariais', desc: 'Movimentações críticas em processos de Recuperação Judicial e Cautelares Antecedentes.' },
       { id: 'news_upi_falencia', label: 'Leilões de UPI & Falências', title: 'Editais de Alienação Judicial de UPIs e Sentenças de Quebra / Asset Tracing', desc: 'Oportunidades de M&A Distressed livre de sucessão e decretos de falência com arrecadação forense de ativos.' }
     ]
   },
   stakeholders: {
-    pageTitle: 'Credores & Players (Bancômetro + Ecossistema)',
-    pageSubtitle: 'Hub integrado de exposição bancária, agentes fiduciários, securitizadoras, bancas jurídicas, administradores judiciais e varas empresariais.',
+    pageTitle: 'Credores & Players (Bancômetro + Parcerias B2B)',
+    pageSubtitle: 'Hub integrado de exposição bancária, agentes fiduciários, securitizadoras, dossiê de bancas jurídicas (Sweet Spot sem FA), AJs e varas.',
     showFilters: false,
     subtabs: [
       { id: 'cred_all', label: 'Bancômetro Geral', title: 'Mapa Geral de Exposição por Instituição Credora', desc: 'Clique em qualquer instituição para filtrar imediatamente todos os processos em que o banco, fundo ou agente fiduciário possui exposição.' },
       { id: 'cred_bancos', label: 'Bancos Privados & Público/Coop', title: 'Exposição Bancária: Privados, Montadoras, Públicos & Cooperativas', desc: 'Presença consolidada e filtrável de Itaú, Bradesco, Santander, Safra, Daycoval, BTG, BB, Caixa, BNDES, Banrisul e sistema cooperativo.' },
       { id: 'cred_dcm', label: 'DCM, Agentes Fiduciários & Securitizadoras', title: 'Hub de Mercado de Capitais: Agentes Fiduciários, Securitizadoras, FIDCs & Tradings', desc: 'Monitoramento integrado de Vórtx, Pentágono, Oliveira Trust, Opea, Vert, Virgo, Reit, Euro, FIDCs e tradings do agronegócio.' },
-      { id: 'eco_bancas', label: 'Bancas & Assessores Jurídicos', title: 'Ranking de Escritórios de Advocacia (Devedores & Credores)', desc: 'Volume de passivo assessorado, número de processos, setores de especialidade e filtro rápido de carteira por banca jurídica.' },
+      { id: 'eco_bancas', label: 'Bancas & Assessores Jurídicos', title: 'Dossiê de Bancas Jurídicas & Oportunidades Sweet Spot sem Assessor Financeiro', desc: 'Volume de passivo assessorado, número de processos, recorte de casos R$ 100M–2,5B para parceria complementar e filtro rápido de carteira.' },
       { id: 'eco_ajs', label: 'Administradores Judiciais (AJs)', title: 'Mapeamento de Administradores Judiciais e Peritos (Art. 51-A)', desc: 'Processos sob gestão de Laspro, Preserva-Ação, Cabezón, Brizola e Japur, Credibilita, Von Saltiél, Valor Judicial, Brasil Trustee e EXM.' },
       { id: 'eco_varas', label: 'Varas Empresariais & Comarcas', title: 'Jurisdições e Varas Especializadas por Volume de Passivo', desc: 'Concentração de casos nas Varas Regionais Empresariais de SP, RJ, Curitiba, Porto Alegre, Caxias do Sul, Cuiabá, Sinop, Rondonópolis e Goiânia.' }
     ]
@@ -452,13 +453,13 @@ const SECTION_CONFIG = {
     ]
   },
   energia: {
-    pageTitle: 'Energia & Infraestrutura (ONS / CCEE / ANEEL)',
-    pageSubtitle: 'Vertical setorial de monitoramento técnico-operacional do Sistema Interligado Nacional (SIN), PLD, Curtailment por Usina e Special Situations de Energia.',
+    pageTitle: 'Energia & Infraestrutura (ONS / CCEE / Debêntures Lei 12.431)',
+    pageSubtitle: 'Vertical setorial integrando operação horária do SIN, Curtailment por Conjunto Gerador, Potência/Operador ONS e Debêntures Incentivadas CVM.',
     showFilters: false,
     subtabs: [
       { id: 'sin_tempo_real', label: 'SIN & Hidrologia', title: 'Painel Operacional ONS — Geração por Fonte, Carga & Reservatórios (EAR)', desc: 'Curva horária empilhada de geração por fonte (Hidráulica, Térmica, Nuclear, Solar, Eólica e MMGD) comparada à Carga Prevista e Realizada e nível de reservatórios (EAR %).' },
       { id: 'pld_curtailment', label: 'PLD & Curtailment', title: 'Preço de Liquidação das Diferenças (PLD R$/MWh) & Restrição Eólica/Solar (Constrained-off)', desc: 'Monitoramento conjunto de spread horário de PLD entre submercados (CCEE) e cortes de geração renovável (Constrained-off ONS) com impacto sobre ICSD de debêntures.' },
-      { id: 'curtailment_usinas', label: '⚡ Usinas em Curtailment (ONS Top 35)', title: 'Top 35 Complexos Eólicos & Solares em Curtailment Severo (ONS AWS S3 — 30 dias)', desc: 'Ranking real por usina/conjunto comercial extraído diretamente dos CSVs oficiais do ONS (ENE / CNF / REL), com perda estimada de receita em 30 dias (benchmark R$ 180/MWh) para prospecção de SPEs e debêntures.' },
+      { id: 'curtailment_usinas', label: '⚡ Usinas & Dívida 12.431 (Top 35)', title: 'Top 35 Complexos em Curtailment Severo + SPEs/Operador ONS & Debêntures Lei 12.431 (CVM)', desc: 'Ponte completa ONS S3 + CVM Ofertas: corte verificado em 30 dias, CEG, MW instalados, Operador ONS (SPE Project Finance vs. Utility) e emissões incentivadas vinculadas.' },
       { id: 'pipeline_energia', label: 'Pipeline Energia & Infra', title: 'Pipeline Dedicado de Special Situations em Energia & Infraestrutura ({ENERGY_COUNT} Casos)', desc: 'Dossiês setoriais destacando Código da Debênture, Agente Fiduciário, Status CCEE, Risco de Caducidade e Corte de Rating por Curtailment/ICSD.' }
     ]
   },
@@ -475,15 +476,18 @@ const SECTION_CONFIG = {
     ]
   },
   precificacao: {
-    pageTitle: 'Modelagem Financeira & Proposta Comercial (.pptx)',
-    pageSubtitle: 'Simulador com campos 100% digitáveis em % para Retainer Mensal e Success Fee, Waterfall de Classes, Quórum AGC, Benchmarks de Haircut e Pitch Deck (.pptx).',
+    pageTitle: 'Modelagem Financeira, Sala de Reunião & Proposta Comercial',
+    pageSubtitle: 'Honorários com Ratchet/VPL/DIP/UPI, Simuladores de Caixa 13 Semanas e Capacidade ICSD/PGFN, Waterfall, Quórum AGC, Carta-Proposta A4 e Pitch .PPTX Nativo.',
     showFilters: false,
     subtabs: [
-      { id: 'calc_haircut', label: 'Calculadora Success Fee & Retainer', title: 'Calculadora de Honorários para Assessorias de Reestruturação (Retainer + Success Fee)', desc: 'Modelagem financeira 100% digitável de mandatos de reestruturação (Debtor-Side / Turnaround e Creditor-Side / Watchdog): Retainer fixo mensal, prazo do projeto, Success Fee por base de incidência e cláusula de abatimento (Offset).' },
-      { id: 'waterfall_classes', label: 'Waterfall de Classes (RJ vs. Falência)', title: 'Cascata de Alocação de Valor de Ativos por Classe (Art. 83 vs. Plano RJ)', desc: 'Comparativo percentual digitável de recuperação por classe (Extraconcursal, Fiscal/Tributário, Classe I Trabalhista, Classe II Garantia Real, Classe III Quirografária e Classe IV ME/EPP).' },
-      { id: 'quorum_agc', label: 'Simulador Quórum AGC & Cram Down', title: 'Simulador de Votação em Assembleia Geral de Credores (Art. 45 e Art. 58, §1º)', desc: 'Cálculo interativo com % digitável de aprovação ordinária por classe (por Cabeça e por Valor), requisitos de Cram Down e posição de bloqueio (Blocking Position > 33,3% ou > 50%).' },
-      { id: 'benchmarks_setor', label: 'Benchmarks de Haircut por Setor', title: 'Tabela de Referência de Mercado: % de Haircut e % de Recuperação por Macro-Setor', desc: 'Parâmetros médios observados nos {COUNT} casos monitorados para calibragem rápida de propostas, modelagem de planos e avaliação de colateral.' },
-      { id: 'pitch_pptx', label: 'Gerador de Proposta Comercial (.pptx)', title: 'Gerador Automático de Pitch Deck & Proposta de Honorários em PowerPoint (.pptx)', desc: 'Exportação instantânea de apresentação institucional widescreen (8 slides) com Perfil da Empresa, Diagnóstico, Governança/QSA, Estratégia de Entrada, Retainer + Success Fee e Cronograma.' }
+      { id: 'calc_haircut', label: '💰 Fee, Ratchet & Tranches', title: 'Calculadora Institucional de Honorários (Retainer, Ratchet Progressivo, VPL, DIP & UPI)', desc: 'Estrutura completa de remuneração com ROI de Economia ao Cliente (Xx), opção de Ratchet em 3 faixas, base em VPL (Amend & Extend), Tranches de DIP/UPI e Escalonamento de Marcos.' },
+      { id: 'sim_caixa_13w', label: '📉 Caixa 13 Semanas & DIP', title: 'Simulador de Ruptura de Caixa 13 Semanas, Travas Fiduciárias (Art. 49 §3º) & DIP Sizing', desc: 'Curva semanal comparando queima inercial com retenção em travas bancárias vs. alívio de Standstill/Cautelar Art. 20-B vs. injeção de DIP Superprioritário (Arts. 69-A a 69-F).' },
+      { id: 'sim_icsd_pgfn', label: '🧮 Capacidade ICSD & PGFN', title: 'Simulador de Dívida Sustentável (ICSD Alvo) & Transação Tributária PGFN (Lei 13.988/20)', desc: 'Determina matematicamente a dívida sustentável pela geração operacional (EBITDA - Capex - IR), o Haircut ótimo e o ganho na Transação PGFN em até 120 meses.' },
+      { id: 'waterfall_classes', label: 'Waterfall (RJ vs. Falência)', title: 'Cascata de Alocação de Valor de Ativos por Classe & Identificação da Classe Fulcrum', desc: 'Comparativo percentual digitável de recuperação por classe (Extraconcursal, Fiscal, Classe I, Classe II, Classe III e Classe IV) em Liquidação Forçada vs. Plano RJ.' },
+      { id: 'quorum_agc', label: 'Quórum AGC & Cram Down', title: 'Simulador de Votação em Assembleia Geral de Credores (Art. 45 e Art. 58, §1º)', desc: 'Cálculo interativo de aprovação ordinária por classe (Cabeça e Valor), requisitos cumulativos de Cram Down e posição de bloqueio.' },
+      { id: 'benchmarks_setor', label: 'Benchmarks Setoriais', title: 'Tabela de Referência de Mercado: % de Haircut e % de Recuperação por Macro-Setor', desc: 'Parâmetros médios observados nos {COUNT} casos monitorados para calibragem rápida de propostas, modelagem de planos e avaliação de colateral.' },
+      { id: 'mandate_letter', label: '📝 Carta-Proposta (A4 PDF)', title: 'Gerador de Carta-Proposta Formal / Term Sheet de Mandato (Folha A4 Timbrada)', desc: 'Minuta executiva pronta para assinatura (Escopo em 3 Fases, Tabela de Remuneração, Proteção Extraconcursal Art. 84, Tail Period, Não-Sobreposição Jurídica e NDA).' },
+      { id: 'pitch_pptx', label: '📊 Estúdio Pitch (.PPTX + 16:9)', title: 'Estúdio Ao Vivo 16:9 & Exportador Nativo PowerPoint (.PPTX — Modo Cliente vs. IC Memo)', desc: 'Apresentação widescreen com Tabelas e Gráficos Nativos (Waterfall + Debt Bridge + Precedentes), Tombstones Setoriais Anonimizados e Modo Tela Cheia para reuniões.' }
     ]
   }
 };
@@ -796,7 +800,7 @@ let selectedCompIds = [];
 
 let lastNewsAutoSyncTs = 0;
 let sheetLiveNewsItems = [];
-const STATIC_BUNDLE_VERSION = '20261119v61';
+const STATIC_BUNDLE_VERSION = '20261121v70';
 let curatedBaseReadyPromise = null;
 let hasHydratedFromLiveSheet = false;
 let liveLeadsData = null;
@@ -805,6 +809,59 @@ let curtailmentPlantFonteFilter = 'all';
 let cvmTier0SignalFilter = 'all';
 let cvmTier0OnlyNew = false;
 let currentOutreachPersona = 'credor';
+
+// v7.0 States — Ratchet/VPL/Tranches, 13-Week Cash, ICSD/PGFN, Pitch Deck Mode, Client-Safe & Mini-CRM
+let modelUseRatchet = false;
+let modelRatchetT1Pct = 1.5;
+let modelRatchetT2Pct = 2.5;
+let modelRatchetT3Pct = 3.5;
+let modelNpvGainPct = 42;
+let modelSigningFeeMil = 0;
+let modelDipFeePct = 0;
+let modelDipTargetMM = 80;
+let modelUpiFeePct = 0;
+let modelUpiTargetMM = 180;
+let modelMilestoneStandstillPct = 25;
+
+let sim13wState = {
+  caixaInicialMM: 38,
+  geracaoOperSemMM: 6.5,
+  servicoDividaSemMM: 9.2,
+  travaRecebiveisPct: 35,
+  semanaStandstill: 3,
+  dipChequeMM: 65,
+  semanaDip: 5,
+  valorColateralDipMM: 130
+};
+
+let simIcsdState = {
+  ebitdaNormMM: 140,
+  capexManutMM: 32,
+  aliquotaIrPct: 24,
+  custoPosPlanoPct: 12.5,
+  icsdAlvo: 1.30,
+  prazoAmortAnos: 8,
+  descontoPgfnPct: 58,
+  prazoPgfnMeses: 120
+};
+
+let pitchDeckMode = 'client_external'; // 'client_external' | 'internal_ic'
+let pitchActiveSlideIdx = 0;
+let isClientSafeMode = false;
+let isMorningBriefingOpen = false;
+let ecoOnlyWithoutFaSweetSpot = false;
+let _memoCombinedNews = null;
+let _memoCombinedNewsKey = '';
+
+const TACTICAL_CRM_STORAGE_KEY = 'vk_tactical_crm_v1';
+const BRIEFING_SEEN_STORAGE_KEY = 'vk_briefing_seen_v1';
+const TOMBSTONES_STORAGE_KEY = 'vk_tombstones_v1';
+const DEFAULT_ANONYMIZED_TOMBSTONES = [
+  { setor: 'Energia & Infraestrutura', porte: 'R$ 1,2 Bi', estrutura: 'Reperfilamento Extrajudicial de Debêntures Lei 12.431, Standstill de Conta Reserva & Reequilíbrio de ICSD' },
+  { setor: 'Agronegócio & Bioenergia', porte: 'R$ 850 MM', estrutura: 'Estruturação de DIP Superprioritário (Art. 69-A), Liberação de Travas de CPR/Recebíveis & Alongamento Sindicalizado' },
+  { setor: 'Indústria & Logística', porte: 'R$ 620 MM', estrutura: 'Assessoria Debtor-Side em RJ, Alienação de UPI Livre de Sucessão (Art. 141) & Transação Tributária PGFN (62% Deságio)' },
+  { setor: 'Saúde, Varejo & Serviços', porte: 'R$ 1,5 Bi', estrutura: 'Mandato Creditor-Side & Watchdog Independente de Caixa 13 Semanas p/ Pool de Bancos e Debenturistas' }
+];
 
 function decodeHtmlEntities(str) {
   if (!str) return '';
@@ -1012,7 +1069,11 @@ async function ensureSheetJsLoaded() {
 async function ensurePptxGenLoaded() {
   if (typeof PptxGenJS !== 'undefined') return true;
   showToast('Carregando motor PowerPoint (.pptx)...');
-  await loadExternalScriptOnce(PPTXGEN_CDN_URL, PPTXGEN_CDN_SRI);
+  try {
+    await loadExternalScriptOnce(PPTXGEN_CDN_URL, PPTXGEN_CDN_SRI);
+  } catch (e) {
+    return false;
+  }
   return typeof PptxGenJS !== 'undefined';
 }
 
@@ -2160,11 +2221,16 @@ function enrichAllDeals() {
         upi_valuation_estimado_mm: Math.round(p * 0.35)
       };
     } else {
-      d.model_params.haircut_estimado_pct = dynRec.haircutPct;
-      d.model_params.recuperacao_estimada_pct = dynRec.recupPct;
-      d.model_params.haircut_pct = dynRec.haircutPct;
-      d.model_params.recuperacao_pct = dynRec.recupPct;
-      d.model_params.valor_recuperado_mm = valRecMm;
+      const curatedHaircut = Number(d.model_params.haircut_pct ?? d.model_params.haircut_estimado_pct);
+      const effHaircut = (!isNaN(curatedHaircut) && curatedHaircut > 0 && curatedHaircut < 100)
+        ? curatedHaircut
+        : dynRec.haircutPct;
+      const effRecup = Math.max(0, Number((100 - effHaircut).toFixed(1)));
+      d.model_params.haircut_estimado_pct = effHaircut;
+      d.model_params.recuperacao_estimada_pct = effRecup;
+      d.model_params.haircut_pct = effHaircut;
+      d.model_params.recuperacao_pct = effRecup;
+      d.model_params.valor_recuperado_mm = Math.round(p * (effRecup / 100) * 10) / 10;
       const recSplit = reconcileSixBucketSplit(d.model_params.split_classes || d.model_params.classes_pct);
       d.model_params.split_classes = {
         extraconcursal_pct: recSplit.extra,
@@ -2273,6 +2339,13 @@ function enrichAllDeals() {
     d.fit_reasons = fit.reasons;
     d.is_sweet_spot = fit.isSweetSpot;
     d.is_mega_deal = fit.isMegaDeal;
+    d._searchBlob = normalizeTextNoAccents([
+      d.empresa, d.cnpj, d.credores, d.tribunal,
+      d.processo, d.tese, d.setor_macro, d.cidade,
+      d.uf, d.perfil_passivo, d.advocacia, d.aj,
+      d.agentes_fiduciarios, d.securitizadoras, d.ticker,
+      d.descricao_empresa, ...(d.watchdog_triggers || [])
+    ].join(' '));
   });
 
   updateDynamicNavCounts();
@@ -2772,17 +2845,22 @@ function getFilteredCvmTier0Leads() {
     if (cvmTier0OnlyNew && lead.in_pipeline) return false;
     if (cvmTier0SignalFilter && cvmTier0SignalFilter !== 'all') {
       const sigLow = normalizeTextNoAccents(lead.signal_type || '');
+      const origins = Array.isArray(lead.origins) ? lead.origins : [lead.lead_origin || 'CVM IPE'];
+      if (cvmTier0SignalFilter === 'ipe' && !origins.some(o => String(o).includes('IPE'))) return false;
+      if (cvmTier0SignalFilter === 'cra_cri' && !origins.some(o => String(o).includes('CRA') || String(o).includes('CRI'))) return false;
+      if (cvmTier0SignalFilter === 'itr' && !origins.some(o => String(o).includes('ITR'))) return false;
       if (cvmTier0SignalFilter === 'agd' && !sigLow.includes('agd') && !sigLow.includes('waiver')) return false;
       if (cvmTier0SignalFilter === 'cautelar' && !sigLow.includes('cautelar') && !sigLow.includes('pre')) return false;
-      if (cvmTier0SignalFilter === 'default' && !sigLow.includes('vencimento') && !sigLow.includes('default')) return false;
+      if (cvmTier0SignalFilter === 'default' && !sigLow.includes('vencimento') && !sigLow.includes('default') && !sigLow.includes('atraso')) return false;
       if (cvmTier0SignalFilter === 'carveout' && !sigLow.includes('carve') && !sigLow.includes('desinvestimento')) return false;
     }
     if (currentUf !== '' && lead.uf && String(lead.uf).toUpperCase() !== currentUf) return false;
     if (searchTerm !== '') {
-      const blob = [
+      const blob = normalizeTextNoAccents([
         lead.empresa, lead.cnpj, lead.signal_type, lead.assunto,
-        lead.categoria_cvm, lead.uf, lead.municipio, ...(lead.qsa_preview || [])
-      ].join(' ').toLowerCase();
+        lead.categoria_cvm, lead.uf, lead.municipio, lead.securitizadora, lead.agente_fiduciario,
+        ...(lead.qsa_preview || []), ...(lead.shared_qsa_peers || [])
+      ].join(' '));
       if (!blob.includes(searchTerm)) return false;
     }
     return true;
@@ -2819,7 +2897,7 @@ function getFilteredTier0Targets() {
       if (currentPorte === 'mega' && p < 1000) return false;
     }
     if (searchTerm !== '') {
-      const blob = [t0.empresa, t0.cnpj, t0.setor_macro, t0.regiao, t0.vetores, t0.tese, t0.fontes].join(' ').toLowerCase();
+      const blob = normalizeTextNoAccents([t0.empresa, t0.cnpj, t0.setor_macro, t0.regiao, t0.vetores, t0.tese, t0.fontes].join(' '));
       if (!blob.includes(searchTerm)) return false;
     }
     return true;
@@ -2996,13 +3074,13 @@ function getFilteredDeals() {
         if (currentPorte === 'mega' && p < 1000) return false;
       }
       if (searchTerm !== '') {
-        const blob = [
+        const blob = item._searchBlob || normalizeTextNoAccents([
           item.empresa, item.cnpj, item.credores, item.tribunal,
           item.processo, item.tese, item.setor_macro, item.cidade,
           item.uf, item.perfil_passivo, item.advocacia, item.aj,
           item.agentes_fiduciarios, item.securitizadoras, item.ticker,
           item.descricao_empresa, ...(item.watchdog_triggers || [])
-        ].join(' ').toLowerCase();
+        ].join(' '));
         if (!blob.includes(searchTerm)) return false;
       }
     }
@@ -3233,16 +3311,50 @@ function openCalculatorForMandato(idx, targetSub = 'calc_haircut') {
 }
 
 function renderMandatosCrmView(container) {
-  const mandatos = Array.isArray(LIVE_MANDATOS_DATA) ? LIVE_MANDATOS_DATA : [];
-  const sociosUnicos = new Set(mandatos.map(m => m.socio_lider).filter(Boolean));
-  const setoresUnicos = new Set(mandatos.map(m => m.setor).filter(Boolean));
+  const sheetMandatos = Array.isArray(LIVE_MANDATOS_DATA) ? LIVE_MANDATOS_DATA : [];
+  const localCrmMap = typeof getTacticalCrmMap === 'function' ? getTacticalCrmMap() : {};
+  const localEntries = Object.entries(localCrmMap)
+    .map(([key, rec]) => ({ key, ...rec }))
+    .filter(r => r && (r.estagio || r.notas || r.followup || r.socio))
+    .sort((a, b) => String(a.followup || '9999').localeCompare(String(b.followup || '9999')));
+  const todayIso = getBrazilTodayIso();
+  const overdueCount = localEntries.filter(r => r.followup && r.followup <= todayIso && r.estagio !== 'Descartado').length;
+
+  const sociosUnicos = new Set([
+    ...sheetMandatos.map(m => m.socio_lider).filter(Boolean),
+    ...localEntries.map(r => r.socio).filter(Boolean)
+  ]);
+  const setoresUnicos = new Set([
+    ...sheetMandatos.map(m => m.setor).filter(Boolean),
+    ...localEntries.map(r => r.setor).filter(Boolean)
+  ]);
 
   let html = `
+    <div class="crm-sync-bar no-print">
+      <div>
+        <strong style="font-size:13px; color:var(--vk-forest); display:block;">🔄 Mesa Tática Portátil (Sync P2P entre Sócios via .JSON)</strong>
+        <span style="font-size:11.5px; color:var(--text-secondary);">Salve anotações, estágio e follow-up em qualquer Ficha (Tear Sheet) e compartilhe o arquivo <code>.json</code> com os demais sócios sem servidor externo.</span>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+        <button type="button" class="btn-action" onclick="promptNewTacticalCrmTarget()">＋ Novo Alvo Avulso</button>
+        <button type="button" class="btn-action" onclick="exportTacticalCrmJson()">⬇ Exportar Mesa (.json)</button>
+        <label class="btn-solid" style="cursor:pointer; margin:0; padding:6px 12px; font-size:11.5px;">
+          ⬆ Mesclar JSON de Sócio
+          <input type="file" accept=".json,application/json" style="display:none;" onchange="importTacticalCrmJsonFile(this)">
+        </label>
+      </div>
+    </div>
+
     <div class="crm-mandatos-kpi-strip">
       <div class="ts-kpi-card">
-        <div class="ts-kpi-label">Mandatos em Abordagem</div>
-        <div class="ts-kpi-value">${mandatos.length}</div>
-        <div class="ts-kpi-sub">Aba Pipeline Ativo (Mandatos)</div>
+        <div class="ts-kpi-label">Mandatos Planilha + Mesa Local</div>
+        <div class="ts-kpi-value">${sheetMandatos.length + localEntries.length}</div>
+        <div class="ts-kpi-sub">${sheetMandatos.length} Planilha Mestre &bull; ${localEntries.length} Mini-CRM Local</div>
+      </div>
+      <div class="ts-kpi-card">
+        <div class="ts-kpi-label">Follow-ups Vencendo / Hoje</div>
+        <div class="ts-kpi-value" style="color:${overdueCount > 0 ? '#991B1B' : 'var(--vk-teal)'};">${overdueCount}</div>
+        <div class="ts-kpi-sub">Data de retorno &le; ${formatDateBR(todayIso)}</div>
       </div>
       <div class="ts-kpi-card">
         <div class="ts-kpi-label">Sócios Líderes Envolvidos</div>
@@ -3252,86 +3364,106 @@ function renderMandatosCrmView(container) {
       <div class="ts-kpi-card">
         <div class="ts-kpi-label">Frentes Setoriais</div>
         <div class="ts-kpi-value">${setoresUnicos.size}</div>
-        <div class="ts-kpi-sub">${escapeHtml([...setoresUnicos].join(', ') || 'Multi-setorial')}</div>
-      </div>
-      <div class="ts-kpi-card">
-        <div class="ts-kpi-label">Sincronização CRM</div>
-        <div class="ts-kpi-value" style="font-size:15px;">Planilha Mestre</div>
-        <div class="ts-kpi-sub">Atualização automática em tempo real</div>
+        <div class="ts-kpi-sub">${escapeHtml([...setoresUnicos].slice(0, 4).join(', ') || 'Multi-setorial')}</div>
       </div>
     </div>
   `;
 
-  if (mandatos.length === 0) {
-    html += `<div style="text-align:center; padding:42px; color:var(--text-muted);">Nenhum mandato cadastrado no momento na aba Pipeline Ativo (Mandatos).</div>`;
+  if (localEntries.length > 0) {
+    html += `
+      <div style="margin-bottom:18px;">
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-forest); text-transform:uppercase; margin-bottom:8px;">
+          📌 Alvos em Acompanhamento no Mini-CRM Local da Mesa (${localEntries.length})
+        </div>
+        <div class="table-wrap">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th>Empresa / Alvo</th>
+                <th>Estágio Tático</th>
+                <th>Sócio Líder</th>
+                <th>Follow-up</th>
+                <th>Notas Confidenciais &amp; Porta de Entrada</th>
+                <th style="text-align:center;">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${localEntries.map(r => {
+                const isDue = r.followup && r.followup <= todayIso && r.estagio !== 'Descartado';
+                return `
+                  <tr>
+                    <td>
+                      <strong style="color:var(--vk-forest); cursor:pointer;" onclick="${r.dealId ? `openDossier(${Number(r.dealId)})` : ''}">${escapeHtml(r.empresa || r.key)}</strong>
+                      ${r.passivo_mm ? `<div class="td-company-meta">R$ ${formatNumberBR(r.passivo_mm)} MM</div>` : ''}
+                    </td>
+                    <td><span class="crm-stage-badge">${escapeHtml(r.estagio || 'Mapeado')}</span></td>
+                    <td style="font-weight:700; color:var(--vk-header-start);">${escapeHtml(r.socio || 'Mesa Valknut')}</td>
+                    <td style="font-family:var(--font-mono); font-size:11.5px; font-weight:700; color:${isDue ? '#991B1B' : 'var(--text-body)'};">
+                      ${r.followup ? `${isDue ? '⚠️ ' : ''}${formatDateBR(r.followup)}` : '—'}
+                    </td>
+                    <td style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(r.notas || '—')}</td>
+                    <td style="text-align:center; white-space:nowrap;">
+                      ${r.dealId ? `<button type="button" class="btn-action" onclick="openDossier(${Number(r.dealId)})">Ficha</button> ` : ''}
+                      ${r.dealId ? `<button type="button" class="btn-action" onclick="openMandateLetterForDeal(${Number(r.dealId)})">📝 Carta</button> ` : ''}
+                      <button type="button" class="btn-action" style="color:#991B1B;" onclick="removeTacticalCrmEntry('${escapeHtml(r.key)}')" title="Remover anotação">✕</button>
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  if (sheetMandatos.length === 0 && localEntries.length === 0) {
+    html += `<div style="text-align:center; padding:42px; color:var(--text-muted);">Nenhum mandato cadastrado no momento. Abra qualquer Tear Sheet para registrar estágio, sócio líder e follow-up no Mini-CRM.</div>`;
     container.innerHTML = html;
     return;
   }
 
-  html += `
-    <div class="table-wrap" style="margin-bottom:18px;">
-      <table class="clean-table">
-        <thead>
-          <tr>
-            <th>Empresa Alvo</th>
-            <th>Setor</th>
-            <th>Tipo de Mandato Alvo</th>
-            <th>Estágio da Abordagem</th>
-            <th>Sócio Líder</th>
-            <th>Equipe Alocada</th>
-            <th>Estrutura de Honorários Estimada</th>
-            <th>Próximos Passos</th>
-            <th style="text-align:center;">Modelagem</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${mandatos.map((m, idx) => `
+  if (sheetMandatos.length > 0) {
+    html += `
+      <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-forest); text-transform:uppercase; margin-bottom:8px;">
+        📊 Mandatos Sincronizados da Planilha Mestre (${sheetMandatos.length})
+      </div>
+      <div class="table-wrap" style="margin-bottom:18px;">
+        <table class="clean-table">
+          <thead>
             <tr>
-              <td><strong style="color:var(--vk-header-start);">${escapeHtml(m.empresa)}</strong></td>
-              <td><span class="td-sector-pill">${escapeHtml(m.setor)}</span></td>
-              <td><span class="status-badge badge-prj" style="margin-left:0;">${escapeHtml(m.tipo_mandato)}</span></td>
-              <td><span class="crm-stage-badge">${escapeHtml(m.estagio)}</span></td>
-              <td style="font-weight:700; color:var(--vk-header-start);">${escapeHtml(m.socio_lider)}</td>
-              <td style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(m.equipe)}</td>
-              <td style="font-family:var(--font-mono); font-size:11.5px; font-weight:700; color:#065F46;">${escapeHtml(m.honorarios_estimados)}</td>
-              <td style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(m.proximos_passos)}</td>
-              <td style="text-align:center; white-space:nowrap;">
-                <button type="button" class="btn-action" onclick="openCalculatorForMandato(${idx}, 'calc_haircut')">⚡ Simular Fee / PPTX</button>
-              </td>
+              <th>Empresa Alvo</th>
+              <th>Setor</th>
+              <th>Tipo de Mandato Alvo</th>
+              <th>Estágio da Abordagem</th>
+              <th>Sócio Líder</th>
+              <th>Equipe Alocada</th>
+              <th>Estrutura de Honorários Estimada</th>
+              <th>Próximos Passos</th>
+              <th style="text-align:center;">Modelagem</th>
             </tr>
-          `).join('')}
-        </tbody>
-      </table>
-    </div>
-
-    <div class="crm-mandatos-grid">
-      ${mandatos.map((m, idx) => `
-        <div class="crm-mandato-card">
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:8px;">
-              <div>
-                <strong style="font-size:15px; color:var(--vk-header-start); display:block;">${escapeHtml(m.empresa)}</strong>
-                <span class="td-company-meta">${escapeHtml(m.setor)} &bull; ${escapeHtml(m.tipo_mandato)}</span>
-              </div>
-              <span class="crm-stage-badge">${escapeHtml(m.estagio)}</span>
-            </div>
-            <div style="background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:6px; padding:10px 12px; margin:10px 0; font-size:12px; line-height:1.5;">
-              <div><strong style="color:var(--vk-header-start);">Sócio Líder:</strong> ${escapeHtml(m.socio_lider)}</div>
-              <div><strong style="color:var(--vk-header-start);">Equipe:</strong> ${escapeHtml(m.equipe)}</div>
-              <div><strong style="color:var(--vk-header-start);">Honorários Estimados:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:#065F46;">${escapeHtml(m.honorarios_estimados)}</span></div>
-            </div>
-            <div style="font-size:12px; color:var(--text-secondary);">
-              <strong style="color:var(--vk-header-start);">Próximos Passos:</strong> ${escapeHtml(m.proximos_passos)}
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; border-top:1px solid var(--border-light); padding-top:10px;">
-            <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">ORIGINADO NA PLANILHA MESTRE</span>
-            <button type="button" class="btn-solid" style="padding:6px 12px; font-size:11.5px;" onclick="openCalculatorForMandato(${idx}, 'pitch_pptx')">Gerar Pitch (.pptx)</button>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-  `;
+          </thead>
+          <tbody>
+            ${sheetMandatos.map((m, idx) => `
+              <tr>
+                <td><strong style="color:var(--vk-header-start);">${escapeHtml(m.empresa)}</strong></td>
+                <td><span class="td-sector-pill">${escapeHtml(m.setor)}</span></td>
+                <td><span class="status-badge badge-prj" style="margin-left:0;">${escapeHtml(m.tipo_mandato)}</span></td>
+                <td><span class="crm-stage-badge">${escapeHtml(m.estagio)}</span></td>
+                <td style="font-weight:700; color:var(--vk-header-start);">${escapeHtml(m.socio_lider)}</td>
+                <td style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(m.equipe)}</td>
+                <td style="font-family:var(--font-mono); font-size:11.5px; font-weight:700; color:#065F46;">${escapeHtml(m.honorarios_estimados)}</td>
+                <td style="font-size:11.5px; color:var(--text-secondary);">${escapeHtml(m.proximos_passos)}</td>
+                <td style="text-align:center; white-space:nowrap;">
+                  <button type="button" class="btn-action" onclick="openCalculatorForMandato(${idx}, 'calc_haircut')">⚡ Simular Fee / PPTX</button>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
   container.innerHTML = html;
 }
 
@@ -3341,6 +3473,9 @@ function renderSectionContent() {
   activeCharts.forEach(c => { try { c.destroy(); } catch (e) {} });
   activeCharts = [];
 
+  if (typeof renderMorningBriefingCockpit === 'function') {
+    renderMorningBriefingCockpit();
+  }
   renderActiveEntityFilterBar();
   const deals = getFilteredDeals();
   updateExecutiveKPIs(deals);
@@ -3530,6 +3665,12 @@ function renderTier0ForensicPanelHtml() {
   const sheetTargets = getFilteredTier0Targets();
   const totalCvmAll = Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads.length : 0;
   const totalCvmNew = Number(liveLeadsData?.stats?.tier0_new_unmapped || 0);
+  const byOrigin = liveLeadsData?.stats?.by_origin || {};
+  const cntIpe = Number(byOrigin['CVM IPE'] || 0);
+  const cntSec = Number(byOrigin['CVM CRA/CRI'] || 0);
+  const cntItr = Number(byOrigin['CVM ITR Contábil'] || 0);
+  const crossLinks = Array.isArray(liveLeadsData?.qsa_shared_links) ? liveLeadsData.qsa_shared_links : [];
+  const crossBrandLinks = crossLinks.filter(x => x.cross_brand_group);
   const cvmUpdatedBr = liveLeadsData?.updated_at_br || '';
 
   let html = '';
@@ -3540,29 +3681,51 @@ function renderTier0ForensicPanelHtml() {
         <div class="cvm-tier0-banner">
           <div>
             <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-sage); text-transform:uppercase; letter-spacing:0.8px;">
-              RADAR PRÉ-MÍDIA OFICIAL // CVM DADOS ABERTOS (IPE 2026) &amp; QSA RECEITA
+              3 MOTORES PRÉ-MÍDIA OFICIAIS // CVM IPE + SECURITIZADORAS (CRA/CRI LTDA.) + ITR CONTÁBIL &amp; GRAFO QSA
             </div>
             <strong style="font-size:15px; color:#FFFFFF; display:block; margin-top:3px;">
-              ${cvmLeads.length} Sinais Oficiais Pré-Mídia no Recorte (${totalCvmNew} Novos Fora do Pipeline)
+              ${cvmLeads.length} Alvos Pré-Mídia no Recorte (${totalCvmNew} Inéditos Fora do Pipeline &bull; ${crossBrandLinks.length || crossLinks.length} Pontes Societárias Cross-QSA)
             </strong>
             <div style="font-size:11.5px; color:#C8CEB0; margin-top:2px;">
-              Varredura automática em atas de AGD, pedidos de waiver/PIK, suspensão de amortização, liberação de conta vinculada, Cautelares Art. 20-B, PREs e carve-outs. ${cvmUpdatedBr ? `Última coleta: ${escapeHtml(cvmUpdatedBr)}.` : ''}
+              Cobertura simultânea de cias abertas (AGDs, Waivers, ITR Dívida CP &gt; Caixa) e <strong>empresas fechadas Ltda./S.A.</strong> com CRAs/CRIs em atraso ou PDD relevante. ${cvmUpdatedBr ? `Última coleta: ${escapeHtml(cvmUpdatedBr)}.` : ''}
             </div>
           </div>
           <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
-            <span class="ticker-pill">100% DADOS OFICIAIS CVM</span>
+            <span class="ticker-pill">IPE (${cntIpe}) &bull; CRA/CRI (${cntSec}) &bull; ITR (${cntItr})</span>
           </div>
         </div>
 
-        <div class="inline-subfilter-bar" role="region" aria-label="Filtros do Radar Pré-Mídia CVM">
-          <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-forest); text-transform:uppercase;">Sinal CVM:</span>
+        ${crossBrandLinks.length > 0 ? `
+          <div class="cross-qsa-panel">
+            <div style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:#92400E; text-transform:uppercase; margin-bottom:6px;">
+              🔗 Grafo Societário Cross-QSA — Contágio de Grupo Econômico &amp; Administradores Compartilhados
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap:8px;">
+              ${crossBrandLinks.slice(0, 6).map(lk => `
+                <div style="background:#FFFFFF; border:1px solid #FDE68A; border-radius:6px; padding:7px 10px; font-size:11.5px;">
+                  <div style="display:flex; justify-content:space-between; gap:6px;">
+                    <strong style="color:var(--vk-forest);">${escapeHtml(lk.socio)}</strong>
+                    <span class="cross-qsa-badge">${lk.is_holding_pj ? 'HOLDING PJ' : 'EXEC/SÓCIO'}</span>
+                  </div>
+                  <div style="font-size:11px; color:var(--text-secondary); margin-top:3px;">
+                    Conecta: ${lk.empresas.map(e => e.deal_id ? `<a href="javascript:void(0)" onclick="openDossier(${Number(e.deal_id)})" style="color:var(--vk-teal); font-weight:700;">${escapeHtml(e.empresa)}</a>` : `<strong>${escapeHtml(e.empresa)}</strong>`).join(' &harr; ')}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <div class="inline-subfilter-bar" role="region" aria-label="Filtros dos 3 Motores Pré-Mídia CVM">
+          <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-forest); text-transform:uppercase;">Fonte / Sinal:</span>
           <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'all' ? 'active' : ''}" onclick="setCvmTier0Filter('all', null)">Todos (${totalCvmAll})</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'cra_cri' ? 'active' : ''}" onclick="setCvmTier0Filter('cra_cri', null)">🌾🏢 CRA &amp; CRI em Atraso (${cntSec})</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'itr' ? 'active' : ''}" onclick="setCvmTier0Filter('itr', null)">📉 ITR Pré-Colapso (${cntItr})</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'ipe' ? 'active' : ''}" onclick="setCvmTier0Filter('ipe', null)">📄 CVM IPE (${cntIpe})</button>
           <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'agd' ? 'active' : ''}" onclick="setCvmTier0Filter('agd', null)">AGD / Waiver / PIK</button>
-          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'cautelar' ? 'active' : ''}" onclick="setCvmTier0Filter('cautelar', null)">Cautelar 20-B / PRE / RJ</button>
-          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'default' ? 'active' : ''}" onclick="setCvmTier0Filter('default', null)">Venc. Antecipado / Default</button>
-          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'carveout' ? 'active' : ''}" onclick="setCvmTier0Filter('carveout', null)">Carve-out / Desinvestimento</button>
+          <button type="button" class="phase-chip ${cvmTier0SignalFilter === 'cautelar' ? 'active' : ''}" onclick="setCvmTier0Filter('cautelar', null)">20-B / PRE / RJ</button>
           <button type="button" class="quick-toggle-btn quick-toggle-sweet ${cvmTier0OnlyNew ? 'active' : ''}" style="margin-left:auto;" onclick="setCvmTier0Filter(null, !cvmTier0OnlyNew)">
-            ${cvmTier0OnlyNew ? '✓ ' : ''}Somente Novos Leads (${totalCvmNew})
+            ${cvmTier0OnlyNew ? '✓ ' : ''}Somente Inéditos (${totalCvmNew})
           </button>
         </div>
 
@@ -3571,7 +3734,7 @@ function renderTier0ForensicPanelHtml() {
           : `<div class="cvm-tier0-grid">
               ${cvmLeads.map(lead => {
                 const sigLow = normalizeTextNoAccents(lead.signal_type || '');
-                const sigCls = (sigLow.includes('cautelar') || sigLow.includes('vencimento') || sigLow.includes('default'))
+                const sigCls = (sigLow.includes('cautelar') || sigLow.includes('vencimento') || sigLow.includes('default') || sigLow.includes('atraso'))
                   ? 'sig-urgent'
                   : (sigLow.includes('carve') ? 'sig-carveout' : 'sig-agd');
                 const fitCls = getFitPillClass(lead.fit_score);
@@ -3581,8 +3744,10 @@ function renderTier0ForensicPanelHtml() {
                 const capStr = Number(lead.capital_social || 0) > 0
                   ? `Capital Social: R$ ${formatNumberBR(Number(lead.capital_social) / 1e6)} MM`
                   : '';
+                const originsArr = Array.isArray(lead.origins) ? lead.origins : [lead.lead_origin || 'CVM IPE'];
+                const sharedPeers = Array.isArray(lead.shared_qsa_peers) ? lead.shared_qsa_peers : [];
                 const cvmUrl = safeExternalUrl(lead.link_download, 'https://www.rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx');
-                const lnkSearch = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(String(lead.empresa || '').split(' ')[0] + ' CFO OR Diretor Financeiro OR RI')}`;
+                const lnkSearch = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(String(lead.empresa || '').split(' ')[0] + ' CFO OR Diretor Financeiro OR Socio')}`;
                 return `
                   <div class="cvm-lead-card ${!lead.in_pipeline ? 'is-new-lead' : ''}">
                     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
@@ -3595,26 +3760,28 @@ function renderTier0ForensicPanelHtml() {
 
                     <div style="display:flex; flex-wrap:wrap; gap:5px; align-items:center;">
                       <span class="cvm-signal-badge ${sigCls}">${escapeHtml(lead.signal_type)}</span>
+                      ${lead.multi_signal ? `<span class="cross-qsa-badge" title="Detectado simultaneamente em múltiplos motores CVM">⚡ ${escapeHtml(originsArr.join(' + '))}</span>` : `<span class="td-sector-pill" style="font-size:9.5px;">${escapeHtml(originsArr[0])}</span>`}
                       ${!lead.in_pipeline
-                        ? `<span class="badge-sweetspot" style="margin-left:0;">NOVO LEAD CVM</span>`
+                        ? `<span class="badge-sweetspot" style="margin-left:0;">INÉDITO</span>`
                         : `<span class="status-badge badge-pre" style="margin-left:0; font-size:9px;">NO PIPELINE${lead.deal_passivo_mm ? ` • R$ ${formatNumberBR(lead.deal_passivo_mm)}M` : ''}</span>`}
-                      <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-left:auto;">${formatDateBR(lead.data_entrega)} &bull; ${Number(lead.filing_count || 1)}x em 120d</span>
+                      <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-left:auto;">${formatDateBR(lead.data_entrega)}</span>
                     </div>
 
                     <div style="font-size:11.5px; color:var(--text-body); background:var(--bg-subtle); border-left:3px solid var(--vk-olive); padding:7px 9px; border-radius:4px; line-height:1.42;">
-                      <strong style="color:var(--vk-forest); font-size:10.5px; text-transform:uppercase; display:block; margin-bottom:2px;">${escapeHtml(lead.categoria_cvm || 'Documento Eventual CVM')}</strong>
+                      <strong style="color:var(--vk-forest); font-size:10.5px; text-transform:uppercase; display:block; margin-bottom:2px;">${escapeHtml(lead.categoria_cvm || 'Sinal Oficial CVM')}</strong>
                       ${escapeHtml(lead.assunto)}
                     </div>
 
                     <div style="font-size:11px; color:var(--text-secondary); line-height:1.4;">
                       <strong style="color:var(--vk-forest);">QSA / Diretoria:</strong> ${escapeHtml(qsaNames)}
                       ${capStr ? `<div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-top:2px;">${escapeHtml(capStr)}</div>` : ''}
+                      ${sharedPeers.length > 0 ? `<div style="margin-top:4px;"><span class="cross-qsa-badge">🔗 Rede QSA: ${escapeHtml(sharedPeers[0].slice(0, 62))}</span></div>` : ''}
                     </div>
 
                     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; border-top:1px solid var(--border-light); padding-top:8px; margin-top:auto;">
                       <div style="display:flex; gap:5px; flex-wrap:wrap;">
-                        <a href="${escapeHtml(cvmUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 8px; font-size:10.5px;">📄 Doc CVM ↗</a>
-                        <a href="${escapeHtml(lnkSearch)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 8px; font-size:10.5px;">LinkedIn C-Level ↗</a>
+                        <a href="${escapeHtml(cvmUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 8px; font-size:10.5px;">📄 Fonte CVM ↗</a>
+                        <a href="${escapeHtml(lnkSearch)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:4px 8px; font-size:10.5px;">LinkedIn ↗</a>
                       </div>
                       <div style="display:flex; gap:5px;">
                         ${lead.in_pipeline && lead.deal_id
@@ -5373,6 +5540,10 @@ function buildDynamicPipelineNews() {
 }
 
 function getAllCombinedNews() {
+  const cacheSig = `${DEALS_DATA.length}|${(baseStaticNewsItems || []).length}|${(sheetLiveNewsItems || []).length}|${(liveRssNewsItems || []).length}|${(baseStaticNewsItems && baseStaticNewsItems[0] && baseStaticNewsItems[0].id) || ''}`;
+  if (_memoCombinedNews && _memoCombinedNewsKey === cacheSig) {
+    return _memoCombinedNews;
+  }
   const staticMapped = (baseStaticNewsItems || []).map(n => ({
     ...n,
     escopo: n.escopo || ((n.fonte === 'CVM / Fatos Relevantes' || n.fonte === 'Agentes Fiduciários' || n.categoria === 'Waiver / AGD' || n.categoria === 'Downgrade Rating') ? 'cvm' : (n.deal_id ? 'pipeline' : 'mercado')),
@@ -5416,7 +5587,9 @@ function getAllCombinedNews() {
     }
   });
 
-  return deduped.sort((a, b) => parseNewsTimestamp(b.data_hora) - parseNewsTimestamp(a.data_hora));
+  _memoCombinedNews = deduped.sort((a, b) => parseNewsTimestamp(b.data_hora) - parseNewsTimestamp(a.data_hora));
+  _memoCombinedNewsKey = cacheSig;
+  return _memoCombinedNews;
 }
 function syncNewsCounters(providedNewsList) {
   const newsList = Array.isArray(providedNewsList) ? providedNewsList : getAllCombinedNews();
@@ -6067,15 +6240,15 @@ function renderEnergiaSection(container) {
             <table class="clean-table">
               <thead>
                 <tr>
-                  <th style="width:4%; text-align:center;">#</th>
-                  <th style="width:24%;">Complexo / Conjunto Gerador (ONS)</th>
-                  <th style="width:8%;">UF / Subm.</th>
-                  <th style="width:8%;">Fonte</th>
-                  <th style="width:15%;">% Curtailment (30d)</th>
-                  <th style="width:11%; text-align:right;">Corte (MWmed)</th>
-                  <th style="width:12%; text-align:right;">Perda Est. 30d</th>
-                  <th style="width:10%; text-align:center;">Razão / Dias</th>
-                  <th style="width:12%; text-align:center;">Prospecção SPE</th>
+                  <th style="width:3%; text-align:center;">#</th>
+                  <th style="width:19%;">Complexo / Conjunto (ONS)</th>
+                  <th style="width:7%;">UF / Subm.</th>
+                  <th style="width:7%;">Fonte</th>
+                  <th style="width:14%;">Operador ONS &amp; Potência</th>
+                  <th style="width:12%;">% Curtailment (30d)</th>
+                  <th style="width:9%; text-align:right;">Perda 30d</th>
+                  <th style="width:18%;">Debêntures Lei 12.431 (CVM)</th>
+                  <th style="width:11%; text-align:center;">Ações SPE</th>
                 </tr>
               </thead>
               <tbody>
@@ -6085,37 +6258,51 @@ function renderEnergiaSection(container) {
                   const reasonCls = reason === 'REL' ? 'reason-rel' : (reason === 'CNF' ? 'reason-cnf' : 'reason-ene');
                   const cleanName = String(p.usina || '').replace(/^Conj\.\s*/i, '').trim();
                   const aneelUrl = `https://www.google.com/search?q=${encodeURIComponent(`"${cleanName}" ${p.uf || ''} energia controlador debêntures SPE ANEEL`)}`;
-                  const lnkUrl = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${cleanName} energia CFO OR Diretor Financeiro`)}`;
+                  const isPfSpe = String(p.perfil_risco || '').includes('Project Finance');
+                  const hasDeb = Number(p.debenture_vol_mm || 0) > 0;
                   return `
                     <tr>
                       <td style="text-align:center; font-family:var(--font-mono); font-weight:800; color:var(--text-muted);">${idx + 1}</td>
                       <td>
                         <strong style="color:var(--vk-forest); font-size:12.5px;">${escapeHtml(p.usina)}</strong>
-                        ${p.ceg && p.ceg !== '-' ? `<div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">CEG: ${escapeHtml(p.ceg)}</div>` : `<div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">${formatNumberBR(Math.round(p.curt_mwh || 0))} MWh não gerados (30d)</div>`}
+                        <div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">
+                          ${p.ceg && p.ceg !== 'N/D' ? `CEG: ${escapeHtml(p.ceg)}${p.spes_count > 1 ? ` (+${p.spes_count - 1} SPEs)` : ''}` : `${formatNumberBR(Math.round(p.curt_mwh || 0))} MWh cortados`}
+                        </div>
                       </td>
                       <td>
                         <strong style="font-size:12px;">${escapeHtml(p.uf || '-')}</strong>
-                        <span class="td-sector-pill" style="margin-left:4px; font-size:9.5px;">${escapeHtml(p.submercado || '-')}</span>
+                        <span class="td-sector-pill" style="margin-left:3px; font-size:9.5px;">${escapeHtml(p.submercado || '-')}</span>
                       </td>
                       <td>
                         <span class="status-badge ${p.fonte === 'Solar' ? 'badge-prj' : 'badge-pre'}" style="margin-left:0;">${p.fonte === 'Solar' ? '☀️ Solar' : '💨 Eólica'}</span>
+                      </td>
+                      <td>
+                        <strong style="font-size:11.5px; color:var(--vk-header-start); display:block;">${escapeHtml(p.operador_ons || 'Em mapeamento')}</strong>
+                        <span style="font-family:var(--font-mono); font-size:10px; color:${isPfSpe ? '#92400E' : 'var(--text-muted)'}; font-weight:${isPfSpe ? '700' : '500'};">
+                          ${p.potencia_mw ? `${Number(p.potencia_mw).toFixed(0)} MW • ` : ''}${escapeHtml(p.perfil_risco || 'SPE')}
+                        </span>
                       </td>
                       <td>
                         <div style="display:flex; align-items:center;">
                           <span class="curtailment-severity-track"><span class="curtailment-severity-fill" style="width:${pct}%;"></span></span>
                           <strong style="font-family:var(--font-mono); font-size:11.5px; color:${pct >= 30 ? '#991B1B' : 'var(--vk-forest)'};">${pct.toFixed(1).replace('.', ',')}%</strong>
                         </div>
+                        <div style="font-family:var(--font-mono); font-size:9.5px; color:var(--text-muted); margin-top:2px;">
+                          <span class="reason-pill ${reasonCls}" style="padding:1px 5px; font-size:9px;">${escapeHtml(reason)} ${Number(p.dominant_reason_pct || 0)}%</span> &bull; ${Number(p.curt_mwmed || 0).toFixed(1).replace('.', ',')} MWm
+                        </div>
                       </td>
-                      <td style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-body);">${Number(p.curt_mwmed || 0).toFixed(1).replace('.', ',')} MWm</td>
-                      <td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#991B1B;">R$ ${Number(p.est_rev_loss_mm || 0).toFixed(2).replace('.', ',')} MM</td>
-                      <td style="text-align:center;">
-                        <span class="reason-pill ${reasonCls}" title="Razão dominante ONS (${Number(p.dominant_reason_pct || 0)}%)">${escapeHtml(reason)} ${Number(p.dominant_reason_pct || 0)}%</span>
-                        <div style="font-family:var(--font-mono); font-size:9.5px; color:var(--text-muted); margin-top:2px;">${Number(p.days_affected || 0)}d / 30d</div>
+                      <td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#991B1B;">R$ ${Number(p.est_rev_loss_mm || 0).toFixed(2).replace('.', ',')}M</td>
+                      <td style="font-size:11px;">
+                        ${hasDeb
+                          ? `<strong style="color:#065F46; font-family:var(--font-mono);">R$ ${formatNumberBR(p.debenture_vol_mm)} MM</strong>
+                             <div style="font-size:10px; color:var(--text-secondary); line-height:1.25;">${escapeHtml(String(p.debenture_emissor || '').slice(0, 38))}${p.agente_fiduciario ? ` • AF: ${escapeHtml(String(p.agente_fiduciario).split(' ')[0])}` : ''}</div>`
+                          : `<span style="color:var(--text-muted); font-size:10.5px;">Project Finance BNDES/BNB ou Bilaterais</span>`}
                       </td>
                       <td style="text-align:center; white-space:nowrap;">
                         <div style="display:inline-flex; gap:4px;">
-                          <a href="${escapeHtml(aneelUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:3px 7px; font-size:10px;" title="Pesquisar controlador, SPE e debêntures">SPE / Dívida ↗</a>
-                          <a href="${escapeHtml(lnkUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:3px 7px; font-size:10px;" title="Buscar CFO / Diretoria no LinkedIn">LinkedIn ↗</a>
+                          ${p.deal_id ? `<button type="button" class="btn-action" style="padding:3px 7px; font-size:10px;" onclick="openDossier(${Number(p.deal_id)})">Ficha</button>` : ''}
+                          <button type="button" class="btn-solid" style="padding:3px 7px; font-size:10px;" onclick="openCalculatorForCurtailmentPlant(${idx})" title="Modelar impacto de ICSD e proposta para este complexo">⚡ Modelar</button>
+                          <a href="${escapeHtml(aneelUrl)}" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration:none; padding:3px 6px; font-size:10px;" title="Consultar outorga e escrituras">↗</a>
                         </div>
                       </td>
                     </tr>
@@ -6526,7 +6713,7 @@ function setProcessFilter(proc) {
 }
 
 function handleSearch(val) {
-  searchTerm = String(val || '').trim().toLowerCase();
+  searchTerm = normalizeTextNoAccents(val || '');
   currentPage = 1;
   if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
   searchDebounceTimer = setTimeout(() => {
@@ -6962,13 +7149,28 @@ function calibrateAdvisoryDefaultsForDeal(d) {
     pitchMandateType = 'Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)';
     pitchTargetRecipient = 'Acionistas Controladores & Diretoria Financeira (CFO)';
   }
+
+  modelDipTargetMM = Math.max(10, Math.round(Number(d.model_params?.dip_necessidade_mm || passivo * 0.12)));
+  modelUpiTargetMM = Math.max(15, Math.round(Number(d.model_params?.upi_valuation_estimado_mm || passivo * 0.35)));
+
+  // Calibra automaticamente simuladores de 13 Semanas e ICSD/PGFN para o porte real do caso
+  sim13wState.caixaInicialMM = Math.max(5, Math.round(passivo * 0.045 * 10) / 10);
+  sim13wState.geracaoOperSemMM = Math.max(0.8, Math.round(passivo * 0.0075 * 10) / 10);
+  sim13wState.servicoDividaSemMM = Math.max(1.2, Math.round(passivo * 0.0105 * 10) / 10);
+  sim13wState.dipChequeMM = modelDipTargetMM;
+  sim13wState.valorColateralDipMM = Math.round(modelDipTargetMM * 2.0);
+
+  simIcsdState.ebitdaNormMM = Math.max(12, Math.round(passivo * 0.14));
+  simIcsdState.capexManutMM = Math.max(3, Math.round(passivo * 0.032));
 }
 
 function computeAdvisoryFeeMetrics() {
   const passivoMM = Math.max(1, Number(modelCustomPassivo || 100));
   const haircutPct = Math.min(99, Math.max(0, Number(modelHaircutPct || 0)));
+  const npvGainPct = Math.min(95, Math.max(5, Number(modelNpvGainPct || 42)));
   const recupPct = Math.max(0, Number((100 - haircutPct).toFixed(2)));
   const economiaMM = (passivoMM * haircutPct) / 100.0;
+  const economiaVplMM = (passivoMM * npvGainPct) / 100.0;
   const creditoRecupMM = (passivoMM * recupPct) / 100.0;
   const creditorExposureMM = Math.max(1, Number(pitchCreditorExposureMM || Math.round(passivoMM * 0.25)));
   const creditorRecoveredMM = (creditorExposureMM * recupPct) / 100.0;
@@ -6978,52 +7180,89 @@ function computeAdvisoryFeeMetrics() {
   let baseShortLabel = 'Passivo Total';
   if (modelFeeBasis === 'haircut_economia') {
     baseCalculoMM = economiaMM;
-    baseLabel = `Economia / Redução de Dívida Obtida (Debtor-Side — Haircut ${haircutPct}%)`;
-    baseShortLabel = `Economia Debtor (Haircut ${haircutPct}%)`;
+    baseLabel = `Economia Nominal de Dívida Obtida (Haircut ${haircutPct}%)`;
+    baseShortLabel = `Economia Nominal (${haircutPct}%)`;
+  } else if (modelFeeBasis === 'vpl_reducao') {
+    baseCalculoMM = economiaVplMM;
+    baseLabel = `Ganho em VPL / Desconto Econômico de Alongamento (${npvGainPct}% VPL)`;
+    baseShortLabel = `Economia em VPL (${npvGainPct}%)`;
   } else if (modelFeeBasis === 'credito_recuperado') {
     baseCalculoMM = creditorRecoveredMM;
     baseLabel = `Crédito Recuperado pelo Credor (${recupPct}% s/ Exposição R$ ${formatNumberBR(creditorExposureMM)}M)`;
-    baseShortLabel = `Créd. Recuperado Credor (${recupPct}%)`;
+    baseShortLabel = `Créd. Recuperado (${recupPct}%)`;
   }
 
   const retainerMensalMil = Math.max(0, Number(pitchRetainerMensal || 0));
+  const signingFeeMil = Math.max(0, Number(modelSigningFeeMil || 0));
   const mesesMandato = Math.max(1, Number(modelMandateMonths || 12));
-  const retainerTotalMM = (retainerMensalMil * mesesMandato) / 1000.0;
+  const retainerTotalMM = ((retainerMensalMil * mesesMandato) + signingFeeMil) / 1000.0;
 
-  const successFeePct = Math.max(0, Number(pitchSuccessFeePct || 0));
-  const successBrutoMM = (baseCalculoMM * successFeePct) / 100.0;
+  let successFeePct = Math.max(0, Number(pitchSuccessFeePct || 0));
+  let successBrutoMM = 0;
+
+  if (modelUseRatchet && (modelFeeBasis === 'haircut_economia' || modelFeeBasis === 'vpl_reducao')) {
+    const effRedPct = modelFeeBasis === 'vpl_reducao' ? npvGainPct : haircutPct;
+    const t1MM = passivoMM * (Math.min(30, effRedPct) / 100.0);
+    const t2MM = passivoMM * (Math.max(0, Math.min(50, effRedPct) - 30) / 100.0);
+    const t3MM = passivoMM * (Math.max(0, effRedPct - 50) / 100.0);
+    successBrutoMM = (t1MM * (Number(modelRatchetT1Pct || 1.5) / 100.0))
+      + (t2MM * (Number(modelRatchetT2Pct || 2.5) / 100.0))
+      + (t3MM * (Number(modelRatchetT3Pct || 3.5) / 100.0));
+    successFeePct = baseCalculoMM > 0 ? (successBrutoMM / baseCalculoMM) * 100.0 : successFeePct;
+  } else {
+    successBrutoMM = (baseCalculoMM * successFeePct) / 100.0;
+  }
 
   const offsetPct = Math.min(100, Math.max(0, Number(modelRetainerOffsetPct || 0)));
   const offsetDeduzidoMM = Math.min(successBrutoMM, retainerTotalMM * (offsetPct / 100.0));
-  const successLiquidoMM = Math.max(0, successBrutoMM - offsetDeduzidoMM);
+  const successLiquidoCoreMM = Math.max(0, successBrutoMM - offsetDeduzidoMM);
+
+  const dipFeeMM = (Math.max(0, Number(modelDipTargetMM || 0)) * Math.max(0, Number(modelDipFeePct || 0))) / 100.0;
+  const upiFeeMM = (Math.max(0, Number(modelUpiTargetMM || 0)) * Math.max(0, Number(modelUpiFeePct || 0))) / 100.0;
+  const tranchesExtrasMM = dipFeeMM + upiFeeMM;
+  const successLiquidoMM = successLiquidoCoreMM + tranchesExtrasMM;
+
+  const milestoneStandstillPct = Math.min(60, Math.max(0, Number(modelMilestoneStandstillPct || 25)));
+  const successNoStandstillMM = successLiquidoCoreMM * (milestoneStandstillPct / 100.0);
+  const successNaHomologacaoMM = Math.max(0, successLiquidoCoreMM - successNoStandstillMM);
 
   const totalHonorariosMM = retainerTotalMM + successLiquidoMM;
   const refExposureForTakeRate = modelFeeBasis === 'credito_recuperado' ? creditorExposureMM : passivoMM;
   const takeRatePassivoPct = refExposureForTakeRate > 0 ? (totalHonorariosMM / refExposureForTakeRate) * 100.0 : 0;
   const shareVariavelPct = totalHonorariosMM > 0 ? Math.round((successLiquidoMM / totalHonorariosMM) * 100) : 0;
   const shareFixoPct = 100 - shareVariavelPct;
-  const roiClienteEconomia = totalHonorariosMM > 0
-    ? ((modelFeeBasis === 'credito_recuperado' ? creditorRecoveredMM : economiaMM) / totalHonorariosMM)
-    : 0;
+  const valueCreatedForRoi = modelFeeBasis === 'credito_recuperado'
+    ? creditorRecoveredMM
+    : (modelFeeBasis === 'vpl_reducao' ? economiaVplMM : economiaMM);
+  const roiClienteEconomia = totalHonorariosMM > 0 ? (valueCreatedForRoi / totalHonorariosMM) : 0;
 
   return {
     passivoMM,
     creditorExposureMM,
     creditorRecoveredMM,
     haircutPct,
+    npvGainPct,
     recupPct,
     economiaMM,
+    economiaVplMM,
     creditoRecupMM,
     baseCalculoMM,
     baseLabel,
     baseShortLabel,
     retainerMensalMil,
+    signingFeeMil,
     mesesMandato,
     retainerTotalMM,
     successFeePct,
     successBrutoMM,
     offsetPct,
     offsetDeduzidoMM,
+    dipFeeMM,
+    upiFeeMM,
+    tranchesExtrasMM,
+    milestoneStandstillPct,
+    successNoStandstillMM,
+    successNaHomologacaoMM,
     successLiquidoMM,
     totalHonorariosMM,
     takeRatePassivoPct,
@@ -7051,7 +7290,17 @@ function openCalculatorForDeal(dealId) {
   const d = DEALS_DATA.find(x => x.id === selectedModelDealId);
   if (d) calibrateAdvisoryDefaultsForDeal(d);
   switchMainSection('precificacao', 'calc_haircut');
-  showToast('Caso carregado na Calculadora de Success Fee & Retainer!');
+  showToast('Caso carregado na Calculadora de Honorários & Tranches!');
+}
+
+function openMandateLetterForDeal(dealId) {
+  closeModal();
+  selectedTier0CalcTarget = null;
+  selectedModelDealId = Number(dealId);
+  const d = DEALS_DATA.find(x => x.id === selectedModelDealId);
+  if (d) calibrateAdvisoryDefaultsForDeal(d);
+  switchMainSection('precificacao', 'mandate_letter');
+  showToast('Minuta de Carta-Proposta / Term Sheet (A4) gerada para o caso!');
 }
 
 function openCalculatorForTier0(idx) {
@@ -7101,7 +7350,7 @@ function openCalculatorForTier0(idx) {
   calibrateAdvisoryDefaultsForDeal(selectedTier0CalcTarget);
   modelCustomPassivo = passivoNum;
   modelHaircutPct = 42;
-  modelFeeBasis = 'passivo_total';
+  modelFeeBasis = 'haircut_economia';
   modelMandateMonths = 9;
   modelRetainerOffsetPct = 50;
   pitchMandateType = 'Turnaround Pré-Concursal & Mediação Antecedente (Tier 0)';
@@ -7118,9 +7367,11 @@ function openCalculatorForCvmLead(leadId) {
   if (!lead) return;
   closeModal();
   const qsa = getQsaForCnpj(lead.cnpj);
+  const itrDebt = Number(lead.itr_metrics?.divida_bruta_mm || 0);
+  const craDebt = Number(lead.exposicao_cra_cri_mm || 0);
   const estPassivo = Number(lead.deal_passivo_mm || 0) > 0
     ? Number(lead.deal_passivo_mm)
-    : Math.max(120, Math.min(1800, Math.round((Number(lead.capital_social || 0) / 1e6) * 1.1) || 250));
+    : (itrDebt > 0 ? Math.round(itrDebt) : (craDebt > 0 ? Math.round(craDebt * 1.25) : (Math.max(120, Math.min(1800, Math.round((Number(lead.capital_social || 0) / 1e6) * 1.1) || 250)))));
   const todayIso = getBrazilTodayIso();
 
   selectedTier0CalcTarget = {
@@ -7130,30 +7381,30 @@ function openCalculatorForCvmLead(leadId) {
     setor_macro: (qsa && qsa.cnae) ? qsa.cnae.slice(0, 48) : 'Mercado de Capitais / Special Situations',
     uf: lead.uf || (qsa && qsa.uf) || 'SP',
     cidade: lead.municipio || (qsa && qsa.municipio) || 'São Paulo',
-    tribunal: 'CVM Dados Abertos — Documentos Eventuais (IPE 2026)',
-    processo: `${lead.categoria_cvm || 'IPE CVM'} (${lead.data_entrega || todayIso})`,
-    fase: `Sinal Pré-Mídia CVM — ${lead.signal_type}`,
+    tribunal: `Radar Pré-Mídia Oficial (${lead.source || 'CVM 2026'})`,
+    processo: `${lead.categoria_cvm || 'CVM'} (${lead.data_entrega || todayIso})`,
+    fase: `Sinal Pré-Mídia — ${lead.signal_type}`,
     tier: 'Tier 0 (CVM)',
     score: Math.min(9.9, Number((Number(lead.fit_score || 85) / 10).toFixed(1))),
     fit_score: Number(lead.fit_score || 85),
     fit_tier: Number(lead.fit_score || 85) >= 78 ? 'Alta Aderência' : 'Aderente',
-    fit_reasons: ['CVM IPE 2026', lead.signal_type, `${lead.filing_count || 1}x em 120d`, !lead.in_pipeline ? 'Lead Novo Pré-Mídia' : 'Em Monitoramento'],
+    fit_reasons: [lead.source || 'CVM 2026', lead.signal_type, !lead.in_pipeline ? 'Lead Inédito Pré-Mídia' : 'Em Monitoramento'],
     tipo_processo: 'Tier 0',
     subtipo_processo: lead.signal_type,
     passivo_mm: estPassivo,
     data_evento: lead.data_entrega || todayIso,
     data_adicao: todayIso,
-    credores: 'Debenturistas, Agentes Fiduciários, Bancos Relacionais e Investidores Institucionais',
+    credores: lead.securitizadora ? `Investidores de CRA/CRI (${lead.securitizadora}) e Bancos` : 'Debenturistas, Agentes Fiduciários, Bancos Relacionais e Investidores Institucionais',
     perfil_passivo: `${lead.categoria_cvm || 'Emissão CVM'} — ${lead.assunto}`,
-    agentes_fiduciarios: 'Monitoramento via Escrituras & Atas AGD CVM',
-    securitizadoras: 'Mercado de Capitais (Debêntures / CRI / CRA)',
+    agentes_fiduciarios: lead.agente_fiduciario || 'Monitoramento via Escrituras & Atas AGD CVM',
+    securitizadoras: lead.securitizadora || 'Mercado de Capitais (Debêntures / CRI / CRA)',
     advocacia: 'Mandato Preventivo em Prospecção',
     aj: 'Não aplicável (Fase Pré-Processual / CVM)',
-    proximas_acoes: `Abordagem estruturada na janela de ${lead.signal_type}: análise da escritura, contato via credores/fiduciários ou diretoria (QSA) para reperfilamento, standstill ou carve-out.`,
-    tese: `(1) Contexto e Causa da Crise: Sinal oficial CVM (${lead.data_entrega}) classificado em ${lead.signal_type}: ${lead.assunto}. (2) Gargalo Imediato: Recorrência de ${lead.filing_count || 1} documento(s) eventual(is) nos últimos 120 dias pressionando cronograma de amortização/covenants. (3) Tese de Mandato: Assessoria financeira independente em renegociação de debêntures, waiver/PIK, funding estruturado ou carve-out de ativos non-core.`,
-    descricao_empresa: `${lead.empresa} — companhia monitorada via CVM IPE 2026 (${lead.signal_type}). ${qsa && qsa.cnae ? `Atividade principal: ${qsa.cnae}.` : ''}`,
+    proximas_acoes: `Abordagem estruturada na janela de ${lead.signal_type}: diagnóstico de caixa de 13 semanas, standstill com fiduciários/securitizadoras e reperfilamento preventivo.`,
+    tese: `(1) Contexto e Causa da Crise: Sinal oficial CVM (${lead.data_entrega}) classificado em ${lead.signal_type}: ${lead.assunto}. (2) Gargalo Imediato: Pressão de liquidez de curto prazo e covenants/amortizações iminentes antes do ajuizamento concursal. (3) Tese de Mandato: Assessoria financeira independente em renegociação estruturada, waiver/PIK, funding DIP/ponte ou carve-out de ativos non-core.`,
+    descricao_empresa: `${lead.empresa} — companhia monitorada via ${lead.source || 'CVM 2026'} (${lead.signal_type}). ${qsa && qsa.cnae ? `Atividade principal: ${qsa.cnae}.` : ''}`,
     model_params: {
-      haircut_estimado_pct: 35,
+      haircut_estimado_pct: 38,
       desconto_secundario_pct: 28,
       ev_estimado_mm: Math.round(estPassivo * 0.72),
       liquidez_forcada_desconto_pct: 35,
@@ -7162,16 +7413,16 @@ function openCalculatorForCvmLead(leadId) {
   };
   calibrateAdvisoryDefaultsForDeal(selectedTier0CalcTarget);
   modelCustomPassivo = estPassivo;
-  modelHaircutPct = 35;
-  modelFeeBasis = 'passivo_total';
+  modelHaircutPct = 38;
+  modelFeeBasis = 'haircut_economia';
   modelMandateMonths = 9;
   modelRetainerOffsetPct = 50;
   pitchMandateType = 'Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)';
-  pitchTargetRecipient = 'Diretoria Financeira (CFO), Conselho de Administração & Debenturistas';
-  pitchRetainerMensal = Math.max(70, Math.min(220, Math.round(modelCustomPassivo * 0.35)));
-  pitchSuccessFeePct = 2.0;
+  pitchTargetRecipient = 'Diretoria Financeira (CFO), Conselho de Administração & Credores';
+  pitchRetainerMensal = Math.max(70, Math.min(220, Math.round(modelCustomPassivo * 0.12)));
+  pitchSuccessFeePct = 2.25;
   switchMainSection('precificacao', 'pitch_pptx');
-  showToast(`Lead CVM carregado no Estúdio de Pitch (.pptx): ${lead.empresa}!`);
+  showToast(`Lead pré-mídia carregado no Estúdio de Pitch (.pptx + 16:9): ${lead.empresa}!`);
 }
 
 function openPitchGeneratorForDeal(dealId) {
@@ -7181,34 +7432,45 @@ function openPitchGeneratorForDeal(dealId) {
   const d = DEALS_DATA.find(x => x.id === selectedModelDealId);
   if (d) calibrateAdvisoryDefaultsForDeal(d);
   switchMainSection('precificacao', 'pitch_pptx');
-  showToast('Caso carregado no Gerador de Proposta Comercial (.pptx)!');
+  showToast('Caso carregado no Estúdio de Pitch (.pptx + Live 16:9)!');
 }
 
 function buildFeeCalculatorRightPaneHtml(m) {
-  const feeRateScenarios = [0.75, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0];
+  const feeRateScenarios = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0];
   const takeRateLabel = modelFeeBasis === 'credito_recuperado' ? 's/ Exposição Credor' : 's/ Passivo Total';
   const refDenom = modelFeeBasis === 'credito_recuperado' ? m.creditorExposureMM : m.passivoMM;
   return `
     <div class="calc-results-strip">
       <div class="calc-res-card">
-        <div class="calc-res-label result-kpi-label">Retainer Fixo Acumulado</div>
+        <div class="calc-res-label result-kpi-label">Retainer + Signing Fixo</div>
         <div class="calc-res-val">R$ ${m.retainerTotalMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
-        <div class="calc-res-sub">R$ ${m.retainerMensalMil} mil/mês &times; ${m.mesesMandato} meses (${m.shareFixoPct}% do Total)</div>
+        <div class="calc-res-sub">R$ ${m.retainerMensalMil}k &times; ${m.mesesMandato}m${m.signingFeeMil > 0 ? ` + R$ ${m.signingFeeMil}k D+0` : ''} (${m.shareFixoPct}%)</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label result-kpi-label">Success Fee Bruto (${m.successFeePct.toFixed(2).replace('.', ',')}%)</div>
+        <div class="calc-res-label result-kpi-label">${modelUseRatchet ? 'Success Ratchet Progressivo' : `Success Bruto (${m.successFeePct.toFixed(2).replace('.', ',')}%)`}</div>
         <div class="calc-res-val">R$ ${m.successBrutoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
         <div class="calc-res-sub">Base: R$ ${m.baseCalculoMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M (${escapeHtml(m.baseShortLabel)})</div>
       </div>
       <div class="calc-res-card">
-        <div class="calc-res-label result-kpi-label">Success Fee Líquido (Pós-Offset)</div>
+        <div class="calc-res-label result-kpi-label">Êxito Líquido + Tranches DIP/UPI</div>
         <div class="calc-res-val" style="color:var(--vk-teal);">R$ ${m.successLiquidoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
-        <div class="calc-res-sub">Abatimento (${m.offsetPct}% Retainer): &minus;R$ ${m.offsetDeduzidoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
+        <div class="calc-res-sub">Offset (&minus;R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')}M)${m.tranchesExtrasMM > 0 ? ` + DIP/UPI R$ ${m.tranchesExtrasMM.toFixed(2).replace('.', ',')}M` : ''}</div>
       </div>
-      <div class="calc-res-card">
-        <div class="calc-res-label result-kpi-label">Honorários Totais do Mandato</div>
+      <div class="calc-res-card" style="border-top:3px solid #065F46;">
+        <div class="calc-res-label result-kpi-label">Honorários Totais &amp; ROI Cliente</div>
         <div class="calc-res-val" style="color:#065F46;">R$ ${m.totalHonorariosMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</div>
-        <div class="calc-res-sub">Take Rate: <strong>${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}%</strong> ${takeRateLabel} (${m.shareVariavelPct}% Êxito)</div>
+        <div class="calc-res-sub">Take Rate: <strong>${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}%</strong> &bull; <strong style="color:#065F46;">ROI Cliente: ${m.roiClienteEconomia.toFixed(1).replace('.', ',')}x</strong></div>
+      </div>
+    </div>
+
+    <div style="background:#ECEFE4; border:1px solid #C8CEB0; border-left:4px solid #063630; border-radius:6px; padding:9px 14px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; font-size:11.5px;">
+      <div>
+        <strong style="color:var(--vk-forest);"> Marcos de Desembolso do Êxito &amp; Proteção Art. 84 LRF:</strong>
+        <span>${m.milestoneStandstillPct}% no Standstill/Protocolo (<strong>R$ ${m.successNoStandstillMM.toFixed(2).replace('.', ',')}M</strong>) + ${100 - m.milestoneStandstillPct}% na Homologação (<strong>R$ ${m.successNaHomologacaoMM.toFixed(2).replace('.', ',')}M</strong>)${m.tranchesExtrasMM > 0 ? ` + Tranches DIP/UPI no Closing (<strong>R$ ${m.tranchesExtrasMM.toFixed(2).replace('.', ',')}M</strong>)` : ''}.</span>
+      </div>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="selectSubTab('mandate_letter')">📝 Gerar Carta-Proposta A4</button>
+        <button type="button" class="btn-solid" style="padding:4px 10px; font-size:11px;" onclick="selectSubTab('pitch_pptx')">📊 Abrir Estúdio .PPTX</button>
       </div>
     </div>
 
@@ -7217,9 +7479,9 @@ function buildFeeCalculatorRightPaneHtml(m) {
         <div class="chart-panel-header">
           <div>
             <h3>Composição da Remuneração da Assessoria (R$ MM)</h3>
-            <p>Retainer Fixo Acumulado vs. Success Fee Bruto, Abatimento (Offset) e Remuneração Total</p>
+            <p>Fixo Acumulado vs. Success Bruto, Offset, Tranches (DIP/UPI) e Honorários Totais</p>
           </div>
-          <span class="chart-tag">ESTRUTURA DE FEE</span>
+          <span class="chart-tag">ROI ${m.roiClienteEconomia.toFixed(1).replace('.', ',')}x P/ CLIENTE</span>
         </div>
         <div class="chart-canvas-box" style="height:245px;"><canvas id="chartSimpleRecovery"></canvas></div>
       </div>
@@ -7228,7 +7490,7 @@ function buildFeeCalculatorRightPaneHtml(m) {
         <div class="chart-panel-header">
           <div>
             <h3>Matriz de Sensibilidade de Success Fee (${escapeHtml(m.baseShortLabel)})</h3>
-            <p>Simulação de honorários totais líquidos por faixa de taxa de êxito (com Offset de ${m.offsetPct}%)</p>
+            <p>Simulação de honorários totais líquidos e múltiplo de ROI de economia p/ o cliente</p>
           </div>
           <span class="chart-tag">BENCHMARK MANDATO</span>
         </div>
@@ -7236,28 +7498,29 @@ function buildFeeCalculatorRightPaneHtml(m) {
           <table class="clean-table" style="font-size:11.5px;">
             <thead>
               <tr>
-                <th>Success Fee (%)</th>
-                <th style="text-align:right;">Fee Bruto (R$ MM)</th>
-                <th style="text-align:right;">Success Líq. (R$ MM)</th>
-                <th style="text-align:right;">Honorários Totais</th>
-                <th style="text-align:right;">% Efetivo (${takeRateLabel})</th>
+                <th>Taxa (%)</th>
+                <th style="text-align:right;">Success Líq.</th>
+                <th style="text-align:right;">Fee Total (+DIP/UPI)</th>
+                <th style="text-align:right;">Take Rate</th>
+                <th style="text-align:right;">ROI Cliente</th>
               </tr>
             </thead>
             <tbody>
               ${feeRateScenarios.map(rate => {
                 const sBruto = (m.baseCalculoMM * rate) / 100.0;
                 const sDed = Math.min(sBruto, m.retainerTotalMM * (m.offsetPct / 100.0));
-                const sLiq = Math.max(0, sBruto - sDed);
+                const sLiq = Math.max(0, sBruto - sDed) + m.tranchesExtrasMM;
                 const totFee = m.retainerTotalMM + sLiq;
                 const effPct = refDenom > 0 ? (totFee / refDenom) * 100.0 : 0;
-                const isCurrent = Math.abs(rate - m.successFeePct) < 0.15;
+                const roiX = totFee > 0 ? (m.economiaMM / totFee) : 0;
+                const isCurrent = Math.abs(rate - m.successFeePct) < 0.22;
                 return `
                   <tr style="${isCurrent ? 'background:#DCE7E7; font-weight:700;' : ''}">
                     <td style="font-family:var(--font-mono);">${rate.toFixed(2).replace('.', ',')}%</td>
-                    <td style="text-align:right; font-family:var(--font-mono);">R$ ${sBruto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</td>
                     <td style="text-align:right; font-family:var(--font-mono); color:var(--vk-teal);">R$ ${sLiq.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</td>
                     <td style="text-align:right; font-family:var(--font-mono); color:#065F46; font-weight:800;">R$ ${totFee.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</td>
                     <td style="text-align:right; font-family:var(--font-mono);">${effPct.toFixed(2).replace('.', ',')}%</td>
+                    <td style="text-align:right; font-family:var(--font-mono); font-weight:700; color:#065F46;">${roiX.toFixed(1).replace('.', ',')}x</td>
                   </tr>
                 `;
               }).join('')}
@@ -7277,10 +7540,10 @@ function drawFeeCalculatorChart(m) {
       type: 'bar',
       data: {
         labels: [
-          `Retainer (${m.mesesMandato}m)`,
-          `Success Bruto (${m.successFeePct.toFixed(2).replace('.', ',')}%)`,
-          `Offset Retainer (-${m.offsetPct}%)`,
-          `Success Líquido`,
+          `Fixo (${m.mesesMandato}m)`,
+          `Success Bruto`,
+          `Offset (-${m.offsetPct}%)`,
+          `DIP + UPI Fee`,
           `Honorários Totais`
         ],
         datasets: [{
@@ -7289,10 +7552,10 @@ function drawFeeCalculatorChart(m) {
             Number(m.retainerTotalMM.toFixed(2)),
             Number(m.successBrutoMM.toFixed(2)),
             Number(m.offsetDeduzidoMM.toFixed(2)),
-            Number(m.successLiquidoMM.toFixed(2)),
+            Number(m.tranchesExtrasMM.toFixed(2)),
             Number(m.totalHonorariosMM.toFixed(2))
           ],
-          backgroundColor: ['#38686A', '#A5AC82', '#9F1239', '#0284C7', '#063630'],
+          backgroundColor: ['#38686A', '#A5AC82', '#9F1239', '#D97706', '#063630'],
           borderRadius: 6
         }]
       },
@@ -7320,18 +7583,32 @@ function parseNonDestructiveDecimal(rawVal) {
 function updateSimpleCalcLive(field, val) {
   if (field === 'basis') {
     modelFeeBasis = String(val);
-    const expWrap = document.getElementById('creditorExposureFieldWrap');
-    if (expWrap) expWrap.style.display = modelFeeBasis === 'credito_recuperado' ? 'block' : 'none';
+    renderSectionContent();
+    return;
+  } else if (field === 'use_ratchet') {
+    modelUseRatchet = Boolean(val);
+    renderSectionContent();
+    return;
   } else {
     const num = parseNonDestructiveDecimal(val);
     if (num === null || isNaN(num)) return;
     if (field === 'passivo' || field === 'credito') modelCustomPassivo = Math.max(1, num);
     else if (field === 'creditor_exposure') pitchCreditorExposureMM = Math.max(1, num);
     else if (field === 'haircut') modelHaircutPct = Math.min(99, Math.max(0, num));
+    else if (field === 'npv_gain') modelNpvGainPct = Math.min(95, Math.max(5, num));
     else if (field === 'retainer') pitchRetainerMensal = Math.max(0, num);
+    else if (field === 'signing_mil') modelSigningFeeMil = Math.max(0, num);
     else if (field === 'meses') modelMandateMonths = Math.min(60, Math.max(1, Math.round(num)));
     else if (field === 'success_pct') pitchSuccessFeePct = Math.min(25, Math.max(0, num));
+    else if (field === 'ratchet_t1') modelRatchetT1Pct = Math.min(15, Math.max(0, num));
+    else if (field === 'ratchet_t2') modelRatchetT2Pct = Math.min(15, Math.max(0, num));
+    else if (field === 'ratchet_t3') modelRatchetT3Pct = Math.min(20, Math.max(0, num));
     else if (field === 'offset_pct') modelRetainerOffsetPct = Math.min(100, Math.max(0, num));
+    else if (field === 'dip_fee_pct') modelDipFeePct = Math.min(15, Math.max(0, num));
+    else if (field === 'dip_target_mm') modelDipTargetMM = Math.max(0, num);
+    else if (field === 'upi_fee_pct') modelUpiFeePct = Math.min(15, Math.max(0, num));
+    else if (field === 'upi_target_mm') modelUpiTargetMM = Math.max(0, num);
+    else if (field === 'milestone_pct') modelMilestoneStandstillPct = Math.min(60, Math.max(0, Math.round(num)));
   }
 
   const m = computeAdvisoryFeeMetrics();
@@ -7344,12 +7621,6 @@ function updateSimpleCalcLive(field, val) {
   if (bBasis) bBasis.textContent = `R$ ${m.baseCalculoMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} MM`;
   const bHaircut = document.getElementById('badge-fee-haircut');
   if (bHaircut) bHaircut.textContent = `Recup. Implícita: ${m.recupPct}%`;
-  const bEconSub = document.getElementById('sub-fee-economia');
-  if (bEconSub) {
-    bEconSub.innerHTML = modelFeeBasis === 'credito_recuperado'
-      ? `<span>Exposição Credor: <strong>R$ ${m.creditorExposureMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Recuperado Credor: <strong>R$ ${m.creditorRecoveredMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`
-      : `<span>Economia: <strong>R$ ${m.economiaMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Dívida Pós-Plano: <strong>R$ ${m.creditoRecupMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`;
-  }
   const bRet = document.getElementById('badge-fee-retainer');
   if (bRet) bRet.textContent = `R$ ${m.retainerMensalMil}k/mês`;
   const bMeses = document.getElementById('badge-fee-meses');
@@ -7377,7 +7648,7 @@ function renderPrecificacaoSection(container) {
     <div class="ons-control-bar" style="background:linear-gradient(90deg, #063630 0%, #0D4B43 100%); color:#E6E9DC; border-radius:10px; padding:14px 18px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
       <div style="min-width:0; max-width:100%;">
         <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-sage); text-transform:uppercase; letter-spacing:0.6px;">
-          CASO SELECIONADO PARA MODELAGEM DIRETA &amp; PROPOSTA COMERCIAL
+          CASO SELECIONADO PARA MODELAGEM DIRETA, SIMULAÇÃO DE SALA &amp; PROPOSTA COMERCIAL
         </div>
         <div style="font-size:15px; font-weight:800; color:#FFFFFF; margin-top:2px; word-break:break-word;">
           ${escapeHtml(d.empresa)} <span style="font-family:var(--font-mono); font-size:12px; color:var(--vk-sage);">(${escapeHtml(d.cnpj)} &bull; Passivo: R$ ${formatNumberBR(d.passivo_mm)} MM &bull; ${escapeHtml(d.subtipo_processo)})</span>
@@ -7397,6 +7668,14 @@ function renderPrecificacaoSection(container) {
     </div>
   `;
 
+  if (currentSubTab === 'sim_caixa_13w') {
+    renderCash13WeekSubmodule(d, selectorBar, container);
+    return;
+  }
+  if (currentSubTab === 'sim_icsd_pgfn') {
+    renderIcsdPgfnSubmodule(d, selectorBar, container);
+    return;
+  }
   if (currentSubTab === 'waterfall_classes') {
     renderWaterfallSubmodule(d, selectorBar, container);
     return;
@@ -7410,6 +7689,10 @@ function renderPrecificacaoSection(container) {
     renderHaircutBenchmarksTable(document.getElementById('benchmarksPrecContainer'));
     return;
   }
+  if (currentSubTab === 'mandate_letter') {
+    renderMandateLetterSubmodule(d, selectorBar, container);
+    return;
+  }
   if (currentSubTab === 'pitch_pptx') {
     renderPitchPptxSubmodule(d, selectorBar, container);
     return;
@@ -7420,8 +7703,8 @@ function renderPrecificacaoSection(container) {
   container.innerHTML = selectorBar + `
     <div class="calc-layout-grid">
       <div class="calc-controls-panel">
-        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border-light);">
-          Parâmetros Digitáveis do Mandato (Retainer &amp; Success Fee)
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-light);">
+          Parâmetros do Mandato (Retainer, Ratchet, VPL &amp; Tranches)
         </div>
 
         <div class="calc-field-group">
@@ -7434,13 +7717,14 @@ function renderPrecificacaoSection(container) {
 
         <div class="calc-field-group">
           <div class="calc-field-label">
-            <span>2. Base de Cálculo do Success Fee</span>
+            <span>2. Base de Incidência do Success Fee</span>
             <span class="val-badge" id="badge-fee-basis">R$ ${m.baseCalculoMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} MM</span>
           </div>
           <select class="clean-select" style="width:100%;" aria-label="Base de Cálculo do Success Fee" onchange="updateSimpleCalcLive('basis', this.value)">
-            <option value="passivo_total" ${modelFeeBasis === 'passivo_total' ? 'selected' : ''}>Debtor-Side: Sobre Passivo Total Reestruturado (100% da Dívida)</option>
-            <option value="haircut_economia" ${modelFeeBasis === 'haircut_economia' ? 'selected' : ''}>Debtor-Side: Sobre Economia / Redução de Dívida Obtida (Haircut)</option>
-            <option value="credito_recuperado" ${modelFeeBasis === 'credito_recuperado' ? 'selected' : ''}>Creditor-Side: Sobre Crédito Efetivamente Recuperado pelo Credor</option>
+            <option value="haircut_economia" ${modelFeeBasis === 'haircut_economia' ? 'selected' : ''}>Debtor-Side: Economia Nominal Obtida (Haircut Face)</option>
+            <option value="vpl_reducao" ${modelFeeBasis === 'vpl_reducao' ? 'selected' : ''}>Debtor-Side: Ganho em VPL (Amend &amp; Extend / Carência + Juros)</option>
+            <option value="passivo_total" ${modelFeeBasis === 'passivo_total' ? 'selected' : ''}>Debtor-Side: Passivo Total Reestruturado (100% da Dívida)</option>
+            <option value="credito_recuperado" ${modelFeeBasis === 'credito_recuperado' ? 'selected' : ''}>Creditor-Side: Crédito Efetivamente Recuperado pelo Credor</option>
           </select>
         </div>
 
@@ -7449,71 +7733,92 @@ function renderPrecificacaoSection(container) {
             <span>2B. Exposição do Credor / Pool Assessorado (R$ MM)</span>
             <span class="val-badge" id="badge-fee-cred-exp">R$ ${formatNumberBR(m.creditorExposureMM)} MM</span>
           </div>
-          <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Exposição do Credor ou Pool Assessorado em R$ milhões" value="${m.creditorExposureMM}" oninput="updateSimpleCalcLive('creditor_exposure', this.value)">
+          <input type="text" inputmode="decimal" class="calc-num-input" value="${m.creditorExposureMM}" oninput="updateSimpleCalcLive('creditor_exposure', this.value)">
         </div>
 
-        <div class="calc-field-group">
-          <div class="calc-field-label">
-            <span>3. Haircut / Deságio Estimado (% Digitável)</span>
-            <span class="val-badge" id="badge-fee-haircut">Recup. Implícita: ${m.recupPct}%</span>
-          </div>
-          <div class="pct-input-wrap">
-            <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Haircut ou Deságio Estimado percentual" value="${m.haircutPct}" oninput="updateSimpleCalcLive('haircut', this.value)">
-            <span class="pct-suffix">%</span>
-          </div>
-          <div id="sub-fee-economia" style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); margin-top:5px;">
-            ${modelFeeBasis === 'credito_recuperado'
-              ? `<span>Exposição Credor: <strong>R$ ${m.creditorExposureMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Recuperado Credor: <strong>R$ ${m.creditorRecoveredMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`
-              : `<span>Economia: <strong>R$ ${m.economiaMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span><span>Dívida Pós-Plano: <strong>R$ ${m.creditoRecupMM.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M</strong></span>`}
-          </div>
-        </div>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        ${modelFeeBasis === 'vpl_reducao' ? `
           <div class="calc-field-group">
             <div class="calc-field-label">
-              <span>4. Retainer (R$ mil/mês)</span>
-              <span class="val-badge" id="badge-fee-retainer">R$ ${m.retainerMensalMil}k/mês</span>
+              <span>3. Redução Econômica em VPL (% Alongamento)</span>
+              <span class="val-badge">${m.npvGainPct}% VPL</span>
             </div>
+            <input type="text" inputmode="decimal" class="calc-num-input" value="${m.npvGainPct}" oninput="updateSimpleCalcLive('npv_gain', this.value)">
+          </div>
+        ` : `
+          <div class="calc-field-group">
+            <div class="calc-field-label">
+              <span>3. Haircut / Deságio Estimado (%)</span>
+              <span class="val-badge" id="badge-fee-haircut">Recup. Implícita: ${m.recupPct}%</span>
+            </div>
+            <div class="pct-input-wrap">
+              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Haircut ou Deságio Estimado percentual" value="${m.haircutPct}" oninput="updateSimpleCalcLive('haircut', this.value)">
+              <span class="pct-suffix">%</span>
+            </div>
+          </div>
+        `}
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Retainer (R$k)</span></div>
             <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Retainer mensal em R$ mil" value="${m.retainerMensalMil}" oninput="updateSimpleCalcLive('retainer', this.value)">
           </div>
-
           <div class="calc-field-group">
-            <div class="calc-field-label">
-              <span>5. Prazo (Meses)</span>
-              <span class="val-badge" id="badge-fee-meses">${m.mesesMandato} meses</span>
-            </div>
+            <div class="calc-field-label"><span>Prazo (m)</span></div>
             <input type="text" inputmode="numeric" class="calc-num-input" aria-label="Prazo estimado em meses" value="${m.mesesMandato}" oninput="updateSimpleCalcLive('meses', this.value)">
           </div>
-        </div>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
           <div class="calc-field-group">
-            <div class="calc-field-label">
-              <span>6. Success Fee (% Digitável)</span>
-              <span class="val-badge" id="badge-fee-success">Bruto: R$ ${m.successBrutoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</span>
-            </div>
-            <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Success Fee percentual" value="${m.successFeePct}" oninput="updateSimpleCalcLive('success_pct', this.value)">
-              <span class="pct-suffix">%</span>
-            </div>
-          </div>
-
-          <div class="calc-field-group">
-            <div class="calc-field-label">
-              <span>7. Offset Retainer (% Digitável)</span>
-              <span class="val-badge" id="badge-fee-offset">Deduz: R$ ${m.offsetDeduzidoMM.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}M</span>
-            </div>
-            <div class="pct-input-wrap">
-              <input type="text" inputmode="decimal" class="calc-num-input" aria-label="Offset Retainer percentual" value="${m.offsetPct}" oninput="updateSimpleCalcLive('offset_pct', this.value)">
-              <span class="pct-suffix">%</span>
-            </div>
+            <div class="calc-field-label"><span>Signing (R$k)</span></div>
+            <input type="text" inputmode="decimal" class="calc-num-input" title="Signing / Mobilization Fee D+0 em R$ mil" value="${m.signingFeeMil}" oninput="updateSimpleCalcLive('signing_mil', this.value)">
           </div>
         </div>
 
-        <div style="background:#FFFFFF; border:1px solid var(--border-light); border-left:3px solid var(--vk-teal); border-radius:6px; padding:11px 12px; margin-top:8px; font-size:11.5px; color:var(--text-secondary);">
-          <strong style="color:var(--vk-header-start); display:block; margin-bottom:4px;">Fórmula Direta de Honorários:</strong>
-          &bull; <strong>Retainer Fixo Total</strong> = R$ mil/mês &times; Prazo em meses<br>
-          &bull; <strong>Success Fee Líquido</strong> = máx(0; (% Success Fee &times; Base) &minus; (% Offset &times; Retainer Total))
+        <div style="margin:6px 0 10px; padding:8px 10px; background:#FFFFFF; border:1px solid var(--border-light); border-radius:6px;">
+          <label style="display:flex; align-items:center; gap:7px; font-size:11.5px; font-weight:700; color:var(--vk-forest); cursor:pointer;">
+            <input type="checkbox" ${modelUseRatchet ? 'checked' : ''} onchange="updateSimpleCalcLive('use_ratchet', this.checked)">
+            Usar Ratchet Progressivo de Êxito (3 Faixas de Alinhamento)
+          </label>
+          ${modelUseRatchet ? `
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-top:8px;">
+              <div><span style="font-size:10px; color:var(--text-muted);">Até 30% (%)</span><input type="text" class="calc-num-input" value="${modelRatchetT1Pct}" oninput="updateSimpleCalcLive('ratchet_t1', this.value)"></div>
+              <div><span style="font-size:10px; color:var(--text-muted);">30–50% (%)</span><input type="text" class="calc-num-input" value="${modelRatchetT2Pct}" oninput="updateSimpleCalcLive('ratchet_t2', this.value)"></div>
+              <div><span style="font-size:10px; color:var(--text-muted);">&gt;50% (%)</span><input type="text" class="calc-num-input" value="${modelRatchetT3Pct}" oninput="updateSimpleCalcLive('ratchet_t3', this.value)"></div>
+            </div>
+          ` : ''}
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Success Fee (%)</span><span class="val-badge" id="badge-fee-success">R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')}M</span></div>
+            <input type="text" inputmode="decimal" class="calc-num-input" ${modelUseRatchet ? 'disabled' : ''} value="${m.successFeePct.toFixed(2)}" oninput="updateSimpleCalcLive('success_pct', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Offset Fixo (%)</span><span class="val-badge" id="badge-fee-offset">&minus;R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')}M</span></div>
+            <input type="text" inputmode="decimal" class="calc-num-input" value="${m.offsetPct}" oninput="updateSimpleCalcLive('offset_pct', this.value)">
+          </div>
+        </div>
+
+        <div style="border-top:1px dashed var(--border-medium); padding-top:10px; margin-top:4px;">
+          <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-teal); text-transform:uppercase; margin-bottom:6px;">
+            Tranches Opcionais (Captação DIP Art. 69-A &amp; Venda de UPI Art. 141)
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div class="calc-field-group" style="margin-bottom:6px;">
+              <div class="calc-field-label"><span>DIP Alvo (R$ MM)</span></div>
+              <input type="text" class="calc-num-input" value="${modelDipTargetMM}" oninput="updateSimpleCalcLive('dip_target_mm', this.value)">
+            </div>
+            <div class="calc-field-group" style="margin-bottom:6px;">
+              <div class="calc-field-label"><span>Fee DIP (%)</span></div>
+              <input type="text" class="calc-num-input" placeholder="Ex: 2.5" value="${modelDipFeePct}" oninput="updateSimpleCalcLive('dip_fee_pct', this.value)">
+            </div>
+            <div class="calc-field-group" style="margin-bottom:0;">
+              <div class="calc-field-label"><span>UPI Alvo (R$ MM)</span></div>
+              <input type="text" class="calc-num-input" value="${modelUpiTargetMM}" oninput="updateSimpleCalcLive('upi_target_mm', this.value)">
+            </div>
+            <div class="calc-field-group" style="margin-bottom:0;">
+              <div class="calc-field-label"><span>Fee M&amp;A/UPI (%)</span></div>
+              <input type="text" class="calc-num-input" placeholder="Ex: 3.0" value="${modelUpiFeePct}" oninput="updateSimpleCalcLive('upi_fee_pct', this.value)">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -8257,18 +8562,37 @@ function applyBenchmarkHaircutToCalc(setorName, haircutNum) {
 
 function renderPitchPptxSubmodule(d, selectorBar, container) {
   const m = computeAdvisoryFeeMetrics();
-  const qsaRec = getQsaForCnpj(d.cnpj);
-  const qsaCount = qsaRec && Array.isArray(qsaRec.qsa) ? qsaRec.qsa.length : 0;
-  const fitVal = Number(d.fit_score || (typeof computeOriginationFitScore === 'function' ? computeOriginationFitScore(d).score : 75));
+  const isClientExternal = pitchDeckMode !== 'internal_ic';
+  const slidesPreview = typeof buildLivePitchSlidesSpec === 'function' ? buildLivePitchSlidesSpec(d, m, isClientExternal) : [];
+  const activeIdx = Math.min(Math.max(0, Number(pitchActiveSlideIdx || 0)), Math.max(0, slidesPreview.length - 1));
+  const activeSlide = slidesPreview[activeIdx] || { num: 1, kicker: 'VALKNUT', title: d.empresa, bodyHtml: '' };
+
   container.innerHTML = selectorBar + `
     <div class="calc-layout-grid">
       <div class="calc-controls-panel">
-        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:12px;">
-          Configurar Proposta Comercial &amp; Honorários (.PPTX)
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:10px;">
+          Configurar Proposta (.PPTX Nativo &amp; Sala 16:9)
         </div>
+
         <div class="calc-field-group">
-          <div class="calc-field-label"><span>Ângulo do Mandato Valknut</span></div>
-          <select class="clean-select" style="width:100%;" aria-label="Ângulo do Mandato Valknut" onchange="pitchMandateType=this.value">
+          <div class="calc-field-label">
+            <span>1. Modo de Governança do Deck</span>
+            <span class="val-badge" style="background:${isClientExternal ? '#ECFDF5' : '#FEF3C7'}; color:${isClientExternal ? '#065F46' : '#92400E'};">${isClientExternal ? 'CLIENT-SAFE' : 'USO INTERNO'}</span>
+          </div>
+          <select class="clean-select" style="width:100%;" aria-label="Modo de Governança da Apresentação" onchange="pitchDeckMode=this.value; renderSectionContent();">
+            <option value="client_external" ${isClientExternal ? 'selected' : ''}>🛡️ Proposta Comercial Externa (Cliente / Conselho / Credor)</option>
+            <option value="internal_ic" ${!isClientExternal ? 'selected' : ''}>🔎 Dossiê Interno de Originação (IC Memo — Mesa Valknut)</option>
+          </select>
+          <div style="font-size:10.5px; color:var(--text-muted); margin-top:4px; line-height:1.35;">
+            ${isClientExternal
+              ? 'Remove Fit Score interno e o Mapa de 3 Portas; insere Governança do Turnaround e 4 Tombstones Setoriais Anonimizados.'
+              : 'Mantém Fit Score de Originação, QSA completo e Estratégia das 3 Portas para comitê interno da mesa.'}
+          </div>
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-field-label"><span>2. Ângulo do Mandato Valknut</span></div>
+          <select class="clean-select" style="width:100%;" aria-label="Ângulo do Mandato Valknut" onchange="pitchMandateType=this.value; renderSectionContent();">
             <option value="Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)" ${pitchMandateType.includes('Debtor') ? 'selected' : ''}>Debtor-Side / Financial Advisory &amp; Turnaround (RJ/PRE)</option>
             <option value="Creditor-Side & Watchdog Independente" ${pitchMandateType.includes('Creditor') && !pitchMandateType.includes('Carve-out') ? 'selected' : ''}>Creditor-Side &amp; Watchdog Independente</option>
             <option value="Estruturação de DIP Financing & M&A Distressed (UPI)" ${pitchMandateType.includes('DIP') ? 'selected' : ''}>Estruturação de DIP Financing &amp; M&amp;A Distressed (UPI)</option>
@@ -8277,13 +8601,15 @@ function renderPitchPptxSubmodule(d, selectorBar, container) {
             <option value="Monetização de Ativos Non-Core (UPIs, Legal Claims, Carbono & Funding Estruturado)" ${pitchMandateType.includes('Non-Core') ? 'selected' : ''}>Monetização de Ativos Non-Core (UPIs, Legal Claims, Carbono &amp; Funding)</option>
           </select>
         </div>
+
         <div class="calc-field-group">
-          <div class="calc-field-label"><span>Destinatário / Cliente-Alvo</span></div>
-          <input type="text" class="calc-num-input" aria-label="Destinatário ou Cliente-Alvo da proposta" value="${escapeHtml(pitchTargetRecipient)}" oninput="pitchTargetRecipient=this.value">
+          <div class="calc-field-label"><span>3. Destinatário / Cliente-Alvo</span></div>
+          <input type="text" class="calc-num-input" aria-label="Destinatário ou Cliente-Alvo da proposta" value="${escapeHtml(pitchTargetRecipient)}" onchange="pitchTargetRecipient=this.value; renderSectionContent();">
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
           <div class="calc-field-group">
-            <div class="calc-field-label"><span>Retainer Mensal (R$ mil)</span><span class="val-badge">R$ ${m.retainerMensalMil}k</span></div>
+            <div class="calc-field-label"><span>Retainer (R$k)</span><span class="val-badge">R$ ${m.retainerMensalMil}k</span></div>
             <input type="number" class="calc-num-input" aria-label="Retainer Mensal em R$ mil" value="${m.retainerMensalMil}" step="5" onchange="pitchRetainerMensal=Number(this.value)||0; renderSectionContent();">
           </div>
           <div class="calc-field-group">
@@ -8291,44 +8617,54 @@ function renderPitchPptxSubmodule(d, selectorBar, container) {
             <input type="number" class="calc-num-input" aria-label="Prazo do mandato em meses" value="${m.mesesMandato}" step="1" onchange="modelMandateMonths=Number(this.value)||12; renderSectionContent();">
           </div>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
           <div class="calc-field-group">
             <div class="calc-field-label"><span>Success Fee (%)</span><span class="val-badge">${m.successFeePct.toFixed(2).replace('.', ',')}%</span></div>
-            <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" aria-label="Success Fee percentual na proposta" value="${m.successFeePct}" step="0.25" onchange="pitchSuccessFeePct=Number(this.value)||0; renderSectionContent();">
-              <span class="pct-suffix">%</span>
-            </div>
+            <input type="number" class="calc-num-input" aria-label="Success Fee percentual na proposta" value="${Number(m.successFeePct.toFixed(2))}" step="0.25" onchange="pitchSuccessFeePct=Number(this.value)||0; renderSectionContent();">
           </div>
           <div class="calc-field-group">
-            <div class="calc-field-label"><span>Offset Retainer (%)</span><span class="val-badge">${m.offsetPct}%</span></div>
-            <div class="pct-input-wrap">
-              <input type="number" class="calc-num-input" aria-label="Offset de Retainer percentual na proposta" value="${m.offsetPct}" step="5" min="0" max="100" onchange="modelRetainerOffsetPct=Number(this.value)||0; renderSectionContent();">
-              <span class="pct-suffix">%</span>
-            </div>
+            <div class="calc-field-label"><span>Offset (%)</span><span class="val-badge">${m.offsetPct}%</span></div>
+            <input type="number" class="calc-num-input" aria-label="Offset de Retainer percentual na proposta" value="${m.offsetPct}" step="5" min="0" max="100" onchange="modelRetainerOffsetPct=Number(this.value)||0; renderSectionContent();">
           </div>
         </div>
-        <button class="btn-solid" style="width:100%; justify-content:center; padding:11px; font-size:13px; margin-top:8px;" onclick="generatePitchDeckPptx('${escapeHtml(String(d.id))}')">
-          📊 Baixar Apresentação Executiva (.PPTX — 8 Slides)
-        </button>
+
+        <div style="display:flex; flex-direction:column; gap:7px; margin-top:6px;">
+          <button type="button" class="btn-solid" style="width:100%; justify-content:center; padding:11px; font-size:12.5px;" onclick="generatePitchDeckPptx('${escapeHtml(String(d.id))}')">
+            📊 Baixar .PPTX Nativo (Tabelas + Gráficos — 8 Slides)
+          </button>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <button type="button" class="btn-action" style="justify-content:center; padding:7px;" onclick="selectSubTab('mandate_letter')">📝 Carta-Proposta A4</button>
+            <button type="button" class="btn-action" style="justify-content:center; padding:7px;" onclick="promptEditAnonymizedTombstones()">🏛️ Editar Tombstones</button>
+          </div>
+        </div>
       </div>
 
       <div class="chart-panel">
         <div class="chart-panel-header">
           <div>
-            <h3>Estrutura dos 8 Slides Institucionais Gerados (16:9 Widescreen)</h3>
-            <p>Design corporativo Valknut (#063630 / #9EA581 / #F4F5F2) sincronizado com QSA, Fit Score e Calculadora de Honorários</p>
+            <h3>Palco Ao Vivo 16:9 — ${isClientExternal ? 'Proposta Externa (Client-Safe)' : 'Dossiê Interno (IC Memo)'}</h3>
+            <p>Apresente direto na reunião (Zoom/Teams) ou exporte em PowerPoint nativo com gráficos Waterfall &amp; Debt Bridge</p>
           </div>
-          <span class="chart-tag">PPTXGENJS &bull; 8 SLIDES</span>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button type="button" class="btn-action" style="padding:4px 9px; font-size:11px;" onclick="stepPitchSlide(-1)">&lsaquo;</button>
+            <span class="chart-tag">SLIDE ${activeIdx + 1} / ${slidesPreview.length || 8}</span>
+            <button type="button" class="btn-action" style="padding:4px 9px; font-size:11px;" onclick="stepPitchSlide(1)">&rsaquo;</button>
+            <button type="button" class="btn-solid" style="padding:4px 10px; font-size:11px;" onclick="enterPitchFullscreenStage()">🖥️ Tela Cheia</button>
+          </div>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; font-size:12px;">
-          <div class="dossier-cell"><strong>Slide 1 — Capa Institucional:</strong> VALKNUT SPECIAL SITUATIONS, Caso ${escapeHtml(d.empresa)} e Destinatário.</div>
-          <div class="dossier-cell"><strong>Slide 2 — Executive Summary &amp; Perfil:</strong> Introdução da empresa, CNPJ, Juízo e Passivo (R$ ${formatNumberBR(d.passivo_mm)} MM).</div>
-          <div class="dossier-cell"><strong>Slide 3 — Diagnóstico Forense (3 Pilares):</strong> Causa Raiz, Gargalo Imediato e Tese de Mandato.</div>
-          <div class="dossier-cell"><strong>Slide 4 — Mapa de Credores &amp; Stakeholders:</strong> Bancos, Agentes Fiduciários e Securitizadoras.</div>
-          <div class="dossier-cell" style="border-left:3px solid var(--vk-olive);"><strong>Slide 5 — Governança, QSA &amp; Estratégia de Entrada:</strong> Fit de Originação (${fitVal}/100), ${qsaCount > 0 ? `${qsaCount} sócios/diretores QSA mapeados` : 'governança societária'} e mapa de 3 portas de acesso.</div>
-          <div class="dossier-cell"><strong>Slide 6 — Modelagem do Plano &amp; Economia Gerada:</strong> Passivo Alvo (R$ ${formatNumberBR(m.passivoMM)}M), Haircut Projetado (${m.haircutPct}%) e Economia de R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM.</div>
-          <div class="dossier-cell"><strong>Slide 7 — Cronograma Processual &amp; Prazos:</strong> Marcos da Lei 11.101/05, fatos relevantes e plano de trabalho de ${m.mesesMandato} meses.</div>
-          <div class="dossier-cell"><strong>Slide 8 — Proposta de Honorários:</strong> Retainer R$ ${m.retainerMensalMil}k/mês (${m.mesesMandato}m) + Success Fee ${m.successFeePct.toFixed(2).replace('.', ',')}% (Offset ${m.offsetPct}%) = <strong>R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM</strong>.</div>
+
+        <div class="pitch-live-stage-wrap">
+          <div class="pitch-slide-canvas-16x9" id="pitchLiveStageCanvas">
+            ${activeSlide.bodyHtml}
+          </div>
+          <div class="pitch-thumb-strip" role="tablist" aria-label="Miniaturas dos 8 Slides">
+            ${slidesPreview.map((sl, i) => `
+              <button type="button" class="pitch-thumb-btn ${i === activeIdx ? 'active' : ''}" onclick="pitchActiveSlideIdx=${i}; renderSectionContent();" title="${escapeHtml(sl.title)}">
+                ${i + 1}. ${escapeHtml(sl.shortTab)}
+              </button>
+            `).join('')}
+          </div>
         </div>
       </div>
     </div>
@@ -8359,38 +8695,35 @@ async function generatePitchDeckPptx(dealId) {
     return (!s || s === 'undefined' || s === 'null') ? fb : s;
   };
 
+  const isClientExternal = pitchDeckMode !== 'internal_ic';
   const empresaNome = safeStr(d.empresa, 'Caso em Monitoramento');
   const cnpjTxt = safeStr(d.cnpj, 'Em apuração cadastral');
   const setorTxt = safeStr(d.setor_macro, 'Corporate / Special Situations');
   const cidadeTxt = safeStr(d.cidade, 'São Paulo');
   const ufTxt = safeStr(d.uf, 'SP');
-  const descEmpresa = safeStr(d.descricao_empresa, `${empresaNome} — operação monitorada pela mesa Valknut Special Situations no segmento de ${setorTxt}.`);
-  const faseTxt = safeStr(d.fase, 'Sinal Precursor (Tier 0)');
-  const tribunalTxt = safeStr(d.tribunal, 'Monitoramento Pré-Processual / CVM');
-  const processoTxt = safeStr(d.processo, 'Monitoramento Extrajudicial / Pré-RJ');
-  const tierTxt = safeStr(d.tier, 'Tier 0');
-  const advTxt = safeStr(d.advocacia, 'Mandato Preventivo em Prospecção');
-  const ajTxt = safeStr(d.aj, 'Não aplicável (Fase Pré-Processual)');
-  const credoresTxt = safeStr(d.credores, 'Credores financeiros, mercado de capitais e fornecedores estratégicos em mapeamento.');
-  const perfilPassivoTxt = safeStr(d.perfil_passivo, 'Passivo financeiro e operacional sujeito a reperfilamento estruturado.');
-  const afTxt = safeStr(d.agentes_fiduciarios, 'N/A / Em levantamento de escrituras');
-  const secTxt = safeStr(d.securitizadoras, 'Sem securitizadora reportada / Crédito Bancário Direto');
-  const proxAcoesTxt = safeStr(d.proximas_acoes, 'Diagnóstico econômico-financeiro de caixa 13 semanas, standstill com credores-chave e estruturação de mandato.');
+  const descEmpresa = safeStr(d.descricao_empresa, `${empresaNome} — operação estruturada no segmento de ${setorTxt}.`);
+  const faseTxt = safeStr(d.fase, 'Reestruturação Financeira');
+  const tribunalTxt = safeStr(d.tribunal, 'Foro Competente / Mercado de Capitais');
+  const processoTxt = safeStr(d.processo, 'Negociação Estruturada');
+  const advTxt = safeStr(d.advocacia, 'Assessoria Jurídica Constituída');
+  const ajTxt = safeStr(d.aj, 'Não aplicável / Aguardando');
+  const credoresTxt = safeStr(d.credores, 'Instituições financeiras, investidores de mercado de capitais e fornecedores estratégicos.');
+  const perfilPassivoTxt = safeStr(d.perfil_passivo, 'Passivo financeiro sujeito a alongamento e adequação à geração de caixa operacional.');
+  const afTxt = safeStr(d.agentes_fiduciarios, 'Conforme escrituras de emissão');
+  const secTxt = safeStr(d.securitizadoras, 'Crédito Bancário / Mercado de Capitais');
+  const proxAcoesTxt = safeStr(d.proximas_acoes, 'Diagnóstico de caixa de 13 semanas, preservação de liquidez operacional e negociação coordenada.');
   const passivoNum = Number(d.passivo_mm || modelCustomPassivo || 100);
   const scoreNum = Number(d.score || 8.5);
-  const fitObj = typeof computeOriginationFitScore === 'function' ? computeOriginationFitScore(d) : { score: 75, tier: 'Aderente', reasons: [] };
-  const fitScoreNum = Number(d.fit_score || fitObj.score || 75);
-  const fitReasonsTxt = (Array.isArray(d.fit_reasons) && d.fit_reasons.length > 0 ? d.fit_reasons : fitObj.reasons).join(' | ') || 'Análise institucional Valknut';
+  const fitObj = typeof computeOriginationFitScore === 'function' ? computeOriginationFitScore(d) : { score: 78, tier: 'Alta Aderência', reasons: [] };
+  const fitScoreNum = Number(d.fit_score || fitObj.score || 78);
   const qsaRec = getQsaForCnpj(d.cnpj);
-  const qsaListTxt = (qsaRec && Array.isArray(qsaRec.qsa) && qsaRec.qsa.length > 0)
-    ? qsaRec.qsa.slice(0, 6).map(s => `  - ${s.nome} (${s.qualificacao || 'Sócio / Administrador'})`).join('\n')
-    : '  - Quadro societário sob validação cadastral (Receita Federal / Juntas Comerciais).';
-  const capSocialTxt = (qsaRec && Number(qsaRec.capital_social || 0) > 0)
-    ? `R$ ${formatNumberBR(Number(qsaRec.capital_social) / 1e6)} MM (${safeStr(qsaRec.situacao, 'ATIVA')})`
-    : 'Em validação cadastral';
+  const qsaList = (qsaRec && Array.isArray(qsaRec.qsa)) ? qsaRec.qsa.slice(0, 5) : [];
 
   const parsed = parseThesisRegex(safeStr(d.tese, descEmpresa));
   const m = computeAdvisoryFeeMetrics();
+  const wf = typeof computeWaterfallMetrics === 'function' ? computeWaterfallMetrics(d) : null;
+  const tombstones = typeof getAnonymizedTombstones === 'function' ? getAnonymizedTombstones() : DEFAULT_ANONYMIZED_TOMBSTONES;
+
   const monthNamesPt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
   const isoToday = getBrazilTodayIso();
   const [yrStr, moStr] = isoToday.split('-');
@@ -8400,85 +8733,277 @@ async function generatePitchDeckPptx(dealId) {
   pptx.layout = 'LAYOUT_WIDE';
   pptx.author = 'VALKNUT — SPECIAL SITUATIONS';
   pptx.company = 'Valknut Special Situations';
-  pptx.title = `Proposta Executiva - ${empresaNome}`;
+  pptx.title = `${isClientExternal ? 'Proposta Comercial' : 'IC Memo'} - ${empresaNome}`;
 
-  function addSlideHeader(slide, titleText, subtitleText) {
-    slide.background = { color: 'F4F5F2' };
-    slide.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: '100%', h: 0.9, fill: { color: '063630' } });
-    slide.addShape(pptx.ShapeType.rect, { x: 0, y: 0.9, w: '100%', h: 0.05, fill: { color: '9EA581' } });
-    slide.addText('VALKNUT — SPECIAL SITUATIONS', { x: 0.5, y: 0.14, w: 6, h: 0.25, fontSize: 10, bold: true, color: 'A5AC82', fontFace: 'Arial' });
-    slide.addText(titleText, { x: 0.5, y: 0.36, w: 12, h: 0.4, fontSize: 18, bold: true, color: 'E6E9DC', fontFace: 'Arial' });
-    if (subtitleText) {
-      slide.addText(subtitleText, { x: 0.5, y: 1.02, w: 12.2, h: 0.3, fontSize: 11, italic: true, color: '475569', fontFace: 'Arial' });
+  const footerConfidential = isClientExternal
+    ? 'ESTRITAMENTE CONFIDENCIAL — SUJEITO A NDA // VALKNUT SPECIAL SITUATIONS — Assessoria estritamente econômico-financeira (sem sobreposição jurídica / OAB).'
+    : 'USO INTERNO EXCLUSIVO — COMITÊ DE ORIGINAÇÃO VALKNUT SPECIAL SITUATIONS // DADOS FORENSES & ESTRATÉGIA DE ABORDAGEM.';
+
+  pptx.defineSlideMaster({
+    title: 'VALKNUT_MASTER',
+    background: { color: 'F4F5F2' },
+    slideNumber: { x: 12.45, y: 7.12, w: 0.55, h: 0.25, fontSize: 8.5, bold: true, color: '063630', fontFace: 'Arial' },
+    objects: [
+      { rect: { x: 0, y: 7.06, w: '100%', h: 0.44, fill: { color: 'E6E9DC' } } },
+      { rect: { x: 0, y: 7.04, w: '100%', h: 0.025, fill: { color: 'A5AC82' } } },
+      { text: { text: footerConfidential, options: { x: 0.45, y: 7.12, w: 11.8, h: 0.26, fontSize: 7.5, color: '475569', fontFace: 'Arial' } } }
+    ]
+  });
+
+  function addMasterSlide(actionTitle, kickerSub) {
+    const sl = pptx.addSlide({ masterName: 'VALKNUT_MASTER' });
+    sl.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: '100%', h: 0.88, fill: { color: '063630' } });
+    sl.addShape(pptx.ShapeType.rect, { x: 0, y: 0.88, w: '100%', h: 0.045, fill: { color: '9EA581' } });
+    sl.addText('VALKNUT — SPECIAL SITUATIONS', { x: 0.45, y: 0.11, w: 7, h: 0.22, fontSize: 9.5, bold: true, color: 'A5AC82', fontFace: 'Arial' });
+    sl.addText(actionTitle, { x: 0.45, y: 0.34, w: 12.3, h: 0.42, fontSize: 16.5, bold: true, color: 'E6E9DC', fontFace: 'Arial' });
+    if (kickerSub) {
+      sl.addText(kickerSub, { x: 0.45, y: 0.98, w: 12.4, h: 0.26, fontSize: 10.5, italic: true, color: '475569', fontFace: 'Arial' });
     }
+    return sl;
   }
 
-  // Slide 1: Cover
+  // Slide 1: Capa Institucional
   const s1 = pptx.addSlide();
   s1.background = { color: '063630' };
-  s1.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.22, h: '100%', fill: { color: '9EA581' } });
-  s1.addText('VALKNUT', { x: 0.8, y: 1.4, w: 10, h: 0.7, fontSize: 38, bold: true, color: 'E6E9DC', charSpacing: 6 });
-  s1.addText('SPECIAL SITUATIONS // ASSESSORIA FINANCEIRA & REESTRUTURAÇÃO', { x: 0.8, y: 2.1, w: 11, h: 0.4, fontSize: 13, bold: true, color: 'A5AC82' });
-  s1.addText(`PROPOSTA DE ASSESSORIA & DOSSIÊ EXECUTIVO:\n${empresaNome}`, { x: 0.8, y: 3.0, w: 11.5, h: 1.3, fontSize: 24, bold: true, color: 'FFFFFF' });
-  s1.addText(`Ângulo: ${safeStr(pitchMandateType, 'Financial Advisory & Turnaround')}\nDestinatário: ${safeStr(pitchTargetRecipient, 'Conselho de Administração / Comitê')}\nPassivo Monitorado: R$ ${formatNumberBR(passivoNum)} Milhões | Fit de Originação: ${fitScoreNum}/100 | Data: ${mesAnoAtual}`, { x: 0.8, y: 4.8, w: 11.4, h: 1.3, fontSize: 13, color: 'E6E9DC' });
+  s1.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.24, h: '100%', fill: { color: '9EA581' } });
+  s1.addText('VALKNUT', { x: 0.8, y: 1.25, w: 10, h: 0.65, fontSize: 38, bold: true, color: 'E6E9DC', charSpacing: 6, fontFace: 'Arial' });
+  s1.addText('SPECIAL SITUATIONS // ASSESSORIA FINANCEIRA, TURNAROUND & DISTRESSED M&A', { x: 0.8, y: 1.92, w: 11.5, h: 0.35, fontSize: 12, bold: true, color: 'A5AC82', fontFace: 'Arial' });
+  s1.addShape(pptx.ShapeType.rect, { x: 0.8, y: 2.45, w: 3.2, h: 0.04, fill: { color: 'A5AC82' } });
+  s1.addText(`${isClientExternal ? 'PROPOSTA DE ASSESSORIA FINANCEIRA ESTRATÉGICA' : 'DOSSIÊ DE ORIGINAÇÃO (IC MEMO INTERNO)'}:\n${empresaNome}`, { x: 0.8, y: 2.75, w: 11.5, h: 1.35, fontSize: 23, bold: true, color: 'FFFFFF', fontFace: 'Arial' });
+  const coverMetaLine = isClientExternal
+    ? `Escopo Proposto: ${safeStr(pitchMandateType, 'Financial Advisory & Turnaround')}\nEndereçado a: ${safeStr(pitchTargetRecipient, 'Conselho de Administração & Diretoria Executiva')}\nPassivo de Referência: R$ ${formatNumberBR(passivoNum)} Milhões  |  Data: ${mesAnoAtual}  |  Estritamente Confidencial (Sujeito a NDA)`
+    : `Ângulo Tático: ${safeStr(pitchMandateType, 'Financial Advisory')}\nAlvo: ${safeStr(pitchTargetRecipient, 'Comitê')}\nPassivo: R$ ${formatNumberBR(passivoNum)} MM  |  Origination Fit Interno: ${fitScoreNum}/100  |  Score Forense: ${formatScoreBR(scoreNum)}/10  |  ${mesAnoAtual}`;
+  s1.addText(coverMetaLine, { x: 0.8, y: 4.65, w: 11.5, h: 1.35, fontSize: 12.5, color: 'E6E9DC', fontFace: 'Arial' });
 
-  // Slide 2: Perfil & Introdução da Empresa
-  const s2 = pptx.addSlide();
-  addSlideHeader(s2, `1. Perfil & Introdução da Empresa — ${empresaNome}`, `${cnpjTxt} | ${setorTxt} | ${cidadeTxt}/${ufTxt}`);
+  // Slide 2: Executive Summary + KPI Cards + Precedentes Setoriais (Tabela Nativa)
+  const s2 = addMasterSlide(`1. Sumário Executivo & Contexto Setorial — ${empresaNome}`, `${cnpjTxt}  |  ${setorTxt}  |  ${cidadeTxt}/${ufTxt}`);
+  const kpiCards = [
+    ['PASSIVO MONITORADO', `R$ ${formatNumberBR(passivoNum)} MM`, faseTxt.slice(0, 28)],
+    ['ECONOMIA / REDUÇÃO ALVO', `R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM`, `Haircut / Alongamento: ${m.haircutPct}%`],
+    ['DÍVIDA PÓS-PLANO', `R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')} MM`, `Recuperação Implícita: ${m.recupPct}%`],
+    ['HORIZONTE DE EXECUÇÃO', `${m.mesesMandato} Meses`, `ROI Estimado: ${m.roiClienteEconomia.toFixed(1).replace('.', ',')}x s/ Fee`]
+  ];
+  kpiCards.forEach((kc, idx) => {
+    const xPos = 0.45 + idx * 3.16;
+    s2.addShape(pptx.ShapeType.rect, { x: xPos, y: 1.32, w: 2.98, h: 1.15, fill: { color: 'FFFFFF' }, line: { color: 'C8CEB0', pt: 1 } });
+    s2.addText(kc[0], { x: xPos + 0.12, y: 1.40, w: 2.74, h: 0.22, fontSize: 8.5, bold: true, color: '38686A', fontFace: 'Arial' });
+    s2.addText(kc[1], { x: xPos + 0.12, y: 1.64, w: 2.74, h: 0.38, fontSize: 15.5, bold: true, color: '063630', fontFace: 'Arial' });
+    s2.addText(kc[2], { x: xPos + 0.12, y: 2.06, w: 2.74, h: 0.28, fontSize: 9, color: '64748B', fontFace: 'Arial' });
+  });
   s2.addText([
-    { text: 'PERFIL OPERACIONAL & INTRODUÇÃO DA DEVEDORA:\n', options: { bold: true, color: '063630', fontSize: 13 } },
-    { text: `${descEmpresa}\n\n`, options: { color: '1E293B', fontSize: 12 } },
-    { text: 'DADOS PROCESSUAIS & MÉTRICAS CHAVE:\n', options: { bold: true, color: '063630', fontSize: 13 } },
-    { text: `• Passivo Total Estimado: R$ ${formatNumberBR(passivoNum)} MM\n• Fase Concursal: ${faseTxt}\n• Juízo / Monitoramento: ${tribunalTxt} (Ref.: ${processoTxt})\n• Score Forense Valknut: ${formatScoreBR(scoreNum)} / 10,0 (${tierTxt}) | Origination Fit: ${fitScoreNum}/100\n• Banca Jurídica: ${advTxt} | Administrador Judicial: ${ajTxt}`, options: { color: '1E293B', fontSize: 12 } }
-  ], { x: 0.6, y: 1.45, w: 12.1, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: 'C8CEB0', pt: 1.2 }, margin: 14 });
+    { text: 'VISÃO GERAL DA OPERAÇÃO & ENQUADRAMENTO:\n', options: { bold: true, color: '063630', fontSize: 11 } },
+    { text: `${descEmpresa}\n• Foro / Referência: ${tribunalTxt} (${processoTxt})\n• Assessoria Jurídica Mapeada: ${advTxt}`, options: { color: '1E293B', fontSize: 10.5 } }
+  ], { x: 0.45, y: 2.62, w: 12.42, h: 1.55, fill: { color: 'FFFFFF' }, line: { color: 'CBD5E1', pt: 0.8 }, margin: 10, fontFace: 'Arial' });
 
-  // Slide 3: Diagnóstico Forense (3 Pilares)
-  const s3 = pptx.addSlide();
-  addSlideHeader(s3, '2. Diagnóstico Forense em 3 Pilares', 'Análise estruturada da causa da crise, gargalo imediato e oportunidade de mandato');
-  s3.addText(`1. CAUSA DA CRISE:\n${safeStr(parsed.causa, descEmpresa)}`, { x: 0.5, y: 1.45, w: 3.9, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
-  s3.addText(`2. GARGALO IMEDIATO:\n${safeStr(parsed.gargalo, faseTxt)}`, { x: 4.7, y: 1.45, w: 3.9, h: 5.2, fill: { color: 'FFFBEB' }, line: { color: 'B45309', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 12 });
-  s3.addText(`3. TESE DE MANDATO:\n${safeStr(parsed.mandato, proxAcoesTxt)}`, { x: 8.9, y: 1.45, w: 3.9, h: 5.2, fill: { color: 'ECEFE4' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '063630', valign: 'top', margin: 12 });
+  // Precedentes do Comparador (selectedCompIds) ou pares do mesmo setor
+  const peerPool = selectedCompIds.length > 0
+    ? selectedCompIds.map(id => DEALS_DATA.find(x => Number(x.id) === Number(id))).filter(Boolean)
+    : DEALS_DATA.filter(x => x.setor_macro === d.setor_macro && x.id !== d.id).slice(0, 3);
+  const compRows = [
+    [
+      { text: 'Precedente / Benchmark Setorial', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC' } },
+      { text: 'UF / Modalidade', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC' } },
+      { text: 'Passivo (R$ MM)', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC', align: 'right' } },
+      { text: 'Haircut Ref.', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC', align: 'center' } }
+    ],
+    ...(peerPool.length > 0 ? peerPool.slice(0, 3) : [d]).map(p => {
+      const pRec = computeDynamicRecovery(p);
+      return [
+        { text: String(p.empresa || '').slice(0, 44), options: { fill: { color: 'FFFFFF' }, color: '0F172A', bold: true } },
+        { text: `${p.uf || 'BR'} • ${p.subtipo_processo || p.tipo_processo || 'RJ/PRE'}`, options: { fill: { color: 'FFFFFF' }, color: '475569' } },
+        { text: `R$ ${formatNumberBR(p.passivo_mm)} MM`, options: { fill: { color: 'FFFFFF' }, color: '063630', align: 'right' } },
+        { text: `${pRec.haircutPct}%`, options: { fill: { color: 'FFFFFF' }, color: '991B1B', align: 'center', bold: true } }
+      ];
+    })
+  ];
+  s2.addTable(compRows, { x: 0.45, y: 4.35, w: 12.42, colW: [5.4, 3.0, 2.2, 1.82], fontSize: 9.5, border: { pt: 0.5, color: 'CBD5E1' }, fontFace: 'Arial', rowH: 0.42 });
 
-  // Slide 4: Credores e Stakeholders
-  const s4 = pptx.addSlide();
-  addSlideHeader(s4, '3. Quadro de Credores & Stakeholders Fiduciários', 'Mapeamento de exposições bancárias, agentes fiduciários, securitizadoras e garantias');
-  s4.addText(`• Principais Credores Mapeados:\n${credoresTxt}\n\n• Perfil do Passivo & Colateral:\n${perfilPassivoTxt}\n\n• Agentes Fiduciários: ${afTxt}\n• Securitizadoras: ${secTxt}`, { x: 0.6, y: 1.45, w: 12.1, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: 'C8CEB0', pt: 1.2 }, fontSize: 12.5, color: '1E293B', valign: 'top', margin: 14 });
+  // Slide 3: Diagnóstico em 3 Pilares
+  const s3 = addMasterSlide('2. Diagnóstico Estruturado & Tese de Preservação de Valor', 'Leitura independente das causas operacionais/financeiras, pressão de curto prazo e alavancas de solução');
+  const pillars = [
+    ['1. ORIGEM & ESTRUTURA DE CAPITAL', safeStr(parsed.causa, descEmpresa), 'FFFFFF', '063630'],
+    ['2. PRESSÃO DE LIQUIDEZ CURTO PRAZO', safeStr(parsed.gargalo, faseTxt), 'FFFBEB', 'B45309'],
+    ['3. PLANO DE AÇÃO & CRIAÇÃO DE VALOR', safeStr(parsed.mandato, proxAcoesTxt), 'ECEFE4', '063630']
+  ];
+  pillars.forEach((pl, idx) => {
+    const xP = 0.45 + idx * 4.21;
+    s3.addShape(pptx.ShapeType.rect, { x: xP, y: 1.40, w: 4.0, h: 0.44, fill: { color: pl[3] } });
+    s3.addText(pl[0], { x: xP + 0.12, y: 1.45, w: 3.76, h: 0.32, fontSize: 10, bold: true, color: 'FFFFFF', fontFace: 'Arial' });
+    s3.addText(pl[1], { x: xP, y: 1.84, w: 4.0, h: 4.85, fill: { color: pl[2] }, line: { color: pl[3], pt: 1.2 }, fontSize: 11, color: '1E293B', valign: 'top', margin: 12, fontFace: 'Arial' });
+  });
 
-  // Slide 5: Governança, QSA & Estratégia de Entrada (3 Portas)
-  const s5 = pptx.addSlide();
-  addSlideHeader(s5, '4. Governança, QSA & Estratégia de Entrada (3 Portas)', `Fit de Originação: ${fitScoreNum}/100 (${fitReasonsTxt})`);
-  s5.addText(`QUADRO SOCIETÁRIO & GOVERNANÇA (RECEITA FEDERAL):\n• Capital Social / Situação: ${capSocialTxt}\n• Sócios & Administradores Mapeados:\n${qsaListTxt}`, { x: 0.5, y: 1.45, w: 5.9, h: 5.2, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 11.5, color: '1E293B', valign: 'top', margin: 14 });
-  s5.addText(`MAPA DE 3 PORTAS DE ENTRADA (VALKNUT):\n\n1. Porta Credores & Fiduciários:\nAlinhamento com mesas de Special Situations, bancos âncora e agentes fiduciários (${afTxt}) para mandato Creditor-Side, Watchdog ou Carve-out.\n\n2. Porta Ecossistema Concursal:\nAtuação financeira independente e complementar junto à banca jurídica (${advTxt}) e interlocução técnica com o AJ (${ajTxt}).\n\n3. Porta Decisores Diretos (QSA / C-Level):\nAbordagem executiva confidencial focada em caixa de 13 semanas, standstill e monetização de ativos non-core.`, { x: 6.7, y: 1.45, w: 6.1, h: 5.2, fill: { color: 'ECEFE4' }, line: { color: '9EA581', pt: 1.5 }, fontSize: 11.5, color: '063630', valign: 'top', margin: 14 });
+  // Slide 4: Estrutura de Capital 6 Faixas (Tabela Nativa + Classe Fulcrum)
+  const s4 = addMasterSlide('3. Mapa de Stakeholders & Estrutura do Passivo por Classe', `Credores, Agentes Fiduciários (${afTxt.slice(0, 42)}) e cascata da Lei 11.101/05`);
+  const wfRowsData = wf && Array.isArray(wf.classes) ? wf.classes : [];
+  const fulcrumName = wf && wf.fulcrumClass ? wf.fulcrumClass : 'Classe III — Quirografários';
+  const bucketTableRows = [
+    [
+      { text: 'Faixa / Classe de Crédito', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC' } },
+      { text: '% Passivo', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC', align: 'right' } },
+      { text: 'Exposição (R$ MM)', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC', align: 'right' } },
+      { text: 'Recup. Liquidação', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC', align: 'center' } },
+      { text: 'Status / Fulcrum', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC', align: 'center' } }
+    ],
+    ...(wfRowsData.length > 0 ? wfRowsData.map(c => {
+      const isFulcrum = fulcrumName.includes(c.shortLabel || c.label);
+      const bg = isFulcrum ? 'FEF3C7' : 'FFFFFF';
+      return [
+        { text: c.label, options: { fill: { color: bg }, bold: isFulcrum, color: '0F172A' } },
+        { text: `${Number(c.pctPassivo || 0).toFixed(1)}%`, options: { fill: { color: bg }, align: 'right', color: '334155' } },
+        { text: `R$ ${Number(c.exposureMM || 0).toFixed(1).replace('.', ',')}M`, options: { fill: { color: bg }, align: 'right', bold: true, color: '063630' } },
+        { text: `${Number(c.liqRecupPct || 0).toFixed(0)}%`, options: { fill: { color: bg }, align: 'center', color: '991B1B' } },
+        { text: isFulcrum ? '★ CLASSE FULCRUM' : 'Mapeada', options: { fill: { color: bg }, align: 'center', bold: isFulcrum, color: isFulcrum ? '92400E' : '64748B' } }
+      ];
+    }) : [])
+  ];
+  if (bucketTableRows.length > 1) {
+    s4.addTable(bucketTableRows, { x: 0.45, y: 1.38, w: 7.55, colW: [2.55, 1.0, 1.45, 1.2, 1.35], fontSize: 9.2, border: { pt: 0.5, color: 'CBD5E1' }, fontFace: 'Arial', rowH: 0.43 });
+  }
+  s4.addText([
+    { text: 'CREDORES & AGENTES FIDUCIÁRIOS:\n', options: { bold: true, color: '063630', fontSize: 10.5 } },
+    { text: `${credoresTxt.slice(0, 320)}\n\n`, options: { color: '1E293B', fontSize: 10 } },
+    { text: 'GARANTIAS & COLATERAL:\n', options: { bold: true, color: '063630', fontSize: 10.5 } },
+    { text: `${perfilPassivoTxt.slice(0, 260)}\n• Securitizadoras: ${secTxt}`, options: { color: '1E293B', fontSize: 10 } }
+  ], { x: 8.18, y: 1.38, w: 4.68, h: 5.25, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.2 }, valign: 'top', margin: 11, fontFace: 'Arial' });
 
-  // Slide 6: Modelagem de Desalavancagem & Estrutura de Capital (6 Faixas)
-  const s6 = pptx.addSlide();
-  const splitTxt = `Extraconcursal ${waterfallSplitPcts.extra}% | Fiscal ${waterfallSplitPcts.fiscal}% | Cl. I ${waterfallSplitPcts.c1}% | Cl. II ${waterfallSplitPcts.c2}% | Cl. III ${waterfallSplitPcts.c3}% | Cl. IV ${waterfallSplitPcts.c4}%`;
-  addSlideHeader(s6, '5. Dimensionamento da Reestruturação & Geração de Valor', 'Impacto estimado do plano de reestruturação e abertura reconciliada do passivo');
-  s6.addText(`• Passivo / Dívida Alvo do Mandato: R$ ${formatNumberBR(m.passivoMM)} MM (100%)\n• Estrutura de Capital (6 Faixas): ${splitTxt}\n• Haircut / Deságio Projetado no Plano: ${m.haircutPct}% (Recuperação Implícita: ${m.recupPct}%)\n• Economia / Redução Nominal de Dívida Gerada: R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM\n• Passivo Reperfilado Pós-Plano: R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')} MM\n• Base Selecionada para Success Fee: ${m.baseLabel} (R$ ${m.baseCalculoMM.toFixed(1).replace('.', ',')} MM)`, { x: 0.6, y: 1.45, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.5 }, fontSize: 13.5, bold: true, color: '063630', valign: 'middle', margin: 18 });
+  // Slide 5: DIFERENCIADO POR MODO (Proposta Externa c/ Tombstones Anonimizados vs. IC Memo c/ 3 Portas)
+  if (isClientExternal) {
+    const s5 = addMasterSlide('4. Governança do Turnaround & Credenciais em Situações Especiais', 'Atuação independente ao lado da Diretoria e da Assessoria Jurídica, com histórico comprovado em transações complexas');
+    s5.addText([
+      { text: 'ARQUITETURA DE GOVERNANÇA DO MANDATO:\n\n', options: { bold: true, color: '063630', fontSize: 11.5 } },
+      { text: '1. Preservação de Caixa & Operação (PMO 13 Semanas):\n', options: { bold: true, color: '063630', fontSize: 10.5 } },
+      { text: 'Controle diário de liquidez, liberação técnica de travas fiduciárias e blindagem do capital de giro essencial.\n\n', options: { color: '1E293B', fontSize: 10 } },
+      { text: '2. Interlocução Única com Bancos & Mercado de Capitais:\n', options: { bold: true, color: '063630', fontSize: 10.5 } },
+      { text: `Modelagem econômico-financeira auditável (ICSD, VPL e Waterfall) para negociação com sindicato bancário e agentes fiduciários.\n\n`, options: { color: '1E293B', fontSize: 10 } },
+      { text: '3. Alinhamento Integral com a Banca Jurídica:\n', options: { bold: true, color: '063630', fontSize: 10.5 } },
+      { text: ` Escopo 100% financeiro e negocial, atuando em sinergia com ${advTxt} sem qualquer sobreposição jurídica.`, options: { color: '1E293B', fontSize: 10 } }
+    ], { x: 0.45, y: 1.38, w: 5.75, h: 5.25, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.2 }, valign: 'top', margin: 12, fontFace: 'Arial' });
 
-  // Slide 7: Cronograma, Fatos Relevantes Recentes e Próximas Ações
-  const s7 = pptx.addSlide();
-  addSlideHeader(s7, '6. Cronograma Tático, Fatos Relevantes & Plano de Ação', 'Marcos legais da Lei 11.101/05, últimas notícias vinculadas e diligências');
+    tombstones.slice(0, 4).forEach((tb, idx) => {
+      const col = idx % 2;
+      const row = Math.floor(idx / 2);
+      const xT = 6.42 + col * 3.24;
+      const yT = 1.38 + row * 2.68;
+      s5.addShape(pptx.ShapeType.rect, { x: xT, y: yT, w: 3.08, h: 2.48, fill: { color: 'ECEFE4' }, line: { color: '9EA581', pt: 1.2 } });
+      s5.addShape(pptx.ShapeType.rect, { x: xT, y: yT, w: 3.08, h: 0.36, fill: { color: '063630' } });
+      s5.addText(safeStr(tb.setor, 'Special Situations').toUpperCase(), { x: xT + 0.1, y: yT + 0.06, w: 2.88, h: 0.24, fontSize: 8.5, bold: true, color: 'E6E9DC', fontFace: 'Arial' });
+      s5.addText(safeStr(tb.porte, 'R$ 500+ MM'), { x: xT + 0.12, y: yT + 0.46, w: 2.84, h: 0.36, fontSize: 15, bold: true, color: '063630', fontFace: 'Arial' });
+      s5.addText(safeStr(tb.estrutura, 'Reestruturação de Passivo & Liquidez'), { x: xT + 0.12, y: yT + 0.88, w: 2.84, h: 1.45, fontSize: 9.5, color: '1E293B', valign: 'top', fontFace: 'Arial' });
+    });
+  } else {
+    const s5 = addMasterSlide('4. [IC MEMO] QSA, Governança & Mapa das 3 Portas de Entrada', `Origination Fit Valknut: ${fitScoreNum}/100  |  Uso Exclusivo Interno da Mesa`);
+    const qsaBullets = qsaList.length > 0
+      ? qsaList.map(s => `• ${s.nome} (${s.qualificacao || 'Administrador'})`).join('\n')
+      : '• Consultar QSA atualizado via BrasilAPI / Formulário de Referência CVM.';
+    s5.addText(`QUADRO SOCIETÁRIO OFICIAL (RECEITA FEDERAL):\n\n${qsaBullets}`, { x: 0.45, y: 1.38, w: 5.8, h: 5.25, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.2 }, fontSize: 11, color: '1E293B', valign: 'top', margin: 12, fontFace: 'Arial' });
+    s5.addText(`ESTRATÉGIA TÁTICA DE ABORDAGEM (3 PORTAS):\n\n1. Porta Credores & Fiduciários:\nMesas especiais e agentes (${afTxt}) p/ Creditor-Side ou Watchdog.\n\n2. Porta Banca Jurídica (${advTxt}):\nParceria complementar de modelagem econômico-financeira, DIP e UPI.\n\n3. Porta C-Level / Acionistas (QSA):\nAbordagem confidencial p/ diagnóstico de 13 semanas e standstill.`, { x: 6.45, y: 1.38, w: 6.4, h: 5.25, fill: { color: 'ECEFE4' }, line: { color: '9EA581', pt: 1.2 }, fontSize: 11, color: '063630', valign: 'top', margin: 12, fontFace: 'Arial' });
+  }
+
+  // Slide 6: Gráfico Nativo Debt Bridge + Comparativo Waterfall (PptxGenJS addChart!)
+  const s6 = addMasterSlide('5. Ponte de Desalavancagem (Debt Bridge) & Geração de Valor', `Redução projetada de R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM (${m.haircutPct}%) rumo à Dívida Sustentável`);
+  const chartDataBridge = [
+    {
+      name: 'R$ Milhões',
+      labels: ['Passivo Atual', 'Deságio / VPL Plano', 'Venda UPI / PGFN', 'Dívida Pós-Plano'],
+      values: [
+        Number(m.passivoMM.toFixed(1)),
+        Number((m.economiaMM * 0.72).toFixed(1)),
+        Number((m.economiaMM * 0.28).toFixed(1)),
+        Number(m.creditoRecupMM.toFixed(1))
+      ]
+    }
+  ];
+  s6.addChart(pptx.ChartType.bar, chartDataBridge, {
+    x: 0.45, y: 1.42, w: 7.45, h: 5.15,
+    barDir: 'col',
+    chartColors: ['063630', '9EA581', '38686A', '0F766E'],
+    showValue: true,
+    showLegend: false,
+    valAxisMinVal: 0,
+    catAxisLabelFontSize: 9.5,
+    valAxisLabelFontSize: 9
+  });
+  s6.addText([
+    { text: 'SÍNTESE QUANTITATIVA DO PLANO:\n\n', options: { bold: true, color: '063630', fontSize: 11.5 } },
+    { text: `• Passivo Endereçado: R$ ${formatNumberBR(m.passivoMM)} MM\n`, options: { bold: true, color: '1E293B', fontSize: 10.5 } },
+    { text: `• Economia / Alívio Gerado: R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM (${m.haircutPct}%)\n`, options: { bold: true, color: '065F46', fontSize: 10.5 } },
+    { text: `• Passivo Reperfilado: R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')} MM\n`, options: { color: '1E293B', fontSize: 10.5 } },
+    { text: `• Liquidez / DIP Estimado: R$ ${formatNumberBR(modelDipTargetMM)} MM\n`, options: { color: '1E293B', fontSize: 10.5 } },
+    { text: `• Potencial M&A / UPIs: R$ ${formatNumberBR(modelUpiTargetMM)} MM\n\n`, options: { color: '1E293B', fontSize: 10.5 } },
+    { text: 'Proteção Legal:\n', options: { bold: true, color: '063630', fontSize: 10.5 } },
+    { text: 'Alienação de ativos livre de sucessão (Arts. 60 e 141) e superprioridade para Dinheiro Novo (Arts. 69-A a 69-F da Lei 11.101/05).', options: { color: '475569', fontSize: 9.5 } }
+  ], { x: 8.1, y: 1.42, w: 4.76, h: 5.15, fill: { color: 'FFFFFF' }, line: { color: '063630', pt: 1.2 }, valign: 'top', margin: 12, fontFace: 'Arial' });
+
+  // Slide 7: Roadmap Executivo em 3 Fases (Chevrons Visuais) + Marcos Legais
+  const s7 = addMasterSlide('6. Plano de Trabalho & Cronograma Executivo em 3 Fases', `Execução disciplinada ao longo de ${m.mesesMandato} meses com entregáveis semanais`);
   const cm = computeDynamicCalendarMeta(d);
   const marcoDt = safeStr(cm.data_marco_br || formatDateBR(cm.data_marco_iso), formatDateBR(isoToday));
-  const marcoDesc = safeStr(cm.marco_label || cm.marco_principal || cm.tipo_marco, 'Monitoramento Tático Concursal');
-  const diasRem = typeof cm.dias_restantes === 'number' ? ` (Faltam ${cm.dias_restantes} dias)` : '';
-  const dealNews = (typeof getAllCombinedNews === 'function' ? getAllCombinedNews() : []).filter(n => Number(n.deal_id) === Number(d.id) && Number(d.id) > 0).slice(0, 2);
-  const newsBullets = dealNews.length > 0
-    ? '\n\n• Últimos Fatos Relevantes & Notícias Capturadas no Radar:\n' + dealNews.map(n => `  - [${safeStr(n.data_hora, isoToday)}] ${safeStr(n.titulo, '')} (${safeStr(n.fonte, 'Radar')})`).join('\n')
-    : '';
-  const ultMovTxt = formatDateBR(d.data_evento || isoToday);
-  s7.addText(`• Último Movimento / Gatilho Mapeado: ${ultMovTxt}\n• Próximo Marco Fatal / Assembleia (Dia Útil): ${marcoDt}${diasRem} — ${marcoDesc}\n• Horizonte Estimado do Mandato: ${m.mesesMandato} meses\n\n• Plano de Ação Recomendado pela Mesa Valknut:\n${proxAcoesTxt}${newsBullets}`, { x: 0.6, y: 1.45, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: 'C8CEB0', pt: 1.2 }, fontSize: 12, color: '1E293B', valign: 'top', margin: 14 });
+  const marcoDesc = safeStr(cm.marco_label || cm.marco_principal || cm.tipo_marco, 'Marco Processual / Negocial');
+  const chevShape = pptx.ShapeType.chevron || pptx.ShapeType.rect;
+  const phases = [
+    ['FASE I — SEMANAS 1 A 3', 'Estabilização & Caixa 13w', '• Implantação do Cash PMO 13 semanas\n• Data room financeiro e diagnóstico de travas\n• Tese de Standstill / Cautelar Art. 20-B', '063630'],
+    ['FASE II — SEMANAS 4 A 10', 'Modelagem, DIP & Term Sheet', '• Laudo de capacidade de pagamento (ICSD)\n• Roadshow competitivo de DIP / venda de UPI\n• Negociação de Term Sheet com bancos e AFs', '38686A'],
+    [`FASE III — ATÉ MÊS ${m.mesesMandato}`, 'Adesão, AGC & Homologação', '• Coleta de quórum qualificado (PRE / AGC)\n• Transação tributária PGFN (Lei 13.988/20)\n• Fechamento e homologação judicial', '6B7445']
+  ];
+  phases.forEach((ph, idx) => {
+    const xPh = 0.45 + idx * 4.21;
+    s7.addShape(chevShape, { x: xPh, y: 1.42, w: 4.02, h: 0.68, fill: { color: ph[3] } });
+    s7.addText(`${ph[0]}\n${ph[1]}`, { x: xPh + 0.18, y: 1.46, w: 3.55, h: 0.58, fontSize: 9.8, bold: true, color: 'FFFFFF', fontFace: 'Arial' });
+    s7.addText(ph[2], { x: xPh, y: 2.18, w: 4.02, h: 2.85, fill: { color: 'FFFFFF' }, line: { color: ph[3], pt: 1 }, fontSize: 10.2, color: '1E293B', valign: 'top', margin: 11, fontFace: 'Arial' });
+  });
+  s7.addText(`📌 PRÓXIMO MARCO CRÍTICO MAPEADO: ${marcoDt} — ${marcoDesc}\n• Foco Imediato: ${proxAcoesTxt}`, { x: 0.45, y: 5.22, w: 12.42, h: 1.38, fill: { color: 'ECEFE4' }, line: { color: '063630', pt: 1 }, fontSize: 10.5, bold: true, color: '063630', valign: 'middle', margin: 11, fontFace: 'Arial' });
 
-  // Slide 8: Proposta Comercial (Retainer & Success Fee)
-  const s8 = pptx.addSlide();
-  const safeMandate = safeStr(pitchMandateType, 'Debtor-Side / Financial Advisory & Turnaround (RJ/PRE)');
-  const safeRecipient = safeStr(pitchTargetRecipient, 'Conselho de Administração / Diretoria Financeira');
-  addSlideHeader(s8, '7. Proposta de Honorários (Retainer & Success Fee)', `Mandato proposto: ${safeMandate}`);
-  s8.addText(`• Modalidade de Atuação: ${safeMandate}\n• Destinatário: ${safeRecipient}\n\nESTRUTURA DE REMUNERAÇÃO PROPOSTA:\n1. Retainer Fixo Mensal: R$ ${m.retainerMensalMil} mil/mês por ${m.mesesMandato} meses (Total Fixo: R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM)\n2. Taxa de Êxito (Success Fee Bruto): ${m.successFeePct.toFixed(2).replace('.', ',')}% sobre ${m.baseLabel} = R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM\n3. Cláusula de Abatimento (Offset de ${m.offsetPct}% do Retainer): -R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM\n4. Success Fee Líquido no Fechamento: R$ ${m.successLiquidoMM.toFixed(2).replace('.', ',')} MM\n5. Remuneração Total Estimada do Mandato: R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM (${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do Passivo Total)`, { x: 0.6, y: 1.45, w: 12.1, h: 5.0, fill: { color: 'FFFFFF' }, line: { color: '9EA581', pt: 2 }, fontSize: 13, bold: true, color: '063630', valign: 'top', margin: 18 });
+  // Slide 8: Proposta de Honorários (Tabela Nativa + Callout de ROI p/ Cliente!)
+  const safeMandate = safeStr(pitchMandateType, 'Debtor-Side / Financial Advisory & Turnaround');
+  const s8 = addMasterSlide('7. Proposta Comercial & Alinhamento de Incentivos', `Modalidade: ${safeMandate}`);
+  const feeRows = [
+    [
+      { text: 'Componente de Remuneração', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC' } },
+      { text: 'Parâmetro / Base de Cálculo', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC' } },
+      { text: 'Valor Estimado (R$ MM)', options: { bold: true, fill: { color: '063630' }, color: 'E6E9DC', align: 'right' } }
+    ],
+    [
+      { text: '1. Retainer Fixo Mensal (Pró-Labore)', options: { bold: true, fill: { color: 'FFFFFF' } } },
+      { text: `R$ ${m.retainerMensalMil} mil/mês × ${m.mesesMandato} meses${m.signingFeeMil > 0 ? ` (+ R$ ${m.signingFeeMil}k Signing)` : ''}`, options: { fill: { color: 'FFFFFF' } } },
+      { text: `R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM`, options: { fill: { color: 'FFFFFF' }, align: 'right', bold: true } }
+    ],
+    [
+      { text: `2. Taxa de Êxito (${modelUseRatchet ? 'Ratchet Progressivo' : `${m.successFeePct.toFixed(2).replace('.', ',')}%`})`, options: { bold: true, fill: { color: 'FFFFFF' } } },
+      { text: `${m.baseLabel}`, options: { fill: { color: 'FFFFFF' } } },
+      { text: `R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM`, options: { fill: { color: 'FFFFFF' }, align: 'right', bold: true } }
+    ],
+    [
+      { text: `3. Cláusula de Offset (${m.offsetPct}% do Retainer)`, options: { bold: true, fill: { color: 'FFFFFF' }, color: '991B1B' } },
+      { text: `Deduzido integralmente da Taxa de Êxito na homologação`, options: { fill: { color: 'FFFFFF' }, color: '991B1B' } },
+      { text: `- R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM`, options: { fill: { color: 'FFFFFF' }, align: 'right', bold: true, color: '991B1B' } }
+    ],
+    ...(m.tranchesExtrasMM > 0 ? [[
+      { text: '4. Tranches Específicas (Captação DIP / M&A UPI)', options: { bold: true, fill: { color: 'FFFFFF' } } },
+      { text: `Pagas exclusivamente no desembolso do New Money ou fechamento da UPI`, options: { fill: { color: 'FFFFFF' } } },
+      { text: `R$ ${m.tranchesExtrasMM.toFixed(2).replace('.', ',')} MM`, options: { fill: { color: 'FFFFFF' }, align: 'right', bold: true } }
+    ]] : []),
+    [
+      { text: 'REMUNERAÇÃO TOTAL LÍQUIDA ESTIMADA', options: { bold: true, fill: { color: 'ECEFE4' }, color: '063630' } },
+      { text: `Equivalente a ${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do passivo (${m.milestoneStandstillPct}% Standstill / ${100 - m.milestoneStandstillPct}% Homologação)`, options: { bold: true, fill: { color: 'ECEFE4' }, color: '063630' } },
+      { text: `R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM`, options: { bold: true, fill: { color: 'ECEFE4' }, color: '063630', align: 'right' } }
+    ]
+  ];
+  s8.addTable(feeRows, { x: 0.45, y: 1.40, w: 8.55, colW: [3.1, 3.65, 1.8], fontSize: 9.8, border: { pt: 0.6, color: 'CBD5E1' }, fontFace: 'Arial', rowH: 0.58 });
 
-  await pptx.writeFile({ fileName: `Valknut_Proposta_Honorarios_${empresaNome.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 25)}.pptx` });
-  showToast(`Proposta Comercial (.pptx — 8 slides) gerada com sucesso para ${empresaNome}!`);
+  // Callout de ROI p/ o Cliente + Governança Contratual
+  s8.addShape(pptx.ShapeType.rect, { x: 9.2, y: 1.40, w: 3.66, h: 2.35, fill: { color: '063630' } });
+  s8.addText('RETORNO ESTIMADO AO CLIENTE', { x: 9.35, y: 1.54, w: 3.36, h: 0.25, fontSize: 9, bold: true, color: 'A5AC82', align: 'center', fontFace: 'Arial' });
+  s8.addText(`${m.roiClienteEconomia.toFixed(1).replace('.', ',')}x`, { x: 9.35, y: 1.85, w: 3.36, h: 0.85, fontSize: 36, bold: true, color: 'E6E9DC', align: 'center', fontFace: 'Arial' });
+  s8.addText(`Múltiplo de geração de valor / economia de dívida (R$ ${m.economiaMM.toFixed(1).replace('.', ',')} MM) sobre os honorários totais.`, { x: 9.35, y: 2.78, w: 3.36, h: 0.8, fontSize: 9.5, color: 'FFFFFF', align: 'center', fontFace: 'Arial' });
+
+  s8.addText([
+    { text: 'TERMOS DE GOVERNANÇA:\n', options: { bold: true, color: '063630', fontSize: 10 } },
+    { text: '• Extraconcursalidade: créditos protegidos nos termos dos Arts. 67 e 84 da Lei 11.101/05.\n• Tail Period: 18 meses pós-encerramento para transações estruturadas durante o mandato.\n• Despesas reembolsáveis mediante aprovação prévia.', options: { color: '334155', fontSize: 9.2 } }
+  ], { x: 9.2, y: 3.92, w: 3.66, h: 2.55, fill: { color: 'FFFFFF' }, line: { color: '9EA581', pt: 1.2 }, valign: 'top', margin: 10, fontFace: 'Arial' });
+
+  const filePrefix = isClientExternal ? 'Valknut_Proposta_Comercial' : 'Valknut_IC_Memo_Interno';
+  await pptx.writeFile({ fileName: `${filePrefix}_${empresaNome.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 25)}.pptx` });
+  showToast(`${isClientExternal ? 'Proposta Comercial Externa' : 'IC Memo Interno'} (.pptx nativo — 8 slides) gerado para ${empresaNome}!`);
 }
 
 // ==========================================================================
@@ -8491,10 +9016,10 @@ function isGenericPlaceholderPlayer(str) {
     'aguardando', 'em apuração', 'em apuracao', 'n/a', 'n/d', 'não informado', 'nao informado', 'sigilo',
     'monitoramento', 'em consulta', 'em sondagem', 'em tratativas',
     'em prospecção', 'em estruturação', 'em definição', 'a ser nomeado', 'a nomear', 'pelo juízo', 'pelo juizo',
-    'em substituição', 'em eleição', 'em recurso', 'massa falida',
+    'em substituição', 'em eleição', 'em recurso', 'agravo', 'perante o tj', 'suspens', 'massa falida',
     'administrador judicial nomeado', 'perícia prévia nomeada',
     'banca especializada', 'assessoria financeira', 'assessoria jurídica', 'assessoria juridica',
-    'escritório especializado', 'escritorio especializado'
+    'escritório especializado', 'escritorio especializado', 'mandato preventivo'
   ];
   return ignorePatterns.some(p => s.includes(p));
 }
@@ -8608,9 +9133,11 @@ function renderEcossistemaSection(deals, container) {
     }
 
     const dynRec = computeDynamicRecovery(d);
+    const hasMappedFa = /\b(?:br\s*partners|lazard|rothschild|moelis|houlihan|btg\s+assessor|itau\s+bba\s+assessor|g5\s+partners|igc\s+partners|seneca\s+evercore|alvarez\s*&\s*marsal\s+fa)\b/i.test(`${d.tese || ''} ${d.proximas_acoes || ''}`);
+    const isSweetWithoutFa = (d.passivo_mm >= 100 && d.passivo_mm <= 2500) && !hasMappedFa;
     const uniqueKeys = [...new Set(keyList)];
     uniqueKeys.forEach(k => {
-      if (!groups[k]) groups[k] = { name: k, count: 0, passivo: 0, deals: [], dealIds: new Set(), recupSum: 0 };
+      if (!groups[k]) groups[k] = { name: k, count: 0, passivo: 0, deals: [], dealIds: new Set(), recupSum: 0, sweetNoFaCount: 0 };
       const idStr = String(d.id);
       if (!groups[k].dealIds.has(idStr)) {
         groups[k].dealIds.add(idStr);
@@ -8618,14 +9145,29 @@ function renderEcossistemaSection(deals, container) {
         groups[k].passivo += (d.passivo_mm || 0);
         groups[k].deals.push(d);
         groups[k].recupSum += dynRec.recupPct;
+        if (isSweetWithoutFa) groups[k].sweetNoFaCount += 1;
       }
     });
   });
 
-  const sorted = Object.values(groups).sort((a, b) => b.count - a.count || b.passivo - a.passivo);
+  let sorted = Object.values(groups).sort((a, b) => b.count - a.count || b.passivo - a.passivo);
+  if (currentSubTab === 'eco_bancas' && ecoOnlyWithoutFaSweetSpot) {
+    sorted = sorted.filter(g => g.sweetNoFaCount > 0).sort((a, b) => b.sweetNoFaCount - a.sweetNoFaCount || b.passivo - a.passivo);
+  }
 
   let html = '';
-  if (unmappedDealsCount > 0 && (currentSubTab === 'eco_bancas' || currentSubTab === 'eco_ajs')) {
+  if (currentSubTab === 'eco_bancas') {
+    html += `
+      <div style="margin-bottom:14px; padding:10px 14px; background:#ECEFE4; border:1px solid #C8CEB0; border-left:4px solid var(--vk-forest); border-radius:6px; font-size:12px; color:var(--vk-forest); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong>🤝 Máquina de Parcerias B2B com Bancas Jurídicas:</strong> Identifique escritórios com casos no <em>Sweet Spot (R$ 100M–2,5B)</em> sem assessor financeiro de IB mapeado para abordagem conjunta sem sobreposição jurídica.
+        </div>
+        <button type="button" class="quick-toggle-btn quick-toggle-sweet ${ecoOnlyWithoutFaSweetSpot ? 'active' : ''}" onclick="ecoOnlyWithoutFaSweetSpot=!ecoOnlyWithoutFaSweetSpot; renderSectionContent();">
+          ${ecoOnlyWithoutFaSweetSpot ? '✓ ' : ''}🎯 Só Bancas c/ Sweet Spot sem FA (${Object.values(groups).filter(g => g.sweetNoFaCount > 0).length})
+        </button>
+      </div>
+    `;
+  } else if (unmappedDealsCount > 0 && currentSubTab === 'eco_ajs') {
     html += `
       <div style="margin-bottom:14px; padding:10px 14px; background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:6px; font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between; align-items:center;">
         <span>Exibindo no ranking numerado apenas players identificados nominalmente nos autos (excluídos ${unmappedDealsCount} processos em fase prévia/cautelar ou aguardando nomeação).</span>
@@ -8654,7 +9196,10 @@ function renderEcossistemaSection(deals, container) {
               <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-teal);">#${idx + 1} RANKING</span>
               <strong style="font-size:14px; color:var(--vk-header-start); display:block;">${escapeHtml(g.name)}</strong>
             </div>
-            <span class="status-badge badge-upi">${g.count} ${g.count === 1 ? 'caso' : 'casos'}</span>
+            <div style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;">
+              <span class="status-badge badge-upi">${g.count} ${g.count === 1 ? 'caso' : 'casos'}</span>
+              ${currentSubTab === 'eco_bancas' && g.sweetNoFaCount > 0 ? `<span class="badge-sweetspot" style="margin:0;">🎯 ${g.sweetNoFaCount} Sweet Spot s/ FA</span>` : ''}
+            </div>
           </div>
           <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:11.5px; color:var(--text-secondary); background:var(--bg-subtle); padding:8px 10px; border-radius:6px; margin-bottom:10px;">
             <span>Passivo: <strong>R$ ${formatKpiScale(g.passivo)}</strong></span>
@@ -8748,6 +9293,9 @@ function openDossier(id) {
   }
 
   setModalTab('visao');
+  if (typeof syncModalPrevNextButtons === 'function') {
+    syncModalPrevNextButtons(item.id);
+  }
   if (modalEl) {
     modalEl.style.display = 'flex';
     const firstTab = document.getElementById('modal-tab-visao');
@@ -9005,6 +9553,8 @@ function setModalTab(tab) {
 
   if (tab === 'visao') {
     const newerAlert = getNewerDealNewsAlert(d);
+    const crmStripHtml = typeof buildTacticalCrmStripHtml === 'function' ? buildTacticalCrmStripHtml(d) : '';
+    const crossQsaHtml = typeof buildDealCrossQsaBannerHtml === 'function' ? buildDealCrossQsaBannerHtml(d) : '';
     const modalAlertBanner = newerAlert
       ? `<div style="margin-bottom:14px; padding:10px 14px; background:#FFFBEB; border:1px solid #FDE68A; border-left:4px solid #D97706; border-radius:6px; font-size:12px; color:#92400E; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
            <div>
@@ -9015,16 +9565,19 @@ function setModalTab(tab) {
          </div>`
       : '';
     body.innerHTML = `
+      ${crmStripHtml}
+      ${crossQsaHtml}
       ${modalAlertBanner}
       <div class="company-intro-banner">
         <div class="company-intro-label">
           <span>🏢 PERFIL &amp; INTRODUÇÃO DA EMPRESA</span>
           <span style="margin-left:auto; display:inline-flex; gap:6px; flex-wrap:wrap;">
             <button type="button" class="btn-comp-toggle ${isCompSelected ? 'active' : ''}" style="padding:3px 9px; font-size:10.5px;" onclick="toggleCompDeal(${d.id}, event); setModalTab('visao');">⚖️ ${isCompSelected ? 'No Comps ✓' : 'Comparar'}</button>
-            <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="setModalTab('abordagem')">🎯 Decisores (QSA) &bull; Fit ${Number(d.fit_score || computeOriginationFitScore(d).score)}</button>
+            <button type="button" class="btn-action client-sensitive-el" style="padding:3px 9px; font-size:10.5px;" onclick="setModalTab('abordagem')">🎯 Decisores (QSA) &bull; Fit ${Number(d.fit_score || computeOriginationFitScore(d).score)}</button>
             <a href="${escapeHtml(tribUrl)}" target="_blank" rel="noopener noreferrer" class="btn-tribunal-link">⚖️ Consultar Autos / CVM ↗</a>
-            <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="openCalculatorForDeal(${d.id})">⚡ Simular Fee &amp; Retainer (${rPct}% Recup.)</button>
-            <button type="button" class="btn-solid" style="padding:3px 9px; font-size:10.5px;" onclick="openPitchGeneratorForDeal(${d.id})">📊 Gerar Proposta (.pptx)</button>
+            <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="openCalculatorForDeal(${d.id})">⚡ Simular Fee &amp; Caixa 13w</button>
+            <button type="button" class="btn-action" style="padding:3px 9px; font-size:10.5px;" onclick="openMandateLetterForDeal(${d.id})">📝 Carta-Proposta A4</button>
+            <button type="button" class="btn-solid" style="padding:3px 9px; font-size:10.5px;" onclick="openPitchGeneratorForDeal(${d.id})">📊 Estúdio Pitch (.pptx)</button>
           </span>
         </div>
         <div class="company-intro-text">${escapeHtml(d.descricao_empresa)}</div>
@@ -9331,7 +9884,8 @@ function setModalTab(tab) {
         <div class="outreach-persona-tabs" role="tablist" aria-label="Perfil do destinatário da abordagem">
           <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'credor' ? 'active' : ''}" onclick="setOutreachPersona('credor')">🏦 Credor / Fiduciário</button>
           <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'banca' ? 'active' : ''}" onclick="setOutreachPersona('banca')">⚖️ Banca Jurídica</button>
-          <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'executivo' ? 'active' : ''}" onclick="setOutreachPersona('executivo')">🏢 CEO / CFO / Acionista (QSA)</button>
+          <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'executivo' ? 'active' : ''}" onclick="setOutreachPersona('executivo')">🏢 CEO / CFO / QSA</button>
+          <button type="button" class="outreach-persona-btn ${currentOutreachPersona === 'investidor' ? 'active' : ''}" onclick="setOutreachPersona('investidor')">💎 Investidor DIP / UPI</button>
         </div>
 
         <textarea id="outreachDraftTextarea" class="outreach-textarea" aria-label="Rascunho de mensagem de abordagem">${escapeHtml(draftMsg)}</textarea>
@@ -9347,17 +9901,40 @@ function buildOutreachDraftMessage(d, persona, qsaRec) {
   const parsed = parseThesisRegex(d.tese || '');
   const gargaloCurto = String(parsed.gargalo || fase).slice(0, 175).trim();
   const firstPartner = (qsaRec && Array.isArray(qsaRec.qsa) && qsaRec.qsa[0]?.nome) ? qsaRec.qsa[0].nome : '';
+  const cm = typeof computeDynamicCalendarMeta === 'function' ? computeDynamicCalendarMeta(d) : null;
+  const marcoHook = cm && cm.data_marco_br ? ` (próximo marco mapeado em ${cm.data_marco_br})` : '';
+
+  if (persona === 'investidor') {
+    const dipEst = Number(d.model_params?.dip_necessidade_mm || Math.round(Number(d.passivo_mm || 100) * 0.12));
+    const upiEst = Number(d.model_params?.upi_valuation_estimado_mm || Math.round(Number(d.passivo_mm || 100) * 0.35));
+    return [
+      `Assunto: Confidencial // Tese de DIP Superprioritário & UPI — ${emp} (${d.setor_macro || 'Special Situations'})`,
+      ``,
+      `Olá,`,
+      ``,
+      `Mapeamos na mesa da Valknut Special Situations uma janela estruturada envolvendo ${emp} (${fase}, passivo de ${passivo})${marcoHook}.`,
+      ``,
+      `Estimamos necessidade de liquidez superprioritária (DIP Arts. 69-A a 69-F) na ordem de R$ ${formatNumberBR(dipEst)} MM e potencial carve-out/UPI livre de sucessão (Arts. 60 e 141) próximo a R$ ${formatNumberBR(upiEst)} MM, em meio ao gargalo atual (${gargaloCurto}).`,
+      ``,
+      `Caso o mandato tenha aderência ao bolso atual do fundo, podemos compartilhar o sumário técnico de colateral e waterfall em call de 15 minutos.`,
+      ``,
+      `Abs,`,
+      `Mesa de Special Situations — Valknut`
+    ].join('\n');
+  }
 
   if (persona === 'banca') {
     const bancaNome = (!isGenericPlaceholderPlayer(d.advocacia) && d.advocacia) ? d.advocacia : 'sua equipe';
     return [
+      `Assunto: Parceria Financeira Complementar (Sem Sobreposição Jurídica) — Caso ${emp}`,
+      ``,
       `Olá, time de ${bancaNome},`,
       ``,
-      `Acompanhamos de perto o desdobramento do caso ${emp} (${fase}, passivo monitorado de ${passivo}) e o gargalo atual envolvendo ${gargaloCurto}.`,
+      `Acompanhamos de perto o desdobramento do caso ${emp} (${fase}, passivo monitorado de ${passivo})${marcoHook} e o gargalo atual envolvendo ${gargaloCurto}.`,
       ``,
-      `Atuamos na Valknut Special Situations de forma estritamente financeira e independente — sem sobreposição jurídica — apoiando bancas na modelagem econômico-financeira de planos, diagnóstico de caixa de 13 semanas, estruturação de DIP/UPIs e interlocução técnica com bancos e debenturistas.`,
+      `Atuamos na Valknut Special Situations de forma estritamente econômico-financeira e independente — sem qualquer sobreposição jurídica — apoiando bancas líderes no PMO de caixa de 13 semanas, laudo de capacidade de pagamento (ICSD), captação competitiva de DIP/UPIs e negociação técnica com bancos e agentes fiduciários.`,
       ``,
-      `Caso faça sentido somar fôlego financeiro e negocial nessa frente, podemos agendar uma conversa confidencial de 15 minutos nesta semana.`,
+      `Caso faça sentido somar fôlego financeiro nessa frente, podemos alinhar em uma conversa confidencial de 15 minutos nesta semana.`,
       ``,
       `Abs,`,
       `Mesa de Special Situations — Valknut`
@@ -9367,13 +9944,15 @@ function buildOutreachDraftMessage(d, persona, qsaRec) {
   if (persona === 'executivo') {
     const saudacao = firstPartner ? `Prezado(a) ${firstPartner},` : `Prezado(a) Diretor(a),`;
     return [
+      `Assunto: Estritamente Confidencial // Preservação de Liquidez & Estrutura de Capital — ${emp}`,
+      ``,
       saudacao,
       ``,
-      `Acompanhamos o momento de ${emp} no segmento de ${d.setor_macro || 'mercado corporativo'} (${fase}, passivo mapeado de ${passivo}).`,
+      `Acompanhamos o momento de ${emp} no segmento de ${d.setor_macro || 'mercado corporativo'} (${fase}, passivo mapeado de ${passivo})${marcoHook}.`,
       ``,
-      `Na Valknut Special Situations, apoiamos acionistas e diretorias financeiras em janelas críticas de liquidez — combinando reperfilamento de dívida bancária e de mercado de capitais, construção de alternativas de liquidez/DIP e monetização estruturada de ativos non-core com foco em preservação de valor.`,
+      `Na Valknut Special Situations, apoiamos acionistas e diretorias financeiras em janelas críticas de liquidez — combinando blindagem imediata de caixa (13 semanas e liberação de travas), reperfilamento coordenado com bancos/debenturistas e estruturação de liquidez (DIP / monetização de ativos non-core) com foco na preservação de valor ao acionista.`,
       ``,
-      `Gostaria de propor uma troca breve e estritamente confidencial para compartilhar uma leitura objetiva de cenários e alternativas de execução.`,
+      `Gostaria de propor uma conversa breve e estritamente confidencial (sob NDA) para compartilhar nossa leitura quantitativa de cenários.`,
       ``,
       `Atenciosamente,`,
       `Mesa de Special Situations — Valknut`
@@ -9383,13 +9962,15 @@ function buildOutreachDraftMessage(d, persona, qsaRec) {
   // Default: credor / fiduciário
   const credRef = d.agentes_fiduciarios && !/^n\/a\b/i.test(d.agentes_fiduciarios) ? d.agentes_fiduciarios : 'a mesa de crédito';
   return [
+    `Assunto: Leitura de Recuperação, Waterfall & Monitoramento Independente — Exposição ${emp}`,
+    ``,
     `Olá,`,
     ``,
-    `Acompanhamos a exposição em ${emp} (${fase}, passivo estimado em ${passivo}) e os eventos recentes envolvendo ${gargaloCurto}.`,
+    `Acompanhamos a exposição em ${emp} (${fase}, passivo estimado em ${passivo})${marcoHook} e os eventos recentes envolvendo ${gargaloCurto}.`,
     ``,
-    `Na Valknut Special Situations, apoiamos credores institucionais, bancos e agentes fiduciários (${credRef}) em mandatos Creditor-Side, monitoramento independente (Watchdog), avaliação de garantias/recuperação, carve-out de ativos e estruturação de saída organizada.`,
+    `Na Valknut Special Situations, apoiamos credores institucionais, bancos e agentes fiduciários (${credRef}) em mandatos Creditor-Side, monitoramento independente de caixa (Watchdog), avaliação da classe fulcrum/garantias e estruturação de saída organizada.`,
     ``,
-    `Se estiverem revisando estratégias de maximização de recuperação para essa posição, podemos compartilhar nossa leitura preliminar em uma conversa rápida de 15 minutos.`,
+    `Se estiverem revisando estratégias de maximização de recuperação em VPL para essa posição, podemos compartilhar nossa modelagem preliminar em 15 minutos.`,
     ``,
     `Abs,`,
     `Mesa de Special Situations — Valknut`
@@ -9610,7 +10191,7 @@ function openCompsModal() {
                     <button type="button" class="comps-company-trigger" onclick="closeCompsModal(); openDossier(${c.d.id});">${escapeHtml(c.d.empresa)}</button>
                     <div style="font-family:var(--font-mono); font-size:10px; color:#C8CEB0; font-weight:500; margin-top:2px;">${escapeHtml(c.d.cnpj)} • ${escapeHtml(c.d.setor_macro)}</div>
                   </div>
-                  <button type="button" style="background:rgba(255,255,255,0.14); border:1px solid rgba(230,233,220,0.35); color:#FFFFFF; border-radius:4px; padding:2px 6px; font-size:11px; cursor:pointer;" onclick="removeCompDeal(${c.d.id})" title="Remover coluna" aria-label="Remover ${escapeHtml(c.d.empresa)}">&times;</button>
+                  <button type="button" class="comps-col-remove-btn" style="background:rgba(255,255,255,0.14); border:1px solid rgba(230,233,220,0.35); color:#FFFFFF; border-radius:4px; padding:2px 6px; font-size:11px; cursor:pointer;" onclick="removeCompDeal(${c.d.id})" title="Remover coluna" aria-label="Remover ${escapeHtml(c.d.empresa)}">&times;</button>
                 </div>
               </th>
             `).join('')}
@@ -9665,7 +10246,7 @@ function openCompsModal() {
             <td><strong>11. Gargalo &amp; Tese de Mandato</strong></td>
             ${dealCols.map(c => `<td style="font-size:11.5px; line-height:1.45;"><strong>Gargalo:</strong> ${escapeHtml(c.parsed.gargalo)}<br><br><strong>Mandato:</strong> ${escapeHtml(c.parsed.mandato)}</td>`).join('')}
           </tr>
-          <tr>
+          <tr class="comps-actions-row">
             <td><strong>12. Ações Executivas</strong></td>
             ${dealCols.map(c => `<td>
               <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -10982,7 +11563,7 @@ async function exportXLSX() {
     }
 
     wb.Props = {
-      Title: 'VALKNUT — SPECIAL SITUATIONS // Base Concursal v5.0 (20261118v50)',
+      Title: 'VALKNUT — SPECIAL SITUATIONS // Base Concursal v7.0 (20261121v70)',
       Author: 'Valknut Special Situations'
     };
 
@@ -10991,6 +11572,1137 @@ async function exportXLSX() {
     showToast(`Planilha Excel (.xlsx) exportada com ${deals.length} casos e estrutura em 6 faixas!`);
   } else {
     exportCSV();
+  }
+}
+
+// ==========================================================================
+// 17. RELEASE v7.0 EXECUTIVE MODULES:
+//     Morning Briefing Cockpit, Client-Safe Mode (Alt+P), Mini-CRM P2P (.JSON),
+//     Cross-QSA Contagion, 13-Week Cash/DIP, ICSD/PGFN, Mandate Letter A4 & Live 16:9 Pitch
+// ==========================================================================
+
+function safeSetUserStorage(key, jsonObj) {
+  try {
+    localStorage.setItem(key, JSON.stringify(jsonObj));
+    return true;
+  } catch (quotaErr) {
+    // Evita apagar dados do usuário; limpa apenas caches pesados de telemetria recuperáveis
+    try {
+      localStorage.removeItem('vk_live_energy_v5');
+      localStorage.removeItem('vk_live_leads_v6');
+      localStorage.setItem(key, JSON.stringify(jsonObj));
+      return true;
+    } catch (e2) {
+      showToast('Armazenamento local cheio. Exporte sua Mesa (.json) na aba CRM.');
+      return false;
+    }
+  }
+}
+
+// 17.1 Client-Safe Screen-Share Mode (Alt+P) & Tear Sheet Prev/Next Navigation
+function toggleClientSafeMode(forceState) {
+  isClientSafeMode = typeof forceState === 'boolean' ? forceState : !isClientSafeMode;
+  document.body.classList.toggle('client-safe-mode', isClientSafeMode);
+  const btn = document.getElementById('btnClientSafeMode');
+  if (btn) {
+    btn.classList.toggle('active', isClientSafeMode);
+    btn.setAttribute('aria-pressed', isClientSafeMode ? 'true' : 'false');
+    btn.innerHTML = isClientSafeMode ? '🛡️ Modo Reunião: ATIVO' : '🛡️ Modo Reunião';
+  }
+  if (isClientSafeMode) {
+    pitchDeckMode = 'client_external';
+    if (currentModalItem && currentModalTab === 'abordagem') {
+      setModalTab('visao');
+    }
+    if (currentMainSection === 'operacao' && (currentSubTab === 'mandatos_crm' || currentSubTab === 'watchlist')) {
+      selectSubTab('all');
+    }
+    showToast('🛡️ Modo Reunião (Client-Safe) ativado: notas internas, Fit Score e scripts ocultos.');
+  } else {
+    showToast('Modo Interno da Mesa restaurado.');
+  }
+  if (currentMainSection === 'precificacao' && currentSubTab === 'pitch_pptx') {
+    renderSectionContent();
+  }
+}
+
+function getModalOrderedDealList() {
+  const filtered = typeof getFilteredDeals === 'function' ? getFilteredDeals() : [];
+  return filtered.length > 0 ? filtered : DEALS_DATA;
+}
+
+function syncModalPrevNextButtons(dealId) {
+  const list = getModalOrderedDealList();
+  const idx = list.findIndex(d => Number(d.id) === Number(dealId));
+  const prevBtn = document.getElementById('btnModalPrevDeal');
+  const nextBtn = document.getElementById('btnModalNextDeal');
+  const posLbl = document.getElementById('modalDealPosLabel');
+  if (posLbl) {
+    posLbl.textContent = idx !== -1 ? `${idx + 1}/${list.length}` : '';
+  }
+  if (prevBtn) prevBtn.disabled = list.length <= 1;
+  if (nextBtn) nextBtn.disabled = list.length <= 1;
+}
+
+function navigateModalDeal(delta) {
+  if (!currentModalItem) return;
+  const list = getModalOrderedDealList();
+  if (list.length <= 1) return;
+  const curIdx = list.findIndex(d => Number(d.id) === Number(currentModalItem.id));
+  const baseIdx = curIdx === -1 ? 0 : curIdx;
+  const nextIdx = (baseIdx + delta + list.length) % list.length;
+  const target = list[nextIdx];
+  if (target) openDossier(target.id);
+}
+
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+  window.addEventListener('keydown', e => {
+    const tag = (e.target && e.target.tagName) ? e.target.tagName.toUpperCase() : '';
+    const isTyping = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (e.target && e.target.isContentEditable);
+    if (e.altKey && (e.key === 'p' || e.key === 'P')) {
+      e.preventDefault();
+      toggleClientSafeMode();
+      return;
+    }
+    const isDetailOpen = document.getElementById('detailModal')?.style.display === 'flex';
+    if (isDetailOpen && !isTyping) {
+      if (e.key === '[' || (e.altKey && e.key === 'ArrowLeft')) {
+        e.preventDefault();
+        navigateModalDeal(-1);
+      } else if (e.key === ']' || (e.altKey && e.key === 'ArrowRight')) {
+        e.preventDefault();
+        navigateModalDeal(1);
+      }
+    }
+  });
+}
+
+// 17.2 Morning Briefing Cockpit (24h/7d Delta + Top 5 Priority Calls of the Day)
+function computeMorningBriefingData() {
+  const leads = Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads : [];
+  let seenState = { seenLeadIds: [], lastSeenIso: '' };
+  try {
+    const raw = localStorage.getItem(BRIEFING_SEEN_STORAGE_KEY);
+    if (raw) seenState = { ...seenState, ...JSON.parse(raw) };
+  } catch (e) {}
+  const seenSet = new Set(Array.isArray(seenState.seenLeadIds) ? seenState.seenLeadIds : []);
+  const unreadLeads = leads.filter(l => !l.in_pipeline && !seenSet.has(String(l.id)));
+
+  // Prazos críticos <= 10 dias ou casos da Watchlist
+  const urgentDeals = DEALS_DATA
+    .map(d => ({ deal: d, cm: d.calendar_meta || computeDynamicCalendarMeta(d) }))
+    .filter(x => isDealWatchlisted(x.deal.id) || (typeof x.cm.dias_restantes === 'number' && x.cm.dias_restantes >= 0 && x.cm.dias_restantes <= 10))
+    .sort((a, b) => (a.cm.dias_restantes ?? 99) - (b.cm.dias_restantes ?? 99))
+    .slice(0, 5);
+
+  // Top 5 Ligações do Dia (Call Priority Score combinando Sweet Spot, Janela Aberta e Prazo)
+  const crmMap = getTacticalCrmMap();
+  const topCalls = DEALS_DATA
+    .filter(d => d.passivo_mm >= 60 && d.passivo_mm <= 4500)
+    .map(d => {
+      const cm = d.calendar_meta || computeDynamicCalendarMeta(d);
+      const crm = crmMap[`deal_${d.id}`];
+      if (crm && crm.estagio === 'Descartado') return null;
+      let callScore = Number(d.fit_score || 70);
+      if (typeof cm.dias_restantes === 'number' && cm.dias_restantes >= 0 && cm.dias_restantes <= 15) callScore += 14;
+      if (d.tipo_processo === 'Cautelar / Pré-RJ' || d.tipo_processo === 'PRE' || d.tipo_processo === 'Tier 0') callScore += 10;
+      if (crm && crm.followup && crm.followup <= getBrazilTodayIso()) callScore += 18;
+      const bestDoor = (!isGenericPlaceholderPlayer(d.advocacia) && d.advocacia)
+        ? `Banca: ${String(d.advocacia).split('//')[0].trim().slice(0, 24)}`
+        : (d.agentes_fiduciarios && !/^n\/a/i.test(d.agentes_fiduciarios) ? `AF: ${String(d.agentes_fiduciarios).split('/')[0].trim().slice(0, 22)}` : 'Diretoria / QSA');
+      return { deal: d, callScore, bestDoor, cm };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.callScore - a.callScore)
+    .slice(0, 5);
+
+  return { unreadLeads, allNewLeads: leads.filter(l => !l.in_pipeline), urgentDeals, topCalls, seenState };
+}
+
+function updateBriefingNavBadge() {
+  const badge = document.getElementById('briefingDeltaBadge');
+  const btn = document.getElementById('btnMorningBriefing');
+  if (!badge) return;
+  const info = computeMorningBriefingData();
+  const count = info.unreadLeads.length > 0 ? info.unreadLeads.length : info.topCalls.length;
+  badge.textContent = String(count);
+  if (btn) btn.classList.toggle('active', isMorningBriefingOpen);
+}
+
+function toggleMorningBriefingCockpit() {
+  isMorningBriefingOpen = !isMorningBriefingOpen;
+  if (isMorningBriefingOpen && currentMainSection !== 'operacao') {
+    switchMainSection('operacao', 'all');
+  } else {
+    renderMorningBriefingCockpit();
+  }
+  updateBriefingNavBadge();
+}
+
+function markMorningBriefingSeen() {
+  const leads = Array.isArray(liveLeadsData?.tier0_leads) ? liveLeadsData.tier0_leads : [];
+  safeSetUserStorage(BRIEFING_SEEN_STORAGE_KEY, {
+    seenLeadIds: leads.map(l => String(l.id)),
+    lastSeenIso: getBrazilTodayIso()
+  });
+  isMorningBriefingOpen = false;
+  renderMorningBriefingCockpit();
+  updateBriefingNavBadge();
+  showToast('✓ Briefing matinal marcado como revisado pela mesa.');
+}
+
+function renderMorningBriefingCockpit() {
+  const mount = document.getElementById('morningBriefingMount');
+  if (!mount) return;
+  if (!isMorningBriefingOpen || isClientSafeMode || currentMainSection !== 'operacao') {
+    mount.innerHTML = '';
+    return;
+  }
+  const { unreadLeads, allNewLeads, urgentDeals, topCalls } = computeMorningBriefingData();
+  const displayLeads = (unreadLeads.length > 0 ? unreadLeads : allNewLeads).slice(0, 5);
+
+  mount.innerHTML = `
+    <div class="briefing-cockpit-card">
+      <div class="briefing-cockpit-top">
+        <div>
+          <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:#A5AC82; text-transform:uppercase; letter-spacing:0.08em;">
+            ⚡ COCKPIT MATINAL DE ORIGINAÇÃO // RADAR 24H &amp; PRIORIDADES DA MESA (${formatDateBR(getBrazilTodayIso())})
+          </div>
+          <strong style="font-size:14.5px; color:#FFFFFF;">
+            ${unreadLeads.length} Sinais Pré-Mídia Não Lidos &bull; ${urgentDeals.length} Prazos/Watchlist Críticos &bull; Top 5 Ligações do Dia
+          </strong>
+        </div>
+        <div style="display:flex; gap:7px; flex-wrap:wrap;">
+          <button type="button" class="header-pill-btn" onclick="selectSubTab('precursor')">Abrir Radar Pré-Mídia →</button>
+          <button type="button" class="header-pill-btn" onclick="markMorningBriefingSeen()">✓ Marcar Visto</button>
+          <button type="button" class="header-pill-btn" onclick="toggleMorningBriefingCockpit()">✕ Recolher</button>
+        </div>
+      </div>
+
+      <div class="briefing-3col-grid">
+        <div class="briefing-col-box">
+          <div class="briefing-col-title">
+            <span>1. Radar Pré-Mídia Inédito (CVM / CRA / ITR)</span>
+            <span class="status-badge badge-cautelar">${displayLeads.length}</span>
+          </div>
+          ${displayLeads.map(l => `
+            <div class="briefing-item-row" onclick="openCalculatorForCvmLead('${escapeHtml(String(l.id))}')">
+              <div style="min-width:0;">
+                <strong style="color:var(--vk-forest); display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(l.empresa)}</strong>
+                <span style="font-size:10.5px; color:var(--text-muted);">${escapeHtml(l.lead_origin || 'CVM')} &bull; ${escapeHtml(String(l.signal_type || '').slice(0, 32))}</span>
+              </div>
+              <span class="fit-pill fit-high" style="flex-shrink:0;">Fit ${Number(l.fit_score || 85)}</span>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="briefing-col-box" style="border-top-color:#D97706;">
+          <div class="briefing-col-title">
+            <span>2. Prazos Fatais (&le;10d) &amp; Watchlist (★)</span>
+            <span class="status-badge badge-tier0">${urgentDeals.length}</span>
+          </div>
+          ${urgentDeals.length > 0 ? urgentDeals.map(({ deal, cm }) => `
+            <div class="briefing-item-row" onclick="openDossier(${Number(deal.id)})">
+              <div style="min-width:0;">
+                <strong style="color:var(--vk-forest); display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${isDealWatchlisted(deal.id) ? '★ ' : ''}${escapeHtml(deal.empresa)}</strong>
+                <span style="font-size:10.5px; color:#92400E;">${escapeHtml(cm.data_marco_br || '')} &bull; ${escapeHtml(String(cm.marco_label || cm.tipo_marco || '').slice(0, 30))}</span>
+              </div>
+              <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:#991B1B; flex-shrink:0;">R$ ${formatNumberBR(deal.passivo_mm)}M</span>
+            </div>
+          `).join('') : `<div style="font-size:11.5px; color:var(--text-muted); padding:8px;">Favorite casos com ★ para monitorar alertas diários aqui.</div>`}
+        </div>
+
+        <div class="briefing-col-box" style="border-top-color:#065F46;">
+          <div class="briefing-col-title">
+            <span>3. Top 5 Ligações de Maior Retorno Hoje</span>
+            <span class="status-badge badge-upi">TOP 5</span>
+          </div>
+          ${topCalls.map(({ deal, bestDoor }) => `
+            <div class="briefing-item-row" onclick="openDossier(${Number(deal.id)}); setModalTab('abordagem');">
+              <div style="min-width:0;">
+                <strong style="color:var(--vk-forest); display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(deal.empresa)}</strong>
+                <span style="font-size:10.5px; color:#065F46; font-weight:600;">Porta: ${escapeHtml(bestDoor)}</span>
+              </div>
+              <span style="font-family:var(--font-mono); font-size:10.5px; font-weight:800; color:var(--vk-forest); flex-shrink:0;">R$ ${formatNumberBR(deal.passivo_mm)}M</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// 17.3 Tactical Local Mini-CRM + Portable P2P JSON Sync Between Partners
+function getTacticalCrmMap() {
+  try {
+    const raw = localStorage.getItem(TACTICAL_CRM_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return (parsed && typeof parsed === 'object') ? parsed : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveTacticalCrmField(dealKey, field, val, metaObj = {}) {
+  const map = getTacticalCrmMap();
+  const prev = map[dealKey] || {};
+  map[dealKey] = {
+    ...prev,
+    ...metaObj,
+    [field]: String(val || '').trim(),
+    updatedAt: new Date().toISOString()
+  };
+  safeSetUserStorage(TACTICAL_CRM_STORAGE_KEY, map);
+  const savedBadge = document.getElementById('tacticalCrmSavedHint');
+  if (savedBadge) {
+    savedBadge.textContent = '✓ Salvo localmente';
+    setTimeout(() => { if (savedBadge) savedBadge.textContent = 'Sync .JSON ativo'; }, 1800);
+  }
+}
+
+function removeTacticalCrmEntry(key) {
+  const map = getTacticalCrmMap();
+  delete map[key];
+  safeSetUserStorage(TACTICAL_CRM_STORAGE_KEY, map);
+  renderSectionContent();
+  showToast('Registro removido do Mini-CRM local.');
+}
+
+function promptNewTacticalCrmTarget() {
+  const emp = typeof window.prompt === 'function' ? window.prompt('Nome da Empresa / Alvo Confidencial para o Mini-CRM:') : '';
+  if (!emp || !emp.trim()) return;
+  const socio = window.prompt('Sócio Líder responsável:', 'Mesa Valknut') || 'Mesa Valknut';
+  const notas = window.prompt('Próximo passo / Porta de entrada:', 'Mapear QSA e agendar call confidencial') || '';
+  const key = `custom_${Date.now()}`;
+  saveTacticalCrmField(key, 'notas', notas, {
+    empresa: emp.trim(),
+    estagio: 'Mapeado',
+    socio: socio.trim(),
+    followup: getBrazilTodayIso()
+  });
+  renderSectionContent();
+  showToast(`Alvo adicionado à Mesa Tática: ${emp.trim()}`);
+}
+
+function buildTacticalCrmStripHtml(d) {
+  const key = `deal_${d.id}`;
+  const rec = getTacticalCrmMap()[key] || {};
+  const stages = ['', 'Mapeado', 'Abordado (Frio/Rede)', 'Call Agendada', 'NDA / Data Room', 'Proposta Enviada', 'Mandato Ativo', 'Descartado'];
+  const metaJson = `dealId:${Number(d.id)}`;
+  return `
+    <div class="tactical-crm-strip no-print" data-crm-meta="${metaJson}">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+        <span style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:var(--vk-forest); text-transform:uppercase;">
+          📌 MINI-CRM TÁTICO DA MESA (CONFIDENCIAL // OCULTO NO MODO REUNIÃO ALT+P)
+        </span>
+        <span id="tacticalCrmSavedHint" style="font-family:var(--font-mono); font-size:10px; color:#065F46; font-weight:700;">Sync .JSON ativo</span>
+      </div>
+      <div class="tactical-crm-grid">
+        <div class="tactical-crm-field">
+          <label>Estágio da Abordagem</label>
+          <select aria-label="Estágio da Abordagem CRM" onchange="saveTacticalCrmField('${key}', 'estagio', this.value, { dealId: ${Number(d.id)}, empresa: '${escapeHtml(d.empresa).replace(/'/g, '')}', setor: '${escapeHtml(d.setor_macro).replace(/'/g, '')}', passivo_mm: ${Number(d.passivo_mm || 0)} })">
+            ${stages.map(st => `<option value="${escapeHtml(st)}" ${(rec.estagio || '') === st ? 'selected' : ''}>${st || '— Definir Estágio —'}</option>`).join('')}
+          </select>
+        </div>
+        <div class="tactical-crm-field">
+          <label>Sócio Líder</label>
+          <input type="text" placeholder="Ex: Sócio 1" value="${escapeHtml(rec.socio || '')}" onchange="saveTacticalCrmField('${key}', 'socio', this.value, { dealId: ${Number(d.id)}, empresa: '${escapeHtml(d.empresa).replace(/'/g, '')}', setor: '${escapeHtml(d.setor_macro).replace(/'/g, '')}', passivo_mm: ${Number(d.passivo_mm || 0)} })">
+        </div>
+        <div class="tactical-crm-field">
+          <label>Data Follow-up</label>
+          <input type="date" value="${escapeHtml(rec.followup || '')}" onchange="saveTacticalCrmField('${key}', 'followup', this.value, { dealId: ${Number(d.id)}, empresa: '${escapeHtml(d.empresa).replace(/'/g, '')}', setor: '${escapeHtml(d.setor_macro).replace(/'/g, '')}', passivo_mm: ${Number(d.passivo_mm || 0)} })">
+        </div>
+        <div class="tactical-crm-field">
+          <label>Notas Confidenciais &amp; Interlocutor</label>
+          <input type="text" placeholder="Ex: Falar c/ sócio da banca ou AF s/ waiver..." value="${escapeHtml(rec.notas || '')}" onchange="saveTacticalCrmField('${key}', 'notas', this.value, { dealId: ${Number(d.id)}, empresa: '${escapeHtml(d.empresa).replace(/'/g, '')}', setor: '${escapeHtml(d.setor_macro).replace(/'/g, '')}', passivo_mm: ${Number(d.passivo_mm || 0)} })">
+        </div>
+        <button type="button" class="btn-action" style="padding:5px 9px; font-size:10.5px;" onclick="closeModal(); switchMainSection('operacao', 'mandatos_crm');">Ver Mesa</button>
+      </div>
+    </div>
+  `;
+}
+
+function exportTacticalCrmJson() {
+  const payload = {
+    schema: 'valknut_tactical_desk_v7',
+    exported_at: new Date().toISOString(),
+    watchlist_ids: [...watchlistDealIds],
+    tactical_crm: getTacticalCrmMap(),
+    tombstones: getAnonymizedTombstones()
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Valknut_Mesa_Tatica_${getBrazilTodayIso()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 250);
+  showToast('⬇ Arquivo JSON da Mesa Tática + Watchlist exportado!');
+}
+
+function importTacticalCrmJsonFile(inputEl) {
+  const file = inputEl && inputEl.files && inputEl.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const incoming = JSON.parse(String(reader.result || '{}'));
+      if (Array.isArray(incoming.watchlist_ids)) {
+        incoming.watchlist_ids.forEach(id => { if (Number(id) > 0) watchlistDealIds.add(Number(id)); });
+        saveWatchlistToStorage();
+      }
+      if (incoming.tactical_crm && typeof incoming.tactical_crm === 'object') {
+        const current = getTacticalCrmMap();
+        Object.entries(incoming.tactical_crm).forEach(([k, rec]) => {
+          if (!rec || typeof rec !== 'object') return;
+          if (!current[k] || String(rec.updatedAt || '') >= String(current[k].updatedAt || '')) {
+            current[k] = rec;
+          }
+        });
+        safeSetUserStorage(TACTICAL_CRM_STORAGE_KEY, current);
+      }
+      renderSubTabs();
+      renderSectionContent();
+      showToast('⬆ Mesa Tática e Watchlist mescladas com sucesso!');
+    } catch (err) {
+      showToast('Arquivo JSON inválido para mesclagem.');
+    }
+    inputEl.value = '';
+  };
+  reader.readAsText(file, 'utf-8');
+}
+
+// 17.4 Cross-QSA Contagion Banner & Energy Curtailment Plant Modeling Bridge
+function buildDealCrossQsaBannerHtml(d) {
+  const c14 = String(d.cnpj || '').replace(/\D/g, '');
+  if (c14.length !== 14 || !Array.isArray(liveLeadsData?.qsa_shared_links)) return '';
+  const hits = liveLeadsData.qsa_shared_links.filter(lk => Array.isArray(lk.empresas) && lk.empresas.some(e => e.cnpj_digits === c14));
+  if (hits.length === 0) return '';
+  return `
+    <div class="cross-qsa-panel">
+      <div style="font-family:var(--font-mono); font-size:10px; font-weight:800; color:#92400E; text-transform:uppercase; margin-bottom:4px;">
+        🔗 ALERTA DE CONTÁGIO SOCIETÁRIO CROSS-QSA (${hits.length} ${hits.length === 1 ? 'CONEXÃO' : 'CONEXÕES'} NA BASE)
+      </div>
+      <div style="font-size:12px; color:#78350F; line-height:1.45;">
+        ${hits.slice(0, 3).map(lk => {
+          const peers = lk.empresas.filter(e => e.cnpj_digits !== c14).map(e =>
+            e.deal_id ? `<a href="javascript:void(0)" onclick="openDossier(${Number(e.deal_id)})" style="color:#063630; font-weight:800; text-decoration:underline;">${escapeHtml(e.empresa)}</a>` : `<strong>${escapeHtml(e.empresa)}</strong> (${escapeHtml(e.status || 'Pré-Mídia CVM')})`
+          ).join(', ');
+          return `<div>&bull; Sócio/Admin <strong>${escapeHtml(lk.socio)}</strong> também integra o QSA de: ${peers}</div>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function openCalculatorForCurtailmentPlant(idx) {
+  const allPlants = Array.isArray(liveEnergyData?.top_curtailment_plants) ? liveEnergyData.top_curtailment_plants : [];
+  const filteredPlants = allPlants.filter(p => {
+    if (selectedSinSubmarket && selectedSinSubmarket !== 'SIN' && String(p.submercado || '').toUpperCase() !== selectedSinSubmarket) return false;
+    if (curtailmentPlantFonteFilter !== 'all' && String(p.fonte || '').toLowerCase() !== curtailmentPlantFonteFilter.toLowerCase()) return false;
+    return true;
+  });
+  const p = filteredPlants[idx] || allPlants[idx];
+  if (!p) return;
+  const estDebt = Number(p.debenture_vol_mm || 0) > 0
+    ? Math.round(Number(p.debenture_vol_mm))
+    : Math.max(120, Math.round(Number(p.potencia_mw || 150) * 3.2));
+  const todayIso = getBrazilTodayIso();
+
+  selectedTier0CalcTarget = {
+    id: 'tier0',
+    empresa: p.debenture_emissor || `${p.usina} (${p.operador_ons || 'SPE'})`,
+    cnpj: p.debenture_cnpj || `CEG ${p.ceg || 'ONS'}`,
+    setor_macro: 'Energia & Infraestrutura',
+    uf: p.uf || 'NE',
+    cidade: `Submercado ${p.submercado || 'NE'}`,
+    tribunal: 'ONS S3 Constrained-Off + CVM Debêntures Lei 12.431',
+    processo: p.ceg || 'Project Finance Renovável',
+    fase: `Curtailment ${Number(p.curt_pct || 0).toFixed(1)}% (30d) — Pressão de ICSD`,
+    tier: 'Tier 0 (Energia)',
+    score: 9.1,
+    fit_score: 91,
+    tipo_processo: 'Tier 0',
+    subtipo_processo: `Curtailment ${p.dominant_reason || 'REL'} (${Number(p.curt_pct || 0).toFixed(0)}%)`,
+    passivo_mm: estDebt,
+    data_evento: todayIso,
+    data_adicao: todayIso,
+    credores: p.debenture_vol_mm ? `Debenturistas Lei 12.431 (R$ ${formatNumberBR(p.debenture_vol_mm)} MM), BNDES/BNB` : 'BNDES, BNB e Bancos de Project Finance',
+    perfil_passivo: `Project Finance (${p.potencia_mw || 'N/D'} MW) com perda estimada de R$ ${Number(p.est_rev_loss_mm || 0).toFixed(2)}M/mês por constrained-off ONS.`,
+    agentes_fiduciarios: p.agente_fiduciario || 'Pentágono / Vórtx / Oliveira Trust',
+    securitizadoras: 'Debêntures de Infraestrutura (Lei 12.431)',
+    advocacia: 'Mandato Preventivo de Waiver / Reperfilamento',
+    aj: 'Não aplicável (Fase Extrajudicial)',
+    proximas_acoes: 'Modelar erosão de ICSD por curtailment, negociar waiver preventivo de covenant e liberação de Conta Reserva (DSRA).',
+    tese: `(1) Contexto e Causa da Crise: Restrição operativa ONS (${p.dominant_reason || 'REL'}) cortando ${Number(p.curt_pct || 0).toFixed(1)}% da geração de ${p.usina} (${p.operador_ons || 'SPE'}). (2) Gargalo Imediato: Perda recorrente de receita comprando exposição no MCP e comprimindo o ICSD abaixo de 1,20x. (3) Tese de Mandato: Waiver preventivo, uso de DSRA, reprofiling de amortização das debêntures Lei 12.431 ou M&A do ativo.`,
+    descricao_empresa: `Complexo ${p.fonte || 'Renovável'} ${p.usina} (${p.uf}) operado por ${p.operador_ons || 'SPE'}, com ${p.potencia_mw || 'N/D'} MW monitorados pelo ONS.`,
+    model_params: {
+      haircut_estimado_pct: 32,
+      ev_estimado_mm: Math.round(estDebt * 0.85),
+      liquidez_forcada_desconto_pct: 30,
+      split_classes: { extraconcursal_pct: 35, fiscal_pct: 5, classe_i_pct: 2, classe_ii_pct: 48, classe_iii_pct: 9, classe_iv_pct: 1 }
+    }
+  };
+  calibrateAdvisoryDefaultsForDeal(selectedTier0CalcTarget);
+  modelCustomPassivo = estDebt;
+  modelHaircutPct = 32;
+  switchMainSection('precificacao', 'sim_icsd_pgfn');
+  showToast(`Complexo ${p.usina} (R$ ${formatNumberBR(estDebt)}M) carregado no Simulador de ICSD!`);
+}
+
+// 17.5 Simulator 1: 13-Week Cash Runway, Fiduciary Traps (Art. 49 §3º) & DIP Sizing
+function computeCash13WeekSeries() {
+  const c0 = Math.max(0, Number(sim13wState.caixaInicialMM || 35));
+  const opIn = Number(sim13wState.geracaoOperSemMM || 6);
+  const debtOut = Math.max(0, Number(sim13wState.servicoDividaSemMM || 9));
+  const trapPct = Math.min(90, Math.max(0, Number(sim13wState.travaRecebiveisPct || 35))) / 100.0;
+  const wkStandstill = Math.min(13, Math.max(1, Math.round(Number(sim13wState.semanaStandstill || 3))));
+  const dipMM = Math.max(0, Number(sim13wState.dipChequeMM || 60));
+  const wkDip = Math.min(13, Math.max(1, Math.round(Number(sim13wState.semanaDip || 5))));
+  const colatMM = Math.max(1, Number(sim13wState.valorColateralDipMM || 120));
+
+  const labels = [];
+  const curveInertial = [];
+  const curveStandstill = [];
+  const curvePostDip = [];
+
+  let balInert = c0;
+  let balStand = c0;
+  let balDip = c0;
+  let ruptureWeek = null;
+  let minInertialCash = c0;
+
+  for (let w = 1; w <= 13; w++) {
+    labels.push(`S${w}`);
+    const trappedCash = Math.max(0, opIn) * trapPct;
+    const netInert = (opIn - trappedCash) - debtOut;
+    balInert = Number((balInert + netInert).toFixed(2));
+    if (balInert < 0 && ruptureWeek === null) ruptureWeek = w;
+    if (balInert < minInertialCash) minInertialCash = balInert;
+
+    const standActive = w >= wkStandstill;
+    const netStand = standActive
+      ? (opIn - trappedCash * 0.25) - (debtOut * 0.15)
+      : netInert;
+    balStand = Number((balStand + netStand).toFixed(2));
+
+    const dipInflow = (w === wkDip) ? dipMM : 0;
+    balDip = Number((balDip + netStand + dipInflow).toFixed(2));
+
+    curveInertial.push(balInert);
+    curveStandstill.push(balStand);
+    curvePostDip.push(balDip);
+  }
+
+  const minDipRequiredMM = Math.max(15, Math.ceil(Math.abs(Math.min(0, minInertialCash)) + (debtOut * 2.5)));
+  const ltvDipPct = (dipMM / colatMM) * 100.0;
+  return { labels, curveInertial, curveStandstill, curvePostDip, ruptureWeek, minDipRequiredMM, ltvDipPct };
+}
+
+function updateSim13wField(field, rawVal) {
+  const num = parseNonDestructiveDecimal(rawVal);
+  if (num === null || isNaN(num)) return;
+  sim13wState[field] = num;
+  const pane = document.getElementById('sim13wRightPane');
+  if (pane) {
+    const res = computeCash13WeekSeries();
+    pane.innerHTML = buildCash13WeekRightHtml(res);
+    drawCash13WeekChart(res);
+  }
+}
+
+function buildCash13WeekRightHtml(res) {
+  const finalInert = res.curveInertial[12];
+  const finalDip = res.curvePostDip[12];
+  return `
+    <div class="calc-results-strip">
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">Semana de Ruptura (Cash Cliff)</div>
+        <div class="calc-res-val" style="color:${res.ruptureWeek ? '#991B1B' : '#065F46'};">${res.ruptureWeek ? `Semana ${res.ruptureWeek}` : 'Sem Ruptura'}</div>
+        <div class="calc-res-sub">Caixa S13 Inercial: R$ ${finalInert.toFixed(1).replace('.', ',')} MM</div>
+      </div>
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">Cheque Mínimo Recomendado (DIP)</div>
+        <div class="calc-res-val" style="color:var(--vk-teal);">R$ ${formatNumberBR(res.minDipRequiredMM)} MM</div>
+        <div class="calc-res-sub">Cobre vale de caixa + colchão operacional</div>
+      </div>
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">LTV da Garantia DIP (Art. 69-A)</div>
+        <div class="calc-res-val" style="color:${res.ltvDipPct <= 60 ? '#065F46' : '#B45309'};">${res.ltvDipPct.toFixed(1).replace('.', ',')}%</div>
+        <div class="calc-res-sub">${res.ltvDipPct <= 60 ? 'Atrativo p/ Fundos Special Sits (≤60%)' : 'Exige reforço de alienação fiduciária'}</div>
+      </div>
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">Caixa S13 Pós-Standstill + DIP</div>
+        <div class="calc-res-val" style="color:#065F46;">R$ ${finalDip.toFixed(1).replace('.', ',')} MM</div>
+        <div class="calc-res-sub">Ponte de liquidez estabilizada p/ AGC</div>
+      </div>
+    </div>
+
+    <div class="chart-panel">
+      <div class="chart-panel-header">
+        <div>
+          <h3>Curva de Liquidez 13 Semanas (R$ MM) — Impacto de Travas Fiduciárias &amp; DIP Financing</h3>
+          <p>Comparativo ao vivo: Queima Inercial c/ Retenção Art. 49 §3º vs. Standstill/Cautelar Art. 20-B vs. Injeção de Dinheiro Novo</p>
+        </div>
+        <button type="button" class="btn-solid" style="padding:5px 11px; font-size:11px;" onclick="modelDipTargetMM=${Math.round(sim13wState.dipChequeMM)}; modelDipFeePct=modelDipFeePct||2.5; selectSubTab('calc_haircut'); showToast('Cheque DIP enviado para as Tranches de Honorários!');">
+          ⚡ Enviar DIP (R$ ${formatNumberBR(sim13wState.dipChequeMM)}M) p/ Proposta
+        </button>
+      </div>
+      <div class="chart-canvas-box" style="height:310px;"><canvas id="chartCash13Weeks"></canvas></div>
+    </div>
+  `;
+}
+
+function drawCash13WeekChart(res) {
+  if (typeof Chart === 'undefined') return;
+  const ctx = document.getElementById('chartCash13Weeks');
+  if (!ctx) return;
+  createManagedChart(ctx, {
+    type: 'line',
+    data: {
+      labels: res.labels,
+      datasets: [
+        { label: '1. Cenário Inercial (c/ Travas Bancárias)', data: res.curveInertial, borderColor: '#991B1B', backgroundColor: 'rgba(153,27,27,0.08)', borderWidth: 2.5, borderDash: [5, 4], tension: 0.25, fill: true },
+        { label: '2. Com Standstill / Cautelar Art. 20-B', data: res.curveStandstill, borderColor: '#D97706', backgroundColor: 'transparent', borderWidth: 2.4, tension: 0.25 },
+        { label: '3. Pós-Standstill + DIP Superprioritário (Art. 69-A)', data: res.curvePostDip, borderColor: '#065F46', backgroundColor: 'rgba(6,95,70,0.10)', borderWidth: 3, tension: 0.25, fill: true }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        y: { grid: { color: '#E2E8F0' }, ticks: { font: { family: 'JetBrains Mono', size: 10 }, callback: v => `R$ ${v}M` } }
+      }
+    }
+  });
+}
+
+function renderCash13WeekSubmodule(d, selectorBar, container) {
+  const res = computeCash13WeekSeries();
+  container.innerHTML = selectorBar + `
+    <div class="calc-layout-grid">
+      <div class="calc-controls-panel">
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:12px;">
+          Premissas Semanais de Liquidez &amp; Travas (R$ MM)
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Caixa Inicial D+0</span></div>
+            <input type="text" class="calc-num-input" value="${sim13wState.caixaInicialMM}" oninput="updateSim13wField('caixaInicialMM', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Geração Oper./Sem.</span></div>
+            <input type="text" class="calc-num-input" value="${sim13wState.geracaoOperSemMM}" oninput="updateSim13wField('geracaoOperSemMM', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Serviço Dívida/Sem.</span></div>
+            <input type="text" class="calc-num-input" value="${sim13wState.servicoDividaSemMM}" oninput="updateSim13wField('servicoDividaSemMM', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Retenção Travas (%)</span></div>
+            <input type="text" class="calc-num-input" value="${sim13wState.travaRecebiveisPct}" oninput="updateSim13wField('travaRecebiveisPct', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Semana Standstill</span></div>
+            <input type="number" min="1" max="13" class="calc-num-input" value="${sim13wState.semanaStandstill}" oninput="updateSim13wField('semanaStandstill', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Semana Desemb. DIP</span></div>
+            <input type="number" min="1" max="13" class="calc-num-input" value="${sim13wState.semanaDip}" oninput="updateSim13wField('semanaDip', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Cheque DIP (R$ MM)</span></div>
+            <input type="text" class="calc-num-input" value="${sim13wState.dipChequeMM}" oninput="updateSim13wField('dipChequeMM', this.value)">
+          </div>
+          <div class="calc-field-group">
+            <div class="calc-field-label"><span>Colateral DIP (R$ MM)</span></div>
+            <input type="text" class="calc-num-input" value="${sim13wState.valorColateralDipMM}" oninput="updateSim13wField('valorColateralDipMM', this.value)">
+          </div>
+        </div>
+      </div>
+      <div id="sim13wRightPane">${buildCash13WeekRightHtml(res)}</div>
+    </div>
+  `;
+  scheduleChartInit(() => drawCash13WeekChart(res), 20);
+}
+
+// 17.6 Simulator 2: Debt Capacity (ICSD / Sustainable Debt) & PGFN Tax Transaction (Lei 13.988/20)
+function computeIcsdPgfnMetrics(d) {
+  const passivoTotal = Math.max(1, Number(modelCustomPassivo || d?.passivo_mm || 200));
+  const fiscalPct = Number(d?.model_params?.split_classes?.fiscal_pct ?? 10);
+  const passivoFiscalMM = Math.max(0, passivoTotal * (fiscalPct / 100.0));
+  const passivoFinanceiroMM = Math.max(1, passivoTotal - passivoFiscalMM);
+
+  const ebitda = Math.max(0, Number(simIcsdState.ebitdaNormMM || 100));
+  const capex = Math.max(0, Number(simIcsdState.capexManutMM || 25));
+  const irPct = Math.min(40, Math.max(0, Number(simIcsdState.aliquotaIrPct || 24))) / 100.0;
+  const fcfDisp = Math.max(0, (ebitda - capex) * (1 - irPct));
+
+  const icsdTarget = Math.max(1.0, Number(simIcsdState.icsdAlvo || 1.3));
+  const maxDebtServiceYear = fcfDisp / icsdTarget;
+  const r = Math.max(0.04, Number(simIcsdState.custoPosPlanoPct || 12.5) / 100.0);
+  const n = Math.max(1, Number(simIcsdState.prazoAmortAnos || 8));
+  const annuityFactor = (1 - Math.pow(1 + r, -n)) / r;
+  const dividaSustentavelMM = maxDebtServiceYear * annuityFactor;
+
+  const haircutNecessarioPct = Math.min(92, Math.max(0, Math.round((1 - (dividaSustentavelMM / passivoFinanceiroMM)) * 100)));
+  const pgfnDiscPct = Math.min(65, Math.max(0, Number(simIcsdState.descontoPgfnPct || 58)));
+  const economiaPgfnMM = passivoFiscalMM * (pgfnDiscPct / 100.0);
+  const saldoPgfnParceladoMM = Math.max(0, passivoFiscalMM - economiaPgfnMM);
+  const parcelaMensalPgfnMil = (saldoPgfnParceladoMM * 1000.0) / Math.max(12, Number(simIcsdState.prazoPgfnMeses || 120));
+
+  return {
+    passivoTotal, passivoFiscalMM, passivoFinanceiroMM, fcfDisp, maxDebtServiceYear,
+    dividaSustentavelMM, haircutNecessarioPct, pgfnDiscPct, economiaPgfnMM, saldoPgfnParceladoMM, parcelaMensalPgfnMil
+  };
+}
+
+function updateSimIcsdField(field, rawVal) {
+  const num = parseNonDestructiveDecimal(rawVal);
+  if (num === null || isNaN(num)) return;
+  simIcsdState[field] = num;
+  const d = getActiveModelingDeal();
+  const pane = document.getElementById('simIcsdRightPane');
+  if (pane && d) pane.innerHTML = buildIcsdPgfnRightHtml(d, computeIcsdPgfnMetrics(d));
+}
+
+function applySustainableHaircutToProposal(haircutVal) {
+  modelHaircutPct = Math.min(95, Math.max(5, Number(haircutVal || 50)));
+  switchMainSection('precificacao', 'pitch_pptx');
+  showToast(`Haircut Técnico Sustentável (${modelHaircutPct}%) aplicado na Proposta Comercial (.pptx)!`);
+}
+
+function buildIcsdPgfnRightHtml(d, mt) {
+  return `
+    <div class="calc-results-strip">
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">Geração Livre p/ Dívida (FCADS)</div>
+        <div class="calc-res-val">R$ ${mt.fcfDisp.toFixed(1).replace('.', ',')}M/ano</div>
+        <div class="calc-res-sub">Serviço Máx. (ICSD ${simIcsdState.icsdAlvo}x): R$ ${mt.maxDebtServiceYear.toFixed(1).replace('.', ',')}M/ano</div>
+      </div>
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">Dívida Financeira Sustentável</div>
+        <div class="calc-res-val" style="color:#065F46;">R$ ${mt.dividaSustentavelMM.toFixed(1).replace('.', ',')} MM</div>
+        <div class="calc-res-sub">Contra Dívida Fin. Atual de R$ ${mt.passivoFinanceiroMM.toFixed(1).replace('.', ',')} MM</div>
+      </div>
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">Haircut Técnico Necessário</div>
+        <div class="calc-res-val" style="color:#991B1B;">${mt.haircutNecessarioPct}%</div>
+        <div class="calc-res-sub">Equilibra estrutura em ${simIcsdState.prazoAmortAnos} anos a ${simIcsdState.custoPosPlanoPct}% a.a.</div>
+      </div>
+      <div class="calc-res-card">
+        <div class="calc-res-label result-kpi-label">Ganho Transação PGFN (Lei 13.988)</div>
+        <div class="calc-res-val" style="color:var(--vk-teal);">R$ ${mt.economiaPgfnMM.toFixed(1).replace('.', ',')} MM</div>
+        <div class="calc-res-sub">Saldo em ${simIcsdState.prazoPgfnMeses}x de R$ ${Math.round(mt.parcelaMensalPgfnMil)}k/mês</div>
+      </div>
+    </div>
+
+    <div class="chart-panel">
+      <div class="chart-panel-header">
+        <div>
+          <h3>Laudo Executivo de Capacidade de Pagamento &amp; Regularização Fiscal</h3>
+          <p>Fundamentação matemática (Art. 53, II da Lei 11.101/05) para sustentar deságio e carência perante bancos e debenturistas</p>
+        </div>
+        <button type="button" class="btn-solid" style="padding:6px 12px; font-size:11.5px;" onclick="applySustainableHaircutToProposal(${mt.haircutNecessarioPct})">
+          📊 Usar Haircut Técnico (${mt.haircutNecessarioPct}%) no Pitch .PPTX
+        </button>
+      </div>
+      <div class="table-wrap">
+        <table class="clean-table">
+          <thead>
+            <tr><th>Bloco do Passivo</th><th style="text-align:right;">Saldo Atual</th><th style="text-align:right;">Alívio / Deságio</th><th style="text-align:right;">Saldo Pós-Reestruturação</th><th>Instrumento Jurídico-Financeiro</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Passivo Financeiro &amp; Fornecedores</strong></td>
+              <td style="text-align:right; font-family:var(--font-mono);">R$ ${mt.passivoFinanceiroMM.toFixed(1).replace('.', ',')} MM</td>
+              <td style="text-align:right; font-family:var(--font-mono); color:#065F46;">${mt.haircutNecessarioPct}%</td>
+              <td style="text-align:right; font-family:var(--font-mono); font-weight:800;">R$ ${mt.dividaSustentavelMM.toFixed(1).replace('.', ',')} MM</td>
+              <td>Plano RJ / PRE alinhado a ICSD &ge; ${simIcsdState.icsdAlvo}x</td>
+            </tr>
+            <tr>
+              <td><strong>Passivo Tributário / PGFN Estimado</strong></td>
+              <td style="text-align:right; font-family:var(--font-mono);">R$ ${mt.passivoFiscalMM.toFixed(1).replace('.', ',')} MM</td>
+              <td style="text-align:right; font-family:var(--font-mono); color:#065F46;">${mt.pgfnDiscPct}% (Multa/Juros)</td>
+              <td style="text-align:right; font-family:var(--font-mono); font-weight:800;">R$ ${mt.saldoPgfnParceladoMM.toFixed(1).replace('.', ',')} MM</td>
+              <td>Transação Individual PGFN (Lei 13.988/20 — até 120m + CND Art. 57)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function renderIcsdPgfnSubmodule(d, selectorBar, container) {
+  const mt = computeIcsdPgfnMetrics(d);
+  container.innerHTML = selectorBar + `
+    <div class="calc-layout-grid">
+      <div class="calc-controls-panel">
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:12px;">
+          Premissas de Geração de Caixa (ICSD) &amp; PGFN
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div class="calc-field-group"><div class="calc-field-label"><span>EBITDA Norm. (R$M)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.ebitdaNormMM}" oninput="updateSimIcsdField('ebitdaNormMM', this.value)"></div>
+          <div class="calc-field-group"><div class="calc-field-label"><span>Capex Manut. (R$M)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.capexManutMM}" oninput="updateSimIcsdField('capexManutMM', this.value)"></div>
+          <div class="calc-field-group"><div class="calc-field-label"><span>IR/CSLL Efetivo (%)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.aliquotaIrPct}" oninput="updateSimIcsdField('aliquotaIrPct', this.value)"></div>
+          <div class="calc-field-group"><div class="calc-field-label"><span>ICSD Mínimo Alvo (x)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.icsdAlvo}" oninput="updateSimIcsdField('icsdAlvo', this.value)"></div>
+          <div class="calc-field-group"><div class="calc-field-label"><span>Custo Pós-Plano (%)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.custoPosPlanoPct}" oninput="updateSimIcsdField('custoPosPlanoPct', this.value)"></div>
+          <div class="calc-field-group"><div class="calc-field-label"><span>Prazo Amort. (Anos)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.prazoAmortAnos}" oninput="updateSimIcsdField('prazoAmortAnos', this.value)"></div>
+          <div class="calc-field-group"><div class="calc-field-label"><span>Desconto PGFN (%)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.descontoPgfnPct}" oninput="updateSimIcsdField('descontoPgfnPct', this.value)"></div>
+          <div class="calc-field-group"><div class="calc-field-label"><span>Prazo PGFN (Meses)</span></div><input type="text" class="calc-num-input" value="${simIcsdState.prazoPgfnMeses}" oninput="updateSimIcsdField('prazoPgfnMeses', this.value)"></div>
+        </div>
+      </div>
+      <div id="simIcsdRightPane">${buildIcsdPgfnRightHtml(d, mt)}</div>
+    </div>
+  `;
+}
+
+// 17.7 Formal Mandate Letter / Term Sheet Generator (A4 PDF Ready)
+function renderMandateLetterSubmodule(d, selectorBar, container) {
+  const m = computeAdvisoryFeeMetrics();
+  const qsaRec = getQsaForCnpj(d.cnpj);
+  const signatoryName = (qsaRec && Array.isArray(qsaRec.qsa) && qsaRec.qsa[0]?.nome) ? qsaRec.qsa[0].nome : 'Diretoria Executiva / Representante Legal';
+  const advComplementar = (!isGenericPlaceholderPlayer(d.advocacia) && d.advocacia) ? d.advocacia : 'assessoria jurídica constituída pela Companhia';
+  const refCode = `VK-${getBrazilTodayIso().replace(/-/g, '')}-${String(d.id || 'T0').padStart(3, '0')}`;
+
+  container.innerHTML = selectorBar + `
+    <div class="mandate-letter-layout">
+      <div class="calc-controls-panel mandate-controls-col">
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:800; color:var(--vk-header-start); text-transform:uppercase; margin-bottom:10px;">
+          Controles da Carta-Proposta (Term Sheet A4)
+        </div>
+        <p style="font-size:11.5px; color:var(--text-secondary); line-height:1.45; margin-bottom:12px;">
+          Minuta sincronizada em tempo real com os parâmetros de Retainer, Success Fee/Ratchet, Offset e Tranches configurados na Calculadora.
+        </p>
+        <div class="calc-field-group">
+          <div class="calc-field-label"><span>Modalidade do Mandato</span></div>
+          <input type="text" class="calc-num-input" value="${escapeHtml(pitchMandateType)}" onchange="pitchMandateType=this.value; renderSectionContent();">
+        </div>
+        <div class="calc-field-group">
+          <div class="calc-field-label"><span>A/C Destinatário / Signatário</span></div>
+          <input type="text" class="calc-num-input" value="${escapeHtml(signatoryName)}" onchange="pitchTargetRecipient=this.value; renderSectionContent();">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:12px;">
+          <button type="button" class="btn-solid" style="width:100%; justify-content:center; padding:10px;" onclick="printMandateLetterA4()">
+            🖨️ Exportar Carta-Proposta em PDF (A4 Limpo)
+          </button>
+          <button type="button" class="btn-action" style="width:100%; justify-content:center; padding:9px;" onclick="copyMandateLetterText()">
+            📋 Copiar Texto p/ Word / Google Docs
+          </button>
+          <button type="button" class="btn-action" style="width:100%; justify-content:center; padding:8px;" onclick="selectSubTab('calc_haircut')">
+            ← Ajustar Taxas na Calculadora
+          </button>
+        </div>
+      </div>
+
+      <div class="mandate-a4-sheet" id="mandateLetterSheet">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #063630; padding-bottom:14px; margin-bottom:18px;">
+          <div>
+            <div style="font-size:20px; font-weight:800; letter-spacing:0.16em; color:#063630;">VALKNUT</div>
+            <div style="font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:0.20em; color:#64748B;">SPECIAL SITUATIONS // FINANCIAL ADVISORY &amp; TURNAROUND</div>
+          </div>
+          <div style="text-align:right; font-family:var(--font-mono); font-size:10.5px; color:#475569;">
+            <div><strong>REF.: ${escapeHtml(refCode)}</strong></div>
+            <div>Data: ${formatDateBR(getBrazilTodayIso())}</div>
+            <div style="color:#991B1B; font-weight:700;">CONFIDENCIAL &bull; SUJEITO A NDA</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <strong>À ${escapeHtml(d.empresa)}</strong><br>
+          <span style="font-size:11.5px; color:#475569;">CNPJ: ${escapeHtml(d.cnpj)} &bull; Sede: ${escapeHtml(d.cidade)}/${escapeHtml(d.uf)}</span><br>
+          <span>A/C: <strong>${escapeHtml(pitchTargetRecipient || signatoryName)}</strong></span>
+        </div>
+
+        <p style="margin-bottom:10px;">
+          <strong>Ref.: Proposta de Prestação de Serviços de Assessoria Econômico-Financeira Estratégica (${escapeHtml(pitchMandateType)})</strong>
+        </p>
+
+        <p style="margin-bottom:10px;">
+          Prezados Senhores, a <strong>Valknut Special Situations</strong> ("Assessora") submete à apreciação de V.Sas. a presente Carta-Proposta ("Term Sheet") para atuação como assessora econômico-financeira exclusiva no contexto do equacionamento de passivos e preservação de liquidez da Companhia (passivo referencial mapeado de <strong>R$ ${formatNumberBR(m.passivoMM)} milhões</strong>).
+        </p>
+
+        <h4>1. Escopo Técnico em 3 Fases &amp; Não-Sobreposição Jurídica</h4>
+        <p>
+          <strong>(i) Fase I — Estabilização &amp; Caixa (Semanas 1–3):</strong> implantação do fluxo de caixa de 13 semanas, diagnóstico de retenções em travas fiduciárias e suporte técnico a medidas de <em>standstill</em>.<br>
+          <strong>(ii) Fase II — Modelagem, Capacidade ICSD &amp; Liquidez (Semanas 4–10):</strong> elaboração da modelagem econômico-financeira de longo prazo, estruturação competitiva de <em>New Money / DIP Financing</em> e/ou alienação de ativos <em>non-core</em> / UPIs.<br>
+          <strong>(iii) Fase III — Negociação &amp; Fechamento (Até Mês ${m.mesesMandato}):</strong> condução das tratativas financeiras perante instituições bancárias, agentes fiduciários e investidores até a aprovação/homologação.<br>
+          <em>Parágrafo Único:</em> Os serviços têm natureza estritamente econômico-financeira e negocial, atuando em total sinergia e sem qualquer sobreposição às atribuições privativas de advocacia conduzidas por <strong>${escapeHtml(advComplementar)}</strong>.
+        </p>
+
+        <h4>2. Estrutura de Remuneração e Alinhamento de Incentivos</h4>
+        <table class="clean-table" style="margin:8px 0 10px; font-size:11.5px;">
+          <thead>
+            <tr><th>Rubrica</th><th>Condição Comercial</th><th style="text-align:right;">Estimativa</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>2.1. Retainer Fixo Mensal</strong></td>
+              <td>R$ ${m.retainerMensalMil} mil/mês pelo prazo estimado de ${m.mesesMandato} meses${m.signingFeeMil > 0 ? ` (+ R$ ${m.signingFeeMil} mil na assinatura)` : ''}</td>
+              <td style="text-align:right; font-family:var(--font-mono); font-weight:700;">R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM</td>
+            </tr>
+            <tr>
+              <td><strong>2.2. Taxa de Êxito (Success Fee)</strong></td>
+              <td>${modelUseRatchet ? `Escalonada (Ratchet ${modelRatchetT1Pct}% / ${modelRatchetT2Pct}% / ${modelRatchetT3Pct}%)` : `${m.successFeePct.toFixed(2).replace('.', ',')}%`} sobre ${escapeHtml(m.baseLabel)} (${m.milestoneStandstillPct}% no Standstill/Protocolo e ${100 - m.milestoneStandstillPct}% na Homologação)</td>
+              <td style="text-align:right; font-family:var(--font-mono); font-weight:700;">R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM</td>
+            </tr>
+            <tr>
+              <td><strong>2.3. Cláusula de Abatimento (Offset)</strong></td>
+              <td>Dedução de ${m.offsetPct}% dos Retainers efetivamente pagos contra a Taxa de Êxito devida</td>
+              <td style="text-align:right; font-family:var(--font-mono); color:#991B1B;">&minus; R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM</td>
+            </tr>
+            ${m.tranchesExtrasMM > 0 ? `
+              <tr>
+                <td><strong>2.4. Fee de Captação DIP / Alienação UPI</strong></td>
+                <td>${modelDipFeePct > 0 ? `${modelDipFeePct}% s/ DIP desembolsado ` : ''}${modelUpiFeePct > 0 ? `• ${modelUpiFeePct}% s/ UPI alienada` : ''}</td>
+                <td style="text-align:right; font-family:var(--font-mono); font-weight:700;">R$ ${m.tranchesExtrasMM.toFixed(2).replace('.', ',')} MM</td>
+              </tr>
+            ` : ''}
+            <tr style="background:#F4F6F0;">
+              <td><strong>Remuneração Total Líquida Estimada</strong></td>
+              <td>Equivalente a ${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do passivo (Múltiplo de geração de valor ao cliente: <strong>${m.roiClienteEconomia.toFixed(1).replace('.', ',')}x</strong>)</td>
+              <td style="text-align:right; font-family:var(--font-mono); font-weight:800; color:#063630;">R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>3. Governança Contratual, Extraconcursalidade, Sigilo &amp; Tail Period</h4>
+        <p style="font-size:11.5px;">
+          <strong>3.1. Natureza Essencial e Extraconcursal:</strong> Em caso de procedimento regido pela Lei nº 11.101/2005, as partes reconhecem a essencialidade dos serviços prestados pós-pedido nos termos dos Arts. 67 e 84.<br>
+          <strong>3.2. Período de Proteção (Tail Period):</strong> A Taxa de Êxito permanecerá devida caso a transação ou repactuação com credores/investidores abordados conclua-se em até <strong>18 (dezoito) meses</strong> após o término formal do mandato.<br>
+          <strong>3.3. Sigilo &amp; Validade:</strong> Esta proposta é estritamente confidencial, válida por 15 (quinze) dias corridos.
+        </p>
+
+        <div class="mandate-sig-grid">
+          <div class="mandate-sig-line">
+            <strong>VALKNUT — SPECIAL SITUATIONS</strong><br>
+            Sócio-Diretor // Mesa de Reestruturação
+          </div>
+          <div class="mandate-sig-line">
+            <strong>DE ACORDO: ${escapeHtml(d.empresa)}</strong><br>
+            Nome / Cargo: ___________________________
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function printMandateLetterA4() {
+  document.body.classList.add('mandate-print-mode');
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => document.body.classList.remove('mandate-print-mode'), 350);
+  }, 60);
+}
+
+function copyMandateLetterText() {
+  const el = document.getElementById('mandateLetterSheet');
+  if (!el) return;
+  const txt = el.innerText || el.textContent || '';
+  try {
+    navigator.clipboard.writeText(txt).then(() => showToast('📋 Minuta completa da Carta-Proposta copiada para a área de transferência!'));
+  } catch (e) {
+    showToast('Minuta selecionada.');
+  }
+}
+
+// 17.8 Live 16:9 Pitch Stage & Editable Anonymized Tombstones
+function getAnonymizedTombstones() {
+  try {
+    const raw = localStorage.getItem(TOMBSTONES_STORAGE_KEY);
+    if (!raw) return DEFAULT_ANONYMIZED_TOMBSTONES;
+    const arr = JSON.parse(raw);
+    return (Array.isArray(arr) && arr.length >= 4) ? arr : DEFAULT_ANONYMIZED_TOMBSTONES;
+  } catch (e) {
+    return DEFAULT_ANONYMIZED_TOMBSTONES;
+  }
+}
+
+function promptEditAnonymizedTombstones() {
+  const cur = getAnonymizedTombstones();
+  const idxStr = typeof window.prompt === 'function' ? window.prompt('Qual credencial anonimizada deseja editar? Digite 1, 2, 3 ou 4:', '1') : '';
+  const idx = Number(idxStr) - 1;
+  if (isNaN(idx) || idx < 0 || idx > 3) return;
+  const setor = window.prompt('Macro-Setor da Credencial (sem expor razão social confidencial):', cur[idx].setor) || cur[idx].setor;
+  const porte = window.prompt('Volume / Porte Estruturado:', cur[idx].porte) || cur[idx].porte;
+  const estrutura = window.prompt('Descrição da Estrutura / Solução Entregue:', cur[idx].estrutura) || cur[idx].estrutura;
+  cur[idx] = { setor: setor.trim(), porte: porte.trim(), estrutura: estrutura.trim() };
+  safeSetUserStorage(TOMBSTONES_STORAGE_KEY, cur);
+  renderSectionContent();
+  showToast(`Credencial anonimizada #${idx + 1} atualizada no Deck!`);
+}
+
+function buildLivePitchSlidesSpec(d, m, isClientExternal) {
+  const parsed = parseThesisRegex(d.tese || d.descricao_empresa || '');
+  const wf = typeof computeWaterfallMetrics === 'function' ? computeWaterfallMetrics(d) : null;
+  const tombstones = getAnonymizedTombstones();
+  const cm = computeDynamicCalendarMeta(d);
+  const headerBar = (title, sub) => `
+    <div style="background:#063630; color:#E6E9DC; padding:12px 18px; border-bottom:3px solid #9EA581;">
+      <div style="font-family:var(--font-mono); font-size:9px; color:#A5AC82; font-weight:800; letter-spacing:0.14em;">VALKNUT — SPECIAL SITUATIONS</div>
+      <div style="font-size:15px; font-weight:800; color:#FFFFFF; margin-top:2px;">${escapeHtml(title)}</div>
+      ${sub ? `<div style="font-size:10.5px; color:#C8CEB0; margin-top:1px;">${escapeHtml(sub)}</div>` : ''}
+    </div>
+  `;
+  const footerBar = `<div style="margin-top:auto; background:#E6E9DC; border-top:1px solid #A5AC82; padding:5px 16px; font-size:9.5px; color:#475569; display:flex; justify-content:space-between;"><span>${isClientExternal ? 'ESTRITAMENTE CONFIDENCIAL — SUJEITO A NDA // ASSESSORIA ECONÔMICO-FINANCEIRA' : 'USO INTERNO EXCLUSIVO — IC MEMO MESA VALKNUT'}</span><span>VALKNUT</span></div>`;
+
+  return [
+    {
+      shortTab: 'Capa',
+      title: 'Capa Institucional',
+      bodyHtml: `
+        <div style="flex:1; background:#063630; color:#E6E9DC; padding:32px 36px; display:flex; flex-direction:column; justify-content:center; border-left:10px solid #9EA581;">
+          <div style="font-size:28px; font-weight:800; letter-spacing:0.22em;">VALKNUT</div>
+          <div style="font-size:11px; color:#A5AC82; font-weight:700; letter-spacing:0.14em; margin-bottom:18px;">SPECIAL SITUATIONS // FINANCIAL ADVISORY &amp; TURNAROUND</div>
+          <div style="font-size:20px; font-weight:800; color:#FFFFFF; line-height:1.3; margin-bottom:14px;">${isClientExternal ? 'PROPOSTA DE ASSESSORIA FINANCEIRA ESTRATÉGICA' : 'DOSSIÊ DE ORIGINAÇÃO (IC MEMO)'}:<br>${escapeHtml(d.empresa)}</div>
+          <div style="font-size:12px; color:#C8CEB0; line-height:1.6;">
+            Escopo: <strong>${escapeHtml(pitchMandateType)}</strong><br>
+            Destinatário: ${escapeHtml(pitchTargetRecipient)} &bull; Passivo: <strong>R$ ${formatNumberBR(d.passivo_mm)} MM</strong>${!isClientExternal ? ` &bull; Fit Interno: ${Number(d.fit_score || 78)}/100` : ''}
+          </div>
+        </div>
+      `
+    },
+    {
+      shortTab: 'Sumário',
+      title: 'Sumário Executivo & Precedentes',
+      bodyHtml: `
+        ${headerBar(`1. Sumário Executivo — ${d.empresa}`, `${d.cnpj} | ${d.setor_macro} | ${d.cidade}/${d.uf}`)}
+        <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px; flex:1; overflow:auto;">
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px;">
+            <div style="background:#FFF; padding:8px 10px; border:1px solid #C8CEB0; border-radius:4px;"><div style="font-size:9px; color:#38686A; font-weight:800;">PASSIVO ALVO</div><strong style="font-size:14px; color:#063630;">R$ ${formatNumberBR(m.passivoMM)}M</strong></div>
+            <div style="background:#FFF; padding:8px 10px; border:1px solid #C8CEB0; border-radius:4px;"><div style="font-size:9px; color:#38686A; font-weight:800;">ECONOMIA PROJ.</div><strong style="font-size:14px; color:#065F46;">R$ ${m.economiaMM.toFixed(1).replace('.', ',')}M</strong></div>
+            <div style="background:#FFF; padding:8px 10px; border:1px solid #C8CEB0; border-radius:4px;"><div style="font-size:9px; color:#38686A; font-weight:800;">DÍVIDA PÓS-PLANO</div><strong style="font-size:14px; color:#063630;">R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')}M</strong></div>
+            <div style="background:#FFF; padding:8px 10px; border:1px solid #C8CEB0; border-radius:4px;"><div style="font-size:9px; color:#38686A; font-weight:800;">ROI CLIENTE</div><strong style="font-size:14px; color:#065F46;">${m.roiClienteEconomia.toFixed(1).replace('.', ',')}x</strong></div>
+          </div>
+          <div style="background:#FFF; padding:10px 12px; border:1px solid #CBD5E1; border-radius:4px; font-size:11.5px; line-height:1.45;">
+            <strong>Enquadramento Operacional:</strong> ${escapeHtml(d.descricao_empresa)}<br>
+            <span style="color:#475569;">Foro/Ref.: ${escapeHtml(d.tribunal)} (${escapeHtml(d.processo)}) &bull; Assessoria Jurídica: ${escapeHtml(d.advocacia || 'Constituída')}</span>
+          </div>
+        </div>
+        ${footerBar}
+      `
+    },
+    {
+      shortTab: 'Diagnóstico',
+      title: 'Diagnóstico em 3 Pilares',
+      bodyHtml: `
+        ${headerBar('2. Diagnóstico Estruturado & Alavancas de Criação de Valor', 'Origem da pressão financeira, gargalo de curto prazo e plano de ação')}
+        <div style="padding:14px 18px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; flex:1; overflow:auto; font-size:11px;">
+          <div style="background:#FFF; border-top:4px solid #063630; padding:10px; border-radius:4px;"><strong>1. ORIGEM DA CRISE</strong><p style="margin-top:6px; line-height:1.42;">${escapeHtml(parsed.causa)}</p></div>
+          <div style="background:#FFFBEB; border-top:4px solid #B45309; padding:10px; border-radius:4px;"><strong>2. GARGALO IMEDIATO</strong><p style="margin-top:6px; line-height:1.42;">${escapeHtml(parsed.gargalo)}</p></div>
+          <div style="background:#ECEFE4; border-top:4px solid #063630; padding:10px; border-radius:4px;"><strong>3. PLANO DE MANDATO</strong><p style="margin-top:6px; line-height:1.42;">${escapeHtml(parsed.mandato)}</p></div>
+        </div>
+        ${footerBar}
+      `
+    },
+    {
+      shortTab: 'Classes',
+      title: 'Estrutura de Capital & Classe Fulcrum',
+      bodyHtml: `
+        ${headerBar('3. Estrutura do Passivo (6 Faixas LRF) & Classe Fulcrum', `Classe Fulcrum Estimada: ${wf?.fulcrumClass || 'Quirografária'}`)}
+        <div style="padding:12px 18px; flex:1; overflow:auto; font-size:11px;">
+          <div style="background:#FFF; border:1px solid #CBD5E1; padding:10px 12px; border-radius:4px; margin-bottom:8px;">
+            <strong>Principais Credores:</strong> ${escapeHtml(d.credores)}<br>
+            <strong>Fiduciários:</strong> ${escapeHtml(d.agentes_fiduciarios || 'N/A')} &bull; <strong>Garantias:</strong> ${escapeHtml(String(d.perfil_passivo || '').slice(0, 140))}
+          </div>
+          ${buildSixBucketStripHtml(d)}
+        </div>
+        ${footerBar}
+      `
+    },
+    {
+      shortTab: isClientExternal ? 'Credenciais' : '3 Portas',
+      title: isClientExternal ? 'Governança & Tombstones Anonimizados' : 'IC Memo: QSA & 3 Portas',
+      bodyHtml: isClientExternal ? `
+        ${headerBar('4. Governança do Turnaround & Credenciais Setoriais', 'Atuação 100% financeira e complementar à banca jurídica, sob rigoroso sigilo')}
+        <div style="padding:12px 18px; display:grid; grid-template-columns:repeat(2,1fr); gap:8px; flex:1; overflow:auto;">
+          ${tombstones.slice(0, 4).map(tb => `
+            <div style="background:#FFF; border:1px solid #C8CEB0; border-left:4px solid #063630; padding:9px 11px; border-radius:4px;">
+              <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:10px; font-weight:800; color:#38686A;"><span>${escapeHtml(tb.setor)}</span><span>${escapeHtml(tb.porte)}</span></div>
+              <div style="font-size:11px; color:#1E293B; margin-top:4px; line-height:1.38;">${escapeHtml(tb.estrutura)}</div>
+            </div>
+          `).join('')}
+        </div>
+        ${footerBar}
+      ` : `
+        ${headerBar('4. [IC MEMO INTERNO] QSA & Estratégia das 3 Portas', `Origination Fit Valknut: ${Number(d.fit_score || 78)}/100`)}
+        <div style="padding:14px 18px; font-size:11.5px; line-height:1.5; flex:1; overflow:auto;">
+          <div style="background:#FFF; padding:12px; border:1px solid #CBD5E1; border-radius:4px;">
+            <strong>1. Porta Credores/AFs:</strong> ${escapeHtml(d.agentes_fiduciarios || d.credores)}<br>
+            <strong>2. Porta Banca Jurídica:</strong> Parceria complementar s/ sobreposição c/ ${escapeHtml(d.advocacia || 'banca')}<br>
+            <strong>3. Porta QSA / C-Level:</strong> Diagnóstico de 13 semanas, standstill e proteção de caixa.
+          </div>
+        </div>
+        ${footerBar}
+      `
+    },
+    {
+      shortTab: 'Debt Bridge',
+      title: 'Ponte de Desalavancagem',
+      bodyHtml: `
+        ${headerBar('5. Ponte de Desalavancagem (Debt Bridge) & Liquidez', 'Gráfico nativo exportado em .PPTX demonstrando a trajetória até a Dívida Sustentável')}
+        <div style="padding:16px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:10px; align-items:end; flex:1;">
+          <div style="background:#063630; color:#FFF; padding:14px 10px; border-radius:6px; text-align:center;"><div style="font-size:10px; color:#A5AC82;">PASSIVO ATUAL</div><strong style="font-size:16px;">R$ ${formatNumberBR(m.passivoMM)}M</strong></div>
+          <div style="background:#9EA581; color:#042420; padding:12px 10px; border-radius:6px; text-align:center;"><div style="font-size:10px; font-weight:800;">ECONOMIA PLANO</div><strong style="font-size:15px;">&minus;R$ ${m.economiaMM.toFixed(1).replace('.', ',')}M</strong></div>
+          <div style="background:#38686A; color:#FFF; padding:12px 10px; border-radius:6px; text-align:center;"><div style="font-size:10px;">LIQUIDEZ DIP / UPI</div><strong style="font-size:15px;">R$ ${formatNumberBR(modelDipTargetMM)}M</strong></div>
+          <div style="background:#065F46; color:#FFF; padding:14px 10px; border-radius:6px; text-align:center;"><div style="font-size:10px;">PÓS-PLANO (${m.recupPct}%)</div><strong style="font-size:16px;">R$ ${m.creditoRecupMM.toFixed(1).replace('.', ',')}M</strong></div>
+        </div>
+        ${footerBar}
+      `
+    },
+    {
+      shortTab: 'Roadmap',
+      title: 'Plano de Trabalho em 3 Fases',
+      bodyHtml: `
+        ${headerBar(`6. Cronograma Executivo em 3 Fases (${m.mesesMandato} Meses)`, `Próximo Marco Mapeado: ${cm.data_marco_br || ''} — ${cm.marco_label || ''}`)}
+        <div style="padding:14px 18px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; flex:1; font-size:11px;">
+          <div style="background:#FFF; border:1px solid #063630; border-radius:4px; padding:10px;"><strong style="color:#063630;">FASE I (SEM. 1–3)</strong><br>Cash PMO 13 semanas, diagnóstico de travas e Standstill / Art. 20-B.</div>
+          <div style="background:#FFF; border:1px solid #38686A; border-radius:4px; padding:10px;"><strong style="color:#38686A;">FASE II (SEM. 4–10)</strong><br>Laudo ICSD, captação competitiva de DIP e Term Sheet c/ bancos e AFs.</div>
+          <div style="background:#FFF; border:1px solid #6B7445; border-radius:4px; padding:10px;"><strong style="color:#065F46;">FASE III (ATÉ M${m.mesesMandato})</strong><br>Coleta de quórum PRE/AGC, Transação PGFN e homologação judicial.</div>
+        </div>
+        ${footerBar}
+      `
+    },
+    {
+      shortTab: 'Honorários',
+      title: 'Proposta Comercial & ROI',
+      bodyHtml: `
+        ${headerBar('7. Proposta Comercial & Alinhamento de Incentivos', pitchMandateType)}
+        <div style="padding:14px 18px; display:grid; grid-template-columns:2fr 1fr; gap:12px; flex:1; align-items:center;">
+          <div style="background:#FFF; border:1px solid #CBD5E1; border-radius:4px; padding:10px 12px; font-size:11.5px; line-height:1.6;">
+            &bull; <strong>Retainer Fixo:</strong> R$ ${m.retainerMensalMil}k/mês &times; ${m.mesesMandato}m = <strong>R$ ${m.retainerTotalMM.toFixed(2).replace('.', ',')} MM</strong><br>
+            &bull; <strong>Success Bruto:</strong> ${m.successFeePct.toFixed(2).replace('.', ',')}% (${escapeHtml(m.baseShortLabel)}) = <strong>R$ ${m.successBrutoMM.toFixed(2).replace('.', ',')} MM</strong><br>
+            &bull; <strong>Offset (${m.offsetPct}%):</strong> &minus;R$ ${m.offsetDeduzidoMM.toFixed(2).replace('.', ',')} MM${m.tranchesExtrasMM > 0 ? ` | <strong>DIP/UPI:</strong> +R$ ${m.tranchesExtrasMM.toFixed(2).replace('.', ',')} MM` : ''}<br>
+            &bull; <strong style="color:#065F46;">Total Líquido Estimado: R$ ${m.totalHonorariosMM.toFixed(2).replace('.', ',')} MM (${m.takeRatePassivoPct.toFixed(2).replace('.', ',')}% do Passivo)</strong>
+          </div>
+          <div style="background:#063630; color:#E6E9DC; border-radius:6px; padding:14px; text-align:center;">
+            <div style="font-size:9.5px; color:#A5AC82; font-weight:800;">RETORNO P/ CLIENTE</div>
+            <div style="font-size:28px; font-weight:800; color:#FFF;">${m.roiClienteEconomia.toFixed(1).replace('.', ',')}x</div>
+            <div style="font-size:10px; color:#C8CEB0;">Economia / Honorários</div>
+          </div>
+        </div>
+        ${footerBar}
+      `
+    }
+  ];
+}
+
+function stepPitchSlide(delta) {
+  pitchActiveSlideIdx = (Number(pitchActiveSlideIdx || 0) + delta + 8) % 8;
+  renderSectionContent();
+}
+
+function enterPitchFullscreenStage() {
+  const el = document.getElementById('pitchLiveStageCanvas');
+  if (el && typeof el.requestFullscreen === 'function') {
+    el.requestFullscreen().catch(() => {});
+  } else {
+    showToast('Use o seletor 1..8 abaixo do palco para apresentar os slides em 16:9.');
   }
 }
 

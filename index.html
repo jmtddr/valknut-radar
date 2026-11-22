@@ -32,7 +32,7 @@
 
   <!-- Core Stylesheets Loaded First (Zero Render-Blocking Scripts Before CSS) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css?v=20261119v61">
+  <link rel="stylesheet" href="styles.css?v=20261121v70">
 
   <!-- Deferred Analytics, Export & Pitch Engines with Intact SHA-384 Subresource Integrity -->
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
@@ -92,6 +92,12 @@
     </div>
 
     <div class="top-nav-actions">
+      <button type="button" class="header-pill-btn btn-briefing-pill" id="btnMorningBriefing" onclick="toggleMorningBriefingCockpit()" title="Abrir ou recolher o Briefing Matinal (Novos Sinais 24h/7d &amp; Top 5 Ligações do Dia)">
+        ⚡ Briefing <span class="briefing-count-dot" id="briefingDeltaBadge">5</span>
+      </button>
+      <button type="button" class="header-pill-btn btn-client-safe" id="btnClientSafeMode" onclick="toggleClientSafeMode()" aria-pressed="false" title="Modo Reunião Client-Safe (Alt+P): oculta Fit Score, notas táticas, estrelas e scripts internos ao compartilhar tela">
+        🛡️ Modo Reunião
+      </button>
       <button type="button" class="header-pill-btn btn-metodologia" id="btnMetodologia" onclick="openDiretrizesModal()" title="Governança Metodológica, Piso de Corte, Tribunais &amp; Fontes Monitoradas">
         ⓘ Metodologia
       </button>
@@ -110,6 +116,9 @@
 
   <!-- Main Institutional Workspace -->
   <main class="page-wrapper" id="mainWorkspace">
+
+    <!-- Collapsible Morning Briefing Cockpit (24h/7d Delta + Watchlist/Deadlines + Top 5 Priority Calls) -->
+    <section id="morningBriefingMount" class="morning-briefing-mount" aria-label="Briefing Matinal de Originação"></section>
 
     <!-- Dynamic Section Title & Dynamic Liability Cutoff Controls (Piso e Teto em R$ MM) -->
     <div class="section-hero-row">
@@ -290,7 +299,12 @@
             <!-- Populated dynamically with CNPJ, Setor, Cidade/UF, Tribunal/Vara e Autos + Copy + Tribunal/CVM link -->
           </div>
         </div>
-        <button class="modal-close-x" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
+        <div class="tearsheet-nav-cluster">
+          <button type="button" class="modal-nav-arrow" id="btnModalPrevDeal" onclick="navigateModalDeal(-1)" title="Caso anterior no recorte (Tecla [ ou Alt+←)" aria-label="Caso anterior">&lsaquo; Anterior</button>
+          <span class="modal-nav-pos" id="modalDealPosLabel"></span>
+          <button type="button" class="modal-nav-arrow" id="btnModalNextDeal" onclick="navigateModalDeal(1)" title="Próximo caso no recorte (Tecla ] ou Alt+→)" aria-label="Próximo caso">Próximo &rsaquo;</button>
+          <button class="modal-close-x" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
+        </div>
       </div>
 
       <div class="modal-tab-strip" role="tablist" aria-label="Abas do Tear Sheet">
@@ -298,7 +312,7 @@
         <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-credores" onclick="setModalTab('credores')">Quadro de Credores &amp; Stakeholders</button>
         <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-processo" onclick="setModalTab('processo')">Dados Processuais, Banca &amp; AJ</button>
         <button class="modal-tab-item" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-gatilhos" onclick="setModalTab('gatilhos')">Gatilhos Forenses &amp; Mandato</button>
-        <button class="modal-tab-item modal-tab-abordagem" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-abordagem" onclick="setModalTab('abordagem')">🎯 Abordagem &amp; Decisores (QSA)</button>
+        <button class="modal-tab-item modal-tab-abordagem client-sensitive-el" role="tab" aria-selected="false" tabindex="-1" aria-controls="modalBody" id="modal-tab-abordagem" onclick="setModalTab('abordagem')">🎯 Abordagem &amp; Decisores (QSA)</button>
       </div>
 
       <div class="modal-content-body" id="modalBody" role="tabpanel" aria-labelledby="modal-tab-visao"></div>
@@ -306,6 +320,7 @@
       <div class="modal-bottom">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <a id="modalFooterTribunalBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-action btn-tribunal-link" style="display:none;">⚖️ Consultar Autos / CVM ↗</a>
+          <button class="btn-action" onclick="if(currentModalItem) openMandateLetterForDeal(currentModalItem.id)">📝 Carta-Proposta (A4)</button>
           <button class="btn-action" onclick="printDossier()">🖨️ Imprimir Tear Sheet / PDF</button>
           <button class="btn-action" onclick="copyDossierSummary()">📋 Copiar Dossiê Completo</button>
         </div>
@@ -326,14 +341,14 @@
           </div>
           <div class="tearsheet-company-row" style="justify-content:space-between; flex-wrap:wrap; gap:8px;">
             <h2 id="diretrizesModalTitle">Diretrizes de Originação &amp; Fontes Monitoradas</h2>
-            <span class="ticker-pill" id="diretrizesReleaseStamp">Release v6.0 &bull; Sincronizado</span>
+            <span class="ticker-pill" id="diretrizesReleaseStamp">Release v7.0 &bull; Sincronizado</span>
           </div>
         </div>
         <button class="modal-close-x" onclick="closeDiretrizesModal()" aria-label="Fechar governança metodológica">&times;</button>
       </div>
       <div class="modal-content-body" id="diretrizesModalBody"></div>
       <div class="modal-bottom">
-        <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Sincronizado com Planilha Mestre, CVM IPE 2026, ONS AWS OpenData &amp; Receita/QSA</span>
+        <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Sincronizado com Planilha Mestre, CVM (IPE + CRA/CRI + ITR 2026), ONS S3 + Lei 12.431 &amp; Grafo Cross-QSA</span>
         <button class="btn-solid" onclick="closeDiretrizesModal()">Fechar Metodologia</button>
       </div>
     </div>
@@ -371,6 +386,6 @@
   <!-- Toast Notification -->
   <div class="toast-banner" id="toastBanner" role="status" aria-live="polite"></div>
 
-  <script defer src="app.js?v=20261119v61"></script>
+  <script defer src="app.js?v=20261121v70"></script>
 </body>
 </html>

@@ -30,35 +30,35 @@ BLOCKED_TOKEN_SHA256 = {
 
 FEEDS = [
     (
-        "https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+%22deb%C3%AAntures%22%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+vencimento%29+when%3A7d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+%22deb%C3%AAntures%22%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+%22vencimento+antecipado%22+OR+reperfilamento%29+when%3A7d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Waiver / AGD",
     ),
     (
-        "https://news.google.com/rss/search?q=waiver+OR+covenants+OR+AGD+OR+debenturistas+OR+deb%C3%AAntures+reestrutura%C3%A7%C3%A3o+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28waiver+OR+covenants+OR+AGD+OR+debenturistas%29+%28reestrutura%C3%A7%C3%A3o+OR+inadimpl%C3%AAncia+OR+reperfilamento+OR+standstill%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Waiver / AGD",
     ),
     (
-        "https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22vencimento+antecipado%22+OR+V%C3%B3rtx+OR+Pent%C3%A1gono+OR+%22Oliveira+Trust%22+deb%C3%AAntures+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28%22recupera%C3%A7%C3%A3o+extrajudicial%22+OR+%22vencimento+antecipado%22+OR+V%C3%B3rtx+OR+Pent%C3%A1gono+OR+%22Oliveira+Trust%22%29+%28deb%C3%AAntures+OR+CRA+OR+CRI+OR+d%C3%ADvida%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Waiver / AGD",
     ),
     (
-        "https://news.google.com/rss/search?q=rebaixamento+OR+rating+Fitch+OR+Moody%27s+deb%C3%AAntures+OR+CRA+OR+d%C3%ADvida+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28rebaixamento+OR+rebaixa+OR+downgrade+OR+%22perspectiva+negativa%22+OR+%22observa%C3%A7%C3%A3o+negativa%22%29+%28Fitch+OR+Moody%27s+OR+%22S%26P%22%29+%28deb%C3%AAntures+OR+CRA+OR+CRI+OR+d%C3%ADvida%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Downgrade Rating",
     ),
     (
-        "https://news.google.com/rss/search?q=%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22+d%C3%ADvida+milh%C3%B5es+when%3A14d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28%22recupera%C3%A7%C3%A3o+judicial%22+OR+%22tutela+cautelar%22+OR+%22pedido+de+fal%C3%AAncia%22%29+d%C3%ADvida+milh%C3%B5es+when%3A14d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Pedido de RJ",
     ),
     (
-        "https://news.google.com/rss/search?q=%22unidade+produtiva+isolada%22+OR+%22stalking+horse%22+OR+%22leil%C3%A3o+de+UPI%22+OR+%22carve-out%22+%28d%C3%ADvida+OR+reestrutura%C3%A7%C3%A3o+OR+ativos%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28%22unidade+produtiva+isolada%22+OR+%22stalking+horse%22+OR+%22leil%C3%A3o+de+UPI%22+OR+%22carve-out%22%29+%28d%C3%ADvida+OR+reestrutura%C3%A7%C3%A3o+OR+%22recupera%C3%A7%C3%A3o+judicial%22%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Leilão de UPI",
     ),
     (
-        "https://news.google.com/rss/search?q=%28caducidade+ANEEL+OR+curtailment+d%C3%ADvida+OR+%22fian%C3%A7a+banc%C3%A1ria%22+energia+OR+%22desligamento+CCEE%22%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28%22caducidade%22+ANEEL+OR+curtailment+d%C3%ADvida+OR+%22fian%C3%A7a+banc%C3%A1ria%22+execu%C3%A7%C3%A3o+OR+%22desligamento+CCEE%22%29+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Waiver / AGD",
     ),
     (
-        "https://news.google.com/rss/search?q=%28%22legal+claims%22+OR+%22venda+de+ativos+n%C3%A3o+estrat%C3%A9gicos%22+OR+%22desinvestimento%22+d%C3%ADvida+OR+%22financiamento+DIP%22%29+milh%C3%B5es+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "https://news.google.com/rss/search?q=%28%22legal+claims%22+OR+%22venda+de+ativos%22+reestrutura%C3%A7%C3%A3o+OR+%22financiamento+DIP%22+OR+%22empr%C3%A9stimo+DIP%22%29+milh%C3%B5es+when%3A30d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
         "Leilão de UPI",
     ),
 ]
@@ -104,6 +104,48 @@ RATING_CONTEXT_TERMS = (
     "nota de credito",
 )
 
+FOREIGN_URL_PATTERNS = (
+    ".pt/",
+    "sapo.pt",
+    "observador.pt",
+    "dn.pt",
+    "publico.pt",
+    "jornaldenegocios.pt",
+    "correiodamanhacanada.com",
+    "/world-news/",
+)
+
+NOISE_TEXT_PATTERNS = (
+    "rating de portugal",
+    "rating do laos",
+    "rating do brasil",
+    "subida de 'rating'",
+    "subida de rating",
+    "melhorar perspetiva",
+    "africa ocidental",
+    "descer rating da sjm",
+    "pede recuperacao judicial nos eua",
+    "imposto de renda",
+    "lci, lca",
+    "onde investir",
+    "recomendados para",
+    "renda fixa isenta",
+    "dez estados brasileiros que mais buscam",
+    "mercado secundario brasileiro com volume",
+    "aproveita desconto e compra",
+    "lucra r$",
+)
+
+PRIMARY_ISSUANCE_PATTERNS = (
+    "lanca oferta de",
+    "aprova emissao",
+    "aprova 15a emissao",
+    "aprova a emissao",
+    "conclui emissao",
+    "conclui captacao",
+    "encerra oferta",
+)
+
 
 def decode_html_entities(s: str) -> str:
     if not s:
@@ -127,6 +169,26 @@ def is_excluded(text: str) -> bool:
     tokens = re.split(r"[^a-z0-9]+", norm(text))
     for tk in tokens:
         if len(tk) >= 4 and hashlib.sha256(tk.encode("utf-8")).hexdigest() in BLOCKED_TOKEN_SHA256:
+            return True
+    return False
+
+
+def is_rss_noise_item(title: str, desc: str, url: str = "") -> bool:
+    t_n = norm(title)
+    b_n = norm(f"{title} {desc}")
+    u_l = str(url or "").lower()
+    if any(fp in u_l for fp in FOREIGN_URL_PATTERNS):
+        return True
+    if any(np in b_n for np in NOISE_TEXT_PATTERNS):
+        return True
+    # Descarta afirmação/atribuição/elevação saudável de rating sem sinal de estresse
+    if any(r in t_n for r in RATING_CONTEXT_TERMS):
+        if any(pos in t_n for pos in ("afirma rating", "atribui rating", "eleva rating", "mantem rating", "manter rating", "perspectiva estavel")):
+            if not is_actual_downgrade(b_n):
+                return True
+    # Descarta emissões primárias saudáveis sem relação com reestruturação/PRE/RJ/waiver
+    if any(pi in t_n for pi in PRIMARY_ISSUANCE_PATTERNS):
+        if not any(d in b_n for d in ("recuperacao", "reestruturacao", "reperfilamento", "waiver", "inadimpl", "vencimento antecipado", "cautelar")):
             return True
     return False
 
@@ -300,52 +362,57 @@ def classify(title: str, desc: str, source: str, default_cat: str, deals: list):
     elif any(
         k in t_norm
         for k in [
-            "waiver", "covenant", "agd", "debenturista", "debenture", "vencimento antecipado",
+            "waiver", "covenant", "agd", "debenturista", "vencimento antecipado",
             "standstill", "reperfilamento", "repactuacao", "recuperacao extrajudicial",
-            "plano extrajudicial", "notas comerciais",
+            "plano extrajudicial", "inadimplencia", "desligamento ccee", "caducidade",
         ]
-    ) or re.search(r"\b(?:cras?|cris?|fidcs?)\b", t_norm):
+    ):
         cat = "Waiver / AGD"
     elif any(k in t_norm for k in ["recuperacao judicial", "pedido de rj", "deferimento", "plano de rj"]) or re.search(r"\brj\b", t_norm):
         cat = "Pedido de RJ"
     elif _has_decreed_bankruptcy(b):
         cat = "Falência"
-    elif re.search(r"\b(?:leilao|upis?|alienacao\s+judicial|sale\s*&\s*leaseback)\b", b):
+    elif re.search(r"\b(?:leilao|upis?|alienacao\s+judicial|sale\s*&\s*leaseback|stalking\s+horse|carve-out)\b", b):
         cat = "Leilão de UPI"
     elif any(
         k in b
         for k in [
-            "waiver", "covenant", "agd", "debenturista", "debenture", "vencimento antecipado",
+            "waiver", "covenant", "agd", "debenturista", "vencimento antecipado",
             "standstill", "reperfilamento", "repactuacao", "recuperacao extrajudicial",
-            "plano extrajudicial", "securitizadora", "vortx", "pentagono", "oliveira trust",
-            "opea", "virgo",
+            "plano extrajudicial", "vortx", "pentagono", "oliveira trust",
+            "opea", "virgo", "desligamento ccee", "caducidade",
         ]
-    ) or re.search(r"\b(?:cras?|cris?|fidcs?)\b", b):
+    ):
         cat = "Waiver / AGD"
     elif any(k in b for k in ["cautelar", "20-b", "tutela de urgencia"]):
         cat = "Cautelar 20-B"
     elif any(k in b for k in ["recuperacao judicial", "pedido de rj", "deferimento de rj"]):
         cat = "Pedido de RJ"
     else:
-        cat = "Waiver / AGD" if default_cat == "Downgrade Rating" else default_cat
+        if default_cat == "Downgrade Rating":
+            return None, None, None, None
+        cat = default_cat
 
     s_norm = norm(source)
+    clean_src = decode_html_entities(source or "").strip()
     if "valor" in s_norm or "globo" in s_norm:
         fonte = "Valor Econômico"
     elif "pipeline" in s_norm:
         fonte = "Pipeline"
     elif any(k in s_norm for k in ["brazil journal", "forbes", "exame", "neofeed", "bloomberg"]):
-        fonte = "Brazil Journal"
-    elif any(k in s_norm for k in ["fitch", "moody", "cvm", "infomoney", "seu dinheiro", "moneytimes", "money times"]):
+        fonte = clean_src if clean_src and len(clean_src) <= 28 else "Brazil Journal"
+    elif any(k in s_norm for k in ["fitch", "moody", "s&p", "cvm"]):
         fonte = "CVM / Fatos Relevantes"
     elif any(k in s_norm for k in ["vortx", "pentagono", "oliveira trust", "opea", "vert", "virgo", "agencia infra"]):
         fonte = "Agentes Fiduciários"
-    elif any(k in s_norm for k in ["jota", "conjur", "migalhas", "folha", "uol"]):
+    elif any(k in s_norm for k in ["jota", "conjur", "migalhas"]):
         fonte = "Jota / Tribunais"
     elif "empresa em crise" in s_norm:
         fonte = "Empresa em Crise"
+    elif clean_src and s_norm not in ("google news br", "google news", ""):
+        fonte = clean_src[:32]
     else:
-        fonte = "CVM / Fatos Relevantes" if cat in ("Waiver / AGD", "Downgrade Rating") else "Valor Econômico"
+        fonte = "Imprensa Especializada"
 
     matched = match_deal(raw_combined, deals)
     escopo = (
@@ -354,6 +421,39 @@ def classify(title: str, desc: str, source: str, default_cat: str, deals: list):
         else ("pipeline" if matched else "mercado")
     )
     return cat, fonte, escopo, matched
+
+
+def build_clean_rss_summary(clean_title: str, raw_desc: str, src: str, cat: str, matched: dict | None) -> str:
+    """Evita repetir o título literal do Google News RSS dentro do campo resumo."""
+    desc_clean = re.sub(r"\s+" + re.escape(src) + r"\s*$", "", raw_desc or "", flags=re.I).strip()
+    t_n = norm(clean_title)
+    d_n = norm(desc_clean)
+    if len(desc_clean) > 45 and d_n != t_n and not d_n.startswith(t_n[:45]) and not t_n.startswith(d_n[:45]):
+        return desc_clean[:230]
+    if matched:
+        passivo = matched.get("passivo_mm") or 0
+        fase = matched.get("fase") or matched.get("tipo_processo") or cat
+        return (
+            f"Fato monitorado via {src} vinculado a {matched['empresa']} "
+            f"({fase} • Passivo monitorado: R$ {passivo:,.0f} MM)."
+        ).replace(",", ".")
+    return f"Evento de {cat} capturado no monitoramento contínuo ({src}) para triagem de originação."
+
+
+def extract_event_cluster_key(it: dict) -> str:
+    """Chave de agrupamento de evento para impedir que 1 única notícia domine dezenas de slots."""
+    did = it.get("deal_id")
+    cat = norm(it.get("categoria") or "geral")
+    if did:
+        return f"deal:{did}:{cat}"
+    words = [
+        w
+        for w in re.findall(r"[a-z0-9]{4,}", norm(it.get("titulo") or ""))
+        if w not in GENERIC_SHORT_STOPWORDS
+        and w not in {"recuperacao", "judicial", "extrajudicial", "divida", "dividas", "milhoes", "bilhoes", "debentures", "pedido", "tutela", "cautelar", "rating", "fitch", "moody"}
+    ]
+    anchor = "-".join(words[:2]) if words else norm(it.get("titulo") or "")[:24]
+    return f"topic:{anchor}:{cat}"
 
 
 def assign_deterministic_id(norm_key: str, used_ids: set) -> int:
@@ -496,7 +596,7 @@ def main():
 
     fresh_rss = []
     seen = set()
-    headers = {"User-Agent": "Mozilla/5.0 (compatible; ValknutRadarBot/6.0)"}
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; ValknutRadarBot/7.0)"}
 
     for url, default_cat in FEEDS:
         try:
@@ -504,12 +604,12 @@ def main():
             with urllib.request.urlopen(req, timeout=15) as resp:
                 xml_bytes = resp.read()
             root = ET.fromstring(xml_bytes)
-            for item in root.findall(".//item")[:12]:
+            for item in root.findall(".//item")[:14]:
                 raw_title = decode_html_entities(item.findtext("title") or "")
                 link = (item.findtext("link") or "").strip()
                 pub = (item.findtext("pubDate") or "").strip()
                 src_el = item.find("source")
-                src = decode_html_entities((src_el.text if src_el is not None and src_el.text else "") or "Google News BR")
+                src = decode_html_entities((src_el.text if src_el is not None and src_el.text else "") or "Imprensa")
                 src_url = (src_el.attrib.get("url") or "").strip() if src_el is not None else ""
                 raw_desc_no_tags = re.sub(r"<[^>]+>", " ", item.findtext("description") or "")
                 desc = decode_html_entities(raw_desc_no_tags)
@@ -521,6 +621,8 @@ def main():
                 clean_title = decode_html_entities(re.sub(r"\s+-\s+[^-]+$", "", raw_title))
                 if not clean_title or is_excluded(clean_title) or is_excluded(desc):
                     continue
+                if is_rss_noise_item(clean_title, desc, src_url):
+                    continue
 
                 key = norm(clean_title)[:62]
                 if key in seen:
@@ -528,13 +630,14 @@ def main():
                 seen.add(key)
 
                 cat, fonte, escopo, matched = classify(clean_title, desc, src, default_cat, deals)
-                resumo = (
-                    desc[:230]
-                    if len(desc) > 35 and norm(desc) != norm(clean_title)
-                    else f"Monitoramento automático ({src}): atualização sobre {cat}."
-                )
+                if not cat:
+                    continue
 
+                resumo = build_clean_rss_summary(clean_title, desc, src, cat, matched)
                 resolved_or_link = cached_direct_url_by_key.get(key, link)
+                if is_rss_noise_item(clean_title, desc, resolved_or_link):
+                    continue
+
                 entry = {
                     "data_hora": dt_fmt,
                     "titulo": clean_title,
@@ -554,7 +657,7 @@ def main():
             print(f"Aviso ao consultar feed {url}: {e}")
 
     curated_preserved = []
-    rss_consolidated = []
+    rss_candidates = []
     seen_curated_keys = set()
 
     # 1. Preserve ALL curated items (900 <= id < 100000) first with HTML entity cleanup & deal_id reconciliation
@@ -583,51 +686,66 @@ def main():
         seen_curated_keys.add(k)
         curated_preserved.append(it)
 
-    # 2. Consolidate fresh + existing RSS items without duplicating curated items
+    # 2. Consolidate fresh + existing RSS items, purging noise and applying event-level clustering (max 2 per event)
     seen_rss_keys = set(seen_curated_keys)
     for it in fresh_rss + [x for x in existing_items if isinstance(x, dict) and not is_curated_item(x)]:
         title = decode_html_entities(it.get("titulo") or "")
         resumo_txt = decode_html_entities(it.get("resumo") or "")
+        item_url = str(it.get("url") or "").strip()
         if not title or is_excluded(title) or is_excluded(resumo_txt):
+            continue
+        if is_rss_noise_item(title, resumo_txt, item_url):
             continue
         if parse_br_sort_key(it.get("data_hora", "")) == 0:
             continue
+
+        # Se era Downgrade Rating e não é rebaixamento real, descarta em vez de poluir Waiver/AGD
+        blob_check = norm(f"{title} {resumo_txt}")
+        if it.get("categoria") == "Downgrade Rating" and not is_actual_downgrade(blob_check):
+            continue
+
         it["titulo"] = title
-        it["resumo"] = resumo_txt
-
-        if it.get("categoria") == "Downgrade Rating":
-            blob_check = norm(f"{title} {resumo_txt} {it.get('fonte', '')}")
-            if not is_actual_downgrade(blob_check):
-                new_cat, _, new_escopo, _ = classify(
-                    title, resumo_txt, str(it.get("fonte") or ""), "Waiver / AGD", deals
-                )
-                it["categoria"] = new_cat
-                it["escopo"] = new_escopo
-
+        matched_obj = None
         if not it.get("deal_id"):
-            matched_existing = match_deal(f"{title} {resumo_txt}", deals)
-            if matched_existing:
-                it["deal_id"] = matched_existing["id"]
+            matched_obj = match_deal(f"{title} {resumo_txt}", deals)
+            if matched_obj:
+                it["deal_id"] = matched_obj["id"]
                 if not str(it.get("empresa_nome") or "").strip() or str(it.get("empresa_nome") or "").startswith("Radar"):
-                    it["empresa_nome"] = matched_existing["empresa"]
-        elif not str(it.get("empresa_nome") or "").strip():
-            deal_lookup = next((d for d in deals if d.get("id") == it.get("deal_id")), None)
-            if deal_lookup:
-                it["empresa_nome"] = deal_lookup["empresa"]
+                    it["empresa_nome"] = matched_obj["empresa"]
+        else:
+            matched_obj = next((d for d in deals if d.get("id") == it.get("deal_id")), None)
+            if matched_obj and not str(it.get("empresa_nome") or "").strip():
+                it["empresa_nome"] = matched_obj["empresa"]
 
         if not str(it.get("empresa_nome") or "").strip():
             it["empresa_nome"] = f"Radar Ao Vivo // {it.get('fonte') or 'Mercado'}"
+
+        # Corrige resumos antigos redundantes onde o Google News repetiu o título
+        src_hint = str(it.get("empresa_nome") or "").replace("Radar Ao Vivo // ", "").strip() or str(it.get("fonte") or "Imprensa")
+        it["resumo"] = build_clean_rss_summary(title, resumo_txt, src_hint, str(it.get("categoria") or "Mercado"), matched_obj)
 
         k = norm(title)[:62]
         if k in seen_rss_keys:
             continue
         seen_rss_keys.add(k)
-        if is_google_news_url(it.get("url", "")) and k in cached_direct_url_by_key:
+        if is_google_news_url(item_url) and k in cached_direct_url_by_key:
             it["url"] = cached_direct_url_by_key[k]
-        rss_consolidated.append(it)
+        rss_candidates.append(it)
 
-    rss_consolidated.sort(key=lambda x: parse_br_sort_key(x.get("data_hora", "")), reverse=True)
-    capped_rss = rss_consolidated[:95]
+    rss_candidates.sort(key=lambda x: parse_br_sort_key(x.get("data_hora", "")), reverse=True)
+
+    # Event clustering: máximo de 2 matérias RSS por (deal_id/tópico, categoria) para diversidade de leads
+    cluster_counts = {}
+    capped_rss = []
+    for it in rss_candidates:
+        ckey = extract_event_cluster_key(it)
+        cnt = cluster_counts.get(ckey, 0)
+        if cnt >= 2:
+            continue
+        cluster_counts[ckey] = cnt + 1
+        capped_rss.append(it)
+        if len(capped_rss) >= 95:
+            break
 
     # 3. Resolve all remaining Google News redirect links to direct publisher URLs in parallel
     to_resolve = [item for item in capped_rss if is_google_news_url(item.get("url", ""))]
@@ -645,6 +763,9 @@ def main():
                         resolved_count += 1
                 except Exception:
                     pass
+
+    # Filtra pós-resolução caso alguma URL decodificada seja de domínio estrangeiro (.pt etc.)
+    capped_rss = [it for it in capped_rss if not is_rss_noise_item(it.get("titulo", ""), it.get("resumo", ""), it.get("url", ""))]
 
     used_ids = set()
     for item in curated_preserved:
@@ -672,7 +793,7 @@ def main():
         )
         print(
             f"live-news.json atualizado com {len(final_items)} notícias "
-            f"({len(curated_preserved)} curadas id>=900 + {len(capped_rss)} RSS | "
+            f"({len(curated_preserved)} curadas id>=900 + {len(capped_rss)} RSS clusterizadas | "
             f"{resolved_count} recém-resolvidas | {direct_total}/{len(final_items)} com link direto do portal)."
         )
 
