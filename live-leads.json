@@ -1,14 +1,14 @@
 {
   "schema_version": "7.0",
-  "updated_at": "2026-11-22T04:25:32Z",
-  "updated_at_br": "22/11/2026 01:25",
+  "updated_at": "2026-11-22T18:29:55Z",
+  "updated_at_br": "22/11/2026 15:29",
   "sources": {
     "cvm_ipe": {
       "status": "ok",
       "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip",
-      "filings_scanned": 41030,
-      "signals_matched": 160,
-      "unique_leads": 48,
+      "filings_scanned": 41625,
+      "signals_matched": 169,
+      "unique_leads": 51,
       "leads_exported": 34
     },
     "cvm_securit_cra_cri": {
@@ -16,7 +16,7 @@
       "cra": {
         "status": "ok",
         "url": "https://dados.cvm.gov.br/dados/SECURIT/DOC/INF_MENSAL_CRA/DADOS/inf_mensal_cra_2026.zip",
-        "certs_scanned": 754,
+        "certs_scanned": 757,
         "stressed_certs": 94,
         "debtor_links": 66
       },
@@ -24,7 +24,7 @@
         "status": "ok",
         "url": "https://dados.cvm.gov.br/dados/SECURIT/DOC/INF_MENSAL_CRI/DADOS/inf_mensal_cri_2026.zip",
         "certs_scanned": 2671,
-        "stressed_certs": 298,
+        "stressed_certs": 297,
         "debtor_links": 162
       },
       "unique_stressed_debtors": 187,
@@ -33,8 +33,8 @@
     "cvm_itr_contabil": {
       "status": "ok",
       "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
-      "issuers_scanned": 650,
-      "candidates_flagged": 42,
+      "issuers_scanned": 651,
+      "candidates_flagged": 41,
       "leads_exported": 18
     },
     "djen": {
@@ -45,21 +45,21 @@
     "qsa_receita": {
       "total_valid_cnpjs": 210,
       "cached_total": 210,
-      "fetched_this_run": 0,
-      "attempted_this_run": 0
+      "fetched_this_run": 4,
+      "attempted_this_run": 4
     }
   },
   "stats": {
     "tier0_leads_total": 74,
-    "tier0_new_unmapped": 61,
-    "tier0_in_pipeline": 13,
+    "tier0_new_unmapped": 62,
+    "tier0_in_pipeline": 12,
     "by_origin": {
       "CVM IPE": 33,
       "CVM ITR Contábil": 18,
       "CVM CRA/CRI": 25
     },
     "qsa_enriched_cnpjs": 210,
-    "cross_qsa_links_total": 17
+    "cross_qsa_links_total": 19
   },
   "tier0_leads": [
     {
@@ -163,6 +163,168 @@
       "qsa_preview": [
         "CARLOS GIL MOREIRA FERREIRA",
         "MAURICIO LEONARDO HASSON"
+      ]
+    },
+    {
+      "id": "cvm-ipe-07401436000131",
+      "lead_origin": "CVM IPE",
+      "empresa": "ELDORADO BRASIL CELULOSE S.A.",
+      "cnpj": "07.401.436/0001-31",
+      "cnpj_digits": "07401436000131",
+      "codigo_cvm": "22810",
+      "data_entrega": "2026-11-20",
+      "data_referencia": "2026-12-11",
+      "signal_type": "AGD / Waiver / PIK / Covenant",
+      "categoria_cvm": "Assembleia",
+      "tipo_cvm": "AGDEB",
+      "assunto": "Concessão de anuência prévia (waiver)",
+      "recent_assuntos": [
+        "Concessão de anuência prévia (waiver)"
+      ],
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1592091&numSequencia=1116797&numVersao=1",
+      "filing_count": 2,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 97,
+      "source": "CVM IPE 2026",
+      "origins": [
+        "CVM IPE"
+      ],
+      "uf": "MS",
+      "municipio": "TRES LAGOAS",
+      "cnae": "Fabricação de celulose e outras pastas para a fabricação de papel",
+      "porte": "DEMAIS",
+      "capital_social": 1788791900.0,
+      "qsa_preview": [
+        "ADRIAN LIMA DA HORA",
+        "ADRION LINO PIRES",
+        "AGUINALDO GOMES RAMOS FILHO"
+      ],
+      "shared_qsa_peers": [
+        "DEMETRIUS NICHELE MACEI -> CIA. DE SANEAMENTO DO PARANÁ - SANEPAR"
+      ]
+    },
+    {
+      "id": "cvm-ipe-00359742000108",
+      "lead_origin": "CVM IPE",
+      "empresa": "FASA S.A. - EM RECUPERAÇÃO JUDICIAL",
+      "cnpj": "00.359.742/0001-08",
+      "cnpj_digits": "00359742000108",
+      "codigo_cvm": "15423",
+      "data_entrega": "2026-11-19",
+      "data_referencia": "2026-11-19",
+      "signal_type": "Cautelar Art. 20-B / PRE / RJ",
+      "categoria_cvm": "Fato Relevante",
+      "tipo_cvm": "",
+      "assunto": "Apresentação de Modificativo ao Plano de Recuperação Judicial",
+      "recent_assuntos": [
+        "Apresentação de Modificativo ao Plano de Recuperação Judicial",
+        "Modificativo ao Plano de Recuperação Judicial",
+        "Prorrogação do Período de Suspensão das Ações e Execuções - \"stay period\""
+      ],
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1591958&numSequencia=1116664&numVersao=1",
+      "filing_count": 4,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 97,
+      "source": "CVM IPE 2026",
+      "origins": [
+        "CVM IPE"
+      ],
+      "uf": "SP",
+      "municipio": "SAO PAULO",
+      "cnae": "Holdings de instituições não-financeiras",
+      "porte": "DEMAIS",
+      "capital_social": 10481025.0,
+      "qsa_preview": [
+        "ANDRE LUIZ CARNEIRO DE VASCONCELLOS",
+        "RAFAEL RIBEIRO LEITE DE GOIS",
+        "RAUL ALVES ARAUJO DO NASCIMENTO"
+      ],
+      "shared_qsa_peers": [
+        "RAFAEL RIBEIRO LEITE DE GOIS -> Grupo Fictor (Fictor Holding S/A, Fictor Invest Ltda e outras 18 empresas)"
+      ]
+    },
+    {
+      "id": "cvm-ipe-17162082000173",
+      "lead_origin": "CVM IPE",
+      "empresa": "MENDES JUNIOR ENGENHARIA SA",
+      "cnpj": "17.162.082/0001-73",
+      "cnpj_digits": "17162082000173",
+      "codigo_cvm": "4782",
+      "data_entrega": "2026-11-18",
+      "data_referencia": "2026-10-27",
+      "signal_type": "AGD / Waiver / PIK / Covenant",
+      "categoria_cvm": "Reunião da Administração",
+      "tipo_cvm": "Conselho de Administração",
+      "assunto": "Repactuação",
+      "recent_assuntos": [
+        "Repactuação"
+      ],
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1590955&numSequencia=1115661&numVersao=2",
+      "filing_count": 2,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 97,
+      "source": "CVM IPE 2026",
+      "origins": [
+        "CVM IPE"
+      ],
+      "uf": "MG",
+      "municipio": "BELO HORIZONTE",
+      "cnae": "Construção de obras de arte especiais",
+      "porte": "DEMAIS",
+      "capital_social": 0,
+      "qsa_preview": [
+        "ANDREA GUIMARAES MENDES",
+        "EDUARDO MENDES MOREIRA",
+        "EUGENIO JOSE BOCCHESE MENDES"
+      ]
+    },
+    {
+      "id": "cvm-ipe-12528708000107",
+      "lead_origin": "CVM IPE",
+      "empresa": "AERIS IND. E COM. DE EQUIP. PARA GER. DE ENG. S.A.",
+      "cnpj": "12.528.708/0001-07",
+      "cnpj_digits": "12528708000107",
+      "codigo_cvm": "25283",
+      "data_entrega": "2026-11-17",
+      "data_referencia": "2026-11-17",
+      "signal_type": "Cautelar Art. 20-B / PRE / RJ",
+      "categoria_cvm": "Fato Relevante",
+      "tipo_cvm": "",
+      "assunto": "Deferimento Recuperação Extrajudicial",
+      "recent_assuntos": [
+        "Deferimento Recuperação Extrajudicial",
+        "Minuta do Plano de Recuperação Extrajudicial",
+        "(ii)a autorização para que os administradores da Companhia pratiquem todos os atos necessários para dar continuidade e garantir a efetivação da Recuperação Extr"
+      ],
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1590452&numSequencia=1115158&numVersao=1",
+      "filing_count": 6,
+      "in_pipeline": true,
+      "deal_id": 1,
+      "deal_empresa": "Aeris Energy",
+      "deal_passivo_mm": 1000,
+      "fit_score": 97,
+      "source": "CVM IPE 2026",
+      "origins": [
+        "CVM IPE"
+      ],
+      "uf": "CE",
+      "municipio": "CAUCAIA",
+      "cnae": "Fabricação de geradores de corrente contínua e alternada, peças e acessórios",
+      "porte": "DEMAIS",
+      "capital_social": 911975000.0,
+      "qsa_preview": [
+        "ALEXANDRE SARNES NEGRAO",
+        "CASSIO CANCELA E PENNA",
+        "DANIEL HENRIQUE DA COSTA MELLO"
       ]
     },
     {
@@ -286,46 +448,6 @@
       ]
     },
     {
-      "id": "cvm-ipe-12528708000107",
-      "lead_origin": "CVM IPE",
-      "empresa": "AERIS IND. E COM. DE EQUIP. PARA GER. DE ENG. S.A.",
-      "cnpj": "12.528.708/0001-07",
-      "cnpj_digits": "12528708000107",
-      "codigo_cvm": "25283",
-      "data_entrega": "2026-11-05",
-      "data_referencia": "2026-11-03",
-      "signal_type": "Cautelar Art. 20-B / PRE / RJ",
-      "categoria_cvm": "Informações de Companhias em Recuperação Judicial ou Extrajudicial",
-      "tipo_cvm": "Plano de Recuperação",
-      "assunto": "Minuta do Plano de Recuperação Extrajudicial",
-      "recent_assuntos": [
-        "Minuta do Plano de Recuperação Extrajudicial",
-        "(ii)a autorização para que os administradores da Companhia pratiquem todos os atos necessários para dar continuidade e garantir a efetivação da Recuperação Extr",
-        "(i)a ratificação do ajuizamento do pedido de recuperação extrajudicial da Companhia (\"Recuperação Extrajudicial\")||(ii)a autorização para que os administradores"
-      ],
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1584655&numSequencia=1109361&numVersao=1",
-      "filing_count": 5,
-      "in_pipeline": true,
-      "deal_id": 1,
-      "deal_empresa": "Aeris Energy",
-      "deal_passivo_mm": 1000,
-      "fit_score": 97,
-      "source": "CVM IPE 2026",
-      "origins": [
-        "CVM IPE"
-      ],
-      "uf": "CE",
-      "municipio": "CAUCAIA",
-      "cnae": "Fabricação de geradores de corrente contínua e alternada, peças e acessórios",
-      "porte": "DEMAIS",
-      "capital_social": 911975000.0,
-      "qsa_preview": [
-        "ALEXANDRE SARNES NEGRAO",
-        "CASSIO CANCELA E PENNA",
-        "DANIEL HENRIQUE DA COSTA MELLO"
-      ]
-    },
-    {
       "id": "cvm-ipe-09053134000145",
       "lead_origin": "CVM IPE",
       "empresa": "ELFA MEDICAMENTOS S.A.",
@@ -403,6 +525,9 @@
         "ANATALICIO RISDEN JUNIOR",
         "DEMETRIUS NICHELE MACEI",
         "DIANE AGUSTINI"
+      ],
+      "shared_qsa_peers": [
+        "DEMETRIUS NICHELE MACEI -> ELDORADO BRASIL CELULOSE S.A."
       ]
     },
     {
@@ -971,6 +1096,56 @@
       "qsa_preview": [
         "FERNANDO CESAR CALAMITA",
         "NATALIA GODINHO LACAVA PERESTRELO"
+      ]
+    },
+    {
+      "id": "cvm-itr-01107327000120",
+      "lead_origin": "CVM ITR Contábil",
+      "empresa": "BBM LOGÍSTICA S.A.",
+      "cnpj": "01.107.327/0001-20",
+      "cnpj_digits": "01107327000120",
+      "codigo_cvm": "024660",
+      "data_entrega": "2026-11-16",
+      "data_referencia": "2026-09-30",
+      "signal_type": "Pré-Colapso Contábil (ITR: Dívida CP > Caixa)",
+      "categoria_cvm": "Demonstrações Trimestrais ITR (Consolidado)",
+      "tipo_cvm": "Parede de Liquidez (11.2x CP/Caixa)",
+      "assunto": "ITR 2026-09: Dívida Bruta R$ 398M | CP R$ 112M vs. Caixa R$ 10M (11.2x) • Desp. Fin. 8.4x EBIT • PL R$ -570M (Passivo a Descoberto)",
+      "recent_assuntos": [
+        "ITR 2026-09: Dívida Bruta R$ 398M | CP R$ 112M vs. Caixa R$ 10M (11.2x) • Desp. Fin. 8.4x EBIT • PL R$ -570M (Passivo a Descoberto)"
+      ],
+      "link_download": "http://www.rad.cvm.gov.br/ENETCONSULTA/frmDownloadDocumento.aspx?CodigoInstituicao=1&NumeroSequencialDocumento=162705",
+      "filing_count": 1,
+      "itr_metrics": {
+        "divida_bruta_mm": 397.6,
+        "divida_cp_mm": 112.2,
+        "caixa_mm": 10.0,
+        "pl_mm": -569.7,
+        "ebit_mm": 21.9,
+        "desp_fin_mm": 184.6,
+        "cp_caixa_x": 11.17
+      },
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 95,
+      "source": "CVM ITR 2026",
+      "origins": [
+        "CVM ITR Contábil"
+      ],
+      "uf": "PR",
+      "municipio": "SAO JOSE DOS PINHAIS",
+      "cnae": "Transporte rodoviário de carga, exceto produtos perigosos e mudanças, intermunicipal, interestadual e internacional",
+      "porte": "DEMAIS",
+      "capital_social": 102489380.0,
+      "qsa_preview": [
+        "AGAPITO PEREIRA DOS ANJOS SOBRINHO",
+        "EDUARDO VIEIRA ORFAO",
+        "MARCELO JOSE MILLIET"
+      ],
+      "shared_qsa_peers": [
+        "MARCELO JOSE MILLIET -> MAESTRO LOCADORA DE VEÍCULOS S.A."
       ]
     },
     {
@@ -1904,56 +2079,6 @@
       ]
     },
     {
-      "id": "cvm-itr-01107327000120",
-      "lead_origin": "CVM ITR Contábil",
-      "empresa": "BBM LOGÍSTICA S.A.",
-      "cnpj": "01.107.327/0001-20",
-      "cnpj_digits": "01107327000120",
-      "codigo_cvm": "024660",
-      "data_entrega": "2026-08-06",
-      "data_referencia": "2026-06-30",
-      "signal_type": "Pré-Colapso Contábil (ITR: Dívida CP > Caixa)",
-      "categoria_cvm": "Demonstrações Trimestrais ITR (Consolidado)",
-      "tipo_cvm": "Parede de Liquidez (10.1x CP/Caixa)",
-      "assunto": "ITR 2026-06: Dívida Bruta R$ 371M | CP R$ 97M vs. Caixa R$ 10M (10.1x) • Desp. Fin. 88.0x EBIT • PL R$ -543M (Passivo a Descoberto)",
-      "recent_assuntos": [
-        "ITR 2026-06: Dívida Bruta R$ 371M | CP R$ 97M vs. Caixa R$ 10M (10.1x) • Desp. Fin. 88.0x EBIT • PL R$ -543M (Passivo a Descoberto)"
-      ],
-      "link_download": "http://www.rad.cvm.gov.br/ENETCONSULTA/frmDownloadDocumento.aspx?CodigoInstituicao=1&NumeroSequencialDocumento=160281",
-      "filing_count": 1,
-      "itr_metrics": {
-        "divida_bruta_mm": 371.0,
-        "divida_cp_mm": 96.6,
-        "caixa_mm": 9.5,
-        "pl_mm": -542.7,
-        "ebit_mm": 2.1,
-        "desp_fin_mm": 182.5,
-        "cp_caixa_x": 10.13
-      },
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 95,
-      "source": "CVM ITR 2026",
-      "origins": [
-        "CVM ITR Contábil"
-      ],
-      "uf": "PR",
-      "municipio": "SAO JOSE DOS PINHAIS",
-      "cnae": "Transporte rodoviário de carga, exceto produtos perigosos e mudanças, intermunicipal, interestadual e internacional",
-      "porte": "DEMAIS",
-      "capital_social": 102489380.0,
-      "qsa_preview": [
-        "AGAPITO PEREIRA DOS ANJOS SOBRINHO",
-        "EDUARDO VIEIRA ORFAO",
-        "MARCELO JOSE MILLIET"
-      ],
-      "shared_qsa_peers": [
-        "MARCELO JOSE MILLIET -> MAESTRO LOCADORA DE VEÍCULOS S.A."
-      ]
-    },
-    {
       "id": "cvm-ipe-08795211000170",
       "lead_origin": "CVM IPE",
       "empresa": "MAESTRO LOCADORA DE VEÍCULOS S.A.",
@@ -2778,53 +2903,6 @@
       ]
     },
     {
-      "id": "cvm-itr-60730348000166",
-      "lead_origin": "CVM ITR Contábil",
-      "empresa": "CIA MELHORAMENTOS DE SAO PAULO",
-      "cnpj": "60.730.348/0001-66",
-      "cnpj_digits": "60730348000166",
-      "codigo_cvm": "003654",
-      "data_entrega": "2026-08-14",
-      "data_referencia": "2026-06-30",
-      "signal_type": "Pré-Colapso Contábil (ITR: Dívida CP > Caixa)",
-      "categoria_cvm": "Demonstrações Trimestrais ITR (Consolidado)",
-      "tipo_cvm": "Parede de Liquidez (2.2x CP/Caixa)",
-      "assunto": "ITR 2026-06: Dívida Bruta R$ 227M | CP R$ 80M vs. Caixa R$ 37M (2.2x) • EBIT Negativo",
-      "recent_assuntos": [
-        "ITR 2026-06: Dívida Bruta R$ 227M | CP R$ 80M vs. Caixa R$ 37M (2.2x) • EBIT Negativo"
-      ],
-      "link_download": "http://www.rad.cvm.gov.br/ENETCONSULTA/frmDownloadDocumento.aspx?CodigoInstituicao=1&NumeroSequencialDocumento=160854",
-      "filing_count": 1,
-      "itr_metrics": {
-        "divida_bruta_mm": 226.5,
-        "divida_cp_mm": 80.2,
-        "caixa_mm": 36.6,
-        "pl_mm": 776.8,
-        "ebit_mm": -21.1,
-        "desp_fin_mm": 21.4,
-        "cp_caixa_x": 2.19
-      },
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 93,
-      "source": "CVM ITR 2026",
-      "origins": [
-        "CVM ITR Contábil"
-      ],
-      "uf": "SP",
-      "municipio": "SAO PAULO",
-      "cnae": "Holdings de instituições não-financeiras",
-      "porte": "DEMAIS",
-      "capital_social": 153718780.0,
-      "qsa_preview": [
-        "BRUNO MARCOS MARTIN",
-        "CLAUDINEI RODRIGUES DA CUNHA",
-        "ERICK VINICIUS RALF BONIZZI"
-      ]
-    },
-    {
       "id": "cvm-itr-14292540000109",
       "lead_origin": "CVM ITR Contábil",
       "empresa": "BRAZIL TOWER, CESSÃO DE INFRA-ESTRUTURAS S.A",
@@ -2869,6 +2947,53 @@
         "ANA JULIA DA CUNHA PEIXOTO REIS",
         "DOMINGOS SAVIO VIEIRA DE ALMEIDA",
         "JULIO SIMOES ROLAND"
+      ]
+    },
+    {
+      "id": "cvm-itr-79430682000122",
+      "lead_origin": "CVM ITR Contábil",
+      "empresa": "FARMÁCIA E DROGARIA NISSEI S.A.",
+      "cnpj": "79.430.682/0001-22",
+      "cnpj_digits": "79430682000122",
+      "codigo_cvm": "025429",
+      "data_entrega": "2026-11-13",
+      "data_referencia": "2026-09-30",
+      "signal_type": "Pré-Colapso Contábil (ITR: Dívida CP > Caixa)",
+      "categoria_cvm": "Demonstrações Trimestrais ITR (Consolidado)",
+      "tipo_cvm": "Parede de Liquidez (6.7x CP/Caixa)",
+      "assunto": "ITR 2026-09: Dívida Bruta R$ 1.001M | CP R$ 431M vs. Caixa R$ 64M (6.7x) • Desp. Fin. 2.4x EBIT",
+      "recent_assuntos": [
+        "ITR 2026-09: Dívida Bruta R$ 1.001M | CP R$ 431M vs. Caixa R$ 64M (6.7x) • Desp. Fin. 2.4x EBIT"
+      ],
+      "link_download": "http://www.rad.cvm.gov.br/ENETCONSULTA/frmDownloadDocumento.aspx?CodigoInstituicao=1&NumeroSequencialDocumento=162659",
+      "filing_count": 1,
+      "itr_metrics": {
+        "divida_bruta_mm": 1001.2,
+        "divida_cp_mm": 430.9,
+        "caixa_mm": 64.1,
+        "pl_mm": 173.6,
+        "ebit_mm": 123.8,
+        "desp_fin_mm": 303.3,
+        "cp_caixa_x": 6.72
+      },
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 92,
+      "source": "CVM ITR 2026",
+      "origins": [
+        "CVM ITR Contábil"
+      ],
+      "uf": "PR",
+      "municipio": "CURITIBA",
+      "cnae": "Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas",
+      "porte": "DEMAIS",
+      "capital_social": 350547900.0,
+      "qsa_preview": [
+        "ALEXANDRE MAEOKA",
+        "ANDRE LISSNER",
+        "EDUARDO DE ALMEIDA SALLES TERRA"
       ]
     },
     {
@@ -3231,122 +3356,36 @@
       "qsa_preview": [
         "FERNANDO YAGURA MAEDA"
       ]
-    },
-    {
-      "id": "cvm-ipe-04368865000166",
-      "lead_origin": "CVM IPE",
-      "empresa": "LIGGA TELECOMUNICAÇÕES S.A.",
-      "cnpj": "04.368.865/0001-66",
-      "cnpj_digits": "04368865000166",
-      "codigo_cvm": "27367",
-      "data_entrega": "2026-08-26",
-      "data_referencia": "2026-09-15",
-      "signal_type": "AGD / Waiver / PIK / Covenant",
-      "categoria_cvm": "Assembleia",
-      "tipo_cvm": "AGDEB",
-      "assunto": "Waiver p/ não pagamento da parcela da Remuneração das Debêntures (15/09/26), diante da necessidade de prorrogar o prazo de fechamento da Operação de M&ampA com a Brasil TecPar",
-      "recent_assuntos": [
-        "Waiver p/ não pagamento da parcela da Remuneração das Debêntures (15/09/26), diante da necessidade de prorrogar o prazo de fechamento da Operação de M&ampA com "
-      ],
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1561441&numSequencia=1086147&numVersao=1",
-      "filing_count": 2,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 87,
-      "source": "CVM IPE 2026",
-      "origins": [
-        "CVM IPE"
-      ],
-      "uf": "PR",
-      "municipio": "CURITIBA",
-      "cnae": "Serviços de comunicação multimídia - SCM",
-      "porte": "DEMAIS",
-      "capital_social": 1057131100.0,
-      "qsa_preview": [
-        "AGNALDO BASTOS LOPES",
-        "HELIO CALIXTO DA COSTA",
-        "SILVIO BARRETO DA SILVA"
-      ]
-    },
-    {
-      "id": "cvm-ipe-89463822000112",
-      "lead_origin": "CVM IPE",
-      "empresa": "LUPATECH S.A.",
-      "cnpj": "89.463.822/0001-12",
-      "cnpj_digits": "89463822000112",
-      "codigo_cvm": "20060",
-      "data_entrega": "2026-08-25",
-      "data_referencia": "2026-08-25",
-      "signal_type": "Cautelar Art. 20-B / PRE / RJ",
-      "categoria_cvm": "Fato Relevante",
-      "tipo_cvm": "",
-      "assunto": "Formação de Quórum no Âmbito de Recuperação Extrajudicial",
-      "recent_assuntos": [
-        "Formação de Quórum no Âmbito de Recuperação Extrajudicial"
-      ],
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1560902&numSequencia=1085608&numVersao=1",
-      "filing_count": 1,
-      "in_pipeline": true,
-      "deal_id": 14,
-      "deal_empresa": "Lupatech S/A",
-      "deal_passivo_mm": 386,
-      "fit_score": 87,
-      "source": "CVM IPE 2026",
-      "origins": [
-        "CVM IPE"
-      ],
-      "uf": "SP",
-      "municipio": "NOVA ODESSA",
-      "cnae": "Fabricação de válvulas, registros e dispositivos semelhantes, peças e acessórios",
-      "porte": "DEMAIS",
-      "capital_social": 144484430.0,
-      "qsa_preview": [
-        "MARCO ANTONIO MIOLA",
-        "RAFAEL GORENSTEIN"
-      ]
-    },
-    {
-      "id": "cvm-ipe-00194724000113",
-      "lead_origin": "CVM IPE",
-      "empresa": "AUREN OPERAÇÕES S.A.",
-      "cnpj": "00.194.724/0001-13",
-      "cnpj_digits": "00194724000113",
-      "codigo_cvm": "26174",
-      "data_entrega": "2026-07-03",
-      "data_referencia": "2025-10-30",
-      "signal_type": "AGD / Waiver / PIK / Covenant",
-      "categoria_cvm": "Assembleia",
-      "tipo_cvm": "AGDEB",
-      "assunto": "Aprovar consentimento prévio (waiver) para ajustes em índices financeiros e condições da Escritura de Emissão, vinculados à possível reorganização societária e nova fiança da Auren Energia.||Aprovar consentimento prévio (waiver) para inclus",
-      "recent_assuntos": [
-        "Aprovar consentimento prévio (waiver) para ajustes em índices financeiros e condições da Escritura de Emissão, vinculados à possível reorganização societária e "
-      ],
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1541686&numSequencia=1066392&numVersao=2",
-      "filing_count": 3,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 87,
-      "source": "CVM IPE 2026",
-      "origins": [
-        "CVM IPE"
-      ],
-      "uf": "SP",
-      "municipio": "BAURU",
-      "cnae": "Geração de energia elétrica",
-      "porte": "DEMAIS",
-      "capital_social": 3612620800.0,
-      "qsa_preview": [
-        "ANDRESSA RISSATO BROLACCI LAMANA",
-        "CARLOS CURCI NETO",
-        "DANIEL MARROCOS CAMPOSILVAN"
-      ]
     }
   ],
   "qsa_shared_links": [
+    {
+      "socio": "RAFAEL RIBEIRO LEITE DE GOIS",
+      "qualificacao": "Presidente",
+      "is_holding_pj": false,
+      "cross_brand_group": true,
+      "companies_count": 2,
+      "bridges_pipeline_and_premedia": true,
+      "combined_exposure_mm": 4200.0,
+      "empresas": [
+        {
+          "cnpj_digits": "08637270000110",
+          "empresa": "Grupo Fictor (Fictor Holding S/A, Fictor Invest Ltda e outras 18 empresas)",
+          "in_pipeline": true,
+          "deal_id": 55,
+          "lead_id": null,
+          "status": "Pipeline"
+        },
+        {
+          "cnpj_digits": "00359742000108",
+          "empresa": "FASA S.A. - EM RECUPERAÇÃO JUDICIAL",
+          "in_pipeline": false,
+          "deal_id": null,
+          "lead_id": "cvm-ipe-00359742000108",
+          "status": "Cautelar Art. 20-B / PRE / RJ"
+        }
+      ]
+    },
     {
       "socio": "CARLOS ALBERTO DE MORAES SCHETTERT",
       "qualificacao": "Presidente",
@@ -3605,7 +3644,7 @@
       "cross_brand_group": true,
       "companies_count": 2,
       "bridges_pipeline_and_premedia": false,
-      "combined_exposure_mm": 371.0,
+      "combined_exposure_mm": 397.6,
       "empresas": [
         {
           "cnpj_digits": "01107327000120",
@@ -3622,6 +3661,33 @@
           "deal_id": null,
           "lead_id": "cvm-ipe-08795211000170",
           "status": "Vencimento Antecipado / Default / Downgrade"
+        }
+      ]
+    },
+    {
+      "socio": "DEMETRIUS NICHELE MACEI",
+      "qualificacao": "Conselheiro de Administração",
+      "is_holding_pj": false,
+      "cross_brand_group": true,
+      "companies_count": 2,
+      "bridges_pipeline_and_premedia": false,
+      "combined_exposure_mm": 0.0,
+      "empresas": [
+        {
+          "cnpj_digits": "76484013000145",
+          "empresa": "CIA. DE SANEAMENTO DO PARANÁ - SANEPAR",
+          "in_pipeline": false,
+          "deal_id": null,
+          "lead_id": "cvm-ipe-76484013000145",
+          "status": "AGD / Waiver / PIK / Covenant"
+        },
+        {
+          "cnpj_digits": "07401436000131",
+          "empresa": "ELDORADO BRASIL CELULOSE S.A.",
+          "in_pipeline": false,
+          "deal_id": null,
+          "lead_id": "cvm-ipe-07401436000131",
+          "status": "AGD / Waiver / PIK / Covenant"
         }
       ]
     },
@@ -8587,77 +8653,6 @@
       "source": "BrasilAPI",
       "fetched_at": "2026-11-22"
     },
-    "60730348000166": {
-      "razao_social": "COMPANHIA MELHORAMENTOS DE SAO PAULO",
-      "nome_fantasia": "MELHORAMENTOS",
-      "situacao": "ATIVA",
-      "data_inicio": "1967-11-30",
-      "capital_social": 153718780.0,
-      "porte": "DEMAIS",
-      "cnae": "Holdings de instituições não-financeiras",
-      "municipio": "SAO PAULO",
-      "uf": "SP",
-      "telefone": "1138740400",
-      "qsa": [
-        {
-          "nome": "BRUNO MARCOS MARTIN",
-          "qualificacao": "Diretor",
-          "doc_socio": "***906456**"
-        },
-        {
-          "nome": "CLAUDINEI RODRIGUES DA CUNHA",
-          "qualificacao": "Diretor",
-          "doc_socio": "***443798**"
-        },
-        {
-          "nome": "ERICK VINICIUS RALF BONIZZI",
-          "qualificacao": "Diretor",
-          "doc_socio": "***470938**"
-        },
-        {
-          "nome": "INGO PLOGER",
-          "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***500708**"
-        },
-        {
-          "nome": "MARCELO RENAUX WILLER",
-          "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***351329**"
-        },
-        {
-          "nome": "PAULA WEISZFLOG",
-          "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***938548**"
-        },
-        {
-          "nome": "PAULO RENATO FERREIRA VELLOSO",
-          "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***665338**"
-        },
-        {
-          "nome": "RAFAEL GIBINI",
-          "qualificacao": "Diretor",
-          "doc_socio": "***632988**"
-        },
-        {
-          "nome": "RENAN JANSSEN BARBOSA",
-          "qualificacao": "Diretor",
-          "doc_socio": "***470168**"
-        },
-        {
-          "nome": "TILO PLOGER",
-          "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***407218**"
-        },
-        {
-          "nome": "WALTER WEISZFLOG",
-          "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***453378**"
-        }
-      ],
-      "source": "BrasilAPI",
-      "fetched_at": "2026-11-22"
-    },
     "42434611000198": {
       "razao_social": "CRL SPE I EMPREENDIMENTOS E PARTICIPACOES LTDA",
       "nome_fantasia": "",
@@ -9915,109 +9910,185 @@
       "source": "BrasilAPI",
       "fetched_at": "2026-11-22"
     },
-    "04368865000166": {
-      "razao_social": "LIGGA TELECOMUNICACOES S.A.",
-      "nome_fantasia": "LIGGA TELECOM",
+    "00359742000108": {
+      "razao_social": "FICTOR ALIMENTOS S.A.",
+      "nome_fantasia": "",
       "situacao": "ATIVA",
-      "data_inicio": "2001-04-04",
-      "capital_social": 1057131100.0,
+      "data_inicio": "1994-12-20",
+      "capital_social": 10481025.0,
       "porte": "DEMAIS",
-      "cnae": "Serviços de comunicação multimídia - SCM",
+      "cnae": "Holdings de instituições não-financeiras",
+      "municipio": "SAO PAULO",
+      "uf": "SP",
+      "telefone": "1151024102",
+      "qsa": [
+        {
+          "nome": "ANDRE LUIZ CARNEIRO DE VASCONCELLOS",
+          "qualificacao": "Diretor",
+          "doc_socio": "***049027**"
+        },
+        {
+          "nome": "RAFAEL RIBEIRO LEITE DE GOIS",
+          "qualificacao": "Presidente",
+          "doc_socio": "***094487**"
+        },
+        {
+          "nome": "RAUL ALVES ARAUJO DO NASCIMENTO",
+          "qualificacao": "Diretor",
+          "doc_socio": "***004156**"
+        }
+      ],
+      "source": "BrasilAPI",
+      "fetched_at": "2026-11-22"
+    },
+    "07401436000131": {
+      "razao_social": "ELDORADO BRASIL CELULOSE S/A",
+      "nome_fantasia": "ELDORADO BRASIL",
+      "situacao": "ATIVA",
+      "data_inicio": "2005-05-20",
+      "capital_social": 1788791900.0,
+      "porte": "DEMAIS",
+      "cnae": "Fabricação de celulose e outras pastas para a fabricação de papel",
+      "municipio": "TRES LAGOAS",
+      "uf": "MS",
+      "telefone": "6735090130",
+      "qsa": [
+        {
+          "nome": "ADRIAN LIMA DA HORA",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***365394**"
+        },
+        {
+          "nome": "ADRION LINO PIRES",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***596451**"
+        },
+        {
+          "nome": "AGUINALDO GOMES RAMOS FILHO",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***840458**"
+        },
+        {
+          "nome": "CARLOS ROBERTO PAIVA MONTEIRO",
+          "qualificacao": "Diretor",
+          "doc_socio": "***349210**"
+        },
+        {
+          "nome": "CARMINE DE SIERVI NETO",
+          "qualificacao": "Diretor",
+          "doc_socio": "***484295**"
+        },
+        {
+          "nome": "DEMETRIUS NICHELE MACEI",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***870509**"
+        },
+        {
+          "nome": "EMERSON FERNANDES LOUREIRO",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***188548**"
+        },
+        {
+          "nome": "ERICO DE ARRUDA HOLANDA",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***142594**"
+        },
+        {
+          "nome": "FRANCISCO DE ASSIS E SILVA",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***102019**"
+        },
+        {
+          "nome": "GERMANO AGUIAR VIEIRA",
+          "qualificacao": "Diretor",
+          "doc_socio": "***032516**"
+        },
+        {
+          "nome": "JOSE ANTONIO BATISTA COSTA",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***552421**"
+        },
+        {
+          "nome": "JOSE PAULO DA SILVA FILHO",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***730294**"
+        }
+      ],
+      "source": "BrasilAPI",
+      "fetched_at": "2026-11-22"
+    },
+    "17162082000173": {
+      "razao_social": "MENDES JUNIOR ENGENHARIA S.A",
+      "nome_fantasia": "",
+      "situacao": "ATIVA",
+      "data_inicio": "1966-08-01",
+      "capital_social": 0.0,
+      "porte": "DEMAIS",
+      "cnae": "Construção de obras de arte especiais",
+      "municipio": "BELO HORIZONTE",
+      "uf": "MG",
+      "telefone": "3121219522",
+      "qsa": [
+        {
+          "nome": "ANDREA GUIMARAES MENDES",
+          "qualificacao": "Diretor",
+          "doc_socio": "***626576**"
+        },
+        {
+          "nome": "EDUARDO MENDES MOREIRA",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***770856**"
+        },
+        {
+          "nome": "EUGENIO JOSE BOCCHESE MENDES",
+          "qualificacao": "Presidente",
+          "doc_socio": "***287586**"
+        }
+      ],
+      "source": "BrasilAPI",
+      "fetched_at": "2026-11-22"
+    },
+    "79430682000122": {
+      "razao_social": "FARMACIA E DROGARIA NISSEI S.A",
+      "nome_fantasia": "",
+      "situacao": "ATIVA",
+      "data_inicio": "1986-06-26",
+      "capital_social": 350547900.0,
+      "porte": "DEMAIS",
+      "cnae": "Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas",
       "municipio": "CURITIBA",
       "uf": "PR",
-      "telefone": "4133187722",
+      "telefone": "4132138241",
       "qsa": [
         {
-          "nome": "AGNALDO BASTOS LOPES",
+          "nome": "ALEXANDRE MAEOKA",
+          "qualificacao": "Diretor",
+          "doc_socio": "***833849**"
+        },
+        {
+          "nome": "ANDRE LISSNER",
+          "qualificacao": "Diretor",
+          "doc_socio": "***331008**"
+        },
+        {
+          "nome": "EDUARDO DE ALMEIDA SALLES TERRA",
           "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***593519**"
+          "doc_socio": "***060488**"
         },
         {
-          "nome": "HELIO CALIXTO DA COSTA",
+          "nome": "IVAN LUIZ MURIAS DOS SANTOS",
           "qualificacao": "Conselheiro de Administração",
-          "doc_socio": "***629916**"
+          "doc_socio": "***329928**"
         },
         {
-          "nome": "SILVIO BARRETO DA SILVA",
-          "qualificacao": "Presidente",
-          "doc_socio": "***175177**"
-        }
-      ],
-      "source": "BrasilAPI",
-      "fetched_at": "2026-11-22"
-    },
-    "89463822000112": {
-      "razao_social": "LUPATECH S.A.",
-      "nome_fantasia": "",
-      "situacao": "ATIVA",
-      "data_inicio": "1984-03-29",
-      "capital_social": 144484430.0,
-      "porte": "DEMAIS",
-      "cnae": "Fabricação de válvulas, registros e dispositivos semelhantes, peças e acessórios",
-      "municipio": "NOVA ODESSA",
-      "uf": "SP",
-      "telefone": "1133099000",
-      "qsa": [
-        {
-          "nome": "MARCO ANTONIO MIOLA",
-          "qualificacao": "Diretor",
-          "doc_socio": "***985240**"
+          "nome": "PATRICIA MAEOKA AISENGART ACCIOLY",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***332109**"
         },
         {
-          "nome": "RAFAEL GORENSTEIN",
-          "qualificacao": "Diretor",
-          "doc_socio": "***628718**"
-        }
-      ],
-      "source": "BrasilAPI",
-      "fetched_at": "2026-11-22"
-    },
-    "00194724000113": {
-      "razao_social": "AUREN OPERACOES S.A.",
-      "nome_fantasia": "",
-      "situacao": "ATIVA",
-      "data_inicio": "1994-09-14",
-      "capital_social": 3612620800.0,
-      "porte": "DEMAIS",
-      "cnae": "Geração de energia elétrica",
-      "municipio": "BAURU",
-      "uf": "SP",
-      "telefone": "4133885151",
-      "qsa": [
-        {
-          "nome": "ANDRESSA RISSATO BROLACCI LAMANA",
-          "qualificacao": "Diretor",
-          "doc_socio": "***249718**"
-        },
-        {
-          "nome": "CARLOS CURCI NETO",
-          "qualificacao": "Diretor",
-          "doc_socio": "***221598**"
-        },
-        {
-          "nome": "DANIEL MARROCOS CAMPOSILVAN",
-          "qualificacao": "Diretor",
-          "doc_socio": "***907278**"
-        },
-        {
-          "nome": "JOAO ANDRE GUILLAUMON NETO",
-          "qualificacao": "Diretor",
-          "doc_socio": "***302268**"
-        },
-        {
-          "nome": "JOAQUIM PEDRO MAGALHAES SPINOLA",
-          "qualificacao": "Diretor",
-          "doc_socio": "***089888**"
-        },
-        {
-          "nome": "MATEUS GOMES FERREIRA",
-          "qualificacao": "Diretor",
-          "doc_socio": "***959388**"
-        },
-        {
-          "nome": "PRISCILA ROCHINHA LINO",
-          "qualificacao": "Diretor",
-          "doc_socio": "***797047**"
+          "nome": "SERGIO MAEOKA",
+          "qualificacao": "Conselheiro de Administração",
+          "doc_socio": "***417029**"
         }
       ],
       "source": "BrasilAPI",
