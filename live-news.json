@@ -243,7 +243,7 @@
     "setor": "Agronegócio & Silvicultura",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d)",
+    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d) ",
     "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
@@ -294,14 +294,15 @@
   {
     "data_hora": "17/11/2026 15:18",
     "titulo": "Corinthians pede proteção judicial para negociar dívida de R$ 2,8 bilhões",
-    "fonte": "Valor Econômico",
+    "fonte": "Times Brasil | CNBC",
     "setor": "Varejo & Consumo",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via Sport Club Corinthians Paulista vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
+    "resumo": "Fato monitorado via Times Brasil | CNBC vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
     "url": "https://timesbrasil.com.br/brasil/corinthians-pede-protecao-para-negociar-divida-de-r-28-bi/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://timesbrasil.com.br",
     "id": 106791
   },
   {
@@ -371,6 +372,20 @@
     "empresa_nome": "Radar Ao Vivo // Guia do Investidor",
     "source_url": "https://guiadoinvestidor.com.br",
     "id": 395485
+  },
+  {
+    "data_hora": "17/11/2026 07:40",
+    "titulo": "Cosan muda de CEO e prepara venda de ativos para pagar dívidas",
+    "fonte": "bra1.com.br",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (bra1.com.br) para triagem de originação.",
+    "url": "https://www.bra1.com.br/economia/id-727394/cosan_muda_de_ceo_e_prepara_venda_de_ativos_para_pagar_dividas",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // bra1.com.br",
+    "source_url": "https://www.bra1.com.br",
+    "id": 670784
   },
   {
     "data_hora": "17/11/2026 07:23",
@@ -888,6 +903,20 @@
   },
   {
     "data_hora": "13/11/2026 05:00",
+    "titulo": "CM Hospitalar (Viveo) aprova reestruturação de dívida; debêntures vencem em 2034",
+    "fonte": "www.ativovirtual.com.br",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/cm-hospitalar-viveo-aprova-reestruturacao-de-divida-debentures-vencem-em-2034",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 903273
+  },
+  {
+    "data_hora": "13/11/2026 05:00",
     "titulo": "Braskem (BRKM5) deixa de pagar debêntures de R$ 1,2 bi; entenda - Suno",
     "fonte": "Suno - Investimentos Inteligente",
     "setor": "Indústria & Manufatura",
@@ -899,20 +928,6 @@
     "empresa_nome": "Braskem S/A (BAK / BRKM5)",
     "source_url": "https://www.suno.com.br",
     "id": 178445
-  },
-  {
-    "data_hora": "13/11/2026 05:00",
-    "titulo": "CM Hospitalar (Viveo) aprova reestruturação de dívida; debêntures vencem em 2034",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/cm-hospitalar-viveo-aprova-reestruturacao-de-divida-debentures-vencem-em-2034",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
-    "source_url": "https://www.ativovirtual.com.br",
-    "id": 903273
   },
   {
     "id": 1139,
@@ -981,6 +996,20 @@
   },
   {
     "data_hora": "12/11/2026 05:00",
+    "titulo": "Santa Cruz pode oficializar SAF em dezembro; veja o que falta para mudança",
+    "fonte": "JC",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (JC) para triagem de originação.",
+    "url": "https://jc.uol.com.br/blog-do-torcedor/santa-cruz/2026/11/12/santa-cruz-pode-oficializar-saf-em-dezembro-veja-o-que-falta-para-mudanca.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // JC",
+    "source_url": "https://jc.uol.com.br",
+    "id": 695705
+  },
+  {
+    "data_hora": "12/11/2026 05:00",
     "titulo": "Raízen antecipa fim da recuperação extrajudicial para dezembro, com capitalização de até R$ 35 bi",
     "fonte": "AgFeed",
     "setor": "Energia & Infraestrutura",
@@ -1006,20 +1035,6 @@
     "empresa_nome": "Radar Ao Vivo // GZH",
     "source_url": "https://gauchazh.clicrbs.com.br",
     "id": 230266
-  },
-  {
-    "data_hora": "12/11/2026 05:00",
-    "titulo": "Santa Cruz pode oficializar SAF em dezembro; veja o que falta para mudança",
-    "fonte": "JC",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (JC) para triagem de originação.",
-    "url": "https://jc.uol.com.br/blog-do-torcedor/santa-cruz/2026/11/12/santa-cruz-pode-oficializar-saf-em-dezembro-veja-o-que-falta-para-mudanca.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // JC",
-    "source_url": "https://jc.uol.com.br",
-    "id": 695705
   },
   {
     "data_hora": "12/11/2026 05:00",
@@ -1090,20 +1105,6 @@
   },
   {
     "data_hora": "11/11/2026 05:00",
-    "titulo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT",
-    "fonte": "Midia Jur",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Midia Jur) para triagem de originação.",
-    "url": "https://www.midiajur.com.br/justica/justica-determina-pericia-em-7-fazendas-de-produtores-em-recuperacao-judicial-em-mt/89113",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Midia Jur",
-    "source_url": "https://www.midiajur.com.br",
-    "id": 677873
-  },
-  {
-    "data_hora": "11/11/2026 05:00",
     "titulo": "Leilão da fábrica Ditália recebe 16 propostas na Serra",
     "fonte": "Acia Araçatuba",
     "setor": "Indústria & Manufatura",
@@ -1115,6 +1116,20 @@
     "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
     "source_url": "https://aciara.com.br",
     "id": 790567
+  },
+  {
+    "data_hora": "11/11/2026 05:00",
+    "titulo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT",
+    "fonte": "Midia Jur",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Midia Jur) para triagem de originação.",
+    "url": "https://www.midiajur.com.br/justica/justica-determina-pericia-em-7-fazendas-de-produtores-em-recuperacao-judicial-em-mt/89113",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Midia Jur",
+    "source_url": "https://www.midiajur.com.br",
+    "id": 677873
   },
   {
     "data_hora": "10/11/2026 10:06",
@@ -1158,20 +1173,6 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
-    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
-    "fonte": "Estadão",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Estadão) para triagem de originação.",
-    "url": "https://www.estadao.com.br/economia/pressoes-fiscais-no-brasil-aumentaram-e-podem-rebaixar-rating-diz-executivo-da-moodys/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Estadão",
-    "source_url": "https://www.estadao.com.br",
-    "id": 737507
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
     "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
     "fonte": "GZH",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1183,6 +1184,20 @@
     "empresa_nome": "Radar Ao Vivo // GZH",
     "source_url": "https://gauchazh.clicrbs.com.br",
     "id": 735067
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 581463
   },
   {
     "data_hora": "10/11/2026 05:00",
@@ -1214,17 +1229,17 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
-    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
-    "fonte": "GZH",
+    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
+    "fonte": "Estadão",
     "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Estadão) para triagem de originação.",
+    "url": "https://www.estadao.com.br/economia/pressoes-fiscais-no-brasil-aumentaram-e-podem-rebaixar-rating-diz-executivo-da-moodys/",
     "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 581463
+    "empresa_nome": "Radar Ao Vivo // Estadão",
+    "source_url": "https://www.estadao.com.br",
+    "id": 737507
   },
   {
     "data_hora": "09/11/2026 17:00",
@@ -1441,6 +1456,34 @@
   },
   {
     "data_hora": "04/11/2026 05:00",
+    "titulo": "MEZ não consegue honrar garantia de lote de transmissão em SP, diz ANEEL",
+    "fonte": "Agentes Fiduciários",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Agência iNFRA) para triagem de originação.",
+    "url": "https://agenciainfra.com/blog/mez-nao-consegue-honrar-garantia-de-lote-de-transmissao-em-sp-diz-aneel/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Agência iNFRA",
+    "source_url": "https://agenciainfra.com",
+    "id": 161562
+  },
+  {
+    "data_hora": "04/11/2026 05:00",
+    "titulo": "Em recuperação extrajudicial, Chilli Beans pode ter novos sócios",
+    "fonte": "Valor Econômico",
+    "setor": "Varejo & Consumo",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via Valor Econômico vinculado a Chilli Beans (Mustang 25 Participações) (Cautelar Antecedente (art. 20-B) • Passivo monitorado: R$ 600 MM).",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/04/em-recuperacao-extrajudicial-chilli-beans-pode-ter-novos-socios.ghtml",
+    "deal_id": 10,
+    "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
+    "source_url": "https://valor.globo.com",
+    "id": 348671
+  },
+  {
+    "data_hora": "04/11/2026 05:00",
     "titulo": "Aeris pede recuperação extrajudicial para renegociar dívida de R$ 1,52 bilhão",
     "fonte": "O Otimista",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1508,34 +1551,6 @@
     "empresa_nome": "Aeris Energy",
     "source_url": "https://www.seudinheiro.com",
     "id": 207293
-  },
-  {
-    "data_hora": "04/11/2026 05:00",
-    "titulo": "MEZ não consegue honrar garantia de lote de transmissão em SP, diz ANEEL",
-    "fonte": "Agentes Fiduciários",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Agência iNFRA) para triagem de originação.",
-    "url": "https://agenciainfra.com/blog/mez-nao-consegue-honrar-garantia-de-lote-de-transmissao-em-sp-diz-aneel/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Agência iNFRA",
-    "source_url": "https://agenciainfra.com",
-    "id": 161562
-  },
-  {
-    "data_hora": "04/11/2026 05:00",
-    "titulo": "Em recuperação extrajudicial, Chilli Beans pode ter novos sócios",
-    "fonte": "Valor Econômico",
-    "setor": "Varejo & Consumo",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via Valor Econômico vinculado a Chilli Beans (Mustang 25 Participações) (Cautelar Antecedente (art. 20-B) • Passivo monitorado: R$ 600 MM).",
-    "url": "https://valor.globo.com/empresas/noticia/2026/11/04/em-recuperacao-extrajudicial-chilli-beans-pode-ter-novos-socios.ghtml",
-    "deal_id": 10,
-    "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
-    "source_url": "https://valor.globo.com",
-    "id": 348671
   },
   {
     "id": 1103,
@@ -1744,20 +1759,6 @@
   },
   {
     "data_hora": "27/10/2026 04:00",
-    "titulo": "MIGALHAS nº 6.463",
-    "fonte": "Jota / Tribunais",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Migalhas) para triagem de originação.",
-    "url": "https://www.migalhas.com.br/amanhecidas/467283/migalhas-n-6-463",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Migalhas",
-    "source_url": "https://www.migalhas.com.br",
-    "id": 837167
-  },
-  {
-    "data_hora": "27/10/2026 04:00",
     "titulo": "Cármen Lúcia cassa decisão do TST sobre dívidas trabalhistas da Oi",
     "fonte": "Portal Juristas",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1769,6 +1770,20 @@
     "empresa_nome": "Radar Ao Vivo // Portal Juristas",
     "source_url": "https://juristas.com.br",
     "id": 294175
+  },
+  {
+    "data_hora": "27/10/2026 04:00",
+    "titulo": "MIGALHAS nº 6.463",
+    "fonte": "Jota / Tribunais",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Migalhas) para triagem de originação.",
+    "url": "https://www.migalhas.com.br/amanhecidas/467283/migalhas-n-6-463",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Migalhas",
+    "source_url": "https://www.migalhas.com.br",
+    "id": 837167
   },
   {
     "data_hora": "26/10/2026 04:00",
@@ -1797,20 +1812,6 @@
     "empresa_nome": "Radar Ao Vivo // Estadão",
     "source_url": "https://www.estadao.com.br",
     "id": 878710
-  },
-  {
-    "data_hora": "24/10/2026 04:00",
-    "titulo": "Casas Bahia negocia R$ 300 milhões para manter operações",
-    "fonte": "SpaceMoney",
-    "setor": "Varejo & Consumo",
-    "categoria": "Leilão de UPI",
-    "escopo": "pipeline",
-    "resumo": "Fato monitorado via SpaceMoney vinculado a Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto) (Recuperação Judicial (Classe 129) • Passivo monitorado: R$ 17.300 MM).",
-    "url": "https://www.spacemoney.com.br/investimentos/acoes/casas-bahia-emprestimo-dip-recuperacao-judicial/",
-    "deal_id": 86,
-    "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto)",
-    "source_url": "https://www.spacemoney.com.br",
-    "id": 775239
   },
   {
     "id": 1133,
