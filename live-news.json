@@ -84,6 +84,20 @@
     "id": 894542
   },
   {
+    "data_hora": "19/11/2026 11:21",
+    "titulo": "Paysandu prevê início do pagamento de dívidas da Recuperação Judicial para 2027",
+    "fonte": "Cidade 091",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Cidade 091) para triagem de originação.",
+    "url": "https://cidade091.com.br/noticias/paysandu-preve-inicio-do-pagamento-de-dividas-da-recuperacao-judicial-para-2027",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Cidade 091",
+    "source_url": "https://cidade091.com.br",
+    "id": 883621
+  },
+  {
     "data_hora": "18/11/2026 15:06",
     "titulo": "Sigma Lithium enfrenta dívidas e problemas de caixa",
     "fonte": "Estadão Blue Studio",
@@ -209,13 +223,27 @@
     "id": 762975
   },
   {
+    "data_hora": "17/11/2026 18:26",
+    "titulo": "BREAKING:Fazendão suspende pagamentos para renegociar dívida de R$ 2 bi",
+    "fonte": "The AgriBiz",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via The AgriBiz vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 1",
+    "url": "https://www.theagribiz.com/credito-rural/fazendao-suspende-pagamentos-para-renegociar-divida-de-r-2-bi/",
+    "deal_id": 178,
+    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
+    "source_url": "https://www.theagribiz.com",
+    "id": 231870
+  },
+  {
     "data_hora": "17/11/2026 17:47",
     "titulo": "A Fazendão pagou por inteiro o credor que podia cobrar primeiro — e pediu 60 dias aos bancos",
     "fonte": "AgFeed",
     "setor": "Agronegócio & Silvicultura",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d) ",
+    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d)",
     "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
@@ -225,11 +253,11 @@
   {
     "data_hora": "17/11/2026 17:41",
     "titulo": "Corinthians pede tutela cautelar à Justiça para negociar dívidas",
-    "fonte": "Valor Econômico",
+    "fonte": "Vanguarda do Norte",
     "setor": "Varejo & Consumo",
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via Sport Club Corinthians Paulista vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
+    "resumo": "Fato monitorado via Vanguarda do Norte vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
     "url": "https://vanguardadonorte.com.br/esporte/corinthians-pede-tutela-cautelar-a-justica-para-negociar-dividas/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
@@ -331,6 +359,20 @@
     "id": 808879
   },
   {
+    "data_hora": "17/11/2026 08:05",
+    "titulo": "Cosan (CSAN3) intensifica venda de ativos para reduzir dívida e mira endividamento próximo de zero",
+    "fonte": "Guia do Investidor",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Guia do Investidor) para triagem de originação.",
+    "url": "https://guiadoinvestidor.com.br/mercado/cosan-csan3-intensifica-venda-de-ativos-para-reduzir-divida-e-mira-endividamento-proximo-de-zero/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Guia do Investidor",
+    "source_url": "https://guiadoinvestidor.com.br",
+    "id": 395485
+  },
+  {
     "data_hora": "17/11/2026 07:23",
     "titulo": "Aneel vota nesta terça processo que pode tirar Enel de São Paulo",
     "fonte": "CVM / Fatos Relevantes",
@@ -425,6 +467,20 @@
     "empresa_nome": "Radar Ao Vivo // Campo Grande News",
     "source_url": "https://www.campograndenews.com.br",
     "id": 782000
+  },
+  {
+    "data_hora": "16/11/2026 17:33",
+    "titulo": "Portobello está renegociando dívida em torno de R$ 1 bi, via reperfilamento e capitalização",
+    "fonte": "InvesTalk",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via InvesTalk vinculado a PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.) (Reestruturação Extrajudicial Privada (AGD Waiver/Diferimento & Rating RD(bra) Fitch) • Passivo monitorado: R$ 1.655 MM).",
+    "url": "https://investalk.bb.com.br/radar/portobello-esta-renegociando-divida-em-torno-de-r-1-bi-via-reperfilamento-e-capitalizacao",
+    "deal_id": 171,
+    "empresa_nome": "PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.)",
+    "source_url": "https://investalk.bb.com.br",
+    "id": 456820
   },
   {
     "id": 1153,
@@ -599,7 +655,7 @@
     "setor": "Varejo & Consumo",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via Grupo Marabraz (Comercial de Móveis Jordanésia. Marabraz Comercial & Lojas Marabraz) vinculado a Grupo Marabraz (Comercial de Móveis Jordanésia. Marabraz Comercial & Lojas Marabraz) (Recuperação Judicial (Deferida com Stay Period de 180 dias) • Passivo monitorado: R$ 140 MM).",
+    "resumo": "Fato monitorado via Grupo Marabraz (Comercial de Móveis Jordanésia. Marabraz Comercial & Lojas Marabraz) vinculado a Grupo Marabraz (Comercial de Móveis Jordanésia. Marabraz Comercial & Lojas Marabraz) (Recuperação Judicial (Defer",
     "url": "https://www.terra.com.br/economia/marabraz-pede-recuperacao-judicial-com-divida-de-r-140-milhoes,0e285661252749cf6485640d73676faacmfhprcn.html",
     "deal_id": 103,
     "empresa_nome": "Grupo Marabraz (Comercial de Móveis Jordanésia, Marabraz Comercial & Lojas Marabraz)",
@@ -939,6 +995,20 @@
   },
   {
     "data_hora": "12/11/2026 05:00",
+    "titulo": "Frigorífico tem \"ok\" na recuperação judicial e pagará sem desconto quem seguir fornecedor",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/frigorifico-tem-ok-na-recuperacao-judicial-e-pagara-sem-desconto-quem-seguir-fornecedor-cmwcmit7t0169015excj3nedf.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 230266
+  },
+  {
+    "data_hora": "12/11/2026 05:00",
     "titulo": "Santa Cruz pode oficializar SAF em dezembro; veja o que falta para mudança",
     "fonte": "JC",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1005,19 +1075,6 @@
     "id": 171081
   },
   {
-    "data_hora": "11/11/2026 12:37",
-    "titulo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito) Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT Midia Jur",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
-    "url": "https://www.midiajur.com.br/justica/justica-determina-pericia-em-7-fazendas-de-produtores-em-recuperacao-judicial-em-mt/89113",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "id": 677873
-  },
-  {
     "data_hora": "11/11/2026 12:17",
     "titulo": "Santa Cruz marca Assembleia Geral de Credores para 30 de novembro; SAF deve ser implantada em dezembro",
     "fonte": "Diario de Pernambuco",
@@ -1030,6 +1087,20 @@
     "empresa_nome": "Radar Ao Vivo // Diario de Pernambuco",
     "source_url": "https://www.diariodepernambuco.com.br",
     "id": 181956
+  },
+  {
+    "data_hora": "11/11/2026 05:00",
+    "titulo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT",
+    "fonte": "Midia Jur",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Midia Jur) para triagem de originação.",
+    "url": "https://www.midiajur.com.br/justica/justica-determina-pericia-em-7-fazendas-de-produtores-em-recuperacao-judicial-em-mt/89113",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Midia Jur",
+    "source_url": "https://www.midiajur.com.br",
+    "id": 677873
   },
   {
     "data_hora": "11/11/2026 05:00",
@@ -1052,7 +1123,7 @@
     "setor": "Varejo & Consumo",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas) vinculado a Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas) (Recuperação Judicial (Pedido Ajuizado / Redistribuição Territorial) • Passivo monitorado: R$ 300 MM).",
+    "resumo": "Fato monitorado via Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas) vinculado a Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas) (Recuperação Judicial (Pedido Ajuizado / Redistribuição Territoria",
     "url": "https://www.migalhas.com.br/quentes/468220/socia-da-kitchens-transferiu-r-4-2-mi-em-imoveis-antes-de-recuperacao",
     "deal_id": 105,
     "empresa_nome": "Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas)",
@@ -1115,20 +1186,6 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
-    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 581463
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
     "titulo": "Fux cassa decisão do TRT-4 que atribuiu à V.tal responsabilidade solidária por dívidas trabalhistas da Oi",
     "fonte": "atlaspublico.com.br",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1154,6 +1211,20 @@
     "empresa_nome": "Radar Ao Vivo // UOL Economia",
     "source_url": "https://economia.uol.com.br",
     "id": 640130
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 581463
   },
   {
     "data_hora": "09/11/2026 17:00",
@@ -1514,7 +1585,7 @@
     "categoria": "Downgrade Rating",
     "escopo": "cvm",
     "resumo": "Fato monitorado via Portal TN Sul vinculado a PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.) (Reestruturação Extrajudicial Privada (AGD Waiver/Diferimento & Rating RD(bra) Fitch) • Passivo monitorado: R$ 1.655 MM).",
-    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPczRta25SdjJCSi1pTmEybW9xVnNnNExmbDQ1M2lKejNYOW1rRlJXNngxYTcwaUlKVmhyYWNuYlBldFJVOWlQTTRGanNmWXVDTmhGNHJYNk1NUmhlWnNDVHpGekNzWFNpRXZpdkpSTzM3d1RMUEdLMGdLMlUyd2ZRM0xEbnhKU1NEOUVYbTVNenBDZjdFRHRGYU1OVDh0SE9YN2xJ?oc=5",
+    "url": "https://tnsul.com/2026/11/03/fitch-rebaixa-nota-da-portobello-apos-atraso-no-pagamento-de-debentures/",
     "deal_id": 171,
     "empresa_nome": "PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.)",
     "source_url": "https://tnsul.com",
@@ -1558,6 +1629,20 @@
     "url": "https://www.empresaemcrise.com/post/vila-rica-mt-fal%C3%AAncia-do-grupo-braki",
     "deal_id": null,
     "empresa_nome": "Planilha Mestre // Jota / Tribunais"
+  },
+  {
+    "data_hora": "31/10/2026 04:00",
+    "titulo": "Fitch rebaixa perspectiva da nota de crédito da França após contração da economia",
+    "fonte": "Folha de S.Paulo",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Folha de S.Paulo) para triagem de originação.",
+    "url": "https://www1.folha.uol.com.br/mercado/2026/10/fitch-rebaixa-perspectiva-da-nota-de-credito-da-franca-apos-contracao-da-economia.shtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Folha de S.Paulo",
+    "source_url": "https://www1.folha.uol.com.br",
+    "id": 633440
   },
   {
     "data_hora": "30/10/2026 04:00",
@@ -1672,6 +1757,20 @@
     "id": 837167
   },
   {
+    "data_hora": "27/10/2026 04:00",
+    "titulo": "Cármen Lúcia cassa decisão do TST sobre dívidas trabalhistas da Oi",
+    "fonte": "Portal Juristas",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Portal Juristas) para triagem de originação.",
+    "url": "https://juristas.com.br/noticias/carmen-lucia-cassa-decisao-tst-dividas-oi/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Portal Juristas",
+    "source_url": "https://juristas.com.br",
+    "id": 294175
+  },
+  {
     "data_hora": "26/10/2026 04:00",
     "titulo": "Tecban, dona do Banco24Horas, capta R$ 535 mi em debêntures",
     "fonte": "Let's Money",
@@ -1686,6 +1785,20 @@
     "id": 336238
   },
   {
+    "data_hora": "25/10/2026 04:00",
+    "titulo": "França escapa de rebaixamento de nota de crédito, mas recebe séria advertência",
+    "fonte": "Estadão",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Estadão) para triagem de originação.",
+    "url": "https://www.estadao.com.br/economia/franca-escapa-rebaixamento-nota-credito/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Estadão",
+    "source_url": "https://www.estadao.com.br",
+    "id": 878710
+  },
+  {
     "data_hora": "24/10/2026 04:00",
     "titulo": "Casas Bahia negocia R$ 300 milhões para manter operações",
     "fonte": "SpaceMoney",
@@ -1698,48 +1811,6 @@
     "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto)",
     "source_url": "https://www.spacemoney.com.br",
     "id": 775239
-  },
-  {
-    "data_hora": "23/10/2026 04:00",
-    "titulo": "Fitch rebaixa Raízen a nível de calote após avanço da reestruturação da dívida",
-    "fonte": "Visão Agro",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via Visão Agro vinculado a Raízen S.A. (RAIZ4) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 3.500 MM).",
-    "url": "https://visaoagro.com.br/fitch-rebaixa-raizen-a-nivel-de-calote-apos-avanco-da-reestruturacao-da-divida/",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "source_url": "https://visaoagro.com.br",
-    "id": 759873
-  },
-  {
-    "data_hora": "23/10/2026 04:00",
-    "titulo": "Justiça homologa plano de recuperação judicial da Tahto",
-    "fonte": "TeleSíntese",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (TeleSíntese) para triagem de originação.",
-    "url": "https://telesintese.com.br/justica-homologa-plano-de-recuperacao-judicial-da-tahto/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // TeleSíntese",
-    "source_url": "https://telesintese.com.br",
-    "id": 408608
-  },
-  {
-    "data_hora": "23/10/2026 04:00",
-    "titulo": "Justiça homologa recuperação judicial da Tahto, subsidiária da Oi",
-    "fonte": "TELETIME News",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (TELETIME News) para triagem de originação.",
-    "url": "https://teletime.com.br/23/10/2026/homologacao-recuperacao-judicial-tahto/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // TELETIME News",
-    "source_url": "https://teletime.com.br",
-    "id": 360138
   },
   {
     "id": 1133,
