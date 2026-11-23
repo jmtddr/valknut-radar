@@ -280,11 +280,11 @@
   {
     "data_hora": "17/11/2026 16:24",
     "titulo": "Corinthians pede proteção à Justiça para renegociar dívidas estimadas em R$ 2,8 bilhões",
-    "fonte": "Valor Econômico",
+    "fonte": "Agora RN",
     "setor": "Varejo & Consumo",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via Sport Club Corinthians Paulista vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
+    "resumo": "Fato monitorado via Agora RN vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
     "url": "https://agorarn.com.br/esporte/corinthians-pede-protecao-justica-renegociar-dividas-bilhoes/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
@@ -1486,6 +1486,20 @@
     "empresa_nome": "Grupo Manetoni (Manetoni Distribuidora de Produtos Siderúrgicos, Ideal Soluções em Transportes, Santa Clara Incorporação & Metalúrgica Sul Fluminense)"
   },
   {
+    "data_hora": "04/11/2026 12:07",
+    "titulo": "Portobello, de Tijucas, deixa de pagar R$ 59,8 milhões e tem nota rebaixada para \"inadimplência restrita\"",
+    "fonte": "TopElegance",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via TopElegance vinculado a PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.) (Reestruturação Extrajudicial Privada (AGD Waiver/Diferimento & Rating RD(bra) Fitch) • Passivo monitorado: R$ 1.655 MM).",
+    "url": "https://www.topelegance.com.br/economia/portobello-de-tijucas-deixa-de-pagar-r-59-8-milhoes-e-tem-nota-rebaixada-para-inadimplencia-restrita-2",
+    "deal_id": 171,
+    "empresa_nome": "PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.)",
+    "source_url": "https://www.topelegance.com.br",
+    "id": 438939
+  },
+  {
     "id": 1101,
     "data_hora": "04/11/2026 11:15",
     "titulo": "Paranapanema (PMAM3) protocola fato relevante na CVM sobre reestruturação de comando e conversão de debêntures concursais",
@@ -1799,20 +1813,6 @@
     "empresa_nome": "Radar Ao Vivo // Estadão",
     "source_url": "https://www.estadao.com.br",
     "id": 896805
-  },
-  {
-    "data_hora": "27/10/2026 09:39",
-    "titulo": "Boletim Radar Conecta: como funcionam as debêntures e seu papel no financiamento empresarial",
-    "fonte": "FIEMS",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (FIEMS) para triagem de originação.",
-    "url": "https://www.fiems.com.br/noticias/boletim-radar-conecta-como-funcionam-as-debentures-e-seu-papel-no-financiamento-empresarial/70688",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // FIEMS",
-    "source_url": "https://www.fiems.com.br",
-    "id": 764202
   },
   {
     "id": 1133,
