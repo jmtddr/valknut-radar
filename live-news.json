@@ -1,5 +1,61 @@
 [
   {
+    "data_hora": "23/11/2026 11:43",
+    "titulo": "NTS: Tem rating rebaixado pela Fitch",
+    "fonte": "Acionista.com.br",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Acionista.com.br) para triagem de originação.",
+    "url": "https://acionista.com.br/nts-tem-rating-rebaixado-pela-fitch/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Acionista.com.br",
+    "source_url": "https://acionista.com.br",
+    "id": 273150
+  },
+  {
+    "data_hora": "23/11/2026 10:22",
+    "titulo": "Em meio a processo de caducidade, Fitch rebaixa nota de crédito da Enel",
+    "fonte": "CNN Brasil",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (CNN Brasil) para triagem de originação.",
+    "url": "https://www.cnnbrasil.com.br/infra/em-meio-a-processo-de-caducidade-fitch-rebaixa-nota-de-credito-da-enel/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // CNN Brasil",
+    "source_url": "https://www.cnnbrasil.com.br",
+    "id": 807427
+  },
+  {
+    "data_hora": "23/11/2026 09:05",
+    "titulo": "Hapvida nega venda de ativos; Brava assume polo e RD Saúde recompra ações",
+    "fonte": "BM&C",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (BM&C) para triagem de originação.",
+    "url": "https://bmcnews.com.br/empresas-e-negocios/hapvida-nega-venda-de-ativos-brava-assume-polo-e-rd-saude-recompra-acoes/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // BM&C",
+    "source_url": "https://bmcnews.com.br",
+    "id": 801214
+  },
+  {
+    "data_hora": "23/11/2026 08:59",
+    "titulo": "Grupo Lermen apresenta plano e lista R$ 331 milhões em dívidas com credores",
+    "fonte": "Fatos de Mato Grosso",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Fatos de Mato Grosso) para triagem de originação.",
+    "url": "https://www.fatosdematogrosso.com.br/geral/grupo-lermen-apresenta-plano-e-lista-r-331-milhoes-em-dividas-com-credores/19275",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Fatos de Mato Grosso",
+    "source_url": "https://www.fatosdematogrosso.com.br",
+    "id": 773083
+  },
+  {
     "data_hora": "21/11/2026 08:47",
     "titulo": "HAPV3: venda de ativos em estudo, sem decisão",
     "fonte": "ativovirtual.com.br",
@@ -468,6 +524,20 @@
     "url": "https://c-level.folha.uol.com.br/infraestrutura/2026/11/invepar-submete-ao-cade-transferencia-da-linha-amarela-no-rio-para-fundos-de-pensao.shtml",
     "deal_id": 176,
     "empresa_nome": "Investimentos e Participações em Infraestrutura S.A. - Invepar (Grupo Invepar / GRU Airport)"
+  },
+  {
+    "data_hora": "16/11/2026 19:45",
+    "titulo": "Moody’s rebaixa Hertz para Caa1 com riscos de refinanciamento em 2028 - Investing.com Brasil",
+    "fonte": "Investing.com Brasil - Finanças,",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Investing.com Brasil - Finanças, Câmbio e Investimentos) para triagem de originação.",
+    "url": "https://br.investing.com/news/stock-market-news/moodys-rebaixa-hertz-para-caa1-com-riscos-de-refinanciamento-em-2028-2128975",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "source_url": "https://br.investing.com",
+    "id": 621249
   },
   {
     "data_hora": "16/11/2026 18:41",
@@ -1025,20 +1095,6 @@
   },
   {
     "data_hora": "12/11/2026 05:00",
-    "titulo": "SHOPPING DE ARACAJU VAI A LEILÃO POR R$ 220 MILHÕES",
-    "fonte": "Bahia Econômica",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Bahia Econômica) para triagem de originação.",
-    "url": "https://bahiaeconomica.com.br/nordeste-invest/shopping-de-aracaju-vai-a-leilao-por-r-220-milhoes-211401",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Bahia Econômica",
-    "source_url": "https://bahiaeconomica.com.br",
-    "id": 885417
-  },
-  {
-    "data_hora": "12/11/2026 05:00",
     "titulo": "Santa Cruz pode oficializar SAF em dezembro; veja o que falta para mudança",
     "fonte": "JC",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1050,6 +1106,20 @@
     "empresa_nome": "Radar Ao Vivo // JC",
     "source_url": "https://jc.uol.com.br",
     "id": 695705
+  },
+  {
+    "data_hora": "12/11/2026 05:00",
+    "titulo": "SHOPPING DE ARACAJU VAI A LEILÃO POR R$ 220 MILHÕES",
+    "fonte": "Bahia Econômica",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Bahia Econômica) para triagem de originação.",
+    "url": "https://bahiaeconomica.com.br/nordeste-invest/shopping-de-aracaju-vai-a-leilao-por-r-220-milhoes-211401",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Bahia Econômica",
+    "source_url": "https://bahiaeconomica.com.br",
+    "id": 885417
   },
   {
     "data_hora": "12/11/2026 05:00",
@@ -1134,6 +1204,20 @@
   },
   {
     "data_hora": "11/11/2026 05:00",
+    "titulo": "Leilão da fábrica Ditália recebe 16 propostas na Serra",
+    "fonte": "Acia Araçatuba",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Leilão de UPI",
+    "escopo": "pipeline",
+    "resumo": "Fato monitorado via Acia Araçatuba vinculado a Grupo Ditália (Ditália Móveis Industrial Ltda.) (Falência Decretada (Classe 110) • Passivo monitorado: R$ 85 MM).",
+    "url": "https://aciara.com.br/leilao-da-fabrica-ditalia-recebe-16-propostas-na-serra/",
+    "deal_id": 64,
+    "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
+    "source_url": "https://aciara.com.br",
+    "id": 790567
+  },
+  {
+    "data_hora": "11/11/2026 05:00",
     "titulo": "Justiça determina perícia em 7 fazendas de produtores em recuperação judicial em MT",
     "fonte": "Midia Jur",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1147,18 +1231,18 @@
     "id": 677873
   },
   {
-    "data_hora": "11/11/2026 05:00",
-    "titulo": "Leilão da fábrica Ditália recebe 16 propostas na Serra",
-    "fonte": "Acia Araçatuba",
-    "setor": "Indústria & Manufatura",
+    "data_hora": "10/11/2026 19:42",
+    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
     "categoria": "Leilão de UPI",
-    "escopo": "pipeline",
-    "resumo": "Fato monitorado via Acia Araçatuba vinculado a Grupo Ditália (Ditália Móveis Industrial Ltda.) (Falência Decretada (Classe 110) • Passivo monitorado: R$ 85 MM).",
-    "url": "https://aciara.com.br/leilao-da-fabrica-ditalia-recebe-16-propostas-na-serra/",
-    "deal_id": 64,
-    "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
-    "source_url": "https://aciara.com.br",
-    "id": 790567
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 581463
   },
   {
     "data_hora": "10/11/2026 10:06",
@@ -1271,20 +1355,6 @@
     "id": 640130
   },
   {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 581463
-  },
-  {
     "data_hora": "09/11/2026 17:00",
     "titulo": "Recuperações judiciais atingem recorde no Brasil, com 6,3 mil empresas",
     "fonte": "Paraíba Business",
@@ -1314,20 +1384,6 @@
   },
   {
     "data_hora": "09/11/2026 05:00",
-    "titulo": "Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta",
-    "fonte": "Seu Dinheiro",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Seu Dinheiro) para triagem de originação.",
-    "url": "https://www.seudinheiro.com/2026/renda-fixa/juros-altos-ajudam-a-renda-fixa-mas-pioram-um-problema-nas-debentures-diz-sparta-mlim/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Seu Dinheiro",
-    "source_url": "https://www.seudinheiro.com",
-    "id": 750257
-  },
-  {
-    "data_hora": "09/11/2026 05:00",
     "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
     "fonte": "ativovirtual.com.br",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1339,6 +1395,20 @@
     "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
     "source_url": "https://www.ativovirtual.com.br",
     "id": 480638
+  },
+  {
+    "data_hora": "09/11/2026 05:00",
+    "titulo": "Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta",
+    "fonte": "Seu Dinheiro",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Seu Dinheiro) para triagem de originação.",
+    "url": "https://www.seudinheiro.com/2026/renda-fixa/juros-altos-ajudam-a-renda-fixa-mas-pioram-um-problema-nas-debentures-diz-sparta-mlim/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Seu Dinheiro",
+    "source_url": "https://www.seudinheiro.com",
+    "id": 750257
   },
   {
     "data_hora": "08/11/2026 05:00",
@@ -1353,6 +1423,20 @@
     "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
     "source_url": "https://www.gazetadopovo.com.br",
     "id": 334657
+  },
+  {
+    "data_hora": "08/11/2026 05:00",
+    "titulo": "Confirmado leilão de fábrica da Serra que segue operando após falência; lance inicial de R$ 48 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Falência",
+    "escopo": "mercado",
+    "resumo": "Evento de Falência capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/confirmado-leilao-de-fabrica-da-serra-que-segue-operando-apos-falencia-lance-inicial-de-r-48-milhoes-cmw7pyhkj02ij0160wkx2vw1u.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 563503
   },
   {
     "id": 1115,
@@ -1555,20 +1639,6 @@
   },
   {
     "data_hora": "04/11/2026 05:00",
-    "titulo": "Aeris entra com pedido de recuperação extrajudicial com dívida de R$ 1,5 bi",
-    "fonte": "CNN Brasil",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (CNN Brasil) para triagem de originação.",
-    "url": "https://www.cnnbrasil.com.br/infra/aeris-entra-com-pedido-de-recuperacao-extrajudicial-com-divida-de-r-15-bi/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CNN Brasil",
-    "source_url": "https://www.cnnbrasil.com.br",
-    "id": 133549
-  },
-  {
-    "data_hora": "04/11/2026 05:00",
     "titulo": "Aeris (AERI3) protocola pedido de recuperação extrajudicial",
     "fonte": "InfoMoney",
     "setor": "Energia & Infraestrutura",
@@ -1580,6 +1650,20 @@
     "empresa_nome": "Aeris Energy",
     "source_url": "https://www.infomoney.com.br",
     "id": 887609
+  },
+  {
+    "data_hora": "04/11/2026 05:00",
+    "titulo": "Aeris entra com pedido de recuperação extrajudicial e negocia dívida com credores",
+    "fonte": "ADVFN",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (ADVFN) para triagem de originação.",
+    "url": "https://br.advfn.com/jornal/2026/11/aeris-entra-com-pedido-de-recuperacao-extrajudicial-e-negocia-divida-com-credores",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ADVFN",
+    "source_url": "https://br.advfn.com",
+    "id": 215062
   },
   {
     "data_hora": "04/11/2026 05:00",
@@ -1729,90 +1813,6 @@
     "empresa_nome": "Radar Ao Vivo // Folha de S.Paulo",
     "source_url": "https://www1.folha.uol.com.br",
     "id": 633440
-  },
-  {
-    "data_hora": "30/10/2026 04:00",
-    "titulo": "Oncoclínicas tem adesão de 61,6% dos credores para plano de reestruturação",
-    "fonte": "Pipeline",
-    "setor": "Saúde & Farma",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via Pipeline vinculado a Oncoclínicas do Brasil (ONCO3) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 5.100 MM).",
-    "url": "https://pipelinevalor.globo.com/negocios/noticia/oncoclinicas-tem-adesao-de-616percent-dos-credores-para-plano-de-reestruturacao.ghtml",
-    "deal_id": 17,
-    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)",
-    "source_url": "https://pipelinevalor.globo.com",
-    "id": 970872
-  },
-  {
-    "data_hora": "30/10/2026 04:00",
-    "titulo": "Fitch rebaixa perspectiva da dívida da França para negativa",
-    "fonte": "TV Sim Brasil",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (TV Sim Brasil) para triagem de originação.",
-    "url": "https://tvsimbrasil.com.br/brasil/politica/noticia/2026/10/30/fitch-rebaixa-perspectiva-divida-franca-negativa",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // TV Sim Brasil",
-    "source_url": "https://tvsimbrasil.com.br",
-    "id": 993450
-  },
-  {
-    "data_hora": "30/10/2026 04:00",
-    "titulo": "Fitch mantém classificação A+ da dívida da França, mas rebaixa sua perspectiva",
-    "fonte": "BOL",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (BOL) para triagem de originação.",
-    "url": "https://www.bol.uol.com.br/noticias/2026/10/30/fitch-mantem-classificacao-a-da-divida-da-franca-mas-rebaixa-sua-perspectiva.htm",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // BOL",
-    "source_url": "https://www.bol.uol.com.br",
-    "id": 567884
-  },
-  {
-    "data_hora": "29/10/2026 04:00",
-    "titulo": "Oncoclínicas atualiza plano de recuperação extrajudicial com adesão de titulares de 29,79% da dívida",
-    "fonte": "Valor Econômico",
-    "setor": "Saúde & Farma",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via Valor Econômico vinculado a Oncoclínicas do Brasil (ONCO3) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 5.100 MM).",
-    "url": "https://valor.globo.com/empresas/noticia/2026/10/29/oncoclnicas-atualiza-plano-de-recuperao-extrajudicial-com-adeso-de-titulares-de-2979-pontos-percentuais-da-dvida.ghtml",
-    "deal_id": 17,
-    "empresa_nome": "Oncoclínicas do Brasil (ONCO3)",
-    "source_url": "https://valor.globo.com",
-    "id": 419076
-  },
-  {
-    "data_hora": "28/10/2026 04:00",
-    "titulo": "EXCLUSIVO | O espólio de Jorge Mitre envolvendo diversas empresas e um patrimônio bilionário está no centro de uma intensa disputa familiar. São alegações de fraudes, inquéritos policiais e travamento de ativos, que colocaram companhias ligadas ao gr",
-    "fonte": "Instagram",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Instagram) para triagem de originação.",
-    "url": "https://www.instagram.com/p/DfDCZaLAZPp/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Instagram",
-    "source_url": "https://www.instagram.com",
-    "id": 928771
-  },
-  {
-    "data_hora": "28/10/2026 04:00",
-    "titulo": "Disputa por herança bilionária de Jorge Mitre divide família e pode pôr credores em risco",
-    "fonte": "Estadão",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Estadão) para triagem de originação.",
-    "url": "https://www.estadao.com.br/economia/negocios/disputa-espolio-bilionario-jorge-mitre/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Estadão",
-    "source_url": "https://www.estadao.com.br",
-    "id": 896805
   },
   {
     "id": 1133,
