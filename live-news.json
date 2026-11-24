@@ -1,5 +1,33 @@
 [
   {
+    "data_hora": "24/11/2026 04:15",
+    "titulo": "Axia prepara emissão de R$ 1 bilhão em debêntures para UHE Santo Antônio | Novembro 2026",
+    "fonte": "XP",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (XP) para triagem de originação.",
+    "url": "https://conteudos.xpi.com.br/renda-fixa/relatorios/fique-de-olho-na-renda-fixa-novembro-2026/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // XP",
+    "source_url": "https://conteudos.xpi.com.br",
+    "id": 847132
+  },
+  {
+    "data_hora": "23/11/2026 17:06",
+    "titulo": "S&P rebaixa Flowers Foods para ’BB’ por pressão nos lucros e riscos de covenant - Investing.com Brasil",
+    "fonte": "Investing.com Brasil - Finanças,",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Investing.com Brasil - Finanças, Câmbio e Investimentos) para triagem de originação.",
+    "url": "https://br.investing.com/news/stock-market-news/sp-rebaixa-flowers-foods-para-bb-por-pressao-nos-lucros-e-riscos-de-covenant-2135978",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "source_url": "https://br.investing.com",
+    "id": 765539
+  },
+  {
     "data_hora": "23/11/2026 16:25",
     "titulo": "Americanas informa venda da UPI Uni.Co por R$ 162 milhões e cash sweep de R$ 17 milhões no 3T26",
     "fonte": "atlaspublico.com.br",
@@ -136,7 +164,7 @@
     "url": "https://www.dcomercio.com.br/publicacao/s/fornecedor-deve-vender-a-prazo-para-cliente-que-saiu-da-recuperacao-judicial",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // DComercio",
-    "source_url": "https://www.dcomercio.com.br",
+    "source_url": "https://dcomercio.com.br",
     "id": 746646
   },
   {
@@ -449,14 +477,15 @@
   {
     "data_hora": "17/11/2026 17:31",
     "titulo": "Corinthians pede socorro à Justiça: entenda a tutela cautelar",
-    "fonte": "Valor Econômico",
+    "fonte": "Paranaíba Mais",
     "setor": "Varejo & Consumo",
     "categoria": "Cautelar 20-B",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via Sport Club Corinthians Paulista vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
+    "resumo": "Fato monitorado via Paranaíba Mais vinculado a Sport Club Corinthians Paulista (Tutela Cautelar Antecedente Protocolada (17/11/2026; Risco de Queda do RCE) • Passivo monitorado: R$ 2.800 MM).",
     "url": "https://paranaibamais.com.br/esportes/corinthians-pede-socorro-a-justica-entenda-a-tutela-cautelar/",
     "deal_id": 180,
     "empresa_nome": "Sport Club Corinthians Paulista",
+    "source_url": "https://paranaibamais.com.br",
     "id": 984424
   },
   {
@@ -1207,6 +1236,20 @@
   },
   {
     "data_hora": "12/11/2026 05:00",
+    "titulo": "Frigorífico tem \"ok\" na recuperação judicial e pagará sem desconto quem seguir fornecedor",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/frigorifico-tem-ok-na-recuperacao-judicial-e-pagara-sem-desconto-quem-seguir-fornecedor-cmwcmit7t0169015excj3nedf.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 230266
+  },
+  {
+    "data_hora": "12/11/2026 05:00",
     "titulo": "Santa Cruz pode oficializar SAF em dezembro; veja o que falta para mudança",
     "fonte": "JC",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1232,20 +1275,6 @@
     "empresa_nome": "Radar Ao Vivo // Bahia Econômica",
     "source_url": "https://bahiaeconomica.com.br",
     "id": 885417
-  },
-  {
-    "data_hora": "12/11/2026 05:00",
-    "titulo": "Frigorífico tem \"ok\" na recuperação judicial e pagará sem desconto quem seguir fornecedor",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/frigorifico-tem-ok-na-recuperacao-judicial-e-pagara-sem-desconto-quem-seguir-fornecedor-cmwcmit7t0169015excj3nedf.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 230266
   },
   {
     "data_hora": "12/11/2026 05:00",
@@ -1383,7 +1412,7 @@
     "id": 674654
   },
   {
-    "data_hora": "10/11/2026 07:54",
+    "data_hora": "10/11/2026 05:00",
     "titulo": "Incerteza fiscal trava emissões de dívida e fecha a torneira do crédito corporativo",
     "fonte": "NeoFeed",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1409,20 +1438,6 @@
     "empresa_nome": "Radar Ao Vivo // Estadão",
     "source_url": "https://www.estadao.com.br",
     "id": 737507
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/com-divida-de-r-513-milhoes-grupo-do-rs-consegue-ok-de-credores-na-recuperacao-judicial-cmwash7k500ib014s2qzby51x.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 735067
   },
   {
     "data_hora": "10/11/2026 05:00",
@@ -1468,6 +1483,20 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
+    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/com-divida-de-r-513-milhoes-grupo-do-rs-consegue-ok-de-credores-na-recuperacao-judicial-cmwash7k500ib014s2qzby51x.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 735067
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
     "titulo": "Mônica Scaramuzzo: Análise: Recuperação da Natura ainda é desafio para os acionistas",
     "fonte": "UOL Economia",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1507,6 +1536,20 @@
     "empresa_nome": "Radar Ao Vivo // Clube FII News",
     "source_url": "https://www.clubefiinews.com.br",
     "id": 215891
+  },
+  {
+    "data_hora": "09/11/2026 05:00",
+    "titulo": "Debenturistas da Sabesp (SBSP3) aprovam alterações em covenants da 24ª emissão",
+    "fonte": "Clube FII News",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Clube FII News) para triagem de originação.",
+    "url": "https://www.clubefiinews.com.br/acoes/sabesp-sbsp3-debenturistas-aprovam-alteracoes-covenants-24-emissao",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Clube FII News",
+    "source_url": "https://www.clubefiinews.com.br",
+    "id": 344150
   },
   {
     "data_hora": "09/11/2026 05:00",
@@ -1656,20 +1699,6 @@
     "empresa_nome": "Grupo Modesto (Leonardo Modesto Borges, Carla Mariana Soares Modesto, LM Agropecuária & CM Agropecuária)"
   },
   {
-    "data_hora": "05/11/2026 13:57",
-    "titulo": "MEZ contesta ANEEL e diz ter capacidade para concluir projeto em SP",
-    "fonte": "Agentes Fiduciários",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Agência iNFRA) para triagem de originação.",
-    "url": "https://agenciainfra.com/blog/mez-contesta-aneel-e-diz-ter-capacidade-para-concluir-projeto-em-sp/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Agência iNFRA",
-    "source_url": "https://agenciainfra.com",
-    "id": 897113
-  },
-  {
     "id": 1108,
     "data_hora": "05/11/2026 09:00",
     "titulo": "Justiça de Rondonópolis/MT defere recuperação judicial do Grupo Maroq com passivo de R$ 76,2 milhões sob consolidação substancial",
@@ -1696,20 +1725,6 @@
     "empresa_nome": "Grupo Manetoni (Manetoni Distribuidora de Produtos Siderúrgicos, Ideal Soluções em Transportes, Santa Clara Incorporação & Metalúrgica Sul Fluminense)"
   },
   {
-    "data_hora": "04/11/2026 12:07",
-    "titulo": "Portobello, de Tijucas, deixa de pagar R$ 59,8 milhões e tem nota rebaixada para \"inadimplência restrita\"",
-    "fonte": "TopElegance",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via TopElegance vinculado a PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.) (Reestruturação Extrajudicial Privada (AGD Waiver/Diferimento & Rating RD(bra) Fitch) • Passivo monitorado: R$ 1.655 MM).",
-    "url": "https://www.topelegance.com.br/economia/portobello-de-tijucas-deixa-de-pagar-r-59-8-milhoes-e-tem-nota-rebaixada-para-inadimplencia-restrita-2",
-    "deal_id": 171,
-    "empresa_nome": "PBG S.A. (Portobello Grupo / PTBL3 & Portobello Shop S.A.)",
-    "source_url": "https://www.topelegance.com.br",
-    "id": 438939
-  },
-  {
     "id": 1101,
     "data_hora": "04/11/2026 11:15",
     "titulo": "Paranapanema (PMAM3) protocola fato relevante na CVM sobre reestruturação de comando e conversão de debêntures concursais",
@@ -1734,20 +1749,6 @@
     "url": "https://aciara.com.br/financiamento-dip-da-casas-bahia-com-itau-avanca/",
     "deal_id": 86,
     "empresa_nome": "Grupo Casas Bahia S.A. (BHIA3 / Casas Bahia & Ponto)"
-  },
-  {
-    "data_hora": "04/11/2026 05:00",
-    "titulo": "Aeris pede recuperação extrajudicial para renegociar dívida de R$ 1,52 bilhão",
-    "fonte": "O Otimista",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (O Otimista) para triagem de originação.",
-    "url": "https://ootimista.com.br/noticias/aeris-pede-recuperacao-extrajudicial-para-renegociar-divida-de-r-152-bilhao?category=economy&page=1",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // O Otimista",
-    "source_url": "https://ootimista.com.br",
-    "id": 699730
   },
   {
     "id": 1103,
