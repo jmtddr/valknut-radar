@@ -1,5 +1,19 @@
 [
   {
+    "data_hora": "24/11/2026 11:03",
+    "titulo": "Ações da Braskem caem 65% em 2026 em ano marcado por crise financeira e reestruturação de dívidas",
+    "fonte": "TradeMap",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via TradeMap vinculado a Braskem S/A (BAK / BRKM5) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 58.000 MM).",
+    "url": "https://trademap.com.br/noticias/news-8634822",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://trademap.com.br",
+    "id": 129796
+  },
+  {
     "data_hora": "24/11/2026 04:15",
     "titulo": "Axia prepara emissão de R$ 1 bilhão em debêntures para UHE Santo Antônio | Novembro 2026",
     "fonte": "XP",
@@ -98,6 +112,20 @@
     "id": 431538
   },
   {
+    "data_hora": "23/11/2026 12:02",
+    "titulo": "Fitch rebaixa ratings da Enel com proximidade da caducidade em São Paulo",
+    "fonte": "CanalEnergia",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (CanalEnergia) para triagem de originação.",
+    "url": "https://www.canalenergia.com.br/noticias/53361016/fitch-rebaixa-ratings-da-enel-com-proximidade-da-caducidade-em-sao-paulo",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // CanalEnergia",
+    "source_url": "https://www.canalenergia.com.br",
+    "id": 597512
+  },
+  {
     "data_hora": "23/11/2026 11:43",
     "titulo": "NTS: Tem rating rebaixado pela Fitch",
     "fonte": "Acionista.com.br",
@@ -110,6 +138,20 @@
     "empresa_nome": "Radar Ao Vivo // Acionista.com.br",
     "source_url": "https://acionista.com.br",
     "id": 273150
+  },
+  {
+    "data_hora": "23/11/2026 10:47",
+    "titulo": "Fitch rebaixa rating da Enel Brasil para 'AA(bra)' diante de maior probabilidade de caducidade da concessão em SP",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/23/fitch-rebaixa-rating-da-enel-brasil-para-aabra-diante-de-maior-probabilidade-de-caducidade-da-concessao-em-sp.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 858614
   },
   {
     "data_hora": "23/11/2026 10:22",
@@ -164,7 +206,7 @@
     "url": "https://www.dcomercio.com.br/publicacao/s/fornecedor-deve-vender-a-prazo-para-cliente-que-saiu-da-recuperacao-judicial",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // DComercio",
-    "source_url": "https://dcomercio.com.br",
+    "source_url": "https://www.dcomercio.com.br",
     "id": 746646
   },
   {
@@ -280,6 +322,20 @@
     "id": 883621
   },
   {
+    "data_hora": "19/11/2026 09:57",
+    "titulo": "Gestora do Pacaembu pede recuperação extrajudicial por dívida de R$ 1 bi",
+    "fonte": "Metrópoles",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Metrópoles) para triagem de originação.",
+    "url": "https://www.metropoles.com/colunas/demetrio-vecchioli/gestora-do-pacaembu-pede-recuperacao-extrajudicial-por-divida-de-r-1-bi",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Metrópoles",
+    "source_url": "https://www.metropoles.com",
+    "id": 258101
+  },
+  {
     "data_hora": "18/11/2026 15:06",
     "titulo": "Sigma Lithium enfrenta dívidas e problemas de caixa",
     "fonte": "Estadão Blue Studio",
@@ -348,6 +404,20 @@
     "empresa_nome": "Radar Ao Vivo // Capital Aberto",
     "source_url": "https://capitalaberto.com.br",
     "id": 630565
+  },
+  {
+    "data_hora": "18/11/2026 07:35",
+    "titulo": "Aos 58 anos, indústria do norte do RS sai da recuperação judicial e fatura R$ 330 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/aos-58-anos-industria-do-norte-do-rs-sai-da-recuperacao-judicial-e-fatura-r-330-milhoes-cmwlaz9fe00rn015uaowyzmfx.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 950602
   },
   {
     "id": 1158,
@@ -695,20 +765,6 @@
     "id": 621249
   },
   {
-    "data_hora": "16/11/2026 18:41",
-    "titulo": "Dívidas rurais: empresas do MS pedem recuperação judicial",
-    "fonte": "Campo Grande News",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Campo Grande News) para triagem de originação.",
-    "url": "https://www.campograndenews.com.br/economia/mesmo-com-socorro-empresas-do-agro-optam-por-recuperacao-judicial-em-ms",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Campo Grande News",
-    "source_url": "https://www.campograndenews.com.br",
-    "id": 782000
-  },
-  {
     "data_hora": "16/11/2026 17:33",
     "titulo": "Portobello está renegociando dívida em torno de R$ 1 bi, via reperfilamento e capitalização",
     "fonte": "InvesTalk",
@@ -859,6 +915,34 @@
     "url": "https://www.fatosdematogrosso.com.br/cidades/grupo-rural-de-alta-floresta-tenta-recuperacao-judicial-com-divida-de-quase-r-55-milhoes/18922",
     "deal_id": 174,
     "empresa_nome": "Grupo Morro Velho (Luciano Alves de Souza, Eliadora Bertuol de Souza & Sidinei José Jezur)"
+  },
+  {
+    "data_hora": "16/11/2026 08:33",
+    "titulo": "Fato relevante BRK Ambiental: o que a nova emissão de debêntures muda na dívida",
+    "fonte": "ativovirtual.com.br",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (ativovirtual.com.br) para triagem de originação.",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-brk-ambiental-o-que-a-nova-emissao-de-debentures-muda-na-divida",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 796765
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Dívidas rurais: empresas do MS pedem recuperação judicial",
+    "fonte": "Campo Grande News",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Campo Grande News) para triagem de originação.",
+    "url": "https://www.campograndenews.com.br/economia/mesmo-com-socorro-empresas-do-agro-optam-por-recuperacao-judicial-em-ms",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Campo Grande News",
+    "source_url": "https://www.campograndenews.com.br",
+    "id": 782000
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1075,19 +1159,6 @@
     "empresa_nome": "Grupo Bóca Mafra (Ambrósio Mafra Comércio de Automóveis Ltda. & Mafra Administradora de Bens Ltda.)"
   },
   {
-    "data_hora": "13/11/2026 18:40",
-    "titulo": "Braskem para pagamento de debêntures: o que a blindagem judicial muda",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Waiver / AGD",
-    "escopo": "pipeline",
-    "resumo": "Fato monitorado via Braskem S/A (BAK / BRKM5) vinculado a Braskem S/A (BAK / BRKM5) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 58.000 MM).",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/braskem-para-pagamento-de-debentures-o-que-a-blindagem-judicial-muda",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "id": 988472
-  },
-  {
     "id": 1141,
     "data_hora": "13/11/2026 15:00",
     "titulo": "Grupo Sta. (Santaconstancia) pede tutela cautelar em SP com R$ 154M em passivos financeiros e R$ 122M fiscais",
@@ -1236,20 +1307,6 @@
   },
   {
     "data_hora": "12/11/2026 05:00",
-    "titulo": "Frigorífico tem \"ok\" na recuperação judicial e pagará sem desconto quem seguir fornecedor",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/frigorifico-tem-ok-na-recuperacao-judicial-e-pagara-sem-desconto-quem-seguir-fornecedor-cmwcmit7t0169015excj3nedf.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 230266
-  },
-  {
-    "data_hora": "12/11/2026 05:00",
     "titulo": "Santa Cruz pode oficializar SAF em dezembro; veja o que falta para mudança",
     "fonte": "JC",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1261,6 +1318,20 @@
     "empresa_nome": "Radar Ao Vivo // JC",
     "source_url": "https://jc.uol.com.br",
     "id": 695705
+  },
+  {
+    "data_hora": "12/11/2026 05:00",
+    "titulo": "Frigorífico tem \"ok\" na recuperação judicial e pagará sem desconto quem seguir fornecedor",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/frigorifico-tem-ok-na-recuperacao-judicial-e-pagara-sem-desconto-quem-seguir-fornecedor-cmwcmit7t0169015excj3nedf.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 230266
   },
   {
     "data_hora": "12/11/2026 05:00",
@@ -1372,20 +1443,6 @@
     "id": 677873
   },
   {
-    "data_hora": "10/11/2026 19:42",
-    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 581463
-  },
-  {
     "data_hora": "10/11/2026 10:06",
     "titulo": "Sócia da Kitchens transferiu R$ 4,2 milhões em imóveis antes de recuperação",
     "fonte": "Jota / Tribunais",
@@ -1452,6 +1509,20 @@
     "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
     "source_url": "https://www.instagram.com",
     "id": 324250
+  },
+  {
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 581463
   },
   {
     "data_hora": "10/11/2026 05:00",
@@ -1536,76 +1607,6 @@
     "empresa_nome": "Radar Ao Vivo // Clube FII News",
     "source_url": "https://www.clubefiinews.com.br",
     "id": 215891
-  },
-  {
-    "data_hora": "09/11/2026 05:00",
-    "titulo": "Debenturistas da Sabesp (SBSP3) aprovam alterações em covenants da 24ª emissão",
-    "fonte": "Clube FII News",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Clube FII News) para triagem de originação.",
-    "url": "https://www.clubefiinews.com.br/acoes/sabesp-sbsp3-debenturistas-aprovam-alteracoes-covenants-24-emissao",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Clube FII News",
-    "source_url": "https://www.clubefiinews.com.br",
-    "id": 344150
-  },
-  {
-    "data_hora": "09/11/2026 05:00",
-    "titulo": "Fato relevante UTE GNA II: Fitch rebaixa debêntures e coloca rating em observação",
-    "fonte": "ativovirtual.com.br",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (ativovirtual.com.br) para triagem de originação.",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/fato-relevante-ute-gna-ii-fitch-rebaixa-debentures-e-coloca-rating-em-observacao",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
-    "source_url": "https://www.ativovirtual.com.br",
-    "id": 480638
-  },
-  {
-    "data_hora": "09/11/2026 05:00",
-    "titulo": "Renda fixa segue pagando bem, mas debêntures entram em xeque novamente sem alívio da Selic, diz Sparta",
-    "fonte": "Seu Dinheiro",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Seu Dinheiro) para triagem de originação.",
-    "url": "https://www.seudinheiro.com/2026/renda-fixa/juros-altos-ajudam-a-renda-fixa-mas-pioram-um-problema-nas-debentures-diz-sparta-mlim/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Seu Dinheiro",
-    "source_url": "https://www.seudinheiro.com",
-    "id": 750257
-  },
-  {
-    "data_hora": "08/11/2026 05:00",
-    "titulo": "Chilli Beans renegocia dívida de R$ 340 milhões em recuperação extrajudicial",
-    "fonte": "Gazeta do Povo",
-    "setor": "Varejo & Consumo",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via Gazeta do Povo vinculado a Chilli Beans (Mustang 25 Participações) (Cautelar Antecedente (art. 20-B) • Passivo monitorado: R$ 600 MM).",
-    "url": "https://www.gazetadopovo.com.br/economia/chilli-beans-pede-recuperacao-extrajudicial-para-renegociar-divida-milionaria/",
-    "deal_id": 10,
-    "empresa_nome": "Chilli Beans (Mustang 25 Participações)",
-    "source_url": "https://www.gazetadopovo.com.br",
-    "id": 334657
-  },
-  {
-    "data_hora": "08/11/2026 05:00",
-    "titulo": "Confirmado leilão de fábrica da Serra que segue operando após falência; lance inicial de R$ 48 milhões",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Falência",
-    "escopo": "mercado",
-    "resumo": "Evento de Falência capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/confirmado-leilao-de-fabrica-da-serra-que-segue-operando-apos-falencia-lance-inicial-de-r-48-milhoes-cmw7pyhkj02ij0160wkx2vw1u.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 563503
   },
   {
     "id": 1115,
