@@ -1,13 +1,13 @@
 {
   "schema_version": "7.0",
-  "updated_at": "2026-11-23T22:37:47Z",
-  "updated_at_br": "23/11/2026 19:37",
+  "updated_at": "2026-11-24T21:09:48Z",
+  "updated_at_br": "24/11/2026 18:09",
   "sources": {
     "cvm_ipe": {
       "status": "ok",
       "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip",
       "filings_scanned": 41625,
-      "signals_matched": 169,
+      "signals_matched": 167,
       "unique_leads": 51,
       "leads_exported": 34
     },
@@ -3128,46 +3128,6 @@
       ]
     },
     {
-      "id": "cvm-ipe-31553627000101",
-      "lead_origin": "CVM IPE",
-      "empresa": "GRUPO TOKY S.A. - EM RECUPERAÇÃO JUDICIAL",
-      "cnpj": "31.553.627/0001-01",
-      "cnpj_digits": "31553627000101",
-      "codigo_cvm": "25461",
-      "data_entrega": "2026-09-25",
-      "data_referencia": "2026-09-25",
-      "signal_type": "Cautelar Art. 20-B / PRE / RJ",
-      "categoria_cvm": "Comunicado ao Mercado",
-      "tipo_cvm": "Outros Comunicados Não Considerados Fatos Relevantes",
-      "assunto": "Esclarecimento sobre Pedido de Recuperação Judicial",
-      "recent_assuntos": [
-        "Esclarecimento sobre Pedido de Recuperação Judicial",
-        "Plano de Recuperação Judicial",
-        "Ratificação do pedido de recuperação judicial, ratificação da eleição de membros do Conselho, grupamento de ações, alteração estatutária e outros"
-      ],
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1571886&numSequencia=1096592&numVersao=1",
-      "filing_count": 4,
-      "in_pipeline": true,
-      "deal_id": 37,
-      "deal_empresa": "Grupo Toky (Tok&Stok e Mobly)",
-      "deal_passivo_mm": 600,
-      "fit_score": 91,
-      "source": "CVM IPE 2026",
-      "origins": [
-        "CVM IPE"
-      ],
-      "uf": "SP",
-      "municipio": "SAO PAULO",
-      "cnae": "Outras sociedades de participação, exceto holdings",
-      "porte": "DEMAIS",
-      "capital_social": 1125073700.0,
-      "qsa_preview": [
-        "ANDRE FELIPE ROSADO FRANCA",
-        "ANDRE FERREIRA PEIXOTO",
-        "CASSIO CASSEB LIMA"
-      ]
-    },
-    {
       "id": "cvm-ipe-10760260000119",
       "lead_origin": "CVM IPE",
       "empresa": "CVC BRASIL OPERADORA E AGÊNCIA DE VIAGENS SA",
@@ -3319,6 +3279,45 @@
         "MARCELO SILVEIRA MAIA",
         "ODERI GERIN LEITE",
         "PAULO URBANO NASSAR"
+      ]
+    },
+    {
+      "id": "cvm-ipe-31553627000101",
+      "lead_origin": "CVM IPE",
+      "empresa": "GRUPO TOKY S.A. - EM RECUPERAÇÃO JUDICIAL",
+      "cnpj": "31.553.627/0001-01",
+      "cnpj_digits": "31553627000101",
+      "codigo_cvm": "25461",
+      "data_entrega": "2026-09-25",
+      "data_referencia": "2026-09-25",
+      "signal_type": "Cautelar Art. 20-B / PRE / RJ",
+      "categoria_cvm": "Comunicado ao Mercado",
+      "tipo_cvm": "Outros Comunicados Não Considerados Fatos Relevantes",
+      "assunto": "Esclarecimento sobre Pedido de Recuperação Judicial",
+      "recent_assuntos": [
+        "Esclarecimento sobre Pedido de Recuperação Judicial",
+        "Plano de Recuperação Judicial"
+      ],
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1571886&numSequencia=1096592&numVersao=1",
+      "filing_count": 2,
+      "in_pipeline": true,
+      "deal_id": 37,
+      "deal_empresa": "Grupo Toky (Tok&Stok e Mobly)",
+      "deal_passivo_mm": 600,
+      "fit_score": 88,
+      "source": "CVM IPE 2026",
+      "origins": [
+        "CVM IPE"
+      ],
+      "uf": "SP",
+      "municipio": "SAO PAULO",
+      "cnae": "Outras sociedades de participação, exceto holdings",
+      "porte": "DEMAIS",
+      "capital_social": 1125073700.0,
+      "qsa_preview": [
+        "ANDRE FELIPE ROSADO FRANCA",
+        "ANDRE FERREIRA PEIXOTO",
+        "CASSIO CASSEB LIMA"
       ]
     },
     {
