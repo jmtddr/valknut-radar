@@ -308,6 +308,20 @@
     "id": 894542
   },
   {
+    "data_hora": "19/11/2026 15:35",
+    "titulo": "Atlético tentará refinanciar dívida de R$ 383 milhões da Arena MRV em dezembro",
+    "fonte": "Moon BH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Moon BH) para triagem de originação.",
+    "url": "https://moonbh.com.br/esportes/atletico/2026/11/19/atletico-vota-refinanciamento-arena-mrv-divida-383-milhoes-dezembro-2026/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Moon BH",
+    "source_url": "https://moonbh.com.br",
+    "id": 735800
+  },
+  {
     "data_hora": "19/11/2026 11:21",
     "titulo": "Paysandu prevê início do pagamento de dívidas da Recuperação Judicial para 2027",
     "fonte": "Cidade 091",
@@ -929,6 +943,20 @@
     "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
     "source_url": "https://www.ativovirtual.com.br",
     "id": 796765
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Mesmo com socorro, empresas do agro optam por recuperação judicial em MS",
+    "fonte": "Campo Grande News",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Campo Grande News) para triagem de originação.",
+    "url": "https://www.campograndenews.com.br/economia/mesmo-com-socorro-empresas-do-agro-optam-por-recuperacao-judicial-em-ms",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Campo Grande News",
+    "source_url": "https://www.campograndenews.com.br",
+    "id": 624285
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1554,20 +1582,6 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
-    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/com-divida-de-r-513-milhoes-grupo-do-rs-consegue-ok-de-credores-na-recuperacao-judicial-cmwash7k500ib014s2qzby51x.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 735067
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
     "titulo": "Mônica Scaramuzzo: Análise: Recuperação da Natura ainda é desafio para os acionistas",
     "fonte": "UOL Economia",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1581,32 +1595,18 @@
     "id": 285059
   },
   {
-    "data_hora": "09/11/2026 17:00",
-    "titulo": "Recuperações judiciais atingem recorde no Brasil, com 6,3 mil empresas",
-    "fonte": "Paraíba Business",
+    "data_hora": "10/11/2026 05:00",
+    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
+    "fonte": "GZH",
     "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
+    "categoria": "Pedido de RJ",
     "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Paraíba Business) para triagem de originação.",
-    "url": "https://paraibabusiness.com.br/recuperacoes-judiciais-atingem-recorde-no-brasil-com-63-mil-empresas/",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/com-divida-de-r-513-milhoes-grupo-do-rs-consegue-ok-de-credores-na-recuperacao-judicial-cmwash7k500ib014s2qzby51x.html",
     "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Paraíba Business",
-    "source_url": "https://paraibabusiness.com.br",
-    "id": 603626
-  },
-  {
-    "data_hora": "09/11/2026 12:40",
-    "titulo": "Debenturistas da Sabesp (SBSP3) aprovam mudanças em cláusulas e covenants da 33ª emissão",
-    "fonte": "Clube FII News",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Clube FII News) para triagem de originação.",
-    "url": "https://www.clubefiinews.com.br/acoes/sabesp-sbsp3-debenturistas-aprovam-alteracoes-33-emissao",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Clube FII News",
-    "source_url": "https://www.clubefiinews.com.br",
-    "id": 215891
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 735067
   },
   {
     "id": 1115,
