@@ -70,6 +70,20 @@
     "id": 228277
   },
   {
+    "data_hora": "23/11/2026 15:43",
+    "titulo": "CVM suspende registro do BRB (BSLI4) e ações ficam sem negociação na B3",
+    "fonte": "Investidor10",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Investidor10) para triagem de originação.",
+    "url": "https://investidor10.com.br/amp/noticias/cvm-suspende-registro-do-brb-bsli4-e-acoes-ficam-sem-negociacao-na-b3-124035/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investidor10",
+    "source_url": "https://investidor10.com.br",
+    "id": 544443
+  },
+  {
     "data_hora": "23/11/2026 14:53",
     "titulo": "Investidores de usina solar em Pedra Preta podem cobrar dívida antecipadamente",
     "fonte": "Fatos de Mato Grosso",
@@ -206,7 +220,7 @@
     "url": "https://www.dcomercio.com.br/publicacao/s/fornecedor-deve-vender-a-prazo-para-cliente-que-saiu-da-recuperacao-judicial",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // DComercio",
-    "source_url": "https://www.dcomercio.com.br",
+    "source_url": "https://dcomercio.com.br",
     "id": 746646
   },
   {
@@ -306,6 +320,20 @@
     "empresa_nome": "Radar Ao Vivo // ativovirtual.com.br",
     "source_url": "https://www.ativovirtual.com.br",
     "id": 894542
+  },
+  {
+    "data_hora": "20/11/2026 05:00",
+    "titulo": "Paranapanema (PMAM3) ainda tem chances de recuperação?",
+    "fonte": "Acionista.com.br",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via Acionista.com.br vinculado a Paranapanema S.A. (PMAM3) (Recuperação Judicial (Classe 129) • Passivo monitorado: R$ 3.940 MM).",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNTUJXb0paQ3Z3OW9SRWhCbGQ0d0hyY0dPTUYzeml0NDBleWQ5NlBnVWlJUjNoZE9KUEZWYm5SNU1xYlg1RWhlQ0FxM3hoZGhIaG5QTXc1NUZkNUFnYkE3MW9EamxINThsR3dSQU5PeXNMay11MWNITDdaOEctRkpmYkpNaw?oc=5",
+    "deal_id": 8,
+    "empresa_nome": "Paranapanema S.A. (PMAM3)",
+    "source_url": "https://acionista.com.br",
+    "id": 131269
   },
   {
     "data_hora": "19/11/2026 15:35",
@@ -848,20 +876,6 @@
     "id": 826495
   },
   {
-    "data_hora": "16/11/2026 11:25",
-    "titulo": "Frigorífico com dívida superior a R$ 100 milhões aprova plano de recuperação judicial",
-    "fonte": "CompreRural",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (CompreRural) para triagem de originação.",
-    "url": "https://www.comprerural.com/frigorifico-com-divida-superior-a-r-100-milhoes-aprova-plano-de-recuperacao-judicial/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // CompreRural",
-    "source_url": "https://www.comprerural.com",
-    "id": 480032
-  },
-  {
     "data_hora": "16/11/2026 11:10",
     "titulo": "Novo ciclo dá continuidade à redução da dívida e venda de ativos, diz Cosan",
     "fonte": "Valor Econômico",
@@ -946,20 +960,6 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
-    "titulo": "Mesmo com socorro, empresas do agro optam por recuperação judicial em MS",
-    "fonte": "Campo Grande News",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Campo Grande News) para triagem de originação.",
-    "url": "https://www.campograndenews.com.br/economia/mesmo-com-socorro-empresas-do-agro-optam-por-recuperacao-judicial-em-ms",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Campo Grande News",
-    "source_url": "https://www.campograndenews.com.br",
-    "id": 624285
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
     "titulo": "Dívidas rurais: empresas do MS pedem recuperação judicial",
     "fonte": "Campo Grande News",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -971,6 +971,34 @@
     "empresa_nome": "Radar Ao Vivo // Campo Grande News",
     "source_url": "https://www.campograndenews.com.br",
     "id": 782000
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Frigorífico com dívida superior a R$ 100 milhões aprova plano de recuperação judicial",
+    "fonte": "CompreRural",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (CompreRural) para triagem de originação.",
+    "url": "https://www.comprerural.com/frigorifico-com-divida-superior-a-r-100-milhoes-aprova-plano-de-recuperacao-judicial/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // CompreRural",
+    "source_url": "https://www.comprerural.com",
+    "id": 480032
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Mesmo com socorro, empresas do agro optam por recuperação judicial em MS",
+    "fonte": "Campo Grande News",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Campo Grande News) para triagem de originação.",
+    "url": "https://www.campograndenews.com.br/economia/mesmo-com-socorro-empresas-do-agro-optam-por-recuperacao-judicial-em-ms",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Campo Grande News",
+    "source_url": "https://www.campograndenews.com.br",
+    "id": 624285
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1579,34 +1607,6 @@
     "empresa_nome": "Radar Ao Vivo // UOL Economia",
     "source_url": "https://economia.uol.com.br",
     "id": 640130
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Mônica Scaramuzzo: Análise: Recuperação da Natura ainda é desafio para os acionistas",
-    "fonte": "UOL Economia",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (UOL Economia) para triagem de originação.",
-    "url": "https://economia.uol.com.br/colunas/monica-scaramuzzo/2026/11/10/analise-recuperacao-da-natura-ainda-e-desafio-para-os-acionista.htm",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // UOL Economia",
-    "source_url": "https://economia.uol.com.br",
-    "id": 285059
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Com dívida de R$ 513 milhões, grupo do RS consegue \"ok\" de credores na recuperação judicial",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/com-divida-de-r-513-milhoes-grupo-do-rs-consegue-ok-de-credores-na-recuperacao-judicial-cmwash7k500ib014s2qzby51x.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 735067
   },
   {
     "id": 1115,
