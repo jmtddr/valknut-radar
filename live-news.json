@@ -1,5 +1,61 @@
 [
   {
+    "data_hora": "25/11/2026 17:44",
+    "titulo": "Rating em alerta: S&P ameaça rebaixar nota de crédito da Nvidia após crise envolvendo Jensen Huang",
+    "fonte": "Money Times",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Money Times) para triagem de originação.",
+    "url": "https://www.moneytimes.com.br/rating-em-alerta-sp-ameaca-rebaixar-nota-de-credito-da-nvidia-apos-crise-envolvendo-jensen-huang-miql/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Money Times",
+    "source_url": "https://www.moneytimes.com.br",
+    "id": 571105
+  },
+  {
+    "data_hora": "25/11/2026 17:30",
+    "titulo": "Nvidia (NVDC34) pode ser rebaixada pela S&P - Suno",
+    "fonte": "Suno - Investimentos Inteligente",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Suno - Investimentos Inteligentes) para triagem de originação.",
+    "url": "https://www.suno.com.br/noticias/nvidia-nvdc34-rating-sp-risco-rebaixamento/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Suno - Investimentos Inteligentes",
+    "source_url": "https://www.suno.com.br",
+    "id": 662760
+  },
+  {
+    "data_hora": "25/11/2026 16:47",
+    "titulo": "S&P coloca ratings ‘AA’ da Nvidia em observação negativa por riscos de governança",
+    "fonte": "InfoMoney",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (InfoMoney) para triagem de originação.",
+    "url": "https://www.infomoney.com.br/mercados/sp-coloca-ratings-aa-da-nvidia-em-observacao-negativa-por-riscos-de-governanca/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // InfoMoney",
+    "source_url": "https://www.infomoney.com.br",
+    "id": 492597
+  },
+  {
+    "data_hora": "24/11/2026 15:20",
+    "titulo": "Exclusivo: Justiça analisa pedido da Braskem de mais prazo para recuperação extrajudicial, dizem fontes",
+    "fonte": "Valor Econômico",
+    "setor": "Indústria & Manufatura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via Valor Econômico vinculado a Braskem S/A (BAK / BRKM5) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 58.000 MM).",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/24/justica-analisa-pedido-da-braskem-de-mais-prazo-para-recuperacao-extrajudicial-dizem-fontes.ghtml",
+    "deal_id": 22,
+    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
+    "source_url": "https://valor.globo.com",
+    "id": 473912
+  },
+  {
     "data_hora": "24/11/2026 11:03",
     "titulo": "Ações da Braskem caem 65% em 2026 em ano marcado por crise financeira e reestruturação de dívidas",
     "fonte": "TradeMap",
@@ -96,20 +152,6 @@
     "empresa_nome": "Radar Ao Vivo // Fatos de Mato Grosso",
     "source_url": "https://www.fatosdematogrosso.com.br",
     "id": 477438
-  },
-  {
-    "data_hora": "23/11/2026 13:00",
-    "titulo": "Braskem fecha acordo de US$ 4,9 bilhões para reestruturar dívida com aporte da Petrobras",
-    "fonte": "Vero Notícias",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via Vero Notícias vinculado a Braskem S/A (BAK / BRKM5) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 58.000 MM).",
-    "url": "https://veronoticias.com/economia/braskem-fecha-acordo-de-us-49-bilhoes-para-reestruturar-divida-com-aporte-da-petrobras/",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "source_url": "https://veronoticias.com",
-    "id": 459012
   },
   {
     "data_hora": "23/11/2026 12:50",
@@ -220,7 +262,7 @@
     "url": "https://www.dcomercio.com.br/publicacao/s/fornecedor-deve-vender-a-prazo-para-cliente-que-saiu-da-recuperacao-judicial",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // DComercio",
-    "source_url": "https://dcomercio.com.br",
+    "source_url": "https://www.dcomercio.com.br",
     "id": 746646
   },
   {
@@ -329,7 +371,7 @@
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
     "resumo": "Fato monitorado via Acionista.com.br vinculado a Paranapanema S.A. (PMAM3) (Recuperação Judicial (Classe 129) • Passivo monitorado: R$ 3.940 MM).",
-    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNTUJXb0paQ3Z3OW9SRWhCbGQ0d0hyY0dPTUYzeml0NDBleWQ5NlBnVWlJUjNoZE9KUEZWYm5SNU1xYlg1RWhlQ0FxM3hoZGhIaG5QTXc1NUZkNUFnYkE3MW9EamxINThsR3dSQU5PeXNMay11MWNITDdaOEctRkpmYkpNaw?oc=5",
+    "url": "https://acionista.com.br/paranapanema-pmam3-ainda-tem-chances-de-recuperacao/",
     "deal_id": 8,
     "empresa_nome": "Paranapanema S.A. (PMAM3)",
     "source_url": "https://acionista.com.br",
@@ -559,20 +601,6 @@
     "id": 231870
   },
   {
-    "data_hora": "17/11/2026 17:47",
-    "titulo": "A Fazendão pagou por inteiro o credor que podia cobrar primeiro — e pediu 60 dias aos bancos",
-    "fonte": "AgFeed",
-    "setor": "Agronegócio & Silvicultura",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d) ",
-    "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
-    "deal_id": 178,
-    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
-    "source_url": "https://agfeed.com.br",
-    "id": 558846
-  },
-  {
     "data_hora": "17/11/2026 17:41",
     "titulo": "Corinthians pede tutela cautelar à Justiça para negociar dívidas",
     "fonte": "Vanguarda do Norte",
@@ -750,6 +778,20 @@
     "url": "https://preservacred.com.br/noticias/grupo-tecparts-tutela-cautelar-2026",
     "deal_id": 177,
     "empresa_nome": "Grupo Tecparts (Tecparts do Brasil Indústria e Comércio Ltda.)"
+  },
+  {
+    "data_hora": "17/11/2026 05:00",
+    "titulo": "A Fazendão pagou por inteiro o credor que podia cobrar primeiro — e pediu 60 dias aos bancos",
+    "fonte": "AgFeed",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Pedido de RJ",
+    "escopo": "pipeline",
+    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d) ",
+    "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
+    "deal_id": 178,
+    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
+    "source_url": "https://agfeed.com.br",
+    "id": 558846
   },
   {
     "data_hora": "17/11/2026 00:00",
@@ -960,6 +1002,34 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
+    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 889092
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Cedro Têxtil (CEDO3) reestrutura R$ 80,3 mi em dívidas e ajusta garantias",
+    "fonte": "www.ativovirtual.com.br",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/cedro-textil-cedo3-reestrutura-r-80-3-mi-em-dividas-e-ajusta-garantias",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 507574
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
     "titulo": "Dívidas rurais: empresas do MS pedem recuperação judicial",
     "fonte": "Campo Grande News",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -999,20 +1069,6 @@
     "empresa_nome": "Radar Ao Vivo // Campo Grande News",
     "source_url": "https://www.campograndenews.com.br",
     "id": 624285
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
-    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
-    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "source_url": "https://valor.globo.com",
-    "id": 889092
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1526,20 +1582,6 @@
   },
   {
     "data_hora": "10/11/2026 05:00",
-    "titulo": "Incerteza fiscal trava emissões de dívida e fecha a torneira do crédito corporativo",
-    "fonte": "NeoFeed",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (NeoFeed) para triagem de originação.",
-    "url": "https://neofeed.com.br/negocios/incerteza-fiscal-trava-emissoes-de-divida-e-fecha-a-torneira-do-credito-corporativo/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // NeoFeed",
-    "source_url": "https://neofeed.com.br",
-    "id": 535595
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
     "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
     "fonte": "Estadão",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1565,48 +1607,6 @@
     "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
     "source_url": "https://www.instagram.com",
     "id": 324250
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Após 60 lances, fábrica em operação é arrematada em leilão por R$ 174 milhões",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/apos-60-lances-fabrica-em-operacao-e-arrematada-em-leilao-por-r-174-milhoes-cmwb8dnqm00r6015e94psubhm.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 581463
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Fux cassa decisão do TRT-4 que atribuiu à V.tal responsabilidade solidária por dívidas trabalhistas da Oi",
-    "fonte": "atlaspublico.com.br",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (atlaspublico.com.br) para triagem de originação.",
-    "url": "https://atlaspublico.com.br/stf/noticias/fux-cassa-decisao-do-trt-4-que-atribuiu-a-v-tal-100367",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // atlaspublico.com.br",
-    "source_url": "https://atlaspublico.com.br",
-    "id": 423125
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Mônica Scaramuzzo: Análise: Venda de ativos entra no radar da reestruturação da Aegea",
-    "fonte": "UOL Economia",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (UOL Economia) para triagem de originação.",
-    "url": "https://economia.uol.com.br/colunas/monica-scaramuzzo/2026/11/10/analise-venda-de-ativos-entra-no-radar-de-reestruturacao-da-aegea.htm",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // UOL Economia",
-    "source_url": "https://economia.uol.com.br",
-    "id": 640130
   },
   {
     "id": 1115,
