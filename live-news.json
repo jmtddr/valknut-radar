@@ -1,5 +1,19 @@
 [
   {
+    "data_hora": "26/11/2026 00:34",
+    "titulo": "S&P Global coloca ratings ‘AA’ da Nvidia em observação negativa por riscos de governança",
+    "fonte": "Prensa Mercosur",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Prensa Mercosur) para triagem de originação.",
+    "url": "https://prensamercosur.org/2026/11/26/sp-global-coloca-ratings-aa-da-nvidia-em-observacao-negativa-por-riscos-de-governanca/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Prensa Mercosur",
+    "source_url": "https://prensamercosur.org",
+    "id": 776248
+  },
+  {
     "data_hora": "25/11/2026 17:44",
     "titulo": "Rating em alerta: S&P ameaça rebaixar nota de crédito da Nvidia após crise envolvendo Jensen Huang",
     "fonte": "Money Times",
@@ -56,6 +70,20 @@
     "id": 473912
   },
   {
+    "data_hora": "24/11/2026 12:22",
+    "titulo": "Indústria da Serra tem \"ok\" dos credores na reestruturação da dívida de R$ 549 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/industria-da-serra-tem-ok-dos-credores-na-reestruturacao-da-divida-de-r-549-milhoes-cmwuu89oq00ji016mv0fdwxpx.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 277513
+  },
+  {
     "data_hora": "24/11/2026 11:03",
     "titulo": "Ações da Braskem caem 65% em 2026 em ano marcado por crise financeira e reestruturação de dívidas",
     "fonte": "TradeMap",
@@ -82,6 +110,20 @@
     "empresa_nome": "Radar Ao Vivo // XP",
     "source_url": "https://conteudos.xpi.com.br",
     "id": 847132
+  },
+  {
+    "data_hora": "23/11/2026 19:43",
+    "titulo": "Estudo revela estados que mais buscam informações sobre debêntures",
+    "fonte": "Tudo Rondônia",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Tudo Rondônia) para triagem de originação.",
+    "url": "https://www.tudorondonia.com/noticias/estudo-revela-estados-que-mais-buscam-informacoes-sobre-debentures,165215.shtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Tudo Rondônia",
+    "source_url": "https://www.tudorondonia.com",
+    "id": 756575
   },
   {
     "data_hora": "23/11/2026 17:06",
@@ -1002,34 +1044,6 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
-    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
-    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "source_url": "https://valor.globo.com",
-    "id": 889092
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
-    "titulo": "Cedro Têxtil (CEDO3) reestrutura R$ 80,3 mi em dívidas e ajusta garantias",
-    "fonte": "www.ativovirtual.com.br",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/cedro-textil-cedo3-reestrutura-r-80-3-mi-em-dividas-e-ajusta-garantias",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
-    "source_url": "https://www.ativovirtual.com.br",
-    "id": 507574
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
     "titulo": "Dívidas rurais: empresas do MS pedem recuperação judicial",
     "fonte": "Campo Grande News",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1055,6 +1069,34 @@
     "empresa_nome": "Radar Ao Vivo // CompreRural",
     "source_url": "https://www.comprerural.com",
     "id": 480032
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 889092
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Cedro Têxtil (CEDO3) reestrutura R$ 80,3 mi em dívidas e ajusta garantias",
+    "fonte": "www.ativovirtual.com.br",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/cedro-textil-cedo3-reestrutura-r-80-3-mi-em-dividas-e-ajusta-garantias",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 507574
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1513,20 +1555,6 @@
     "id": 171081
   },
   {
-    "data_hora": "11/11/2026 12:17",
-    "titulo": "Santa Cruz marca Assembleia Geral de Credores para 30 de novembro; SAF deve ser implantada em dezembro",
-    "fonte": "Diario de Pernambuco",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Diario de Pernambuco) para triagem de originação.",
-    "url": "https://www.diariodepernambuco.com.br/esportes-dp/santa-cruz/2026/11/11728872-santa-cruz-marca-assembleia-geral-de-credores-para-30-de-novembro-saf-deve-ser-implantada-em-dezembro.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Diario de Pernambuco",
-    "source_url": "https://www.diariodepernambuco.com.br",
-    "id": 181956
-  },
-  {
     "data_hora": "11/11/2026 05:00",
     "titulo": "Leilão da fábrica Ditália recebe 16 propostas na Serra",
     "fonte": "Acia Araçatuba",
@@ -1539,6 +1567,20 @@
     "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
     "source_url": "https://aciara.com.br",
     "id": 790567
+  },
+  {
+    "data_hora": "11/11/2026 05:00",
+    "titulo": "Santa Cruz marca Assembleia Geral de Credores para 30 de novembro; SAF deve ser implantada em dezembro",
+    "fonte": "Diario de Pernambuco",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Diario de Pernambuco) para triagem de originação.",
+    "url": "https://www.diariodepernambuco.com.br/esportes-dp/santa-cruz/2026/11/11728872-santa-cruz-marca-assembleia-geral-de-credores-para-30-de-novembro-saf-deve-ser-implantada-em-dezembro.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Diario de Pernambuco",
+    "source_url": "https://www.diariodepernambuco.com.br",
+    "id": 181956
   },
   {
     "data_hora": "11/11/2026 05:00",
@@ -1566,47 +1608,6 @@
     "deal_id": 105,
     "empresa_nome": "Grupo Kitchens (Kitchens Indústria e Comércio Ltda. & Associadas)",
     "id": 527916
-  },
-  {
-    "data_hora": "10/11/2026 08:55",
-    "titulo": "Número de empresas em recuperação judicial aumenta 21,2% no 3º tri",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito) Número de empresas em recuperação judicial aumenta 21,2% no 3º tri Número de empresas em recuperação judicial aumenta 21,2% no 3º tri Poder360",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
-    "url": "https://www.poder360.com.br/poder-economia/numero-de-empresas-em-recuperacao-judicial-aumenta-212-no-3o-tri/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "id": 674654
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Pressões fiscais no Brasil aumentaram e podem rebaixar rating, diz executivo da Moody’s",
-    "fonte": "Estadão",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Estadão) para triagem de originação.",
-    "url": "https://www.estadao.com.br/economia/pressoes-fiscais-no-brasil-aumentaram-e-podem-rebaixar-rating-diz-executivo-da-moodys/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Estadão",
-    "source_url": "https://www.estadao.com.br",
-    "id": 737507
-  },
-  {
-    "data_hora": "10/11/2026 05:00",
-    "titulo": "Um complexo industrial do setor moveleiro localizado em Monte Belo do Sul, na Serra gaúcha, será levado a leilão judicial, nesta terça-feira (10), com lance inicial de R$ 48 milhões. A estrutura pertence ao Grupo Ditália, que teve a falência decretada pela Ju",
-    "fonte": "Instagram",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Falência",
-    "escopo": "pipeline",
-    "resumo": "Fato monitorado via Instagram vinculado a Grupo Ditália (Ditália Móveis Industrial Ltda.) (Falência Decretada (Classe 110) • Passivo monitorado: R$ 85 MM).",
-    "url": "https://www.instagram.com/p/DfkElrlHClJ/",
-    "deal_id": 64,
-    "empresa_nome": "Grupo Ditália (Ditália Móveis Industrial Ltda.)",
-    "source_url": "https://www.instagram.com",
-    "id": 324250
   },
   {
     "id": 1115,
