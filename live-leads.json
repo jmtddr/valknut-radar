@@ -1,7 +1,7 @@
 {
   "schema_version": "7.0",
-  "updated_at": "2026-11-25T20:27:43Z",
-  "updated_at_br": "25/11/2026 17:27",
+  "updated_at": "2026-11-26T20:09:47Z",
+  "updated_at_br": "26/11/2026 17:09",
   "sources": {
     "cvm_ipe": {
       "status": "ok",
@@ -1057,45 +1057,6 @@
         "ALEXANDRE HONORE MARIE THIOLLIER NETO",
         "DANIELA MATTOS SANDOVAL COLI",
         "FELIPE CARDOSO DE GUSMAO CUNHA"
-      ]
-    },
-    {
-      "id": "cvm-ipe-17314329000120",
-      "lead_origin": "CVM IPE",
-      "empresa": "INTERNATIONAL MEAL COMPANY ALIMENTAÇÃO S.A.",
-      "cnpj": "17.314.329/0001-20",
-      "cnpj_digits": "17314329000120",
-      "codigo_cvm": "23574",
-      "data_entrega": "2026-09-11",
-      "data_referencia": "2026-09-21",
-      "signal_type": "AGD / Waiver / PIK / Covenant",
-      "categoria_cvm": "Assembleia",
-      "tipo_cvm": "AGDEB",
-      "assunto": "Alteração da Definição de Dívida Líquida||Alteração do Cronograma de Amortização das Debêntures||Alteração do Cronograma de Pagamento da Remuneração das Debêntures:||Inclusão de Auditores Independentes||Prorrogação do Prazo e da Data de Ven",
-      "recent_assuntos": [
-        "Alteração da Definição de Dívida Líquida||Alteração do Cronograma de Amortização das Debêntures||Alteração do Cronograma de Pagamento da Remuneração das Debêntu",
-        "Aprovar a alteração da Cláusula 7.1(i)(a) da Escritura||Aprovar a alteração da definição de Dívida Líquida||Aprovar a alteração do cronograma de amortização das",
-        "Aprovar a alteração da Cláusula 7.1(i)(a) da Escritura de Emissão||Aprovar a alteração da data de vencimento das Debêntures para 15 de dezembro de 2029, com a c"
-      ],
-      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1567469&numSequencia=1092175&numVersao=1",
-      "filing_count": 4,
-      "in_pipeline": false,
-      "deal_id": null,
-      "deal_empresa": null,
-      "deal_passivo_mm": null,
-      "fit_score": 96,
-      "source": "CVM IPE 2026",
-      "origins": [
-        "CVM IPE"
-      ],
-      "uf": "SP",
-      "municipio": "SAO PAULO",
-      "cnae": "Restaurantes e similares",
-      "porte": "DEMAIS",
-      "capital_social": 1170868900.0,
-      "qsa_preview": [
-        "FERNANDO CESAR CALAMITA",
-        "NATALIA GODINHO LACAVA PERESTRELO"
       ]
     },
     {
@@ -3163,6 +3124,45 @@
         "FABIO MADER CINTRAO",
         "FELIPE PINTO GOMES",
         "KARIN REGINA DA ROCHA DEMARQUES CRUZ"
+      ]
+    },
+    {
+      "id": "cvm-ipe-17314329000120",
+      "lead_origin": "CVM IPE",
+      "empresa": "INTERNATIONAL MEAL COMPANY ALIMENTAÇÃO S.A.",
+      "cnpj": "17.314.329/0001-20",
+      "cnpj_digits": "17314329000120",
+      "codigo_cvm": "23574",
+      "data_entrega": "2026-09-11",
+      "data_referencia": "2026-09-21",
+      "signal_type": "AGD / Waiver / PIK / Covenant",
+      "categoria_cvm": "Assembleia",
+      "tipo_cvm": "AGDEB",
+      "assunto": "Alteração da Definição de Dívida Líquida||Alteração do Cronograma de Amortização das Debêntures||Alteração do Cronograma de Pagamento da Remuneração das Debêntures:||Inclusão de Auditores Independentes||Prorrogação do Prazo e da Data de Ven",
+      "recent_assuntos": [
+        "Alteração da Definição de Dívida Líquida||Alteração do Cronograma de Amortização das Debêntures||Alteração do Cronograma de Pagamento da Remuneração das Debêntu",
+        "Aprovar a alteração da Cláusula 7.1(i)(a) da Escritura||Aprovar a alteração da definição de Dívida Líquida||Aprovar a alteração do cronograma de amortização das",
+        "Aprovar a alteração da Cláusula 7.1(i)(a) da Escritura de Emissão||Aprovar a alteração da data de vencimento das Debêntures para 15 de dezembro de 2029, com a c"
+      ],
+      "link_download": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1567469&numSequencia=1092175&numVersao=1",
+      "filing_count": 4,
+      "in_pipeline": false,
+      "deal_id": null,
+      "deal_empresa": null,
+      "deal_passivo_mm": null,
+      "fit_score": 90,
+      "source": "CVM IPE 2026",
+      "origins": [
+        "CVM IPE"
+      ],
+      "uf": "SP",
+      "municipio": "SAO PAULO",
+      "cnae": "Restaurantes e similares",
+      "porte": "DEMAIS",
+      "capital_social": 1170868900.0,
+      "qsa_preview": [
+        "FERNANDO CESAR CALAMITA",
+        "NATALIA GODINHO LACAVA PERESTRELO"
       ]
     },
     {
