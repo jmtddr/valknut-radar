@@ -1,5 +1,47 @@
 [
   {
+    "data_hora": "27/11/2026 16:21",
+    "titulo": "Indústria de bicicletas do Vale do Sinos pede recuperação judicial de R$ 122 milhões",
+    "fonte": "GZH",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Pedido de RJ",
+    "escopo": "mercado",
+    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
+    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/industria-de-bicicletas-do-vale-do-sinos-pede-recuperacao-judicial-de-r-122-milhoes-cmwxyfnca00ua0164tae1qulp.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // GZH",
+    "source_url": "https://gauchazh.clicrbs.com.br",
+    "id": 982804
+  },
+  {
+    "data_hora": "27/11/2026 12:32",
+    "titulo": "Leilão da SAF do Santa Cruz já está em curso após aprovação da RJ",
+    "fonte": "JC",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (JC) para triagem de originação.",
+    "url": "https://jc.uol.com.br/blog-do-torcedor/santa-cruz/2026/11/27/leilao-da-saf-do-santa-cruz-ja-esta-em-curso-apos-aprovacao-da-rj.html",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // JC",
+    "source_url": "https://jc.uol.com.br",
+    "id": 454320
+  },
+  {
+    "data_hora": "27/11/2026 11:12",
+    "titulo": "Moody’s alerta para risco de rebaixamento do Brasil por descontrole fiscal de Lula",
+    "fonte": "Gazeta do Povo",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Gazeta do Povo) para triagem de originação.",
+    "url": "https://www.gazetadopovo.com.br/economia/moodys-risco-rebaixamento-rating-brasil/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Gazeta do Povo",
+    "source_url": "https://www.gazetadopovo.com.br",
+    "id": 629037
+  },
+  {
     "data_hora": "27/11/2026 01:31",
     "titulo": "Hapvida (HAPV3) recompra R$ 139,6 milhões em debêntures | Novembro 2026",
     "fonte": "XP Investimentos",
@@ -686,7 +728,7 @@
     "id": 630565
   },
   {
-    "data_hora": "18/11/2026 07:35",
+    "data_hora": "18/11/2026 05:00",
     "titulo": "Aos 58 anos, indústria do norte do RS sai da recuperação judicial e fatura R$ 330 milhões",
     "fonte": "GZH",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -982,7 +1024,7 @@
     "setor": "Agronegócio & Silvicultura",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d)",
+    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d) ",
     "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
@@ -1170,17 +1212,17 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
-    "titulo": "Moody’s rebaixa Hertz para Caa1 com riscos de refinanciamento em 2028 - Investing.com Brasil",
-    "fonte": "Investing.com Brasil - Finanças,",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
+    "titulo": "Gigante do agronegócio no Tocantins, Grupo Fazendão consegue suspensão de dívidas e tenta renegociar mais de R$ 2 bilhões",
+    "fonte": "Jornal Primeira Página",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Waiver / AGD",
     "escopo": "cvm",
-    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Investing.com Brasil - Finanças, Câmbio e Investimentos) para triagem de originação.",
-    "url": "https://br.investing.com/news/stock-market-news/moodys-rebaixa-hertz-para-caa1-com-riscos-de-refinanciamento-em-2028-2128975",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
-    "source_url": "https://br.investing.com",
-    "id": 621249
+    "resumo": "Fato monitorado via Jornal Primeira Página vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de W",
+    "url": "https://jornalprimeirapaginato.com/gigante-do-agronegocio-no-tocantins-grupo-fazendao-consegue-suspensao-de-dividas-e-tenta-renegociar-mais-de-r-2-bilhoes/",
+    "deal_id": 178,
+    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
+    "source_url": "https://jornalprimeirapaginato.com",
+    "id": 448110
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1223,6 +1265,20 @@
     "empresa_nome": "Radar Ao Vivo // CompreRural",
     "source_url": "https://www.comprerural.com",
     "id": 480032
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Moody’s rebaixa Hertz para Caa1 com riscos de refinanciamento em 2028 - Investing.com Brasil",
+    "fonte": "Investing.com Brasil - Finanças,",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Investing.com Brasil - Finanças, Câmbio e Investimentos) para triagem de originação.",
+    "url": "https://br.investing.com/news/stock-market-news/moodys-rebaixa-hertz-para-caa1-com-riscos-de-refinanciamento-em-2028-2128975",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "source_url": "https://br.investing.com",
+    "id": 621249
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1521,34 +1577,6 @@
     "id": 711299
   },
   {
-    "data_hora": "13/11/2026 07:00",
-    "titulo": "CSN: mesmo após vender ativo, secundário opera com deságio",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Capital Aberto) para triagem de originação.",
-    "url": "https://capitalaberto.com.br/empresas/2026/11/csn-mesmo-apos-vender-ativo-secundario-opera-com-desagio",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Capital Aberto",
-    "source_url": "https://capitalaberto.com.br",
-    "id": 372584
-  },
-  {
-    "data_hora": "13/11/2026 05:00",
-    "titulo": "CM Hospitalar (Viveo) aprova reestruturação de dívida; debêntures vencem em 2034",
-    "fonte": "www.ativovirtual.com.br",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/cm-hospitalar-viveo-aprova-reestruturacao-de-divida-debentures-vencem-em-2034",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
-    "source_url": "https://www.ativovirtual.com.br",
-    "id": 903273
-  },
-  {
     "id": 1139,
     "data_hora": "13/11/2026 03:00",
     "titulo": "Grupo IZVQ (herdeiros da Minerva) converte cautelar em pedido de RJ com R$ 227,1M sujeitos e R$ 177,3M extraconcursais",
@@ -1575,19 +1603,6 @@
     "empresa_nome": "Grupo Verona (Lockin Construtora Ltda., Abbey Construtora Ltda. & Verona Imobiliária e Corretora Ltda.)"
   },
   {
-    "data_hora": "12/11/2026 20:59",
-    "titulo": "Braskem vê prejuízo disparar para R$ 1,1 bilhão e corre contra prazo para reestruturar dívida",
-    "fonte": "Valor Econômico",
-    "setor": "Indústria & Manufatura",
-    "categoria": "Pedido de RJ",
-    "escopo": "pipeline",
-    "resumo": "Fato monitorado via Braskem S/A (BAK / BRKM5) vinculado a Braskem S/A (BAK / BRKM5) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 58.000 MM).",
-    "url": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/braskem-ve-prejuizo-disparar-para-r-11-bilhao-e-corre-contra-prazo-para-reestruturar-divida/",
-    "deal_id": 22,
-    "empresa_nome": "Braskem S/A (BAK / BRKM5)",
-    "id": 481454
-  },
-  {
     "id": 1137,
     "data_hora": "12/11/2026 15:00",
     "titulo": "Justiça de MT protege maquinários de esmagamento da Root Brasil e mantém RJ de R$ 134 milhões",
@@ -1599,19 +1614,6 @@
     "url": "https://www.olhardireto.com.br/juridico/noticias/juiz-nega-embargos-do-bradesco-protege-maquinarios-de-grande-porte-e-mantem-rj-da-root-brasil-por-r-134-milhoes",
     "deal_id": 159,
     "empresa_nome": "Root Brasil Agronegócios S.A. (Root Brasil)"
-  },
-  {
-    "data_hora": "12/11/2026 06:40",
-    "titulo": "Recuperação judicial atinge quase 8,5 mil empresas no Brasil",
-    "fonte": "Valor Econômico",
-    "setor": "Serviços Financeiros & Securitização",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
-    "url": "https://cooperativismodecredito.coop.br/2026/11/recuperacao-judicial-atinge-quase-85-mil-empresas-no-brasil/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "id": 227349
   },
   {
     "id": 1115,
