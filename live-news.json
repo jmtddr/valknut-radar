@@ -1,5 +1,19 @@
 [
   {
+    "data_hora": "27/11/2026 01:31",
+    "titulo": "Hapvida (HAPV3) recompra R$ 139,6 milhões em debêntures | Novembro 2026",
+    "fonte": "XP Investimentos",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (XP Investimentos) para triagem de originação.",
+    "url": "https://conteudos.xpi.com.br/renda-fixa/relatorios/fique-de-olho-na-renda-fixa-novembro-2026/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // XP Investimentos",
+    "source_url": "https://conteudos.xpi.com.br",
+    "id": 453935
+  },
+  {
     "data_hora": "26/11/2026 18:16",
     "titulo": "Letras Financeiras superam Tesouro Selic e lideram ranking de renda fixa da B3",
     "fonte": "Gazeta Mercantil",
@@ -70,6 +84,20 @@
     "id": 529883
   },
   {
+    "data_hora": "26/11/2026 13:00",
+    "titulo": "Mercado de Capitais: Como empresas e investidores se conectam? | PAPO DE DINHEIRO",
+    "fonte": "BM&C",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (BM&C) para triagem de originação.",
+    "url": "https://bmcnews.com.br/programas/papo-de-dinheiro/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // BM&C",
+    "source_url": "https://bmcnews.com.br",
+    "id": 443840
+  },
+  {
     "data_hora": "26/11/2026 11:20",
     "titulo": "S&P coloca nota AA da Nvidia em observação para rebaixamento por dúvidas de governança",
     "fonte": "Paraíba Business",
@@ -82,6 +110,20 @@
     "empresa_nome": "Radar Ao Vivo // Paraíba Business",
     "source_url": "https://paraibabusiness.com.br",
     "id": 235828
+  },
+  {
+    "data_hora": "26/11/2026 11:03",
+    "titulo": "Justiça decreta falência de rede varejista no RN após dívida de R$ 150 milhões",
+    "fonte": "NOVO Notícias",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Falência",
+    "escopo": "mercado",
+    "resumo": "Evento de Falência capturado no monitoramento contínuo (NOVO Notícias) para triagem de originação.",
+    "url": "https://novonoticias.com.br/justica-decreta-falencia-de-rede-varejista-no-rn-apos-divida-de-r-150-milhoes/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // NOVO Notícias",
+    "source_url": "https://novonoticias.com.br",
+    "id": 816635
   },
   {
     "data_hora": "26/11/2026 10:49",
@@ -741,20 +783,6 @@
     "id": 762975
   },
   {
-    "data_hora": "17/11/2026 18:26",
-    "titulo": "BREAKING:Fazendão suspende pagamentos para renegociar dívida de R$ 2 bi",
-    "fonte": "The AgriBiz",
-    "setor": "Agronegócio & Silvicultura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via The AgriBiz vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 1",
-    "url": "https://www.theagribiz.com/credito-rural/fazendao-suspende-pagamentos-para-renegociar-divida-de-r-2-bi/",
-    "deal_id": 178,
-    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
-    "source_url": "https://www.theagribiz.com",
-    "id": 231870
-  },
-  {
     "data_hora": "17/11/2026 17:41",
     "titulo": "Corinthians pede tutela cautelar à Justiça para negociar dívidas",
     "fonte": "Vanguarda do Norte",
@@ -935,12 +963,26 @@
   },
   {
     "data_hora": "17/11/2026 05:00",
+    "titulo": "BREAKING:Fazendão suspende pagamentos para renegociar dívida de R$ 2 bi",
+    "fonte": "The AgriBiz",
+    "setor": "Agronegócio & Silvicultura",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Fato monitorado via The AgriBiz vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 1",
+    "url": "https://www.theagribiz.com/credito-rural/fazendao-suspende-pagamentos-para-renegociar-divida-de-r-2-bi/",
+    "deal_id": 178,
+    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
+    "source_url": "https://www.theagribiz.com",
+    "id": 231870
+  },
+  {
+    "data_hora": "17/11/2026 05:00",
     "titulo": "A Fazendão pagou por inteiro o credor que podia cobrar primeiro — e pediu 60 dias aos bancos",
     "fonte": "AgFeed",
     "setor": "Agronegócio & Silvicultura",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d) ",
+    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d)",
     "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
@@ -1128,34 +1170,6 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
-    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
-    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "source_url": "https://valor.globo.com",
-    "id": 889092
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
-    "titulo": "Cedro Têxtil (CEDO3) reestrutura R$ 80,3 mi em dívidas e ajusta garantias",
-    "fonte": "www.ativovirtual.com.br",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
-    "url": "https://www.ativovirtual.com.br/avnews/artigos/cedro-textil-cedo3-reestrutura-r-80-3-mi-em-dividas-e-ajusta-garantias",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
-    "source_url": "https://www.ativovirtual.com.br",
-    "id": 507574
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
     "titulo": "Moody’s rebaixa Hertz para Caa1 com riscos de refinanciamento em 2028 - Investing.com Brasil",
     "fonte": "Investing.com Brasil - Finanças,",
     "setor": "Mercado & Macro (RJ / Crédito)",
@@ -1209,6 +1223,34 @@
     "empresa_nome": "Radar Ao Vivo // CompreRural",
     "source_url": "https://www.comprerural.com",
     "id": 480032
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 889092
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Cedro Têxtil (CEDO3) reestrutura R$ 80,3 mi em dívidas e ajusta garantias",
+    "fonte": "www.ativovirtual.com.br",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (www.ativovirtual.com.br) para triagem de originação.",
+    "url": "https://www.ativovirtual.com.br/avnews/artigos/cedro-textil-cedo3-reestrutura-r-80-3-mi-em-dividas-e-ajusta-garantias",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // www.ativovirtual.com.br",
+    "source_url": "https://www.ativovirtual.com.br",
+    "id": 507574
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1570,48 +1612,6 @@
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // Valor Econômico",
     "id": 227349
-  },
-  {
-    "data_hora": "12/11/2026 05:00",
-    "titulo": "Raízen antecipa fim da recuperação extrajudicial para dezembro, com capitalização de até R$ 35 bi",
-    "fonte": "AgFeed",
-    "setor": "Energia & Infraestrutura",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Fato monitorado via AgFeed vinculado a Raízen S.A. (RAIZ4) (Recuperação Extrajudicial (Classe 128) • Passivo monitorado: R$ 3.500 MM).",
-    "url": "https://agfeed.com.br/negocios/raizen-antecipa-fim-da-recuperacao-extrajudicial-para-dezembro-com-capitalizacao-de-ate-r-35-bi/",
-    "deal_id": 7,
-    "empresa_nome": "Raízen S.A. (RAIZ4)",
-    "source_url": "https://agfeed.com.br",
-    "id": 836598
-  },
-  {
-    "data_hora": "12/11/2026 05:00",
-    "titulo": "Santa Cruz pode oficializar SAF em dezembro; veja o que falta para mudança",
-    "fonte": "JC",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (JC) para triagem de originação.",
-    "url": "https://jc.uol.com.br/blog-do-torcedor/santa-cruz/2026/11/12/santa-cruz-pode-oficializar-saf-em-dezembro-veja-o-que-falta-para-mudanca.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // JC",
-    "source_url": "https://jc.uol.com.br",
-    "id": 695705
-  },
-  {
-    "data_hora": "12/11/2026 05:00",
-    "titulo": "Frigorífico tem \"ok\" na recuperação judicial e pagará sem desconto quem seguir fornecedor",
-    "fonte": "GZH",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (GZH) para triagem de originação.",
-    "url": "https://gauchazh.clicrbs.com.br/colunistas/giane-guerra/noticia/2026/11/frigorifico-tem-ok-na-recuperacao-judicial-e-pagara-sem-desconto-quem-seguir-fornecedor-cmwcmit7t0169015excj3nedf.html",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // GZH",
-    "source_url": "https://gauchazh.clicrbs.com.br",
-    "id": 230266
   },
   {
     "id": 1115,
