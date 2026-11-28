@@ -1,5 +1,19 @@
 [
   {
+    "data_hora": "27/11/2026 20:35",
+    "titulo": "França entra em leve recessão e S&P abre caminho para rebaixar nota da dívida",
+    "fonte": "TradingView",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (TradingView) para triagem de originação.",
+    "url": "https://br.tradingview.com/news/afp:16d98196b1418:0/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // TradingView",
+    "source_url": "https://br.tradingview.com",
+    "id": 149622
+  },
+  {
     "data_hora": "27/11/2026 16:21",
     "titulo": "Indústria de bicicletas do Vale do Sinos pede recuperação judicial de R$ 122 milhões",
     "fonte": "GZH",
@@ -96,6 +110,20 @@
     "empresa_nome": "Radar Ao Vivo // Suno - Investimentos Inteligentes",
     "source_url": "https://www.suno.com.br",
     "id": 662760
+  },
+  {
+    "data_hora": "26/11/2026 14:12",
+    "titulo": "BNDES prevê mais três emissões de debêntures de infraestrutura até dezembro",
+    "fonte": "CNN Brasil",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Waiver / AGD",
+    "escopo": "cvm",
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (CNN Brasil) para triagem de originação.",
+    "url": "https://www.cnnbrasil.com.br/infra/bndes-preve-mais-tres-emissoes-de-debentures-de-infraestrutura-ate-dezembro/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // CNN Brasil",
+    "source_url": "https://www.cnnbrasil.com.br",
+    "id": 983536
   },
   {
     "data_hora": "26/11/2026 14:06",
@@ -500,7 +528,7 @@
     "url": "https://www.dcomercio.com.br/publicacao/s/fornecedor-deve-vender-a-prazo-para-cliente-que-saiu-da-recuperacao-judicial",
     "deal_id": null,
     "empresa_nome": "Radar Ao Vivo // DComercio",
-    "source_url": "https://www.dcomercio.com.br",
+    "source_url": "https://dcomercio.com.br",
     "id": 746646
   },
   {
@@ -935,20 +963,6 @@
     "id": 808879
   },
   {
-    "data_hora": "17/11/2026 08:05",
-    "titulo": "Cosan (CSAN3) intensifica venda de ativos para reduzir dívida e mira endividamento próximo de zero",
-    "fonte": "Guia do Investidor",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Leilão de UPI",
-    "escopo": "mercado",
-    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Guia do Investidor) para triagem de originação.",
-    "url": "https://guiadoinvestidor.com.br/mercado/cosan-csan3-intensifica-venda-de-ativos-para-reduzir-divida-e-mira-endividamento-proximo-de-zero/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Guia do Investidor",
-    "source_url": "https://guiadoinvestidor.com.br",
-    "id": 395485
-  },
-  {
     "data_hora": "17/11/2026 07:40",
     "titulo": "Cosan muda de CEO e prepara venda de ativos para pagar dívidas",
     "fonte": "bra1.com.br",
@@ -1024,12 +1038,26 @@
     "setor": "Agronegócio & Silvicultura",
     "categoria": "Pedido de RJ",
     "escopo": "pipeline",
-    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d)",
+    "resumo": "Fato monitorado via AgFeed vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de Waiver CRA 120d) ",
     "url": "https://agfeed.com.br/negocios/a-fazendao-pagou-por-inteiro-o-credor-que-podia-cobrar-primeiro-e-pediu-60-dias-aos-bancos/",
     "deal_id": 178,
     "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
     "source_url": "https://agfeed.com.br",
     "id": 558846
+  },
+  {
+    "data_hora": "17/11/2026 05:00",
+    "titulo": "Cosan (CSAN3) intensifica venda de ativos para reduzir dívida e mira endividamento próximo de zero",
+    "fonte": "Guia do Investidor",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Leilão de UPI",
+    "escopo": "mercado",
+    "resumo": "Evento de Leilão de UPI capturado no monitoramento contínuo (Guia do Investidor) para triagem de originação.",
+    "url": "https://guiadoinvestidor.com.br/mercado/cosan-csan3-intensifica-venda-de-ativos-para-reduzir-divida-e-mira-endividamento-proximo-de-zero/",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Guia do Investidor",
+    "source_url": "https://guiadoinvestidor.com.br",
+    "id": 395485
   },
   {
     "data_hora": "17/11/2026 00:00",
@@ -1212,17 +1240,31 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
-    "titulo": "Gigante do agronegócio no Tocantins, Grupo Fazendão consegue suspensão de dívidas e tenta renegociar mais de R$ 2 bilhões",
-    "fonte": "Jornal Primeira Página",
-    "setor": "Agronegócio & Silvicultura",
+    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
+    "fonte": "Valor Econômico",
+    "setor": "Mercado & Macro (RJ / Crédito)",
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
-    "resumo": "Fato monitorado via Jornal Primeira Página vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de W",
-    "url": "https://jornalprimeirapaginato.com/gigante-do-agronegocio-no-tocantins-grupo-fazendao-consegue-suspensao-de-dividas-e-tenta-renegociar-mais-de-r-2-bilhoes/",
-    "deal_id": 178,
-    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
-    "source_url": "https://jornalprimeirapaginato.com",
-    "id": 448110
+    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
+    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
+    "source_url": "https://valor.globo.com",
+    "id": 889092
+  },
+  {
+    "data_hora": "16/11/2026 05:00",
+    "titulo": "Moody’s rebaixa Hertz para Caa1 com riscos de refinanciamento em 2028 - Investing.com Brasil",
+    "fonte": "Investing.com Brasil - Finanças,",
+    "setor": "Mercado & Macro (RJ / Crédito)",
+    "categoria": "Downgrade Rating",
+    "escopo": "cvm",
+    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Investing.com Brasil - Finanças, Câmbio e Investimentos) para triagem de originação.",
+    "url": "https://br.investing.com/news/stock-market-news/moodys-rebaixa-hertz-para-caa1-com-riscos-de-refinanciamento-em-2028-2128975",
+    "deal_id": null,
+    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
+    "source_url": "https://br.investing.com",
+    "id": 621249
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1268,31 +1310,17 @@
   },
   {
     "data_hora": "16/11/2026 05:00",
-    "titulo": "Moody’s rebaixa Hertz para Caa1 com riscos de refinanciamento em 2028 - Investing.com Brasil",
-    "fonte": "Investing.com Brasil - Finanças,",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Downgrade Rating",
-    "escopo": "cvm",
-    "resumo": "Evento de Downgrade Rating capturado no monitoramento contínuo (Investing.com Brasil - Finanças, Câmbio e Investimentos) para triagem de originação.",
-    "url": "https://br.investing.com/news/stock-market-news/moodys-rebaixa-hertz-para-caa1-com-riscos-de-refinanciamento-em-2028-2128975",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Investing.com Brasil - Finanças, Câmbio e Investimentos",
-    "source_url": "https://br.investing.com",
-    "id": 621249
-  },
-  {
-    "data_hora": "16/11/2026 05:00",
-    "titulo": "Inbrands vai atrás de nova receita e busca a venda de ativos",
-    "fonte": "Valor Econômico",
-    "setor": "Mercado & Macro (RJ / Crédito)",
+    "titulo": "Gigante do agronegócio no Tocantins, Grupo Fazendão consegue suspensão de dívidas e tenta renegociar mais de R$ 2 bilhões",
+    "fonte": "Jornal Primeira Página",
+    "setor": "Agronegócio & Silvicultura",
     "categoria": "Waiver / AGD",
     "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (Valor Econômico) para triagem de originação.",
-    "url": "https://valor.globo.com/empresas/noticia/2026/11/16/inbrands-vai-atras-de-nova-receita-e-busca-a-venda-de-ativos.ghtml",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Valor Econômico",
-    "source_url": "https://valor.globo.com",
-    "id": 889092
+    "resumo": "Fato monitorado via Jornal Primeira Página vinculado a Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.) (Tutela Cautelar Antecedente (Classe CNJ 12134 - Art. 20-B; Mediação no Cejusc & Assembleia de W",
+    "url": "https://jornalprimeirapaginato.com/gigante-do-agronegocio-no-tocantins-grupo-fazendao-consegue-suspensao-de-dividas-e-tenta-renegociar-mais-de-r-2-bilhoes/",
+    "deal_id": 178,
+    "empresa_nome": "Grupo Fazendão (Fazendão Indústria e Comércio de Produtos Agropecuários Ltda.)",
+    "source_url": "https://jornalprimeirapaginato.com",
+    "id": 448110
   },
   {
     "data_hora": "16/11/2026 05:00",
@@ -1484,20 +1512,6 @@
     "id": 554045
   },
   {
-    "data_hora": "14/11/2026 12:26",
-    "titulo": "Credores da Concretubos votam em janeiro plano para dívida de R$ 5,4 milhões",
-    "fonte": "Fatos de Mato Grosso",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Pedido de RJ",
-    "escopo": "mercado",
-    "resumo": "Evento de Pedido de RJ capturado no monitoramento contínuo (Fatos de Mato Grosso) para triagem de originação.",
-    "url": "https://www.fatosdematogrosso.com.br/juridico/credores-da-concretubos-votam-em-janeiro-plano-para-divida-de-r-54-milhoes/18793",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // Fatos de Mato Grosso",
-    "source_url": "https://www.fatosdematogrosso.com.br",
-    "id": 788139
-  },
-  {
     "id": 1144,
     "data_hora": "14/11/2026 09:00",
     "titulo": "Credores rejeitam plano de RJ do Grupo Consentini (R$ 1,262 bilhão) em Gurupi/TO e falência pode ser decretada",
@@ -1561,20 +1575,6 @@
     "url": "https://preservacred.com.br/noticias/grupo-essencial-pedido-recuperacao-judicial-2026",
     "deal_id": 162,
     "empresa_nome": "Grupo Essencial (Essencial Sistema de Segurança Ltda. & Essencial Sistema e Serviços de Facilities Ltda.)"
-  },
-  {
-    "data_hora": "13/11/2026 08:54",
-    "titulo": "Aneel pauta caducidade da Enel SP e recursos do LRCAP para terça-feira (17) – Edição do dia",
-    "fonte": "CVM / Fatos Relevantes",
-    "setor": "Mercado & Macro (RJ / Crédito)",
-    "categoria": "Waiver / AGD",
-    "escopo": "cvm",
-    "resumo": "Evento de Waiver / AGD capturado no monitoramento contínuo (MegaWhat) para triagem de originação.",
-    "url": "https://megawhat.uol.com.br/megaexpresso/aneel-pauta-caducidade-da-enel-sp-e-recursos-do-lrcap-para-terca-feira-17-edicao-do-dia/",
-    "deal_id": null,
-    "empresa_nome": "Radar Ao Vivo // MegaWhat",
-    "source_url": "https://megawhat.uol.com.br",
-    "id": 711299
   },
   {
     "id": 1139,
